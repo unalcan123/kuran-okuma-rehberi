@@ -19,6 +19,9 @@ class LessonCard extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.all(20),
+          // Cards side by side are stretched to one height; keep the
+          // content centred in the taller ones.
+          alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
             border: Border.all(color: AppColors.divider),

@@ -14,18 +14,29 @@ sürümde `index.html`'de görüntü alanı (viewport) etiketi de yoktu.
 **Çözüm (iki katman):**
 1. `web/index.html`: sabit `<meta name="viewport" content="width=device-width, initial-scale=1.0, ...">`.
 2. `PhoneZoomFix` (`lib/widgets/phone_zoom_fix.dart`, `MaterialApp.builder`'da): tarayıcının yerleşim
-   genişliği (`innerWidth`) telefonun gerçek ekran genişliğinin (`screen.width`) 1,25 katından fazlaysa
-   **ve** ekranın kısa kenarı < 600 ise (`lib/core/phone_zoom_detect_web.dart`), uygulamaya telefon boyutunda
-   bir tuval verir (telefon düzeni seçilir) ve tuvali sayfayı dolduracak kadar büyütür; tarayıcı bunu
-   küçültünce görünüm **telefon uygulamasıyla aynı** olur. Normal telefon, tablet ve masaüstünde etkisizdir
-   (çarpan 1). Telefon/masaüstü uygulamasında (web değil) hiç çalışmaz (`phone_zoom_detect_stub.dart`).
+   genişliği (`innerWidth`) telefonun gerçek ekran genişliğinin 1,25 katından fazlaysa **ve** ekranın kısa
+   kenarı < 600 ise (`lib/core/phone_zoom_detect_web.dart` → saf karar işlevi `phoneZoomFor`,
+   `lib/core/phone_zoom_logic.dart`), uygulamaya telefon boyutunda bir tuval verir (telefon düzeni seçilir)
+   ve tuvali sayfayı dolduracak kadar büyütür; tarayıcı bunu küçültünce görünüm **telefon uygulamasıyla
+   aynı** olur. Normal telefon, tablet ve masaüstünde etkisizdir (çarpan 1). Telefon/masaüstü uygulamasında
+   (web değil) hiç çalışmaz (`phone_zoom_detect_stub.dart`).
+
+   **Yatay tutulan telefon (2026-09-20 hatası):** bazı tarayıcılar telefon yataydayken de `screen.width`'i
+   döndürmeden (dikey genişlik, 393) bildirir. İlk sürüm bunu "yatay 852 px sayfa, 393 px ekran" sanıp
+   telefonu fazladan büyütüyordu; ekranda tek dev kart kalıyordu. Artık beklenen genişlik ekranın
+   **yönüne göre** alınır: sayfa dikeyse ekranın kısa kenarı, yataysa uzun kenarı (`screen.width`'in hangi
+   kenar olduğuna güvenilmez). Bkz. `test/phone_zoom_logic_test.dart`.
 3. Test: `test/phone_zoom_fix_test.dart` (tuval boyutu, dokunma koordinatları, ana ekranın tek sütuna
-   geçmesi, pencere değişince yeniden okuma).
+   geçmesi, pencere değişince yeniden okuma), `test/phone_zoom_logic_test.dart` (karar mantığı, dikey/yatay,
+   ekran bilgisi döndürülmüş/döndürülmemiş).
 
 **Gerçek tarayıcıda doğrulama:** `tools/web_audio_check/phone_wide.js <url> <önek> 880` — Chrome'a
 "yerleşim 880 px, cihaz ekranı 393 px" durumunu (CDP `setDeviceMetricsOverride` + `screenWidth`) taklit
 ettirir ve telefonun göreceği ölçekte ekran görüntüsü alır. Eski sürüm kullanıcının ekran görüntüsünü
 birebir üretti; yeni sürüm telefon düzenini verdi.
+Yatay telefon için: `tools/web_audio_check/phone_landscape.js <url> <önek> [unrotated|rotated]`
+(852×393 sayfa; `unrotated` = `screen` 393×852 bildirir, hatayı üreten durum). Ders listesi (`Elifba Dersleri`)
+yatayda 2 sütun gösterir (`ElifbaLessonsScreen.columnsFor`, `test/elifba_lessons_layout_test.dart`).
 
 Kullanıcının telefonda görebilmesi için sayfayı yenilemesi yetmeyebilir: Flutter'ın service worker'ı yeni
 sürümü ilk açılışta indirir, **ikinci açılışta** kullanır (uygulamayı/sekmeyi tamamen kapatıp yeniden aç).
