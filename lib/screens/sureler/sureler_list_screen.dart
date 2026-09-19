@@ -56,8 +56,9 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     final readingScale = ReadingTextScale.factorOf(context);
-                    final singleColumn = MediaQuery.orientationOf(context) == Orientation.portrait && readingScale > 1;
-                    final columns = singleColumn ? 1 : (constraints.maxWidth / _minCardWidth)
+                    // Bigger text needs wider cards: columns thin out one by one.
+                    final columns = (constraints.maxWidth /
+                            (_minCardWidth * (readingScale > 1 ? readingScale : 1)))
                         .floor()
                         .clamp(1, 4);
 

@@ -18,6 +18,7 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - Tema: `lib/theme` (`AppColors`: krem, turkuaz, adaçayı, lacivert, altın; Arapça için
   Hasenat fontu `AppTextTheme`), breakpoint'ler `lib/core/responsive.dart`.
 - Sakin eğitim uygulaması: arcade/neon yok, çocuğu cezalandıran geri bildirim yok.
+- Sağ üstteki yazı boyutu ayarı büyüdükçe harf/sure/dua ızgaralarında sütunlar **birer birer** azalır (kartın asgari genişliği yazı boyutuyla çarpılır; tek sütuna atlamaz). Test: `test/reading_columns_test.dart`.
 - Eski uygulama `D:\Elifbe2025` **yalnızca okunur referans**; içeriği birebir kopyalama.
 
 ## Yayın (GitHub + web) — yapıldı, 2026-09-19

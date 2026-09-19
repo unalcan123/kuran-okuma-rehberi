@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import '../../../widgets/reading_text_settings.dart';
 
@@ -88,9 +90,10 @@ class AllLettersGrid extends StatelessWidget {
         hasPositionForms ? _minCardWidthPositionForms : _minCardWidthSimple;
     final maxColumns = hasPositionForms ? 3 : 6;
     final readingScale = ReadingTextScale.factorOf(context);
-    final singleColumn =
-        MediaQuery.orientationOf(context) == Orientation.portrait &&
-        readingScale > 1;
+    // Bigger letters need wider cards, so the columns thin out one at a
+    // time as the reading size grows (5 -> 4 -> 3 -> ...) instead of
+    // jumping to a single column.
+    final cardGrowth = math.max(1.0, readingScale);
 
     return Stack(
       children: [
@@ -100,15 +103,14 @@ class AllLettersGrid extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: _maxContentWidth),
             child: LayoutBuilder(
               builder: (context, constraints) {
-                final columns =
-                    singleColumn
-                        ? 1
-                        : (hasPositionForms
-                                ? (constraints.maxWidth - 40 + 16) /
-                                    (minCardWidth + 16)
-                                : constraints.maxWidth / minCardWidth)
-                            .floor()
-                            .clamp(1, maxColumns);
+                final columns = (hasPositionForms
+                        ? (constraints.maxWidth - 40 + 16) /
+                            (minCardWidth * cardGrowth + 16)
+                        : constraints.maxWidth / (minCardWidth * cardGrowth))
+                    .floor()
+                    .clamp(1, maxColumns);
+                // One wide column at an enlarged size: a short, wide card.
+                final singleColumn = columns == 1 && readingScale > 1;
 
                 return Directionality(
                   textDirection: TextDirection.rtl,
