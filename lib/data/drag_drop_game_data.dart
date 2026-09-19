@@ -10,7 +10,7 @@ const String kDragDropGameKey = 'drag_drop';
 
 /// Played (once, then followed by the letter's own recording) when a
 /// letter lands on the right sound.
-const String kGameCorrectSound = 'audio/oyunlar/dogru.wav';
+const String kGameCorrectSound = 'audio/oyunlar/dogru.mp3';
 
 /// How many letters the random game deals.
 const int kDragDropRandomCount = 5;

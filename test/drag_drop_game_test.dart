@@ -21,6 +21,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class FakeAudio extends ChangeNotifier implements AudioService {
   final played = <List<String>>[];
+  final preloaded = <List<String?>>[];
+
+  @override
+  void preload(Iterable<String?> assets) => preloaded.add(assets.toList());
 
   @override
   Future<void> playPlaylist(List<String> assets) async => played.add(assets);
@@ -323,6 +327,42 @@ void main() {
     await gesture.up();
     await tester.pumpAndSettle();
     expect(tester.widget<SoundSlot>(slotOf(letter)).placed, isTrue);
+  });
+
+  testWidgets("Fetches the game's sounds as soon as it opens, new ones on replay", (
+    tester,
+  ) async {
+    setSize(tester, const Size(800, 1400));
+    final audio = FakeAudio();
+    addTearDown(audio.dispose);
+    await tester.pumpWidget(
+      harness(DragDropGameScreen(level: level(3)), audio),
+    );
+    expect(audio.preloaded, isNotEmpty);
+    expect(audio.preloaded.first, [
+      kGameCorrectSound,
+      for (final letter in kDragDropGroups[2]) letter.audioAsset,
+    ]);
+
+    // The random game deals new letters on replay - those are fetched too.
+    await tester.pumpWidget(
+      harness(
+        DragDropGameScreen(key: UniqueKey(), level: kDragDropLevels.last),
+        audio,
+      ),
+    );
+    await solve(tester);
+    audio.preloaded.clear();
+    await tester.tap(find.text('Tekrar Oyna'));
+    await tester.pumpAndSettle();
+    expect(audio.preloaded.length, 1);
+    final asked = audio.preloaded.single.whereType<String>().toSet();
+    expect(asked, contains(kGameCorrectSound));
+    expect(
+      dealt(tester).every((l) => asked.contains(l.audioAsset)),
+      isTrue,
+      reason: 'every letter now on screen was requested',
+    );
   });
 
   testWidgets('Tapping a slot plays that letter', (tester) async {

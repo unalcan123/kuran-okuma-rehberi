@@ -34,6 +34,9 @@ class _DuaDetailScreenState extends State<DuaDetailScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _audio = context.read<AudioService>();
+    _audio.preload([
+      for (final segment in widget.dua.segments) segment.audioAsset,
+    ]);
   }
 
   @override

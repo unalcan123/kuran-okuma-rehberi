@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:kuran_okuma_rehberi/models/arabic_letter.dart';
 import 'package:kuran_okuma_rehberi/screens/elifba/widgets/letter_card.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'support/silent_audio.dart';
 import 'package:kuran_okuma_rehberi/widgets/reading_text_settings.dart';
 import 'package:kuran_okuma_rehberi/data/letters_data.dart';
 import 'package:kuran_okuma_rehberi/screens/elifba/lesson_letters_screen.dart';
@@ -106,7 +107,9 @@ void main() {
   });
   testWidgets('Each lesson owns its reading size', (tester) async {
     await tester.pumpWidget(
-      MaterialApp(home: LessonLettersScreen(lesson: kElifbaLessons.first)),
+      withAudio(
+        MaterialApp(home: LessonLettersScreen(lesson: kElifbaLessons.first)),
+      ),
     );
     final first =
         tester

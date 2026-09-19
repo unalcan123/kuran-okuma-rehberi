@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 
 import '../models/arabic_letter.dart';
+import 'sound_cache.dart';
 
 enum AudioPlaybackState { stopped, playing, paused }
 
@@ -14,17 +17,28 @@ enum AudioPlaybackState { stopped, playing, paused }
 /// besmele + ayetler back-to-back as one continuous "Dinle" ([playPlaylist]).
 /// Both sit on the same [AudioPlayer], so nothing can play over
 /// anything else app-wide.
+///
+/// On the web a sound is a download, and the browser player fetches the
+/// file again for every single play. Screens therefore call [preload]
+/// when they open, and every sound is played from memory once loaded
+/// (see [SoundCache]). Native apps have the files locally and skip this.
 class AudioService extends ChangeNotifier {
+  AudioService({SoundCache? cache}) : _cache = cache ?? SoundCache() {
+    _player.onPlayerComplete.listen((_) => _handleComplete());
+  }
+
   final AudioPlayer _player = AudioPlayer();
+  final SoundCache _cache;
 
   String? _currentAsset;
   AudioPlaybackState _state = AudioPlaybackState.stopped;
   List<String>? _queue;
   int _queueIndex = 0;
 
-  AudioService() {
-    _player.onPlayerComplete.listen((_) => _handleComplete());
-  }
+  /// Bumped by every new play request and by [stop]. A request that finds
+  /// the number changed while it was waiting (a newer tap, a stop) gives
+  /// up instead of starting late or overwriting the newer state.
+  int _playToken = 0;
 
   /// The asset path currently loaded (playing or paused) — null when
   /// stopped. Lets UI highlight "this is the thing that's playing".
@@ -32,6 +46,19 @@ class AudioService extends ChangeNotifier {
   AudioPlaybackState get state => _state;
   bool get isPlaying => _state == AudioPlaybackState.playing;
   bool get isPaused => _state == AudioPlaybackState.paused;
+
+  /// Downloads these sounds in the background so that tapping them later
+  /// starts at once. Call it when a screen opens with the asset paths the
+  /// screen can play; nulls are ignored. Only does something on the web.
+  void preload(Iterable<String?> assetPaths) {
+    if (!kIsWeb) return;
+    unawaited(
+      _cache.preload([
+        for (final path in assetPaths)
+          if (path != null && path.isNotEmpty) path,
+      ]),
+    );
+  }
 
   Future<void> playLetter(ArabicLetter letter) async {
     final assetPath = letter.audioAsset;
@@ -60,18 +87,7 @@ class AudioService extends ChangeNotifier {
   /// Plays a single asset, replacing whatever was playing before.
   Future<void> playAsset(String assetPath) async {
     _queue = null;
-    try {
-      await _player.stop();
-      _currentAsset = assetPath;
-      _state = AudioPlaybackState.playing;
-      notifyListeners();
-      await _player.play(AssetSource(assetPath));
-    } catch (error) {
-      debugPrint('AudioService: "$assetPath" çalınamadı — $error');
-      _state = AudioPlaybackState.stopped;
-      _currentAsset = null;
-      notifyListeners();
-    }
+    await _start(assetPath);
   }
 
   /// Plays a list of assets back-to-back, advancing automatically as
@@ -87,17 +103,45 @@ class AudioService extends ChangeNotifier {
   Future<void> _playQueueCurrent() async {
     final queue = _queue;
     if (queue == null || _queueIndex >= queue.length) return;
-    final assetPath = queue[_queueIndex];
+    // Have the next clip ready so the gap between clips stays short.
+    if (kIsWeb && _queueIndex + 1 < queue.length) {
+      unawaited(_cache.load(queue[_queueIndex + 1]));
+    }
+    await _start(queue[_queueIndex]);
+  }
+
+  Future<void> _start(String assetPath) async {
+    final token = ++_playToken;
     try {
       await _player.stop();
+      if (token != _playToken) return;
       _currentAsset = assetPath;
       _state = AudioPlaybackState.playing;
       notifyListeners();
-      await _player.play(AssetSource(assetPath));
+      final source = await _sourceFor(assetPath);
+      if (token != _playToken) return;
+      await _player.play(source);
     } catch (error) {
       debugPrint('AudioService: "$assetPath" çalınamadı — $error');
-      await stop();
+      if (token != _playToken) return;
+      _queue = null;
+      _queueIndex = 0;
+      _state = AudioPlaybackState.stopped;
+      _currentAsset = null;
+      notifyListeners();
     }
+  }
+
+  /// From memory on the web (loading it first if it isn't there yet),
+  /// straight from the app's own files everywhere else.
+  Future<Source> _sourceFor(String assetPath) async {
+    if (!kIsWeb) return AssetSource(assetPath);
+    final bytes = await _cache.load(assetPath);
+    if (bytes == null) return AssetSource(assetPath);
+    return BytesSource(
+      bytes,
+      mimeType: assetPath.endsWith('.wav') ? 'audio/wav' : 'audio/mpeg',
+    );
   }
 
   void _handleComplete() {
@@ -128,6 +172,7 @@ class AudioService extends ChangeNotifier {
   }
 
   Future<void> stop() async {
+    _playToken++;
     _queue = null;
     _queueIndex = 0;
     await _player.stop();

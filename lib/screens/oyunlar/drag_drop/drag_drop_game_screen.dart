@@ -87,7 +87,13 @@ class _DragDropGameScreenState extends State<DragDropGameScreen> {
     super.didChangeDependencies();
     _audio = context.read<AudioService>();
     _store = context.read<GameScoreStore>();
+    _preloadSounds();
   }
+
+  void _preloadSounds() => _audio.preload([
+    kGameCorrectSound,
+    for (final letter in _letters) letter.audioAsset,
+  ]);
 
   @override
   void dispose() {
@@ -120,6 +126,7 @@ class _DragDropGameScreenState extends State<DragDropGameScreen> {
       _finished = false;
       _newGame();
     });
+    _preloadSounds();
   }
 
   void _finish() {

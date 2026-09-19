@@ -42,6 +42,15 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
   late int _singleLetterIndex = widget.initialIndex;
   late int _currentPageIndex = widget.initialIndex;
 
+  @override
+  void initState() {
+    super.initState();
+    // Fetch the whole lesson's sounds now so taps play without waiting.
+    context.read<AudioService>().preload(
+      widget.lesson.letters.map((letter) => letter.audioAsset),
+    );
+  }
+
   void _openSingleLetter(int index) {
     setState(() {
       _singleLetterIndex = index;

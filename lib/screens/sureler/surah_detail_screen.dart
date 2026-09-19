@@ -47,6 +47,10 @@ class _SurahDetailScreenState extends State<SurahDetailScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _audio = context.read<AudioService>();
+    _audio.preload([
+      widget.surah.besmeleAudioAsset,
+      for (final ayet in widget.surah.ayetler) ayet.audioAsset,
+    ]);
   }
 
   double _besmeleFontSize(DeviceClass deviceClass) => switch (deviceClass) {

@@ -78,6 +78,10 @@ class _ListenPickScreenState extends State<ListenPickScreen> {
     super.didChangeDependencies();
     _audio = context.read<AudioService>();
     _store = context.read<GameScoreStore>();
+    _audio.preload([
+      kGameCorrectSound,
+      for (final item in _pool) item.audioAsset,
+    ]);
   }
 
   @override

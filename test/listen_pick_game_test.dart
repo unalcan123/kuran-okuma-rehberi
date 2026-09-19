@@ -19,7 +19,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class FakeAudio extends ChangeNotifier implements AudioService {
   final played = <List<String>>[];
+  final preloaded = <List<String?>>[];
   int stops = 0;
+
+  @override
+  void preload(Iterable<String?> assets) => preloaded.add(assets.toList());
 
   @override
   String? currentAsset;
@@ -169,6 +173,22 @@ void main() {
     const dup = ArabicLetter(order: 2, isolatedForm: 'ا ', audioAsset: 'b.mp3');
     const silent = ArabicLetter(order: 3, isolatedForm: 'ب');
     expect(listenPickPool([a, dup, silent]), [a]);
+  });
+
+  testWidgets('Fetches every sound of the chosen lesson as soon as it opens', (
+    tester,
+  ) async {
+    setSize(tester, const Size(360, 800));
+    final audio = FakeAudio();
+    addTearDown(audio.dispose);
+    final lesson = kElifbaLessons[2];
+    await tester.pumpWidget(harness(ListenPickScreen(lesson: lesson), audio));
+    expect(audio.preloaded.length, 1);
+    expect(audio.preloaded.single, [
+      kGameCorrectSound,
+      for (final item in listenPickPool(lesson.letters)) item.audioAsset,
+    ]);
+    expect(audio.played, isEmpty, reason: 'fetching is not playing');
   });
 
   testWidgets('Plays the question by itself, replays on the big button', (

@@ -48,3 +48,6 @@ app.*.map.json
 *.apk
 *.aab
 .claude/
+
+# Node tools
+node_modules/

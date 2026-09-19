@@ -19,7 +19,7 @@ en altta.
 - Bir küçük oyun tek turdur. Son harf yerleşince ~0,8 sn sonra sonuç sayfası açılır
   (çocuk son harfin oturduğunu görsün diye). Sonuç sayfası kendiliğinden kapanmaz.
 - Doğru yer: harf karta oturur, 3 küçük müzik notası yükselip kaybolur, önce
-  `dogru.wav` sonra harfin kendi sesi çalar (tek player, üst üste binmez).
+  `dogru.mp3` sonra harfin kendi sesi çalar (tek player, üst üste binmez).
 - Yanlış yer: kart hafifçe sallanır, harf başlangıç yerine süzülerek döner. Kırmızı,
   ceza, ses yok. Boş yere ya da dolu karta bırakma da sadece geri döner.
 - Harfin dokunma alanı = tüm hücre (çizilen daire hücrenin %84'ü); sürüklenen harf
@@ -34,7 +34,7 @@ en altta.
   uygulamanın JSON/ses dosyaları **taşınmadı**; yeni projedeki ders sesleri aynı kayıt.
 - Soru içinde tekrar yok; şıklar aynı derse aittir; aynı yazılışlı iki şık çıkmaz.
 - Yanlış seçim: kart soluklaşır ve devre dışı kalır, çocuk tekrar dener (ceza yok).
-- Doğru seçim: kart yeşile döner, notalar çıkar, yalnızca `dogru.wav` çalar, **2 sn sonra
+- Doğru seçim: kart yeşile döner, notalar çıkar, yalnızca `dogru.mp3` çalar, **2 sn sonra
   kendiliğinden sonraki soruya geçilir** ("Sonraki" butonu yok). **Son soruda hemen**
   sonuç sayfası açılır; çocuk "Tekrar Oyna" / "Derslere Dön" ile kendisi seçer.
 - **Ders 2 (Harflerin Yazılışları)** özel: harflerin *başta / ortada / sonda* yazılışı
@@ -94,8 +94,8 @@ widgets/                   Ortak parçalar: game_score_strip, game_result_summar
 ```
 Diğer: `lib/models/game_score.dart`, `lib/services/game_score_store.dart`
 (`main.dart`'ta `Provider<GameScoreStore>`), `lib/data/drag_drop_game_data.dart`,
-ses: `assets/audio/oyunlar/dogru.wav` (eski `assets_audio_win.wav`'ın sondaki sessizliği
-kırpılmış hali; pubspec'te `assets/audio/oyunlar/`).
+ses: `assets/audio/oyunlar/dogru.mp3` (eski `assets_audio_win.wav`'ın sondaki sessizliği
+kırpılmış, küçültülmüş hali; pubspec'te `assets/audio/oyunlar/`). Ses kayıtları/önbellek: `docs/SES.md`.
 
 Yeniden kullanılan mevcut parçalar: `AudioService` (tek player; `playLetter`,
 `playPlaylist`), `kArabicLetters` / `kLetterFormLetters` / `kElifbaLessons`,

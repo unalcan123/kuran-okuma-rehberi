@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'support/silent_audio.dart';
 import 'package:kuran_okuma_rehberi/data/letters_data.dart';
 import 'package:kuran_okuma_rehberi/data/letter_forms_data.dart';
 import 'package:kuran_okuma_rehberi/screens/elifba/lesson_letters_screen.dart';
@@ -21,7 +22,9 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(
-        MaterialApp(home: LessonLettersScreen(lesson: kElifbaLessons.first)),
+        withAudio(
+          MaterialApp(home: LessonLettersScreen(lesson: kElifbaLessons.first)),
+        ),
       );
       expect(find.byType(AllLettersGrid), findsOneWidget);
       final lessonScroll = find.descendant(
@@ -84,8 +87,10 @@ void main() {
       expect(find.byType(AllLettersGrid), findsOneWidget);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpWidget(
-        MaterialApp(
-          home: LessonLettersScreen(lesson: kHarflerinYazilislariLesson),
+        withAudio(
+          MaterialApp(
+            home: LessonLettersScreen(lesson: kHarflerinYazilislariLesson),
+          ),
         ),
       );
       await tester.tap(find.byTooltip('Görünüm seç'));

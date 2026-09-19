@@ -17,6 +17,9 @@ class TestAudioService extends ChangeNotifier implements AudioService {
   @override
   AudioPlaybackState state = AudioPlaybackState.stopped;
   List<String> queue = [];
+  final preloaded = <List<String?>>[];
+  @override
+  void preload(Iterable<String?> assets) => preloaded.add(assets.toList());
   @override
   bool get isPlaying => state == AudioPlaybackState.playing;
   @override
@@ -123,6 +126,11 @@ void main() {
               : size.width < 1024
               ? 42
               : 46,
+        );
+        expect(
+          audio.preloaded.last,
+          dua.segments.map((segment) => segment.audioAsset).toList(),
+          reason: "the dua's recordings are fetched when it opens",
         );
         expect(find.text('Türkçe Anlam'), findsWidgets);
         expect(find.text('Türkçe Okunuş'), findsNothing);

@@ -7,11 +7,12 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 ## Önce oku
 - **Oyunlar bölümü** (sürükle-bırak, dinle ve seç, puanlama, sonuçlar): `docs/OYUNLAR.md`
   — ne yapıldı, kurallar, dosya haritası, yeni oyun ekleme, sırada ne var.
+- **Ses** (kayıt formatı, web'de önbellek/ön yükleme, gecikme ölçümü): `docs/SES.md`.
 - Dualar kaynağı: `docs/dualar_source.md`.
 
 ## Genel kurallar
 - Ana ekranlar: `lib/screens/{home,elifba,sureler,dualar,oyunlar}`; veri `lib/data`,
-  modeller `lib/models`, servisler `lib/services` (`AudioService` = tek ses player'ı).
+  modeller `lib/models`, servisler `lib/services` (`AudioService` = tek ses player'ı; ekran açılınca `preload` çağır).
 - Tema: `lib/theme` (`AppColors`: krem, turkuaz, adaçayı, lacivert, altın; Arapça için
   Hasenat fontu `AppTextTheme`), breakpoint'ler `lib/core/responsive.dart`.
 - Sakin eğitim uygulaması: arcade/neon yok, çocuğu cezalandıran geri bildirim yok.

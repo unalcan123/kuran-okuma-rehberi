@@ -1,0 +1,6 @@
+{
+  "name": "web-audio-check",
+  "private": true,
+  "description": "Gerçek Chrome ile web sürümündeki ses gecikmesini ve önbelleği ölçer.",
+  "dependencies": { "puppeteer-core": "^24.0.0" }
+}
