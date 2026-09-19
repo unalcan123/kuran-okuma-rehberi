@@ -1,0 +1,70 @@
+import '../models/arabic_letter.dart';
+import '../models/lesson.dart';
+
+const String _ders8AudioDir = 'audio/elifba/ders_8_harekeler_alistirmalar';
+
+/// Ders 8: mixed practice words drawing on every hareke and cezm
+/// learned so far (üstün, esre, ötre, sükûn) — no letter-by-letter
+/// section, just short-word reading practice.
+const List<ArabicLetter> kHarekelerAlistirmalariWords = [
+  ArabicLetter(order: 1, isolatedForm: 'قُلْ', audioAsset: '$_ders8AudioDir/01_kelime.mp3'),
+  ArabicLetter(order: 2, isolatedForm: 'بِسْمِ', audioAsset: '$_ders8AudioDir/02_kelime.mp3'),
+  ArabicLetter(order: 3, isolatedForm: 'أَسْلِمْ', audioAsset: '$_ders8AudioDir/03_kelime.mp3'),
+  ArabicLetter(order: 4, isolatedForm: 'بَلْ', audioAsset: '$_ders8AudioDir/04_kelime.mp3'),
+  ArabicLetter(order: 5, isolatedForm: 'كُنْ', audioAsset: '$_ders8AudioDir/05_kelime.mp3'),
+  ArabicLetter(order: 6, isolatedForm: 'مِنْ', audioAsset: '$_ders8AudioDir/06_kelime.mp3'),
+  ArabicLetter(order: 7, isolatedForm: 'قَبْلُ', audioAsset: '$_ders8AudioDir/07_kelime.mp3'),
+  ArabicLetter(order: 8, isolatedForm: 'عَبْدُ', audioAsset: '$_ders8AudioDir/08_kelime.mp3'),
+  ArabicLetter(order: 9, isolatedForm: 'تَجْهَرْ', audioAsset: '$_ders8AudioDir/09_kelime.mp3'),
+  ArabicLetter(order: 10, isolatedForm: 'قَوْلَ', audioAsset: '$_ders8AudioDir/10_kelime.mp3'),
+  ArabicLetter(order: 11, isolatedForm: 'خَيْرُ', audioAsset: '$_ders8AudioDir/11_kelime.mp3'),
+  ArabicLetter(order: 12, isolatedForm: 'أَتْلُ', audioAsset: '$_ders8AudioDir/12_kelime.mp3'),
+  ArabicLetter(order: 13, isolatedForm: 'أَقِمْ', audioAsset: '$_ders8AudioDir/13_kelime.mp3'),
+  ArabicLetter(order: 14, isolatedForm: 'كَمَنْ', audioAsset: '$_ders8AudioDir/14_kelime.mp3'),
+  ArabicLetter(order: 15, isolatedForm: 'يَحْمِلْ', audioAsset: '$_ders8AudioDir/15_kelime.mp3'),
+  ArabicLetter(order: 16, isolatedForm: 'عَلَيْهِ', audioAsset: '$_ders8AudioDir/16_kelime.mp3'),
+  ArabicLetter(order: 17, isolatedForm: 'بَعْدَ', audioAsset: '$_ders8AudioDir/17_kelime.mp3'),
+  ArabicLetter(order: 18, isolatedForm: 'مُلْكِ', audioAsset: '$_ders8AudioDir/18_kelime.mp3'),
+  ArabicLetter(order: 19, isolatedForm: 'حَكَمْتَ', audioAsset: '$_ders8AudioDir/19_kelime.mp3'),
+  ArabicLetter(order: 20, isolatedForm: 'لَمْ', audioAsset: '$_ders8AudioDir/20_kelime.mp3'),
+  ArabicLetter(order: 21, isolatedForm: 'يَكُنْ', audioAsset: '$_ders8AudioDir/21_kelime.mp3'),
+  ArabicLetter(order: 22, isolatedForm: 'مِنْهُمْ', audioAsset: '$_ders8AudioDir/22_kelime.mp3'),
+  ArabicLetter(order: 23, isolatedForm: 'لِحُكْمِ', audioAsset: '$_ders8AudioDir/23_kelime.mp3'),
+  ArabicLetter(order: 24, isolatedForm: 'بَدَتْ', audioAsset: '$_ders8AudioDir/24_kelime.mp3'),
+  ArabicLetter(order: 25, isolatedForm: 'أَرْسِلْ', audioAsset: '$_ders8AudioDir/25_kelime.mp3'),
+  ArabicLetter(order: 26, isolatedForm: 'بِإِذْنِ', audioAsset: '$_ders8AudioDir/26_kelime.mp3'),
+  ArabicLetter(order: 27, isolatedForm: 'تِلْكَ', audioAsset: '$_ders8AudioDir/27_kelime.mp3'),
+  ArabicLetter(order: 28, isolatedForm: 'ضَيْفِ', audioAsset: '$_ders8AudioDir/28_kelime.mp3'),
+  ArabicLetter(order: 29, isolatedForm: 'أَدْرِ', audioAsset: '$_ders8AudioDir/29_kelime.mp3'),
+  ArabicLetter(order: 30, isolatedForm: 'أَيْنَ', audioAsset: '$_ders8AudioDir/30_kelime.mp3'),
+  ArabicLetter(order: 31, isolatedForm: 'قُلْتُ', audioAsset: '$_ders8AudioDir/31_kelime.mp3'),
+  ArabicLetter(order: 32, isolatedForm: 'تَقُمْ', audioAsset: '$_ders8AudioDir/32_kelime.mp3'),
+  ArabicLetter(order: 33, isolatedForm: 'فَإِنْ', audioAsset: '$_ders8AudioDir/33_kelime.mp3'),
+  ArabicLetter(order: 34, isolatedForm: 'دَرَسْتَ', audioAsset: '$_ders8AudioDir/34_kelime.mp3'),
+  ArabicLetter(order: 35, isolatedForm: 'أَتْمِمْ', audioAsset: '$_ders8AudioDir/35_kelime.mp3'),
+  ArabicLetter(order: 36, isolatedForm: 'أَلَمْ', audioAsset: '$_ders8AudioDir/36_kelime.mp3'),
+  ArabicLetter(order: 37, isolatedForm: 'تُشْمِتْ', audioAsset: '$_ders8AudioDir/37_kelime.mp3'),
+  ArabicLetter(order: 38, isolatedForm: 'فَأَسْرِ', audioAsset: '$_ders8AudioDir/38_kelime.mp3'),
+  ArabicLetter(order: 39, isolatedForm: 'بِأَهْلِكَ', audioAsset: '$_ders8AudioDir/39_kelime.mp3'),
+  ArabicLetter(order: 40, isolatedForm: 'حِمْلُ', audioAsset: '$_ders8AudioDir/40_kelime.mp3'),
+  ArabicLetter(order: 41, isolatedForm: 'يَلِدْ', audioAsset: '$_ders8AudioDir/41_kelime.mp3'),
+  ArabicLetter(order: 42, isolatedForm: 'أَيَطْمَعُ', audioAsset: '$_ders8AudioDir/42_kelime.mp3'),
+  ArabicLetter(order: 43, isolatedForm: 'بِمِثْلِ', audioAsset: '$_ders8AudioDir/43_kelime.mp3'),
+  ArabicLetter(order: 44, isolatedForm: 'كَيْلَ', audioAsset: '$_ders8AudioDir/44_kelime.mp3'),
+  ArabicLetter(order: 45, isolatedForm: 'نَزِدْ', audioAsset: '$_ders8AudioDir/45_kelime.mp3'),
+  ArabicLetter(order: 46, isolatedForm: 'وَأَجْدَرُ', audioAsset: '$_ders8AudioDir/46_kelime.mp3'),
+  ArabicLetter(order: 47, isolatedForm: 'أَلْفَ', audioAsset: '$_ders8AudioDir/47_kelime.mp3'),
+  ArabicLetter(order: 48, isolatedForm: 'يَجِدْ', audioAsset: '$_ders8AudioDir/48_kelime.mp3'),
+  ArabicLetter(order: 49, isolatedForm: 'فَقَدْ', audioAsset: '$_ders8AudioDir/49_kelime.mp3'),
+  ArabicLetter(order: 50, isolatedForm: 'حَسِبْتَ', audioAsset: '$_ders8AudioDir/50_kelime.mp3'),
+  ArabicLetter(order: 51, isolatedForm: 'سَوْفَ', audioAsset: '$_ders8AudioDir/51_kelime.mp3'),
+  ArabicLetter(order: 52, isolatedForm: 'يُذْهِبْ', audioAsset: '$_ders8AudioDir/52_kelime.mp3'),
+];
+
+final Lesson kHarekelerAlistirmalariLesson = Lesson(
+  id: 'harekeler-alistirmalari',
+  label: 'Ders 8',
+  title: 'Harekeler Alıştırmaları',
+  subtitle: '52 kayıt • Üstün, esre, ötre ve cezm ile kelime okuma',
+  letters: kHarekelerAlistirmalariWords,
+);

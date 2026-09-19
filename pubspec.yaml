@@ -1,0 +1,123 @@
+name: kuran_okuma_rehberi
+description: "Kur'an Okuma Rehberi - Elifba ve Kur'an okumayı öğrenme uygulaması."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  provider: ^6.1.2
+  google_fonts: ^6.2.1
+  audioplayers: ^6.1.0
+  shared_preferences: ^2.5.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/audio/dualar/01_subhaneke/
+    - assets/audio/dualar/02_ettahiyatu/
+    - assets/audio/dualar/03_salli/
+    - assets/audio/dualar/04_barik/
+    - assets/audio/dualar/05_atina/
+    - assets/audio/dualar/06_rabbenafirli/
+    - assets/audio/dualar/07_kunut1/
+    - assets/audio/dualar/08_kunut2/
+    - assets/audio/dualar/09_amentu/
+    - assets/audio/elifba/ders_1_harfler/
+    - assets/audio/elifba/ders_2_harfler/
+    - assets/audio/elifba/ders_3_ustun/
+    - assets/audio/elifba/ders_4_esre/
+    - assets/audio/elifba/ders_5_otre/
+    - assets/audio/elifba/ders_6_cikis_yerleri/
+    - assets/audio/elifba/ders_7_cezm/
+    - assets/audio/elifba/ders_8_harekeler_alistirmalar/
+    - assets/audio/elifba/ders_9_sedde/
+    - assets/audio/elifba/ders_10_alistirmalar_sedde/
+    - assets/audio/elifba/ders_11_uzatma_elif/
+    - assets/audio/elifba/ders_12_uzatma_elif_alistirmalar/
+    - assets/audio/elifba/ders_13_uzatma_ya/
+    - assets/audio/elifba/ders_14_uzatma_ya_alistirmalar/
+    - assets/audio/elifba/ders_15_uzatma_vav/
+    - assets/audio/elifba/ders_16_uzatma_vav_alistirmalar/
+    - assets/audio/elifba/ders_17_uzatma_vav_kelime_sonunda/
+    - assets/audio/elifba/ders_18_ceker_ustun/
+    - assets/audio/elifba/ders_19_ceker_esre/
+    - assets/audio/elifba/ders_20_tenvin_iki_ustun/
+    - assets/audio/elifba/ders_21_tenvin_iki_esre/
+    - assets/audio/elifba/ders_22_tenvin_iki_otre/
+    - assets/audio/elifba/ders_23_el_takisi_okunan/
+    - assets/audio/elifba/ders_24_el_takisi_okunmayan/
+    - assets/audio/elifba/ders_25_el_takisi_hemze/
+    - assets/audio/elifba/ders_26_el_takisi_hemze_vasil/
+    - assets/audio/elifba/ders_27_zamir_he_uzatilmasi/
+    - assets/audio/elifba/ders_28_zamir_he_uzatma_med/
+    - assets/audio/elifba/ders_29_zamir_he_uzatma_yok/
+    - assets/audio/elifba/ders_30_zamir_he_uzatma_yok_cezimli/
+    - assets/audio/elifba/ders_31_zamir_he_uzatma_yok_cezimli_seddeli/
+    - assets/audio/elifba/ders_32_kapali_te/
+    - assets/audio/elifba/ders_33_kelime_sonu_duraklar/
+    - assets/audio/elifba/ders_34_alistirmalar_1/
+    - assets/audio/elifba/ders_35_alistirmalar_2/
+    - assets/audio/elifba/ders_36_alistirmalar_3/
+    - assets/audio/elifba/ders_37_alistirmalar_4/
+    - assets/audio/oyunlar/
+    - assets/audio/sureler/01_fatiha/
+    - assets/audio/sureler/02_fil/
+    - assets/audio/sureler/03_kureys/
+    - assets/audio/sureler/04_maun/
+    - assets/audio/sureler/05_ihlas/
+    - assets/audio/sureler/06_kevser/
+    - assets/audio/sureler/07_nas/
+    - assets/audio/sureler/08_felak/
+    - assets/audio/sureler/09_nasr/
+    - assets/audio/sureler/10_tebbet/
+    - assets/audio/sureler/11_kafirun/
+    - assets/images/splash/
+    - assets/images/branding/
+    - assets/images/backgrounds/
+    - assets/lazim/ders2icinsayfa_alti.png
+    - assets/lazim/ders1.png
+
+  fonts:
+    - family: Hasenat
+      fonts:
+        - asset: assets/fonts/Hasenat.ttf
+
+flutter_launcher_icons:
+  image_path: "assets/images/branding/app_icon.png"
+  android: true
+  adaptive_icon_background: "#35579A"
+  adaptive_icon_foreground: "assets/images/branding/app_icon_foreground.png"
+  ios: true
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/images/branding/app_icon.png"
+    background_color: "#35579A"
+    theme_color: "#35579A"
+  windows:
+    generate: true
+    image_path: "assets/images/branding/app_icon.png"
+
+flutter_native_splash:
+  color: "#35579A"
+  image: assets/images/splash/kapak_splash.png
+  fullscreen: true
+  android_12:
+    color: "#35579A"
+    image: assets/images/splash/kapak_splash.png
+  web: false
