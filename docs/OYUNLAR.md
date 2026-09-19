@@ -159,4 +159,4 @@ Geçici dosyayı işi bitirince sil (`test/zz_*`).
   taşabilir → uzun metinleri `FittedBox`/`Flexible` ile taşmaya dayanıklı yaz.
 - Bildirim çıkıp kaybolurken yükseklik değişirse oyun alanı kayar → `GameScoreStrip`
   sabit yükseklik.
-- Bu klasör **git deposu değil** (sürüm geçmişi yok); önemli işlerden önce yedek al.
+- Proje artık git deposu (GitHub'da); yayın bilgisi `CLAUDE.md`'de.

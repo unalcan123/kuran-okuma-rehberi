@@ -1,12 +1,11 @@
 {
-    "name": "kuran_okuma_rehberi",
-    "short_name": "kuran_okuma_rehberi",
+    "name": "Kur'an Okuma Rehberi",
+    "short_name": "Kuran Rehberi",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#35579A",
     "theme_color": "#35579A",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "description": "Elifba, namaz sureleri ve namaz dualarını dinleyerek ve oyunlarla öğreten Kur'an okuma rehberi.",
     "prefer_related_applications": false,
     "icons": [
         {

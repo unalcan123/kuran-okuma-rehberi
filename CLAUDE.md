@@ -16,19 +16,24 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   Hasenat fontu `AppTextTheme`), breakpoint'ler `lib/core/responsive.dart`.
 - Sakin eğitim uygulaması: arcade/neon yok, çocuğu cezalandıran geri bildirim yok.
 - Eski uygulama `D:\Elifbe2025` **yalnızca okunur referans**; içeriği birebir kopyalama.
-- Bu klasör git deposu **değil**.
 
-## Sırada: GitHub'a koy + web sürümünü yayınla (kullanıcı 2026-09-19'da "yarın" dedi)
-Henüz yapılmadı; kullanıcı söylemeden başlama, başlarken onay al (repo adı, herkese açık/özel).
-Hazırlık notları:
-- Klasör git deposu değil → `git init`. `.gitignore` var (`/build/`, `.dart_tool/` dahil).
-  Eklenmesi gerekenler: kökteki `Kuran-Okuma-Rehberi-Test.apk` (133 MB — GitHub'ın 100 MB
-  dosya sınırını aşar, **commit'leme**), `flutter_01.log`, `.claude/`. `assets/` ~115 MB (çoğu ses).
-- GitHub CLI (`gh`) kurulu ve `unalcan123` hesabıyla giriş yapılmış.
-- Web: `flutter build web --no-tree-shake-icons` çalışıyor (`build/web`). GitHub Pages için
-  `--base-href /<repo-adı>/` ile derle; `web/index.html` zaten `$FLUTTER_BASE_HREF` kullanıyor.
-  Yayın: `gh-pages` dalı ya da GitHub Actions (Flutter derle → Pages'e yükle).
-- Yayından önce web'de ses (audioplayers) ve `shared_preferences` çalışmasını tarayıcıda dene.
+## Yayın (GitHub + web) — yapıldı, 2026-09-19
+- Depo (herkese açık): https://github.com/unalcan123/kuran-okuma-rehberi (dal: `main`).
+  Artık git deposu; değişiklikleri commit'le. Commit mesajı sonuna
+  `Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>` ekle.
+- Site: https://unalcan123.github.io/kuran-okuma-rehberi/ — `main`'e her push'ta
+  `.github/workflows/deploy-web.yml` çalışır: `flutter analyze` → `flutter test` →
+  `flutter build web` → GitHub Pages (~3 dk). Test/analiz kırılırsa **yayınlanmaz**.
+  İlerleme: `gh run list`, `gh run watch <id>`.
+- Web derlemesini yerelde dene: **PowerShell'de** `flutter build web --release --base-href /kuran-okuma-rehberi/`
+  (Git Bash `/` ile başlayan yolu bozar).
+- **Alan adı alınınca:** DNS'i Pages'e yönlendir, GitHub > Settings > Pages > Custom domain gir;
+  ardından Settings > Secrets and variables > Actions > **Variables**'a `WEB_BASE_HREF` = `/` ekle
+  (aksi halde site alt yol için derlenir), workflow'u yeniden çalıştır.
+- Commit'lenmemesi gerekenler `.gitignore`'da: `*.apk` (kökteki test APK'sı 133 MB), `.claude/`,
+  `build/`, `local.properties`. Anahtar/keystore dosyası ekleme (depo herkese açık).
+- Depo herkese açık olduğu için ses kayıtları, Hasenat yazı tipi (`assets/fonts`, lisans bilgisi
+  dosyada yok) ve görseller de görünür; hak/lisans durumu kullanıcının sorumluluğunda.
 
 ## İş bitince
 ```
