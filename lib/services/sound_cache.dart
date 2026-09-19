@@ -4,21 +4,31 @@ import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
 
+import 'sound_store.dart';
+
+/// Names the stored copy of the recordings. **Change it whenever a file in
+/// `assets/audio/` changes** (`test/audio_assets_test.dart` fails and shows
+/// the new value); otherwise visitors keep hearing the old recording.
+const String kSoundCacheVersion = '89a425bc';
+
 /// Keeps sound files in memory so a tap never waits on the network.
 ///
 /// On the web every sound is a separate download; asking for the same
-/// clip through here fetches it once (the browser's service worker also
-/// keeps it for the next visit) and later plays start from memory.
+/// clip through here fetches it once and later plays start from memory.
+/// With a [store], sounds are also kept on the device, so the next visit
+/// reads them from there instead of downloading again.
 ///
 /// [assetPath] is the path as `AssetSource` takes it, relative to the
 /// `assets/` folder (`audio/elifba/...`).
 class SoundCache {
   SoundCache({
     Future<ByteData> Function(String key)? loader,
+    this.store,
     this.concurrency = 6,
   }) : _loader = loader ?? rootBundle.load;
 
   final Future<ByteData> Function(String key) _loader;
+  final SoundStore? store;
 
   /// How many files [preload] fetches at once.
   final int concurrency;
@@ -44,17 +54,39 @@ class SoundCache {
     // failure can clear it.
     await null;
     try {
+      final stored = await _readStored(assetPath);
+      if (stored != null) {
+        _ready[assetPath] = stored;
+        return stored;
+      }
       final data = await _loader('assets/$assetPath');
       final bytes = data.buffer.asUint8List(
         data.offsetInBytes,
         data.lengthInBytes,
       );
       _ready[assetPath] = bytes;
+      unawaited(_writeStored(assetPath, bytes));
       return bytes;
     } catch (_) {
       return null;
     } finally {
       _loading.remove(assetPath);
+    }
+  }
+
+  Future<Uint8List?> _readStored(String assetPath) async {
+    try {
+      return await store?.read(assetPath);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<void> _writeStored(String assetPath, Uint8List bytes) async {
+    try {
+      await store?.write(assetPath, bytes);
+    } catch (_) {
+      // Not being able to keep it only means downloading again next visit.
     }
   }
 

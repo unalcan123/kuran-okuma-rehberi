@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 
 import '../models/arabic_letter.dart';
 import 'sound_cache.dart';
+import 'sound_store.dart';
 
 enum AudioPlaybackState { stopped, playing, paused }
 
@@ -23,7 +24,9 @@ enum AudioPlaybackState { stopped, playing, paused }
 /// when they open, and every sound is played from memory once loaded
 /// (see [SoundCache]). Native apps have the files locally and skip this.
 class AudioService extends ChangeNotifier {
-  AudioService({SoundCache? cache}) : _cache = cache ?? SoundCache() {
+  AudioService({SoundCache? cache})
+    : _cache =
+          cache ?? SoundCache(store: createSoundStore(kSoundCacheVersion)) {
     _player.onPlayerComplete.listen((_) => _handleComplete());
   }
 
