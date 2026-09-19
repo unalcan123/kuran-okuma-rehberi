@@ -9,6 +9,7 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   — ne yapıldı, kurallar, dosya haritası, yeni oyun ekleme, sırada ne var.
 - **Ses** (kayıt formatı, web'de önbellek/ön yükleme, gecikme ölçümü): `docs/SES.md`.
   Ses dosyası ekleyince/değiştirince `kSoundCacheVersion`'ı güncelle (test söyler); kaynağı küçült.
+- **Web/telefon görünümü** (tarayıcı sayfayı geniş yerleştirince her şey küçülüyordu; `PhoneZoomFix`): `docs/WEB.md`.
 - Dualar kaynağı: `docs/dualar_source.md`.
 
 ## Genel kurallar

@@ -51,3 +51,10 @@ app.*.map.json
 
 # Node tools
 node_modules/
+
+# Kişisel ekran görüntüleri depoya girmesin (hata bildirimi için proje içine konabilir)
+assets/lazim/*.jpg
+assets/lazim/*.jpeg
+/screenshots/
+assets/lazim/AdobeExpress*
+assets/lazim/Screenshot*
