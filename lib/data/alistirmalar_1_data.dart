@@ -6,7 +6,7 @@ const String _ders34AudioDir = 'audio/elifba/ders_34_alistirmalar_1';
 /// Ders 34: general reading practice, first set.
 const List<ArabicLetter> kAlistirmalar1Words = [
   ArabicLetter(order: 1, isolatedForm: 'فَبَشِّرْهُ', audioAsset: '$_ders34AudioDir/01_kelime.mp3'),
-  ArabicLetter(order: 2, isolatedForm: 'أَحْسَيْنَاهُ', audioAsset: '$_ders34AudioDir/02_kelime.mp3'),
+  ArabicLetter(order: 2, isolatedForm: 'أَحْصَيْنَاهُ', audioAsset: '$_ders34AudioDir/02_kelime.mp3'),
   ArabicLetter(order: 3, isolatedForm: 'فَعَزَّزْنَا', audioAsset: '$_ders34AudioDir/03_kelime.mp3'),
   ArabicLetter(order: 4, isolatedForm: 'وَفَجَّرْنَا', audioAsset: '$_ders34AudioDir/04_kelime.mp3'),
   ArabicLetter(order: 5, isolatedForm: 'أَحْيَيْنَاهَا', audioAsset: '$_ders34AudioDir/05_kelime.mp3'),
@@ -25,7 +25,7 @@ const List<ArabicLetter> kAlistirmalar1Words = [
   ArabicLetter(order: 18, isolatedForm: 'جَنَّاتٌ', audioAsset: '$_ders34AudioDir/18_kelime.mp3'),
   ArabicLetter(order: 19, isolatedForm: 'فَصَلّٰى', audioAsset: '$_ders34AudioDir/19_kelime.mp3'),
   ArabicLetter(order: 20, isolatedForm: 'وَتَوَاصَوْا', audioAsset: '$_ders34AudioDir/20_kelime.mp3'),
-  ArabicLetter(order: 21, isolatedForm: 'فَزَكِّرْ', audioAsset: '$_ders34AudioDir/21_kelime.mp3'),
+  ArabicLetter(order: 21, isolatedForm: 'فَذَكِّرْ', audioAsset: '$_ders34AudioDir/21_kelime.mp3'),
   ArabicLetter(order: 22, isolatedForm: 'يَسْأَلُونَكَ', audioAsset: '$_ders34AudioDir/22_kelime.mp3'),
   ArabicLetter(order: 23, isolatedForm: 'يُدْرِيكَ', audioAsset: '$_ders34AudioDir/23_kelime.mp3'),
   ArabicLetter(order: 24, isolatedForm: 'فَسَوَّاكَ', audioAsset: '$_ders34AudioDir/24_kelime.mp3'),

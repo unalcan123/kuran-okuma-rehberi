@@ -16,13 +16,13 @@ const List<ArabicLetter> kAlistirmalar3Words = [
   ArabicLetter(order: 9, isolatedForm: 'وَالطَّارِقِ', audioAsset: '$_ders36AudioDir/09_kelime.mp3'),
   ArabicLetter(order: 10, isolatedForm: 'وَاللَّيْلِ', audioAsset: '$_ders36AudioDir/10_kelime.mp3'),
   ArabicLetter(order: 11, isolatedForm: 'وَالْفَجْرِ', audioAsset: '$_ders36AudioDir/11_kelime.mp3'),
-  ArabicLetter(order: 12, isolatedForm: 'وَالتَّرَٓ ائِبِ', audioAsset: '$_ders36AudioDir/12_kelime.mp3'),
+  ArabicLetter(order: 12, isolatedForm: 'وَالتَّرَٓائِبِ', audioAsset: '$_ders36AudioDir/12_kelime.mp3'),
   ArabicLetter(order: 13, isolatedForm: 'بِالْمَرْحَمَةِ', audioAsset: '$_ders36AudioDir/13_kelime.mp3'),
   ArabicLetter(order: 14, isolatedForm: 'بِالصَّبْرِ', audioAsset: '$_ders36AudioDir/14_kelime.mp3'),
   ArabicLetter(order: 15, isolatedForm: 'حَقَّ الْقَوْلُ', audioAsset: '$_ders36AudioDir/15_kelime.mp3'),
-  ArabicLetter(order: 16, isolatedForm: 'وَهُوَالْعَلِىُّ', audioAsset: '$_ders36AudioDir/16_kelime.mp3'),
-  ArabicLetter(order: 17, isolatedForm: 'سُبْحَانَ الَّزِىِ', audioAsset: '$_ders36AudioDir/17_kelime.mp3'),
-  ArabicLetter(order: 18, isolatedForm: 'إِلَّاالْبَلاَغُ', audioAsset: '$_ders36AudioDir/18_kelime.mp3'),
+  ArabicLetter(order: 16, isolatedForm: 'وَهُوَ الْعَلِىُّ', audioAsset: '$_ders36AudioDir/16_kelime.mp3'),
+  ArabicLetter(order: 17, isolatedForm: 'سُبْحَانَ الَّذِى', audioAsset: '$_ders36AudioDir/17_kelime.mp3'),
+  ArabicLetter(order: 18, isolatedForm: 'إِلَّا الْبَلاَغُ', audioAsset: '$_ders36AudioDir/18_kelime.mp3'),
 ];
 
 final Lesson kAlistirmalar3Lesson = Lesson(

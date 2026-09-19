@@ -58,3 +58,6 @@ assets/lazim/*.jpeg
 /screenshots/
 assets/lazim/AdobeExpress*
 assets/lazim/Screenshot*
+
+# Kitapçık PDF'leri (telifli kaynak; herkese açık depoya girmesin)
+*.pdf
