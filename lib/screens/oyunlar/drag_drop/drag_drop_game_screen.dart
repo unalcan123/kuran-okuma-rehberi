@@ -17,7 +17,7 @@ import '../widgets/game_progress.dart';
 import '../widgets/game_result_summary.dart';
 import '../widgets/game_score_strip.dart';
 import 'widgets/draggable_letter.dart';
-import 'widgets/fit_grid.dart';
+import '../widgets/fit_grid.dart';
 import 'widgets/fly_back.dart';
 import 'widgets/sound_slot.dart';
 

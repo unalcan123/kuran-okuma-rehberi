@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../data/drag_drop_game_data.dart';
 import '../../data/letters_data.dart';
+import '../../data/memory_game_data.dart';
 import '../../theme/app_colors.dart';
 import 'drag_drop/drag_drop_levels_screen.dart';
 import 'listen_pick/listen_pick_lessons_screen.dart';
 import 'listen_pick/listen_pick_questions.dart';
+import 'memory/memory_levels_screen.dart';
 
 /// One separate game inside a game family — a Sürükle & Bırak level, a
 /// Dinle ve Seç lesson. Results are kept per variant, so the last five
@@ -69,6 +71,19 @@ final List<GameEntry> kGames = [
           key: listenPickGameKey(lesson),
           title: '${lesson.label} · ${lesson.title}',
         ),
+    ],
+  ),
+  GameEntry(
+    id: kMemoryGameKey,
+    title: 'Hafıza',
+    subtitle: 'Aynı harfleri bul',
+    icon: Icons.extension_rounded,
+    background: AppColors.turquoiseSoft,
+    foreground: AppColors.turquoise,
+    builder: (_) => const MemoryLevelsScreen(),
+    variants: [
+      for (final level in kMemoryLevels)
+        GameVariant(key: level.gameKey, title: level.title),
     ],
   ),
 ];

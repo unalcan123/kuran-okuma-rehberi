@@ -13,6 +13,7 @@ en altta.
 |---|---|---|
 | **Sürükle & Bırak** | Küçük oyunlar listesi: Oyun 1–7 (eski uygulamanın 7 harf grubu) ve **Karışık** (her oynayışta 29 harften rastgele 5 harf). Ses kartına dokun, dinle, doğru harfi karta sürükle. | `drag_drop/` |
 | **Dinle ve Seç** | Önce ders seçilir (37 ders). 5 soru: ses otomatik çalar, 4 şıktan doğrusu seçilir. | `listen_pick/` |
+| **Hafıza** | Aynı harfli kartları bul (eski Elifba'nın 3. oyunu). Kolay / Zor / Çok Zor, 9 seviye. Kartlar çevrilince harfin sesi çalar. | `memory/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
 ### Sürükle & Bırak
@@ -28,6 +29,26 @@ en altta.
   Telefon dikeyde ekran altta harfler / üstte kartlar; yatayda yan yana.
 - Seviyeler `lib/data/drag_drop_game_data.dart` → `kDragDropLevels`. Anahtar:
   `drag_drop.1` … `drag_drop.7`, `drag_drop.random`.
+
+### Hafıza
+- Seviyeler `lib/data/memory_game_data.dart` → `kMemoryLevels` (eski oyunun harf grupları aynen):
+  **Kolay** 1–3 (4, 4, 5 çift), **Zor** 1–4 (6, 7, 7, 7 çift; benzer harfler ض ط ظ ع غ …),
+  **Çok Zor** 1–2 (10 çift). Eski oyunda "Orta 1" ve "Orta 2" aynı harflerdi; tek seviyeye indirildi.
+  Kullanıcının tanımı: "kolay, zor, çok zor" — bu adlar kullanıldı. Anahtar: `memory.easy1`…
+  `memory.hardN`, `memory.veryHardN`.
+- Akış: önce tüm kartlar **açık** gösterilir (2 + çift sayısı saniye; "Hazırım" ile erken başlanır,
+  bu sırada dokununca harfin sesi çalar), sonra kartlar kapanır. Ekranda geri sayım yok.
+- Kart çevrilince o **harfin sesi** çalar (öğretici kısım; eskisinde hiç ses yoktu). Çift bulununca
+  `dogru.mp3` + harfin sesi, kartlar yeşile döner ve **Türkçe adını** yazar ("Elif", "Be" …).
+  Yanlış tahminde ikinci kartın sesi çalar (hangi harf olduğunu duyar), kartlar hafifçe sallanır,
+  ~1,1 sn sonra kapanır; bu sırada başka karta dokunulursa hemen kapanır (bekletmez).
+- Puan `GameScorer`, öğe = çift. Bir çift, yanlış bir tahminde yer almadan bulunursa "ilk deneme"
+  sayılır; yanlış tahmin puan düşürmez, sadece seriyi bozar ve o iki harfin ilk-deneme bonusunu alır.
+  Çok Zor'da 3 yıldız bilerek zor. Ekranda "Deneme: n" sayacı var.
+- Son çift bulununca 0,8 sn sonra sonuç sayfası; kendiliğinden yeniden başlamaz (eskisi 4 sn'de
+  başlatıyordu). "Tekrar Oyna" kartları yeniden karıştırır ve ön izlemeyi baştan gösterir.
+- Kartlar harf **resmi değil**, Hasenat metni; sırt yüzü müzik notası. `FitGrid` (ortak,
+  `widgets/fit_grid.dart`) kartları alana sığdırır, ön izleme bitince boyut değişmez.
 
 ### Dinle ve Seç
 - Sorular `kElifbaLessons` derslerinden üretilir (`listen_pick_questions.dart`). Eski
@@ -83,12 +104,14 @@ Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
 oyunlar_screen.dart        Menü: kGames kartları + "Sonuçlarım"
 games.dart                 kGames: GameEntry + GameVariant (menü VE sonuçlar buradan beslenir)
 drag_drop/                 drag_drop_levels_screen (seçim), drag_drop_game_screen,
-                           widgets: draggable_letter, sound_slot, fit_grid, fly_back
+                           widgets: draggable_letter, sound_slot, fly_back
+memory/                    memory_levels_screen (Kolay/Zor/Çok Zor listesi), memory_game_screen,
+                           widgets: memory_card (dönen kart)
 listen_pick/               listen_pick_lessons_screen (ders seçimi), listen_pick_screen,
                            listen_pick_questions (soru üretimi, LetterPosition),
                            widgets: option_card, options_grid, play_sound_button
 results/game_results_screen.dart
-widgets/                   Ortak parçalar: game_score_strip, game_result_summary,
+widgets/                   Ortak parçalar: fit_grid, game_score_strip, game_result_summary,
                            game_finish_view, game_progress (GameStepPill, GameProgressBar),
                            music_note_burst, shake_on_trigger, game_colors
 ```
@@ -124,9 +147,8 @@ Yeniden kullanılan mevcut parçalar: `AudioService` (tek player; `playLetter`,
 - Eski oyunları **birebir kopyalama**; mantığı incele, modern/responsive yeniden yaz.
 
 ## 6. Yapılmadı / sırada
-- **Eski `ikinci_oyun`** (kart eşleştirme, şekil resimleriyle) ve **`ucuncu_oyun`**
-  (hafıza oyunu, easy/medium/hard): henüz **dokunulmadı**. Kullanıcı onayı olmadan
-  aktarma. Eski kod: `D:\Elifbe2025\lib\oyunlar\`, sesler `D:\Elifbe2025\assets\audio`
+- **Eski `ikinci_oyun`** (şekil resimleriyle basit kart eşleştirme; harf öğretmiyor, Hafıza ile
+  aynı türde): henüz **dokunulmadı**. Kullanıcı istemeden aktarma. (`ucuncu_oyun` = Hafıza, yapıldı.) Eski kod: `D:\Elifbe2025\lib\oyunlar\`, sesler `D:\Elifbe2025\assets\audio`
   (hayvan/şekil resimleri `assets/resim` — kopyalama).
 - Çocuk profili (birden fazla öğrenci) yok.
 - Oyunlar menüsü kartlarında en iyi yıldız/puan gösterilmiyor (sadece sürükle-bırak

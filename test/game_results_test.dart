@@ -88,7 +88,11 @@ void main() {
       find.text('${kElifbaLessons[2].label} · ${kElifbaLessons[2].title}'),
       findsOneWidget,
     );
-    expect(find.text('Henüz oynanmadı.'), findsNothing);
+    expect(
+      find.text('Henüz oynanmadı.'),
+      findsOneWidget,
+      reason: 'only Hafıza has not been played',
+    );
 
     // Oyun 1
     expect(find.text('7'), findsOneWidget);

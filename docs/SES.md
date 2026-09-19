@@ -68,4 +68,5 @@ toplayıp sesi ~3 dB yükseltir ve kırpar.
 ## Bilinen sınırlar
 - Tarayıcılar, kullanıcı ekrana dokunmadan sesi başlatmayı engeller (özellikle iOS Safari).
   Dinle ve Seç'te ilk soru sesi kendiliğinden çalmazsa çocuk Dinle butonuna dokunur.
-- `assets/audio/oyunlar/yanlis.wav` (222 KB) kullanılmıyor; kullanıcı ekledi, dokunulmadı.
+- `yanlis.wav` (kullanılmayan, kullanıcının eklediği eski yanlış-cevap sesi) kullanıcı isteğiyle silindi;
+  yanlış cevapta bilerek ses çalınmıyor.
