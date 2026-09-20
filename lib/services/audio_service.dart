@@ -31,6 +31,7 @@ class AudioService extends ChangeNotifier {
   }
 
   final AudioPlayer _player = AudioPlayer();
+  AudioPlayer? _effectPlayer;
   final SoundCache _cache;
 
   String? _currentAsset;
@@ -160,6 +161,27 @@ class AudioService extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Kısa efekt sesi (oyunlarda doğru cevap gibi). Ders/harf sesinden ayrı
+  /// bir kanaldır: efekt çalarken çalan harf sesi kesilmez ve tersi; ama aynı
+  /// anda yalnızca bir efekt çalar.
+  Future<void> playEffect(String assetPath) async {
+    try {
+      final player = _effectPlayer ??= AudioPlayer();
+      await player.stop();
+      await player.play(await _sourceFor(assetPath));
+    } catch (error) {
+      debugPrint('AudioService: efekt "$assetPath" çalınamadı — $error');
+    }
+  }
+
+  Future<void> stopEffect() async {
+    try {
+      await _effectPlayer?.stop();
+    } catch (error) {
+      debugPrint('AudioService: efekt durdurulamadı — $error');
+    }
+  }
+
   Future<void> pause() async {
     if (_state != AudioPlaybackState.playing) return;
     await _player.pause();
@@ -187,6 +209,7 @@ class AudioService extends ChangeNotifier {
   @override
   void dispose() {
     _player.dispose();
+    _effectPlayer?.dispose();
     super.dispose();
   }
 }

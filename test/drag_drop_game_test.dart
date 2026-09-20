@@ -16,6 +16,7 @@ import 'package:kuran_okuma_rehberi/screens/oyunlar/oyunlar_screen.dart';
 import 'package:kuran_okuma_rehberi/services/audio_service.dart';
 import 'package:kuran_okuma_rehberi/services/game_score_store.dart';
 import 'package:kuran_okuma_rehberi/theme/app_colors.dart';
+import 'package:kuran_okuma_rehberi/screens/oyunlar/harf_oyunlari/profil/player_repository.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -44,6 +45,7 @@ Widget harness(Widget child, FakeAudio audio) => MultiProvider(
   providers: [
     ChangeNotifierProvider<AudioService>.value(value: audio),
     Provider<GameScoreStore>.value(value: GameScoreStore()),
+    ChangeNotifierProvider(create: (_) => PlayerRepository()),
   ],
   child: MaterialApp(
     theme: ThemeData(scaffoldBackgroundColor: AppColors.background),

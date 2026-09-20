@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:kuran_okuma_rehberi/data/letters_data.dart';
 import 'package:kuran_okuma_rehberi/models/game_score.dart';
 import 'package:kuran_okuma_rehberi/screens/oyunlar/games.dart';
+import 'package:kuran_okuma_rehberi/screens/oyunlar/harf_oyunlari/profil/player_repository.dart';
 import 'package:kuran_okuma_rehberi/screens/oyunlar/listen_pick/listen_pick_questions.dart';
 import 'package:kuran_okuma_rehberi/screens/oyunlar/oyunlar_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/oyunlar/results/game_results_screen.dart';
@@ -11,8 +12,11 @@ import 'package:kuran_okuma_rehberi/theme/app_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Widget harness(Widget child) => Provider<GameScoreStore>.value(
-  value: GameScoreStore(),
+Widget harness(Widget child) => MultiProvider(
+  providers: [
+    Provider<GameScoreStore>.value(value: GameScoreStore()),
+    ChangeNotifierProvider(create: (_) => PlayerRepository()),
+  ],
   child: MaterialApp(
     theme: ThemeData(scaffoldBackgroundColor: AppColors.background),
     home: child,
@@ -49,7 +53,7 @@ void main() {
   });
 
   testWidgets('Nothing played yet: every game says so', (tester) async {
-    setSize(tester, const Size(360, 800));
+    setSize(tester, const Size(360, 1800));
     await tester.pumpWidget(harness(const GameResultsScreen()));
     await tester.pumpAndSettle();
     expect(find.text('Sonuçlarım'), findsOneWidget);
@@ -64,7 +68,7 @@ void main() {
   testWidgets('Lists each played game with its own plays, average and last five', (
     tester,
   ) async {
-    setSize(tester, const Size(360, 1200));
+    setSize(tester, const Size(360, 2200));
     final store = GameScoreStore();
     // Oyun 1: 7 plays -> average 250, best 400, last five 300 400 250 350 150
     for (final points in [100, 200, 300, 400, 250, 350, 150]) {
@@ -90,8 +94,8 @@ void main() {
     );
     expect(
       find.text('Henüz oynanmadı.'),
-      findsOneWidget,
-      reason: 'only Hafıza has not been played',
+      findsNWidgets(3),
+      reason: 'Hafıza, Bul & Patlat and Harf Arabaları have not been played',
     );
 
     // Oyun 1
@@ -139,7 +143,7 @@ void main() {
   }
 
   testWidgets('Reset button: disabled with nothing to reset', (tester) async {
-    setSize(tester, const Size(360, 800));
+    setSize(tester, const Size(360, 1800));
     await tester.pumpWidget(harness(const GameResultsScreen()));
     await tester.pumpAndSettle();
     final button = tester.widget<IconButton>(
@@ -210,7 +214,7 @@ void main() {
   });
 
   testWidgets('Oyunlar menu opens the results page', (tester) async {
-    setSize(tester, const Size(360, 800));
+    setSize(tester, const Size(360, 1800));
     await tester.pumpWidget(harness(const OyunlarScreen()));
     await tester.pumpAndSettle();
     expect(find.text('Sonuçlarım'), findsOneWidget);

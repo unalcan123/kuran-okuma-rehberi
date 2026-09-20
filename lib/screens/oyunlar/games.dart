@@ -5,6 +5,9 @@ import '../../data/letters_data.dart';
 import '../../data/memory_game_data.dart';
 import '../../theme/app_colors.dart';
 import 'drag_drop/drag_drop_levels_screen.dart';
+import 'harf_oyunlari/bul_patlat/bul_patlat_screen.dart';
+import 'harf_oyunlari/harf_arabalari/harf_arabalari_screen.dart';
+import 'harf_oyunlari/profil/player_models.dart';
 import 'listen_pick/listen_pick_lessons_screen.dart';
 import 'listen_pick/listen_pick_questions.dart';
 import 'memory/memory_levels_screen.dart';
@@ -85,5 +88,30 @@ final List<GameEntry> kGames = [
       for (final level in kMemoryLevels)
         GameVariant(key: level.gameKey, title: level.title),
     ],
+  ),
+  GameEntry(
+    id: GameIds.bulPatlat,
+    title: 'Bul & Patlat',
+    subtitle: 'Sesi dinle, doğru harfi bul ve balonu patlat',
+    icon: Icons.bubble_chart_rounded,
+    background: AppColors.skyBlueSoft,
+    foreground: AppColors.skyBlue,
+    builder: (_) => const BulPatlatOyunu(),
+    // Her seviyenin geçmişi ayrı tutulur (hız farklı).
+    variants: [
+      GameVariant(key: '${GameIds.bulPatlat}.l1', title: 'Seviye 1 · Yavaş'),
+      GameVariant(key: '${GameIds.bulPatlat}.l2', title: 'Seviye 2 · Biraz Hızlı'),
+      GameVariant(key: '${GameIds.bulPatlat}.l3', title: 'Seviye 3 · Hızlı'),
+    ],
+  ),
+  GameEntry(
+    id: GameIds.harfArabalari,
+    title: 'Harf Arabaları',
+    subtitle: 'Sesi dinle, doğru harfli arabayı yakala',
+    icon: Icons.directions_car_filled_rounded,
+    background: AppColors.goldSoft,
+    foreground: AppColors.gold,
+    builder: (_) => const HarfArabalariOyunu(),
+    variants: [GameVariant(key: GameIds.harfArabalari, title: 'Harf Arabaları')],
   ),
 ];
