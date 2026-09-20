@@ -13,6 +13,7 @@ import 'widgets/letter_forms_table.dart';
 
 import 'widgets/single_letter_pager.dart';
 import 'widgets/lesson_one_book.dart';
+import 'widgets/book_page.dart';
 
 /// Entry point for a lesson's letters. Offers two study modes backed
 /// by the same [Lesson.letters] data:
@@ -34,11 +35,20 @@ class LessonLettersScreen extends StatefulWidget {
 
 class _LessonLettersScreenState extends State<LessonLettersScreen> {
   final _textScale = ValueNotifier<double>(1);
-  // Keep the experimental preference while the app is running.
-  static LessonViewMode _lastLessonOneMode = LessonViewMode.grid;
-  bool get _supportsBook => widget.lesson.id == 'harfleri-taniyalim';
-  late LessonViewMode _mode =
-      _supportsBook ? _lastLessonOneMode : LessonViewMode.grid;
+  // Keep each lesson's chosen view while the app is running.
+  static final Map<String, LessonViewMode> _rememberedMode = {};
+  static const _lessonOneId = 'harfleri-taniyalim';
+
+  /// Lessons whose default view is a page laid out like the book (Ders 32, 33).
+  bool get _hasBookPage => kBookPageHeadings.containsKey(widget.lesson.id);
+
+  /// Lessons that have a "Kitap Modu".
+  bool get _supportsBook => widget.lesson.id == _lessonOneId || _hasBookPage;
+  bool get _isBookPage => _hasBookPage && _mode == LessonViewMode.book;
+  late LessonViewMode _mode = _supportsBook
+      ? _rememberedMode[widget.lesson.id] ??
+            (_hasBookPage ? LessonViewMode.book : LessonViewMode.grid)
+      : LessonViewMode.grid;
   late int _singleLetterIndex = widget.initialIndex;
   late int _currentPageIndex = widget.initialIndex;
 
@@ -56,7 +66,7 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
       _singleLetterIndex = index;
       _currentPageIndex = index;
       _mode = LessonViewMode.single;
-      if (_supportsBook) _lastLessonOneMode = _mode;
+      if (_supportsBook) _rememberedMode[widget.lesson.id] = _mode;
     });
   }
 
@@ -73,7 +83,7 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
   void _changeMode(LessonViewMode mode) {
     setState(() {
       _mode = mode;
-      if (_supportsBook) _lastLessonOneMode = mode;
+      if (_supportsBook) _rememberedMode[widget.lesson.id] = mode;
     });
   }
 
@@ -145,7 +155,7 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
                             ),
                         ],
                   ),
-                  if (info != null)
+                  if (info != null && !_isBookPage)
                     IconButton(
                       tooltip: 'Ders açıklaması',
                       onPressed: () => _showLessonInfo(info),
@@ -172,7 +182,12 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
         body: ReadingTextScale(
           controller: _textScale,
           child:
-              _supportsBook && _mode == LessonViewMode.book
+              _isBookPage && info != null
+                  ? BookPage(
+                    info: info,
+                    heading: kBookPageHeadings[widget.lesson.id]!,
+                  )
+                  : _supportsBook && _mode == LessonViewMode.book
                   ? LessonOneBook(
                     letters: letters,
                     onTapLetter: _playLetterSound,
@@ -268,11 +283,17 @@ class _LessonInfoDialog extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 18),
-                Text.rich(
-                  TextSpan(children: info.body),
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyLarge?.copyWith(height: 1.5),
+                // Long explanations (with tables) must scroll, most of all on
+                // a phone held sideways.
+                Flexible(
+                  child: SingleChildScrollView(
+                    child: Text.rich(
+                      TextSpan(children: info.body),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyLarge?.copyWith(height: 1.5),
+                    ),
+                  ),
                 ),
                 Align(
                   alignment: Alignment.centerRight,

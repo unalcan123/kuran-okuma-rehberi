@@ -2,6 +2,22 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_text_theme.dart';
+import '../widgets/waqf_examples_table.dart';
+import '../models/arabic_letter.dart';
+import '../models/word_highlight.dart';
+import '../widgets/word_grid_table.dart';
+import 'el_takisi_hemze_data.dart';
+import 'el_takisi_hemze_vasil_data.dart';
+import 'el_takisi_okunan_data.dart';
+import 'el_takisi_okunmayan_data.dart';
+import 'zamir_he_uzatilmasi_data.dart';
+import 'zamir_he_uzatma_med_data.dart';
+import 'zamir_he_uzatma_yok_cezimli_data.dart';
+import 'zamir_he_uzatma_yok_cezimli_seddeli_data.dart';
+import 'zamir_he_uzatma_yok_data.dart';
+import '../models/waqf_example.dart';
+import 'kapali_te_data.dart';
+import 'kelime_sonu_duraklar_data.dart';
 
 /// Rich "ders açıklaması" content shown from the info (ⓘ) button on a
 /// lesson screen. Adapted from the original Elifbe2025 project's
@@ -13,7 +29,15 @@ class LessonInfo {
   final String title;
   final List<InlineSpan> body;
 
-  const LessonInfo({required this.title, required this.body});
+  /// True when the first span only restates the heading of the lesson's
+  /// book page (Ders 33), so the page leaves it out.
+  final bool firstSpanIsBookHeading;
+
+  const LessonInfo({
+    required this.title,
+    required this.body,
+    this.firstSpanIsBookHeading = false,
+  });
 }
 
 TextSpan _n(String text, {double height = 1.5}) => TextSpan(
@@ -44,6 +68,40 @@ TextSpan _ar(String text, {double fontSize = 26, Color? color}) => TextSpan(
     fontSize: fontSize,
   ).copyWith(color: color ?? AppColors.red, height: 1.9),
 );
+
+/// A "Durulduğunda / Geçildiğinde" table, like the ones in the book.
+WidgetSpan _table(List<WaqfExample> examples) => WidgetSpan(
+  child: SizedBox(
+    width: double.infinity,
+    child: WaqfExamplesTable(examples: examples),
+  ),
+);
+
+/// A grid of the book's example words (the lesson's own words, tappable).
+WidgetSpan _grid(
+  List<ArabicLetter> words, {
+  WordHighlight highlight = WordHighlight.none,
+  int columns = 3,
+  double minCellWidth = 150,
+}) => WidgetSpan(
+  child: SizedBox(
+    width: double.infinity,
+    child: WordGridTable(
+      words: words,
+      highlight: highlight,
+      columns: columns,
+      minCellWidth: minCellWidth,
+    ),
+  ),
+);
+
+/// Every second word of [words], starting at [start] (0 or 1).
+List<ArabicLetter> _everyOther(List<ArabicLetter> words, int start) => [
+  for (var i = start; i < words.length; i += 2) words[i],
+];
+
+/// The word "He" in red bold, as the book prints it.
+final TextSpan _he = _b('He', color: AppColors.red);
 
 final Map<String, LessonInfo> kLessonInfo = {
   'harfleri-taniyalim': LessonInfo(
@@ -276,127 +334,264 @@ final Map<String, LessonInfo> kLessonInfo = {
   'el-takisi-okunan': LessonInfo(
     title: 'El Takısı - Okunan Harfler',
     body: [
-      _b('Kendisinden sonra gelen harf, Lâm’ın nasıl okunacağını belirler:\n\n'),
-      _ar('ء ب ج ح خ ع غ ف ق ك م و هـ ى', fontSize: 26),
-      _b('\n\nBu harflerden biri gelirse Lâm cezimli olarak okunur — bunlar kameri harflerdir.'),
+      _n('Bir kelimede önce Lâm '),
+      _ar('(ل)', fontSize: 24),
+      _n(', sonra Elif '),
+      _ar('(ا)', fontSize: 24),
+      _n(' yazılması gerektiğinde, bunun için Lâmelif’in '),
+      _ar('(لا)', fontSize: 24),
+      _n(' kullanıldığını görmüştük.\n\n'),
+      _n('Eğer önce Elif '),
+      _ar('(ا)', fontSize: 24),
+      _n(', sonra cezimli Lâm '),
+      _ar('(لْ)', fontSize: 24),
+      _n(' kelimenin başında bulunursa; buna '),
+      _b('Elif-Lâm takısı'),
+      _n(' veya kısaca '),
+      _b('El takısı '),
+      _ar('(اَلْ)', fontSize: 24),
+      _n(' denir.\n\n'),
+      _n('Lâm '),
+      _ar('(ل)', fontSize: 24),
+      _n('’dan önceki Elif '),
+      _ar('(ا)', fontSize: 24),
+      _n(', burada '),
+      _b('Hemze'),
+      _n(
+        ' pozisyonundadır. Çünkü harekeli okunabilecek bir konumdadır. Uzatma görevi olmayan, harekeli Elif’lere ',
+      ),
+      _b('Hemze'),
+      _n(' dendiğini unutmayalım.\n\n'),
+      _n('Kendisinden sonra gelen harf, Lâm’ın nasıl okunacağını belirler.\n\nBuna göre:\n'),
+      _ar('(أَبْغِ حَجَّكَ وَخَفْ عَقِيمَهُ)', fontSize: 28),
+      _n('\ncümlesini oluşturan\n'),
+      _ar('(ء ب ج ح خ ع غ ف ق ك م و هـ ى)', fontSize: 28),
+      _n('\nHarflerinden biri gelirse; '),
+      _b('Lâm cezimli olarak okunur.', color: AppColors.red),
+      _n('\nBu harfler, tamamı 28 olan Kur’an harflerinin yarısıdır.\n\n'),
+      _b('Örnekler:\n', color: AppColors.gold),
+      _grid(
+        kElTakisiOkunanWords,
+        highlight: WordHighlight.elLam,
+        columns: 4,
+        minCellWidth: 90,
+      ),
     ],
   ),
 
   'el-takisi-okunmayan': LessonInfo(
     title: 'El Takısı - Okunmayan Harfler',
     body: [
-      _b('Lâm’dan sonra geriye kalan 14 harften\n', color: AppColors.red),
-      _ar('ض ص ش س ز ر د ذ ت ث ط ظ ل ن', fontSize: 24, color: AppColors.textPrimary),
-      _b('\n\nbiri geldiğinde ise '),
-      _b('Lâm okunmaz. ', color: AppColors.red),
-      _b('Sonraki harf mutlaka şeddeli okunur — bunlar şemsi harflerdir.'),
+      _n('Geriye kalan 14 harften\n'),
+      _ar('(ض ص ش س ز ر د ذ ت ث ط ظ ل ن)', fontSize: 28),
+      _n('\nbiri geldiğinde ise; '),
+      _b('Lâm okunmaz.', color: AppColors.red),
+      _n(' Sonraki harf mutlaka şeddeli okunur.\n\n'),
+      _b('Örnekler:\n', color: AppColors.gold),
+      _grid(
+        kElTakisiOkunmayanWords,
+        highlight: WordHighlight.elLam,
+        columns: 4,
+        minCellWidth: 90,
+      ),
     ],
   ),
 
   'el-takisi-hemze': LessonInfo(
     title: 'El Takısı ve Hemze',
     body: [
-      _b('Lâm’dan önce gelen hemze\n\n'),
-      _n(
-        'Bir önceki harften veya kelimeden geçiş yapılırken el takısındaki hemze okunmaz. Ancak öncesiyle birleşmeden, kelime başında ilk harf olarak okunursa hemze her zaman üstünlü olarak okunur.',
-      ),
+      _b('El takısı '),
+      _ar('(اَلْ)', fontSize: 24),
+      _n('’ndaki Lâm’ın, iki şekildeki farklı okunuşunu görmüş olduk.\n\n'),
+      _n('Lâm’dan önceki '),
+      _b('Hemze'),
+      _n('’ye gelince;\n\n'),
+      _n('• Bir önceki harften veya kelimeden geçiş yaparken, '),
+      _b('El takısı '),
+      _ar('(اَلْ)', fontSize: 24),
+      _n('’ndaki '),
+      _b('Hemze okunmaz.', color: AppColors.red),
+      _n(' Örnekler:\n'),
+      _grid(kElTakisiHemzeWords.sublist(0, 6), highlight: WordHighlight.elAlif),
+      _n('\n\n'),
+      _n('• Eğer okumaya '),
+      _b('El takısı '),
+      _ar('(اَلْ)', fontSize: 24),
+      _n('’nın Hemze’siyle başlanırsa, bu durumda '),
+      _b('Hemze her zaman üstünlü olarak okunur.', color: AppColors.red),
+      _n(' Örnekler:\n'),
+      _grid(kElTakisiHemzeWords.sublist(6), highlight: WordHighlight.elAlif),
+      _n('\n\n'),
+      _n('• Harekesi kalıcı olmadığından dolayı bu Hemze’yi '),
+      _b('Vasıl Hemze'),
+      _n('’si olarak tanımlamak daha doğrudur.'),
     ],
   ),
 
   'el-takisi-hemze-vasil': LessonInfo(
     title: 'El Takısı - Hemze-i Vasıl',
     body: [
-      _b('Okunmayan Hemze (Vasıl Hemzesi)\n\n', color: AppColors.gold),
+      _n('Kelime başında bulunan bazı '),
+      _b('Hemze'),
       _n(
-        'Kelime başında bulunan bazı hemzeler, önceki kelime veya harfle beraber okunurken harekesi düşer; orada sanki bir hemze yokmuş gibi okunur. Hareketsiz elif (ا) şeklinde yazılır ve küçük bir vasıl işareti (ٱ) konulur.\n\n',
+        '’ler, önceki kelime veya harfle beraber okunurken harekesi düşer, orada sanki bir hemze yokmuş gibi okunur.\n\n',
       ),
+      _n('Harekesiz Elif '),
+      _ar('(ا)', fontSize: 24),
+      _n(' şeklinde yazılır. Bazen üzerine, okunmadığını gösteren küçük bir “vasıl işareti” '),
+      _ar('(ٱ)', fontSize: 24),
+      _n(' konur.\nBu durumdaki hemzelere '),
+      _b('Vasıl Hemzesi', color: AppColors.red),
+      _n(' denir. Örnekler:\n'),
+      // The lesson lists each word twice: read on with the previous word
+      // (odd entries here) and read first (even entries).
+      _grid(_everyOther(kElTakisiHemzeVasilWords, 1), highlight: WordHighlight.vasl),
+      _n('\n\n'),
       _n(
-        'Eğer öncesiyle beraber değil de kelime başında ilk harf olarak okunursa, harekesi verilerek okunur.',
+        'Eğer öncesiyle beraber değil de, kelime başında ilk harf olarak okunursa; harekesi verilerek okunur. Örnekler:\n',
       ),
+      _grid(_everyOther(kElTakisiHemzeVasilWords, 0), highlight: WordHighlight.firstLetter),
+      _n('\n\n'),
+      _n('Her Elif-Lâm takısı '),
+      _ar('(اَلْ)', fontSize: 24),
+      _n('’nın Elif’inin de böyle olduğunu bir önceki derste görmüştük.'),
     ],
   ),
 
   'zamir-he-uzatilmasi': LessonInfo(
     title: 'Zamir (He) Uzatılması',
     body: [
-      _b('Zamir “He” (هُ - هِ) nin uzatılması\n\n', color: AppColors.gold),
-      _n(
-        'He’den önceki harf harekeli ise uzatılarak okunur. Ne kadar uzatılacağını He’den sonra gelen harf belirler:\n\n',
-      ),
-      _n('• Uzatılan He’den sonra hemze gelirse '),
-      _b('4 hareke '),
-      _n('miktarı uzatılır.\n'),
-      _n('• Hemze dışında herhangi bir harf gelirse '),
-      _b('2 hareke '),
-      _n('miktarı uzatılır.'),
+      _b('He Harfi Hangi Durumlarda Uzatılır?\n\n', color: AppColors.gold),
+      _he,
+      _n('’den önceki harf harekeli ise uzatılarak okunur. Ne kadar uzatılacağını ise, '),
+      _he,
+      _n('’den sonra gelen harf belirler. Şöyle ki:\n\n'),
+      _n('• Uzatılan '),
+      _he,
+      _n('’den sonra Hemze gelirse '),
+      _b('4 hareke', color: AppColors.red),
+      _n(' miktarı uzatılır. Örnekler:\n'),
+      _grid(kZamirHeUzatilmasiWords.sublist(0, 6), highlight: WordHighlight.he, minCellWidth: 200),
+      _n('\n\n'),
+      _n('• Uzatılan '),
+      _he,
+      _n('’den sonra Hemze’nin dışında herhangi bir harf gelirse '),
+      _b('2 hareke', color: AppColors.red),
+      _n(' miktarı uzatılır. Örnekler:\n'),
+      _grid(kZamirHeUzatilmasiWords.sublist(6), highlight: WordHighlight.he, minCellWidth: 200),
     ],
   ),
 
   'zamir-he-uzatma-med': LessonInfo(
     title: 'Zamir (He) - Med İle Uzatma',
     body: [
-      _b('Uzun Med İşareti (ـــ)\n\n', color: AppColors.gold),
       _n(
-        'Uzatma miktarı 2 harekenin üzerinde olan bazı med çeşitlerinin üzerinde bulunur.',
+        'Uzatma miktarı 2 harekenin üzerinde olan bazı Med çeşitlerinin üzerinde bulunur. Tecvid derslerinde ayrıntılı bilgi verilecektir.\n\n',
       ),
+      _grid(kZamirHeUzatmaMedWords, highlight: WordHighlight.med, minCellWidth: 110),
     ],
   ),
 
   'zamir-he-uzatma-yok': LessonInfo(
     title: 'Zamir (He) - Uzatma Yok',
     body: [
-      _b('He harfi hangi durumlarda uzatılmaz?\n\n'),
-      _n(
-        'He’den önce uzatma harflerinden biri gelirse He uzatılmadan okunur. He’den sonra hangi harf gelirse gelsin durum değişmez.',
-      ),
+      _b('He Harfi Hangi Durumlarda Uzatılmaz?\n\n', color: AppColors.gold),
+      _n('• '),
+      _he,
+      _n('’den önce uzatma harflerinden biri gelirse '),
+      _he,
+      _n(' uzatılmadan okunur. '),
+      _he,
+      _n('’den sonra ise, hangi harf gelirse gelsin, durumu etkilemez. Örnekler:\n'),
+      _grid(kZamirHeUzatmaYokWords, highlight: WordHighlight.he, minCellWidth: 200),
     ],
   ),
 
   'zamir-he-uzatma-yok-cezimli': LessonInfo(
     title: 'Zamir (He) - Uzatma Yok (Cezimli)',
     body: [
-      _n(
-        'He’den önce cezimli herhangi bir harf gelirse yine uzatılmadan okunur. He’den sonra hangi harf gelirse gelsin durumu etkilemez.',
-      ),
+      _n('• '),
+      _he,
+      _n('’den önce cezimli herhangi bir harf gelirse, yine uzatılmadan okunur. '),
+      _he,
+      _n('’den sonra ise, hangi harf gelirse gelsin durumu etkilemez. Örnekler:\n'),
+      _grid(kZamirHeUzatmaYokCezimliWords, highlight: WordHighlight.he, minCellWidth: 200),
     ],
   ),
 
   'zamir-he-uzatma-yok-cezimli-seddeli': LessonInfo(
     title: 'Zamir (He) - Uzatma Yok (Cezimli, Şeddeli)',
     body: [
-      _n(
-        'He harfinden önce harekeli bir harf olsa bile, önündeki kelimeye cezimli veya şeddeli bir harfe bağlanarak geçiş yapılırsa yine “He” uzatılmadan okunur.',
-      ),
+      _n('• '),
+      _he,
+      _n(' harfinden (önce harekeli bir harf olsa bile) önündeki kelimeye cezimli veya şeddeli bir harfe bağlanarak geçiş yapılırsa yine “'),
+      _he,
+      _n('” uzatılmadan okunur. Örnekler:\n'),
+      _grid(kZamirHeUzatmaYokCezimliSeddeliWords, highlight: WordHighlight.he, minCellWidth: 200),
     ],
   ),
 
   'kapali-te': LessonInfo(
     title: 'Kapalı Te',
     body: [
-      _b('Kapalı “Te” (ة - ت)\n\n', color: AppColors.gold),
-      _n(
-        'Bazen “Te” harfi “kapalı te” denilen şekilde yazılır — bu sadece kelime sonunda olur. Önceki harfe bitişirse (ة) şeklinde, bitişmediği durumlarda ise (ه) şeklinde yazılır.\n\n',
-      ),
-      _n(
-        'Sonunda kapalı te olan kelimede durulduğunda cezimli He gibi okunur. Sonraki kelimeye geçildiğinde ise yine “Te” olarak harekesiyle okunur.',
-      ),
+      _n('Bazen “Te '),
+      _ar('(ت)', fontSize: 26),
+      _n('” harfi, “Kapalı Te” denilen şekilde yazılır: '),
+      _ar('(ة ، ـة)', fontSize: 26),
+      _n('. Bu sadece kelime sonunda olur.\n\n'),
+      _n('Önceki harfe bitişirse '),
+      _ar('(ـة)', fontSize: 26),
+      _n(' şeklinde, bitişmediği durumlarda ise '),
+      _ar('(ة)', fontSize: 26),
+      _n(' şeklinde yazılır.\n\n'),
+      _n('Sonunda “Kapalı Te” olan kelimede durulduğunda cezimli He '),
+      _ar('(ـهْ)', fontSize: 26),
+      _n(' gibi okunur. Sonraki kelimeye geçildiğinde ise yine '),
+      _b('“Te”', color: AppColors.red),
+      _n(' olarak, harekesiyle okunur.\n\n'),
+      _b('Örneklerle uygulamayı görelim:\n', color: AppColors.gold),
+      _table(kKapaliTeExamples),
     ],
   ),
 
   'kelime-sonu-duraklar': LessonInfo(
     title: 'Kelime Sonu Durakları (Duruş)',
+    firstSpanIsBookHeading: true,
     body: [
       _b(
         'Kelime sonundaki harekeli harfte nasıl durulur?\n\n',
         color: AppColors.gold,
       ),
+      _n('Kur’an okurken, genellikle:\n'),
       _n(
-        'Kur’an okurken genellikle ayet sonlarında, durak işaretlerinde veya nefes almamız gerektiğinde dururuz. Bu duruş sadece kelime sonlarında olabilir.\n\n',
+        '• ayet sonlarında,\n• durak işaretlerinde\n• veya nefes almamız gerektiğinde dururuz. (Bu duruş da, sadece kelime sonlarında olabilir.)\n\n',
       ),
-      _b('Üstün, esre veya ötre harekeleri ile duruş yapılmaz.\n\n', color: AppColors.red),
+      _b('Üstün, Esre veya Ötre harekeleri ile duruş yapılmaz. ', color: AppColors.red),
       _n(
-        'Kelime sonundaki harf sakin değilse harekesi okunmaz ve harf sanki üzerinde cezim varmış gibi okunur. Tenvinli harflerde elif ile yazılıysa tek üstünle iki hareke uzatılır; iki esre veya iki ötrede ise cezimle durulur.',
+        'Kelime sonundaki harf sakin değilse (yani cezimli bir harf veya uzatma harfi değilse); harekesi okunmaz ve harf, sanki üzerinde cezim varmış gibi okunur.\n\n',
       ),
+      _b('Örnekler:\n', color: AppColors.gold),
+      _table(kWaqfHarekeliExamples),
+      _n('\n\n'),
+      _b('Tenvinlilerde ise uygulama şöyledir;\n\n'),
+      _n(
+        '• Elif ile birlikte yazılan “İki Üstün”lü de; Üstün’ün biri kaldırılır. Harf, tek üstün ile, iki hareke miktarı uzatılarak okunur.\n\n',
+      ),
+      _b('Örnekler:\n', color: AppColors.gold),
+      _table(kWaqfElifliTenvinExamples),
+      _n('\n\n'),
+      _n(
+        '• Elifsiz yazılan “İki Üstün”lü bir Hemzede durulduğunda da yanında elif varmış gibi, iki hareke miktarı uzatılarak okunur.\n\n',
+      ),
+      _b('Örnekler:\n', color: AppColors.gold),
+      _table(kWaqfHemzeTenvinExamples),
+      _n('\n\n'),
+      _n('• İki Esre veya İki Ötreli harflerde ise, Cezim’le durulur.\n\n'),
+      _b('Örnekler:\n', color: AppColors.gold),
+      _table(kWaqfIkiEsreOtreExamples),
+      _n('\n\n'),
+      _b('Diğer bazı örnekler:\n', color: AppColors.gold),
+      _table(kWaqfOtherExamples),
     ],
   ),
 

@@ -19,6 +19,9 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   Hasenat fontu `AppTextTheme`), breakpoint'ler `lib/core/responsive.dart`.
 - Sakin eğitim uygulaması: arcade/neon yok, çocuğu cezalandıran geri bildirim yok.
 - Sağ üstteki yazı boyutu ayarı büyüdükçe harf/sure/dua ızgaralarında sütunlar **birer birer** azalır (kartın asgari genişliği yazı boyutuyla çarpılır; tek sütuna atlamaz). Test: `test/reading_columns_test.dart`.
+- Elifba harf kartı: dokununca ses, **basılı tutunca** Tek Harf sayfası (çift dokunma yok; onDoubleTap tek dokunuşu geciktirir). Test: `test/letter_card_gesture_test.dart`.
+- **Ders 23-33 kitap sayfası gibi açılır** (`BookPage`, `lib/screens/elifba/widgets/book_page.dart`; başlıklar `kBookPageHeadings`): kitaptaki açıklama metni + örnek tabloları, kelimeye dokununca ses. Metin `lib/data/lesson_info_data.dart` (ⓘ penceresi aynı içeriği gösterir); "Durulduğunda / Geçildiğinde" tabloları `WaqfExamplesTable` (Ders 32-33), kelime ızgaraları `WordGridTable` (Ders 23-31, kırmızı işaret kuralları `lib/models/word_highlight.dart`). Örnekler dersin **kendi kelime listesinden** gelir (Arapça tek yerde). Kaynak: `assets/lazim/ELIF BA BASKI DENEME 2012.pdf` s. 50-59 (PDF git'e girmez; sayfaları görmek için PyMuPDF ile PNG'ye çevir; Arapça harekeleri gözle doğrula). Sırada: Ders 1-22'nin kitap sayfaları ve kelime kontrolü (s. 2-49). Testler: `test/book_pages_test.dart`, `test/kelime_sonu_duraklar_test.dart`.
+- Tuzak: `Table`'da tüm hücreler `TableCellVerticalAlignment.fill` ise satır yüksekliği 0 olur ve tablo kaybolur (testte "var" görünür) — widget testleri **boyutu** da denesin. Kaynak metinde harekelerin sırası (şedde/üstün) farklı yazılabilir; aynı kelimeyi iki yerde yazma.
 - Eski uygulama `D:\Elifbe2025` **yalnızca okunur referans**; içeriği birebir kopyalama.
 
 ## Yayın (GitHub + web) — yapıldı, 2026-09-19

@@ -11,9 +11,12 @@ import 'mahrec_banner.dart';
 
 /// A single large letter card for the "Tüm Harfler" grid.
 ///
-/// Tap plays the letter's sound; long-press or double-tap opens it in
-/// the full-focus "Tek Harf" pager. There is deliberately no separate
-/// icon for that second action — it stays a plain, uncluttered card.
+/// Tap plays the letter's sound; pressing and holding opens it in the
+/// full-focus "Tek Harf" pager. Two quick taps do NOT open it (they just
+/// play the sound twice), and having no double-tap handler also means a
+/// tap plays at once instead of waiting to see if a second one follows.
+/// There is deliberately no separate icon for the second action — it stays
+/// a plain, uncluttered card.
 class LetterCard extends StatefulWidget {
   final ArabicLetter letter;
   final VoidCallback onTap;
@@ -65,7 +68,6 @@ class _LetterCardState extends State<LetterCard> {
         onTapCancel: () => setState(() => _pressed = false),
         onTap: _handleTap,
         onLongPress: widget.onOpenDetail,
-        onDoubleTap: widget.onOpenDetail,
         child: AnimatedScale(
           scale: _pressed ? 0.94 : 1.0,
           duration: const Duration(milliseconds: 100),

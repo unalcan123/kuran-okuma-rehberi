@@ -7,8 +7,8 @@ const String _ders31AudioDir = 'audio/elifba/ders_31_zamir_he_uzatma_yok_cezimli
 const List<ArabicLetter> kZamirHeUzatmaYokCezimliSeddeliWords = [
   ArabicLetter(order: 1, isolatedForm: 'أَنَّهُ الْحَقُّ', audioAsset: '$_ders31AudioDir/01_kelime.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'لَهُ الْمُلْكُ', audioAsset: '$_ders31AudioDir/02_kelime.mp3'),
-  ArabicLetter(order: 3, isolatedForm: 'لَهُ اتَّقِ اللّٰهُ', audioAsset: '$_ders31AudioDir/03_kelime.mp3'),
-  ArabicLetter(order: 4, isolatedForm: 'هَزِهِ الْقَرْيَةِ', audioAsset: '$_ders31AudioDir/04_kelime.mp3'),
+  ArabicLetter(order: 3, isolatedForm: 'لَهُ اتَّقِ اللَّهَ', audioAsset: '$_ders31AudioDir/03_kelime.mp3'),
+  ArabicLetter(order: 4, isolatedForm: 'هَذِهِ الْقَرْيَةِ', audioAsset: '$_ders31AudioDir/04_kelime.mp3'),
   ArabicLetter(order: 5, isolatedForm: 'لِقَوْمِهِ اسْتَعِينُوا', audioAsset: '$_ders31AudioDir/05_kelime.mp3'),
   ArabicLetter(order: 6, isolatedForm: 'بِهِ الْمَآءَ', audioAsset: '$_ders31AudioDir/06_kelime.mp3'),
 ];

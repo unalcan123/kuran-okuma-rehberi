@@ -11,10 +11,10 @@ const List<ArabicLetter> kElTakisiHemzeVasilWords = [
   ArabicLetter(order: 4, isolatedForm: 'فَٱذْهَبْ', audioAsset: '$_ders26AudioDir/04_kelime.mp3'),
   ArabicLetter(order: 5, isolatedForm: 'اِغْفِرْ', audioAsset: '$_ders26AudioDir/05_kelime.mp3'),
   ArabicLetter(order: 6, isolatedForm: 'وَٱغْفِرْ', audioAsset: '$_ders26AudioDir/06_kelime.mp3'),
-  ArabicLetter(order: 7, isolatedForm: 'اَلَّزِى', audioAsset: '$_ders26AudioDir/07_kelime.mp3'),
-  ArabicLetter(order: 8, isolatedForm: 'وَٱلَّزِي', audioAsset: '$_ders26AudioDir/08_kelime.mp3'),
+  ArabicLetter(order: 7, isolatedForm: 'اَلَّذِى', audioAsset: '$_ders26AudioDir/07_kelime.mp3'),
+  ArabicLetter(order: 8, isolatedForm: 'وَٱلَّذِي', audioAsset: '$_ders26AudioDir/08_kelime.mp3'),
   ArabicLetter(order: 9, isolatedForm: 'اِهْبِطُوا', audioAsset: '$_ders26AudioDir/09_kelime.mp3'),
-  ArabicLetter(order: 10, isolatedForm: 'قُلْنَاٱهْبِطُوا', audioAsset: '$_ders26AudioDir/10_kelime.mp3'),
+  ArabicLetter(order: 10, isolatedForm: 'قُلْنَا ٱهْبِطُوا', audioAsset: '$_ders26AudioDir/10_kelime.mp3'),
   ArabicLetter(order: 11, isolatedForm: 'اِمْرِئٍ', audioAsset: '$_ders26AudioDir/11_kelime.mp3'),
   ArabicLetter(order: 12, isolatedForm: 'لِكُلِّ ٱمْرِئٍ', audioAsset: '$_ders26AudioDir/12_kelime.mp3'),
 ];
