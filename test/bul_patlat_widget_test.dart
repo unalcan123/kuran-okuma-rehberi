@@ -44,6 +44,10 @@ void main() {
   }
 
   Future<void> start(WidgetTester tester) async {
+    // Küçük ekranlarda giriş paneli kaydırılabilir; BAŞLA görünür alanın
+    // dışında kalabilir (ör. seviye seçiciyle birlikte).
+    await tester.ensureVisible(find.text('BAŞLA'));
+    await tester.pump();
     await tester.tap(find.text('BAŞLA'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
