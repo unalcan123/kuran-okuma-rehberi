@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../helpers/colored_arabic_text.dart';
 import '../../../../models/arabic_letter.dart';
 import '../../../../theme/app_colors.dart';
 import '../../../../theme/app_text_theme.dart';
@@ -150,7 +151,7 @@ class SoundSlot extends StatelessWidget {
         fit: BoxFit.scaleDown,
         child: Padding(
           padding: EdgeInsets.all(size * 0.14),
-          child: Text(
+          child: ColoredArabicText(
             letter.isolatedForm,
             textDirection: TextDirection.rtl,
             style: AppTextTheme.arabicLetter(fontSize: size * 0.56),

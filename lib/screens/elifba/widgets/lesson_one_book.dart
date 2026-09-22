@@ -1,5 +1,6 @@
 import '../../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
+import '../../../helpers/colored_arabic_text.dart';
 import '../../../models/arabic_letter.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
@@ -161,7 +162,7 @@ class LessonOneBook extends StatelessWidget {
                                           child: Center(
                                             child: ReadingFittedBox(
                                               fit: BoxFit.scaleDown,
-                                              child: Text(
+                                              child: ColoredArabicText(
                                                 letter.isolatedForm,
                                                 textDirection:
                                                     TextDirection.rtl,

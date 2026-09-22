@@ -11,6 +11,7 @@ import '../profil/record_result.dart';
 import '../profil/skor_tablosu_sayfasi.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../../helpers/colored_arabic_text.dart';
 import '../../../../models/game_score.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -472,7 +473,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
                             width: b.size * 0.72,
                             child: FittedBox(
                               fit: BoxFit.scaleDown,
-                              child: Text(
+                              child: ColoredArabicText(
                                 b.letter.char,
                                 textDirection: TextDirection.rtl,
                                 style: lessonArabicStyle(

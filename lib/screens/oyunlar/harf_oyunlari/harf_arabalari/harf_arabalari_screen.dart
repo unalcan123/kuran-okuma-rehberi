@@ -11,6 +11,7 @@ import '../profil/record_result.dart';
 import '../profil/skor_tablosu_sayfasi.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../../helpers/colored_arabic_text.dart';
 import '../../../../models/game_score.dart';
 
 import 'harf_arabalari_engine.dart';
@@ -416,7 +417,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       // Harf tek Text: birleşim ve harekeler bozulmaz.
-                      child: Text(
+                      child: ColoredArabicText(
                         c.letter.char,
                         textDirection: TextDirection.rtl,
                         style: lessonArabicStyle(

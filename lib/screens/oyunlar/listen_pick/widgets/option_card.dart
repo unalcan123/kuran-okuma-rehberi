@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../helpers/colored_arabic_text.dart';
 import '../../../../models/arabic_letter.dart';
 import '../../../../theme/app_colors.dart';
 import '../../../../theme/app_text_theme.dart';
@@ -96,7 +97,7 @@ class OptionCard extends StatelessWidget {
                               ),
                               child: FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child: Text(
+                                child: ColoredArabicText(
                                   text,
                                   textDirection: TextDirection.rtl,
                                   style: optionTextStyle(fontSize),

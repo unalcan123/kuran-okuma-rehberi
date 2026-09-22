@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core/responsive.dart';
 import '../../../data/drag_drop_game_data.dart';
+import '../../../helpers/colored_arabic_text.dart';
 import '../../../models/game_score.dart';
 import '../../../services/game_score_store.dart';
 import '../../../theme/app_colors.dart';
@@ -167,7 +168,7 @@ class _LevelCard extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         child: Align(
                           alignment: AlignmentDirectional.centerEnd,
-                          child: Text(
+                          child: ColoredArabicText(
                             level.letters!
                                 .map((letter) => letter.isolatedForm)
                                 .join('   '),

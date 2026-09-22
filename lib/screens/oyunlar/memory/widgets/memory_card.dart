@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../../../helpers/colored_arabic_text.dart';
 import '../../../../models/arabic_letter.dart';
 import '../../../../theme/app_colors.dart';
 import '../../../../theme/app_text_theme.dart';
@@ -139,7 +140,7 @@ class MemoryCard extends StatelessWidget {
               ),
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text(
+                child: ColoredArabicText(
                   letter.isolatedForm,
                   textDirection: TextDirection.rtl,
                   style: AppTextTheme.arabicLetter(fontSize: size * 0.5),

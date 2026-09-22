@@ -45,11 +45,16 @@ void main() {
       );
       await tester.pumpAndSettle();
       final card = tester.getRect(find.byType(LetterCard));
+      // Hareke/kalın harf renklendirmesi olan kelimeler için ArabicGlyph
+      // içeride birkaç RichText (taban + renk katmanları) üretebilir; hepsi
+      // aynı boyut/konumdadır, ilki bu ölçüm için yeterli.
       final text = tester.renderObject<RenderBox>(
-        find.descendant(
-          of: find.byType(LetterCard),
-          matching: find.byType(RichText),
-        ),
+        find
+            .descendant(
+              of: find.byType(LetterCard),
+              matching: find.byType(RichText),
+            )
+            .first,
       );
       final topLeft = text.localToGlobal(Offset.zero);
       final bottomRight = text.localToGlobal(
