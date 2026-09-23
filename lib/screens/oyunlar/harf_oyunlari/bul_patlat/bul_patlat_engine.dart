@@ -105,19 +105,8 @@ class BpGameOver extends BpEvent {
   final BpEndReason reason;
 }
 
-class BpLevelSettings {
-  const BpLevelSettings({
-    required this.speedStart,
-    required this.speedEnd,
-    required this.spawnMin,
-    required this.spawnMax,
-  });
-
-  final double speedStart;
-  final double speedEnd;
-  final double spawnMin;
-  final double spawnMax;
-}
+/// Seviye ayarı (ortak: [GameLevelSettings]).
+typedef BpLevelSettings = GameLevelSettings;
 
 class BulPatlatEngine {
   BulPatlatEngine({

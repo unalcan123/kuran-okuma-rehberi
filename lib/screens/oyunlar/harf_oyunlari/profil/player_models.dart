@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../services/leaderboard/leaderboard_models.dart';
 
 /// Oyun kimlikleri. Her oyun için ayrı skor tablosu bu kimlikle tutulur; ileride
 /// "Genel Skor" bu kimliklerin toplanmasıyla eklenebilir (şimdi yok).
@@ -11,6 +12,33 @@ class GameIds {
   /// Skor tablosu olan oyunlar (sıra, tablodaki sekme sırasıdır).
   static const List<String> leaderboardGames = [bulPatlat, harfArabalari];
 }
+
+/// Çevrimiçi sıralamaya bağlı oyunlar ve kabul edilen sonuç sınırları.
+/// Yeni oyun eklemek: buraya bir satır + `firestore.rules` → `gameLimits()`
+/// (test ikisinin aynı olduğunu denetler).
+///
+/// Kodla kesin olanlar: puan kuralı (bkz. [OnlineScore]), doğru ≤ toplam öğe,
+/// Bul & Patlat'ta 5 hedef kaçınca oyun biter (`maxMissed`). Oyun 120 sn sürer;
+/// hedef balon/araba ekrana alttan/soldan girip görünür olmadan dokunulamaz.
+/// Oyun kodunda doğru sayısına kesin bir tavan olmadığı için mutlak üst sınır
+/// cömert tutuldu: 120 sn'de en çok saniyede 2 doğru = 240 doğru →
+/// 240 × 50 / 3 = 4000 puan. Gerçek skorlar görüldükçe düşürülebilir.
+const Map<String, OnlineGameLimits> kOnlineLeaderboardGames = {
+  GameIds.bulPatlat: OnlineGameLimits(
+    maxScore: 4000,
+    maxCorrect: 240,
+    maxWrong: 1000,
+    maxMissed: 5,
+    maxTotalItems: 1000,
+  ),
+  GameIds.harfArabalari: OnlineGameLimits(
+    maxScore: 4000,
+    maxCorrect: 240,
+    maxWrong: 1000,
+    maxMissed: 240,
+    maxTotalItems: 1000,
+  ),
+};
 
 /// Çocuk için güvenli, fotoğrafsız avatar seçenekleri.
 class PlayerAvatar {
@@ -197,4 +225,11 @@ class LeaderboardEntry {
 }
 
 /// Oyuncu adı doğrulama sonuçları.
-enum PlayerNameError { empty, tooLong, taken }
+enum PlayerNameError {
+  empty,
+  tooShort,
+  tooLong,
+  invalidChars,
+  notAllowed,
+  taken,
+}

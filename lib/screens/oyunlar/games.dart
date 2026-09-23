@@ -100,7 +100,10 @@ final List<GameEntry> kGames = [
     // Her seviyenin geçmişi ayrı tutulur (hız farklı).
     variants: [
       GameVariant(key: '${GameIds.bulPatlat}.l1', title: 'Seviye 1 · Yavaş'),
-      GameVariant(key: '${GameIds.bulPatlat}.l2', title: 'Seviye 2 · Biraz Hızlı'),
+      GameVariant(
+        key: '${GameIds.bulPatlat}.l2',
+        title: 'Seviye 2 · Biraz Hızlı',
+      ),
       GameVariant(key: '${GameIds.bulPatlat}.l3', title: 'Seviye 3 · Hızlı'),
     ],
   ),
@@ -112,6 +115,17 @@ final List<GameEntry> kGames = [
     background: AppColors.goldSoft,
     foreground: AppColors.gold,
     builder: (_) => const HarfArabalariOyunu(),
-    variants: [GameVariant(key: GameIds.harfArabalari, title: 'Harf Arabaları')],
+    // Her seviyenin geçmişi ayrı (seviye 2 = ilk sürümün hızı, eski anahtar).
+    variants: [
+      GameVariant(
+        key: '${GameIds.harfArabalari}.l1',
+        title: 'Seviye 1 · Yavaş',
+      ),
+      GameVariant(key: GameIds.harfArabalari, title: 'Seviye 2 · Biraz Hızlı'),
+      GameVariant(
+        key: '${GameIds.harfArabalari}.l3',
+        title: 'Seviye 3 · Hızlı',
+      ),
+    ],
   ),
 ];

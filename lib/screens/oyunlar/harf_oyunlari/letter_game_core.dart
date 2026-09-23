@@ -2,6 +2,23 @@ import 'dart:math' as math;
 
 import 'game_letters.dart';
 
+/// Harf oyunlarında bir seviyenin hızı: hareket hızı (oyun alanının saniyede
+/// kesri) oyun boyunca `speedStart` → `speedEnd` arasında hafifçe artar; yeni
+/// öğe `spawnMin`–`spawnMax` saniyede bir gelir.
+class GameLevelSettings {
+  const GameLevelSettings({
+    required this.speedStart,
+    required this.speedEnd,
+    required this.spawnMin,
+    required this.spawnMax,
+  });
+
+  final double speedStart;
+  final double speedEnd;
+  final double spawnMin;
+  final double spawnMax;
+}
+
 /// "Sesi dinle, doğru harfi bul" oyunlarının ortak çekirdeği: dengeli hedef
 /// torbası, puan/seri, istatistikler ve benzer harfli çeldirici seçimi.
 /// Hareket/çizim oyuna özeldir (balon, araba…); kurallar burada tek yerdedir.

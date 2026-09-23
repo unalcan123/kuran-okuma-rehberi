@@ -118,6 +118,7 @@ class GameResultPanel extends StatelessWidget {
     this.onLeaderboard,
     this.playerName,
     this.extra,
+    this.online,
   });
 
   final String title;
@@ -135,6 +136,9 @@ class GameResultPanel extends StatelessWidget {
 
   /// TEKRAR OYNA'nın üstünde gösterilecek ek içerik (örn. seviye seçici).
   final Widget? extra;
+
+  /// İstatistiklerin altındaki çevrimiçi "Genel Sıralama" bölümü.
+  final Widget? online;
 
   @override
   Widget build(BuildContext context) {
@@ -215,6 +219,7 @@ class GameResultPanel extends StatelessWidget {
               fontSize: 12,
             ),
           ),
+          if (online != null) online!,
           if (extra != null) ...[const SizedBox(height: 10), extra!],
           const SizedBox(height: 14),
           FilledButton.icon(

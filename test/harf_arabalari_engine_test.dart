@@ -93,105 +93,155 @@ void main() {
         expect(e.carHeight, lessThanOrEqualTo(e.laneHeight), reason: s.key);
         laneCounts[s.key] = e.lanes;
       }
-      expect(laneCounts['tablet dikey']!, greaterThan(laneCounts['telefon yatay']! - 1));
+      expect(
+        laneCounts['tablet dikey']!,
+        greaterThan(laneCounts['telefon yatay']! - 1),
+      );
     });
 
-    test('farklı şeritler kullanılır ve aynı şeritte arabalar hiç üst üste binmez',
-        () {
-      for (final size in const [[360.0, 560.0], [800.0, 1000.0], [1000.0, 500.0]]) {
-        final usedLanes = <int>{};
-        var minGap = double.infinity;
-        for (final seed in [1, 2, 3]) {
-          final e = _engine(seed: seed, w: size[0], h: size[1]);
-          e.start();
-          _play(e, reaction: 1.5, maxSeconds: 90, onTick: () {
-            final alive = e.cars.where((c) => !c.caught).toList();
-            for (final c in alive) {
-              usedLanes.add(c.lane);
-            }
-            for (var lane = 0; lane < e.lanes; lane++) {
-              final inLane = alive.where((c) => c.lane == lane).toList()
-                ..sort((a, b) => a.x.compareTo(b.x));
-              for (var i = 0; i + 1 < inLane.length; i++) {
-                minGap = math.min(minGap, inLane[i + 1].x - (inLane[i].x + inLane[i].width));
-              }
-            }
-          });
+    test(
+      'farklı şeritler kullanılır ve aynı şeritte arabalar hiç üst üste binmez',
+      () {
+        for (final size in const [
+          [360.0, 560.0],
+          [800.0, 1000.0],
+          [1000.0, 500.0],
+        ]) {
+          final usedLanes = <int>{};
+          var minGap = double.infinity;
+          for (final seed in [1, 2, 3]) {
+            final e = _engine(seed: seed, w: size[0], h: size[1]);
+            e.start();
+            _play(
+              e,
+              reaction: 1.5,
+              maxSeconds: 90,
+              onTick: () {
+                final alive = e.cars.where((c) => !c.caught).toList();
+                for (final c in alive) {
+                  usedLanes.add(c.lane);
+                }
+                for (var lane = 0; lane < e.lanes; lane++) {
+                  final inLane =
+                      alive.where((c) => c.lane == lane).toList()
+                        ..sort((a, b) => a.x.compareTo(b.x));
+                  for (var i = 0; i + 1 < inLane.length; i++) {
+                    minGap = math.min(
+                      minGap,
+                      inLane[i + 1].x - (inLane[i].x + inLane[i].width),
+                    );
+                  }
+                }
+              },
+            );
+          }
+          expect(usedLanes.length, greaterThanOrEqualTo(3), reason: '$size');
+          expect(
+            minGap,
+            greaterThanOrEqualTo(-0.01),
+            reason: 'şeritte üst üste binme $size',
+          );
         }
-        expect(usedLanes.length, greaterThanOrEqualTo(3), reason: '$size');
-        expect(minGap, greaterThanOrEqualTo(-0.01), reason: 'şeritte üst üste binme $size');
-      }
-    });
+      },
+    );
 
     test('ekranda aynı anda 3–6 (yaklaşık) araba; taşmaz', () {
       final e = _engine();
       e.start();
       var maxSeen = 0, sum = 0, n = 0;
-      _play(e, reaction: 2, maxSeconds: 60, onTick: () {
-        final alive = e.cars.where((c) => !c.caught).length;
-        maxSeen = math.max(maxSeen, alive);
-        sum += alive;
-        n++;
-      });
-      expect(maxSeen, lessThanOrEqualTo(e.maxAlive + 1)); // +1: hedef için zorunlu
+      _play(
+        e,
+        reaction: 2,
+        maxSeconds: 60,
+        onTick: () {
+          final alive = e.cars.where((c) => !c.caught).length;
+          maxSeen = math.max(maxSeen, alive);
+          sum += alive;
+          n++;
+        },
+      );
+      expect(
+        maxSeen,
+        lessThanOrEqualTo(e.maxAlive + 1),
+      ); // +1: hedef için zorunlu
       expect(sum / n, inInclusiveRange(2.0, 6.0));
     });
 
-    test('geçiş süresi alan genişliğinden bağımsız (geniş ekranda sürünmez)', () {
-      double crossing(double w) {
-        final e = _engine(w: w, h: 500);
-        e.start();
-        return (e.width + e.carWidth) / (e.width * e.speedFraction);
-      }
+    test(
+      'geçiş süresi alan genişliğinden bağımsız (geniş ekranda sürünmez)',
+      () {
+        double crossing(double w) {
+          final e = _engine(w: w, h: 500);
+          e.start();
+          return (e.width + e.carWidth) / (e.width * e.speedFraction);
+        }
 
-      expect((crossing(400) - crossing(1000)).abs(), lessThan(3.5));
-      expect(crossing(1000), lessThan(14)); // makul süre
-      expect(crossing(1000), greaterThan(5));
-    });
+        expect((crossing(400) - crossing(1000)).abs(), lessThan(3.5));
+        expect(crossing(1000), lessThan(14)); // makul süre
+        expect(crossing(1000), greaterThan(5));
+      },
+    );
   });
 
   group('hedef', () {
-    test('hedef harfin arabası HER ZAMAN ekranda; hiç dokunmasa da 120 sn sürer', () {
-      for (final seed in [1, 2, 3, 4]) {
-        final e = _engine(seed: seed);
-        e.start();
-        var checked = 0;
-        _play(e, tap: false, onTick: () {
-          if (e.status != HaStatus.running) return;
-          checked++;
-          expect(_targetCar(e), isNotNull,
-              reason: 'seed $seed: hedef ${e.target?.char} ekranda değil');
-        });
-        expect(e.status, HaStatus.over);
-        expect(e.elapsed, greaterThanOrEqualTo(120));
-        expect(e.missedTargets, greaterThan(3)); // kaçırılan hedefler sayılır
-        expect(checked, greaterThan(6000));
-      }
-    });
+    test(
+      'hedef harfin arabası HER ZAMAN ekranda; hiç dokunmasa da 120 sn sürer',
+      () {
+        for (final seed in [1, 2, 3, 4]) {
+          final e = _engine(seed: seed);
+          e.start();
+          var checked = 0;
+          _play(
+            e,
+            tap: false,
+            onTick: () {
+              if (e.status != HaStatus.running) return;
+              checked++;
+              expect(
+                _targetCar(e),
+                isNotNull,
+                reason: 'seed $seed: hedef ${e.target?.char} ekranda değil',
+              );
+            },
+          );
+          expect(e.status, HaStatus.over);
+          expect(e.elapsed, greaterThanOrEqualTo(120));
+          expect(e.missedTargets, greaterThan(3)); // kaçırılan hedefler sayılır
+          expect(checked, greaterThan(6000));
+        }
+      },
+    );
 
-    test('kaçırılan hedef: ilkinde aynı harfle yeni araba, sonra yeni hedef', () {
-      final e = _engine();
-      e.start();
-      final first = e.target!.char;
-      e.takeEvents();
-      var events = <HaEvent>[];
-      // İlk kaçırma
-      while (e.missedTargets == 0) {
-        e.tick(1 / 30);
-        events = e.takeEvents();
-      }
-      expect(events.whereType<HaTargetMissed>().length, 1);
-      expect(e.target!.char, first, reason: 'aynı harf yeniden gönderilir');
-      final again = events.whereType<HaTargetChanged>().toList();
-      expect(again.single.letter.char, first, reason: 'aynı ses tekrar duyulur');
-      expect(_targetCar(e), isNotNull);
-      // İkinci kaçırma → yeni hedef
-      while (e.missedTargets < 2) {
-        e.tick(1 / 30);
-      }
-      expect(e.target!.char, isNot(first));
-      expect(_targetCar(e), isNotNull);
-    });
+    test(
+      'kaçırılan hedef: ilkinde aynı harfle yeni araba, sonra yeni hedef',
+      () {
+        final e = _engine();
+        e.start();
+        final first = e.target!.char;
+        e.takeEvents();
+        var events = <HaEvent>[];
+        // İlk kaçırma
+        while (e.missedTargets == 0) {
+          e.tick(1 / 30);
+          events = e.takeEvents();
+        }
+        expect(events.whereType<HaTargetMissed>().length, 1);
+        expect(e.target!.char, first, reason: 'aynı harf yeniden gönderilir');
+        final again = events.whereType<HaTargetChanged>().toList();
+        expect(
+          again.single.letter.char,
+          first,
+          reason: 'aynı ses tekrar duyulur',
+        );
+        expect(_targetCar(e), isNotNull);
+        // İkinci kaçırma → yeni hedef
+        while (e.missedTargets < 2) {
+          e.tick(1 / 30);
+        }
+        expect(e.target!.char, isNot(first));
+        expect(_targetCar(e), isNotNull);
+      },
+    );
 
     test('dengeli hedef torbası: 28 hedefte her harf bir kez', () {
       final e = _engine();
@@ -230,56 +280,68 @@ void main() {
   });
 
   group('doğru / yanlış dokunma', () {
-    test('doğru: yakalanır (hızlanıp çıkar), +15, yeni hedef, +puan efekti', () {
-      final e = _engine();
-      e.start();
-      e.tick(3);
-      final car = _targetCar(e)!;
-      final oldTarget = e.target!.char;
-      e.takeEvents();
-      e.tap(car.id);
-      expect(car.caught, isTrue);
-      expect(e.score, 15);
-      expect(e.correct, 1);
-      expect(e.target!.char, isNot(oldTarget));
-      expect(e.floats, isNotEmpty);
-      final events = e.takeEvents();
-      expect(events.whereType<HaCaught>().single.points, 15);
-      expect(events.whereType<HaTargetChanged>().single.afterCatch, isTrue);
+    test(
+      'doğru: yakalanır (hızlanıp çıkar), +15, yeni hedef, +puan efekti',
+      () {
+        final e = _engine();
+        e.start();
+        e.tick(3);
+        final car = _targetCar(e)!;
+        final oldTarget = e.target!.char;
+        e.takeEvents();
+        e.tap(car.id);
+        expect(car.caught, isTrue);
+        expect(e.score, 15);
+        expect(e.correct, 1);
+        expect(e.target!.char, isNot(oldTarget));
+        expect(e.floats, isNotEmpty);
+        final events = e.takeEvents();
+        expect(events.whereType<HaCaught>().single.points, 15);
+        expect(events.whereType<HaTargetChanged>().single.afterCatch, isTrue);
 
-      // Yakalanan araba kısa sürede oyun alanından kalkar; oyun sürer.
-      final x0 = car.x;
-      for (var i = 0; i < 60; i++) {
-        e.tick(1 / 60);
-      }
-      expect(car.x, greaterThan(x0));
-      for (var i = 0; i < 60; i++) {
-        e.tick(1 / 60);
-      }
-      expect(e.cars.contains(car), isFalse);
-      expect(e.status, HaStatus.running);
-    });
+        // Yakalanan araba kısa sürede oyun alanından kalkar; oyun sürer.
+        final x0 = car.x;
+        for (var i = 0; i < 60; i++) {
+          e.tick(1 / 60);
+        }
+        expect(car.x, greaterThan(x0));
+        for (var i = 0; i < 60; i++) {
+          e.tick(1 / 60);
+        }
+        expect(e.cars.contains(car), isFalse);
+        expect(e.status, HaStatus.running);
+      },
+    );
 
-    test('yanlış: araba kaybolmaz, puan düşmez, hedef aynı, tekrar denenir', () {
-      final e = _engine();
-      e.start();
-      for (var i = 0; i < 400; i++) {
-        e.tick(0.05);
-        if (e.cars.any((c) => c.catchable && c.letter.char != e.target!.char)) break;
-      }
-      final wrong = e.cars.firstWhere((c) => c.catchable && c.letter.char != e.target!.char);
-      final target = e.target;
-      e.tap(wrong.id);
-      expect(e.wrongTaps, 1);
-      expect(e.score, 0);
-      expect(wrong.exited, isFalse);
-      expect(wrong.caught, isFalse);
-      expect(wrong.shake, 1);
-      expect(e.target, same(target));
+    test(
+      'yanlış: araba kaybolmaz, puan düşmez, hedef aynı, tekrar denenir',
+      () {
+        final e = _engine();
+        e.start();
+        for (var i = 0; i < 400; i++) {
+          e.tick(0.05);
+          if (e.cars.any(
+            (c) => c.catchable && c.letter.char != e.target!.char,
+          )) {
+            break;
+          }
+        }
+        final wrong = e.cars.firstWhere(
+          (c) => c.catchable && c.letter.char != e.target!.char,
+        );
+        final target = e.target;
+        e.tap(wrong.id);
+        expect(e.wrongTaps, 1);
+        expect(e.score, 0);
+        expect(wrong.exited, isFalse);
+        expect(wrong.caught, isFalse);
+        expect(wrong.shake, 1);
+        expect(e.target, same(target));
 
-      e.tap(_targetCar(e)!.id);
-      expect(e.score, 10, reason: 'ilk deneme bonusu yok');
-    });
+        e.tap(_targetCar(e)!.id);
+        expect(e.score, 10, reason: 'ilk deneme bonusu yok');
+      },
+    );
 
     test('puan negatif olmaz; yanlış dokunmalar 0 puan', () {
       final e = _engine();
@@ -296,21 +358,24 @@ void main() {
   });
 
   group('süre, istatistik, sonuç', () {
-    test('kusursuz oyuncu: 120 sn, doğruluk %100, yıldız 3, istatistikler tutarlı', () {
-      final e = _engine(seed: 3);
-      e.start();
-      _play(e, reaction: 1.0);
-      expect(e.status, HaStatus.over);
-      expect(e.elapsed, greaterThanOrEqualTo(120));
-      expect(e.remainingSeconds, 0);
-      expect(e.correct, greaterThan(15));
-      expect(e.missedTargets, 0);
-      expect(e.accuracyPercent, 100);
-      expect(e.stars, 3);
-      // "Geçen araba" = oyun alanına giren tüm harfli arabalar.
-      expect(e.spawned, greaterThanOrEqualTo(e.correct));
-      expect(e.takeEvents().whereType<HaGameOver>().length, 1);
-    });
+    test(
+      'kusursuz oyuncu: 120 sn, doğruluk %100, yıldız 3, istatistikler tutarlı',
+      () {
+        final e = _engine(seed: 3);
+        e.start();
+        _play(e, reaction: 1.0);
+        expect(e.status, HaStatus.over);
+        expect(e.elapsed, greaterThanOrEqualTo(120));
+        expect(e.remainingSeconds, 0);
+        expect(e.correct, greaterThan(15));
+        expect(e.missedTargets, 0);
+        expect(e.accuracyPercent, 100);
+        expect(e.stars, 3);
+        // "Geçen araba" = oyun alanına giren tüm harfli arabalar.
+        expect(e.spawned, greaterThanOrEqualTo(e.correct));
+        expect(e.takeEvents().whereType<HaGameOver>().length, 1);
+      },
+    );
 
     test('doğruluk = doğru / (doğru + yanlış + kaçırılan hedef)', () {
       final e = _engine();
@@ -326,7 +391,16 @@ void main() {
       _play(e, reaction: 1.0, maxSeconds: 30);
       expect(e.score, greaterThan(0));
       e.start();
-      expect([e.score, e.correct, e.wrongTaps, e.missedTargets, e.spawned > 0 ? 0 : 1], [0, 0, 0, 0, 0]);
+      expect(
+        [
+          e.score,
+          e.correct,
+          e.wrongTaps,
+          e.missedTargets,
+          e.spawned > 0 ? 0 : 1,
+        ],
+        [0, 0, 0, 0, 0],
+      );
       expect(e.elapsed, 0);
       expect(e.status, HaStatus.running);
       expect(_targetCar(e), isNotNull);
@@ -341,6 +415,70 @@ void main() {
       e.resize(700, 300);
       e.tick(0.1);
       expect(e.lanes, inInclusiveRange(3, 5));
+    });
+  });
+
+  group('seviyeler', () {
+    test('3 seviye; varsayılan 2 = ilk sürümün hızı; 1 yavaş, 3 hızlı', () {
+      final e = _engine();
+      e.start();
+      expect(e.level, 2);
+      expect(e.speedStart, 0.105);
+      expect(e.speedEnd, 0.15);
+      expect(e.spawnIntervalMin, 1.0);
+      expect(e.spawnIntervalMax, 1.9);
+      expect(e.minTargetSeconds, 4.0);
+
+      final l1 = HarfArabalariEngine.levels[1]!;
+      final l2 = HarfArabalariEngine.levels[2]!;
+      final l3 = HarfArabalariEngine.levels[3]!;
+      expect(l1.speedStart, lessThan(l2.speedStart));
+      expect(l3.speedStart, greaterThan(l2.speedStart));
+      expect(l1.spawnMin, greaterThan(l2.spawnMin));
+      expect(l3.spawnMin, lessThan(l2.spawnMin));
+
+      e.start(level: 9);
+      expect(e.level, 3, reason: 'sınır dışı seviye kırpılır');
+      e.start(level: 0);
+      expect(e.level, 1);
+    });
+
+    test(
+      'hızlı seviyede araba ekranı daha çabuk geçer, hedef yine bulunabilir',
+      () {
+        double crossing(int level) {
+          final e = _engine(w: 800, h: 600);
+          e.start(level: level);
+          final c = e.cars.first;
+          final x0 = c.x;
+          e.tick(1.0);
+          return e.width / (c.x - x0);
+        }
+
+        final t1 = crossing(1), t2 = crossing(2), t3 = crossing(3);
+        expect(t1, greaterThan(t2));
+        expect(t2, greaterThan(t3));
+        // En hızlı seviyede bile bir araba ekranı ~5 sn'den önce geçmez.
+        expect(t3, greaterThan(4.5));
+
+        final e = _engine();
+        e.start(level: 3);
+        expect(e.minTargetSeconds, inInclusiveRange(3.0, 4.0));
+      },
+    );
+
+    test('her seviyede 2 dakika sorunsuz oynanır', () {
+      for (final level in [1, 2, 3]) {
+        final e = _engine(seed: level);
+        e.start(level: level);
+        while (e.status == HaStatus.running) {
+          e.tick(0.1);
+          final t = _targetCar(e);
+          if (t != null && t.x > 0) e.tap(t.id);
+        }
+        expect(e.correct, greaterThan(10), reason: 'seviye $level');
+        expect(e.status, HaStatus.over);
+      }
     });
   });
 }

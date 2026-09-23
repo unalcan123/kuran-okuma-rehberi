@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../services/leaderboard/nickname_policy.dart';
 import 'player_models.dart';
 
 /// Cihazdaki yerel oyuncu profilleri, aktif oyuncu ve oyun başına skorlar.
@@ -23,7 +24,7 @@ class PlayerRepository extends ChangeNotifier {
   static const String statsKey = 'game_stats_v1';
 
   /// Profil adı en fazla bu kadar karakter.
-  static const int maxNameLength = 16;
+  static const int maxNameLength = NicknamePolicy.maxLength;
 
   final List<PlayerProfile> _profiles = [];
   final Map<String, Map<String, PlayerGameStats>> _stats = {};
@@ -116,19 +117,23 @@ class PlayerRepository extends ChangeNotifier {
   // ---- profiller ------------------------------------------------------------
 
   /// Boşlukları sadeleştirir: baştaki/sondaki boşluk gider, ardışık boşluklar
-  /// tek olur, kontrol karakterleri atılır.
-  static String normalizeName(String raw) =>
-      raw
-          .replaceAll(RegExp(r'[\u0000-\u001F\u007F]'), '')
-          .replaceAll(RegExp(r'\s+'), ' ')
-          .trim();
+  /// tek olur, kontrol karakterleri atılır (bkz. [NicknamePolicy]).
+  static String normalizeName(String raw) => NicknamePolicy.normalize(raw);
 
-  /// Geçerliyse `null`, değilse hata nedeni.
+  /// Geçerliyse `null`, değilse hata nedeni. Kurallar çevrimiçi sıralamayla
+  /// aynıdır ([NicknamePolicy]); ayrıca bu cihazda aynı ad iki kez olamaz.
   PlayerNameError? validateName(String raw) {
-    final name = normalizeName(raw);
-    if (name.isEmpty) return PlayerNameError.empty;
-    if (name.runes.length > maxNameLength) return PlayerNameError.tooLong;
-    final lower = name.toLowerCase();
+    final policyError = NicknamePolicy.validate(raw);
+    if (policyError != null) {
+      return switch (policyError) {
+        NicknameError.empty => PlayerNameError.empty,
+        NicknameError.tooShort => PlayerNameError.tooShort,
+        NicknameError.tooLong => PlayerNameError.tooLong,
+        NicknameError.invalidChars => PlayerNameError.invalidChars,
+        NicknameError.notAllowed => PlayerNameError.notAllowed,
+      };
+    }
+    final lower = normalizeName(raw).toLowerCase();
     if (_profiles.any((p) => p.displayName.toLowerCase() == lower)) {
       return PlayerNameError.taken;
     }

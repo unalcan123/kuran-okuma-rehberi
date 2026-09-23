@@ -112,14 +112,41 @@ class HarfArabalariEngine {
 
   // ---- ayarlar ------------------------------------------------------------
 
-  /// Arabanın ekranı geçme hızı (oyun alanı GENİŞLİĞİNİN saniyede kesri): oyun
-  /// boyunca çok hafif artar. Geçiş süresi alan genişliğinden bağımsız olduğu
-  /// için geniş ekranda araba uzun süre sürünmez.
-  static const double speedStart = 0.105;
-  static const double speedEnd = 0.15;
+  /// Seviyeler: 1 yavaş, 2 biraz hızlı (ilk sürümün hızı), 3 hızlı. Hız, oyun
+  /// alanı GENİŞLİĞİNİN saniyede kesridir ve oyun boyunca çok hafif artar;
+  /// geçiş süresi alan genişliğinden bağımsız olduğu için geniş ekranda araba
+  /// uzun süre sürünmez. Hızlı seviye de refleks oyununa dönmesin diye ılımlı.
+  static const Map<int, GameLevelSettings> levels = {
+    1: GameLevelSettings(
+      speedStart: 0.08,
+      speedEnd: 0.11,
+      spawnMin: 1.3,
+      spawnMax: 2.3,
+    ),
+    2: GameLevelSettings(
+      speedStart: 0.105,
+      speedEnd: 0.15,
+      spawnMin: 1.0,
+      spawnMax: 1.9,
+    ),
+    3: GameLevelSettings(
+      speedStart: 0.14,
+      speedEnd: 0.19,
+      spawnMin: 0.9,
+      spawnMax: 1.7,
+    ),
+  };
+  static const int minLevel = 1;
+  static const int maxLevel = 3;
 
-  static const double spawnIntervalMin = 1.0;
-  static const double spawnIntervalMax = 1.9;
+  /// Seçili seviye (1–3). [start] ile değiştirilir.
+  int level = 2;
+
+  GameLevelSettings get _settings => levels[level]!;
+  double get speedStart => _settings.speedStart;
+  double get speedEnd => _settings.speedEnd;
+  double get spawnIntervalMin => _settings.spawnMin;
+  double get spawnIntervalMax => _settings.spawnMax;
 
   /// Bir hedefin arabası kaçırılırsa aynı harfle yeni araba en fazla bu kadar
   /// kez gönderilir; sonra yeni hedef seçilir (aynı harfe takılıp kalınmaz).
@@ -199,7 +226,8 @@ class HarfArabalariEngine {
 
   // ---- akış ---------------------------------------------------------------
 
-  void start() {
+  void start({int? level}) {
+    if (level != null) this.level = level.clamp(minLevel, maxLevel);
     status = HaStatus.running;
     elapsed = 0;
     spawned = 0;
@@ -310,8 +338,13 @@ class HarfArabalariEngine {
   // ---- hedef ----------------------------------------------------------------
 
   /// Hedef harfin arabası (ekrandaysa) sağdan çıkmadan en az bu kadar saniye
-  /// görünür kalmalı; aksi halde çocuğa bulma şansı kalmaz.
-  static const double minTargetSeconds = 4.0;
+  /// görünür kalmalı; aksi halde çocuğa bulma şansı kalmaz. Hızlı seviyede
+  /// arabanın tüm geçişi kısa olduğu için pay, geçiş süresiyle orantılı küçülür
+  /// (seviye 1–2'de hep 4 sn).
+  double get minTargetSeconds {
+    final crossing = 1 / (speedFraction * 1.06);
+    return (crossing * 0.75).clamp(3.0, 4.0).toDouble();
+  }
 
   double _secondsToExit(HaCar c) {
     final v = _baseSpeed * c.speedFactor;

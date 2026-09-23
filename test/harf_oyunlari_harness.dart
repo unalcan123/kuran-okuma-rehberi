@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:kuran_okuma_rehberi/screens/oyunlar/harf_oyunlari/profil/player_repository.dart';
 import 'package:kuran_okuma_rehberi/services/audio_service.dart';
 import 'package:kuran_okuma_rehberi/services/game_score_store.dart';
+import 'package:kuran_okuma_rehberi/services/leaderboard/leaderboard_service.dart';
 import 'package:kuran_okuma_rehberi/theme/app_colors.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +41,11 @@ FakeGameAudio gameAudio = FakeGameAudio();
 
 /// [players] verilmezse boş bir PlayerRepository kurulur ve "Kim oynuyor?"
 /// penceresi açılmaz; profil akışı testleri kendi repository'sini verir.
-Widget gameApp(Widget home, {PlayerRepository? players}) {
+Widget gameApp(
+  Widget home, {
+  PlayerRepository? players,
+  LeaderboardService? leaderboard,
+}) {
   return MultiProvider(
     providers: [
       ChangeNotifierProvider<AudioService>.value(value: gameAudio),
@@ -51,6 +56,8 @@ Widget gameApp(Widget home, {PlayerRepository? players}) {
         )
       else
         ChangeNotifierProvider.value(value: players),
+      if (leaderboard != null)
+        Provider<LeaderboardService>.value(value: leaderboard),
     ],
     child: MaterialApp(
       debugShowCheckedModeBanner: false,

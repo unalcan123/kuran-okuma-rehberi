@@ -1,0 +1,120 @@
+rules_version = '2';
+
+// Kur'an Okuma Rehberi — çevrimiçi oyun sıralaması.
+// Şema ve istemci: lib/services/leaderboard/. Yayınlama: firebase deploy --only firestore
+//
+//  players/{playerId}                      takma ad profili (playerId = <uid>_<profil id>)
+//  leaderboard_scores/{gameId}__{playerId} oyuncunun o oyundaki EN İYİ sonucu
+//
+// Herkes (anonim oturum açmış) sıralamayı okuyabilir; herkes yalnızca KENDİ
+// UID'siyle başlayan kayıtları yazabilir; en iyi skor asla düşürülemez.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Oyuncu kimliği bu cihazın anonim UID'si ile başlar.
+    function ownPlayerId(playerId) {
+      return playerId is string
+        && playerId.matches(request.auth.uid + '_[a-z0-9]{1,40}');
+    }
+
+    // lib/services/leaderboard/nickname_policy.dart ile aynı: 2–16 harf/rakam,
+    // boşluk . - _ ; başta/sonda boşluk ve çift boşluk yok.
+    function validNickname(n) {
+      return n is string
+        && n.matches('[\\p{L}\\p{M}\\p{N} ._-]{2,16}')
+        && !n.matches('\\s.*|.*\\s|.*\\s\\s.*');
+    }
+
+    // lib/screens/oyunlar/harf_oyunlari/profil/player_models.dart
+    // → kOnlineLeaderboardGames ile aynı olmalı (test denetler).
+    function gameLimits() {
+      return {
+        'bul_patlat': {'maxScore': 4000, 'maxCorrect': 240, 'maxWrong': 1000, 'maxMissed': 5, 'maxTotalItems': 1000},
+        'harf_arabalari': {'maxScore': 4000, 'maxCorrect': 240, 'maxWrong': 1000, 'maxMissed': 240, 'maxTotalItems': 1000}
+      };
+    }
+
+    function inRange(v, max) {
+      return v is int && v >= 0 && v <= max;
+    }
+
+    // Harf oyunlarının puan kuralı: doğru +10, ilk denemede +5, art arda her
+    // 3. ilk-deneme doğruda +5  ⇒  10·doğru ≤ puan, 3·puan ≤ 50·doğru, puan 5'in katı.
+    // Doğruluk = round(100·doğru / (doğru+yanlış+kaçan)).
+    function validScore(scoreId, d) {
+      let limits = gameLimits()[d.gameId];
+      let total = d.correctAnswers + d.wrongAnswers + d.missedTargets;
+      return d.keys().hasOnly(['playerId', 'ownerUid', 'nickname', 'gameId',
+          'bestScore', 'correctAnswers', 'wrongAnswers', 'missedTargets',
+          'totalItems', 'accuracy', 'bestAt', 'updatedAt'])
+        && d.keys().hasAll(['playerId', 'ownerUid', 'nickname', 'gameId',
+          'bestScore', 'correctAnswers', 'wrongAnswers', 'missedTargets',
+          'totalItems', 'accuracy', 'bestAt', 'updatedAt'])
+        && d.gameId is string
+        && d.gameId in gameLimits()
+        && d.ownerUid == request.auth.uid
+        && ownPlayerId(d.playerId)
+        && scoreId == d.gameId + '__' + d.playerId
+        && validNickname(d.nickname)
+        && inRange(d.bestScore, limits.maxScore)
+        && inRange(d.correctAnswers, limits.maxCorrect)
+        && inRange(d.wrongAnswers, limits.maxWrong)
+        && inRange(d.missedTargets, limits.maxMissed)
+        && inRange(d.totalItems, limits.maxTotalItems)
+        && d.correctAnswers <= d.totalItems
+        && d.bestScore % 5 == 0
+        && d.bestScore >= d.correctAnswers * 10
+        && d.bestScore * 3 <= d.correctAnswers * 50
+        && inRange(d.accuracy, 100)
+        && (total == 0
+              ? d.accuracy == 0
+              : (2 * (d.correctAnswers * 100 - d.accuracy * total) <= total
+                 && 2 * (d.accuracy * total - d.correctAnswers * 100) <= total))
+        && d.bestAt == request.time
+        && d.updatedAt == request.time;
+    }
+
+    match /players/{playerId} {
+      // Profil yalnızca sahibine görünür (sıralama adı skor belgesinde).
+      allow get: if signedIn() && ownPlayerId(playerId);
+      allow list: if false;
+      allow create: if signedIn()
+        && ownPlayerId(playerId)
+        && request.resource.data.keys().hasOnly(['playerId', 'ownerUid', 'nickname', 'createdAt', 'updatedAt'])
+        && request.resource.data.keys().hasAll(['playerId', 'ownerUid', 'nickname', 'createdAt', 'updatedAt'])
+        && request.resource.data.playerId == playerId
+        && request.resource.data.ownerUid == request.auth.uid
+        && validNickname(request.resource.data.nickname)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if signedIn()
+        && ownPlayerId(playerId)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['nickname', 'updatedAt'])
+        && validNickname(request.resource.data.nickname)
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if signedIn() && ownPlayerId(playerId);
+    }
+
+    match /leaderboard_scores/{scoreId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && validScore(scoreId, request.resource.data);
+      // Yalnızca daha yüksek skorla; oyuncu/oyun/sahip değişmez (belge kimliği denetimi).
+      allow update: if signedIn()
+        && resource.data.ownerUid == request.auth.uid
+        && validScore(scoreId, request.resource.data)
+        && request.resource.data.bestScore > resource.data.bestScore;
+      // Profil silinince kendi kaydını silebilir (belge olmasa da kimlik öneki yeter).
+      allow delete: if signedIn()
+        && scoreId.matches('[a-z0-9_]+__' + request.auth.uid + '_[a-z0-9]{1,40}');
+    }
+
+    // Diğer her şey kapalı.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

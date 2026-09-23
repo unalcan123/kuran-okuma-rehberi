@@ -10,6 +10,9 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - **Ses** (kayıt formatı, web'de önbellek/ön yükleme, gecikme ölçümü): `docs/SES.md`.
   Ses dosyası ekleyince/değiştirince `kSoundCacheVersion`'ı güncelle (test söyler); kaynağı küçült.
 - **Web/telefon görünümü** (tarayıcı sayfayı geniş yerleştirince her şey küçülüyordu; `PhoneZoomFix`): `docs/WEB.md`.
+- **Çevrimiçi sıralama** (Firebase: anonim giriş + Firestore, Bul & Patlat / Harf Arabaları,
+  kurallar, sahte skor sınırları, yeni oyun bağlama): `docs/FIREBASE.md`. Kural değişince
+  `firebase deploy --only firestore` ve `tool/firestore_rules_test` (npm test).
 - Dualar kaynağı: `docs/dualar_source.md`.
 
 ## Genel kurallar

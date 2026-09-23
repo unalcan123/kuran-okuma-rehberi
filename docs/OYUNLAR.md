@@ -14,6 +14,7 @@ en altta.
 | **Sürükle & Bırak** | Küçük oyunlar listesi: Oyun 1–7 (eski uygulamanın 7 harf grubu) ve **Karışık** (her oynayışta 29 harften rastgele 5 harf). Ses kartına dokun, dinle, doğru harfi karta sürükle. | `drag_drop/` |
 | **Dinle ve Seç** | Önce ders seçilir (37 ders). 5 soru: ses otomatik çalar, 4 şıktan doğrusu seçilir. | `listen_pick/` |
 | **Hafıza** | Aynı harfli kartları bul (eski Elifba'nın 3. oyunu). Kolay / Zor / Çok Zor, 9 seviye. Kartlar çevrilince harfin sesi çalar. | `memory/` |
+| **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 ilk sürümün hızıdır ve "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
 ### Sürükle & Bırak
@@ -89,7 +90,8 @@ Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
 - Kayıt anahtarları (prefs): `game_score.<oyunAnahtarı>.best_score|best_stars`,
   `game_history.<oyunAnahtarı>.plays|total|top|recent` (recent = son 5, eskiden yeniye).
   Yalnızca **bitirilen** oyunlar sayılır. `clearAll()` yalnızca bu iki öneki siler.
-- Puanlar cihaz bazlıdır; çocuk profili **yok**.
+- Puanlar cihaz bazlıdır. Harf oyunlarında (Bul & Patlat, Harf Arabaları) yerel oyuncu
+  profili + çevrimiçi "Genel Sıralama" var: `docs/FIREBASE.md`.
 
 ### Eski uygulamada puanlama nasıldı (okunup bilerek değiştirildi)
 - Sürükle-bırak: +10 / −5 (negatife inebiliyordu). Dinle-seç: +20 × 5 soru, yanlışta
@@ -150,7 +152,7 @@ Yeniden kullanılan mevcut parçalar: `AudioService` (tek player; `playLetter`,
 - **Eski `ikinci_oyun`** (şekil resimleriyle basit kart eşleştirme; harf öğretmiyor, Hafıza ile
   aynı türde): henüz **dokunulmadı**. Kullanıcı istemeden aktarma. (`ucuncu_oyun` = Hafıza, yapıldı.) Eski kod: `D:\Elifbe2025\lib\oyunlar\`, sesler `D:\Elifbe2025\assets\audio`
   (hayvan/şekil resimleri `assets/resim` — kopyalama).
-- Çocuk profili (birden fazla öğrenci) yok.
+- Çocuk profili yalnızca harf oyunlarında (`harf_oyunlari/profil/`).
 - Oyunlar menüsü kartlarında en iyi yıldız/puan gösterilmiyor (sadece sürükle-bırak
   seçim listesinde yıldız var).
 - Ders 2'ye tek başına (boşta) biçim eklemek istenirse: `LetterPosition`'a ekle.

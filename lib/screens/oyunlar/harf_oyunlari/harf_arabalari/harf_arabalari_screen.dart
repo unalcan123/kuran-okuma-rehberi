@@ -8,9 +8,13 @@ import '../profil/player_models.dart';
 import '../profil/player_picker.dart';
 import '../profil/player_repository.dart';
 import '../profil/record_result.dart';
+import '../../widgets/online_leaderboard_section.dart';
+import '../../../../services/leaderboard/leaderboard_models.dart';
+import '../../../../services/leaderboard/leaderboard_service.dart';
 import '../profil/skor_tablosu_sayfasi.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../helpers/colored_arabic_text.dart';
 import '../../../../models/game_score.dart';
 
@@ -42,6 +46,12 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
   /// Kısa, yumuşak başarı sesi (mevcut 2 sn'lik kutlama sesi sık doğru cevapta
   /// harf sesiyle çakışırdı).
   static const String _catchEffect = 'audio/oyunlar/car_catch.wav';
+  static const String _levelKey = 'harf_arabalari_level_v1';
+
+  /// "Sonuçlarım" anahtarı. Seviye 2 ilk sürümün hızıdır; eski geçmiş
+  /// kaybolmasın diye ek almaz.
+  static String storeKeyFor(int level) =>
+      level == 2 ? GameIds.harfArabalari : '${GameIds.harfArabalari}.l$level';
 
   static const Color _bgTop = Color(0xFFEAF3E8);
   static const Color _bgBottom = Color(0xFFD6E6EC);
@@ -53,6 +63,12 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
   Size _area = Size.zero;
   int _bestBefore = 0;
   String? _resultPlayer;
+
+  /// Çevrimiçi sıralama isteği (servis yoksa `null`: bölüm gösterilmez).
+  Future<OnlineOutcome>? _online;
+
+  /// Seçili seviye (1 yavaş, 2 biraz hızlı, 3 hızlı); cihazda hatırlanır.
+  int _level = 2;
 
   @visibleForTesting
   HarfArabalariEngine? get engineForTest => _engine;
@@ -86,6 +102,14 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
       return;
     }
     audio.preload(letters.map((l) => l.audio));
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      _level = (prefs.getInt(_levelKey) ?? 2).clamp(
+        HarfArabalariEngine.minLevel,
+        HarfArabalariEngine.maxLevel,
+      );
+    } catch (_) {}
+    if (!mounted) return;
     setState(() {
       _engine = HarfArabalariEngine(letters: letters, random: widget.random);
       _loading = false;
@@ -99,12 +123,28 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
     if (mounted) _startGame();
   }
 
+  Future<void> _setLevel(int level) async {
+    setState(() => _level = level);
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_levelKey, level);
+    } catch (_) {}
+  }
+
+  Widget _levelPicker(GameTexts l) => GameLevelPicker(
+    level: _level,
+    onChanged: _setLevel,
+    levelWord: l.bpLevel,
+    labels: [l.bpLevel1, l.bpLevel2, l.bpLevel3],
+  );
+
   void _startGame() {
     final engine = _engine;
     if (engine == null || _area.isEmpty) return;
     engine.resize(_area.width, _area.height);
-    engine.start();
+    engine.start(level: _level);
     _resultPlayer = null;
+    _online = null;
     _handleEvents(); // ilk hedef + ses
     startRunner();
     setState(() {});
@@ -151,7 +191,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
     recordFinishedGame(
       context,
       gameId: GameIds.harfArabalari,
-      storeKey: GameIds.harfArabalari,
+      storeKey: storeKeyFor(engine.level),
       firstTry: engine.core.firstTryCorrect,
       score: engine.score,
       correct: engine.correct,
@@ -162,6 +202,17 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
       if (mounted) setState(() => _bestBefore = best);
     });
     _resultPlayer = context.read<PlayerRepository>().activePlayer?.displayName;
+    _online = submitOnlineResult(
+      context,
+      OnlineScore(
+        gameId: GameIds.harfArabalari,
+        score: engine.score,
+        correctAnswers: engine.correct,
+        wrongAnswers: engine.wrongTaps,
+        missedTargets: engine.missedTargets,
+        totalItems: engine.spawned,
+      ),
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) setState(() {});
     });
@@ -375,6 +426,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
                   title: l.haGame,
                   description: l.haDesc,
                   onStart: _onStartPressed,
+                  extra: _levelPicker(l),
                 ),
               if (engine.status == HaStatus.over) _buildResult(l, engine),
             ],
@@ -460,6 +512,20 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
     );
   }
 
+  Widget? _onlineSection(String gameId) {
+    final request = _online;
+    final service = maybeLeaderboardService(context);
+    if (request == null || service == null) return null;
+    return OnlineLeaderboardSection(
+      request: request,
+      onRetry:
+          () => service.retry(
+            profileId: context.read<PlayerRepository>().activePlayer?.id,
+            gameId: gameId,
+          ),
+    );
+  }
+
   Widget _buildResult(GameTexts l, HarfArabalariEngine e) {
     final best = math.max(_bestBefore, e.score);
     return GameResultPanel(
@@ -481,6 +547,8 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
         (l.bpBest, '$best'),
       ],
       footer: '',
+      extra: _levelPicker(l),
+      online: _onlineSection(GameIds.harfArabalari),
       onReplay: _startGame,
       onBack: () => Navigator.of(context).maybePop(),
       onLeaderboard:

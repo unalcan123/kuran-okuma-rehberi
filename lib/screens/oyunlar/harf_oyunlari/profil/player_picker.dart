@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import '../game_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../services/leaderboard/leaderboard_service.dart';
 import 'player_models.dart';
 import 'player_repository.dart';
 
@@ -101,7 +104,10 @@ class _PlayerPickerSheetState extends State<PlayerPickerSheet> {
 
   String _errorText(GameTexts l, PlayerNameError e) => switch (e) {
     PlayerNameError.empty => l.plErrEmpty,
+    PlayerNameError.tooShort => l.plErrShort,
     PlayerNameError.tooLong => l.plErrLong,
+    PlayerNameError.invalidChars => l.plErrChars,
+    PlayerNameError.notAllowed => l.plErrNotAllowed,
     PlayerNameError.taken => l.plErrTaken,
   };
 
@@ -117,6 +123,7 @@ class _PlayerPickerSheetState extends State<PlayerPickerSheet> {
 
   Future<void> _confirmDelete(PlayerRepository repo, PlayerProfile p) async {
     final l = const GameTexts();
+    final online = maybeLeaderboardService(context);
     final ok = await showDialog<bool>(
       context: context,
       builder:
@@ -136,7 +143,10 @@ class _PlayerPickerSheetState extends State<PlayerPickerSheet> {
             ],
           ),
     );
-    if (ok == true) await repo.deleteProfile(p.id);
+    if (ok != true) return;
+    // Çevrimiçi kaydı da silinir (internet yoksa sunucuda kalır).
+    await repo.deleteProfile(p.id);
+    if (online != null) unawaited(online.forgetPlayer(p.id));
   }
 
   @override

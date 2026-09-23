@@ -8,6 +8,9 @@ import '../profil/player_models.dart';
 import '../profil/player_picker.dart';
 import '../profil/player_repository.dart';
 import '../profil/record_result.dart';
+import '../../widgets/online_leaderboard_section.dart';
+import '../../../../services/leaderboard/leaderboard_models.dart';
+import '../../../../services/leaderboard/leaderboard_service.dart';
 import '../profil/skor_tablosu_sayfasi.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -53,6 +56,9 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
   Size _area = Size.zero;
   int _bestBefore = 0;
   String? _resultPlayer;
+
+  /// Çevrimiçi sıralama isteği (servis yoksa `null`: bölüm gösterilmez).
+  Future<OnlineOutcome>? _online;
 
   /// Seçili seviye (1 yavaş, 2 biraz hızlı, 3 hızlı); cihazda hatırlanır.
   int _level = 2;
@@ -132,6 +138,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
     engine.resize(_area.width, _area.height);
     engine.start(level: _level);
     _resultPlayer = null;
+    _online = null;
     _handleEvents(); // ilk hedef + ses
     startRunner();
     setState(() {}); // başlangıç/sonuç panelini kapat
@@ -190,6 +197,17 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
       if (mounted) setState(() => _bestBefore = best);
     });
     _resultPlayer = context.read<PlayerRepository>().activePlayer?.displayName;
+    _online = submitOnlineResult(
+      context,
+      OnlineScore(
+        gameId: GameIds.bulPatlat,
+        score: engine.score,
+        correctAnswers: engine.correct,
+        wrongAnswers: engine.wrongTaps,
+        missedTargets: engine.missedTargets,
+        totalItems: engine.spawned,
+      ),
+    );
     // Sonuç panelini göster.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) setState(() {});
@@ -496,6 +514,20 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
     );
   }
 
+  Widget? _onlineSection(String gameId) {
+    final request = _online;
+    final service = maybeLeaderboardService(context);
+    if (request == null || service == null) return null;
+    return OnlineLeaderboardSection(
+      request: request,
+      onRetry:
+          () => service.retry(
+            profileId: context.read<PlayerRepository>().activePlayer?.id,
+            gameId: gameId,
+          ),
+    );
+  }
+
   Widget _buildResult(GameTexts l, BulPatlatEngine e) {
     final best = math.max(_bestBefore, e.score);
     return GameResultPanel(
@@ -517,6 +549,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
       footer:
           '${l.bpTotalBalloons} ${e.spawned} · ${l.bpWrongTaps} ${e.wrongTaps}',
       extra: _levelPicker(l),
+      online: _onlineSection(GameIds.bulPatlat),
       onReplay: _startGame,
       onBack: () => Navigator.of(context).maybePop(),
       onLeaderboard:

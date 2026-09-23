@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../models/game_score.dart';
 import '../../../../services/game_score_store.dart';
+import '../../../../services/leaderboard/leaderboard_models.dart';
+import '../../../../services/leaderboard/leaderboard_service.dart';
 import 'player_models.dart';
 import 'player_repository.dart';
 
@@ -37,16 +39,20 @@ Future<int> recordFinishedGame(
   int? playerBest;
   if (player != null) {
     playerBest = repo.bestScore(player.id, gameId);
-    unawaited(repo.recordResult(PlayerGameResult(
-      playerId: player.id,
-      gameId: gameId,
-      score: score,
-      correctAnswers: correct,
-      wrongAnswers: wrong,
-      missedTargets: missed,
-      totalItems: totalItems,
-      playedAt: DateTime.now(),
-    )));
+    unawaited(
+      repo.recordResult(
+        PlayerGameResult(
+          playerId: player.id,
+          gameId: gameId,
+          score: score,
+          correctAnswers: correct,
+          wrongAnswers: wrong,
+          missedTargets: missed,
+          totalItems: totalItems,
+          playedAt: DateTime.now(),
+        ),
+      ),
+    );
   }
 
   final submission = await store.submit(
@@ -54,4 +60,21 @@ Future<int> recordFinishedGame(
     GameResult(points: score, firstTry: firstTry, total: math.max(1, correct)),
   );
   return playerBest ?? submission.previous.bestScore ?? 0;
+}
+
+/// Sonucu çevrimiçi sıralamaya gönderir ve sıralamayı yükler. Çevrimiçi servis
+/// yoksa `null` (bölüm gösterilmez). Aktif oyuncu yoksa sonuç
+/// [OnlineStatus.noPlayer] olur; yerel kayıt yine [recordFinishedGame] ile yapılır.
+Future<OnlineOutcome>? submitOnlineResult(
+  BuildContext context,
+  OnlineScore score,
+) {
+  final service = maybeLeaderboardService(context);
+  if (service == null) return null;
+  final player = context.read<PlayerRepository>().activePlayer;
+  return service.submitAndLoad(
+    profileId: player?.id,
+    nickname: player?.displayName,
+    score: score,
+  );
 }

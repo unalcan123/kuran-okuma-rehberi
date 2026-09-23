@@ -1,0 +1,13 @@
+{
+  "name": "firestore-rules-test",
+  "private": true,
+  "description": "firestore.rules testleri (Firestore emülatöründe). Çalıştırma: npm install && npm test",
+  "type": "module",
+  "scripts": {
+    "test": "firebase emulators:exec --only firestore --project demo-kuran-okuma \"node --test rules.test.mjs\""
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^4.0.1",
+    "firebase": "^11.10.0"
+  }
+}
