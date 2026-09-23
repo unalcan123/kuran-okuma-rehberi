@@ -15,7 +15,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 Widget harness(Widget child) => MultiProvider(
   providers: [
     Provider<GameScoreStore>.value(value: GameScoreStore()),
-    ChangeNotifierProvider(create: (_) => PlayerRepository()),
+    // Oyunlar menüsü ad sormasın (ad akışı player_ui_test.dart).
+    ChangeNotifierProvider(
+      create: (_) => PlayerRepository()..promptedThisSession = true,
+    ),
   ],
   child: MaterialApp(
     theme: ThemeData(scaffoldBackgroundColor: AppColors.background),

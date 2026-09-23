@@ -39,6 +39,15 @@ abstract class LeaderboardBackend {
   /// Bu oyunda skoru olan oyuncu sayısı.
   Future<int> countPlayers(String gameId);
 
+  /// Oyuncunun adını profilde ve [gameIds] skor kayıtlarında günceller
+  /// (profil yoksa oluşturur; skor yoksa atlar).
+  Future<void> renamePlayer({
+    required String playerId,
+    required String ownerUid,
+    required String nickname,
+    required Iterable<String> gameIds,
+  });
+
   /// Oyuncunun profilini ve [gameIds] skorlarını siler.
   Future<void> deletePlayer(String playerId, Iterable<String> gameIds);
 }

@@ -212,18 +212,6 @@ class PlayerGameStats {
   }
 }
 
-class LeaderboardEntry {
-  const LeaderboardEntry({
-    required this.rank,
-    required this.profile,
-    required this.stats,
-  });
-
-  final int rank;
-  final PlayerProfile profile;
-  final PlayerGameStats stats;
-}
-
 /// Oyuncu adı doğrulama sonuçları.
 enum PlayerNameError {
   empty,

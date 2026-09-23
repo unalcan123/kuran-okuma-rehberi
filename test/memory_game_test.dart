@@ -41,7 +41,10 @@ Widget harness(Widget child, FakeAudio audio) => MultiProvider(
   providers: [
     ChangeNotifierProvider<AudioService>.value(value: audio),
     Provider<GameScoreStore>.value(value: GameScoreStore()),
-    ChangeNotifierProvider(create: (_) => PlayerRepository()),
+    // Oyunlar menüsü ad sormasın (ad akışı player_ui_test.dart).
+    ChangeNotifierProvider(
+      create: (_) => PlayerRepository()..promptedThisSession = true,
+    ),
   ],
   child: MaterialApp(
     theme: ThemeData(scaffoldBackgroundColor: AppColors.background),

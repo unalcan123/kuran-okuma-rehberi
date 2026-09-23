@@ -6,22 +6,36 @@ import '../home/home_menu_item.dart';
 import '../home/widgets/home_menu_card.dart';
 import 'games.dart';
 import 'harf_oyunlari/profil/player_picker.dart';
-import 'harf_oyunlari/profil/skor_tablosu_sayfasi.dart';
+import 'harf_oyunlari/profil/genel_siralama_sayfasi.dart';
 import 'results/game_results_screen.dart';
 
-/// The games menu: one card per entry of [kGames], then the results
-/// page. Add a game to [kGames] and it shows up here and on the results.
-class OyunlarScreen extends StatelessWidget {
+/// The games menu: one card per entry of [kGames], then the global
+/// leaderboard and the results page. Add a game to [kGames] and it shows up
+/// here and on the results. İlk girişte oyuncunun adı bir kez sorulur.
+class OyunlarScreen extends StatefulWidget {
   const OyunlarScreen({super.key});
 
+  @override
+  State<OyunlarScreen> createState() => _OyunlarScreenState();
+}
+
+class _OyunlarScreenState extends State<OyunlarScreen> {
   static final HomeMenuItem _leaderboard = HomeMenuItem(
-    title: 'Skor Tablosu',
-    subtitle: 'Bu cihazdaki oyuncuların en iyileri',
+    title: 'Genel Sıralama',
+    subtitle: 'Tüm oyuncular arasında sıran',
     icon: Icons.emoji_events_rounded,
     background: AppColors.goldSoft,
     foreground: AppColors.gold,
-    screenBuilder: (_) => const SkorTablosuSayfasi(),
+    screenBuilder: (_) => const GenelSiralamaSayfasi(),
   );
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) ensureActivePlayer(context);
+    });
+  }
 
   static final HomeMenuItem _results = HomeMenuItem(
     title: 'Sonuçlarım',
@@ -50,7 +64,7 @@ class OyunlarScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Oyunlar'),
-        // Aktif oyuncu: "Oyuncu: Elif ▼" → oyuncu değiştir / yeni oyuncu.
+        // "Oyuncu: Elif ✎" → adı düzelt.
         actions: const [PlayerChip(), SizedBox(width: 8)],
       ),
       body: Center(

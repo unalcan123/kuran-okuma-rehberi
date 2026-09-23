@@ -102,11 +102,15 @@ service cloud.firestore {
     match /leaderboard_scores/{scoreId} {
       allow read: if signedIn();
       allow create: if signedIn() && validScore(scoreId, request.resource.data);
-      // Yalnızca daha yüksek skorla; oyuncu/oyun/sahip değişmez (belge kimliği denetimi).
+      // Yalnızca daha yüksek skorla (oyuncu/oyun/sahip değişmez: belge kimliği
+      // denetimi) ya da yalnızca adı düzeltmek için.
       allow update: if signedIn()
         && resource.data.ownerUid == request.auth.uid
-        && validScore(scoreId, request.resource.data)
-        && request.resource.data.bestScore > resource.data.bestScore;
+        && ((validScore(scoreId, request.resource.data)
+              && request.resource.data.bestScore > resource.data.bestScore)
+            || (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['nickname', 'updatedAt'])
+              && validNickname(request.resource.data.nickname)
+              && request.resource.data.updatedAt == request.time));
       // Profil silinince kendi kaydını silebilir (belge olmasa da kimlik öneki yeter).
       allow delete: if signedIn()
         && scoreId.matches('[a-z0-9_]+__' + request.auth.uid + '_[a-z0-9]{1,40}');

@@ -39,7 +39,7 @@ class FakeGameAudio extends ChangeNotifier implements AudioService {
 /// Her testte yeniden oluşturulur (setUp).
 FakeGameAudio gameAudio = FakeGameAudio();
 
-/// [players] verilmezse boş bir PlayerRepository kurulur ve "Kim oynuyor?"
+/// [players] verilmezse boş bir PlayerRepository kurulur ve oyuncu adı
 /// penceresi açılmaz; profil akışı testleri kendi repository'sini verir.
 Widget gameApp(
   Widget home, {

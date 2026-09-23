@@ -90,8 +90,8 @@ Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
 - Kayıt anahtarları (prefs): `game_score.<oyunAnahtarı>.best_score|best_stars`,
   `game_history.<oyunAnahtarı>.plays|total|top|recent` (recent = son 5, eskiden yeniye).
   Yalnızca **bitirilen** oyunlar sayılır. `clearAll()` yalnızca bu iki öneki siler.
-- Puanlar cihaz bazlıdır. Harf oyunlarında (Bul & Patlat, Harf Arabaları) yerel oyuncu
-  profili + çevrimiçi "Genel Sıralama" var: `docs/FIREBASE.md`.
+- Puanlar cihaz bazlıdır. Cihaz başına tek oyuncu adı (Oyunlar'a ilk girişte sorulur);
+  harf oyunlarında çevrimiçi "Genel Sıralama" var: `docs/FIREBASE.md`.
 
 ### Eski uygulamada puanlama nasıldı (okunup bilerek değiştirildi)
 - Sürükle-bırak: +10 / −5 (negatife inebiliyordu). Dinle-seç: +20 × 5 soru, yanlışta
@@ -152,7 +152,7 @@ Yeniden kullanılan mevcut parçalar: `AudioService` (tek player; `playLetter`,
 - **Eski `ikinci_oyun`** (şekil resimleriyle basit kart eşleştirme; harf öğretmiyor, Hafıza ile
   aynı türde): henüz **dokunulmadı**. Kullanıcı istemeden aktarma. (`ucuncu_oyun` = Hafıza, yapıldı.) Eski kod: `D:\Elifbe2025\lib\oyunlar\`, sesler `D:\Elifbe2025\assets\audio`
   (hayvan/şekil resimleri `assets/resim` — kopyalama).
-- Çocuk profili yalnızca harf oyunlarında (`harf_oyunlari/profil/`).
+- Tek oyuncu adı: `harf_oyunlari/profil/` (birden çok çocuk profili bilerek yok).
 - Oyunlar menüsü kartlarında en iyi yıldız/puan gösterilmiyor (sadece sürükle-bırak
   seçim listesinde yıldız var).
 - Ders 2'ye tek başına (boşta) biçim eklemek istenirse: `LetterPosition`'a ekle.

@@ -112,7 +112,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.text('BAŞLA'), findsOneWidget);
-    expect(find.text('Oyuncu seç'), findsOneWidget);
+    expect(find.text('Adını yaz'), findsOneWidget);
     expect(state.engineForTest!.status, HaStatus.ready);
   });
 
@@ -296,31 +296,17 @@ void main() {
     },
   );
 
-  testWidgets('sonuç aktif oyuncuya yazılır; başka oyuncunun skoru değişmez', (
+  testWidgets('sonuç cihazın oyuncusuna yazılır; adı sonuç panelinde görünür', (
     tester,
   ) async {
     late PlayerRepository repo;
-    late PlayerProfile elif, ahmet;
     await tester.runAsync(() async {
       repo = PlayerRepository();
       await repo.load();
-      elif = (await repo.createProfile('Elif', 'star'))!;
-      ahmet = (await repo.createProfile('Ahmet', 'note'))!;
-      await repo.recordResult(
-        PlayerGameResult(
-          playerId: ahmet.id,
-          gameId: GameIds.harfArabalari,
-          score: 999,
-          correctAnswers: 1,
-          wrongAnswers: 0,
-          missedTargets: 0,
-          totalItems: 1,
-          playedAt: DateTime(2026),
-        ),
-      );
-      await repo.selectProfile(elif.id);
+      await repo.setName('Elif');
       repo.promptedThisSession = true;
     });
+    final elif = repo.activePlayer!;
 
     final state = await open(tester, players: repo);
     await start(tester);
@@ -337,11 +323,6 @@ void main() {
     expect(e.totalCorrect, engine.correct);
     expect(e.totalItems, engine.spawned);
     expect(
-      repo.bestScore(ahmet.id, GameIds.harfArabalari),
-      999,
-      reason: 'Ahmet\'in skoru Elif\'in oyunundan etkilenmez',
-    );
-    expect(
       find.text('Elif'),
       findsWidgets,
       reason: 'sonuç panelinde oyuncu adı',
@@ -349,7 +330,7 @@ void main() {
   });
 
   testWidgets(
-    'aktif oyuncu yoksa BAŞLA bir kez "Kim oynuyor?" sorar; profil sonra hatırlanır',
+    'oyuncu adı yoksa BAŞLA bir kez adı sorar; ad sonra hatırlanır',
     (tester) async {
       late PlayerRepository repo;
       await tester.runAsync(() async {
@@ -358,18 +339,17 @@ void main() {
       });
       final state = await open(tester, players: repo);
 
+      await tester.ensureVisible(find.text('BAŞLA'));
       await tester.tap(find.text('BAŞLA'));
       await tester.pumpAndSettle();
-      expect(find.text('Kim oynuyor?'), findsOneWidget);
+      expect(find.byKey(const Key('player-name-field')), findsOneWidget);
       expect(state.engineForTest!.status, HaStatus.ready);
 
       await tester.enterText(
         find.byKey(const Key('player-name-field')),
         'Elif',
       );
-      await tester.tap(find.byKey(const Key('avatar-moon')));
-      await tester.pump();
-      await tester.tap(find.byKey(const Key('create-player')));
+      await tester.tap(find.byKey(const Key('save-player-name')));
       // pumpAndSettle KULLANILMAZ: oyun başlayınca ticker sürekli kare ister.
       await tester.pump(const Duration(milliseconds: 100));
       await tester.runAsync(
@@ -379,13 +359,12 @@ void main() {
       await tester.pump(const Duration(milliseconds: 400));
 
       expect(repo.activePlayer!.displayName, 'Elif');
-      expect(repo.activePlayer!.avatarId, 'moon');
       expect(
         state.engineForTest!.status,
         HaStatus.running,
         reason: 'profilden sonra başlar',
       );
-      expect(find.text('Kim oynuyor?'), findsNothing);
+      expect(find.byKey(const Key('player-name-field')), findsNothing);
     },
   );
 
@@ -436,13 +415,13 @@ void main() {
   });
 
   testWidgets(
-    'oyun listesinde Harf Arabaları ve Skor Tablosu kartları; oyuncu etiketi',
+    'oyun listesinde Harf Arabaları ve Genel Sıralama kartları; oyuncu etiketi',
     (tester) async {
       useSize(tester, const Size(390, 844));
       await tester.pumpWidget(gameApp(const OyunlarScreen()));
       await tester.pump(const Duration(milliseconds: 400));
-      expect(find.text('Oyuncu seç'), findsOneWidget);
-      expect(find.text('Skor Tablosu'), findsOneWidget);
+      expect(find.text('Adını yaz'), findsOneWidget);
+      expect(find.text('Genel Sıralama'), findsOneWidget);
       await tester.tap(find.text('Harf Arabaları'));
       await tester.pumpAndSettle();
       expect(find.byType(HarfArabalariOyunu), findsOneWidget);

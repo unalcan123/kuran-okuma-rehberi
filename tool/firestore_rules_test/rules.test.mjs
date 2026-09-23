@@ -178,6 +178,17 @@ describe('leaderboard_scores yazma', () => {
     await assertFails(updateDoc(ref, { bestScore: 5000 }));
   });
 
+  test('ad düzeltme: yalnızca nickname + updatedAt değişebilir', async () => {
+    const fs = db('alice');
+    const ref = scoreRef(fs, 'alice');
+    await assertSucceeds(setDoc(ref, score('alice')));
+    await assertSucceeds(updateDoc(ref, { nickname: 'Ahmed Can', updatedAt: serverTimestamp() }));
+    await assertFails(updateDoc(ref, { nickname: '<b>', updatedAt: serverTimestamp() }));
+    await assertFails(updateDoc(ref, { nickname: 'Ali', bestScore: 335, updatedAt: serverTimestamp() }));
+    await assertFails(updateDoc(ref, { nickname: 'Ali', updatedAt: new Date() }));
+    await assertFails(updateDoc(scoreRef(db('mallory'), 'alice'), { nickname: 'Kötü', updatedAt: serverTimestamp() }));
+  });
+
   test('başkasının skorunu değiştiremez / silemez', async () => {
     await assertSucceeds(setDoc(scoreRef(db('alice'), 'alice'), score('alice')));
     const fs = db('mallory');

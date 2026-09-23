@@ -7,15 +7,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../services/leaderboard/nickname_policy.dart';
 import 'player_models.dart';
 
-/// Cihazdaki yerel oyuncu profilleri, aktif oyuncu ve oyun başına skorlar.
+/// Cihazın oyuncusu (takma ad) ve oyun başına skorları.
+///
+/// Cihaz başına TEK oyuncu: oyunlara ilk girişte ad sorulur, sonra yalnızca
+/// düzeltilebilir ([setName]). Eski sürümde birden çok profil açılmış cihazda
+/// aktif (yoksa ilk) profil oyuncu olur; diğerlerinin kaydı silinmez, gösterilmez.
 ///
 /// Depolama (SharedPreferences, üç anahtar; veri modeli backend'e taşınabilir):
 ///  * `game_players_v1`       → [PlayerProfile] listesi (JSON)
 ///  * `game_active_player_v1` → aktif oyuncunun id'si
 ///  * `game_stats_v1`         → { playerId: { gameId: PlayerGameStats } }
-///
-/// Birden fazla çocuk aynı cihazı kullanabilir; her oyuncunun her oyundaki
-/// skoru ayrı anahtarda tutulur, birbirinin üzerine yazılmaz.
 class PlayerRepository extends ChangeNotifier {
   PlayerRepository();
 
@@ -31,17 +32,18 @@ class PlayerRepository extends ChangeNotifier {
   String? _activeId;
   bool _loaded = false;
 
-  /// Bu oturumda "Kim oynuyor?" zaten soruldu (kapatıldıysa tekrar tekrar sorma).
+  /// Bu oturumda ad zaten soruldu (kapatıldıysa tekrar tekrar sorma).
   bool promptedThisSession = false;
 
   bool get loaded => _loaded;
   List<PlayerProfile> get profiles => List.unmodifiable(_profiles);
 
+  /// Cihazın oyuncusu (ad henüz verilmediyse `null`).
   PlayerProfile? get activePlayer {
     for (final p in _profiles) {
       if (p.id == _activeId) return p;
     }
-    return null;
+    return _profiles.isEmpty ? null : _profiles.first;
   }
 
   PlayerProfile? profileById(String id) {
@@ -122,7 +124,8 @@ class PlayerRepository extends ChangeNotifier {
 
   /// Geçerliyse `null`, değilse hata nedeni. Kurallar çevrimiçi sıralamayla
   /// aynıdır ([NicknamePolicy]); ayrıca bu cihazda aynı ad iki kez olamaz.
-  PlayerNameError? validateName(String raw) {
+  /// [forRename]: tek oyuncunun kendi adını düzeltmesi (aynı ad denetimi yok).
+  PlayerNameError? validateName(String raw, {bool forRename = false}) {
     final policyError = NicknamePolicy.validate(raw);
     if (policyError != null) {
       return switch (policyError) {
@@ -133,6 +136,7 @@ class PlayerRepository extends ChangeNotifier {
         NicknameError.notAllowed => PlayerNameError.notAllowed,
       };
     }
+    if (forRename) return null;
     final lower = normalizeName(raw).toLowerCase();
     if (_profiles.any((p) => p.displayName.toLowerCase() == lower)) {
       return PlayerNameError.taken;
@@ -163,11 +167,29 @@ class PlayerRepository extends ChangeNotifier {
     return profile;
   }
 
-  Future<void> selectProfile(String id) async {
-    if (!_profiles.any((p) => p.id == id) || _activeId == id) return;
-    _activeId = id;
+  /// Oyuncunun adını verir (ilk kez) ya da düzeltir. Geçerliyse `null`,
+  /// değilse hata nedeni. Skorlar ve kimlik aynı kalır.
+  Future<PlayerNameError?> setName(String rawName) async {
+    final error = validateName(rawName, forRename: true);
+    if (error != null) return error;
+    final name = normalizeName(rawName);
+    final current = activePlayer;
+    if (current == null) {
+      await createProfile(name, kPlayerAvatars.first.id);
+      return null;
+    }
+    if (current.displayName == name) return null;
+    final i = _profiles.indexWhere((p) => p.id == current.id);
+    _profiles[i] = PlayerProfile(
+      id: current.id,
+      displayName: name,
+      avatarId: current.avatarId,
+      createdAt: current.createdAt,
+    );
+    _activeId = current.id;
     notifyListeners();
     await _save();
+    return null;
   }
 
   /// Oyuncuyu ve tüm skorlarını siler (çocuğun/ebeveynin verisini kaldırma hakkı).
@@ -197,42 +219,5 @@ class PlayerRepository extends ChangeNotifier {
     ).applied(result);
     notifyListeners();
     await _save();
-  }
-
-  // ---- skor tablosu -----------------------------------------------------------
-
-  /// Bu cihazdaki oyuncuların [gameId] oyunundaki kişisel en iyilerine göre
-  /// sıralama. Beraberlikte önce o skora ulaşan, sonra ada göre. Şimdilik
-  /// [limit] = 10; ileride 20 vb. yalnızca bu parametreyle değişir.
-  List<LeaderboardEntry> leaderboard(String gameId, {int? limit = 10}) {
-    final rows = <(PlayerProfile, PlayerGameStats)>[
-      for (final p in _profiles)
-        if (statsFor(p.id, gameId).gamesPlayed > 0) (p, statsFor(p.id, gameId)),
-    ];
-    rows.sort((a, b) {
-      final byScore = b.$2.bestScore.compareTo(a.$2.bestScore);
-      if (byScore != 0) return byScore;
-      final ta = a.$2.bestAt, tb = b.$2.bestAt;
-      if (ta != null && tb != null) {
-        final byTime = ta.compareTo(tb);
-        if (byTime != 0) return byTime;
-      }
-      return a.$1.displayName.toLowerCase().compareTo(
-        b.$1.displayName.toLowerCase(),
-      );
-    });
-    final entries = [
-      for (var i = 0; i < rows.length; i++)
-        LeaderboardEntry(rank: i + 1, profile: rows[i].$1, stats: rows[i].$2),
-    ];
-    return limit == null ? entries : entries.take(limit).toList();
-  }
-
-  /// Aktif oyuncunun sıralaması (tabloda yoksa `null`).
-  LeaderboardEntry? entryOf(String playerId, String gameId) {
-    for (final e in leaderboard(gameId, limit: null)) {
-      if (e.profile.id == playerId) return e;
-    }
-    return null;
   }
 }

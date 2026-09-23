@@ -13,7 +13,16 @@ class OnlineLeaderboardSection extends StatefulWidget {
     super.key,
     required this.request,
     required this.onRetry,
+    this.showHeader = true,
+    this.hideWhenUnavailable = true,
   });
+
+  /// Üstteki çizgi + "Genel Sıralama" başlığı (ayrı sayfada başlık zaten var).
+  final bool showHeader;
+
+  /// Çevrimiçi sıralama yoksa bölüm hiç görünmez (oyun sonu); `false` ise
+  /// "yüklenemiyor" mesajı gösterilir (Genel Sıralama sayfası).
+  final bool hideWhenUnavailable;
 
   /// Oyun sonunda başlatılan gönder + yükle isteği.
   final Future<OnlineOutcome> request;
@@ -69,12 +78,14 @@ class _OnlineLeaderboardSectionState extends State<OnlineLeaderboardSection> {
   @override
   Widget build(BuildContext context) {
     const l = GameTexts();
-    final outcome = _outcome;
-    if (!_loading &&
-        (outcome == null ||
-            outcome.status == OnlineStatus.unavailable ||
-            outcome.status == OnlineStatus.rejected)) {
-      return const SizedBox.shrink();
+    var outcome = _outcome;
+    final unavailable =
+        outcome == null ||
+        outcome.status == OnlineStatus.unavailable ||
+        outcome.status == OnlineStatus.rejected;
+    if (!_loading && unavailable) {
+      if (widget.hideWhenUnavailable) return const SizedBox.shrink();
+      outcome = const OnlineOutcome(OnlineStatus.loadFailed);
     }
 
     final Widget body;
@@ -123,33 +134,35 @@ class _OnlineLeaderboardSectionState extends State<OnlineLeaderboardSection> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SizedBox(height: 10),
-        Divider(color: kGameInk.withValues(alpha: 0.12), height: 1),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.emoji_events_rounded,
-              color: Color(0xFFE0B040),
-              size: 22,
-            ),
-            const SizedBox(width: 6),
-            Flexible(
-              child: Text(
-                l.onTitle,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w900,
-                  color: kGameInk,
+        if (widget.showHeader) ...[
+          const SizedBox(height: 10),
+          Divider(color: kGameInk.withValues(alpha: 0.12), height: 1),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.emoji_events_rounded,
+                color: Color(0xFFE0B040),
+                size: 22,
+              ),
+              const SizedBox(width: 6),
+              Flexible(
+                child: Text(
+                  l.onTitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w900,
+                    color: kGameInk,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
+            ],
+          ),
+          const SizedBox(height: 8),
+        ],
         body,
       ],
     );

@@ -47,6 +47,9 @@ class LeaderboardService {
 
   static const String pendingKey = 'leaderboard_pending_v1';
 
+  /// Gönderilmeyi bekleyen ad değişiklikleri: { profileId: nickname }.
+  static const String renameKey = 'leaderboard_rename_v1';
+
   final Future<LeaderboardBackend?> _backendFuture;
   final Map<String, OnlineGameLimits> games;
   final Duration timeout;
@@ -104,10 +107,10 @@ class LeaderboardService {
   static String _pendingId(String gameId, String profileId) =>
       '$gameId|$profileId';
 
-  Future<Map<String, dynamic>> _readPending() async {
+  Future<Map<String, dynamic>> _readPending([String key = pendingKey]) async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final raw = prefs.getString(pendingKey);
+      final raw = prefs.getString(key);
       if (raw == null) return {};
       final decoded = jsonDecode(raw);
       return decoded is Map<String, dynamic> ? decoded : {};
@@ -116,13 +119,16 @@ class LeaderboardService {
     }
   }
 
-  Future<void> _writePending(Map<String, dynamic> pending) async {
+  Future<void> _writePending(
+    Map<String, dynamic> pending, [
+    String key = pendingKey,
+  ]) async {
     try {
       final prefs = await SharedPreferences.getInstance();
       if (pending.isEmpty) {
-        await prefs.remove(pendingKey);
+        await prefs.remove(key);
       } else {
-        await prefs.setString(pendingKey, jsonEncode(pending));
+        await prefs.setString(key, jsonEncode(pending));
       }
     } catch (e) {
       debugPrint('LeaderboardService: kuyruk yazılamadı — $e');
@@ -155,10 +161,37 @@ class LeaderboardService {
 
   Future<void> _doFlush() async {
     final pending = await _readPending();
-    if (pending.isEmpty) return;
+    final renames = await _readPending(renameKey);
+    if (pending.isEmpty && renames.isEmpty) return;
     if (!await _ready()) return;
     final uid = await _ensureUid();
     Object? networkError;
+    for (final profileId in renames.keys.toList()) {
+      final nickname = renames[profileId];
+      if (nickname is! String) {
+        renames.remove(profileId);
+        continue;
+      }
+      try {
+        await _backend
+            .renamePlayer(
+              playerId: playerIdFor(uid, profileId),
+              ownerUid: uid,
+              nickname: nickname,
+              gameIds: games.keys,
+            )
+            .timeout(timeout);
+        renames.remove(profileId);
+      } on LeaderboardRejected catch (e) {
+        debugPrint('LeaderboardService: ad reddedildi — $e');
+        renames.remove(profileId);
+      } catch (e) {
+        networkError = e;
+        break;
+      }
+    }
+    await _writePending(renames, renameKey);
+    if (networkError != null) throw networkError;
     for (final id in pending.keys.toList()) {
       final entry = pending[id];
       final score =
@@ -318,6 +351,30 @@ class LeaderboardService {
         me?.rank ?? 0,
       ].reduce((a, b) => a > b ? a : b),
     );
+  }
+
+  // ---- ad değişikliği -----------------------------------------------------------
+
+  /// Oyuncu adını düzeltti: çevrimiçi profil ve skor kayıtlarındaki ad
+  /// güncellenir (internet yoksa sonra). Bekleyen skorlar da yeni adla gider.
+  Future<void> renamePlayer(String profileId, String nickname) async {
+    final name = NicknamePolicy.normalize(nickname);
+    if (!NicknamePolicy.isValid(name)) return;
+    final pending = await _readPending();
+    for (final entry in pending.values) {
+      if (entry is Map && entry['profileId'] == profileId) {
+        entry['nickname'] = name;
+      }
+    }
+    await _writePending(pending);
+    final renames = await _readPending(renameKey);
+    renames[profileId] = name;
+    await _writePending(renames, renameKey);
+    try {
+      await _flushPending();
+    } catch (e) {
+      debugPrint('LeaderboardService: ad sonra güncellenecek — $e');
+    }
   }
 
   // ---- silme ------------------------------------------------------------------

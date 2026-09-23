@@ -1,8 +1,18 @@
 # Çevrimiçi sıralama (Firebase)
 
-Son güncelleme: 2026-09-23. Bul & Patlat ve Harf Arabaları'nın oyun sonunda
-"Genel Sıralama" (ilk 10 + kendi sıran + toplam oyuncu) gösterilir. Yerel skor /
-profil sistemi aynen durur; Firebase onun üstünde bir katmandır.
+Son güncelleme: 2026-09-23. Bul & Patlat ve Harf Arabaları'nın oyun sonunda ve
+Oyunlar menüsündeki **Genel Sıralama** sayfasında (oyun sekmeli) ilk 10 + kendi sıran +
+toplam oyuncu gösterilir. Yerel skorlar ("Sonuçlarım") aynen durur; Firebase onun
+üstünde bir katmandır. Cihazdaki eski "Skor Tablosu" (aynı cihazdaki oyuncular) kaldırıldı.
+
+## Oyuncu (cihaz başına tek)
+- Kullanıcı isteği: herkesin kendi cihazı var → **cihaz başına tek oyuncu**. Oyunlar menüsü
+  ilk açılınca (ya da BAŞLA'da) "Oyuncu Adın" sorulur, kaydedilir; birden çok oyuncu
+  ekleme/seçme yok. Üstteki "Oyuncu: Ad ✎" ile ad düzeltilir (kimlik ve skorlar aynı kalır;
+  çevrimiçi ad da güncellenir, internet yoksa `leaderboard_rename_v1` kuyruğunda bekler).
+- Kod: `profil/player_picker.dart` (`showPlayerNameSheet`, `ensureActivePlayer`, `PlayerChip`),
+  `PlayerRepository.setName`. Eski sürümde çok profilli cihazda aktif (yoksa ilk) profil
+  oyuncu olur; diğerleri silinmez, gösterilmez.
 
 ## Proje
 - Firebase projesi: **kuran-okuma-rehberi** (Spark / ücretsiz), hesap unalcanpolat@gmail.com.
@@ -23,8 +33,7 @@ leaderboard_scores/{gameId}__{playerId}   playerId, ownerUid, nickname, gameId, 
                                           correctAnswers, wrongAnswers, missedTargets,
                                           totalItems, accuracy, bestAt, updatedAt
 ```
-- `playerId = <anonim UID>_<yerel profil id>`: bir cihazda birden çok çocuk olabilir
-  (mevcut profil sistemi); aynı adı taşıyan iki çocuk ayrı oyuncudur.
+- `playerId = <anonim UID>_<yerel profil id>`: aynı adı taşıyan iki kişi ayrı oyuncudur.
 - Oyuncu başına oyun başına **tek** belge: yalnızca en iyi sonuç. Daha düşük skor yazılmaz
   (istemci işlemi + kural).
 - Sıra: `gameId ==`, `bestScore` azalan, `bestAt` artan (eşit puanda önce ulaşan önde;
@@ -39,11 +48,12 @@ leaderboard_scores/{gameId}__{playerId}   playerId, ownerUid, nickname, gameId, 
   kullanır), `leaderboard_models.dart`, `leaderboard_backend.dart` (arayüz),
   `firebase_leaderboard_backend.dart`, `leaderboard_service.dart` (kuyruk, zaman aşımı, sıra).
 - `lib/main.dart`: Firebase arka planda başlar, uygulama beklemez; başlamazsa oyun yine oynanır.
-- UI: `lib/screens/oyunlar/widgets/online_leaderboard_section.dart` → `GameResultPanel(online:)`.
+- UI: `lib/screens/oyunlar/widgets/online_leaderboard_section.dart` → `GameResultPanel(online:)`
+  ve `profil/genel_siralama_sayfasi.dart` (menü kartı + sonuç panelindeki düğme).
 - Oyun bağlantısı: `profil/record_result.dart` → `submitOnlineResult`.
 - İnternet yoksa sonuç `SharedPreferences` (`leaderboard_pending_v1`) kuyruğunda bekler;
   sonraki oyun sonunda / açılışta / "Tekrar dene" ile gönderilir.
-- Profil silinince çevrimiçi kaydı da silinir (internet varsa).
+- Skor belgesinde ad düzeltmesi kurala göre yalnızca `nickname` + `updatedAt` değiştirebilir.
 
 ## Yeni oyunu bağlamak
 1. `player_models.dart` → `GameIds` ve `kOnlineLeaderboardGames`'e sınırlarla ekle.

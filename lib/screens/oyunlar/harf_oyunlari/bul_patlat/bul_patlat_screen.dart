@@ -11,7 +11,7 @@ import '../profil/record_result.dart';
 import '../../widgets/online_leaderboard_section.dart';
 import '../../../../services/leaderboard/leaderboard_models.dart';
 import '../../../../services/leaderboard/leaderboard_service.dart';
-import '../profil/skor_tablosu_sayfasi.dart';
+import '../profil/genel_siralama_sayfasi.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../helpers/colored_arabic_text.dart';
@@ -111,7 +111,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
 
   // ---- oyun akışı -----------------------------------------------------------
 
-  /// BAŞLA: aktif oyuncu yoksa bir kez "Kim oynuyor?" sorulur, sonra oyun başlar.
+  /// BAŞLA: oyuncu adı yoksa bir kez sorulur, sonra oyun başlar.
   Future<void> _onStartPressed() async {
     await ensureActivePlayer(context);
     if (mounted) _startGame();
@@ -557,7 +557,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
             context,
             MaterialPageRoute(
               builder:
-                  (_) => const SkorTablosuSayfasi(
+                  (_) => const GenelSiralamaSayfasi(
                     initialGameId: GameIds.bulPatlat,
                   ),
             ),

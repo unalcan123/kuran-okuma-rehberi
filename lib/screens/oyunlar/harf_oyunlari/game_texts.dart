@@ -28,11 +28,8 @@ class GameTexts {
   String get haGame => 'Harf Arabaları';
   String get haMissedTarget => 'Kaçırılan Hedef';
   String get haWrong => 'Yanlış';
-  String get lbDeviceNote => 'Bu cihazdaki oyuncular';
-  String get lbEmpty => 'Henüz skor yok. İlk oynayan sen ol!';
-  String get lbTitle => 'Skor Tablosu';
-  String get lbTop10 => 'İlk 10';
-  String get lbYourRank => 'Senin sıran';
+  String get lbTitle => 'Genel Sıralama';
+  String get lbMenuSubtitle => 'Tüm oyuncular arasında sıran';
   String get onTitle => 'Genel Sıralama';
   String get onLoading => 'Sıralama yükleniyor…';
   String get onYou => 'SEN';
@@ -49,12 +46,6 @@ class GameTexts {
       'Bu oyuncu adı genel sıralamada kullanılamıyor; yeni bir oyuncu adı oluştur.';
   String get onEmpty => 'Henüz kimse yok. İlk sen ol!';
   String get onBestOnline => 'Genel en iyin';
-  String get plCancel => 'Vazgeç';
-  String get plChooseIcon => 'Bir simge seç';
-  String get plCreate => 'Oluştur';
-  String get plDelete => 'Sil';
-  String get plDeleteBody => 'Bu oyuncunun skorları da silinir.';
-  String get plDeleteTitle => 'Oyuncu silinsin mi?';
   String get plErrEmpty => 'Bir ad yaz.';
   String get plErrLong => 'En fazla 16 harf.';
   String get plErrShort => 'En az 2 harf.';
@@ -62,12 +53,13 @@ class GameTexts {
   String get plErrNotAllowed => 'Başka bir ad seç.';
   String get plErrTaken => 'Bu ad zaten kullanılıyor.';
   String get plLabel => 'Oyuncu';
+  String get plEnterName => 'Adını yaz';
+  String get plNameIntro =>
+      'Genel sıralamada bu adla görüneceksin. Sonra istersen düzeltebilirsin.';
+  String get plContinue => 'Devam';
+  String get plSave => 'Kaydet';
   String get plNameHint => 'Takma ad yeterli, tam adını yazma';
   String get plNameLabel => 'Oyuncu Adın';
-  String get plNewPlayer => '+ Yeni Oyuncu';
-  String get plSelect => 'Oyuncu seç';
-  String get plWhoPlays => 'Kim oynuyor?';
-  String get plYou => 'Sen';
   String get playAgain => 'Tekrar Oyna';
   String get score => 'Puan';
 }

@@ -48,14 +48,34 @@ void main() {
       expect(reopened.activePlayer!.id, elif!.id);
     });
 
-    test('birden fazla profil; değiştirme kalıcıdır', () async {
+    test('tek oyuncu: ad verilir, düzeltilir; kimlik ve skorlar korunur', () async {
+      final repo = await _fresh();
+      expect(await repo.setName('A'), PlayerNameError.tooShort);
+      expect(repo.activePlayer, isNull);
+      expect(await repo.setName('  Ahmet  '), isNull);
+      final p = repo.activePlayer!;
+      expect(p.displayName, 'Ahmet');
+      await repo.recordResult(_result(p.id, 120));
+
+      expect(await repo.setName('<b>'), PlayerNameError.invalidChars);
+      expect(await repo.setName('Ahmed'), isNull);
+      expect(repo.profiles, hasLength(1), reason: 'yeni oyuncu açılmaz');
+      final reopened = await _fresh();
+      expect(reopened.activePlayer!.id, p.id);
+      expect(reopened.activePlayer!.displayName, 'Ahmed');
+      expect(reopened.bestScore(p.id, GameIds.harfArabalari), 120);
+    });
+
+    test('eski sürümde birden çok profil: aktif olan (yoksa ilk) oyuncu olur', () async {
       final repo = await _fresh();
       final a = (await repo.createProfile('Ali', 'star'))!;
       final b = (await repo.createProfile('Elif', 'note'))!;
-      expect(repo.activePlayer!.id, b.id); // son oluşturulan aktif
-      await repo.selectProfile(a.id);
+      expect(repo.activePlayer!.id, b.id);
+      SharedPreferences.setMockInitialValues({
+        PlayerRepository.profilesKey:
+            '[${[a, b].map((p) => '{"id":"${p.id}","displayName":"${p.displayName}","avatarId":"star","createdAt":"2026-01-01"}').join(',')}]',
+      });
       expect((await _fresh()).activePlayer!.id, a.id);
-      expect(repo.profiles.length, 2);
     });
 
     test('ad doğrulama: boş, çok uzun, aynı ad (büyük/küçük harf fark etmez)', () async {
@@ -91,7 +111,6 @@ void main() {
       await repo.deleteProfile(p.id);
       expect(repo.profiles, isEmpty);
       expect(repo.activePlayer, isNull);
-      expect(repo.leaderboard(GameIds.harfArabalari), isEmpty);
       expect((await _fresh()).profiles, isEmpty);
     });
 
@@ -152,73 +171,12 @@ void main() {
     test('silinmiş profile sonuç yazılmaz', () async {
       final repo = await _fresh();
       await repo.recordResult(_result('yok', 50));
-      expect(repo.leaderboard(GameIds.harfArabalari), isEmpty);
+      expect(repo.statsFor('yok', GameIds.harfArabalari).gamesPlayed, 0);
     });
 
     test('PlayerGameResult doğruluğu hesaplanır', () {
       expect(_result('x', 1, correct: 14, wrong: 0, missed: 3).accuracyPercent, 82);
       expect(_result('x', 1, correct: 0, wrong: 0, missed: 0).accuracyPercent, 0);
-    });
-  });
-
-  group('skor tablosu (yerel Top 10)', () {
-    test('en iyi skora göre sıralı; sadece o oyunu oynayanlar', () async {
-      final repo = await _fresh();
-      final names = {'Elif': 245, 'Yusuf': 220, 'Ahmet': 195, 'MaviKartal': 180};
-      for (final e in names.entries) {
-        final p = (await repo.createProfile(e.key, 'star'))!;
-        await repo.recordResult(_result(p.id, e.value));
-      }
-      await repo.createProfile('Hiç Oynamadı', 'star');
-
-      final board = repo.leaderboard(GameIds.harfArabalari);
-      expect(board.map((e) => '${e.rank}.${e.profile.displayName}.${e.stats.bestScore}'),
-          ['1.Elif.245', '2.Yusuf.220', '3.Ahmet.195', '4.MaviKartal.180']);
-      // Başka oyunda kimse yok: ayrı tablo.
-      expect(repo.leaderboard(GameIds.bulPatlat), isEmpty);
-    });
-
-    test('12 oyuncu varsa yalnızca ilk 10; limit ileride 20 olabilir', () async {
-      final repo = await _fresh();
-      for (var i = 1; i <= 12; i++) {
-        final p = (await repo.createProfile('Oyuncu$i', 'star'))!;
-        await repo.recordResult(_result(p.id, i * 10));
-      }
-      final top10 = repo.leaderboard(GameIds.harfArabalari);
-      expect(top10.length, 10);
-      expect(top10.first.stats.bestScore, 120);
-      expect(top10.last.stats.bestScore, 30);
-      expect(repo.leaderboard(GameIds.harfArabalari, limit: 20).length, 12);
-      // Tablonun dışında kalan oyuncu kendi sırasını yine bulur.
-      final last = repo.profiles.first; // Oyuncu1: 10 puan → 12. sıra
-      expect(repo.entryOf(last.id, GameIds.harfArabalari)!.rank, 12);
-    });
-
-    test('beraberlikte önce o skora ulaşan; sonra ada göre', () async {
-      final repo = await _fresh();
-      final b = (await repo.createProfile('Bora', 'star'))!;
-      final a = (await repo.createProfile('Ada', 'star'))!;
-      await repo.recordResult(_result(b.id, 100, at: DateTime(2026, 1, 1, 10)));
-      await repo.recordResult(_result(a.id, 100, at: DateTime(2026, 1, 1, 11)));
-      var board = repo.leaderboard(GameIds.harfArabalari);
-      expect(board.map((e) => e.profile.displayName), ['Bora', 'Ada']);
-
-      // Aynı skoru sonra tekrarlamak eski tarihi (öndeki sırayı) bozmaz.
-      await repo.recordResult(_result(a.id, 100, at: DateTime(2026, 1, 2)));
-      board = repo.leaderboard(GameIds.harfArabalari);
-      expect(board.first.profile.displayName, 'Bora');
-    });
-
-    test('her oyun için ayrı sıralama', () async {
-      final repo = await _fresh();
-      final elif = (await repo.createProfile('Elif', 'star'))!;
-      final ali = (await repo.createProfile('Ali', 'star'))!;
-      await repo.recordResult(_result(elif.id, 300, gameId: GameIds.bulPatlat));
-      await repo.recordResult(_result(ali.id, 100, gameId: GameIds.bulPatlat));
-      await repo.recordResult(_result(elif.id, 50, gameId: GameIds.harfArabalari));
-      await repo.recordResult(_result(ali.id, 250, gameId: GameIds.harfArabalari));
-      expect(repo.leaderboard(GameIds.bulPatlat).first.profile.displayName, 'Elif');
-      expect(repo.leaderboard(GameIds.harfArabalari).first.profile.displayName, 'Ali');
     });
   });
 }

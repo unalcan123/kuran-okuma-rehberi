@@ -172,6 +172,28 @@ class FirebaseLeaderboardBackend implements LeaderboardBackend {
   });
 
   @override
+  Future<void> renamePlayer({
+    required String playerId,
+    required String ownerUid,
+    required String nickname,
+    required Iterable<String> gameIds,
+  }) async {
+    await savePlayer(playerId: playerId, ownerUid: ownerUid, nickname: nickname);
+    await _guard(() async {
+      for (final g in gameIds) {
+        final ref = _scores.doc(scoreDocId(g, playerId));
+        final snap = await ref.get();
+        if (!snap.exists || snap.data()?['nickname'] == nickname) continue;
+        // Kurallar: yalnızca nickname + updatedAt değişebilir.
+        await ref.update({
+          'nickname': nickname,
+          'updatedAt': FieldValue.serverTimestamp(),
+        });
+      }
+    });
+  }
+
+  @override
   Future<void> deletePlayer(String playerId, Iterable<String> gameIds) =>
       _guard(() async {
         final batch = _db.batch();

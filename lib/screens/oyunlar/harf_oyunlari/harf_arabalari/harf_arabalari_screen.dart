@@ -11,7 +11,7 @@ import '../profil/record_result.dart';
 import '../../widgets/online_leaderboard_section.dart';
 import '../../../../services/leaderboard/leaderboard_models.dart';
 import '../../../../services/leaderboard/leaderboard_service.dart';
-import '../profil/skor_tablosu_sayfasi.dart';
+import '../profil/genel_siralama_sayfasi.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -556,7 +556,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
             context,
             MaterialPageRoute(
               builder:
-                  (_) => const SkorTablosuSayfasi(
+                  (_) => const GenelSiralamaSayfasi(
                     initialGameId: GameIds.harfArabalari,
                   ),
             ),
