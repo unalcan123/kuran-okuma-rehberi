@@ -5,6 +5,8 @@ import '../../data/letters_data.dart';
 import '../../data/memory_game_data.dart';
 import '../../theme/app_colors.dart';
 import 'drag_drop/drag_drop_levels_screen.dart';
+import 'harf_dedektifi/dedektif_engine.dart';
+import 'harf_dedektifi/harf_dedektifi_screen.dart';
 import 'harf_oyunlari/bul_patlat/bul_patlat_screen.dart';
 import 'harf_oyunlari/harf_arabalari/harf_arabalari_screen.dart';
 import 'harf_oyunlari/profil/player_models.dart';
@@ -126,6 +128,20 @@ final List<GameEntry> kGames = [
         key: '${GameIds.harfArabalari}.l3',
         title: 'Seviye 3 · Hızlı',
       ),
+    ],
+  ),
+  GameEntry(
+    id: kHarfDedektifiGameKey,
+    title: 'Harf Dedektifi',
+    subtitle: 'Harfleri farklı şekilleriyle ve kelimelerin içinde bul',
+    icon: Icons.search_rounded,
+    background: AppColors.sageSoft,
+    foreground: AppColors.sage,
+    builder: (_) => const HarfDedektifiScreen(),
+    // Her mod ayrı oyun: puanlar yalnızca aynı modla karşılaştırılır.
+    variants: [
+      for (final mode in DetectiveMode.values)
+        GameVariant(key: mode.gameKey, title: mode.title),
     ],
   ),
 ];

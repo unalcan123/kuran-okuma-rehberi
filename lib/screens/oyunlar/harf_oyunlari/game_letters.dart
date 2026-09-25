@@ -35,3 +35,10 @@ TextStyle lessonArabicStyle(double fontSize, {Color? color}) =>
     AppTextTheme.arabicSmall(
       fontSize: fontSize,
     ).copyWith(height: kArabicLineHeight, color: color);
+
+/// Harekesiz tek harf/biçim kartları için: satır kutusu glife daha yakın,
+/// böylece kutuya sığdırılan harf gereksiz küçülmez.
+TextStyle singleGlyphStyle(double fontSize, {Color? color}) =>
+    AppTextTheme.arabicSmall(
+      fontSize: fontSize,
+    ).copyWith(height: 1.2, color: color);

@@ -1,6 +1,6 @@
 # Oyunlar bölümü — yapılanlar ve nasıl çalıştığı
 
-Son güncelleme: 2026-09-19. Bu belge, oyunlar üzerinde yapılan işin hafızasıdır:
+Son güncelleme: 2026-09-25. Bu belge, oyunlar üzerinde yapılan işin hafızasıdır:
 yeni bir konuşmada (ya da yarın) buradan devam edilir. Ana sayfadaki **Oyunlar**
 kartı `OyunlarScreen`'i açar.
 
@@ -15,6 +15,7 @@ en altta.
 | **Dinle ve Seç** | Önce ders seçilir (37 ders). 5 soru: ses otomatik çalar, 4 şıktan doğrusu seçilir. | `listen_pick/` |
 | **Hafıza** | Aynı harfli kartları bul (eski Elifba'nın 3. oyunu). Kolay / Zor / Çok Zor, 9 seviye. Kartlar çevrilince harfin sesi çalar. | `memory/` |
 | **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 ilk sürümün hızıdır ve "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
+| **Harf Dedektifi** | 3 mod: Şekilleri Tanı, Benzer Harfler, Kelime Dedektifi. 5 kısa tur, süre yok; bir turda birden çok doğru örnek bulunur. | `harf_dedektifi/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
 ### Sürükle & Bırak
@@ -68,6 +69,61 @@ en altta.
   seçilir (2×2, tek sütun ya da tek satır). Uzun kelime/cümleler alt alta geniş kart olur.
 - Anahtar: her ders ayrı oyundur → `listen_pick.<lessonId>`.
 
+### Harf Dedektifi (2026-09-25)
+Başlangıç ekranında mod + harf grubu seçilir ("Tüm harfler" ya da Sürükle & Bırak'ın 7 grubu;
+lam-elif alınmaz). Oturum **5 kısa tur**, süre yok. Her turda hedef harf büyük gösterilir
+("ب harfini bul!" + doğrulanmış Türkçe ad), hoparlör düğmesi harfin **kendi** kaydını
+(Ders 1) çalar, "Bulunan: 2 / 4" sayacı var. Tur bitince yıldızlı kısa kutlama + "Sonraki".
+- **Şekilleri Tanı**: hedefin bağlantı biçimleri (tek başına / başta / ortada / sonda) kartlarda.
+  Harf oturumda ilk kez gelince önce biçimler **adlarıyla** tanıtılır ("Aramaya Başla"),
+  aramada kartlarda ad yok. Kart sayısı 6, 6, 8, 8, 9; ilk iki turda çeldiriciler gözle kolay
+  ayrılan harflerden (`looksAlike` aileleri), sonra en çok 2 benzer harf.
+- **Benzer Harfler**: gruplar ب ت ث, ج ح خ, د ذ, ر ز, س ش, ص ض, ط ظ, ع غ; gruptaki bütün harfler
+  **aynı biçimlerde** yan yana (yalnızca noktalar farklı). Yanlışta seçilene göre ipucu
+  ("Zı harfinin üstünde 1 nokta var. Tı harfinin hiç noktası yok.") + hedef ve seçilen yan yana
+  büyütülmüş. Genel "noktalarına dikkat" cümlesi yok.
+- **Kelime Dedektifi**: 2–3 gerçek kelime; çocuk kelimenin içindeki harfe dokunur. Aynı
+  kelimede birden çok geçiş ayrı sayılır (ör. باب'da ب ×2).
+- Puan: bulunan her **yeni** örnek **+10** (GameScorer kullanılmaz; ilk deneme/seri bonusu,
+  hız bonusu yok). Aynı doğruya tekrar basmak puan vermez; yanlış turu bitirmez, puan silmez.
+  Aynı yanlışa tekrar basmak istatistiğe sayılmaz. İki **farklı** yanlıştan sonra "İpucu"
+  belirginleşir (öncesinde soluk durur); ipucu bulunmamış bir örneği büyüteçle/altın çerçeveyle gösterir.
+- Değerlendirme: her bulunan örnek *ilk deneme* / *tekrar deneyerek* / *ipucuyla* sayılır.
+  Sonuç: puan, yıldız (ilk deneme oranı), bulunan örnek, en çok 3 "Tekrar çalışalım" harf/biçim;
+  düğmeler **Tekrar Oyna**, **Zorlandıklarımı Çalış** (turların ≥3'ü o harfler), **Oyunlara Dön**.
+- Kalıcı zorluk: `harf_dedektifi.v1.<oyuncuId|cihaz>` → mod başına harf ağırlığı 0–5
+  (zorlanılan tur +1, rahat tur −1). Hedef seçimi ağırlık `1 + min(ağırlık, 3)`; diğer harfler
+  gelmeye devam eder. Bozuk kayıt → boş başlar. Ses tercihi `harf_dedektifi.ses_kapali`
+  (üst çubukta hoparlör). `MediaQuery.disableAnimations` açıksa sallanma/yıldız animasyonu yok.
+- Sonuçlarım anahtarları: `harf_dedektifi.sekiller|benzer|kelime` (mod başına ayrı). Oturum
+  bir kez kaydedilir. **Çevrimiçi sıralamaya bağlanmadı**: turdaki örnek sayısı değişken (2–4),
+  eşit soru sayılı oturumlar olmadığından karşılaştırma adil olmaz; ayrıca kural değişikliği
+  `firebase deploy` ister. Gerekirse sabit örnek sayılı bir mod tasarlanıp `docs/FIREBASE.md`
+  adımlarıyla eklenir.
+
+**Arapça yazım kuralları (bozma):**
+- Eşleştirme metinle değil **harf kimliğiyle** (`kArabicLetters` sırası 1–28). He verisi 'هـ'
+  yazılır; kimlik temel 'ه'. Sunum biçimleri (U+FB50…) kullanılmaz.
+- ا د ذ ر ز و sonraki harfe bağlanmaz → yalnızca iki görünüm (tek başına/başta, öncekine bağlı);
+  yapay 4 biçim yok. Kaşide (ـ) yalnızca tek harf kartlarında bağlantıyı göstermek için; kelimelere
+  asla eklenmez, harf sayılmaz. Bağlanan harflerin biçimleri Ders 2 verisiyle aynı (test).
+- Hemzeli elif (أ إ), medli elif (آ), vasl (ٱ), hemze (ء ؤ ئ), elif maksura (ى), yuvarlak te (ة)
+  **hiçbir harfe indirgenmez** (`letterIdOfChar` → null); içeren kelime havuza girmez. Lam-elif (لا)
+  içeren kelime de girmez (tek glif, içindeki iki harfe ayrı dokunulamaz).
+- Kelime havuzu yalnızca projedeki **Ders 2 örnek kelimeleri** (`positionExamples`, 67 kelime);
+  yeni kelime uydurulmaz. Dışarıda kalanlar: أب، مرآة، مزرعة، حائط، لاعب، سلام، إلا.
+- Harekeler önündeki harfle bir küme; ayrı dokunulmaz (havuzdaki kelimeler harekesiz).
+
+**Kelime içinde dokunma** (`widgets/tappable_word.dart`): kelime tek metin olarak çizilir
+(`TextPainter`, RTL); her harfin mantıksal aralığı için `getBoxesForSelection` kutusu alınır ve
+dokunma alanı (`InkWell`, klavyeyle de seçilir) tam o kutuya yerleşir. Genişlikler eşit sayılmaz,
+görsel sıra ölçümden gelir. Vurgu = arkaya boyanan zemin + harfin **rengi** (renk değişimi
+şekillendirmeyi değiştirmez; testte kutu genişlikleri birebir aynı). Gerçek Hasenat ile ölçüldü:
+67 kelimenin hepsinde her harfin ayrı, çakışmayan kutusu var (ligatür yok); piksel denetiminde her
+harfin mürekkebinin ≥ %89'u kendi kutusunda (taşan kısım ر/و kuyrukları). Havuza yeni kelime
+eklenince `harf_dedektifi_test.dart` bunu yeniden denetler; Hasenat'ın bitişik glif (ligatür)
+yaptığı bir kelime testi kırar → o kelime alınmamalı.
+
 ## 2. Puanlama (tüm oyunlar için ortak)
 
 Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
@@ -112,6 +168,11 @@ memory/                    memory_levels_screen (Kolay/Zor/Çok Zor listesi), me
 listen_pick/               listen_pick_lessons_screen (ders seçimi), listen_pick_screen,
                            listen_pick_questions (soru üretimi, LetterPosition),
                            widgets: option_card, options_grid, play_sound_button
+harf_dedektifi/             harf_dedektifi_screen (mod + harf grubu), harf_dedektifi_game_screen
+                           (turlar, geri bildirim, bitiş), dedektif_data (harf kimliği, biçimler,
+                           benzer gruplar, nokta ipuçları, kelime havuzu), dedektif_engine (tur
+                           üretimi + oturum/puan, saf Dart), dedektif_progress_store (zorluk, ses),
+                           widgets: detective_card, tappable_word
 results/game_results_screen.dart
 widgets/                   Ortak parçalar: fit_grid, game_score_strip, game_result_summary,
                            game_finish_view, game_progress (GameStepPill, GameProgressBar),

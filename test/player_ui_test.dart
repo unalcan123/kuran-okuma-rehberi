@@ -180,6 +180,7 @@ void main() {
       );
       await settle(tester);
       await tester.ensureVisible(find.text('Genel Sıralama'));
+      await settle(tester);
       await tester.tap(find.text('Genel Sıralama'));
       await settle(tester);
       expect(find.byType(GenelSiralamaSayfasi), findsOneWidget);

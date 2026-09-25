@@ -95,9 +95,10 @@ void main() {
       find.text('${kElifbaLessons[2].label} · ${kElifbaLessons[2].title}'),
       findsOneWidget,
     );
+    // Sürükle & Bırak ve Dinle ve Seç oynandı; diğer oyunlar boş.
     expect(
       find.text('Henüz oynanmadı.'),
-      findsNWidgets(3),
+      findsNWidgets(kGames.length - 2),
       reason: 'Hafıza, Bul & Patlat and Harf Arabaları have not been played',
     );
 
@@ -177,7 +178,8 @@ void main() {
   testWidgets('Confirming the reset wipes all results and only those', (
     tester,
   ) async {
-    setSize(tester, const Size(360, 900));
+    // Sıfırlamadan sonra tüm oyun kartları aynı anda ekranda olsun.
+    setSize(tester, const Size(360, 1400));
     final store = GameScoreStore();
     await store.submit('drag_drop.2', _result(120));
     await store.submit(listenPickGameKey(kElifbaLessons.first), _result(80));
