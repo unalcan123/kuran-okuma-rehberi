@@ -409,32 +409,27 @@ class DetectiveSession {
 
   void _addWeak(WeakSpot spot) => _weak[spot] = (_weak[spot] ?? 0) + 1;
 
-  /// En çok zorlanılan en fazla 3 harf/biçim.
+  /// En çok zorlanılan en fazla 3 harf; her harf bir kez. Belirli bir
+  /// biçimde zorlanıldıysa (ör. "Be · Ortada") o biçim de gösterilir.
   List<WeakSpot> weakSpots([int max = 3]) {
-    final entries =
-        _weak.entries.toList()..sort((a, b) {
-          final byCount = b.value.compareTo(a.value);
-          return byCount != 0
-              ? byCount
-              : a.key.letterId.compareTo(b.key.letterId);
-        });
-    final spots = <WeakSpot>[];
-    for (final e in entries) {
-      if (spots.length >= max) break;
-      spots.add(e.key);
+    final total = <int, int>{};
+    final form = <int, (LetterForm, int)>{};
+    for (final e in _weak.entries) {
+      final id = e.key.letterId;
+      total[id] = (total[id] ?? 0) + e.value;
+      final f = e.key.form;
+      if (f != null && e.value > (form[id]?.$2 ?? 0)) form[id] = (f, e.value);
     }
-    return spots;
+    final ids =
+        total.keys.toList()..sort((a, b) {
+          final byCount = total[b]!.compareTo(total[a]!);
+          return byCount != 0 ? byCount : a.compareTo(b);
+        });
+    return [for (final id in ids.take(max)) WeakSpot(id, form[id]?.$1)];
   }
 
   /// Zorlanılan harfler (tekrar çalışma turu için, en fazla 3).
-  List<int> weakLetterIds() {
-    final ids = <int>[];
-    for (final spot in weakSpots(10)) {
-      if (!ids.contains(spot.letterId)) ids.add(spot.letterId);
-      if (ids.length == 3) break;
-    }
-    return ids;
-  }
+  List<int> weakLetterIds() => [for (final s in weakSpots()) s.letterId];
 
   /// Oturumda zorlanılan / rahat bulunan hedefler (kalıcı ağırlık için).
   Set<int> get struggledTargets => Set.of(_struggled);

@@ -70,7 +70,9 @@ class DetectiveLetter {
   /// "tek başına" aynı görünür; "ortada / sonda" ise yalnızca öncekine bağlıdır.
   String formLabel(LetterForm form) {
     if (joinsNext) return form.label;
-    return form == LetterForm.isolated ? 'Tek başına / Başta' : 'Öncekine bağlı';
+    return form == LetterForm.isolated
+        ? 'Tek başına / Başta'
+        : 'Öncekine bağlı';
   }
 }
 
@@ -154,13 +156,9 @@ const Map<int, String> _dotText = {
   19: 'üstünde 1 nokta var',
 };
 
-/// "Te harfinin üstünde 2 nokta var." — yalnızca nokta farkıyla ayrılan
-/// harfler için; diğerlerinde `null` (genel "noktalarına dikkat" denmez).
-String? dotDescription(int id) {
-  final text = _dotText[id];
-  if (text == null) return null;
-  return '${letterById(id).name} harfinin $text.';
-}
+/// "üstünde 2 nokta var" — yalnızca nokta farkıyla ayrılan harfler için;
+/// diğerlerinde `null` (genel "noktalarına dikkat" denmez).
+String? dotPhrase(int id) => _dotText[id];
 
 /// Şekilleri Tanı modunda ilk turlarda çeldirici seçilmeyecek, birbirine
 /// çok benzeyen harf aileleri (baş/orta biçimde ب ت ث ن ي aynı dişlidir).

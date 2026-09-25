@@ -82,6 +82,16 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
   GameSubmission? _submission;
   Timer? _autoPlay;
 
+  /// Tur/ekran değişince kısa süre dokunma alınmaz: "Sonraki"ye çift
+  /// dokunan çocuk, aynı yerde beliren İpucu / Aramaya Başla / sonuç
+  /// düğmesine yanlışlıkla basmasın.
+  bool _inputLocked = false;
+  Timer? _unlock;
+  static const _inputLockTime = Duration(milliseconds: 600);
+
+  /// Önceki oturumun zorluk kaydı; yeni oturum onu bekleyip okur.
+  Future<void>? _pendingSave;
+
   DetectiveMode get _mode => widget.mode;
 
   @override
@@ -110,6 +120,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
   @override
   void dispose() {
     _autoPlay?.cancel();
+    _unlock?.cancel();
     Future.microtask(_audio.stop);
     super.dispose();
   }
@@ -123,6 +134,14 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
   }
 
   // ---- oturum ---------------------------------------------------------------
+
+  void _lockInput() {
+    _inputLocked = true;
+    _unlock?.cancel();
+    _unlock = Timer(_inputLockTime, () {
+      if (mounted) setState(() => _inputLocked = false);
+    });
+  }
 
   Future<void> _startSession({List<int> focus = const []}) async {
     final serial = ++_serial;
@@ -138,6 +157,8 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
       _shake.clear();
       _intro = false;
     });
+    await _pendingSave;
+    if (!mounted || serial != _serial) return;
     final weights = await _progress.weightsFor(_mode, profileId: _profileId());
     if (!mounted || serial != _serial) return;
     final factory = DetectiveRoundFactory(_random);
@@ -164,6 +185,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
         session.isFirstAppearance(session.roundIndex);
     _feedback = null;
     _shake.clear();
+    _lockInput();
     _scheduleTargetSound();
   }
 
@@ -180,7 +202,10 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
     if (_muted) return;
     final audio = _target.audio;
     // Ses dosyası yoksa sessiz geçilir; AudioService hatayı kendisi yakalar.
-    if (audio != null) _audio.playAsset(audio);
+    if (audio != null) {
+      _audio.stopEffect();
+      _audio.playAsset(audio);
+    }
   }
 
   Future<void> _toggleMute() async {
@@ -196,7 +221,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
 
   void _tap(String itemId) {
     final session = _session;
-    if (session == null || _intro || _finished) return;
+    if (session == null || _intro || _finished || _inputLocked) return;
     final state = session.current;
     final result = session.tap(itemId);
     if (result == TapResult.ignored) return;
@@ -204,7 +229,8 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
       switch (result) {
         case TapResult.found:
           _autoPlay?.cancel();
-          _award = const ScoreAward(
+          // Her bulguda YENİ nesne: şerit "+10"u her seferinde gösterir.
+          _award = ScoreAward(
             base: kDetectivePointsPerFind,
             firstTryBonus: 0,
             streakBonus: 0,
@@ -216,7 +242,11 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
                     _FeedbackKind.found,
                     'Buldun! Kalan: ${state.total - state.found.length}',
                   );
-          if (!_muted) _audio.playEffect(kGameCorrectSound);
+          if (!_muted) {
+            // Aynı anda tek ses: harf sesi susar, kısa "doğru" sesi çalar.
+            _audio.stop();
+            _audio.playEffect(kGameCorrectSound);
+          }
         case TapResult.alreadyFound:
           _feedback = const _Feedback(
             _FeedbackKind.info,
@@ -242,13 +272,10 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
     switch (_mode) {
       case DetectiveMode.similar:
         final form = state.round.formOf(itemId) ?? LetterForm.isolated;
-        final pickedDots = dotDescription(picked.id);
-        final targetDots = dotDescription(target.id);
         return _Feedback(
           _FeedbackKind.wrong,
-          pickedDots != null && targetDots != null
-              ? '$pickedDots $targetDots'
-              : 'Bu ${picked.name} harfi. Bir daha bakalım!',
+          _dotHint(picked, target) ??
+              'Bu ${picked.name} harfi. Bir daha bakalım!',
           compare: (
             target.display(form),
             target.name,
@@ -257,9 +284,12 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
           ),
         );
       case DetectiveMode.shapes:
+        // Yalnızca noktası farklı bir harf seçildiyse farkı söyle.
+        final dots =
+            looksAlike(picked.id, target.id) ? _dotHint(picked, target) : null;
         return _Feedback(
           _FeedbackKind.wrong,
-          'Bu ${picked.name} harfi. Bir daha bakalım!',
+          dots ?? 'Bu ${picked.name} harfi. Bir daha bakalım!',
         );
       case DetectiveMode.words:
         return _Feedback(
@@ -269,9 +299,17 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
     }
   }
 
+  /// "Seçtiğin Te: üstünde 2 nokta var. Aradığımız Be: altında 1 nokta var."
+  String? _dotHint(DetectiveLetter picked, DetectiveLetter target) {
+    final p = dotPhrase(picked.id);
+    final t = dotPhrase(target.id);
+    if (p == null || t == null) return null;
+    return 'Seçtiğin ${picked.name}: $p. Aradığımız ${target.name}: $t.';
+  }
+
   void _hint() {
     final session = _session;
-    if (session == null || _intro) return;
+    if (session == null || _intro || _inputLocked) return;
     final id = session.hint(_random);
     if (id == null) return;
     setState(() {
@@ -286,7 +324,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
 
   void _next() {
     final session = _session;
-    if (session == null || !session.current.complete) return;
+    if (session == null || !session.current.complete || _finished) return;
     if (session.isLastRound) {
       _finish();
       return;
@@ -310,6 +348,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
     setState(() {
       _finished = true;
       _result = result;
+      _lockInput();
     });
     // Tamamlanan oturum yalnızca bir kez kaydedilir.
     if (_saved) return;
@@ -320,7 +359,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
         setState(() => _submission = submission);
       }
     });
-    _progress.applySession(
+    _pendingSave = _progress.applySession(
       _mode,
       profileId: _profileId(),
       struggled: session.struggledTargets,
@@ -394,6 +433,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
                       onPractice:
                           () => _startSession(focus: session.weakLetterIds()),
                       onExit: () => Navigator.of(context).pop(true),
+                      locked: _inputLocked,
                     )
                     : session == null
                     ? const Center(child: CircularProgressIndicator())
@@ -434,6 +474,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
                     constraints.maxWidth >= constraints.maxHeight * 1.15;
                 final compact = constraints.maxHeight < 420;
                 final header = _TargetHeader(
+                  key: ValueKey('header-$_serial-${session.roundIndex}'),
                   letter: _target,
                   mode: _mode,
                   found: state.found.length,
@@ -441,6 +482,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
                   compact: compact,
                   onListen: _playTarget,
                   muted: _muted,
+                  reduceMotion: reduceMotion,
                 );
                 // Dikeyde sabit yükseklik; yanda kalan alan (tur boyunca
                 // değişmez, oyun alanı kaymaz).
@@ -459,7 +501,13 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
                   last: session.isLastRound,
                   onHint: _hint,
                   onNext: _next,
-                  onStart: () => setState(() => _intro = false),
+                  onStart: () {
+                    if (_inputLocked) return;
+                    setState(() {
+                      _intro = false;
+                      _lockInput();
+                    });
+                  },
                 );
                 final play = KeyedSubtree(
                   key: ValueKey('$_serial-${session.roundIndex}-$_intro'),
@@ -662,6 +710,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
 
 class _TargetHeader extends StatelessWidget {
   const _TargetHeader({
+    super.key,
     required this.letter,
     required this.mode,
     required this.found,
@@ -669,8 +718,10 @@ class _TargetHeader extends StatelessWidget {
     required this.compact,
     required this.onListen,
     required this.muted,
+    required this.reduceMotion,
   });
 
+  final bool reduceMotion;
   final DetectiveLetter letter;
   final DetectiveMode mode;
   final int found;
@@ -708,24 +759,35 @@ class _TargetHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
+          // Tur başında aranan harf bir kez büyüyüp küçülür: okuyamayan
+          // çocuk da neyi araması gerektiğini görür.
           ExcludeSemantics(
-            child: Container(
-              key: const ValueKey('target-glyph'),
-              width: glyph,
-              height: glyph,
-              decoration: BoxDecoration(
-                color: AppColors.goldSoft,
-                borderRadius: BorderRadius.circular(18),
-                border: Border.all(color: AppColors.gold, width: 2),
-              ),
-              alignment: Alignment.center,
-              child: FittedBox(
-                child: Padding(
-                  padding: const EdgeInsets.all(6),
-                  child: Text(
-                    letter.char,
-                    textScaler: TextScaler.noScaling,
-                    style: singleGlyphStyle(glyph * 0.7),
+            child: TweenAnimationBuilder<double>(
+              tween: Tween(begin: reduceMotion ? 1 : 0, end: 1),
+              duration: Duration(milliseconds: reduceMotion ? 0 : 900),
+              builder:
+                  (context, t, child) => Transform.scale(
+                    scale: 1 + 0.18 * math.sin(t * math.pi),
+                    child: child,
+                  ),
+              child: Container(
+                key: const ValueKey('target-glyph'),
+                width: glyph,
+                height: glyph,
+                decoration: BoxDecoration(
+                  color: AppColors.goldSoft,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: AppColors.gold, width: 2),
+                ),
+                alignment: Alignment.center,
+                child: FittedBox(
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Text(
+                      letter.char,
+                      textScaler: TextScaler.noScaling,
+                      style: singleGlyphStyle(glyph * 0.7),
+                    ),
                   ),
                 ),
               ),
@@ -1030,9 +1092,9 @@ class _RoundActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.titleMedium?.copyWith(
-      fontWeight: FontWeight.w800,
-    );
+    final textStyle = Theme.of(
+      context,
+    ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800);
     Widget child;
     if (intro) {
       child = FilledButton.icon(
@@ -1121,7 +1183,10 @@ class _WordsArea extends StatelessWidget {
       double column = double.infinity;
       for (final s in sizes) {
         column = math.min(column, probe * w / s.width);
-        column = math.min(column, probe * ((h - _gap * (n - 1)) / n) / s.height);
+        column = math.min(
+          column,
+          probe * ((h - _gap * (n - 1)) / n) / s.height,
+        );
       }
       final totalWidth = sizes.fold(0.0, (a, s) => a + s.width);
       final tallest = sizes.fold(0.0, (a, s) => math.max(a, s.height));
@@ -1184,8 +1249,10 @@ class _DetectiveFinishView extends StatelessWidget {
     required this.onReplay,
     required this.onPractice,
     required this.onExit,
+    required this.locked,
   });
 
+  final bool locked;
   final DetectiveSession session;
   final GameResult result;
   final GameSubmission? submission;
@@ -1201,117 +1268,123 @@ class _DetectiveFinishView extends StatelessWidget {
       color: AppColors.textSecondary,
     );
     return Center(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 420),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Icon(
-                Icons.search_rounded,
-                size: 56,
-                color: AppColors.turquoise,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Tebrikler, dedektif!',
-                textAlign: TextAlign.center,
-                style: textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: AppColors.navy,
+      child: AbsorbPointer(
+        absorbing: locked,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 420),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Icon(
+                  Icons.search_rounded,
+                  size: 56,
+                  color: AppColors.turquoise,
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                '${session.roundCount} turu tamamladın.',
-                textAlign: TextAlign.center,
-                style: lineStyle,
-              ),
-              const SizedBox(height: 16),
-              GameResultSummary(result: result, submission: submission),
-              const SizedBox(height: 12),
-              Text(
-                'Bulunan örnek: ${session.foundCount}',
-                key: const ValueKey('found-total'),
-                textAlign: TextAlign.center,
-                style: lineStyle?.copyWith(
-                  fontWeight: FontWeight.w800,
-                  color: AppColors.navy,
-                ),
-              ),
-              Text(
-                'Tekrar deneyerek: ${session.countOf(FindKind.afterRetry)}'
-                ' · İpucuyla: ${session.countOf(FindKind.withHint)}',
-                key: const ValueKey('find-kinds'),
-                textAlign: TextAlign.center,
-                style: lineStyle,
-              ),
-              if (weak.isNotEmpty) ...[
-                const SizedBox(height: 18),
+                const SizedBox(height: 8),
                 Text(
-                  'Tekrar çalışalım',
+                  'Tebrikler, dedektif!',
                   textAlign: TextAlign.center,
-                  style: textTheme.titleMedium?.copyWith(
+                  style: textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                     color: AppColors.navy,
                   ),
                 ),
-                const SizedBox(height: 8),
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: [for (final spot in weak) _WeakChip(spot: spot)],
+                const SizedBox(height: 4),
+                Text(
+                  '${session.roundCount} turu tamamladın.',
+                  textAlign: TextAlign.center,
+                  style: lineStyle,
                 ),
-              ],
-              const SizedBox(height: 24),
-              FilledButton.icon(
-                key: const ValueKey('replay-button'),
-                onPressed: onReplay,
-                icon: const Icon(Icons.replay_rounded),
-                label: const Text('Tekrar Oyna'),
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppColors.turquoise,
-                  minimumSize: const Size.fromHeight(54),
-                  textStyle: textTheme.titleMedium?.copyWith(
+                const SizedBox(height: 16),
+                GameResultSummary(result: result, submission: submission),
+                const SizedBox(height: 12),
+                Text(
+                  'Bulunan örnek: ${session.foundCount}',
+                  key: const ValueKey('found-total'),
+                  textAlign: TextAlign.center,
+                  style: lineStyle?.copyWith(
                     fontWeight: FontWeight.w800,
+                    color: AppColors.navy,
                   ),
                 ),
-              ),
-              if (weak.isNotEmpty) ...[
-                const SizedBox(height: 10),
-                FilledButton.tonalIcon(
-                  key: const ValueKey('practice-button'),
-                  onPressed: onPractice,
-                  icon: const Icon(Icons.search_rounded),
-                  label: const Text('Zorlandıklarımı Çalış'),
+                Text(
+                  'Tekrar deneyerek: ${session.countOf(FindKind.afterRetry)}'
+                  ' · İpucuyla: ${session.countOf(FindKind.withHint)}',
+                  key: const ValueKey('find-kinds'),
+                  textAlign: TextAlign.center,
+                  style: lineStyle,
+                ),
+                if (weak.isNotEmpty) ...[
+                  const SizedBox(height: 18),
+                  Text(
+                    'Tekrar çalışalım',
+                    textAlign: TextAlign.center,
+                    style: textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.navy,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [for (final spot in weak) _WeakChip(spot: spot)],
+                  ),
+                ],
+                const SizedBox(height: 24),
+                FilledButton.icon(
+                  key: const ValueKey('replay-button'),
+                  onPressed: onReplay,
+                  icon: const Icon(Icons.replay_rounded),
+                  label: const Text('Tekrar Oyna'),
                   style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.goldSoft,
-                    foregroundColor: AppColors.navy,
+                    backgroundColor: AppColors.turquoise,
                     minimumSize: const Size.fromHeight(54),
                     textStyle: textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
-              ],
-              const SizedBox(height: 10),
-              OutlinedButton(
-                key: const ValueKey('exit-button'),
-                onPressed: onExit,
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: AppColors.navy,
-                  side: const BorderSide(color: AppColors.divider, width: 1.5),
-                  minimumSize: const Size.fromHeight(54),
-                  textStyle: textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
+                if (weak.isNotEmpty) ...[
+                  const SizedBox(height: 10),
+                  FilledButton.tonalIcon(
+                    key: const ValueKey('practice-button'),
+                    onPressed: onPractice,
+                    icon: const Icon(Icons.search_rounded),
+                    label: const Text('Zorlandıklarımı Çalış'),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppColors.goldSoft,
+                      foregroundColor: AppColors.navy,
+                      minimumSize: const Size.fromHeight(54),
+                      textStyle: textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
                   ),
+                ],
+                const SizedBox(height: 10),
+                OutlinedButton(
+                  key: const ValueKey('exit-button'),
+                  onPressed: onExit,
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppColors.navy,
+                    side: const BorderSide(
+                      color: AppColors.divider,
+                      width: 1.5,
+                    ),
+                    minimumSize: const Size.fromHeight(54),
+                    textStyle: textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  child: const Text('Oyunlara Dön'),
                 ),
-                child: const Text('Oyunlara Dön'),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -1329,7 +1402,9 @@ class _WeakChip extends StatelessWidget {
     final letter = letterById(spot.letterId);
     final form = spot.form;
     final label =
-        form == null ? letter.name : '${letter.name} · ${letter.formLabel(form)}';
+        form == null
+            ? letter.name
+            : '${letter.name} · ${letter.formLabel(form)}';
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(

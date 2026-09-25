@@ -33,8 +33,14 @@ class TappableWord extends StatefulWidget {
   final ValueChanged<int> onTapLetter;
   final int wordIndex;
 
-  static TextStyle styleFor(double fontSize) =>
-      lessonArabicStyle(fontSize, color: AppColors.navy);
+  /// Harekeli kelimede ferah satır (harekeler kesilmesin); harekesizde
+  /// daha sıkı satır: ölçüldü, Hasenat'ın mürekkebi 1.2'de de kutudan
+  /// taşmıyor ve telefonda kelimeler (dolayısıyla dokunma alanları) büyür.
+  static TextStyle styleFor(double fontSize, {bool hasMarks = true}) =>
+      lessonArabicStyle(
+        fontSize,
+        color: AppColors.navy,
+      ).copyWith(height: hasMarks ? kArabicLineHeight : 1.2);
 
   /// Onay işaretleri için kelimenin üstünde bırakılan boşluk.
   static double topSpace(double fontSize) => math.max(22, fontSize * 0.2);
@@ -46,7 +52,10 @@ class TappableWord extends StatefulWidget {
     double fontSize, {
     Color? Function(int letterIndex)? colorOf,
   }) {
-    final base = styleFor(fontSize);
+    final base = styleFor(
+      fontSize,
+      hasMarks: word.letters.any((l) => l.end - l.start > 1),
+    );
     return TextPainter(
       text: TextSpan(
         style: base,
@@ -73,11 +82,17 @@ class TappableWord extends StatefulWidget {
   static List<Rect> letterBoxes(DetectiveWord word, TextPainter painter) => [
     for (final letter in word.letters)
       painter
-          .getBoxesForSelection(
-            TextSelection(baseOffset: letter.start, extentOffset: letter.end),
-          )
-          .map((b) => b.toRect())
-          .fold<Rect?>(null, (a, b) => a == null ? b : a.expandToInclude(b)) ??
+              .getBoxesForSelection(
+                TextSelection(
+                  baseOffset: letter.start,
+                  extentOffset: letter.end,
+                ),
+              )
+              .map((b) => b.toRect())
+              .fold<Rect?>(
+                null,
+                (a, b) => a == null ? b : a.expandToInclude(b),
+              ) ??
           Rect.zero,
   ];
 
@@ -112,15 +127,16 @@ class _TappableWordState extends State<TappableWord> {
     final markOf = widget.markOf;
     final wordIndex = widget.wordIndex;
     _painter?.dispose();
-    final painter = _painter = TappableWord.layoutWord(
-      word,
-      fontSize,
-      colorOf:
-          (k) => switch (markOf(k)) {
-            WordLetterMark.found => AppColors.turquoise,
-            _ => null,
-          },
-    );
+    final painter =
+        _painter = TappableWord.layoutWord(
+          word,
+          fontSize,
+          colorOf:
+              (k) => switch (markOf(k)) {
+                WordLetterMark.found => AppColors.turquoise,
+                _ => null,
+              },
+        );
     final boxes = TappableWord.letterBoxes(word, painter);
     final top = TappableWord.topSpace(fontSize);
     final origin = Offset(TappableWord.sidePadding, top);
@@ -174,9 +190,7 @@ class _TappableWordState extends State<TappableWord> {
                 Positioned(
                   left: origin.dx + boxes[k].center.dx - checkSize / 2,
                   top: math.max(0, top - checkSize - 2),
-                  child: IgnorePointer(
-                    child: _CheckBadge(size: checkSize),
-                  ),
+                  child: IgnorePointer(child: _CheckBadge(size: checkSize)),
                 ),
           ],
         ),

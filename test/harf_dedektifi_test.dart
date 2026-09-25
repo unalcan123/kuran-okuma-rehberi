@@ -74,9 +74,8 @@ Future<void> loadHasenat() async {
   await loader.load();
 }
 
-WordRound wordRound(int target, List<String> texts) => WordRound(target, [
-  for (final t in texts) DetectiveWord.tryParse(t)!,
-]);
+WordRound wordRound(int target, List<String> texts) =>
+    WordRound(target, [for (final t in texts) DetectiveWord.tryParse(t)!]);
 
 /// Oturumu belirli turlarla kurar (fabrika yerine sabit tur).
 class FixedFactory extends DetectiveRoundFactory {
@@ -143,10 +142,17 @@ String counterText(WidgetTester tester) =>
         )
         .data!;
 
+/// Animasyonlar biter ve tur geçişindeki kısa dokunma kilidi açılır.
+Future<void> settle(WidgetTester tester) async {
+  await tester.pumpAndSettle();
+  await tester.pump(const Duration(milliseconds: 700));
+  await tester.pumpAndSettle();
+}
+
 Future<void> startSearchIfIntro(WidgetTester tester) async {
   if (find.byKey(const ValueKey('start-search')).evaluate().isNotEmpty) {
     await tester.tap(find.byKey(const ValueKey('start-search')));
-    await tester.pumpAndSettle();
+    await settle(tester);
   }
 }
 
@@ -165,12 +171,14 @@ Future<Widget> pumpGame(
   int seed = 7,
 }) async {
   final game = HarfDedektifiGameScreen(
+    // Her çağrı yeni oyun: aynı konumda eski State yeniden kullanılmasın.
+    key: UniqueKey(),
     mode: mode,
     choice: kLetterChoices.first,
     random: math.Random(seed),
   );
   await tester.pumpWidget(harness(game, audio ?? FakeAudio()));
-  await tester.pumpAndSettle();
+  await settle(tester);
   return game;
 }
 
@@ -235,28 +243,31 @@ void main() {
   });
 
   group('Kelime havuzu', () {
-    test('yalnızca projedeki Ders 2 örnek kelimeleri; zor durumlar dışarıda', () {
-      final source = {
-        for (final l in kLetterFormLetters) ...?l.positionExamples,
-      };
-      final pool = {for (final w in kDetectiveWords) w.text};
-      expect(pool.difference(source), isEmpty);
-      for (final excluded in [
-        'أب',
-        'مرآة',
-        'مزرعة',
-        'حائط',
-        'لاعب',
-        'سلام',
-        'إلا',
-      ]) {
-        expect(pool.contains(excluded), isFalse, reason: excluded);
-      }
-      expect(pool.length, greaterThanOrEqualTo(60));
-      for (final w in kDetectiveWords) {
-        expect(w.text.contains(kTatweel), isFalse, reason: w.text);
-      }
-    });
+    test(
+      'yalnızca projedeki Ders 2 örnek kelimeleri; zor durumlar dışarıda',
+      () {
+        final source = {
+          for (final l in kLetterFormLetters) ...?l.positionExamples,
+        };
+        final pool = {for (final w in kDetectiveWords) w.text};
+        expect(pool.difference(source), isEmpty);
+        for (final excluded in [
+          'أب',
+          'مرآة',
+          'مزرعة',
+          'حائط',
+          'لاعب',
+          'سلام',
+          'إلا',
+        ]) {
+          expect(pool.contains(excluded), isFalse, reason: excluded);
+        }
+        expect(pool.length, greaterThanOrEqualTo(60));
+        for (final w in kDetectiveWords) {
+          expect(w.text.contains(kTatweel), isFalse, reason: w.text);
+        }
+      },
+    );
 
     test('tekrarlanan harf ayrı ayrı sayılır', () {
       final bab = DetectiveWord.tryParse('باب')!;
@@ -283,36 +294,38 @@ void main() {
   });
 
   group('Tur üretimi', () {
-    test('Şekilleri Tanı: 6 → 9 kart, kimlikle doğru, ilk turlarda benzersiz', () {
-      for (var seed = 0; seed < 40; seed++) {
-        final f = DetectiveRoundFactory(math.Random(seed));
-        for (var r = 0; r < 5; r++) {
-          final target = 1 + seed % 28;
-          final round = f.shapesRound(target, r);
-          expect(round.cards.length, DetectiveRoundFactory.shapeCardCount(r));
-          expect(round.correctIds.length, letterById(target).forms.length);
-          final texts = round.cards.map((c) => c.text).toSet();
-          expect(texts.length, round.cards.length, reason: 'aynı kart yok');
-          if (r < 2) {
-            for (final c in round.cards) {
-              if (c.letterId != target) {
-                expect(looksAlike(c.letterId, target), isFalse);
+    test(
+      'Şekilleri Tanı: 6 → 9 kart, kimlikle doğru, ilk turlarda benzersiz',
+      () {
+        for (var seed = 0; seed < 40; seed++) {
+          final f = DetectiveRoundFactory(math.Random(seed));
+          for (var r = 0; r < 5; r++) {
+            final target = 1 + seed % 28;
+            final round = f.shapesRound(target, r);
+            expect(round.cards.length, DetectiveRoundFactory.shapeCardCount(r));
+            expect(round.correctIds.length, letterById(target).forms.length);
+            final texts = round.cards.map((c) => c.text).toSet();
+            expect(texts.length, round.cards.length, reason: 'aynı kart yok');
+            if (r < 2) {
+              for (final c in round.cards) {
+                if (c.letterId != target) {
+                  expect(looksAlike(c.letterId, target), isFalse);
+                }
               }
             }
           }
         }
-      }
-      expect(DetectiveRoundFactory.shapeCardCount(0), 6);
-      expect(DetectiveRoundFactory.shapeCardCount(4), 9);
-    });
+        expect(DetectiveRoundFactory.shapeCardCount(0), 6);
+        expect(DetectiveRoundFactory.shapeCardCount(4), 9);
+      },
+    );
 
     test('kartların sırası değişir', () {
       final orders = {
         for (var seed = 0; seed < 10; seed++)
-          DetectiveRoundFactory(math.Random(seed))
-              .shapesRound(2, 0)
-              .correctIds
-              .join(','),
+          DetectiveRoundFactory(
+            math.Random(seed),
+          ).shapesRound(2, 0).correctIds.join(','),
       };
       expect(orders.length, greaterThan(3));
     });
@@ -320,8 +333,9 @@ void main() {
     test('Benzer Harfler: aynı grup, aynı bağlantı biçimleri', () {
       for (final group in kSimilarGroups) {
         for (final target in group) {
-          final round = DetectiveRoundFactory(math.Random(target))
-              .similarRound(target);
+          final round = DetectiveRoundFactory(
+            math.Random(target),
+          ).similarRound(target);
           expect(round.cards.map((c) => c.letterId).toSet(), group.toSet());
           final formsByLetter = {
             for (final id in group)
@@ -341,10 +355,9 @@ void main() {
     test('zorlanılan harf daha sık gelir, diğerleri de gelir', () {
       final counts = <int, int>{};
       for (var seed = 0; seed < 300; seed++) {
-        final targets = DetectiveRoundFactory(math.Random(seed)).pickTargets(
-          [2, 3, 4, 5, 6, 7, 8, 9],
-          weights: {2: 3},
-        );
+        final targets = DetectiveRoundFactory(
+          math.Random(seed),
+        ).pickTargets([2, 3, 4, 5, 6, 7, 8, 9], weights: {2: 3});
         expect(targets, hasLength(kDetectiveRoundCount));
         for (final t in targets) {
           counts[t] = (counts[t] ?? 0) + 1;
@@ -357,30 +370,32 @@ void main() {
     });
 
     test('Zorlandıklarımı Çalış: turların çoğu o harfler', () {
-      final targets = DetectiveRoundFactory(math.Random(3)).pickTargets(
-        [for (var i = 1; i <= 28; i++) i],
-        focus: [5],
-      );
+      final targets = DetectiveRoundFactory(
+        math.Random(3),
+      ).pickTargets([for (var i = 1; i <= 28; i++) i], focus: [5]);
       expect(targets.where((t) => t == 5).length, 3);
     });
   });
 
   group('Oturum ve puan', () {
-    test('doğru her yeni örnek 10 puan; aynı doğruya tekrar basmak puan vermez', () {
-      final s = sessionOf(DetectiveMode.words, [
-        wordRound(2, ['باب', 'كتب']),
-      ]);
-      expect(s.tap('w0.0'), TapResult.found);
-      expect(s.points, 10);
-      expect(s.tap('w0.0'), TapResult.alreadyFound);
-      expect(s.points, 10);
-      expect(s.current.found.length, 1);
-      expect(s.tap('w0.2'), TapResult.found);
-      expect(s.tap('w1.2'), TapResult.found);
-      expect(s.current.complete, isTrue);
-      expect(s.points, 30);
-      expect(s.tap('w0.1'), TapResult.ignored);
-    });
+    test(
+      'doğru her yeni örnek 10 puan; aynı doğruya tekrar basmak puan vermez',
+      () {
+        final s = sessionOf(DetectiveMode.words, [
+          wordRound(2, ['باب', 'كتب']),
+        ]);
+        expect(s.tap('w0.0'), TapResult.found);
+        expect(s.points, 10);
+        expect(s.tap('w0.0'), TapResult.alreadyFound);
+        expect(s.points, 10);
+        expect(s.current.found.length, 1);
+        expect(s.tap('w0.2'), TapResult.found);
+        expect(s.tap('w1.2'), TapResult.found);
+        expect(s.current.complete, isTrue);
+        expect(s.points, 30);
+        expect(s.tap('w0.1'), TapResult.ignored);
+      },
+    );
 
     test('yanlış turu bitirmez, puan silmez; aynı yanlış tekrar sayılmaz', () {
       final s = sessionOf(DetectiveMode.words, [
@@ -482,11 +497,7 @@ void main() {
         clean: {7},
       );
       expect(await store.weightsFor(DetectiveMode.shapes), {2: 1, 5: 1});
-      await store.applySession(
-        DetectiveMode.shapes,
-        struggled: {},
-        clean: {2},
-      );
+      await store.applySession(DetectiveMode.shapes, struggled: {}, clean: {2});
       expect(await store.weightsFor(DetectiveMode.shapes), {5: 1});
       expect(await store.weightsFor(DetectiveMode.words), isEmpty);
     });
@@ -585,8 +596,7 @@ void main() {
         final boxes = TappableWord.letterBoxes(word, painter);
         final wordBox = tester.getRect(find.byType(TappableWord));
         final scale =
-            wordBox.width /
-            (painter.width + TappableWord.sidePadding * 2);
+            wordBox.width / (painter.width + TappableWord.sidePadding * 2);
         final origin = Offset(
           TappableWord.sidePadding,
           TappableWord.topSpace(140),
@@ -653,13 +663,13 @@ void main() {
       }
       expect(find.text('Hepsini buldun!'), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('next-button')));
-      await tester.pumpAndSettle();
+      await settle(tester);
 
       for (var round = 1; round < kDetectiveRoundCount; round++) {
         expect(counterText(tester), startsWith('Bulunan: 0 /'));
         await solveCardRound(tester);
         await tester.tap(find.byKey(const ValueKey('next-button')));
-        await tester.pumpAndSettle();
+        await settle(tester);
       }
 
       expect(find.text('Tebrikler, dedektif!'), findsOneWidget);
@@ -671,15 +681,12 @@ void main() {
 
       // Tekrar Oyna: temiz yeni oturum, eski kayıt tekrarlanmaz.
       await tester.tap(find.byKey(const ValueKey('replay-button')));
-      await tester.pumpAndSettle();
+      await settle(tester);
       expect(find.text('Tebrikler, dedektif!'), findsNothing);
       await startSearchIfIntro(tester);
       expect(counterText(tester), startsWith('Bulunan: 0 /'));
       expect(prefs.getInt('game_history.harf_dedektifi.sekiller.plays'), 1);
-      expect(
-        prefs.getString(DetectiveProgressStore.keyFor(null)),
-        isNotNull,
-      );
+      expect(prefs.getString(DetectiveProgressStore.keyFor(null)), isNotNull);
     });
 
     testWidgets('İki yanlıştan sonra ipucu belirginleşir ve kartı gösterir', (
@@ -713,47 +720,48 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('Kelime Dedektifi: kelimedeki harfe dokununca yalnızca o sayılır', (
-      tester,
-    ) async {
-      await loadHasenat();
-      setSize(tester, const Size(360, 800));
-      await pumpGame(tester, DetectiveMode.words);
-      final target = targetIdOnScreen(tester);
-      final words = tester
-          .widgetList<TappableWord>(find.byType(TappableWord))
-          .toList();
-      expect(words.length, inInclusiveRange(2, 3));
-      final total = [
-        for (final w in words) ...w.word.occurrencesOf(target),
-      ].length;
-      expect(counterText(tester), 'Bulunan: 0 / $total');
+    testWidgets(
+      'Kelime Dedektifi: kelimedeki harfe dokununca yalnızca o sayılır',
+      (tester) async {
+        await loadHasenat();
+        setSize(tester, const Size(360, 800));
+        await pumpGame(tester, DetectiveMode.words);
+        final target = targetIdOnScreen(tester);
+        final words =
+            tester.widgetList<TappableWord>(find.byType(TappableWord)).toList();
+        expect(words.length, inInclusiveRange(2, 3));
+        final total =
+            [for (final w in words) ...w.word.occurrencesOf(target)].length;
+        expect(counterText(tester), 'Bulunan: 0 / $total');
 
-      // Önce hedef olmayan bir harf.
-      final w0 = words.first;
-      final other = List.generate(w0.word.letters.length, (i) => i)
-          .firstWhere((i) => w0.word.letters[i].letterId != target);
-      await tester.tap(find.byKey(ValueKey('w0.$other')));
-      await tester.pump(const Duration(milliseconds: 300));
-      expect(find.textContaining('Bir daha bakalım'), findsOneWidget);
+        // Önce hedef olmayan bir harf.
+        final w0 = words.first;
+        final other = List.generate(
+          w0.word.letters.length,
+          (i) => i,
+        ).firstWhere((i) => w0.word.letters[i].letterId != target);
+        await tester.tap(find.byKey(ValueKey('w0.$other')));
+        await tester.pump(const Duration(milliseconds: 300));
+        expect(find.textContaining('Bir daha bakalım'), findsOneWidget);
 
-      var found = 0;
-      for (final w in words) {
-        for (final k in w.word.occurrencesOf(target)) {
-          await tester.tap(find.byKey(ValueKey('w${w.wordIndex}.$k')));
-          await tester.pump(const Duration(milliseconds: 300));
-          found++;
-          if (found < total) {
-            expect(counterText(tester), 'Bulunan: $found / $total');
+        var found = 0;
+        for (final w in words) {
+          for (final k in w.word.occurrencesOf(target)) {
+            await tester.tap(find.byKey(ValueKey('w${w.wordIndex}.$k')));
+            await tester.pump(const Duration(milliseconds: 300));
+            found++;
+            if (found < total) {
+              expect(counterText(tester), 'Bulunan: $found / $total');
+            }
+            // Çift dokunma sayılmaz.
+            await tester.tap(find.byKey(ValueKey('w${w.wordIndex}.$k')));
+            await tester.pump(const Duration(milliseconds: 300));
           }
-          // Çift dokunma sayılmaz.
-          await tester.tap(find.byKey(ValueKey('w${w.wordIndex}.$k')));
-          await tester.pump(const Duration(milliseconds: 300));
         }
-      }
-      expect(counterText(tester), 'Bulunan: $total / $total');
-      expect(find.byKey(const ValueKey('next-button')), findsOneWidget);
-    });
+        expect(counterText(tester), 'Bulunan: $total / $total');
+        expect(find.byKey(const ValueKey('next-button')), findsOneWidget);
+      },
+    );
 
     testWidgets('sesi kapatınca hiçbir ses çalmaz', (tester) async {
       setSize(tester, const Size(800, 1280));
@@ -764,7 +772,7 @@ void main() {
       audio.played.clear();
       await solveCardRound(tester);
       await tester.tap(find.byKey(const ValueKey('next-button')));
-      await tester.pumpAndSettle();
+      await settle(tester);
       expect(audio.played, isEmpty);
       expect(audio.effects, isEmpty);
       final prefs = await SharedPreferences.getInstance();
@@ -799,13 +807,21 @@ void main() {
             for (final e in find.byType(TappableWord).evaluate()) {
               final rect = tester.getRect(find.byWidget(e.widget));
               expect(rect.height, greaterThan(40), reason: '$size');
-              expect(rect.right, lessThanOrEqualTo(size.width), reason: '$size');
+              expect(
+                rect.right,
+                lessThanOrEqualTo(size.width),
+                reason: '$size',
+              );
             }
           } else {
             for (final e in find.byType(DetectiveCard).evaluate()) {
               final rect = tester.getRect(find.byWidget(e.widget));
               expect(rect.width, greaterThanOrEqualTo(44), reason: '$size');
-              expect(rect.bottom, lessThanOrEqualTo(size.height), reason: '$size');
+              expect(
+                rect.bottom,
+                lessThanOrEqualTo(size.height),
+                reason: '$size',
+              );
             }
           }
         }
@@ -814,7 +830,9 @@ void main() {
 
     testWidgets('başlangıç ekranı: modlar, harf grupları, not', (tester) async {
       setSize(tester, const Size(360, 800));
-      await tester.pumpWidget(harness(const HarfDedektifiScreen(), FakeAudio()));
+      await tester.pumpWidget(
+        harness(const HarfDedektifiScreen(), FakeAudio()),
+      );
       await tester.pumpAndSettle();
       expect(
         find.text('Harfleri farklı şekilleriyle ve kelimelerin içinde bul!'),
@@ -847,5 +865,220 @@ void main() {
       expect(find.byType(HarfDedektifiGameScreen), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
+  });
+
+  group('Denetim (2026-09-25)', () {
+    testWidgets('"Sonraki"ye çift dokunma yeni turda ipucu açmaz', (
+      tester,
+    ) async {
+      setSize(tester, const Size(360, 800));
+      await pumpGame(tester, DetectiveMode.similar);
+      await solveCardRound(tester);
+      final next = find.byKey(const ValueKey('next-button'));
+      final at = tester.getCenter(next);
+      await tester.tapAt(at);
+      await tester.pump(const Duration(milliseconds: 80));
+      // İkinci dokunuş aynı yere, yeni turun İpucu düğmesinin üstüne düşer.
+      await tester.tapAt(at);
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(
+        tester
+            .widgetList<DetectiveCard>(find.byType(DetectiveCard))
+            .where((c) => c.state != DetectiveCardState.idle),
+        isEmpty,
+      );
+      expect(find.textContaining('İpucu:'), findsNothing);
+      await settle(tester);
+      expect(counterText(tester), startsWith('Bulunan: 0 /'));
+    });
+
+    testWidgets('"Sonuçları Gör"e çift dokunma sonuç düğmelerine basmaz', (
+      tester,
+    ) async {
+      setSize(tester, const Size(360, 640));
+      await pumpGame(tester, DetectiveMode.similar);
+      for (var r = 0; r < kDetectiveRoundCount; r++) {
+        await solveCardRound(tester);
+        final at = tester.getCenter(find.byKey(const ValueKey('next-button')));
+        await tester.tapAt(at);
+        await tester.pump(const Duration(milliseconds: 80));
+        await tester.tapAt(at);
+        await tester.pump(const Duration(milliseconds: 80));
+        await settle(tester);
+      }
+      expect(find.text('Tebrikler, dedektif!'), findsOneWidget);
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getInt('game_history.harf_dedektifi.benzer.plays'), 1);
+    });
+
+    test('zorlanılanlar harf başına bir kez, biçimiyle', () {
+      final round = CardRound(2, const [
+        ShapeCard(2, LetterForm.initial),
+        ShapeCard(2, LetterForm.medial),
+        ShapeCard(20, LetterForm.initial),
+        ShapeCard(24, LetterForm.initial),
+      ]);
+      final s = sessionOf(DetectiveMode.shapes, [round]);
+      s.tap('c2'); // yanlış → (Be, biçimsiz)
+      s.tap('c3'); // yanlış
+      s.tap('c1'); // tekrar deneyerek → (Be, Ortada)
+      s.tap('c0');
+      expect(s.weakSpots(), [const WeakSpot(2, LetterForm.medial)]);
+      expect(s.weakLetterIds(), [2]);
+    });
+
+    test('ipucu gösterilirken başka örnek bulmak ipucuyla sayılmaz', () {
+      final s = sessionOf(DetectiveMode.words, [
+        wordRound(2, ['باب', 'كتب']),
+      ]);
+      final hinted = s.hint(math.Random(0))!;
+      final other = s.current.correctIds.firstWhere((id) => id != hinted);
+      s.tap(other);
+      s.tap(hinted);
+      expect(s.countOf(FindKind.firstTry), 1);
+      expect(s.countOf(FindKind.withHint), 1);
+      expect(s.current.struggled, isTrue);
+    });
+
+    testWidgets('telefonda kelimedeki her harfin ortası doğru harfi seçer', (
+      tester,
+    ) async {
+      await loadHasenat();
+      setSize(tester, const Size(360, 800));
+      for (final seed in [1, 2, 3, 4, 5, 6]) {
+        await pumpGame(tester, DetectiveMode.words, seed: seed);
+        final target = targetIdOnScreen(tester);
+        final words =
+            tester.widgetList<TappableWord>(find.byType(TappableWord)).toList();
+        var found = 0;
+        final total =
+            [for (final w in words) ...w.word.occurrencesOf(target)].length;
+        // Önce hedef olmayan harfler (son hedef bulununca tur biter ve
+        // sonraki dokunuşlar yok sayılır), sonra hedefler.
+        final order = [
+          for (final targetsPass in [false, true])
+            for (final w in words)
+              for (var k = 0; k < w.word.letters.length; k++)
+                if ((w.word.letters[k].letterId == target) == targetsPass)
+                  (w, k),
+        ];
+        for (final (w, k) in order) {
+          {
+            final rect = tester.getRect(
+              find.byKey(ValueKey('w${w.wordIndex}.$k')),
+            );
+            expect(rect.right, lessThanOrEqualTo(360));
+            // Ölçülen en dar: ~19.5 dp (telefon, 3 kelime alt alta).
+            expect(rect.width, greaterThanOrEqualTo(18), reason: w.word.text);
+            await tester.tapAt(rect.center);
+            await tester.pump(const Duration(milliseconds: 300));
+            final id = w.word.letters[k].letterId;
+            if (id == target) {
+              found++;
+              if (found < total) {
+                expect(counterText(tester), 'Bulunan: $found / $total');
+              }
+            } else {
+              expect(
+                find.text('Bu harf ${letterById(id).name}. Bir daha bakalım!'),
+                findsOneWidget,
+                reason: '${w.word.text} $k',
+              );
+            }
+          }
+        }
+        expect(counterText(tester), 'Bulunan: $total / $total');
+      }
+    });
+
+    testWidgets('bütün kelimelerde dar ekranda dokunulan harf doğru', (
+      tester,
+    ) async {
+      await loadHasenat();
+      setSize(tester, const Size(360, 800));
+      for (final word in kDetectiveWords) {
+        final taps = <int>[];
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: SizedBox(
+                  width: 328,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: TappableWord(
+                      word: word,
+                      fontSize: 130,
+                      markOf: (_) => WordLetterMark.none,
+                      onTapLetter: taps.add,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        for (var k = 0; k < word.letters.length; k++) {
+          await tester.tapAt(
+            tester.getRect(find.byKey(ValueKey('w0.$k'))).center,
+          );
+          await tester.pump();
+        }
+        expect(
+          taps,
+          List.generate(word.letters.length, (i) => i),
+          reason: word.text,
+        );
+      }
+    });
+
+    testWidgets(
+      'Oyunlara Dön menüye götürür; ses kapalıyken dinle düğmesi pasif',
+      (tester) async {
+        setSize(tester, const Size(800, 1280));
+        final audio = FakeAudio();
+        await tester.pumpWidget(
+          harness(
+            Builder(
+              builder:
+                  (context) => Scaffold(
+                    body: TextButton(
+                      onPressed:
+                          () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const HarfDedektifiScreen(),
+                            ),
+                          ),
+                      child: const Text('MENÜ'),
+                    ),
+                  ),
+            ),
+            audio,
+          ),
+        );
+        await tester.tap(find.text('MENÜ'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const ValueKey('mode-benzer')));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const ValueKey('detective-start')));
+        await settle(tester);
+        await tester.tap(find.byKey(const ValueKey('mute-button')));
+        await tester.pumpAndSettle();
+        final listen = tester.widget<IconButton>(
+          find.byKey(const ValueKey('listen-button')),
+        );
+        expect(listen.onPressed, isNull);
+        for (var r = 0; r < kDetectiveRoundCount; r++) {
+          await solveCardRound(tester);
+          await tester.tap(find.byKey(const ValueKey('next-button')));
+          await settle(tester);
+        }
+        await tester.tap(find.byKey(const ValueKey('exit-button')));
+        await tester.pumpAndSettle();
+        expect(find.text('MENÜ'), findsOneWidget);
+        expect(find.byType(HarfDedektifiScreen), findsNothing);
+        expect(audio.effects, isEmpty);
+      },
+    );
   });
 }

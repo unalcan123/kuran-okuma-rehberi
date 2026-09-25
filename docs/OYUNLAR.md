@@ -124,6 +124,24 @@ harfin mürekkebinin ≥ %89'u kendi kutusunda (taşan kısım ر/و kuyrukları
 eklenince `harf_dedektifi_test.dart` bunu yeniden denetler; Hasenat'ın bitişik glif (ligatür)
 yaptığı bir kelime testi kırar → o kelime alınmamalı.
 
+**Denetim (2026-09-25) — düzeltilenler:**
+- Tur geçişinden sonra 600 ms dokunma alınmaz (`_lockInput`): "Sonraki"ye çift dokunan
+  çocuk aynı yerde beliren İpucu / Aramaya Başla / sonuç düğmelerine basmıyordu → basıyordu.
+- Bulunan her örnekte yeni `ScoreAward` (const olduğu için "+10" yalnızca ilk seferde çıkıyordu).
+- Aynı anda tek ses: doğru bulununca harf sesi susar; hoparlöre basınca efekt susar.
+- "Tekrar çalışalım" harf başına bir kez (önce aynı harf biçimli/biçimsiz iki kez çıkabiliyordu).
+- Benzer Harfler mesajı hangisinin hangisi olduğunu söyler: "Seçtiğin Hı: üstünde 1 nokta var.
+  Aradığımız Cim: altında 1 nokta var." Şekilleri Tanı'da yalnızca noktası farklı harf seçilince aynısı.
+- Harekesiz kelimelerde satır yüksekliği 1.2 (mürekkep kutudan taşmıyor, ölçüldü): telefonda
+  (360×800, 3 kelime) yazı ~78 → ~97, en dar harf kutusu 17 → ~19,5 dp (ör. نظر'daki ن).
+- Tur başında hedef harf kutusu bir kez büyüyüp küçülür (azaltılmış harekette yok).
+- "Tekrar Oyna" önceki oturumun zorluk kaydının yazılmasını bekler.
+
+Doğrulananlar: Hasenat 28 harfin 4 biçimini doğru çiziyor (ي sonda noktalı); 67 kelime
+tek parça ve harf harf renk parçalı çizimde **piksel piksel aynı**; telefonda her kelimedeki her
+harfin ortasına dokunmak doğru harfi seçiyor (test: 6 tur uçtan uca + 67 kelime).
+Kalan: harf kutuları doğası gereği dar (ا gibi) — en dar ~19,5 dp; sesli yönerge kaydı yok.
+
 ## 2. Puanlama (tüm oyunlar için ortak)
 
 Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
