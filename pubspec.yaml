@@ -100,6 +100,13 @@ flutter:
     - family: Hasenat
       fonts:
         - asset: assets/fonts/Hasenat.ttf
+    # Harf Treni Seviye 4 (farklı yazılar). SIL OFL 1.1, bkz. assets/fonts/OFL-NotoArabic.txt
+    - family: NotoNaskhArabic
+      fonts:
+        - asset: assets/fonts/NotoNaskhArabic-Arapca.ttf
+    - family: NotoSansArabic
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-Arapca.ttf
 
 flutter_launcher_icons:
   image_path: "assets/images/branding/app_icon.png"

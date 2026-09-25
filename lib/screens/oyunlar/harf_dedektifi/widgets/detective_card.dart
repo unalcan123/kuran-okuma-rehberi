@@ -20,6 +20,7 @@ class DetectiveCard extends StatelessWidget {
     required this.semanticLabel,
     this.shakeTrigger = 0,
     this.reduceMotion = false,
+    this.fontFamily,
   });
 
   final String text;
@@ -29,6 +30,9 @@ class DetectiveCard extends StatelessWidget {
   final String semanticLabel;
   final int shakeTrigger;
   final bool reduceMotion;
+
+  /// Farklı yazı tipi (Harf Treni Seviye 4); `null` = Hasenat.
+  final String? fontFamily;
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +109,7 @@ class DetectiveCard extends StatelessWidget {
                                   state == DetectiveCardState.found
                                       ? AppColors.turquoise
                                       : AppColors.navy,
-                            ),
+                            ).copyWith(fontFamily: fontFamily),
                           ),
                         ),
                       ),

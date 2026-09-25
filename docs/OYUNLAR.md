@@ -17,6 +17,7 @@ en altta.
 | **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 ilk sürümün hızıdır ve "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
 | **Harf Dedektifi** | 3 mod: Şekilleri Tanı, Benzer Harfler, Kelime Dedektifi. 5 kısa tur, süre yok; bir turda birden çok doğru örnek bulunur. | `harf_dedektifi/` |
 | **Harf Çiziyorum** | Harfin tek başına yazılışını parmakla/fareyle izleyerek çizme; noktalar; harf başına 2 yıldız. Puan yok, Sonuçlarım'da görünmez. | `harf_ciziyorum/` |
+| **Harf Treni** | Hedef harfin görünüşlerini vagonlara yerleştir; 4 seviye (aynı harf, biçimler, benzer harfler, farklı yazı tipleri), 5 tren. | `harf_treni/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
 ### Sürükle & Bırak
@@ -189,6 +190,38 @@ Puan ve sıralama yok → `GameEntry.showInResults = false` (Sonuçlarım'da gö
 **Kalan:** yön/sıra doğrulanmadı (yukarıda); ekranda sıra numarası rakamı sistem yazı tipiyle
 çizilir; gerçek cihazda parmakla denenmedi (testler TestGesture ile).
 
+### Harf Treni (2026-09-25)
+Lokomotifte hedef harf (+ dinle düğmesi), altında kartlar. Doğru karta **dokununca** kart sıradaki
+boş vagona uçar (sürükle-bırak yok). Vagonlar dolunca tren sola kayarak gider, "İstasyon" görünür,
+"Sonraki Tren". 5 tren, süre/can yok. İlk kullanımda atlanabilir örnek (`harf_treni.ornek_goruldu`).
+- **Seviye 1** 3 vagon / 6 kart: tek başına biçim, Hasenat, kolay çeldiriciler (`looksAlike` dışı).
+- **Seviye 2** 4 / 8: harfin gerçek biçimleri (ب: ب بـ ـبـ ـب; ا د ذ ر ز و: iki biçim tekrar eder).
+- **Seviye 3** 4 / 8: `kSimilarGroups` (ب ت ث, ج ح خ …); çeldiriciler doğru kartlarla AYNI
+  biçimlerde; yanlışta "Seçtiğin Te: üstünde 2 nokta var. Aradığımız Be: …".
+- **Seviye 4** 4 / 8: yalnızca yazı tipi değişir (tek başına biçim, kolay çeldiriciler). Doğru
+  kartlar en az 2 farklı yazı tipinde. Başlangıç ekranı `verifiedTrainFonts()` ile yazı tiplerinin
+  YÜKLENDİĞİNİ ölçer (yedek yazı tipiyle aynı genişlik = yüklenmemiş); 2'den azsa seviye kapalı.
+- Eşleştirme kart kimliği + harf kimliğiyle; her kartın ayrı kimliği var. Doğru kart sayısı =
+  vagon sayısı (test: 4 seviye × bütün hedefler × 6 tohum). Çift dokunma ikinci vagonu doldurmaz.
+- Puan: yeni doğru kart +10. İlk deneme / tekrar deneyerek / ipucuyla ayrı (iki farklı yanlıştan
+  sonra İpucu belirginleşir). Sonuçlarım: `harf_treni.l1..l4` (seviye başına). Zorluk:
+  `harf_treni.v1.<oyuncu|cihaz>` (seviye başına, Dedektif'le aynı ağırlık kuralı). Çevrimiçi
+  sıralama yok.
+- Kalkış yalnızca `Transform.translate` (aynalama yok); `TrainView` `ClipRect` ile sarılı (Stack,
+  Transform ile kayan içeriği kendiliğinden kırpmaz). Çıkışta bütün zamanlayıcılar, kalkış ve
+  uçan kart katmanları temizlenir (test: animasyon ortasında çıkış).
+
+**Yazı tipleri (Seviye 4):** Hasenat + **Noto Naskh Arabic** + **Noto Sans Arabic** (SIL OFL 1.1,
+Reserved Font Name yok; `tool/harf_treni/subset_fonts.py` ile normal kalınlığa sabitlenip Arapça
+bloğa indirildi, ~50 KB; lisans `assets/fonts/OFL-NotoArabic.txt`). Hasenat'tan şekil farkı ~%61–64
+(Python ölçümü + `harf_treni_test.dart` piksel testi). Kitabın font paketi
+(`G:\elifba 2022 dosyalar\ELIF BA SON NIDA  Folder\Document fonts`) incelendi: Adobe Arabic, Al Bayan,
+Lotus Linotype, Traditional Arabic, WinSoft Pro ticari; Allame Gulten ve Traditional Naskh "All rights
+reserved" (lisans yok) → dahil edilemez. Scheherazade (eski SIL freeware, "olduğu gibi" dağıtılabilir)
+Hasenat'la neredeyse aynı çiziyor (ortalama fark %17) → "farklı yazı" diye gösterilmedi. Not: bu
+benzerlik Hasenat'ın Scheherazade'den türetilmiş olabileceğini düşündürüyor; Hasenat'ın lisansı
+belirsiz (CLAUDE.md), sahibi kontrol etmeli.
+
 ## 2. Puanlama (tüm oyunlar için ortak)
 
 Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
@@ -242,6 +275,9 @@ harf_ciziyorum/             harf_ciziyorum_screen (harf seçimi, yıldızlar), h
                            (aşamalar, özet), ciz_models (+ üretilmiş ciz_models_data), ciz_evaluator
                            (eşikler + değerlendirme), ciz_progress_store, ciz_session,
                            widgets: trace_pad
+harf_treni/                 harf_treni_screen (seviye), harf_treni_game_screen (tren, uçan kart, kalkış,
+                           örnek, özet), tren_engine (tur üretimi + oturum), tren_fonts (yazı tipi
+                           doğrulama), tren_progress_store, widgets: train_view
 results/game_results_screen.dart
 widgets/                   Ortak parçalar: fit_grid, game_score_strip, game_result_summary,
                            game_finish_view, game_progress (GameStepPill, GameProgressBar),

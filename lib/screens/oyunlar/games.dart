@@ -8,6 +8,8 @@ import 'drag_drop/drag_drop_levels_screen.dart';
 import 'harf_ciziyorum/harf_ciziyorum_screen.dart';
 import 'harf_dedektifi/dedektif_engine.dart';
 import 'harf_dedektifi/harf_dedektifi_screen.dart';
+import 'harf_treni/harf_treni_screen.dart';
+import 'harf_treni/tren_engine.dart';
 import 'harf_oyunlari/bul_patlat/bul_patlat_screen.dart';
 import 'harf_oyunlari/harf_arabalari/harf_arabalari_screen.dart';
 import 'harf_oyunlari/profil/player_models.dart';
@@ -161,5 +163,19 @@ final List<GameEntry> kGames = [
     // Puan yok: harf başına en çok 2 yıldız, kendi başlangıç ekranında.
     variants: const [],
     showInResults: false,
+  ),
+  GameEntry(
+    id: kHarfTreniGameKey,
+    title: 'Harf Treni',
+    subtitle: 'Aynı harfleri bul, vagonları doldur',
+    icon: Icons.train_rounded,
+    background: AppColors.turquoiseSoft,
+    foreground: AppColors.turquoise,
+    builder: (_) => const HarfTreniScreen(),
+    // Her seviye ayrı oyun: puanlar yalnızca aynı seviyeyle karşılaştırılır.
+    variants: [
+      for (final level in TrainLevel.values)
+        GameVariant(key: level.gameKey, title: 'Seviye ${level.number} · ${level.title}'),
+    ],
   ),
 ];

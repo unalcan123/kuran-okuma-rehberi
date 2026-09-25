@@ -44,6 +44,8 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   `build/`, `local.properties`. Anahtar/keystore dosyası ekleme (depo herkese açık).
 - Depo herkese açık olduğu için ses kayıtları, Hasenat yazı tipi (`assets/fonts`, lisans bilgisi
   dosyada yok) ve görseller de görünür; hak/lisans durumu kullanıcının sorumluluğunda.
+- Noto Naskh/Sans Arabic (Harf Treni) SIL OFL: `assets/fonts/OFL-NotoArabic.txt`. Kitabın font
+  paketindeki ticari/"tüm hakları saklı" fontları depoya ekleme (ayrıntı `docs/OYUNLAR.md` Harf Treni).
 
 ## İş bitince
 ```
