@@ -18,6 +18,7 @@ en altta.
 | **Harf Dedektifi** | 3 mod: Şekilleri Tanı, Benzer Harfler, Kelime Dedektifi. 5 kısa tur, süre yok; bir turda birden çok doğru örnek bulunur. | `harf_dedektifi/` |
 | **Harf Çiziyorum** | Harfin tek başına yazılışını parmakla/fareyle izleyerek çizme; noktalar; harf başına 2 yıldız. Puan yok, Sonuçlarım'da görünmez. | `harf_ciziyorum/` |
 | **Harf Treni** | Hedef harfin görünüşlerini vagonlara yerleştir; 4 seviye (aynı harf, biçimler, benzer harfler, farklı yazı tipleri), 5 tren. | `harf_treni/` |
+| **Arapça Yazıyorum** | Ekran klavyesiyle Arapça yazma: Adını Yaz (isim kartı), Bak ve Yaz, Serbest Yaz. | `arapca_yaziyorum/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
 ### Sürükle & Bırak
@@ -222,6 +223,39 @@ Hasenat'la neredeyse aynı çiziyor (ortalama fark %17) → "farklı yazı" diye
 benzerlik Hasenat'ın Scheherazade'den türetilmiş olabileceğini düşündürüyor; Hasenat'ın lisansı
 belirsiz (CLAUDE.md), sahibi kontrol etmeli.
 
+### Arapça Yazıyorum (2026-09-25)
+Ekran klavyesiyle Arapça yazma. Üç mod: **Adını Yaz** (ilk görev; "Bitirdim" → isim kartı, 4 renk ×
+3 çerçeve, "Görsel olarak kaydet"), **Bak ve Yaz** (8 örnek: 3 tek harf, 2 iki harfli, 3 kısa kelime;
+harekesiz, Ders 1 harfleri + Harf Dedektifi kelime havuzu; İpucu sıradaki tuşu parlatır; "Kontrol
+Et" ile karşılaştırma; yanlışta yazı silinmez), **Serbest Yaz** (Kopyala, Temizle). Ad ve serbest
+yazıda doğru/yanlış ve puan yok; otomatik çeviri yok.
+- **Yazı alanı** gerçek `TextField` (RTL, Unicode, Hasenat): seçim, kopyala/yapıştır, fiziksel
+  klavye, erişilebilirlik Flutter'ın. Ekran klavyesi açıkken `TextInputType.none` (cihaz klavyesi
+  açılmaz, imleç durur); "Cihaz klavyesi" düğmesi normal girişe geçer (tercih saklanır). Latin harf
+  Arapçaya çevrilmez.
+- **Klavye** (`widgets/arabic_keyboard.dart`): harfler Elifba sırasıyla sağdan sola; telefonda 7×4,
+  genişte 14×2 (tuşlar ≥ 44 px, küçülmez). Bölümler: Harfler / Ek Harfler (ء أ إ آ ؤ ئ ة ى — kendi
+  karakterleri, temel harfe indirgenmez) / Harekeler (ـَ ـِ ـُ ـْ ـّ ـً ـٍ ـٌ). Tuşlar odak almaz ve
+  `TextFieldTapRegion` içinde: dokunmak imleci/odağı kaybettirmez. Tek başına biçim tek tuştur;
+  bağlantıyı metin motoru yapar. Harf tuşu Ders 1 kaydını çalar (tek oynatıcı; ses kapatılabilir).
+- **Metin işlemleri** (`yazi_text.dart`, saf Dart): imleçte yaz / seçimi değiştir; geri silme tek kod
+  birimi (önce son hareke, sonra harf; vekil çiftler bütün); hareke yalnızca imleçten önceki Arapça
+  harfe (yoksa "Önce bir harf yaz…"), ikinci ünlü harekesi öncekinin yerine geçer, şedde ayrıca durur.
+  Karşılaştırma `normalizeArabic`: Unicode NFC'nin Arapça kısmı (ا+ٔ → أ vb., harekeleri kanonik sıraya
+  dizme) + baş/son boşluk; ى/ي, ة/ه, أ/ا farklı kalır.
+- **Doğrulama**: yazı alanının gerçek görüntüsünde mürekkep parçaları sayılır — بت 1, رب 2, باب 2,
+  لا 1, بَت 1 (test). Kaydedilen isim kartı PNG'si widget'ın kendisinden alınır (ekrandakiyle aynı).
+- **Kaydetme** (`png_saver*.dart`): web → PNG indirilir; Windows/macOS/Linux → İndirilenler;
+  Android/iOS → "bu cihazda henüz yok" (yeni eklenti eklenmedi; başarılı gibi gösterilmez).
+- **Kayıt**: yalnızca cihazda, oyuncuya bağlı — taslaklar (`arapca_yaziyorum.v1.<oyuncu>.taslak.ad|
+  serbest`), Bak ve Yaz sayıları kendi başına/ipucuyla (`…bak_yaz`). Sonuçlarım'da yalnızca
+  `arapca_yaziyorum.bak_yaz` (tamamlanan örnek × 10). Sunucuya hiçbir şey gitmez.
+- **Düzen**: mesajlar yazı alanının üstünde satır içi (SnackBar klavyenin Sil satırını kapatıyordu);
+  "Temizle" sonrası 5 sn "Geri Al". Yatay/alçak ekranda üst bölüm + yazı alanı solda, klavye sağda;
+  bölüm seçimi ve Sil/Boşluk her zaman görünür, harf satırları kayar.
+- Kalan: kelime seslendirmesi yok (doğrulanmış kelime kaydı yok; harf sesleri birleştirilmez);
+  mobilde isim kartı kaydetme yok; gerçek cihazda dokunmatik/IME ile denenmedi.
+
 ## 2. Puanlama (tüm oyunlar için ortak)
 
 Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
@@ -278,6 +312,10 @@ harf_ciziyorum/             harf_ciziyorum_screen (harf seçimi, yıldızlar), h
 harf_treni/                 harf_treni_screen (seviye), harf_treni_game_screen (tren, uçan kart, kalkış,
                            örnek, özet), tren_engine (tur üretimi + oturum), tren_fonts (yazı tipi
                            doğrulama), tren_progress_store, widgets: train_view
+arapca_yaziyorum/           arapca_yaziyorum_screen (modlar), yazi_mode_screens (Ad / Bak ve Yaz /
+                           Serbest), yazi_text (Unicode düzenleme + normalleştirme), yazi_data
+                           (klavye, alıştırmalar), yazi_store, png_saver(_io/_web), widgets:
+                           arabic_keyboard, writing_pad, name_card
 results/game_results_screen.dart
 widgets/                   Ortak parçalar: fit_grid, game_score_strip, game_result_summary,
                            game_finish_view, game_progress (GameStepPill, GameProgressBar),

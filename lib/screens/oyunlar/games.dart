@@ -5,6 +5,8 @@ import '../../data/letters_data.dart';
 import '../../data/memory_game_data.dart';
 import '../../theme/app_colors.dart';
 import 'drag_drop/drag_drop_levels_screen.dart';
+import 'arapca_yaziyorum/arapca_yaziyorum_screen.dart';
+import 'arapca_yaziyorum/yazi_data.dart';
 import 'harf_ciziyorum/harf_ciziyorum_screen.dart';
 import 'harf_dedektifi/dedektif_engine.dart';
 import 'harf_dedektifi/harf_dedektifi_screen.dart';
@@ -177,5 +179,16 @@ final List<GameEntry> kGames = [
       for (final level in TrainLevel.values)
         GameVariant(key: level.gameKey, title: 'Seviye ${level.number} · ${level.title}'),
     ],
+  ),
+  GameEntry(
+    id: kArapcaYaziyorumGameKey,
+    title: 'Arapça Yazıyorum',
+    subtitle: 'Adını ve istediğin kelimeleri Arapça yaz',
+    icon: Icons.keyboard_rounded,
+    background: AppColors.sageSoft,
+    foreground: AppColors.sage,
+    builder: (_) => const ArapcaYaziyorumScreen(),
+    // Yalnızca "Bak ve Yaz" puanlanır; ad ve serbest yazı puansız.
+    variants: const [GameVariant(key: kBakYazGameKey, title: 'Bak ve Yaz')],
   ),
 ];
