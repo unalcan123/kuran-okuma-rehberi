@@ -421,7 +421,14 @@ void main() {
       await tester.pumpWidget(gameApp(const OyunlarScreen()));
       await tester.pump(const Duration(milliseconds: 400));
       expect(find.text('Adını yaz'), findsOneWidget);
+      // Menü uzun: Genel Sıralama kartı listenin sonunda (ad penceresi açıkken
+      // sürüklenemez, liste doğrudan kaydırılır).
+      final list = tester.state<ScrollableState>(find.byType(Scrollable).first);
+      list.position.jumpTo(list.position.maxScrollExtent);
+      await tester.pump();
       expect(find.text('Genel Sıralama'), findsOneWidget);
+      list.position.jumpTo(0);
+      await tester.pump();
       await tester.tap(find.text('Harf Arabaları'));
       await tester.pumpAndSettle();
       expect(find.byType(HarfArabalariOyunu), findsOneWidget);

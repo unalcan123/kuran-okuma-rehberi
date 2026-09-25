@@ -16,6 +16,7 @@ en altta.
 | **Hafıza** | Aynı harfli kartları bul (eski Elifba'nın 3. oyunu). Kolay / Zor / Çok Zor, 9 seviye. Kartlar çevrilince harfin sesi çalar. | `memory/` |
 | **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 ilk sürümün hızıdır ve "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
 | **Harf Dedektifi** | 3 mod: Şekilleri Tanı, Benzer Harfler, Kelime Dedektifi. 5 kısa tur, süre yok; bir turda birden çok doğru örnek bulunur. | `harf_dedektifi/` |
+| **Harf Çiziyorum** | Harfin tek başına yazılışını parmakla/fareyle izleyerek çizme; noktalar; harf başına 2 yıldız. Puan yok, Sonuçlarım'da görünmez. | `harf_ciziyorum/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
 ### Sürükle & Bırak
@@ -142,6 +143,52 @@ tek parça ve harf harf renk parçalı çizimde **piksel piksel aynı**; telefon
 harfin ortasına dokunmak doğru harfi seçiyor (test: 6 tur uçtan uca + 67 kelime).
 Kalan: harf kutuları doğası gereği dar (ا gibi) — en dar ~19,5 dp; sesli yönerge kaydı yok.
 
+### Harf Çiziyorum (2026-09-25)
+Harflerin yalnızca **tek başına** yazılışı (başta/ortada/sonda bu sürümde yok). Başlangıçta 28 harf
+yıldızlarıyla; "Sırayla Öğren" seçilen harften 5 harf, "Zorlandıklarımı Çalış". Oturum 5 harf,
+sonunda "5 harf daha". Her harf:
+1. **İzle** — harf büyük, sesi çalar (Ders 1 kaydı); "Nasıl çizilir?" animasyonu (önce gövde, sonra
+   noktalar; başlangıç noktası, sıra numarası, yön oku), atlanabilir/tekrar oynatılabilir.
+2. **Üzerinden çiz** — belirgin kılavuz + başlangıç + oklar; iz anında görünür; parmak kalkınca iz
+   silinmez; Geri Al / Temizle / Yardım (animasyon + eksik yerler sarı).
+3. **Noktalar** (yalnızca noktalı harfler) — dokunarak nokta koy, noktaya dokununca kalkar;
+   belirgin hedefler; ب ت ث gibi gruplarda nokta karşılaştırma şeridi. Sayı, üst/alt, yaklaşık yer
+   denetlenir. ك'nin iç işareti nokta değil, ikinci kalem hareketidir.
+4. **Daha az yardımla** — silik kılavuz, ok yok, silik nokta hedefleri → 2. yıldız.
+5. **Kılavuzsuz (isteğe bağlı)** — değerlendirilmez; çizim ile örnek yan yana "Birlikte bakalım";
+   kayda hiçbir şey yazılmaz.
+
+**Modeller** (`harf_ciziyorum/ciz_models_data.dart`, ÜRETİLMİŞ): kalın glifin dış hattı değil,
+Hasenat gliflerinin **merkez çizgisi**. `tool/harf_ciziyorum/extract_centerlines.py` (Pillow, numpy,
+scikit-image; yalnızca geliştirme aracı) glifi çizer, noktaları ayırır (nokta sayıları imlanın kesin
+kuralından), gövdeyi iskeletler ve `RECIPES`'teki "şuradan başla, şuradan geç" tarifleriyle kalem
+hareketlerini kurar; `build/harf_ciz/model_XX.png` kontrol görüntüleri (glif + yol + başlangıç + oklar)
+üretir. Çalıştırdıktan sonra `dart format`. Koordinatlar harf kutusuna göre 0–1; kılavuz ve
+değerlendirme aynı yollar.
+- **Kaynak durumu:** Şekil Hasenat'tan (projenin yazı tipi) ve gözle üst üste kontrol edildi.
+  **Başlangıç noktası, yön ve sıra DOĞRULANMADI**: Elifba kitabında (s. 1–64 metni tarandı) yazım
+  yönü yok; genel el yazısı alışkanlığına göre öneri (`kTraceDirectionVerified = false`). Ekranda
+  "bir yazış yolu" denir; değerlendirme yöne ve sıraya bakmaz. Bir öğretmen kontrol etmeli
+  (özellikle ع غ ص ض ط ظ ف ق م و ه). ج ح خ'nin soldaki küçük tırnağı modele alınmadı.
+
+**Değerlendirme** (`ciz_evaluator.dart`, eşikler tek yerde `TraceThresholds`, hepsi kutu oranı):
+yol ve iz 0,008 aralıkla eşit örneklenir (yavaş çizim ya da aynı yeri boyamak kapsamayı artırmaz);
+tolerans 0,08; kapsama ≥ %85, her hareket ≥ %70, en büyük eksik ≤ %12; iz yolun yakınında ≥ %70
+ve iz uzunluğu ≤ 3× yol (karalama). Sonuç: tamam / "Biraz daha devam et" (eksik yer sarı) /
+"Çizginin üstünden gitmeye çalış". Nokta toleransı 0,1, sıra önemsiz.
+
+**İlerleme** (`harf_ciziyorum.v1.<oyuncuId|cihaz>`): harf başına `g` (kılavuzla), `l` (daha az
+yardımla), `s` (zorlanma 0–5; Yardım, 2+ Temizle ya da 2+ nokta hatası → +1, az yardım başarısı → −1).
+Yıldız bayraktan: en çok 2, tekrar çizmek artırmaz. Çizim koordinatları saklanmaz/gönderilmez.
+Puan ve sıralama yok → `GameEntry.showInResults = false` (Sonuçlarım'da görünmez).
+
+**Giriş:** `widgets/trace_pad.dart` — Listener (dokunma/fare/kalem), yalnızca ilk parmak;
+`EagerGestureRecognizer` yalnızca çizim alanında sayfa kaydırmasını engeller; alandan çıkan parmak
+çizmeye devam eder; iptal oyunu kilitlemez. Aşama değişince 500 ms düğme kilidi (çift dokunma).
+
+**Kalan:** yön/sıra doğrulanmadı (yukarıda); ekranda sıra numarası rakamı sistem yazı tipiyle
+çizilir; gerçek cihazda parmakla denenmedi (testler TestGesture ile).
+
 ## 2. Puanlama (tüm oyunlar için ortak)
 
 Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
@@ -191,6 +238,10 @@ harf_dedektifi/             harf_dedektifi_screen (mod + harf grubu), harf_dedek
                            benzer gruplar, nokta ipuçları, kelime havuzu), dedektif_engine (tur
                            üretimi + oturum/puan, saf Dart), dedektif_progress_store (zorluk, ses),
                            widgets: detective_card, tappable_word
+harf_ciziyorum/             harf_ciziyorum_screen (harf seçimi, yıldızlar), harf_ciziyorum_game_screen
+                           (aşamalar, özet), ciz_models (+ üretilmiş ciz_models_data), ciz_evaluator
+                           (eşikler + değerlendirme), ciz_progress_store, ciz_session,
+                           widgets: trace_pad
 results/game_results_screen.dart
 widgets/                   Ortak parçalar: fit_grid, game_score_strip, game_result_summary,
                            game_finish_view, game_progress (GameStepPill, GameProgressBar),

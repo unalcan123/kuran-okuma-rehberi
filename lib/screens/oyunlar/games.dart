@@ -5,6 +5,7 @@ import '../../data/letters_data.dart';
 import '../../data/memory_game_data.dart';
 import '../../theme/app_colors.dart';
 import 'drag_drop/drag_drop_levels_screen.dart';
+import 'harf_ciziyorum/harf_ciziyorum_screen.dart';
 import 'harf_dedektifi/dedektif_engine.dart';
 import 'harf_dedektifi/harf_dedektifi_screen.dart';
 import 'harf_oyunlari/bul_patlat/bul_patlat_screen.dart';
@@ -36,6 +37,7 @@ class GameEntry {
     required this.foreground,
     required this.builder,
     required this.variants,
+    this.showInResults = true,
   });
 
   final String id;
@@ -46,6 +48,10 @@ class GameEntry {
   final Color foreground;
   final WidgetBuilder builder;
   final List<GameVariant> variants;
+
+  /// Puanlı oyunlar "Sonuçlarım"da görünür. Puanı olmayan (yalnızca harf
+  /// başına yıldız tutan) oyunlar görünmez; ilerleme kendi ekranındadır.
+  final bool showInResults;
 }
 
 final List<GameEntry> kGames = [
@@ -143,5 +149,17 @@ final List<GameEntry> kGames = [
       for (final mode in DetectiveMode.values)
         GameVariant(key: mode.gameKey, title: mode.title),
     ],
+  ),
+  GameEntry(
+    id: 'harf_ciziyorum',
+    title: 'Harf Çiziyorum',
+    subtitle: 'İzini takip et, noktalarını koy, harfi öğren',
+    icon: Icons.brush_rounded,
+    background: AppColors.goldSoft,
+    foreground: AppColors.gold,
+    builder: (_) => const HarfCiziyorumScreen(),
+    // Puan yok: harf başına en çok 2 yıldız, kendi başlangıç ekranında.
+    variants: const [],
+    showInResults: false,
   ),
 ];

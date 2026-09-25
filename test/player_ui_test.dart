@@ -179,7 +179,8 @@ void main() {
         gameApp(const OyunlarScreen(), players: repo, leaderboard: service),
       );
       await settle(tester);
-      await tester.ensureVisible(find.text('Genel Sıralama'));
+      // Menü uzun: kart tembel listede aşağıda, önce kaydır.
+      await tester.scrollUntilVisible(find.text('Genel Sıralama'), 200);
       await settle(tester);
       await tester.tap(find.text('Genel Sıralama'));
       await settle(tester);

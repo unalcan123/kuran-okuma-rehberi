@@ -26,7 +26,8 @@ class _GameResultsScreenState extends State<GameResultsScreen> {
     final store = context.read<GameScoreStore>();
     final keys = [
       for (final game in kGames)
-        for (final variant in game.variants) variant.key,
+        if (game.showInResults)
+          for (final variant in game.variants) variant.key,
     ];
     final histories = await Future.wait([
       for (final key in keys) store.historyOf(key),
@@ -108,7 +109,7 @@ class _GameResultsScreenState extends State<GameResultsScreen> {
                       color: AppColors.textSecondary,
                     ),
                   ),
-                  for (final game in kGames) ...[
+                  for (final game in kGames.where((g) => g.showInResults)) ...[
                     const SizedBox(height: 16),
                     _GameSection(game: game, histories: histories),
                   ],

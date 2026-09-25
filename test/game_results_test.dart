@@ -61,10 +61,13 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Sonuçlarım'), findsOneWidget);
     expect(find.text('Oyun oynadıkça puanların burada görünür.'), findsOneWidget);
-    for (final game in kGames) {
+    // Puansız oyunlar (Harf Çiziyorum) sonuçlarda görünmez.
+    final scored = kGames.where((g) => g.showInResults);
+    for (final game in scored) {
       expect(find.text(game.title), findsOneWidget);
     }
-    expect(find.text('Henüz oynanmadı.'), findsNWidgets(kGames.length));
+    expect(find.text('Harf Çiziyorum'), findsNothing);
+    expect(find.text('Henüz oynanmadı.'), findsNWidgets(scored.length));
     expect(find.text('Ortalama'), findsNothing);
   });
 
@@ -98,7 +101,7 @@ void main() {
     // Sürükle & Bırak ve Dinle ve Seç oynandı; diğer oyunlar boş.
     expect(
       find.text('Henüz oynanmadı.'),
-      findsNWidgets(kGames.length - 2),
+      findsNWidgets(kGames.where((g) => g.showInResults).length - 2),
       reason: 'Hafıza, Bul & Patlat and Harf Arabaları have not been played',
     );
 
@@ -194,7 +197,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Oyun oynadıkça puanların burada görünür.'), findsOneWidget);
-    expect(find.text('Henüz oynanmadı.'), findsNWidgets(kGames.length));
+    expect(
+      find.text('Henüz oynanmadı.'),
+      findsNWidgets(kGames.where((g) => g.showInResults).length),
+    );
     expect(find.text('Oyun 2'), findsNothing);
     expect(
       tester
