@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders7AudioDir = 'audio/elifba/ders_7_cezm';
 
@@ -97,4 +100,38 @@ final Lesson kCezmLesson = Lesson(
   title: 'Cezm',
   subtitle: '81 kayıt • Hemze + harf + cezm, üç harekeyle',
   letters: kCezmLetters,
+  pageLayout: kCezmPageLayout,
 );
+
+/// Book pages 24-25, "CEZİM": each letter with sükûn after a hemze with
+/// üstün, esre and ötre, 6 cells a row. Only the cezim is red (thick
+/// letters black), as in the PDF.
+const ArabicColorProfile _cezmColors = ArabicColorProfile({
+  ArabicPart.sukun: arabicRed,
+});
+
+const LessonPageLayout kCezmPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 24,
+    type: LessonPageType.lesson,
+    heading: 'CEZİM',
+    arabicHeading: 'جَزْمٌ',
+    mark: 'ـْـ',
+    intro: [
+      'Harfin üstüne konan, yuvarlak, küçük bir şekildir ve harfi, yönsüz '
+          'olarak yalın bir şekilde okutur.',
+      'Her harfin cezimli durumunu iyice tanıyabilmek için, öncesine '
+          'sırayla, üstün, esre ve ötreli bir “Hemze” getirerek okuyalım.',
+    ],
+    itemCount: 36,
+    columns: 6,
+    colorProfile: _cezmColors,
+  ),
+  LessonBookPage(
+    bookPage: 25,
+    type: LessonPageType.lesson,
+    itemCount: 45,
+    columns: 6,
+    colorProfile: _cezmColors,
+  ),
+]);

@@ -1,14 +1,16 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders35AudioDir = 'audio/elifba/ders_35_alistirmalar_2';
 
-/// Ders 35: general reading practice, second set.
+/// Ders 32: general reading practice, second set.
 const List<ArabicLetter> kAlistirmalar2Words = [
 ArabicLetter(order: 1, isolatedForm: 'فَبَشِّرْهُمْ', audioAsset: '$_ders35AudioDir/01_kelime.mp3'),
 ArabicLetter(order: 2, isolatedForm: 'فَسَتَعْلَمُونَ', audioAsset: '$_ders35AudioDir/02_kelime.mp3'),
 ArabicLetter(order: 3, isolatedForm: 'سَنُقْرِؤُكَ', audioAsset: '$_ders35AudioDir/03_kelime.mp3'),
-ArabicLetter(order: 4, isolatedForm: 'وَآيَةٌ لَهُمْ', audioAsset: '$_ders35AudioDir/04_kelime.mp3'),
+ArabicLetter(order: 4, isolatedForm: 'وَاٰيَةٌ لَهُمْ', audioAsset: '$_ders35AudioDir/04_kelime.mp3'),
 ArabicLetter(order: 5, isolatedForm: 'سَلَامٌ قَوْلًا', audioAsset: '$_ders35AudioDir/05_kelime.mp3'),
 ArabicLetter(order: 6, isolatedForm: 'فَسَنُيَسِّرُهُ', audioAsset: '$_ders35AudioDir/06_kelime.mp3'),
 ArabicLetter(order: 7, isolatedForm: 'عَدُوٌّ مُبِينٌ', audioAsset: '$_ders35AudioDir/07_kelime.mp3'),
@@ -36,8 +38,27 @@ ArabicLetter(order: 27, isolatedForm: 'عَلَيْهَا قُعُودٌ', audio
 
 final Lesson kAlistirmalar2Lesson = Lesson(
   id: 'alistirmalar-2',
-  label: 'Ders 35',
+  label: 'Ders 32',
   title: 'Alıştırmalar 2',
   subtitle: '27 kayıt • Genel okuma alıştırması',
   letters: kAlistirmalar2Words,
+  pageLayout: kAlistirmalar2PageLayout,
 );
+
+/// Book page 61, "ALIŞTIRMALAR - 2": 27 items in 3 columns;
+/// all black (colors read from the PDF).
+const LessonPageLayout kAlistirmalar2PageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 61,
+    type: LessonPageType.exercise,
+    heading: 'ALIŞTIRMALAR - 2',
+    colorProfile: ArabicColorProfile.none,
+    sections: [
+      BookSection(
+        itemCount: 27,
+        columns: 3,
+        itemKind: LessonItemKind.word,
+      ),
+    ],
+  ),
+]);

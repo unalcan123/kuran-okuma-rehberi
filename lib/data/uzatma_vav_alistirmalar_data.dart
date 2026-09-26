@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders16AudioDir = 'audio/elifba/ders_16_uzatma_vav_alistirmalar';
 
@@ -42,4 +45,22 @@ final Lesson kUzatmaVavAlistirmalariLesson = Lesson(
   title: 'Uzatma Harfleri - Vav Alıştırmaları',
   subtitle: '28 kayıt • Vav uzatmalı kelime okuma',
   letters: kUzatmaVavAlistirmalariWords,
+  pageLayout: kUzatmaVavAlistirmalariPageLayout,
 );
+
+/// Book page 37, "ÖRNEKLER – VÂV": only the med vâv is green, as in the
+/// PDF (the elif after a vâv stays black).
+const LessonPageLayout kUzatmaVavAlistirmalariPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 37,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    subheading: 'VÂV',
+    arabicHeading: '( و )',
+    arabicHeadingColor: arabicGreen,
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: ArabicColorProfile({ArabicPart.maddWaw: arabicGreen}),
+  ),
+]);

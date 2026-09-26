@@ -5,8 +5,8 @@ import 'package:kuran_okuma_rehberi/models/waqf_example.dart';
 
 void main() {
   final tables = {
-    'Ders 32 (Kapalı Te)': (kKapaliTeExamples, kKapaliTeWords),
-    'Ders 33 (Kelime Sonu Durakları)': (kWaqfAllExamples, kKelimeSonuDuraklarWords),
+    'Ders 29 (Kapalı Te)': (kKapaliTeExamples, kKapaliTeWords),
+    'Ders 30 (Kelime Sonu Durakları)': (kWaqfAllExamples, kKelimeSonuDuraklarWords),
   };
 
   tables.forEach((name, data) {
@@ -50,12 +50,12 @@ void main() {
   });
 
   test('a closed te (ة) is read as a He (ه) when stopping, like in the book', () {
-    // Ders 33: مُطَهَّرَهْ and مَرْضِيَّهْ.
+    // Ders 30: مُطَهَّرَهْ and مَرْضِيَّهْ.
     final words = [for (final w in kKelimeSonuDuraklarWords) w.isolatedForm];
     expect(words[19], endsWith('هْ'));
     expect(words[21], endsWith('هْ'));
     expect(words.where((w) => w.contains('ة') && w.endsWith('ْ')), isEmpty);
-    // Ders 32: every stopping form ends in a He with cezim, every passing
+    // Ders 29: every stopping form ends in a He with cezim, every passing
     // form in a ة.
     for (var i = 0; i < kKapaliTeWords.length; i += 2) {
       expect(kKapaliTeWords[i].isolatedForm, contains('ة'));
@@ -63,7 +63,7 @@ void main() {
     }
   });
 
-  test('Ders 32: the last pair is الصَّلٰوة (with the waw), as in the book', () {
+  test('Ders 29: the last pair is الصَّلٰوة (with the waw), as in the book', () {
     for (final w in [kKapaliTeWords[10], kKapaliTeWords[11]]) {
       expect(w.isolatedForm, contains('لٰو'), reason: 'lam + dagger alif + waw');
     }

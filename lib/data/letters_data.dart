@@ -1,5 +1,10 @@
+import 'dart:ui' show Color;
+
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 import 'alistirmalar_1_data.dart';
 import 'alistirmalar_2_data.dart';
 import 'alistirmalar_3_data.dart';
@@ -33,9 +38,6 @@ import 'uzatma_ya_alistirmalar_data.dart';
 import 'uzatma_ya_data.dart';
 import 'zamir_he_uzatilmasi_data.dart';
 import 'zamir_he_uzatma_med_data.dart';
-import 'zamir_he_uzatma_yok_cezimli_data.dart';
-import 'zamir_he_uzatma_yok_cezimli_seddeli_data.dart';
-import 'zamir_he_uzatma_yok_data.dart';
 
 // audioplayers' AudioCache already prepends "assets/" by default, so
 // this must be relative to the assets folder, not repeat it.
@@ -231,6 +233,7 @@ final Lesson kHarfleriTaniyalimLesson = Lesson(
   title: 'Harfleri Tanıyalım',
   subtitle: '28 harf • Elifba\'nın ilk adımı',
   letters: kArabicLetters,
+  pageLayout: kHarfleriTaniyalimPageLayout,
 );
 
 final List<Lesson> kElifbaLessons = [
@@ -262,9 +265,6 @@ final List<Lesson> kElifbaLessons = [
   kElTakisiHemzeVasilLesson,
   kZamirHeUzatilmasiLesson,
   kZamirHeUzatmaMedLesson,
-  kZamirHeUzatmaYokLesson,
-  kZamirHeUzatmaYokCezimliLesson,
-  kZamirHeUzatmaYokCezimliSeddeliLesson,
   kKapaliTeLesson,
   kKelimeSonuDuraklarLesson,
   kAlistirmalar1Lesson,
@@ -272,3 +272,139 @@ final List<Lesson> kElifbaLessons = [
   kAlistirmalar3Lesson,
   kAlistirmalar4Lesson,
 ];
+
+/// Book pages 3-7 (in book order): s. 3-5 "HARFLERİN ÇIKIŞ YERLERİ" (text
+/// and the mahreç drawing), s. 6 "HARFLER" (the 28 letters, the 7 thick
+/// ones red), s. 7 "HARFLERİN YAZILIŞ VE OKUNUŞLARI" (each letter's name;
+/// the thick letters' names wholly red). Colors read from the PDF.
+const ArabicColorProfile _thickRed = ArabicColorProfile({
+  ArabicPart.thickLetter: arabicRed,
+});
+const ArabicColorProfile _wholeRed = ArabicColorProfile({
+  ArabicPart.letter: arabicRed,
+  ArabicPart.fatha: arabicRed,
+  ArabicPart.sukun: arabicRed,
+});
+
+const LessonPageLayout kHarfleriTaniyalimPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 3,
+    type: LessonPageType.info,
+    heading: 'HARFLERİN ÇIKIŞ YERLERİ',
+    headerImage: 'assets/images/elifba/harflerin_cikis_yerleri_header.png',
+    intro: [
+      'Harfin çıkış yeri “Mahreç” kelimesi ile ifade edilir. Beş ana mahreç '
+          'bölgesi vardır:',
+      '⟪1. CEVF:⟫ Nefes borusu ve ağız boşluğu bölgesidir.',
+      'Nefesin geçtiği bu bölgeden, harekesiz ( «و ا ى» ) harfleri, yani Med '
+          '(Uzatma) harfleri çıkar. Bu harfler harekesiz oldukları için tek '
+          'başlarına okunamazlar. Harekeli bir harfe bitişir, onu uzatarak '
+          'okuturlar.',
+      '⟪2. BOĞAZ:⟫',
+      '( «ء هـ» ) Boğazın göğse bitiştiği yerden çıkar. Hemze ( «ء» ), '
+          'Elif’in ( «ا» ) harekeli halidir.',
+      '( «ح ع» ) Boğazın ortasından çıkar.',
+      '( «خ غ» ) Boğazın (ağız boşluğuna bitiştiği) üst kısmından çıkar.',
+      '⟪3. DİL VE AĞIZ İÇİ:⟫',
+      '( «ق» ) Dil kökü ve tavanından çıkar.',
+      '( «ك» ) Dil ortası ile dil kökü arası, ağız tavanına doğru '
+          'kaldırılarak çıkarılır.',
+      '( «ج ش ي» ) Dil ortası ağız tavanına doğru kaldırılarak çıkarılır.',
+      '( «ض» ) Dilin yan tarafı, üst azı dişlerinin iç kısmına '
+          'bastırıldıktan sonra yavaşça çekilerek çıkar.',
+      '( «ل» ) Dil ucu sağ veya sol köşesinin, üst ön diş etlerine '
+          'değdirilmesi ile çıkar.',
+      '( «ن» ) Dil ucu altının, üst ön diş etlerine değdirilmesi ile çıkar.',
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 4,
+    type: LessonPageType.info,
+    intro: [
+      '( «ر» ) Dildeki çıkış noktası, dil üstünün uca yakın kısmıdır. Dil '
+          'ucu, üst ön damağa doğru kıvrılarak kaldırılır ve bu noktanın '
+          'titretilmesi ile çıkar. Bu esnada dil; damak, diş gibi yerlere '
+          'yapışmamalıdır.',
+      '( «ط د ت» ) Dil ucu, üst ön iki dişin arkasına değdirilip '
+          'çekilmesiyle çıkar. ( «ط» ) harfinde kalınlığı sağlamak için, '
+          'dilin gerideki gövde kısmı da ayrıca üst damağa doğru kaldırılır.',
+      '( «ص س ز» ) Dil ucu, alt ön iki dişin üst kısmına dokunur. Bu '
+          'haldeyken, dil üzerinden kayan ses, alt ön dişlerin üstünden çıkar.',
+      '( «ص» ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı '
+          'da ayrıca üst damağa doğru kaldırılır.',
+      '( «ظ ذ ث» ) Dil ucu, üst ön dişlerin keskin yerine değdirilerek çıkar.',
+      '( «ظ» ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı '
+          'da ayrıca üst damağa doğru kaldırılır.',
+      '⟪4. DUDAK:⟫',
+      '( «ف» ) Üst ön dişlerin ucu, alt dudağın içine değdirilerek çıkar.',
+      '( «و م ب» ) Bu harfler iki dudak harfidir. Dudakların kapatılmasıyla '
+          '( «م» ), kuvvetli kapatılıp açılmasıyla ( «ب» ), U pozisyonunda '
+          'ileri uzatılmasıyla ( «و» ) çıkar. Yalnız, üstünlü ve esreli vâv '
+          'harfinde ( «وِ وَ» ), dudağı uzattıktan sonra geri çekmek '
+          'gerekirken, ötreli ve sakin vâvlarda ( «وْ وُ» ) sadece uzatmak '
+          'yeterlidir.',
+      '⟪5. GENİZ:⟫',
+      'Burun içi bölgesidir. Bu mahreçten harf çıkmaz. Gunne dediğimiz, '
+          'sesin iki hareke miktarı tutulması işi burada yapılır.',
+      '⟪Önemli Not:⟫',
+      '1. Mahreçler için mutlaka seslendirme desteği alınız.',
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 5,
+    type: LessonPageType.info,
+    figure: 'assets/images/elifba/mahrec_sekli.png',
+    figureLegend: [
+      FrameRun(0, Color(0xFF8DC63F), 'Geniz'),
+      FrameRun(0, Color(0xFFFFF9D6), 'Nefes Boşluğu'),
+      FrameRun(0, Color(0xFFEF4F63), 'Dil'),
+      FrameRun(0, Color(0xFFA7A9AC), 'Dudaklar'),
+      FrameRun(0, Color(0xFFF7A941), 'Boğaz'),
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 6,
+    type: LessonPageType.lesson,
+    heading: 'HARFLER',
+    intro: [
+      '- Kur’ân-ı Kerîm harfleri “28” tanedir.',
+      '- Bunların “7”’si kalın, “21”’i de ince harf olarak kabul edilir.',
+      '- Kalın harfler şunlardır: «﴾ خ ص ض ط ظ غ ق ﴿»',
+    ],
+    itemCount: 28,
+    columns: 4,
+    colorProfile: _thickRed,
+  ),
+  LessonBookPage(
+    bookPage: 7,
+    type: LessonPageType.lesson,
+    kicker: 'HARFLERİN',
+    heading: 'YAZILIŞ VE OKUNUŞLARI',
+    colorProfile: ArabicColorProfile.none,
+    sections: [
+      BookSection(
+        refs: [
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, //
+          14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
+        ],
+        refTexts: [
+          'أَلِفْ', 'بَا', 'تَا', 'ثَا', 'جِيمْ', 'حَا', 'خَا', 'دَالْ', //
+          'ذَالْ', 'رَا', 'زَايْ', 'سِينْ', 'شِينْ', 'صَادْ', 'ضَادْ', 'طَا',
+          'ظَا', 'عَيْنْ', 'غَيْنْ', 'فَا', 'قَافْ', 'كَافْ', 'لَامْ', 'مِيمْ',
+          'نُونْ', 'وَاوْ', 'هَا', 'يَا',
+        ],
+        columns: 4,
+        itemKind: LessonItemKind.word,
+        itemProfiles: {
+          6: _wholeRed,
+          13: _wholeRed,
+          14: _wholeRed,
+          15: _wholeRed,
+          16: _wholeRed,
+          18: _wholeRed,
+          20: _wholeRed,
+        },
+      ),
+    ],
+  ),
+]);

@@ -12,7 +12,7 @@ en altta.
 | Oyun | Ne yapar | Nerede |
 |---|---|---|
 | **Sürükle & Bırak** | Küçük oyunlar listesi: Oyun 1–7 (eski uygulamanın 7 harf grubu) ve **Karışık** (her oynayışta 29 harften rastgele 5 harf). Ses kartına dokun, dinle, doğru harfi karta sürükle. | `drag_drop/` |
-| **Dinle ve Seç** | Önce ders seçilir (37 ders). 5 soru: ses otomatik çalar, 4 şıktan doğrusu seçilir. | `listen_pick/` |
+| **Dinle ve Seç** | Önce ders seçilir (34 ders). 5 soru: ses otomatik çalar, 4 şıktan doğrusu seçilir. | `listen_pick/` |
 | **Hafıza** | Aynı harfli kartları bul (eski Elifba'nın 3. oyunu). Kolay / Zor / Çok Zor, 9 seviye. Kartlar çevrilince harfin sesi çalar. | `memory/` |
 | **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 ilk sürümün hızıdır ve "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
 | **Harf Dedektifi** | 3 mod: Şekilleri Tanı, Benzer Harfler, Kelime Dedektifi. 5 kısa tur, süre yok; bir turda birden çok doğru örnek bulunur. | `harf_dedektifi/` |

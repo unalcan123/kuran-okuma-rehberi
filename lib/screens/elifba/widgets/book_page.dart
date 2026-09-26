@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/lesson_info_data.dart';
 import '../../../theme/app_colors.dart';
-import '../../../theme/app_text_theme.dart';
+import 'lesson_page_view.dart' show BookFrameHeading;
 import 'letter_page_background.dart';
 
 /// The heading printed on a book page: up to three lines of Turkish and
@@ -50,10 +50,18 @@ final Map<String, BookPageHeading> kBookPageHeadings = {
 /// be tapped to hear them. The text is the lesson's [LessonInfo] — the same
 /// content the info (ⓘ) button shows.
 class BookPage extends StatelessWidget {
-  const BookPage({super.key, required this.info, required this.heading});
+  const BookPage({
+    super.key,
+    required this.info,
+    required this.heading,
+    this.pages,
+  });
 
   final LessonInfo info;
   final BookPageHeading heading;
+
+  /// The book's page number(s) shown at the bottom (e.g. "54", "57-59").
+  final String? pages;
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +93,12 @@ class BookPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        _Heading(heading),
+                        BookFrameHeading(
+                          kicker: heading.top,
+                          heading: heading.main,
+                          subheading: heading.bottom,
+                          arabic: heading.arabic ?? '',
+                        ),
                         Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: narrow ? 6 : 14,
@@ -98,6 +111,20 @@ class BookPage extends StatelessWidget {
                             ).textTheme.bodyLarge?.copyWith(height: 1.5),
                           ),
                         ),
+                        if (pages != null)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 6),
+                            child: Text(
+                              'Sayfa $pages',
+                              key: const ValueKey('book-page-number'),
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: AppColors.textSecondary,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
                       ],
                     ),
                   ),
@@ -107,58 +134,6 @@ class BookPage extends StatelessWidget {
           },
         ),
       ],
-    );
-  }
-}
-
-class _Heading extends StatelessWidget {
-  final BookPageHeading heading;
-
-  const _Heading(this.heading);
-
-  @override
-  Widget build(BuildContext context) {
-    const small = TextStyle(color: AppColors.navySoft, letterSpacing: 0.6);
-    return Semantics(
-      header: true,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
-        decoration: BoxDecoration(
-          color: AppColors.goldSoft,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
-        ),
-        child: Column(
-          children: [
-            if (heading.top != null) ...[
-              Text(heading.top!, textAlign: TextAlign.center, style: small),
-              const SizedBox(height: 4),
-            ],
-            Text(
-              heading.main,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: AppColors.red,
-                fontSize: 22,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-            if (heading.bottom != null) ...[
-              const SizedBox(height: 4),
-              Text(heading.bottom!, textAlign: TextAlign.center, style: small),
-            ],
-            if (heading.arabic != null) ...[
-              const SizedBox(height: 6),
-              Text(
-                heading.arabic!,
-                textAlign: TextAlign.center,
-                textDirection: TextDirection.rtl,
-                style: AppTextTheme.arabicSmall(fontSize: 30).copyWith(color: AppColors.gold),
-              ),
-            ],
-          ],
-        ),
-      ),
     );
   }
 }

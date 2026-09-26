@@ -85,6 +85,9 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    // Lessons open on their book page; the cards are the "Grid" view.
+    await tester.tap(find.text('▦ Grid'));
+    await tester.pumpAndSettle();
     expect(find.byType(AllLettersGrid), findsOneWidget);
 
     await tester.tap(find.byType(LetterCard).first);

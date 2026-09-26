@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders12AudioDir = 'audio/elifba/ders_12_uzatma_elif_alistirmalar';
 
@@ -23,12 +26,12 @@ const List<ArabicLetter> kUzatmaElifAlistirmalariWords = [
   ArabicLetter(order: 15, isolatedForm: 'ضَاقَتْ', audioAsset: '$_ders12AudioDir/15_kelime.mp3'),
   ArabicLetter(order: 16, isolatedForm: 'طَالَ', audioAsset: '$_ders12AudioDir/16_kelime.mp3'),
   ArabicLetter(order: 17, isolatedForm: 'ظَاهِرَ', audioAsset: '$_ders12AudioDir/17_kelime.mp3'),
-  ArabicLetter(order: 18, isolatedForm: 'عاَدَ', audioAsset: '$_ders12AudioDir/18_kelime.mp3'),
+  ArabicLetter(order: 18, isolatedForm: 'عَادَ', audioAsset: '$_ders12AudioDir/18_kelime.mp3'),
   ArabicLetter(order: 19, isolatedForm: 'غَالِبَ', audioAsset: '$_ders12AudioDir/19_kelime.mp3'),
   ArabicLetter(order: 20, isolatedForm: 'فَازَ', audioAsset: '$_ders12AudioDir/20_kelime.mp3'),
   ArabicLetter(order: 21, isolatedForm: 'قَالَ', audioAsset: '$_ders12AudioDir/21_kelime.mp3'),
   ArabicLetter(order: 22, isolatedForm: 'كَانَ', audioAsset: '$_ders12AudioDir/22_kelime.mp3'),
-  ArabicLetter(order: 23, isolatedForm: 'لاَ', audioAsset: '$_ders12AudioDir/23_kelime.mp3'),
+  ArabicLetter(order: 23, isolatedForm: 'لَا', audioAsset: '$_ders12AudioDir/23_kelime.mp3'),
   ArabicLetter(order: 24, isolatedForm: 'مَالِ', audioAsset: '$_ders12AudioDir/24_kelime.mp3'),
   ArabicLetter(order: 25, isolatedForm: 'نَارُ', audioAsset: '$_ders12AudioDir/25_kelime.mp3'),
   ArabicLetter(order: 26, isolatedForm: 'سَوَاءِ', audioAsset: '$_ders12AudioDir/26_kelime.mp3'),
@@ -42,4 +45,22 @@ final Lesson kUzatmaElifAlistirmalariLesson = Lesson(
   title: 'Uzatma Harfleri - Elif Alıştırmaları',
   subtitle: '28 kayıt • Elif uzatmalı kelime okuma',
   letters: kUzatmaElifAlistirmalariWords,
+  pageLayout: kUzatmaElifAlistirmalariPageLayout,
 );
+
+/// Book page 33, "ÖRNEKLER – ELİF": only the med elif is red; the lâm-elif
+/// ligature of لَا stays black, as in the PDF.
+const LessonPageLayout kUzatmaElifAlistirmalariPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 33,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    subheading: 'ELİF',
+    arabicHeading: '( ا )',
+    arabicHeadingColor: arabicRed,
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: ArabicColorProfile({ArabicPart.maddAlif: arabicRed}),
+  ),
+]);

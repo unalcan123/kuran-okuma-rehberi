@@ -1,6 +1,6 @@
 import 'arabic_letter.dart';
 
-/// One row of a "Durulduğunda / Geçildiğinde" table (Ders 32 and Ders 33 of
+/// One row of a "Durulduğunda / Geçildiğinde" table (Ders 29 and Ders 30 of
 /// the book): the same word read when passing on and when stopping.
 ///
 /// The Arabic comes from the lesson's word list — entry [pair] (1-based) is

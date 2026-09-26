@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders14AudioDir = 'audio/elifba/ders_14_uzatma_ya_alistirmalar';
 
@@ -42,4 +45,21 @@ final Lesson kUzatmaYaAlistirmalariLesson = Lesson(
   title: 'Uzatma Harfleri - Ya Alıştırmaları',
   subtitle: '28 kayıt • Ye uzatmalı kelime okuma',
   letters: kUzatmaYaAlistirmalariWords,
+  pageLayout: kUzatmaYaAlistirmalariPageLayout,
 );
+
+/// Book page 35, "ÖRNEKLER – YÂ": only the med yâ is blue, as in the PDF.
+const LessonPageLayout kUzatmaYaAlistirmalariPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 35,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    subheading: 'YÂ',
+    arabicHeading: '( ى )',
+    arabicHeadingColor: arabicBlue,
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: ArabicColorProfile({ArabicPart.maddYa: arabicBlue}),
+  ),
+]);

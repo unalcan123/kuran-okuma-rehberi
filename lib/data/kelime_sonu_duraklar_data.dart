@@ -4,7 +4,7 @@ import '../models/waqf_example.dart';
 
 const String _ders33AudioDir = 'audio/elifba/ders_33_kelime_sonu_duraklar';
 
-/// Ders 33: how a word's final hareke or tenvin changes when reading stops there (waqf) instead of continuing.
+/// Ders 30: how a word's final hareke or tenvin changes when reading stops there (waqf) instead of continuing.
 const List<ArabicLetter> kKelimeSonuDuraklarWords = [
   ArabicLetter(order: 1, isolatedForm: 'صُدُورِ', audioAsset: '$_ders33AudioDir/01_kelime.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'صُدُورْ', audioAsset: '$_ders33AudioDir/02_kelime.mp3'),
@@ -38,7 +38,7 @@ const List<ArabicLetter> kKelimeSonuDuraklarWords = [
 
 final Lesson kKelimeSonuDuraklarLesson = Lesson(
   id: 'kelime-sonu-duraklar',
-  label: 'Ders 33',
+  label: 'Ders 30',
   title: 'Kelime Sonu Durakları (Duruş)',
   subtitle: '28 kayıt • Durak hâlinde kelime sonlarının okunuşu',
   letters: kKelimeSonuDuraklarWords,

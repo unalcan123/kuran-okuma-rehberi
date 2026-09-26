@@ -11,7 +11,6 @@ import 'package:kuran_okuma_rehberi/screens/elifba/widgets/all_letters_grid.dart
 import 'package:kuran_okuma_rehberi/data/letter_forms_data.dart';
 import 'package:kuran_okuma_rehberi/screens/elifba/widgets/letter_forms_page.dart';
 import 'package:kuran_okuma_rehberi/screens/elifba/widgets/letter_forms_table.dart';
-import 'package:kuran_okuma_rehberi/screens/elifba/widgets/lesson_one_book.dart';
 
 void main() {
   testWidgets('Enlarged long words remain entirely inside their cards', (
@@ -91,7 +90,6 @@ void main() {
             onTapLetter: (_) {},
             onOpenLetter: (_) {},
           ),
-          LessonOneBook(letters: kArabicLetters, onTapLetter: (_) {}),
         ]) {
           await tester.pumpWidget(
             MaterialApp(

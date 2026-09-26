@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders9AudioDir = 'audio/elifba/ders_9_sedde';
 const String _harfSeddeGroup = 'Harf + Şedde';
@@ -74,4 +77,54 @@ final Lesson kSeddeLesson = Lesson(
   title: 'Şedde',
   subtitle: '56 kayıt • Harf + şedde çiftleri',
   letters: kSeddeLetters,
+  pageLayout: kSeddePageLayout,
 );
+
+/// Book pages 28-29, "ŞEDDE": blocks of 4 letters — above, the small cells
+/// "أَأْ أَ" (all black); below, the big cells "أَأَّ" printed red with the
+/// şedde and its hareke blue (colors read from the PDF). The data keeps each
+/// pair together (small, big, …); [BookSection.order] lays them out as the
+/// book does.
+const ArabicColorProfile _seddeBig = ArabicColorProfile({
+  ArabicPart.letter: arabicRed,
+  ArabicPart.fatha: arabicRed,
+  ArabicPart.shadda: arabicBlue,
+});
+
+const LessonPageLayout kSeddePageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 28,
+    type: LessonPageType.lesson,
+    heading: 'ŞEDDE',
+    arabicHeading: 'شَدَّةٌ',
+    mark: 'ـّـ',
+    intro: [
+      'Harfin üstüne konan, ters çevrilmiş “m” harfine benzer bir şekildir, '
+          've harfi iki kere okutur. Şeddeli harf, aynı zamanda harekeli olur.',
+    ],
+    sections: [
+      BookSection(
+        itemCount: 24,
+        columns: 4,
+        rowKinds: [LessonItemKind.word, LessonItemKind.letter],
+        groupRows: 2,
+        order: [0, 2, 4, 6, 1, 3, 5, 7, 8, 10, 12, 14, 9, 11, 13, 15, 16, 18, 20, 22, 17, 19, 21, 23],
+        itemProfiles: {1: _seddeBig, 3: _seddeBig, 5: _seddeBig, 7: _seddeBig, 9: _seddeBig, 11: _seddeBig, 13: _seddeBig, 15: _seddeBig, 17: _seddeBig, 19: _seddeBig, 21: _seddeBig, 23: _seddeBig},
+      ),
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 29,
+    type: LessonPageType.lesson,
+    sections: [
+      BookSection(
+        itemCount: 32,
+        columns: 4,
+        rowKinds: [LessonItemKind.word, LessonItemKind.letter],
+        groupRows: 2,
+        order: [0, 2, 4, 6, 1, 3, 5, 7, 8, 10, 12, 14, 9, 11, 13, 15, 16, 18, 20, 22, 17, 19, 21, 23, 24, 26, 28, 30, 25, 27, 29, 31],
+        itemProfiles: {1: _seddeBig, 3: _seddeBig, 5: _seddeBig, 7: _seddeBig, 9: _seddeBig, 11: _seddeBig, 13: _seddeBig, 15: _seddeBig, 17: _seddeBig, 19: _seddeBig, 21: _seddeBig, 23: _seddeBig, 25: _seddeBig, 27: _seddeBig, 29: _seddeBig, 31: _seddeBig},
+      ),
+    ],
+  ),
+]);

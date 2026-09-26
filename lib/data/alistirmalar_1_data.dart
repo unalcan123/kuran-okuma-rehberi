@@ -1,9 +1,11 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders34AudioDir = 'audio/elifba/ders_34_alistirmalar_1';
 
-/// Ders 34: general reading practice, first set.
+/// Ders 31: general reading practice, first set.
 const List<ArabicLetter> kAlistirmalar1Words = [
   ArabicLetter(order: 1, isolatedForm: 'فَبَشِّرْهُ', audioAsset: '$_ders34AudioDir/01_kelime.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'أَحْصَيْنَاهُ', audioAsset: '$_ders34AudioDir/02_kelime.mp3'),
@@ -33,8 +35,28 @@ const List<ArabicLetter> kAlistirmalar1Words = [
 
 final Lesson kAlistirmalar1Lesson = Lesson(
   id: 'alistirmalar-1',
-  label: 'Ders 34',
+  label: 'Ders 31',
   title: 'Alıştırmalar 1',
   subtitle: '24 kayıt • Genel okuma alıştırması',
   letters: kAlistirmalar1Words,
+  pageLayout: kAlistirmalar1PageLayout,
 );
+
+/// Book page 60, "ALIŞTIRMALAR - 1": 24 items in 3 columns;
+/// all black (colors read from the PDF).
+const LessonPageLayout kAlistirmalar1PageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 60,
+    type: LessonPageType.exercise,
+    heading: 'ALIŞTIRMALAR - 1',
+    colorProfile: ArabicColorProfile.none,
+    sections: [
+      BookSection(
+        title: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ',
+        itemCount: 24,
+        columns: 3,
+        itemKind: LessonItemKind.word,
+      ),
+    ],
+  ),
+]);

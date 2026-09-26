@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders11AudioDir = 'audio/elifba/ders_11_uzatma_elif';
 
@@ -42,4 +45,30 @@ final Lesson kUzatmaElifLesson = Lesson(
   title: 'Uzatma Harfleri - Elif',
   subtitle: '28 kayıt • Üstün + elif ile uzatma',
   letters: kUzatmaElifLetters,
+  pageLayout: kUzatmaElifPageLayout,
 );
+
+/// Book page 32, "UZATMA HARFLERİ – ELİF": each letter with üstün before a
+/// med elif. Only the med elif is red (üstün and thick letters black), as
+/// in the PDF.
+const LessonPageLayout kUzatmaElifPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 32,
+    type: LessonPageType.lesson,
+    kicker: 'UZATMA HARFLERİ',
+    heading: 'ELİF',
+    arabicHeading: '( ا )',
+    arabicHeadingColor: arabicRed,
+    intro: [
+      'Üstünlü harfi iki hareke miktarı uzatır. Harf kalın ise “A” sesiyle, '
+          'ince ise “E - A” arası bir sesle uzatır.',
+      '«Uzatma (MED) Harfleri» ( «ى ا و» ): Kısaca “VÂY” harfleri '
+          'dediğimiz, harekesiz ( «و» ), ( «ا» ) ve ( «ى» ) harfleridir. Bir '
+          'önceki harfi uzatarak okutur.',
+    ],
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.letter,
+    colorProfile: ArabicColorProfile({ArabicPart.maddAlif: arabicRed}),
+  ),
+]);

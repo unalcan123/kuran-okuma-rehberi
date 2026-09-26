@@ -1,11 +1,14 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders22AudioDir = 'audio/elifba/ders_22_tenvin_iki_otre';
 
 /// Ders 22, part 1: each letter with tenvin-i damme (double ötre, ٌ), e.g. "بٌ" (bun).
 const List<ArabicLetter> kTenvinIkiOtreLetters = [
-  ArabicLetter(order: 1, isolatedForm: 'اٌ', turkishName: 'Elif', audioAsset: '$_ders22AudioDir/01_tenvin.mp3'),
+  ArabicLetter(order: 1, isolatedForm: 'أٌ ءٌ', turkishName: 'Elif', audioAsset: '$_ders22AudioDir/01_tenvin.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'بٌ', turkishName: 'Be', audioAsset: '$_ders22AudioDir/02_tenvin.mp3'),
   ArabicLetter(order: 3, isolatedForm: 'تٌ', turkishName: 'Te', audioAsset: '$_ders22AudioDir/03_tenvin.mp3'),
   ArabicLetter(order: 4, isolatedForm: 'ثٌ', turkishName: 'Se', audioAsset: '$_ders22AudioDir/04_tenvin.mp3'),
@@ -105,4 +108,49 @@ final Lesson kTenvinIkiOtreLesson = Lesson(
   title: 'Tenvin - İki Ötre',
   subtitle: '88 kayıt • Harf + tenvin ve kelime okuma',
   letters: [...kTenvinIkiOtreLetters, ...kTenvinIkiOtreWords],
+  pageLayout: kTenvinIkiOtrePageLayout,
 );
+
+/// Book pages 47-49, "İKİ ÖTRELİ HARFLER": the iki ötre is green; on the
+/// example pages the şedde is printed green too (a PDF special), other
+/// harekes black.
+const ArabicColorProfile _tenvinOtreColors = ArabicColorProfile({
+  ArabicPart.dammatan: arabicGreen,
+});
+const ArabicColorProfile _tenvinOtreExampleColors = ArabicColorProfile({
+  ArabicPart.dammatan: arabicGreen,
+  ArabicPart.shadda: arabicGreen,
+});
+
+const LessonPageLayout kTenvinIkiOtrePageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 47,
+    type: LessonPageType.lesson,
+    kicker: 'İKİ ÖTRELİ',
+    heading: 'HARFLER',
+    arabicHeading: 'ضَمَّتَيْنِ',
+    mark: 'ـٌ',
+    itemCount: 28,
+    columns: 4,
+    colorProfile: _tenvinOtreColors,
+  ),
+  LessonBookPage(
+    bookPage: 48,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'ضَمَّتَيْنِ',
+    mark: 'ـٌ',
+    itemCount: 32,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _tenvinOtreExampleColors,
+  ),
+  LessonBookPage(
+    bookPage: 49,
+    type: LessonPageType.examples,
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _tenvinOtreExampleColors,
+  ),
+]);

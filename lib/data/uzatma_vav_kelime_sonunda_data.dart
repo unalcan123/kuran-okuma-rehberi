@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders17AudioDir = 'audio/elifba/ders_17_uzatma_vav_kelime_sonunda';
 
@@ -9,7 +12,7 @@ const String _ders17AudioDir = 'audio/elifba/ders_17_uzatma_vav_kelime_sonunda';
 const List<ArabicLetter> kUzatmaVavKelimeSonundaWords = [
   ArabicLetter(order: 1, isolatedForm: 'اُمِرُوا', audioAsset: '$_ders17AudioDir/01_kelime.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'وَأْتُوا', audioAsset: '$_ders17AudioDir/02_kelime.mp3'),
-  ArabicLetter(order: 3, isolatedForm: 'كَزَّبُوا', audioAsset: '$_ders17AudioDir/03_kelime.mp3'),
+  ArabicLetter(order: 3, isolatedForm: 'كَذَّبُوا', audioAsset: '$_ders17AudioDir/03_kelime.mp3'),
   ArabicLetter(order: 4, isolatedForm: 'نَقَمُوا', audioAsset: '$_ders17AudioDir/04_kelime.mp3'),
   ArabicLetter(order: 5, isolatedForm: 'يَتُوبُوا', audioAsset: '$_ders17AudioDir/05_kelime.mp3'),
   ArabicLetter(order: 6, isolatedForm: 'لِيَعْبُدُوا', audioAsset: '$_ders17AudioDir/06_kelime.mp3'),
@@ -24,4 +27,37 @@ final Lesson kUzatmaVavKelimeSonundaLesson = Lesson(
   title: 'Uzatma Harfleri - Vav Kelime Sonunda',
   subtitle: '9 kayıt • Kelime sonunda vav uzatması',
   letters: kUzatmaVavKelimeSonundaWords,
+  pageLayout: kUzatmaVavKelimeSonundaPageLayout,
 );
+
+/// Book page 38, "Kelime sonunda uzatan VÂV": 3 × 3 words. Only the med vâv
+/// is green; the elif after it stays black, as in the PDF.
+const LessonPageLayout kUzatmaVavKelimeSonundaPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 38,
+    type: LessonPageType.lesson,
+    kicker: 'Kelime sonunda uzatan',
+    kickerColor: arabicGreen,
+    heading: 'VÂV',
+    arabicHeading: '( و )',
+    arabicHeadingColor: arabicGreen,
+    intro: [
+      '* Bazen kelime sonunda gelen harekesiz ⟪VÂV⟫, bitiştiği ötreli harfi '
+          'tek başına uzatır. ⟪( ذُو  Zû )⟫ gibi.',
+      '* Çoğu kez de bu ⟪VÂV⟫’dan sonra ELİF de bulunur. Bu durumda ELİF '
+          'ilave bir uzatma görevi yapmaz. Uzatma miktarı yine iki hareke olur.',
+    ],
+    colorProfile: ArabicColorProfile({ArabicPart.maddWaw: arabicGreen}),
+    sections: [
+      BookSection(
+        itemCount: 9,
+        columns: 3,
+        itemKind: LessonItemKind.word,
+        // يَتُوبُوا: the book colors only the word-final vâv.
+        itemProfiles: {
+          4: ArabicColorProfile({}, clusterBodies: {4: arabicGreen}),
+        },
+      ),
+    ],
+  ),
+]);

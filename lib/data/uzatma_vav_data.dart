@@ -1,12 +1,15 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders15AudioDir = 'audio/elifba/ders_15_uzatma_vav';
 
 /// Ders 15: each letter with ötre followed by a bare vav — the
 /// "uzatma" (medd) that lengthens the vowel, e.g. "بُو" (bû).
 const List<ArabicLetter> kUzatmaVavLetters = [
-  ArabicLetter(order: 1, isolatedForm: 'ءُو', turkishName: 'Hemze', audioAsset: '$_ders15AudioDir/01_uzatma.mp3'),
+  ArabicLetter(order: 1, isolatedForm: 'أُو', turkishName: 'Hemze', audioAsset: '$_ders15AudioDir/01_uzatma.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'بُو', turkishName: 'Be', audioAsset: '$_ders15AudioDir/02_uzatma.mp3'),
   ArabicLetter(order: 3, isolatedForm: 'تُو', turkishName: 'Te', audioAsset: '$_ders15AudioDir/03_uzatma.mp3'),
   ArabicLetter(order: 4, isolatedForm: 'ثُو', turkishName: 'Se', audioAsset: '$_ders15AudioDir/04_uzatma.mp3'),
@@ -42,4 +45,26 @@ final Lesson kUzatmaVavLesson = Lesson(
   title: 'Uzatma Harfleri - Vav',
   subtitle: '28 kayıt • Ötre + vav ile uzatma',
   letters: kUzatmaVavLetters,
+  pageLayout: kUzatmaVavPageLayout,
 );
+
+/// Book page 36, "VÂV": each letter with ötre before a med vâv. Only the med
+/// vâv is green (ötre and thick letters black), as in the PDF.
+const LessonPageLayout kUzatmaVavPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 36,
+    type: LessonPageType.lesson,
+    heading: 'VÂV',
+    arabicHeading: '( و )',
+    arabicHeadingColor: arabicGreen,
+    intro: [
+      'Kendisinden önceki ötreli harfi iki hareke miktarı uzatır.',
+      'Harf kalın ise ⟪“U”⟫ sesiyle, ince ise ⟪“U-Ü”⟫ arası bir sesle '
+          'uzatır.',
+    ],
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.letter,
+    colorProfile: ArabicColorProfile({ArabicPart.maddWaw: arabicGreen}),
+  ),
+]);

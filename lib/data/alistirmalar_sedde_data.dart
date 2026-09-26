@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders10AudioDir = 'audio/elifba/ders_10_alistirmalar_sedde';
 const String _kelimeGroup = 'Kelime Okuma';
@@ -79,4 +82,34 @@ final Lesson kAlistirmalarSeddeLesson = Lesson(
   title: 'Şedde Alıştırmaları',
   subtitle: '64 kayıt • Şeddeli kelime okuma',
   letters: kAlistirmalarSeddeWords,
+  pageLayout: kAlistirmalarSeddePageLayout,
 );
+
+/// Book pages 30-31: the "ÖRNEKLER" of the Şedde topic, 4 cells a row.
+/// Only the şedde and the hareke on it are blue; everything else is black
+/// (colors read from the PDF).
+const ArabicColorProfile _seddeExampleColors = ArabicColorProfile({
+  ArabicPart.shadda: arabicBlue,
+});
+
+const LessonPageLayout kAlistirmalarSeddePageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 30,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'شَدَّةٌ',
+    mark: 'ـّـ',
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _seddeExampleColors,
+  ),
+  LessonBookPage(
+    bookPage: 31,
+    type: LessonPageType.examples,
+    itemCount: 36,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _seddeExampleColors,
+  ),
+]);

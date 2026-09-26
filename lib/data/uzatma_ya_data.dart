@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders13AudioDir = 'audio/elifba/ders_13_uzatma_ya';
 
@@ -31,8 +34,8 @@ const List<ArabicLetter> kUzatmaYaLetters = [
   ArabicLetter(order: 23, isolatedForm: 'لِي', turkishName: 'Lam', audioAsset: '$_ders13AudioDir/23_uzatma.mp3'),
   ArabicLetter(order: 24, isolatedForm: 'مِي', turkishName: 'Mim', audioAsset: '$_ders13AudioDir/24_uzatma.mp3'),
   ArabicLetter(order: 25, isolatedForm: 'نِي', turkishName: 'Nun', audioAsset: '$_ders13AudioDir/25_uzatma.mp3'),
-  ArabicLetter(order: 26, isolatedForm: 'هـِي', turkishName: 'He', audioAsset: '$_ders13AudioDir/26_uzatma.mp3'),
-  ArabicLetter(order: 27, isolatedForm: 'وِي', turkishName: 'Vav', audioAsset: '$_ders13AudioDir/27_uzatma.mp3'),
+  ArabicLetter(order: 26, isolatedForm: 'وِي', turkishName: 'Vav', audioAsset: '$_ders13AudioDir/27_uzatma.mp3'),
+  ArabicLetter(order: 27, isolatedForm: 'هـِي', turkishName: 'He', audioAsset: '$_ders13AudioDir/26_uzatma.mp3'),
   ArabicLetter(order: 28, isolatedForm: 'يِي', turkishName: 'Ye', audioAsset: '$_ders13AudioDir/28_uzatma.mp3'),
 ];
 
@@ -42,4 +45,26 @@ final Lesson kUzatmaYaLesson = Lesson(
   title: 'Uzatma Harfleri - Ya',
   subtitle: '28 kayıt • Esre + ye ile uzatma',
   letters: kUzatmaYaLetters,
+  pageLayout: kUzatmaYaPageLayout,
 );
+
+/// Book page 34, "YÂ": each letter with esre before a med yâ. Only the med
+/// yâ is blue (esre and thick letters black), as in the PDF.
+const LessonPageLayout kUzatmaYaPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 34,
+    type: LessonPageType.lesson,
+    heading: 'YÂ',
+    arabicHeading: '( ى )',
+    arabicHeadingColor: arabicBlue,
+    intro: [
+      'Kendinden önceki esreli harfi iki hareke miktarı uzatır.',
+      'Harf ince ise ⟦“İ”⟧ sesiyle, kalın ise ⟦“I”⟧ dan ⟦“İ”⟧ ye doğru bir '
+          'sesle uzatır.',
+    ],
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.letter,
+    colorProfile: ArabicColorProfile({ArabicPart.maddYa: arabicBlue}),
+  ),
+]);

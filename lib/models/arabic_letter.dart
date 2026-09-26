@@ -28,6 +28,15 @@ class ArabicLetter {
   final String? medialForm;
   final String? finalForm;
   final List<String>? positionExamples;
+
+  /// The book's "BAŞTA / ORTADA / SONDA" example words (s. 10-13): three
+  /// lists — words with the letter at the start, in the middle, at the end
+  /// (a list may be empty, e.g. no word starts with a plain elif). Kept
+  /// apart from [positionExamples], which the games use.
+  final List<List<FormWord>>? formExamples;
+
+  /// Note the book prints in an empty column (s. 10, elif "BAŞTA").
+  final String? formNote;
   final String? groupLabel;
   final bool isHeavyLetter;
   final Mahrec? mahrec;
@@ -41,6 +50,8 @@ class ArabicLetter {
     this.medialForm,
     this.finalForm,
     this.positionExamples,
+    this.formExamples,
+    this.formNote,
     this.groupLabel,
     this.isHeavyLetter = false,
     this.mahrec,
@@ -48,4 +59,13 @@ class ArabicLetter {
 
   bool get hasPositionForms =>
       initialForm != null && medialForm != null && finalForm != null;
+}
+
+/// An example word of the book's forms table and which of its letters
+/// (0-based, harekes not counted) the book prints red.
+class FormWord {
+  final String text;
+  final List<int> red;
+
+  const FormWord(this.text, [this.red = const []]);
 }

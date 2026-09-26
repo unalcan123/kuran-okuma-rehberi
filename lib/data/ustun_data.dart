@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
+import '../helpers/arabic_colorizer.dart';
+import '../helpers/haraka_colors.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
 
 const String _ders3AudioDir = 'audio/elifba/ders_3_ustun';
 const String _harfUstunGroup = 'Harf + Üstün';
@@ -10,7 +13,7 @@ const String _kelimeGroup = 'Kelime Okuma';
 const List<ArabicLetter> kUstunLetters = [
   ArabicLetter(
     order: 1,
-    isolatedForm: 'اَ',
+    isolatedForm: 'أَ',
     turkishName: 'Elif',
     groupLabel: _harfUstunGroup,
     audioAsset: '$_ders3AudioDir/01_elif_ustun.mp3',
@@ -609,4 +612,60 @@ final Lesson kUstunLesson = Lesson(
   title: 'Üstün',
   subtitle: '92 kayıt • Harf + üstün ve kelime okuma',
   letters: [...kUstunLetters, ...kUstunWords],
+  pageLayout: kUstunPageLayout,
 );
+
+/// Book pages 14-16. p. 14 teaches üstün with the 28 letters; p. 15-16 are
+/// "ÖRNEKLER" (example words). Colors read from the PDF's text: on p. 14 the
+/// üstün and the 7 thick letters are red; on p. 15-16 only the üstün is red
+/// (thick letters are black).
+const ArabicColorProfile _ustunLetterColors = ArabicColorProfile({
+  ArabicPart.fatha: arabicRed,
+  ArabicPart.thickLetter: arabicRed,
+});
+const ArabicColorProfile _ustunWordColors = ArabicColorProfile({
+  ArabicPart.fatha: arabicRed,
+});
+
+const LessonPageLayout kUstunPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 14,
+    type: LessonPageType.lesson,
+    kicker: 'HAREKELER',
+    heading: 'ÜSTÜN',
+    arabicHeading: 'فَتْحَةٌ',
+    mark: 'ـَـ',
+    intro: [
+      '- Harekeler, Türkçe’deki sesli harflere benzerler.',
+      '- Fakat hiçbir hareke, bildiğimiz sesli harflerle birebir örtüşmez.',
+      'Üstün, harfin üzerine konan ve sol tarafından aşağı doğru eğik küçük '
+          'bir çizgidir. İnce harflere “E”, kalın harflere ise “A” sesi verir.',
+    ],
+    itemCount: 28,
+    columns: 4,
+    colorProfile: _ustunLetterColors,
+  ),
+  LessonBookPage(
+    bookPage: 15,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'فَتْحَةٌ',
+    mark: 'ـَـ',
+    intro: [
+      'Üstün’ün ince harflere “E”, kalın harflere ise “A” sesi verdiğini '
+          'hatırlayalım.',
+    ],
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _ustunWordColors,
+  ),
+  LessonBookPage(
+    bookPage: 16,
+    type: LessonPageType.examples,
+    itemCount: 36,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _ustunWordColors,
+  ),
+]);

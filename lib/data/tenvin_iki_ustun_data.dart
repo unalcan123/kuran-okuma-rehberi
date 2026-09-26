@@ -1,5 +1,9 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
+import 'uzatma_elif_data.dart';
 
 const String _ders20AudioDir = 'audio/elifba/ders_20_tenvin_iki_ustun';
 
@@ -105,4 +109,108 @@ final Lesson kTenvinIkiUstunLesson = Lesson(
   title: 'Tenvin - İki Üstün',
   subtitle: '88 kayıt • Harf + tenvin ve kelime okuma',
   letters: [...kTenvinIkiUstunLetters, ...kTenvinIkiUstunWords],
+  pageLayout: kTenvinIkiUstunPageLayout,
 );
+
+/// Book pages 40-43, "TENVİNLER – İKİ ÜSTÜNLÜ HARFLER" (colors read from
+/// the PDF): p. 40 the 28 letters with iki üstün (tenvin red, thick
+/// letters black); p. 41 the same letters "Geçildiğinde" (tenvin red) next
+/// to "Durulduğunda" (the üstün printed blue); p. 42-43 "ÖRNEKLER" (tenvin
+/// red; on p. 42 the şedde of إِلاًّ إِدًّا وَدًّا حَقًّا and the elif of
+/// وَدًّا are red too).
+const ArabicColorProfile _tenvinUstunColors = ArabicColorProfile({
+  ArabicPart.fathatan: arabicRed,
+});
+const ArabicColorProfile _tenvinUstunRedShadda = ArabicColorProfile({
+  ArabicPart.fathatan: arabicRed,
+  ArabicPart.shadda: arabicRed,
+});
+
+const LessonPageLayout kTenvinIkiUstunPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 40,
+    type: LessonPageType.lesson,
+    heading: 'TENVİNLER',
+    subheading: '(ÇİFT HAREKELER)',
+    intro: [
+      '“Tenvin:” Bir harfe, aynı hareke, iki kere konursa buna “Tenvin” '
+          'denir ve geçerek okuyuşta harfin sonunu “Cezimli Nûn” ( «نْ» ) '
+          'varmış gibi okutur.',
+      'Üç çeşit Tenvin vardır: “İki Üstün”, “İki Esre” ve “İki Ötre”.',
+      '* Harfin üzerine konan, sol taraftan aşağı doğru eğik, üst üste, '
+          'küçük çift çizgidir.',
+      '* Geçişte, ince harflere “En”, kalın harflere ise “An” sesi verir.',
+    ],
+    colorProfile: _tenvinUstunColors,
+    sections: [
+      BookSection(
+        title: 'İKİ ÜSTÜNLÜ HARFLER ( ـً ) فَتْحَتَيْنِ',
+        itemCount: 28,
+        columns: 4,
+      ),
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 41,
+    type: LessonPageType.lesson,
+    intro: [
+      '* “İki Üstün” alan harfin soluna, genellikle “Elif” harfi de yazılır.',
+      '* Geçişte okunmayan bu Elif, durulduğunda uzatma harfi görevi yapar. '
+          'İki üstündeki Nûn sesi kalkar ve harf, üstün yönünde iki hareke '
+          'miktarı uzatılarak okunur. Harf kalın ise “A” sesiyle, ince ise '
+          '“E-A” arası bir sesle uzatır.',
+    ],
+    colorProfile: _tenvinUstunColors,
+    sections: [
+      BookSection(
+        refs: [
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, //
+          14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
+        ],
+        derived: DerivedForm.waqfOnFathatan,
+        derivedAudioItems: kUzatmaElifLetters,
+        derivedProfile: ArabicColorProfile({ArabicPart.fatha: arabicBlue}),
+        columns: 4,
+        itemKind: LessonItemKind.letter,
+        headers: [
+          'Geçildiğinde',
+          'Durulduğunda',
+          'Geçildiğinde',
+          'Durulduğunda',
+        ],
+      ),
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 42,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'فَتْحَتَيْنِ',
+    mark: 'ـً',
+    colorProfile: _tenvinUstunColors,
+    sections: [
+      BookSection(
+        itemCount: 32,
+        columns: 4,
+        itemKind: LessonItemKind.word,
+        itemProfiles: {
+          13: _tenvinUstunRedShadda,
+          14: _tenvinUstunRedShadda,
+          16: ArabicColorProfile({
+            ArabicPart.fathatan: arabicRed,
+            ArabicPart.shadda: arabicRed,
+          }, clusterBodies: {2: arabicRed}),
+          19: _tenvinUstunRedShadda,
+        },
+      ),
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 43,
+    type: LessonPageType.examples,
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _tenvinUstunColors,
+  ),
+]);

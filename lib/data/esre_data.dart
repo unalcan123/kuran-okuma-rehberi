@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders4AudioDir = 'audio/elifba/ders_4_esre';
 const String _harfEsreGroup = 'Harf + Esre';
@@ -104,4 +107,65 @@ final Lesson kEsreLesson = Lesson(
   title: 'Esre',
   subtitle: '84 kayıt • Harf + esre ve kelime okuma',
   letters: [...kEsreLetters, ...kEsreWords],
+  pageLayout: kEsrePageLayout,
 );
+
+/// Book pages 17-19 (colors read from the PDF's text): p. 17 teaches esre
+/// with the 28 letters (esre blue, the 7 thick letters red); p. 18-19 are
+/// "ÖRNEKLER" (üstün red, esre blue, thick letters black; on p. 19 the esre
+/// under the hemze of يَئِسَ is printed black).
+const ArabicColorProfile _esreWordColors = ArabicColorProfile({
+  ArabicPart.fatha: arabicRed,
+  ArabicPart.kasra: arabicBlue,
+});
+
+const LessonPageLayout kEsrePageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 17,
+    type: LessonPageType.lesson,
+    kicker: 'HAREKELER',
+    heading: 'ESRE',
+    arabicHeading: 'كَسْرَةٌ',
+    mark: 'ـِـ',
+    intro: [
+      'Harfin altına konan ve sol taraftan aşağı doğru eğik küçük bir '
+          'çizgidir. İnce harflere “ i ” , kalın harflere ise “ ı ” dan “ i ” '
+          'ye doğru yönelen bir ses verir.',
+    ],
+    itemCount: 28,
+    columns: 4,
+    colorProfile: ArabicColorProfile({
+      ArabicPart.kasra: arabicBlue,
+      ArabicPart.thickLetter: arabicRed,
+    }),
+  ),
+  LessonBookPage(
+    bookPage: 18,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'كَسْرَةٌ',
+    mark: 'ـِـ',
+    itemCount: 24,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _esreWordColors,
+  ),
+  LessonBookPage(
+    bookPage: 19,
+    type: LessonPageType.examples,
+    colorProfile: _esreWordColors,
+    sections: [
+      BookSection(
+        itemCount: 32,
+        columns: 4,
+        itemKind: LessonItemKind.word,
+        itemProfiles: {
+          11: ArabicColorProfile({
+            ArabicPart.fatha: arabicRed,
+            ArabicPart.kasra: arabicBlue,
+          }, plainMarks: {1}),
+        },
+      ),
+    ],
+  ),
+]);

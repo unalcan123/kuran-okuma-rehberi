@@ -30,7 +30,7 @@ class LessonInfo {
   final List<InlineSpan> body;
 
   /// True when the first span only restates the heading of the lesson's
-  /// book page (Ders 33), so the page leaves it out.
+  /// book page (Ders 30), so the page leaves it out.
   final bool firstSpanIsBookHeading;
 
   const LessonInfo({
@@ -478,7 +478,14 @@ final Map<String, LessonInfo> kLessonInfo = {
       _n('’den sonra Hemze’nin dışında herhangi bir harf gelirse '),
       _b('2 hareke', color: AppColors.red),
       _n(' miktarı uzatılır. Örnekler:\n'),
-      _grid(kZamirHeUzatilmasiWords.sublist(6), highlight: WordHighlight.he, minCellWidth: 200),
+      _grid(kZamirHeUzatilmasiWords.sublist(6, 12), highlight: WordHighlight.he, minCellWidth: 200),
+      _n('\n\nHe Harfi Hangi Durumlarda Uzatılmaz?\n\n'),
+      _n('• He’den önce uzatma harflerinden biri gelirse He uzatılmadan okunur. He’den sonra ise, hangi harf gelirse gelsin, durumu etkilemez. Örnekler:\n'),
+      _grid(kZamirHeUzatilmasiWords.sublist(12, 18), highlight: WordHighlight.he, minCellWidth: 200),
+      _n('\n\n• He’den önce cezimli herhangi bir harf gelirse, yine uzatılmadan okunur. He’den sonra ise, hangi harf gelirse gelsin durumu etkilemez. Örnekler:\n'),
+      _grid(kZamirHeUzatilmasiWords.sublist(18, 24), highlight: WordHighlight.he, minCellWidth: 200),
+      _n('\n\n• He harfinden (önce harekeli bir harf olsa bile) önündeki kelimeye cezimli veya şeddeli bir harfe bağlanarak geçiş yapılırsa yine "He" uzatılmadan okunur. Örnekler:\n'),
+      _grid(kZamirHeUzatilmasiWords.sublist(24, 30), highlight: WordHighlight.he, minCellWidth: 200),
     ],
   ),
 

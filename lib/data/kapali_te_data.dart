@@ -4,7 +4,7 @@ import '../models/waqf_example.dart';
 
 const String _ders32AudioDir = 'audio/elifba/ders_32_kapali_te';
 
-/// Ders 32: the kapalı te (ة) — each pair shows the same word read on, then how it's read at a pause (waqf), where the ة becomes a plain he (ه).
+/// Ders 29: the kapalı te (ة) — each pair shows the same word read on, then how it's read at a pause (waqf), where the ة becomes a plain he (ه).
 const List<ArabicLetter> kKapaliTeWords = [
   ArabicLetter(order: 1, isolatedForm: 'ثَمَرَةٍ', audioAsset: '$_ders32AudioDir/01_kelime.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'ثَمَرَهْ', audioAsset: '$_ders32AudioDir/02_kelime.mp3'),
@@ -22,7 +22,7 @@ const List<ArabicLetter> kKapaliTeWords = [
 
 final Lesson kKapaliTeLesson = Lesson(
   id: 'kapali-te',
-  label: 'Ders 32',
+  label: 'Ders 29',
   title: 'Kapalı Te',
   subtitle: '12 kayıt • Durak hâlinde kapalı tenin okunuşu',
   letters: kKapaliTeWords,

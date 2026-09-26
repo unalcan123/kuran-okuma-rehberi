@@ -1,9 +1,12 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders36AudioDir = 'audio/elifba/ders_36_alistirmalar_3';
 
-/// Ders 36: general reading practice, third set.
+/// Ders 33: general reading practice, third set.
 const List<ArabicLetter> kAlistirmalar3Words = [
   ArabicLetter(order: 1, isolatedForm: 'وَالْحَيٰوةَ', audioAsset: '$_ders36AudioDir/01_kelime.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'طَٓائِرُكُمْ', audioAsset: '$_ders36AudioDir/02_kelime.mp3'),
@@ -27,8 +30,27 @@ const List<ArabicLetter> kAlistirmalar3Words = [
 
 final Lesson kAlistirmalar3Lesson = Lesson(
   id: 'alistirmalar-3',
-  label: 'Ders 36',
+  label: 'Ders 33',
   title: 'Alıştırmalar 3',
   subtitle: '18 kayıt • Genel okuma alıştırması',
   letters: kAlistirmalar3Words,
+  pageLayout: kAlistirmalar3PageLayout,
 );
+
+/// Book page 62, "ALIŞTIRMALAR - 3": 18 items in 2 columns;
+/// only the med sign (ٓ) is red (colors read from the PDF).
+const LessonPageLayout kAlistirmalar3PageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 62,
+    type: LessonPageType.exercise,
+    heading: 'ALIŞTIRMALAR - 3',
+    colorProfile: ArabicColorProfile({ArabicPart.maddah: arabicRed}),
+    sections: [
+      BookSection(
+        itemCount: 18,
+        columns: 2,
+        itemKind: LessonItemKind.phrase,
+      ),
+    ],
+  ),
+]);

@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders5AudioDir = 'audio/elifba/ders_5_otre';
 const String _harfOtreGroup = 'Harf + Ötre';
@@ -112,4 +115,52 @@ final Lesson kOtreLesson = Lesson(
   title: 'Ötre',
   subtitle: '92 kayıt • Harf + ötre ve kelime okuma',
   letters: [...kOtreLetters, ...kOtreWords],
+  pageLayout: kOtrePageLayout,
 );
+
+/// Book pages 20-22 (colors read from the PDF's text): p. 20 teaches ötre
+/// with the 28 letters (ötre green; here the thick letters are black);
+/// p. 21-22 are "ÖRNEKLER" (üstün red, esre blue, ötre green).
+const ArabicColorProfile _otreWordColors = ArabicColorProfile({
+  ArabicPart.fatha: arabicRed,
+  ArabicPart.kasra: arabicBlue,
+  ArabicPart.damma: arabicGreen,
+});
+
+const LessonPageLayout kOtrePageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 20,
+    type: LessonPageType.lesson,
+    kicker: 'HAREKELER',
+    heading: 'ÖTRE',
+    arabicHeading: 'ضَمَّةٌ',
+    mark: 'ـُـ',
+    intro: [
+      'Harfin üstüne konan ve küçük ⟪“Vâv”⟫ harfine benzer bir şekildir.',
+      'İnce harflere ⟪“U-Ü”⟫ arası bir ses, kalın harflere ise ⟪“U”⟫ sesi '
+          'verir.',
+    ],
+    itemCount: 28,
+    columns: 4,
+    colorProfile: ArabicColorProfile({ArabicPart.damma: arabicGreen}),
+  ),
+  LessonBookPage(
+    bookPage: 21,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'ضَمَّةٌ',
+    mark: 'ـُـ',
+    itemCount: 32,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _otreWordColors,
+  ),
+  LessonBookPage(
+    bookPage: 22,
+    type: LessonPageType.examples,
+    itemCount: 32,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _otreWordColors,
+  ),
+]);

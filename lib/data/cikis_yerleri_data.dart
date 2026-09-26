@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders6AudioDir = 'audio/elifba/ders_6_cikis_yerleri';
 
@@ -218,4 +221,35 @@ final Lesson kCikisYerleriLesson = Lesson(
   title: 'Çıkış Yerleri Sıralı',
   subtitle: '28 kayıt • Harf + üç hareke, mahreç sırasıyla',
   letters: kCikisYerleriLetters,
+  pageLayout: kCikisYerleriPageLayout,
 );
+
+/// Book page 23, "HAREKELİ HARFLER (Çıkış Yerleri Sırasına Göre)": 4 × 7
+/// cells framed by mahreç (6 Boğaz red, 18 Dil blue, 4 Dudak green). Colors
+/// read from the PDF: üstün red, esre blue, ötre green, thick letters red.
+const LessonPageLayout kCikisYerleriPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 23,
+    type: LessonPageType.exercise,
+    heading: 'HAREKELİ HARFLER',
+    subheading: '(Çıkış Yerleri Sırasına Göre)',
+    colorProfile: ArabicColorProfile({
+      ArabicPart.fatha: arabicRed,
+      ArabicPart.kasra: arabicBlue,
+      ArabicPart.damma: arabicGreen,
+      ArabicPart.thickLetter: arabicRed,
+    }),
+    sections: [
+      BookSection(
+        itemCount: 28,
+        columns: 4,
+        itemKind: LessonItemKind.word,
+        frames: [
+          FrameRun(6, arabicRed, 'Boğaz mahreci'),
+          FrameRun(18, arabicBlue, 'Dil mahreci'),
+          FrameRun(4, arabicGreen, 'Dudak mahreci'),
+        ],
+      ),
+    ],
+  ),
+]);

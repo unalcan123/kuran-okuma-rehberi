@@ -1,5 +1,8 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders8AudioDir = 'audio/elifba/ders_8_harekeler_alistirmalar';
 
@@ -67,4 +70,33 @@ final Lesson kHarekelerAlistirmalariLesson = Lesson(
   title: 'Harekeler Alıştırmaları',
   subtitle: '52 kayıt • Üstün, esre, ötre ve cezm ile kelime okuma',
   letters: kHarekelerAlistirmalariWords,
+  pageLayout: kHarekelerAlistirmalariPageLayout,
 );
+
+/// Book pages 26-27: the "ÖRNEKLER" of the Cezim topic (words with sükûn),
+/// 4 cells a row. Only the cezim is red, as in the PDF.
+const ArabicColorProfile _cezmExampleColors = ArabicColorProfile({
+  ArabicPart.sukun: arabicRed,
+});
+
+const LessonPageLayout kHarekelerAlistirmalariPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 26,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'جَزْمٌ',
+    mark: 'ـْـ',
+    itemCount: 24,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _cezmExampleColors,
+  ),
+  LessonBookPage(
+    bookPage: 27,
+    type: LessonPageType.examples,
+    itemCount: 28,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _cezmExampleColors,
+  ),
+]);

@@ -43,7 +43,7 @@ Future<void> scrollToEnd(WidgetTester tester, Finder scroll) async {
   await tester.pumpAndSettle();
 }
 
-/// The lessons that open as a book page (Ders 23-33):
+/// The lessons that open as a book page (Ders 23-30):
 /// id, heading, a phrase from the text, "Durulduğunda/Geçildiğinde" tables,
 /// word grids.
 const _pages = <(String, String, String, int, int)>[
@@ -51,11 +51,7 @@ const _pages = <(String, String, String, int, int)>[
   ('el-takisi-okunmayan', 'ELİF - LÂM', 'Sonraki harf mutlaka şeddeli okunur', 0, 1),
   ('el-takisi-hemze', 'EL TAKISI’NDAKİ HEMZE', 'olarak tanımlamak daha doğrudur', 0, 2),
   ('el-takisi-hemze-vasil', 'OKUNMAYAN HEMZE', 'vasıl işareti', 0, 2),
-  ('zamir-he-uzatilmasi', 'UZATILMASI', 'Hangi Durumlarda Uzatılır', 0, 2),
   ('zamir-he-uzatma-med', 'UZUN MED İŞARETİ', 'Tecvid derslerinde', 0, 1),
-  ('zamir-he-uzatma-yok', 'UZATILMAMASI', 'Hangi Durumlarda Uzatılmaz', 0, 1),
-  ('zamir-he-uzatma-yok-cezimli', 'UZATILMAMASI', 'cezimli herhangi bir harf', 0, 1),
-  ('zamir-he-uzatma-yok-cezimli-seddeli', 'UZATILMAMASI', 'şeddeli bir harfe', 0, 1),
   ('kapali-te', 'KAPALI “TE”', 'Örneklerle uygulamayı görelim', 1, 0),
   ('kelime-sonu-duraklar', 'HAREKELİ HARFTE', 'Tenvinlilerde ise uygulama şöyledir', 5, 0),
 ];
@@ -133,9 +129,7 @@ void main() {
         setSize(tester, size);
         await tester.pumpWidget(app(SilentAudio(), lesson));
         await tester.pumpAndSettle();
-        await tester.tap(find.byTooltip('Görünüm seç'));
-        await tester.pumpAndSettle();
-        await tester.tap(find.text('Tüm Harfler'));
+        await tester.tap(find.text('▦ Grid'));
         await tester.pumpAndSettle();
         expect(find.byType(BookPage), findsNothing);
 
@@ -161,11 +155,8 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.byType(Dialog), findsNothing);
 
-        // The lesson remembers the chosen view for the rest of the session;
-        // put it back so the next test starts on the book page.
-        await tester.tap(find.byTooltip('Görünüm seç'));
-        await tester.pumpAndSettle();
-        await tester.tap(find.text('Kitap Modu'));
+        // Back to the book page.
+        await tester.tap(find.text('📖 Sayfa'));
         await tester.pumpAndSettle();
         expect(find.byType(BookPage), findsOneWidget);
       });
@@ -224,7 +215,7 @@ void main() {
     });
   }
 
-  test('Ders 33 skips only the question its heading already asks', () {
+  test('Ders 30 skips only the question its heading already asks', () {
     final info = kLessonInfo['kelime-sonu-duraklar']!;
     expect(info.firstSpanIsBookHeading, isTrue);
     expect(

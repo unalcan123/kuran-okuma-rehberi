@@ -1,11 +1,14 @@
 import '../models/arabic_letter.dart';
 import '../models/lesson.dart';
+import '../models/lesson_page_layout.dart';
+import '../helpers/haraka_colors.dart';
+import '../helpers/arabic_colorizer.dart';
 
 const String _ders21AudioDir = 'audio/elifba/ders_21_tenvin_iki_esre';
 
 /// Ders 21, part 1: each letter with tenvin-i kesre (double esre, ٍ), e.g. "بٍ" (bin).
 const List<ArabicLetter> kTenvinIkiEsreLetters = [
-  ArabicLetter(order: 1, isolatedForm: 'اٍ', turkishName: 'Elif', audioAsset: '$_ders21AudioDir/01_tenvin.mp3'),
+  ArabicLetter(order: 1, isolatedForm: 'إٍ ءٍ', turkishName: 'Elif', audioAsset: '$_ders21AudioDir/01_tenvin.mp3'),
   ArabicLetter(order: 2, isolatedForm: 'بٍ', turkishName: 'Be', audioAsset: '$_ders21AudioDir/02_tenvin.mp3'),
   ArabicLetter(order: 3, isolatedForm: 'تٍ', turkishName: 'Te', audioAsset: '$_ders21AudioDir/03_tenvin.mp3'),
   ArabicLetter(order: 4, isolatedForm: 'ثٍ', turkishName: 'Se', audioAsset: '$_ders21AudioDir/04_tenvin.mp3'),
@@ -50,7 +53,7 @@ const List<ArabicLetter> kTenvinIkiEsreWords = [
   ArabicLetter(order: 39, isolatedForm: 'قَاضٍ', audioAsset: '$_ders21AudioDir/39_kelime.mp3'),
   ArabicLetter(order: 40, isolatedForm: 'سَاقٍ', audioAsset: '$_ders21AudioDir/40_kelime.mp3'),
   ArabicLetter(order: 41, isolatedForm: 'بَاغٍ', audioAsset: '$_ders21AudioDir/41_kelime.mp3'),
-  ArabicLetter(order: 42, isolatedForm: 'اُفٍّ', audioAsset: '$_ders21AudioDir/42_kelime.mp3'),
+  ArabicLetter(order: 42, isolatedForm: 'أُفٍّ', audioAsset: '$_ders21AudioDir/42_kelime.mp3'),
   ArabicLetter(order: 43, isolatedForm: 'فَجٍّ', audioAsset: '$_ders21AudioDir/43_kelime.mp3'),
   ArabicLetter(order: 44, isolatedForm: 'غِلٍّ', audioAsset: '$_ders21AudioDir/44_kelime.mp3'),
   ArabicLetter(order: 45, isolatedForm: 'غَمٍّ', audioAsset: '$_ders21AudioDir/45_kelime.mp3'),
@@ -109,4 +112,44 @@ final Lesson kTenvinIkiEsreLesson = Lesson(
   title: 'Tenvin - İki Esre',
   subtitle: '92 kayıt • Harf + tenvin ve kelime okuma',
   letters: [...kTenvinIkiEsreLetters, ...kTenvinIkiEsreWords],
+  pageLayout: kTenvinIkiEsrePageLayout,
 );
+
+/// Book pages 44-46, "İKİ ESRELİ HARFLER": only the iki esre is blue
+/// (thick letters, şedde and other harekes black), as in the PDF.
+const ArabicColorProfile _tenvinEsreColors = ArabicColorProfile({
+  ArabicPart.kasratan: arabicBlue,
+});
+
+const LessonPageLayout kTenvinIkiEsrePageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 44,
+    type: LessonPageType.lesson,
+    kicker: 'İKİ ESRELİ',
+    heading: 'HARFLER',
+    arabicHeading: 'كَسْرَتَيْنِ',
+    mark: 'ـٍ',
+    itemCount: 28,
+    columns: 4,
+    colorProfile: _tenvinEsreColors,
+  ),
+  LessonBookPage(
+    bookPage: 45,
+    type: LessonPageType.examples,
+    heading: 'ÖRNEKLER',
+    arabicHeading: 'كَسْرَتَيْنِ',
+    mark: 'ـٍ',
+    itemCount: 32,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _tenvinEsreColors,
+  ),
+  LessonBookPage(
+    bookPage: 46,
+    type: LessonPageType.examples,
+    itemCount: 32,
+    columns: 4,
+    itemKind: LessonItemKind.word,
+    colorProfile: _tenvinEsreColors,
+  ),
+]);

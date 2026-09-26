@@ -14,6 +14,17 @@ import '../models/game_score.dart';
 /// Saving is best-effort: if the device storage fails the game simply
 /// carries on without a record.
 class GameScoreStore {
+  // Stable IDs of the three sections now included in Ders 27. Keep their
+  // stored records intact; lesson display numbers are never storage keys.
+  static Iterable<String> _recordKeys(String key) sync* {
+    yield key;
+    if (key == 'listen_pick.zamir-he-uzatilmasi') {
+      yield 'listen_pick.zamir-he-uzatma-yok';
+      yield 'listen_pick.zamir-he-uzatma-yok-cezimli';
+      yield 'listen_pick.zamir-he-uzatma-yok-cezimli-seddeli';
+    }
+  }
+
   static String _scoreKey(String key) => 'game_score.$key.best_score';
   static String _starsKey(String key) => 'game_score.$key.best_stars';
   static String _playsKey(String key) => 'game_history.$key.plays';
@@ -24,12 +35,16 @@ class GameScoreStore {
   Future<GameRecord> recordOf(String gameKey) async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final score = prefs.getInt(_scoreKey(gameKey));
+      int? score;
+      int? stars;
+      for (final key in _recordKeys(gameKey)) {
+        final savedScore = prefs.getInt(_scoreKey(key));
+        final savedStars = prefs.getInt(_starsKey(key));
+        if (savedScore != null) score = math.max(score ?? 0, savedScore);
+        if (savedStars != null) stars = math.max(stars ?? 0, savedStars);
+      }
       if (score == null) return const GameRecord.empty();
-      return GameRecord(
-        bestScore: score,
-        bestStars: prefs.getInt(_starsKey(gameKey)),
-      );
+      return GameRecord(bestScore: score, bestStars: stars);
     } catch (error) {
       debugPrint('GameScoreStore: "$gameKey" okunamadı — $error');
       return const GameRecord.empty();
@@ -37,6 +52,22 @@ class GameScoreStore {
   }
 
   Future<GameHistory> historyOf(String gameKey) async {
+    final histories = [
+      for (final key in _recordKeys(gameKey)) await _ownHistoryOf(key),
+    ];
+    return GameHistory(
+      plays: histories.fold(0, (sum, h) => sum + h.plays),
+      totalPoints: histories.fold(0, (sum, h) => sum + h.totalPoints),
+      bestPoints: histories.fold(0, (best, h) => math.max(best, h.bestPoints)),
+      // Legacy histories have no timestamps. Put the active lesson last,
+      // so newly played results remain the most recent entries.
+      recent: [
+        for (final h in [...histories.skip(1), histories.first]) ...h.recent,
+      ].takeLast(GameHistory.recentCount),
+    );
+  }
+
+  Future<GameHistory> _ownHistoryOf(String gameKey) async {
     try {
       final prefs = await SharedPreferences.getInstance();
       return GameHistory(
@@ -63,7 +94,7 @@ class GameScoreStore {
       bestStars: math.max(previous.bestStars ?? 0, result.stars),
     );
     try {
-      final history = await historyOf(gameKey);
+      final history = await _ownHistoryOf(gameKey);
       final recent = [
         ...history.recent,
         result.points,
@@ -72,7 +103,10 @@ class GameScoreStore {
       await prefs.setInt(_scoreKey(gameKey), best.bestScore!);
       await prefs.setInt(_starsKey(gameKey), best.bestStars!);
       await prefs.setInt(_playsKey(gameKey), history.plays + 1);
-      await prefs.setInt(_totalKey(gameKey), history.totalPoints + result.points);
+      await prefs.setInt(
+        _totalKey(gameKey),
+        history.totalPoints + result.points,
+      );
       await prefs.setInt(
         _topKey(gameKey),
         math.max(history.bestPoints, result.points),
