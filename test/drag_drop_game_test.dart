@@ -144,7 +144,7 @@ void main() {
     final audio = FakeAudio();
     addTearDown(audio.dispose);
     await tester.pumpWidget(harness(const HomeScreen(), audio));
-    await tester.tap(find.text('Oyunlar'));
+    await tester.tap(find.byKey(const ValueKey('home-card-image-Oyunlar')));
     await tester.pumpAndSettle();
     expect(find.byType(OyunlarScreen), findsOneWidget);
     expect(find.text('Harfleri doğru yerlere taşı'), findsOneWidget);

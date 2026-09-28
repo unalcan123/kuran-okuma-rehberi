@@ -160,7 +160,7 @@ void main() {
     final audio = TestAudioService();
     addTearDown(audio.dispose);
     await tester.pumpWidget(harness(const HomeScreen(), audio));
-    await tester.tap(find.text('Namaz Duaları'));
+    await tester.tap(find.byKey(const ValueKey('home-card-image-Namaz Duaları')));
     await tester.pumpAndSettle();
     expect(find.byType(DualarListScreen), findsOneWidget);
     await tester.tap(find.text(kDualar.first.titleTr));

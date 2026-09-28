@@ -5,7 +5,7 @@ import '../../../widgets/reading_text_settings.dart';
 
 import '../../../models/arabic_letter.dart';
 import 'letter_card.dart';
-import 'letter_page_background.dart';
+import '../../../widgets/lesson_grid_background.dart';
 import 'mahrec_banner.dart';
 
 class _LetterGroup {
@@ -63,7 +63,7 @@ class AllLettersGrid extends StatelessWidget {
   /// Never let the whole grid area itself grow past this, even on an
   /// ultrawide desktop — keeps rows from stretching into a handful of
   /// oversized cards.
-  static const double _maxContentWidth = 1100;
+  static const double maxContentWidth = 1100;
 
   /// Minimum comfortable width for a card that shows başta/ortada/
   /// sonda forms side by side (three sub-columns of short Turkish
@@ -97,10 +97,11 @@ class AllLettersGrid extends StatelessWidget {
 
     return Stack(
       children: [
-        const LetterPageBackground(),
+        // Light children's-book sky (Grid only; Sayfa keeps the book).
+        const LessonGridBackground(),
         Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: _maxContentWidth),
+            constraints: const BoxConstraints(maxWidth: maxContentWidth),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final columns = (hasPositionForms

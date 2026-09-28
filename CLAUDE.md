@@ -9,6 +9,8 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   — ne yapıldı, kurallar, dosya haritası, yeni oyun ekleme, sırada ne var.
 - **Ses** (kayıt formatı, web'de önbellek/ön yükleme, gecikme ölçümü): `docs/SES.md`.
   Ses dosyası ekleyince/değiştirince `kSoundCacheVersion`'ı güncelle (test söyler); kaynağı küçült.
+- **Türkçe açıklama sesleri** (🔊, kalıcı `sPPP_KK` kimlikleri, manifest, ElevenLabs
+  üreticisi — uygulama API çağırmaz, anahtar asla depoya/koda girmez): `docs/TURKCE_SES.md`.
 - **Web/telefon görünümü** (tarayıcı sayfayı geniş yerleştirince her şey küçülüyordu; `PhoneZoomFix`): `docs/WEB.md`.
 - **Çevrimiçi sıralama** (Firebase: anonim giriş + Firestore, Bul & Patlat / Harf Arabaları,
   kurallar, sahte skor sınırları, yeni oyun bağlama): `docs/FIREBASE.md`. Kural değişince
@@ -21,10 +23,25 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - Tema: `lib/theme` (`AppColors`: krem, turkuaz, adaçayı, lacivert, altın; Arapça için
   Hasenat fontu `AppTextTheme`), breakpoint'ler `lib/core/responsive.dart`.
 - Sakin eğitim uygulaması: arcade/neon yok, çocuğu cezalandıran geri bildirim yok.
+- **Ana sayfa**: 4 kart 2×2 grid (içerik < 280 px ise tek sütun), hücreler 4:3 = kart görsellerinin oranı
+  (`HomeMenuItem.image`, `assets/images/home/*.webp`, her biri < 200 KB; PNG asılları `assets_src/home/`,
+  pakete girmez; görselli kartta başlık yazılmaz). Sıra: Rehber, Dualar,
+  Sureler, Oyunlar. Test: `test/home_grid_test.dart`. Ders **Grid** arka planı `LessonGridBackground`
+  (yalnız şekillerle çizilir, çok soluk; kelebek/arı/tavşan, ağaç/çiçek; Sayfa/Tekli dokunulmadı).
+  Dualar/Sureler listeleri `HolyPlacesBackground` (sevimli Kâbe, yeşil kubbe, cami, fener, gülen
+  hilal — kendi çizimimiz, fotoğraf yok; binalar içerik kenarına sığacak ölçekte). Ders ekranı
+  kenarında süs çocuklar `LessonKidsDecoration` (yalnız boş kenarda; masaüstü 2, tablet 1, telefon 0;
+  görseller `assets/images/kids/*.webp` gelince görünür). Eski `D:\Elifbe2025` foto kartları kullanılmaz
+  (gerçek fotoğraf/telif).
 - Sağ üstteki yazı boyutu ayarı büyüdükçe harf/sure/dua ızgaralarında sütunlar **birer birer** azalır (kartın asgari genişliği yazı boyutuyla çarpılır; tek sütuna atlamaz). Test: `test/reading_columns_test.dart`.
 - Elifba harf kartı: dokununca ses, **basılı tutunca** Tek Harf sayfası (çift dokunma yok; onDoubleTap tek dokunuşu geciktirir). Test: `test/letter_card_gesture_test.dart`.
 - **Ders 23-30 kitap sayfası gibi açılır** (`BookPage`, `lib/screens/elifba/widgets/book_page.dart`; başlıklar `kBookPageHeadings`): kitaptaki açıklama metni + örnek tabloları, kelimeye dokununca ses. Metin `lib/data/lesson_info_data.dart` (ⓘ penceresi aynı içeriği gösterir); "Durulduğunda / Geçildiğinde" tabloları `WaqfExamplesTable` (Ders 29-30), kelime ızgaraları `WordGridTable` (Ders 23-28, kırmızı işaret kuralları `lib/models/word_highlight.dart`). Örnekler dersin **kendi kelime listesinden** gelir (Arapça tek yerde). Kaynak: `assets/lazim/ELIF BA BASKI DENEME 2012.pdf` s. 50-59 (PDF git'e girmez; sayfaları görmek için PyMuPDF ile PNG'ye çevir; Arapça harekeleri gözle doğrula). Sırada: Ders 1-22'nin kitap sayfaları ve kelime kontrolü (s. 2-49). Testler: `test/book_pages_test.dart`, `test/kelime_sonu_duraklar_test.dart`.
 - **Kitap sayfaları envanteri** (PDF s. → konu → tip → ders/veri, sayfa renk profilleri): `docs/KITAP_SAYFALARI.md`.
+- **GLOBAL: 7 kalın harf (خ ص ض ط ظ غ ق) gövdesi HER YERDE kırmızı** (#ED1C24) — sayfa profili
+  (PDF siyah bassa da) kapatamaz; yalnız gövde, harekeler kendi kuralıyla. Tek liste
+  `thickArabicLetters` / `isThickArabicLetter` (`haraka_colors.dart`), uygulayan `ArabicColorizer.plan`.
+  Arapça çizen ekranlar metni bölmeden `ColoredArabicText` kullanmalı (WordCell, harf biçimleri de).
+  Test: `test/thick_letters_global_test.dart`.
 - **Arapça renklendirme — PDF sayfasına bağlı**: kurallar `lib/helpers/arabic_colorizer.dart`
   (`ArabicColorizer.plan(text, profile:)`), tonlar `haraka_colors.dart` (kitaptan: kırmızı #ED1C24,
   mavi #00AEEF, yeşil #00A650). Her kitap sayfasının kendi `ArabicColorProfile`'ı var

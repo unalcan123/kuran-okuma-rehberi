@@ -3,6 +3,7 @@ import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders5AudioDir = 'audio/elifba/ders_5_otre';
 const String _harfOtreGroup = 'Harf + Ötre';
@@ -119,8 +120,9 @@ final Lesson kOtreLesson = Lesson(
 );
 
 /// Book pages 20-22 (colors read from the PDF's text): p. 20 teaches ötre
-/// with the 28 letters (ötre green; here the thick letters are black);
+/// with the 28 letters (ötre green);
 /// p. 21-22 are "ÖRNEKLER" (üstün red, esre blue, ötre green).
+/// The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const ArabicColorProfile _otreWordColors = ArabicColorProfile({
   ArabicPart.fatha: arabicRed,
   ArabicPart.kasra: arabicBlue,
@@ -130,6 +132,8 @@ const ArabicColorProfile _otreWordColors = ArabicColorProfile({
 const LessonPageLayout kOtrePageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 20,
+    headingAudio: 's020_baslik_1',
+    introAudio: {0: TrAudio('s020_01', 2)},
     type: LessonPageType.lesson,
     kicker: 'HAREKELER',
     heading: 'ÖTRE',

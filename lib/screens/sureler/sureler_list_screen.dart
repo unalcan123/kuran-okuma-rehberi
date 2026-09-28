@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/sureler_data.dart';
 import '../../models/surah.dart';
-import '../elifba/widgets/letter_page_background.dart';
+import '../../widgets/holy_places_background.dart';
 import 'surah_detail_screen.dart';
 import 'widgets/surah_card.dart';
 
@@ -49,7 +49,8 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
         controller: _textScale,
         child: Stack(
           children: [
-            const LetterPageBackground(),
+            // Cute holy places (Kâbe, green dome, mosque), drawn in shapes.
+            const HolyPlacesBackground(contentWidth: _maxContentWidth),
             Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: _maxContentWidth),

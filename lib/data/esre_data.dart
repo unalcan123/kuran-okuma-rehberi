@@ -3,6 +3,7 @@ import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders4AudioDir = 'audio/elifba/ders_4_esre';
 const String _harfEsreGroup = 'Harf + Esre';
@@ -111,9 +112,9 @@ final Lesson kEsreLesson = Lesson(
 );
 
 /// Book pages 17-19 (colors read from the PDF's text): p. 17 teaches esre
-/// with the 28 letters (esre blue, the 7 thick letters red); p. 18-19 are
-/// "ÖRNEKLER" (üstün red, esre blue, thick letters black; on p. 19 the esre
-/// under the hemze of يَئِسَ is printed black).
+/// with the 28 letters (esre blue); p. 18-19 are "ÖRNEKLER" (üstün red, esre
+/// blue; on p. 19 the esre under the hemze of يَئِسَ is printed black).
+/// The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const ArabicColorProfile _esreWordColors = ArabicColorProfile({
   ArabicPart.fatha: arabicRed,
   ArabicPart.kasra: arabicBlue,
@@ -122,6 +123,8 @@ const ArabicColorProfile _esreWordColors = ArabicColorProfile({
 const LessonPageLayout kEsrePageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 17,
+    headingAudio: 's017_baslik_1',
+    introAudio: {0: TrAudio('s017_01')},
     type: LessonPageType.lesson,
     kicker: 'HAREKELER',
     heading: 'ESRE',
@@ -134,10 +137,7 @@ const LessonPageLayout kEsrePageLayout = LessonPageLayout([
     ],
     itemCount: 28,
     columns: 4,
-    colorProfile: ArabicColorProfile({
-      ArabicPart.kasra: arabicBlue,
-      ArabicPart.thickLetter: arabicRed,
-    }),
+    colorProfile: ArabicColorProfile({ArabicPart.kasra: arabicBlue}),
   ),
   LessonBookPage(
     bookPage: 18,

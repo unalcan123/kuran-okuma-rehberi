@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../helpers/arabic_colorizer.dart';
+import '../helpers/colored_arabic_text.dart';
 import '../models/arabic_letter.dart';
 import '../services/audio_service.dart';
 import '../theme/app_colors.dart';
@@ -8,7 +10,8 @@ import '../theme/app_text_theme.dart';
 
 /// One example word of a book table. Tapping it plays its recording; the
 /// part the book prints in red is drawn red ([before] + [red] + [after] is
-/// the whole word).
+/// the whole word). Drawn with [ColoredArabicText] (the word is never split
+/// into spans), so the 7 thick letters are red here too.
 class WordCell extends StatelessWidget {
   final ArabicLetter letter;
   final String before;
@@ -46,17 +49,19 @@ class WordCell extends StatelessWidget {
               // Long phrases shrink to fit the cell instead of overflowing.
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(text: before),
-                      TextSpan(text: red, style: const TextStyle(color: AppColors.red)),
-                      TextSpan(text: after),
-                    ],
-                    style: style,
-                  ),
+                child: ColoredArabicText(
+                  '$before$red$after',
+                  style: style,
                   textDirection: TextDirection.rtl,
                   textAlign: TextAlign.center,
+                  profile: ArabicColorProfile.highlight(
+                    arabicClustersInRange(
+                      '$before$red$after',
+                      before.length,
+                      before.length + red.length,
+                    ),
+                    AppColors.red,
+                  ),
                 ),
               ),
             ),

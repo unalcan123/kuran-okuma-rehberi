@@ -226,10 +226,12 @@ final Lesson kCikisYerleriLesson = Lesson(
 
 /// Book page 23, "HAREKELİ HARFLER (Çıkış Yerleri Sırasına Göre)": 4 × 7
 /// cells framed by mahreç (6 Boğaz red, 18 Dil blue, 4 Dudak green). Colors
-/// read from the PDF: üstün red, esre blue, ötre green, thick letters red.
+/// read from the PDF: üstün red, esre blue, ötre green.
+/// The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const LessonPageLayout kCikisYerleriPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 23,
+    headingAudio: 's023_baslik_1',
     type: LessonPageType.exercise,
     heading: 'HAREKELİ HARFLER',
     subheading: '(Çıkış Yerleri Sırasına Göre)',
@@ -237,7 +239,6 @@ const LessonPageLayout kCikisYerleriPageLayout = LessonPageLayout([
       ArabicPart.fatha: arabicRed,
       ArabicPart.kasra: arabicBlue,
       ArabicPart.damma: arabicGreen,
-      ArabicPart.thickLetter: arabicRed,
     }),
     sections: [
       BookSection(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kuran_okuma_rehberi/core/responsive.dart';
 import 'package:kuran_okuma_rehberi/screens/home/home_screen.dart';
-import 'package:kuran_okuma_rehberi/screens/home/widgets/home_menu_card.dart';
+import 'package:kuran_okuma_rehberi/screens/home/widgets/home_grid_card.dart';
 import 'package:kuran_okuma_rehberi/widgets/phone_zoom_fix.dart';
 
 void setSize(WidgetTester tester, Size size) {
@@ -91,7 +91,7 @@ void main() {
     await tester.pumpWidget(app(const HomeScreen(), () => 1));
     await tester.pumpAndSettle();
     final tabletXs = {
-      for (final e in tester.elementList(find.byType(HomeMenuCard)))
+      for (final e in tester.elementList(find.byType(HomeGridCard)))
         tester.getTopLeft(find.byWidget(e.widget)).dx.round(),
     };
     expect(tabletXs.length, 2, reason: 'two columns when the page looks wide');
@@ -99,12 +99,14 @@ void main() {
     await tester.pumpWidget(app(HomeScreen(key: UniqueKey()), () => 2.45));
     await tester.pumpAndSettle();
     final phoneXs = {
-      for (final e in tester.elementList(find.byType(HomeMenuCard)))
+      for (final e in tester.elementList(find.byType(HomeGridCard)))
         tester.getTopLeft(find.byWidget(e.widget)).dx.round(),
     };
-    expect(phoneXs.length, 1, reason: 'one column, like the phone app');
-    final card = tester.getRect(find.byType(HomeMenuCard).first);
-    expect(card.width, greaterThan(800), reason: 'cards fill the wide page (minus the margins)');
+    // The home grid keeps 2 columns on phones too; the phone layout shows
+    // as cards drawn at phone scale (the page is zoomed up).
+    expect(phoneXs.length, 2, reason: 'the phone home grid is 2 x 2 too');
+    final card = tester.getRect(find.byType(HomeGridCard).first);
+    expect(card.width, greaterThan(400), reason: 'cards fill half the wide page (minus the margins)');
     expect(Responsive.deviceClassOf(tester.element(find.byType(HomeScreen))), DeviceClass.mobile);
   });
 

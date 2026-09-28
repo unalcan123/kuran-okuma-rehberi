@@ -3,6 +3,7 @@ import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders15AudioDir = 'audio/elifba/ders_15_uzatma_vav';
 
@@ -49,10 +50,13 @@ final Lesson kUzatmaVavLesson = Lesson(
 );
 
 /// Book page 36, "VÂV": each letter with ötre before a med vâv. Only the med
-/// vâv is green (ötre and thick letters black), as in the PDF.
+/// vâv is green (ötre black), as in the PDF.
+/// The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const LessonPageLayout kUzatmaVavPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 36,
+    headingAudio: 's036_baslik_1',
+    introAudio: {0: TrAudio('s036_01', 2)},
     type: LessonPageType.lesson,
     heading: 'VÂV',
     arabicHeading: '( و )',

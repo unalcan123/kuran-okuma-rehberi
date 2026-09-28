@@ -9,10 +9,12 @@ import '../../../helpers/colored_arabic_text.dart';
 import '../../../helpers/haraka_colors.dart';
 import '../../../models/arabic_letter.dart';
 import '../../../models/lesson_page_layout.dart';
+import '../../../models/turkish_audio.dart';
 import '../../../services/audio_service.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
 import '../../../widgets/reading_text_settings.dart';
+import '../../../widgets/turkish_audio_block.dart';
 import 'letter_page_background.dart';
 
 /// The "Sayfa Görünümü": the lesson's pages as printed in the book, one at
@@ -279,7 +281,7 @@ class _BookSheet extends StatelessWidget {
             ..add(
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: narrow ? 4 : 8),
-                child: _IntroText(page.intro),
+                child: _IntroText(page.intro, audio: page.introAudio),
               ),
             )
             ..add(gap);
@@ -406,6 +408,7 @@ class _SheetHeading extends StatelessWidget {
     ].join('   '),
     arabicColor: page.arabicHeadingColor,
     image: page.headerImage,
+    audioId: page.headingAudio,
   );
 }
 
@@ -420,6 +423,10 @@ class BookFrameHeading extends StatelessWidget {
   final Color? arabicColor;
   final String? image;
 
+  /// Recording of the heading (see [TrAudio]): with it, tapping the
+  /// heading plays it and a small speaker stands before the heading line.
+  final String? audioId;
+
   const BookFrameHeading({
     super.key,
     this.kicker,
@@ -429,13 +436,38 @@ class BookFrameHeading extends StatelessWidget {
     this.arabic = '',
     this.arabicColor,
     this.image,
+    this.audioId,
   });
 
   static const double _aspect = 2168 / 725;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => TurkishAudioTap(
+    audioId: audioId,
+    builder:
+        (context, available, playing) =>
+            _frame(available ? audioId : null, playing),
+  );
+
+  /// With [speaker], the heading line starts with that recording's icon.
+  Widget _frame(String? speaker, bool playing) {
     const color = _bookHeadingColor;
+    // The speaker goes on the first line only.
+    Widget withSpeaker(Widget line, double size, {required bool first}) =>
+        speaker == null || !first
+            ? line
+            : Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TurkishAudioIcon(
+                  audioId: speaker,
+                  playing: playing,
+                  size: size * 0.8,
+                ),
+                SizedBox(width: size * 0.3),
+                line,
+              ],
+            );
     return Semantics(
       header: true,
       child: Center(
@@ -475,25 +507,33 @@ class BookFrameHeading extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               if (kicker != null)
-                                Text(
-                                  kicker!,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: kickerColor ?? color,
-                                    fontSize: size * 0.7,
-                                    letterSpacing: 0.6,
+                                withSpeaker(
+                                  Text(
+                                    kicker!,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: kickerColor ?? color,
+                                      fontSize: size * 0.7,
+                                      letterSpacing: 0.6,
+                                    ),
                                   ),
+                                  size * 0.7,
+                                  first: true,
                                 ),
                               if (heading != null)
-                                Text(
-                                  heading!,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: color,
-                                    fontSize: size,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.25,
+                                withSpeaker(
+                                  Text(
+                                    heading!,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: color,
+                                      fontSize: size,
+                                      fontWeight: FontWeight.w800,
+                                      height: 1.25,
+                                    ),
                                   ),
+                                  size,
+                                  first: kicker == null,
                                 ),
                               if (subheading != null)
                                 Text(
@@ -533,10 +573,13 @@ class BookFrameHeading extends StatelessWidget {
 
 /// Explanation text: “quoted” text is printed red, as in the book; Arabic
 /// runs are set in the Arabic font; "- " / "* " paragraphs are bullets.
+/// Paragraphs with a recording in [audio] are listenable, a rule's
+/// paragraphs together as one block.
 class _IntroText extends StatelessWidget {
   final List<String> paragraphs;
+  final Map<int, TrAudio> audio;
 
-  const _IntroText(this.paragraphs);
+  const _IntroText(this.paragraphs, {this.audio = const {}});
 
   static final _quoted = RegExp('“[^”]*”');
   static final _arabic = RegExp(r'[؀-ۿﹰ-﻿]+(?:[ ؀-ۿﹰ-﻿]*[؀-ۿﹰ-﻿])?');
@@ -615,50 +658,62 @@ class _IntroText extends StatelessWidget {
     final style = Theme.of(
       context,
     ).textTheme.bodyLarge?.copyWith(height: 1.45, color: AppColors.textPrimary);
+    final blocks = <Widget>[];
+    for (var i = 0; i < paragraphs.length;) {
+      final recording = audio[i];
+      final end = math.min(i + (recording?.paragraphs ?? 1), paragraphs.length);
+      final group = [for (var j = i; j < end; j++) _paragraph(j, style)];
+      blocks.add(
+        recording == null
+            ? group.single
+            : TurkishAudioBlock(
+              audioId: recording.id,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: group,
+              ),
+            ),
+      );
+      i = end;
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        for (var i = 0; i < paragraphs.length; i++)
-          Padding(
-            // A new paragraph after the bullets gets a gap, as in the book.
-            padding: EdgeInsets.only(
-              top:
-                  i > 0 &&
-                          !_isBullet(paragraphs[i]) &&
-                          _isBullet(paragraphs[i - 1])
-                      ? 10
-                      : 2,
-            ),
-            child:
-                _isBullet(paragraphs[i])
-                    ? Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          paragraphs[i].startsWith('*') ? '* ' : '– ',
-                          style: style?.copyWith(color: arabicRed),
-                        ),
-                        Expanded(
-                          child: Text.rich(
-                            TextSpan(
-                              children: spans(
-                                paragraphs[i].substring(2),
-                                style,
-                              ),
-                            ),
-                            style: style,
-                          ),
-                        ),
-                      ],
-                    )
-                    : Text.rich(
-                      TextSpan(children: spans(paragraphs[i], style)),
-                      style: style,
-                    ),
-          ),
-      ],
+      children: blocks,
     );
   }
+
+  Widget _paragraph(int i, TextStyle? style) => Padding(
+    // A new paragraph after the bullets gets a gap, as in the book.
+    padding: EdgeInsets.only(
+      top:
+          i > 0 && !_isBullet(paragraphs[i]) && _isBullet(paragraphs[i - 1])
+              ? 10
+              : 2,
+    ),
+    child:
+        _isBullet(paragraphs[i])
+            ? Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  paragraphs[i].startsWith('*') ? '* ' : '– ',
+                  style: style?.copyWith(color: arabicRed),
+                ),
+                Expanded(
+                  child: Text.rich(
+                    TextSpan(
+                      children: spans(paragraphs[i].substring(2), style),
+                    ),
+                    style: style,
+                  ),
+                ),
+              ],
+            )
+            : Text.rich(
+              TextSpan(children: spans(paragraphs[i], style)),
+              style: style,
+            ),
+  );
 }
 
 /// One block of a page: its title and text, then its table.
@@ -811,29 +866,46 @@ class _SectionView extends StatelessWidget {
         if (section.title != null)
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
-            child: Text.rich(
-              TextSpan(
-                children: _IntroText.spans(
-                  section.title!,
-                  const TextStyle(
-                    color: arabicRed,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
+            child: TurkishAudioTap(
+              audioId: section.titleAudio,
+              builder:
+                  (context, available, playing) => Text.rich(
+                    TextSpan(
+                      children: [
+                        if (available)
+                          WidgetSpan(
+                            alignment: PlaceholderAlignment.middle,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: TurkishAudioIcon(
+                                audioId: section.titleAudio!,
+                                playing: playing,
+                              ),
+                            ),
+                          ),
+                        ..._IntroText.spans(
+                          section.title!,
+                          const TextStyle(
+                            color: arabicRed,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: arabicRed,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                ),
-              ),
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: arabicRed,
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
-              ),
             ),
           ),
         if (section.intro.isNotEmpty)
           Padding(
             padding: const EdgeInsets.fromLTRB(6, 0, 6, 12),
-            child: _IntroText(section.intro),
+            child: _IntroText(section.intro, audio: section.introAudio),
           ),
         if (table != null) table,
         if (section.frames.isNotEmpty)
@@ -888,7 +960,7 @@ class _SectionView extends StatelessWidget {
         if (section.outro.isNotEmpty)
           Padding(
             padding: const EdgeInsets.fromLTRB(6, 12, 6, 0),
-            child: _IntroText(section.outro),
+            child: _IntroText(section.outro, audio: section.outroAudio),
           ),
       ],
     );
@@ -1305,9 +1377,11 @@ class _BookCell extends StatelessWidget {
         child: Material(
           color: playing ? AppColors.turquoiseSoft : Colors.transparent,
           child: InkWell(
-            key: ValueKey(spec.index == null
-                ? 'book-derived-cell-${letter.audioAsset}'
-                : 'book-cell-${spec.index}'),
+            key: ValueKey(
+              spec.index == null
+                  ? 'book-derived-cell-${letter.audioAsset}'
+                  : 'book-cell-${spec.index}',
+            ),
             onTap: () => onTap(letter),
             onLongPress: spec.index == null ? null : () => onOpen(spec.index!),
             splashColor: AppColors.turquoiseSoft,

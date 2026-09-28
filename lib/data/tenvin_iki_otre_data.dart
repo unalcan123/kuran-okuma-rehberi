@@ -125,6 +125,7 @@ const ArabicColorProfile _tenvinOtreExampleColors = ArabicColorProfile({
 const LessonPageLayout kTenvinIkiOtrePageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 47,
+    headingAudio: 's047_baslik_1',
     type: LessonPageType.lesson,
     kicker: 'İKİ ÖTRELİ',
     heading: 'HARFLER',

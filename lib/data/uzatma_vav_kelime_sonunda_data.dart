@@ -3,6 +3,7 @@ import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders17AudioDir = 'audio/elifba/ders_17_uzatma_vav_kelime_sonunda';
 
@@ -10,15 +11,51 @@ const String _ders17AudioDir = 'audio/elifba/ders_17_uzatma_vav_kelime_sonunda';
 /// "vav-ı cemi" pattern common in plural verb forms), a specific case
 /// worth its own short practice set.
 const List<ArabicLetter> kUzatmaVavKelimeSonundaWords = [
-  ArabicLetter(order: 1, isolatedForm: 'اُمِرُوا', audioAsset: '$_ders17AudioDir/01_kelime.mp3'),
-  ArabicLetter(order: 2, isolatedForm: 'وَأْتُوا', audioAsset: '$_ders17AudioDir/02_kelime.mp3'),
-  ArabicLetter(order: 3, isolatedForm: 'كَذَّبُوا', audioAsset: '$_ders17AudioDir/03_kelime.mp3'),
-  ArabicLetter(order: 4, isolatedForm: 'نَقَمُوا', audioAsset: '$_ders17AudioDir/04_kelime.mp3'),
-  ArabicLetter(order: 5, isolatedForm: 'يَتُوبُوا', audioAsset: '$_ders17AudioDir/05_kelime.mp3'),
-  ArabicLetter(order: 6, isolatedForm: 'لِيَعْبُدُوا', audioAsset: '$_ders17AudioDir/06_kelime.mp3'),
-  ArabicLetter(order: 7, isolatedForm: 'رُزِقُوا', audioAsset: '$_ders17AudioDir/07_kelime.mp3'),
-  ArabicLetter(order: 8, isolatedForm: 'يَتْلُوا', audioAsset: '$_ders17AudioDir/08_kelime.mp3'),
-  ArabicLetter(order: 9, isolatedForm: 'اَلْقُوا', audioAsset: '$_ders17AudioDir/09_kelime.mp3'),
+  ArabicLetter(
+    order: 1,
+    isolatedForm: 'اُمِرُوا',
+    audioAsset: '$_ders17AudioDir/01_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 2,
+    isolatedForm: 'وَأْتُوا',
+    audioAsset: '$_ders17AudioDir/02_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 3,
+    isolatedForm: 'كَذَّبُوا',
+    audioAsset: '$_ders17AudioDir/03_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 4,
+    isolatedForm: 'نَقَمُوا',
+    audioAsset: '$_ders17AudioDir/04_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 5,
+    isolatedForm: 'يَتُوبُوا',
+    audioAsset: '$_ders17AudioDir/05_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 6,
+    isolatedForm: 'لِيَعْبُدُوا',
+    audioAsset: '$_ders17AudioDir/06_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 7,
+    isolatedForm: 'رُزِقُوا',
+    audioAsset: '$_ders17AudioDir/07_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 8,
+    isolatedForm: 'يَتْلُوا',
+    audioAsset: '$_ders17AudioDir/08_kelime.mp3',
+  ),
+  ArabicLetter(
+    order: 9,
+    isolatedForm: 'اَلْقُوا',
+    audioAsset: '$_ders17AudioDir/09_kelime.mp3',
+  ),
 ];
 
 final Lesson kUzatmaVavKelimeSonundaLesson = Lesson(
@@ -35,6 +72,8 @@ final Lesson kUzatmaVavKelimeSonundaLesson = Lesson(
 const LessonPageLayout kUzatmaVavKelimeSonundaPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 38,
+    headingAudio: 's038_baslik_1',
+    introAudio: {0: TrAudio('s038_01', 2)},
     type: LessonPageType.lesson,
     kicker: 'Kelime sonunda uzatan',
     kickerColor: arabicGreen,

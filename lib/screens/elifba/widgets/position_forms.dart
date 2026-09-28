@@ -1,6 +1,8 @@
 import '../../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 
+import '../../../helpers/arabic_colorizer.dart';
+import '../../../helpers/colored_arabic_text.dart';
 import '../../../models/arabic_letter.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
@@ -107,9 +109,10 @@ class _FormColumn extends StatelessWidget {
     if (large) {
       Widget arabic(String text, double size, Color color) => ReadingFittedBox(
         fit: BoxFit.scaleDown,
-        child: Text(
+        child: ColoredArabicText(
           text,
           textDirection: TextDirection.rtl,
+          profile: ArabicColorProfile.none,
           style: AppTextTheme.arabicSmall(
             fontSize: size,
           ).copyWith(color: color, height: 1.2),
@@ -157,8 +160,9 @@ class _FormColumn extends StatelessWidget {
         SizedBox(height: compact ? 2 : 4 * scale),
         ReadingFittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
+          child: ColoredArabicText(
             form,
+            profile: ArabicColorProfile.none,
             style: AppTextTheme.arabicSmall(
               fontSize: compact ? 34 : 56 * scale,
             ),
@@ -198,19 +202,22 @@ class _HighlightedExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final targetIndex = example.indexOf(target);
     final style = AppTextTheme.arabicSmall(fontSize: compact ? 29 : 44 * scale);
-    if (targetIndex < 0) return Text(example, style: style);
-    return Text.rich(
-      TextSpan(
-        children: [
-          TextSpan(text: example.substring(0, targetIndex), style: style),
-          TextSpan(text: target, style: style.copyWith(color: AppColors.red)),
-          TextSpan(
-            text: example.substring(targetIndex + target.length),
-            style: style,
-          ),
-        ],
-      ),
+    // One text run (never split into spans); the 7 thick letters stay red.
+    return ColoredArabicText(
+      example,
+      style: style,
       textDirection: TextDirection.rtl,
+      profile:
+          targetIndex < 0
+              ? ArabicColorProfile.none
+              : ArabicColorProfile.highlight(
+                arabicClustersInRange(
+                  example,
+                  targetIndex,
+                  targetIndex + target.length,
+                ),
+                AppColors.red,
+              ),
     );
   }
 }

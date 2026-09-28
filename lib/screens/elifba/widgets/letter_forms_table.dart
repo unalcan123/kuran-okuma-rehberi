@@ -1,11 +1,16 @@
 import '../../../widgets/reading_text_settings.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import '../../../helpers/arabic_colorizer.dart';
+import '../../../helpers/colored_arabic_text.dart';
 import '../../../models/arabic_letter.dart';
 import '../../../theme/app_text_theme.dart';
 
 /// A continuous, book-style table of positional word examples.
 class LetterFormsTable extends StatelessWidget {
+  /// The widest the table gets.
+  static const double maxContentWidth = 850;
+
   const LetterFormsTable({
     super.key,
     required this.letters,
@@ -24,7 +29,7 @@ class LetterFormsTable extends StatelessWidget {
     color: const Color(0xFFF3EBDD),
     child: Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 850),
+        constraints: const BoxConstraints(maxWidth: maxContentWidth),
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(12),
           child: Container(
@@ -239,16 +244,23 @@ class LetterFormsTable extends StatelessWidget {
     String marked, {
     bool isMainLetter = false,
   }) {
-    final spans = <TextSpan>[];
+    // "[x]" parts are the book's colored letters. One text run (never split
+    // into spans): their bodies are colored by cluster; thick letters red.
+    final text = StringBuffer();
+    final inked = <int, Color>{};
     for (final match in RegExp(r'\[([^\]]+)\]|([^\[]+)').allMatches(marked)) {
-      spans.add(
-        TextSpan(
-          text: match.group(1) ?? match.group(2),
-          style: TextStyle(
-            color: match.group(1) != null ? _ink : const Color(0xFF22201E),
-          ),
-        ),
-      );
+      final part = match.group(1) ?? match.group(2)!;
+      final start = text.length;
+      text.write(part);
+      if (match.group(1) != null) {
+        for (final i in arabicClustersInRange(
+          text.toString(),
+          start,
+          text.length,
+        )) {
+          inked[i] = _ink;
+        }
+      }
     }
     return Container(
       decoration:
@@ -263,13 +275,18 @@ class LetterFormsTable extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 22),
       child: ReadingFittedBox(
         fit: BoxFit.scaleDown,
-        child: Text.rich(
-          TextSpan(children: spans),
+        child: ColoredArabicText(
+          text.toString(),
           textDirection: TextDirection.rtl,
           textAlign: TextAlign.center,
+          profile: ArabicColorProfile(
+            const {},
+            clusterBodies: inked,
+            clusterMarks: inked,
+          ),
           style: AppTextTheme.arabicSmall(
             fontSize: isMainLetter ? 46 : 38,
-          ).copyWith(height: 1.6),
+          ).copyWith(height: 1.6, color: const Color(0xFF22201E)),
         ),
       ),
     );

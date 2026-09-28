@@ -2,6 +2,7 @@ import 'dart:ui' show Color;
 
 import '../helpers/arabic_colorizer.dart';
 import 'arabic_letter.dart';
+import 'turkish_audio.dart';
 
 /// A lesson's pages in the printed book (`ELIF BA BASKI DENEME 2012.pdf`),
 /// in book order — the "Sayfa Görünümü" shows them one by one.
@@ -136,10 +137,16 @@ class BookSection {
   /// Heading of this block on the page (e.g. "ÇEKER ESRE").
   final String? title;
 
+  /// Recording of [title] (see [TrAudio]).
+  final String? titleAudio;
+
   /// Explanation paragraphs before the table; a paragraph starting with
   /// "- " or "* " is a bullet. Text inside “…” is printed red, as in the
   /// book; Arabic text is set in the Arabic font.
   final List<String> intro;
+
+  /// Recordings of [intro]: paragraph index where each one starts → it.
+  final Map<int, TrAudio> introAudio;
 
   final int itemCount;
   final BookSectionKind kind;
@@ -219,9 +226,14 @@ class BookSection {
   /// Paragraphs after the table.
   final List<String> outro;
 
+  /// Recordings of [outro], like [introAudio].
+  final Map<int, TrAudio> outroAudio;
+
   const BookSection({
     this.title,
+    this.titleAudio,
     this.intro = const [],
+    this.introAudio = const {},
     this.itemCount = 0,
     this.kind = BookSectionKind.grid,
     this.columns = 4,
@@ -246,6 +258,7 @@ class BookSection {
     this.derivedProfile,
     this.derivedAudioItems,
     this.outro = const [],
+    this.outroAudio = const {},
   });
 }
 
@@ -256,8 +269,7 @@ enum DerivedForm {
   waqfOnFathatan;
 
   String apply(String text) => switch (this) {
-    DerivedForm.waqfOnFathatan =>
-      '${text.replaceAll(RegExp('[ًاـ]'), '')}َا',
+    DerivedForm.waqfOnFathatan => '${text.replaceAll(RegExp('[ًاـ]'), '')}َا',
   };
 }
 
@@ -307,8 +319,15 @@ class LessonBookPage {
   /// A ready-made heading picture used instead of the drawn heading.
   final String? headerImage;
 
+  /// Recording of the heading (see [TrAudio]); none for a repeated
+  /// general heading such as "ÖRNEKLER".
+  final String? headingAudio;
+
   /// Explanation paragraphs (see [BookSection.intro]).
   final List<String> intro;
+
+  /// Recordings of [intro] (see [BookSection.introAudio]).
+  final Map<int, TrAudio> introAudio;
 
   /// A picture from the book (e.g. s. 5 mahreç drawing) and its legend.
   final String? figure;
@@ -335,7 +354,9 @@ class LessonBookPage {
     this.arabicHeadingColor,
     this.kickerColor,
     this.headerImage,
+    this.headingAudio,
     this.intro = const [],
+    this.introAudio = const {},
     this.figure,
     this.figureLegend = const [],
     this.itemCount = 0,

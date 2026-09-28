@@ -6,6 +6,8 @@ import 'haraka_colors.dart';
 enum ArabicPart {
   /// Every letter's body (e.g. s. 28: the whole şeddeli example is red).
   letter,
+
+  /// 7 kalın harfin gövdesi — her zaman kırmızı (global, profilden bağımsız).
   thickLetter,
   fatha,
   kasra,
@@ -98,10 +100,13 @@ bool isArabicCombiningMark(int c) =>
     (c >= 0x06D6 && c <= 0x06ED);
 
 /// Hangi öğenin hangi renkte çizileceği — kitabın bir SAYFASININ renk
-/// mantığı. Kitap her sayfada yalnızca o sayfanın öğrettiği öğeleri boyar
-/// (örn. s. 14: üstün ve kalın harfler kırmızı; s. 15-16: yalnızca üstün
-/// kırmızı, kalın harfler siyah). Profilde olmayan öğe normal metin
+/// mantığı. Kitap her sayfada yalnızca o sayfanın öğrettiği işaretleri boyar
+/// (örn. s. 15-16: yalnızca üstün kırmızı). Profilde olmayan öğe normal metin
 /// rengiyle çizilir. Sayfa profilleri `LessonBookPage.colorProfile`'da.
+///
+/// İstisna: 7 kalın harfin GÖVDESİ profilden bağımsız, her zaman kırmızıdır
+/// ([thickArabicLetters]); profil bunu açıp kapatmaz (`ArabicPart.thickLetter`
+/// profilde olsa da olmasa da).
 class ArabicColorProfile {
   const ArabicColorProfile(
     this.colors, {
@@ -308,11 +313,6 @@ abstract final class ArabicColorizer {
         parts.add(ArabicPart.letter);
         body = profile[ArabicPart.letter];
       }
-      if (thickArabicLetters.contains(base) &&
-          profile[ArabicPart.thickLetter] != null) {
-        parts.add(ArabicPart.thickLetter);
-        body = profile[ArabicPart.thickLetter];
-      }
       if (codes.isEmpty && previousMarks != null) {
         final madd = _maddPart(base, previousMarks);
         if (madd != null && profile[madd] != null) {
@@ -323,6 +323,13 @@ abstract final class ArabicColorizer {
 
       final own = profile.clusterBodies[result.length];
       if (own != null) body = own;
+
+      // GLOBAL: kalın harfin gövdesi her profilde kırmızı (sayfa profilinden
+      // ve kümeye özel gövde renginden önce gelir). İşaretlere dokunmaz.
+      if (isThickArabicLetter(base)) {
+        parts.add(ArabicPart.thickLetter);
+        body = harakaThickLetterColor;
+      }
 
       final plain = profile.plainMarks.contains(result.length);
       final shaddaColor =
@@ -402,3 +409,14 @@ String stripArabicMarks(String text) =>
       text,
       profile: ArabicColorProfile.none,
     ).map((c) => c.base).join();
+
+/// [text]'in [start, end) aralığında başlayan harf kümelerinin sırası
+/// (profillerde `clusterBodies` / `clusterMarks` anahtarı) — bir kelimenin
+/// bir parçasını (ör. vurgulanan son harfler) metni bölmeden boyamak için.
+Set<int> arabicClustersInRange(String text, int start, int end) {
+  final plan = ArabicColorizer.plan(text, profile: ArabicColorProfile.none);
+  return {
+    for (var i = 0; i < plan.length; i++)
+      if (plan[i].start >= start && plan[i].start < end) i,
+  };
+}

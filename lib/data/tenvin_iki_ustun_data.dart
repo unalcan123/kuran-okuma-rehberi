@@ -4,6 +4,7 @@ import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
 import 'uzatma_elif_data.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders20AudioDir = 'audio/elifba/ders_20_tenvin_iki_ustun';
 
@@ -113,11 +114,10 @@ final Lesson kTenvinIkiUstunLesson = Lesson(
 );
 
 /// Book pages 40-43, "TENVİNLER – İKİ ÜSTÜNLÜ HARFLER" (colors read from
-/// the PDF): p. 40 the 28 letters with iki üstün (tenvin red, thick
-/// letters black); p. 41 the same letters "Geçildiğinde" (tenvin red) next
+/// the PDF): p. 40 the 28 letters with iki üstün (tenvin red); p. 41 the same letters "Geçildiğinde" (tenvin red) next
 /// to "Durulduğunda" (the üstün printed blue); p. 42-43 "ÖRNEKLER" (tenvin
 /// red; on p. 42 the şedde of إِلاًّ إِدًّا وَدًّا حَقًّا and the elif of
-/// وَدًّا are red too).
+/// وَدًّا are red too). The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const ArabicColorProfile _tenvinUstunColors = ArabicColorProfile({
   ArabicPart.fathatan: arabicRed,
 });
@@ -129,11 +129,13 @@ const ArabicColorProfile _tenvinUstunRedShadda = ArabicColorProfile({
 const LessonPageLayout kTenvinIkiUstunPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 40,
+    headingAudio: 's040_baslik_1',
+    introAudio: {0: TrAudio('s040_01', 2), 2: TrAudio('s040_02', 2)},
     type: LessonPageType.lesson,
     heading: 'TENVİNLER',
     subheading: '(ÇİFT HAREKELER)',
     intro: [
-      '“Tenvin:” Bir harfe, aynı hareke, iki kere konursa buna “Tenvin” '
+      '«Tenvin:» Bir harfe, aynı hareke, iki kere konursa buna “Tenvin” '
           'denir ve geçerek okuyuşta harfin sonunu “Cezimli Nûn” ( «نْ» ) '
           'varmış gibi okutur.',
       'Üç çeşit Tenvin vardır: “İki Üstün”, “İki Esre” ve “İki Ötre”.',
@@ -145,6 +147,7 @@ const LessonPageLayout kTenvinIkiUstunPageLayout = LessonPageLayout([
     sections: [
       BookSection(
         title: 'İKİ ÜSTÜNLÜ HARFLER ( ـً ) فَتْحَتَيْنِ',
+        titleAudio: 's040_baslik_2',
         itemCount: 28,
         columns: 4,
       ),
@@ -152,6 +155,7 @@ const LessonPageLayout kTenvinIkiUstunPageLayout = LessonPageLayout([
   ),
   LessonBookPage(
     bookPage: 41,
+    introAudio: {0: TrAudio('s041_01', 2)},
     type: LessonPageType.lesson,
     intro: [
       '* “İki Üstün” alan harfin soluna, genellikle “Elif” harfi de yazılır.',

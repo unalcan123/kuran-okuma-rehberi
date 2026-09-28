@@ -3,6 +3,7 @@ import '../helpers/arabic_colorizer.dart';
 import '../helpers/haraka_colors.dart';
 import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders3AudioDir = 'audio/elifba/ders_3_ustun';
 const String _harfUstunGroup = 'Harf + Üstün';
@@ -616,12 +617,10 @@ final Lesson kUstunLesson = Lesson(
 );
 
 /// Book pages 14-16. p. 14 teaches üstün with the 28 letters; p. 15-16 are
-/// "ÖRNEKLER" (example words). Colors read from the PDF's text: on p. 14 the
-/// üstün and the 7 thick letters are red; on p. 15-16 only the üstün is red
-/// (thick letters are black).
+/// "ÖRNEKLER" (example words). Colors read from the PDF's text: the üstün is
+/// red. The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const ArabicColorProfile _ustunLetterColors = ArabicColorProfile({
   ArabicPart.fatha: arabicRed,
-  ArabicPart.thickLetter: arabicRed,
 });
 const ArabicColorProfile _ustunWordColors = ArabicColorProfile({
   ArabicPart.fatha: arabicRed,
@@ -630,6 +629,8 @@ const ArabicColorProfile _ustunWordColors = ArabicColorProfile({
 const LessonPageLayout kUstunPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 14,
+    headingAudio: 's014_baslik_1',
+    introAudio: {0: TrAudio('s014_01', 2), 2: TrAudio('s014_02')},
     type: LessonPageType.lesson,
     kicker: 'HAREKELER',
     heading: 'ÜSTÜN',
@@ -647,6 +648,7 @@ const LessonPageLayout kUstunPageLayout = LessonPageLayout([
   ),
   LessonBookPage(
     bookPage: 15,
+    introAudio: {0: TrAudio('s015_01')},
     type: LessonPageType.examples,
     heading: 'ÖRNEKLER',
     arabicHeading: 'فَتْحَةٌ',

@@ -370,7 +370,7 @@ void main() {
     final audio = FakeAudio();
     addTearDown(audio.dispose);
     await tester.pumpWidget(harness(const HomeScreen(), audio));
-    await tester.tap(find.text('Oyunlar'));
+    await tester.tap(find.byKey(const ValueKey('home-card-image-Oyunlar')));
     await tester.pumpAndSettle();
     expect(find.text('Dinle ve Seç'), findsOneWidget);
     await tester.tap(find.text('Dinle ve Seç'));

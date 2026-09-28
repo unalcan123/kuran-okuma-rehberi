@@ -1,3 +1,4 @@
+import '../../../widgets/lesson_grid_background.dart';
 import '../../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +8,6 @@ import '../../../models/arabic_letter.dart';
 import '../../../services/audio_service.dart';
 import '../../../theme/app_colors.dart';
 import 'arabic_glyph.dart';
-import 'letter_page_background.dart';
 import 'position_forms.dart';
 import 'letter_forms_page.dart';
 import 'mahrec_banner.dart';
@@ -26,6 +26,9 @@ import 'mahrec_banner.dart';
 /// width with empty space — this screen is meant to be read from
 /// across a room, not just an arm's length away.
 class LetterPage extends StatelessWidget {
+  /// The letter / word is at most this share of the screen's width.
+  static const double maxGlyphWidthFactor = 0.85;
+
   final ArabicLetter letter;
   final Widget? navigationControls;
 
@@ -57,7 +60,9 @@ class LetterPage extends StatelessWidget {
 
     return Stack(
       children: [
-        const LetterPageBackground(),
+        // Children's-book sky (clouds, butterflies, bees, a bunny) at the
+        // edges; the letter stands on the calm middle.
+        const LessonGridBackground(),
         Column(
           children: [
             if (letter.mahrec case final mahrec?)
@@ -87,7 +92,7 @@ class LetterPage extends StatelessWidget {
                                 onTap: () => _playSound(context),
                                 child: ConstrainedBox(
                                   constraints: BoxConstraints(
-                                    maxWidth: size.width * 0.85,
+                                    maxWidth: size.width * maxGlyphWidthFactor,
                                   ),
                                   child: ReadingFittedBox(
                                     fit: BoxFit.scaleDown,

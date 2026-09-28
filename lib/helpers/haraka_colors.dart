@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 /// Kurallar (kitap s. 14-49; hangi işaretin hangi renk aldığı
 /// [ArabicColorizer]'da, `lib/helpers/arabic_colorizer.dart`):
 ///  * KIRMIZI: üstün, cezim, iki üstün, çeker üstün (ٰ), çeker esre (ٖ),
-///    med işareti (ٓ), 7 kalın harfin gövdesi, uzatma (med) elifi
+///    med işareti (ٓ), 7 kalın harfin gövdesi (her yerde, bkz.
+///    [thickArabicLetters]), uzatma (med) elifi
 ///  * MAVİ:    esre, iki esre, şedde (ve şeddeli harfin harekesi), uzatma yâ'sı
 ///  * YEŞİL:   ötre, iki ötre, uzatma vâv'ı
 const Color arabicRed = Color(0xFFED1C24);
@@ -26,6 +27,15 @@ const Color harakaDammaColor = arabicGreen; // ötre / damme
 /// 7 KALIN harfin gövdesi — hareke değil, harfin KENDİSİ.
 const Color harakaThickLetterColor = arabicRed;
 
-/// Kalın (mufahham) 7 harf: خ ص ض ط ظ غ ق. Bunların dışındaki bütün Arapça
-/// harflerin gövdesi normal (mevcut) renkte kalır.
+/// Kalın (mufahham) 7 harf: خ ص ض ط ظ غ ق — uygulamanın TEK listesi.
+///
+/// GLOBAL KURAL: bu harflerin gövdesi uygulamanın her yerinde (her ders, her
+/// kitap sayfası, Sayfa/Grid/Tekli, [ArabicColorizer] kullanan oyunlar)
+/// HER ZAMAN kırmızıdır; sayfa renk profili bunu kapatamaz (PDF bazı
+/// sayfalarda siyah basmış olsa da). Yalnızca harfin gövdesi: harekeler
+/// kendi kurallarıyla boyanır. Bunların dışındaki harflerin gövdesi normal
+/// (mevcut) renkte kalır.
 const Set<String> thickArabicLetters = {'خ', 'ص', 'ض', 'ط', 'ظ', 'غ', 'ق'};
+
+/// [base] (harekesiz tek harf) 7 kalın harften biri mi?
+bool isThickArabicLetter(String base) => thickArabicLetters.contains(base);

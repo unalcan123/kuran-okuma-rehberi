@@ -45,17 +45,25 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     final audio = FakeAudio();
     addTearDown(audio.dispose);
-    for (final lesson in [kElifbaLessons[0], kElifbaLessons[2], kElifbaLessons[6]]) {
+    for (final lesson in [
+      kElifbaLessons[0],
+      kElifbaLessons[2],
+      kElifbaLessons[6],
+    ]) {
+      audio.preloaded.clear();
       await tester.pumpWidget(
         harness(LessonLettersScreen(key: UniqueKey(), lesson: lesson), audio),
       );
       await tester.pump();
+      // The page's Turkish 🔊 blocks preload their own file too (additive).
+      final letters =
+          lesson.letters.map((letter) => letter.audioAsset).toList();
       expect(
-        audio.preloaded.last,
-        lesson.letters.map((letter) => letter.audioAsset).toList(),
+        audio.preloaded,
+        anyElement(equals(letters)),
         reason: lesson.title,
       );
-      expect(audio.preloaded.last.whereType<String>().length, lesson.letters.length);
+      expect(letters.whereType<String>().length, lesson.letters.length);
     }
   });
 

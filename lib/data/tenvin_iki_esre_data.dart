@@ -116,7 +116,8 @@ final Lesson kTenvinIkiEsreLesson = Lesson(
 );
 
 /// Book pages 44-46, "İKİ ESRELİ HARFLER": only the iki esre is blue
-/// (thick letters, şedde and other harekes black), as in the PDF.
+/// (şedde and other harekes black), as in the PDF.
+/// The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const ArabicColorProfile _tenvinEsreColors = ArabicColorProfile({
   ArabicPart.kasratan: arabicBlue,
 });
@@ -124,6 +125,7 @@ const ArabicColorProfile _tenvinEsreColors = ArabicColorProfile({
 const LessonPageLayout kTenvinIkiEsrePageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 44,
+    headingAudio: 's044_baslik_1',
     type: LessonPageType.lesson,
     kicker: 'İKİ ESRELİ',
     heading: 'HARFLER',

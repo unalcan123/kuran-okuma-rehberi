@@ -79,6 +79,8 @@ flutter:
     - assets/audio/elifba/ders_36_alistirmalar_3/
     - assets/audio/elifba/ders_37_alistirmalar_4/
     - assets/audio/oyunlar/
+    # Türkçe açıklama sesleri (tool/turkish_audio); dosyası olmayan açıklamada 🔊 görünmez
+    - assets/audio/tr/
     - assets/audio/sureler/01_fatiha/
     - assets/audio/sureler/02_fil/
     - assets/audio/sureler/03_kureys/
@@ -94,6 +96,7 @@ flutter:
     - assets/images/branding/
     - assets/images/backgrounds/
     - assets/images/elifba/
+    - assets/images/home/
     - assets/lazim/ders2icinsayfa_alti.png
     - assets/lazim/ders1.png
 

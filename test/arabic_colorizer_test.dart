@@ -124,11 +124,13 @@ void main() {
       expect(b.above, arabicRed);
     });
 
-    test('s. 15-16: üstün kırmızı, kalın harf SİYAH', () {
+    test("s. 15-16: üstün kırmızı; kalın harf PDF'de siyah ama global "
+        "kuralla kırmızı", () {
       for (final profile in [p15, p16]) {
         final plan = ArabicColorizer.plan('أَبَقَ', profile: profile);
         expect(plan.last.base, 'ق');
-        expect(plan.last.body, isNull);
+        expect(plan.last.body, arabicRed);
+        expect(plan[1].body, isNull);
         expect(plan.every((c) => c.above == arabicRed), isTrue);
       }
     });

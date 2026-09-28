@@ -101,6 +101,26 @@ Future<int> _expectNoColorOnLetters(
     tester,
     Text(stripArabicMarks(text), style: style),
   );
+  // The 7 thick letters' bodies are red on purpose (global rule): their
+  // pixels (and the anti-aliased edge next to them) may be colored.
+  final thick = await _grid(
+    tester,
+    ColoredArabicText(
+      stripArabicMarks(text),
+      style: style,
+      profile: ArabicColorProfile.none,
+    ),
+  );
+  bool onThickLetter(int x, int y) {
+    for (var dy = -1; dy <= 1; dy++) {
+      for (var dx = -1; dx <= 1; dx++) {
+        final yy = y + dy, xx = x + dx;
+        if (yy < 0 || yy >= _h || xx < 0 || xx >= _w) continue;
+        if (thick[yy][xx].isReddish) return true;
+      }
+    }
+    return false;
+  }
   final colored = await _grid(
     tester,
     ColoredArabicText(text, style: style, profile: profile),
@@ -110,6 +130,7 @@ Future<int> _expectNoColorOnLetters(
     for (var x = 0; x < _w; x++) {
       if (!colored[y][x].isColored) continue;
       count++;
+      if (onThickLetter(x, y)) continue;
       expect(
         letters[y][x].isInk,
         isFalse,
@@ -249,7 +270,7 @@ void main() {
       expect(_any(d, (p) => p.isGreenish), isTrue);
     });
 
-    testWidgets('kalın harf: s. 14 profilinde kırmızı, s. 15 profilinde siyah', (
+    testWidgets('kalın harf: her profilde kırmızı (s. 14, s. 15, hiçbiri)', (
       tester,
     ) async {
       final p14 = kUstunPageLayout.pages[0].colorProfile;
@@ -265,11 +286,13 @@ void main() {
         ColoredArabicText('ق', style: style, profile: p14),
       );
       expect(_any(a, (p) => p.isReddish), isTrue);
-      final b = await _grid(
-        tester,
-        ColoredArabicText('ق', style: style, profile: p15),
-      );
-      expect(_any(b, (p) => p.isColored), isFalse);
+      for (final profile in [p15, ArabicColorProfile.none]) {
+        final b = await _grid(
+          tester,
+          ColoredArabicText('ق', style: style, profile: profile),
+        );
+        expect(_any(b, (p) => p.isReddish), isTrue);
+      }
     });
 
     testWidgets('şedde + iki ötre: şedde mavi, tenvin yeşil', (tester) async {
@@ -318,14 +341,14 @@ void main() {
       const Directionality(
         textDirection: TextDirection.rtl,
         child: ColoredArabicText(
-          'قَ',
+          'بَ',
           style: style,
           profile: ArabicColorProfile.none,
         ),
       ),
     );
     await tester.pump();
-    expect(tester.widget<Text>(find.byType(Text)).data, 'قَ');
+    expect(tester.widget<Text>(find.byType(Text)).data, 'بَ');
     expect(
       find.descendant(
         of: find.byType(ColoredArabicText),

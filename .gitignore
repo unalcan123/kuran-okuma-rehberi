@@ -61,3 +61,16 @@ assets/lazim/Screenshot*
 
 # Kitapçık PDF'leri (telifli kaynak; herkese açık depoya girmesin)
 *.pdf
+
+# ElevenLabs API anahtarı (tool/turkish_audio): asla commit'lenmez
+.env
+.env.*
+*.json.tmp
+
+# Görsellerin büyük asılları / taslaklar (uygulama WebP'leri kullanır)
+/assets_src/
+
+# Kullanıcının eski ses kayıtları (kaynak, uygulamaya girmez)
+/sayfa 54 ses/
+
+__pycache__/

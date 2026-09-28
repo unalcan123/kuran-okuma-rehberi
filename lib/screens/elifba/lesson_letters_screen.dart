@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../data/book_highlights.dart';
+import '../../data/letters_data.dart';
 import '../../data/lesson_info_data.dart';
 import '../../helpers/lesson_color_scope.dart';
 import '../../models/arabic_letter.dart';
 import '../../models/lesson.dart';
 import '../../services/audio_service.dart';
 import '../../theme/app_colors.dart';
+import '../../widgets/lesson_kids_decoration.dart';
 import '../../widgets/reading_text_settings.dart';
 import 'lesson_view_mode.dart';
 import 'widgets/all_letters_grid.dart';
@@ -15,6 +17,7 @@ import 'widgets/book_page.dart';
 import 'widgets/lesson_mode_toggle.dart';
 import 'widgets/lesson_page_view.dart';
 import 'widgets/letter_forms_table.dart';
+import 'widgets/letter_page.dart';
 import 'widgets/single_letter_pager.dart';
 
 /// A lesson, in three views over the same [Lesson.letters]:
@@ -93,6 +96,23 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
     });
   }
 
+  bool get _isFormsTable => widget.lesson.id == 'harflerin-yazilislari';
+
+  /// The widest each view's content gets (the kids stand outside it).
+  double? _contentMaxWidth(LessonViewMode mode) => switch (mode) {
+    LessonViewMode.book =>
+      widget.lesson.pageLayout != null
+          ? LessonPageView.maxSheetWidth
+          : BookPage.maxContentWidth,
+    LessonViewMode.grid =>
+      _isFormsTable
+          ? LetterFormsTable.maxContentWidth
+          : AllLettersGrid.maxContentWidth,
+    // The letter / word may grow to 85 % of the screen (LetterPage).
+    LessonViewMode.single =>
+      MediaQuery.sizeOf(context).width * LetterPage.maxGlyphWidthFactor,
+  };
+
   void _showLessonInfo(LessonInfo info) {
     showDialog<void>(
       context: context,
@@ -144,7 +164,7 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
         onIndexChanged: (index) => setState(() => _currentPageIndex = index),
       ),
       LessonViewMode.grid =>
-        widget.lesson.id == 'harflerin-yazilislari'
+        _isFormsTable
             ? LetterFormsTable(
               letters: letters,
               onTapLetter: _playLetterSound,
@@ -215,7 +235,14 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
                     },
                   ),
                 ),
-                Expanded(child: view),
+                Expanded(
+                  // Decorative kids in the side margins (desktop/tablet).
+                  child: LessonKidsDecoration(
+                    contentMaxWidth: _contentMaxWidth(mode),
+                    lessonIndex: kElifbaLessons.indexOf(widget.lesson),
+                    child: view,
+                  ),
+                ),
               ],
             ),
           ),

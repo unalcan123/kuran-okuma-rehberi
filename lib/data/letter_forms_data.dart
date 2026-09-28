@@ -3,6 +3,7 @@ import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders2AudioDir = 'audio/elifba/ders_2_harfler';
 
@@ -650,12 +651,9 @@ const ArabicLetter kHemzeFormRow = ArabicLetter(
 
 /// Book pages 8-13 (in book order): s. 8 "LÂM - ELİF" (its shapes; لا is
 /// this lesson's item), s. 9 "SIRASIZ YAZILAN HARFLER" (the letters out of
-/// order, the 7 thick ones red), s. 10-13 "HARFLERİN BAŞTA, ORTADA, SONDA
+/// order, the 7 thick ones red by the global rule), s. 10-13 "HARFLERİN BAŞTA, ORTADA, SONDA
 /// YAZILIŞLARINA ÖRNEKLER" (the letter red; in the example words the
 /// letters the book prints red). Colors read from the PDF.
-const ArabicColorProfile _formsThickRed = ArabicColorProfile({
-  ArabicPart.thickLetter: arabicRed,
-});
 const ArabicColorProfile _formsLetterRed = ArabicColorProfile({
   ArabicPart.letter: arabicRed,
 });
@@ -663,6 +661,12 @@ const ArabicColorProfile _formsLetterRed = ArabicColorProfile({
 const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 8,
+    headingAudio: 's008_baslik_1',
+    introAudio: {
+      0: TrAudio('s008_01', 2),
+      2: TrAudio('s008_02', 2),
+      4: TrAudio('s008_03'),
+    },
     type: LessonPageType.lesson,
     heading: 'LÂM - ELİF',
     arabicHeading: 'لا',
@@ -682,6 +686,7 @@ const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
     sections: [
       BookSection(
         title: 'LÂM - ELİF ŞEKİLLERİ',
+        titleAudio: 's008_baslik_2',
         texts: ['لا', 'ـلا', 'لآ', 'ـلآ', 'لأ', 'ـلأ', 'لإ', 'ـلإ'],
         textItems: {0: 27},
         rowLabels: [
@@ -697,10 +702,11 @@ const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
   ),
   LessonBookPage(
     bookPage: 9,
+    headingAudio: 's009_baslik_1',
     type: LessonPageType.exercise,
     kicker: 'SIRASIZ YAZILAN',
     heading: 'HARFLER',
-    colorProfile: _formsThickRed,
+    colorProfile: ArabicColorProfile.none,
     sections: [
       BookSection(
         refs: [
@@ -713,6 +719,8 @@ const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
   ),
   LessonBookPage(
     bookPage: 10,
+    headingAudio: 's010_baslik_1',
+    introAudio: {0: TrAudio('s010_01'), 1: TrAudio('s010_02')},
     type: LessonPageType.lesson,
     kicker: 'HARFLERİN',
     heading: 'BAŞTA, ORTADA, SONDA YAZILIŞLARINA',

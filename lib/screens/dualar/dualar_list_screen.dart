@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../data/dualar_data.dart';
 import '../../models/dua.dart';
-import '../elifba/widgets/letter_page_background.dart';
+import '../../widgets/holy_places_background.dart';
 import 'dua_detail_screen.dart';
 import '../../widgets/recitation_card.dart';
 
@@ -49,7 +49,8 @@ class _DualarListScreenState extends State<DualarListScreen> {
         controller: _textScale,
         child: Stack(
           children: [
-            const LetterPageBackground(),
+            // Cute holy places (Kâbe, green dome, mosque), drawn in shapes.
+            const HolyPlacesBackground(contentWidth: _maxContentWidth),
             Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: _maxContentWidth),

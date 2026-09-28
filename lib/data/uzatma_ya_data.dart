@@ -3,6 +3,7 @@ import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders13AudioDir = 'audio/elifba/ders_13_uzatma_ya';
 
@@ -49,10 +50,13 @@ final Lesson kUzatmaYaLesson = Lesson(
 );
 
 /// Book page 34, "YÂ": each letter with esre before a med yâ. Only the med
-/// yâ is blue (esre and thick letters black), as in the PDF.
+/// yâ is blue (esre black), as in the PDF.
+/// The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const LessonPageLayout kUzatmaYaPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 34,
+    headingAudio: 's034_baslik_1',
+    introAudio: {0: TrAudio('s034_01', 2)},
     type: LessonPageType.lesson,
     heading: 'YÂ',
     arabicHeading: '( ى )',

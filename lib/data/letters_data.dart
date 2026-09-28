@@ -38,6 +38,7 @@ import 'uzatma_ya_alistirmalar_data.dart';
 import 'uzatma_ya_data.dart';
 import 'zamir_he_uzatilmasi_data.dart';
 import 'zamir_he_uzatma_med_data.dart';
+import '../models/turkish_audio.dart';
 
 // audioplayers' AudioCache already prepends "assets/" by default, so
 // this must be relative to the assets folder, not repeat it.
@@ -275,11 +276,9 @@ final List<Lesson> kElifbaLessons = [
 
 /// Book pages 3-7 (in book order): s. 3-5 "HARFLERİN ÇIKIŞ YERLERİ" (text
 /// and the mahreç drawing), s. 6 "HARFLER" (the 28 letters, the 7 thick
-/// ones red), s. 7 "HARFLERİN YAZILIŞ VE OKUNUŞLARI" (each letter's name;
-/// the thick letters' names wholly red). Colors read from the PDF.
-const ArabicColorProfile _thickRed = ArabicColorProfile({
-  ArabicPart.thickLetter: arabicRed,
-});
+/// ones red — the global rule, see `thickArabicLetters`), s. 7 "HARFLERİN
+/// YAZILIŞ VE OKUNUŞLARI" (each letter's name; the thick letters' names
+/// wholly red). Colors read from the PDF.
 const ArabicColorProfile _wholeRed = ArabicColorProfile({
   ArabicPart.letter: arabicRed,
   ArabicPart.fatha: arabicRed,
@@ -289,6 +288,22 @@ const ArabicColorProfile _wholeRed = ArabicColorProfile({
 const LessonPageLayout kHarfleriTaniyalimPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 3,
+    headingAudio: 's003_baslik_1',
+    introAudio: {
+      0: TrAudio('s003_01'),
+      1: TrAudio('s003_02', 2),
+      3: TrAudio('s003_baslik_2'),
+      4: TrAudio('s003_03'),
+      5: TrAudio('s003_04'),
+      6: TrAudio('s003_05'),
+      7: TrAudio('s003_baslik_3'),
+      8: TrAudio('s003_06'),
+      9: TrAudio('s003_07'),
+      10: TrAudio('s003_08'),
+      11: TrAudio('s003_09'),
+      12: TrAudio('s003_10'),
+      13: TrAudio('s003_11'),
+    },
     type: LessonPageType.info,
     heading: 'HARFLERİN ÇIKIŞ YERLERİ',
     headerImage: 'assets/images/elifba/harflerin_cikis_yerleri_header.png',
@@ -319,6 +334,19 @@ const LessonPageLayout kHarfleriTaniyalimPageLayout = LessonPageLayout([
   ),
   LessonBookPage(
     bookPage: 4,
+    introAudio: {
+      0: TrAudio('s004_01'),
+      1: TrAudio('s004_02'),
+      2: TrAudio('s004_03'),
+      3: TrAudio('s004_04'),
+      4: TrAudio('s004_05'),
+      5: TrAudio('s004_06'),
+      6: TrAudio('s004_baslik_1'),
+      7: TrAudio('s004_07'),
+      8: TrAudio('s004_08'),
+      9: TrAudio('s004_09', 2),
+      11: TrAudio('s004_10', 2),
+    },
     type: LessonPageType.info,
     intro: [
       '( «ر» ) Dildeki çıkış noktası, dil üstünün uca yakın kısmıdır. Dil '
@@ -364,19 +392,22 @@ const LessonPageLayout kHarfleriTaniyalimPageLayout = LessonPageLayout([
   ),
   LessonBookPage(
     bookPage: 6,
+    headingAudio: 's006_baslik_1',
+    introAudio: {0: TrAudio('s006_01', 3)},
     type: LessonPageType.lesson,
     heading: 'HARFLER',
     intro: [
-      '- Kur’ân-ı Kerîm harfleri “28” tanedir.',
-      '- Bunların “7”’si kalın, “21”’i de ince harf olarak kabul edilir.',
+      '- Kur’ân-ı Kerîm harfleri «28» tanedir.',
+      '- Bunların «7»’si kalın, «21»’i de ince harf olarak kabul edilir.',
       '- Kalın harfler şunlardır: «﴾ خ ص ض ط ظ غ ق ﴿»',
     ],
     itemCount: 28,
     columns: 4,
-    colorProfile: _thickRed,
+    colorProfile: ArabicColorProfile.none,
   ),
   LessonBookPage(
     bookPage: 7,
+    headingAudio: 's007_baslik_1',
     type: LessonPageType.lesson,
     kicker: 'HARFLERİN',
     heading: 'YAZILIŞ VE OKUNUŞLARI',

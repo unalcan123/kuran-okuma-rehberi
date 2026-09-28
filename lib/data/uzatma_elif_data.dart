@@ -3,6 +3,7 @@ import '../models/lesson.dart';
 import '../models/lesson_page_layout.dart';
 import '../helpers/haraka_colors.dart';
 import '../helpers/arabic_colorizer.dart';
+import '../models/turkish_audio.dart';
 
 const String _ders11AudioDir = 'audio/elifba/ders_11_uzatma_elif';
 
@@ -49,11 +50,13 @@ final Lesson kUzatmaElifLesson = Lesson(
 );
 
 /// Book page 32, "UZATMA HARFLERİ – ELİF": each letter with üstün before a
-/// med elif. Only the med elif is red (üstün and thick letters black), as
-/// in the PDF.
+/// med elif. Only the med elif is red (üstün black), as in the PDF.
+/// The 7 thick letters are red everywhere (global rule, `thickArabicLetters`), whatever the PDF prints.
 const LessonPageLayout kUzatmaElifPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 32,
+    headingAudio: 's032_baslik_1',
+    introAudio: {0: TrAudio('s032_01'), 1: TrAudio('s032_02')},
     type: LessonPageType.lesson,
     kicker: 'UZATMA HARFLERİ',
     heading: 'ELİF',

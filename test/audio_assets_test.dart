@@ -13,7 +13,10 @@ void main() {
   final all =
       Directory(
         'assets/audio',
-      ).listSync(recursive: true).whereType<File>().toList()
+      ).listSync(recursive: true).whereType<File>()
+        // Hidden placeholder files (e.g. .gitkeep) are not sounds.
+        .where((f) => !_norm(f.path).split('/').last.startsWith('.'))
+        .toList()
         ..sort((a, b) => _norm(a.path).compareTo(_norm(b.path)));
   final files = all.where((f) => f.path.endsWith('.mp3')).toList();
 

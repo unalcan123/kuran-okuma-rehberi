@@ -1,12 +1,14 @@
+import '../../../widgets/lesson_grid_background.dart';
 import '../../../widgets/reading_text_settings.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../../helpers/arabic_colorizer.dart';
+import '../../../helpers/colored_arabic_text.dart';
 import '../../../models/arabic_letter.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
-import 'letter_page_background.dart';
 
 /// Viewport-sized reading layout for positional forms, separate from the grid.
 class LetterFormsPage extends StatelessWidget {
@@ -25,7 +27,9 @@ class LetterFormsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const LetterPageBackground(),
+        // Children's-book sky (clouds, butterflies, bees, a bunny) at the
+        // edges; the letter stands on the calm middle.
+        const LessonGridBackground(),
         SafeArea(
           child: Center(
             child: ConstrainedBox(
@@ -254,9 +258,10 @@ class _FormTile extends StatelessWidget {
     );
     Widget arabic(String value, double size, Color color) => ReadingFittedBox(
       fit: BoxFit.scaleDown,
-      child: Text(
+      child: ColoredArabicText(
         value,
         textDirection: TextDirection.rtl,
+        profile: ArabicColorProfile.none,
         style: AppTextTheme.arabicSmall(
           fontSize: size,
         ).copyWith(color: color, height: 1.25),
