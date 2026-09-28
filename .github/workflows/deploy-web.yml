@@ -30,10 +30,10 @@ jobs:
       - run: flutter analyze
       - run: flutter test
 
-      # Alan adı alınınca: Settings > Secrets and variables > Actions > Variables
-      # içine WEB_BASE_HREF = / ekle (özel alan adı kökten yayınlar).
+      # Site özel alan adından (https://elifbe.nl/) kökten yayınlanır; base href "/".
+      # Eski github.io/kuran-okuma-rehberi/ adresi GitHub tarafından elifbe.nl'ye yönlendirilir.
       - name: Web derle
-        run: flutter build web --release --base-href "${{ vars.WEB_BASE_HREF || format('/{0}/', github.event.repository.name) }}"
+        run: flutter build web --release --base-href /
 
       - uses: actions/upload-pages-artifact@v3
         with:
