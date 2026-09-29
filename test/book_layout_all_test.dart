@@ -15,7 +15,7 @@ import 'book_pages_test.dart' show RecordingAudio, app, setSize;
 void main() {
   test('every lesson has book pages; their numbers run 3-63 in order', () {
     var last = 0;
-    for (final lesson in kElifbaLessons) {
+    for (final lesson in kElifbaAllLessons) {
       final layout = lesson.pageLayout;
       final pages = layout != null
           ? layout.pages.map((p) => p.bookPage).toList()
@@ -43,7 +43,7 @@ void main() {
 
   test('every book page of s. 3-63 belongs to a lesson', () {
     final pages = <int>{};
-    for (final lesson in kElifbaLessons) {
+    for (final lesson in kElifbaAllLessons) {
       final layout = lesson.pageLayout;
       if (layout != null) {
         pages.addAll(layout.pages.map((p) => p.bookPage));
@@ -60,7 +60,7 @@ void main() {
   for (final size in const [Size(360, 800), Size(800, 360), Size(1280, 800)]) {
     testWidgets('$size: every lesson, every page, three views', (tester) async {
       setSize(tester, size);
-      for (final lesson in kElifbaLessons) {
+      for (final lesson in kElifbaAllLessons) {
         await tester.pumpWidget(const SizedBox());
         await tester.pumpWidget(app(RecordingAudio(), lesson));
         await tester.pumpAndSettle();
@@ -83,6 +83,11 @@ void main() {
               await tester.pumpAndSettle();
             }
           }
+        }
+        // The Giriş has pages only: no Grid / Tekli.
+        if (lesson.letters.isEmpty) {
+          expect(find.text('▦ Grid'), findsNothing);
+          continue;
         }
         await tester.tap(find.text('▦ Grid'));
         await tester.pumpAndSettle();

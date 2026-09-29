@@ -7,6 +7,7 @@ import '../../data/lesson_info_data.dart';
 import '../../helpers/lesson_color_scope.dart';
 import '../../models/arabic_letter.dart';
 import '../../models/lesson.dart';
+import '../../models/lesson_position.dart';
 import '../../services/audio_service.dart';
 import '../../theme/app_colors.dart';
 import '../../widgets/lesson_kids_decoration.dart';
@@ -14,6 +15,7 @@ import '../../widgets/reading_text_settings.dart';
 import 'lesson_view_mode.dart';
 import 'widgets/all_letters_grid.dart';
 import 'widgets/book_page.dart';
+import 'widgets/lesson_grid_pager.dart';
 import 'widgets/lesson_mode_toggle.dart';
 import 'widgets/lesson_page_view.dart';
 import 'widgets/letter_forms_table.dart';
@@ -24,8 +26,11 @@ import 'widgets/single_letter_pager.dart';
 /// - "Sayfa" (default, every time the lesson opens): the lesson's pages as
 ///   in the book — [LessonPageView] from [Lesson.pageLayout], or for Ders
 ///   23-30 the explanation page [BookPage];
-/// - "Grid": the classic cards ([AllLettersGrid]; Ders 2 its forms table);
+/// - "Grid": the classic cards ([AllLettersGrid]; Ders 2 its forms table),
+///   book page by book page ([LessonGridPager]) when the lesson has pages;
 /// - "Tekli / Büyük": one item at a time ([SingleLetterPager]).
+/// All pages turn right to left like the book ([BookPager]). The three views
+/// share one [LessonPosition] (active book page and item).
 /// Colors come from the item's book page ([LessonColorScope]) in all three.
 class LessonLettersScreen extends StatefulWidget {
   final Lesson lesson;
@@ -48,25 +53,27 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
   bool get _hasBookPage => kBookPageHeadings.containsKey(widget.lesson.id);
 
   LessonViewMode _mode = LessonViewMode.book;
-  late int _singleLetterIndex = widget.initialIndex;
-  late int _currentPageIndex = widget.initialIndex;
 
-  /// Book page shown in the "Sayfa" view (index in the lesson's pages).
-  int _bookPage = 0;
+  /// The active book page and item, shared by the three views (each view
+  /// opens where the student was in the other).
+  late final LessonPosition _position = LessonPosition(
+    widget.lesson.pageLayout,
+    item: widget.initialIndex == 0 ? null : widget.initialIndex,
+  );
 
   @override
   void initState() {
     super.initState();
     // Fetch the whole lesson's sounds now so taps play without waiting.
-    context.read<AudioService>().preload(
-      widget.lesson.letters.map((letter) => letter.audioAsset),
-    );
+    context.read<AudioService>().preload([
+      ...widget.lesson.letters.map((letter) => letter.audioAsset),
+      ...?widget.lesson.pageLayout?.extraAudioAssets,
+    ]);
   }
 
   void _openSingleLetter(int index) {
     setState(() {
-      _singleLetterIndex = index;
-      _currentPageIndex = index;
+      _position.showItem(index);
       _mode = LessonViewMode.single;
     });
   }
@@ -81,20 +88,9 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
     super.dispose();
   }
 
-  void _changeMode(LessonViewMode mode) {
-    setState(() {
-      // "Tekli / Büyük" opens where the student last was.
-      if (mode == LessonViewMode.single) _singleLetterIndex = _currentPageIndex;
-      // Back on "Sayfa": the page with the item the student was looking at.
-      final layout = widget.lesson.pageLayout;
-      if (mode == LessonViewMode.book &&
-          layout != null &&
-          _mode == LessonViewMode.single) {
-        _bookPage = layout.pageIndexOf(_currentPageIndex);
-      }
-      _mode = mode;
-    });
-  }
+  /// The views read [_position] when they open, so switching keeps the
+  /// book page (Sayfa <-> Grid) and the item (<-> Tekli / Büyük).
+  void _changeMode(LessonViewMode mode) => setState(() => _mode = mode);
 
   bool get _isFormsTable => widget.lesson.id == 'harflerin-yazilislari';
 
@@ -126,12 +122,8 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
       return LessonPageView(
         letters: widget.lesson.letters,
         layout: layout,
-        initialPage: _bookPage,
-        onPageChanged: (page) {
-          // Tekli / Büyük opens on this page.
-          _bookPage = page;
-          _currentPageIndex = layout.firstItemOf(page);
-        },
+        initialPage: _position.page,
+        onPageChanged: _position.showPage,
         onTapLetter: _playLetterSound,
         onOpenLetter: _openSingleLetter,
       );
@@ -146,22 +138,37 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
   @override
   Widget build(BuildContext context) {
     final letters = widget.lesson.letters;
+    final layout = widget.lesson.pageLayout;
     final info = kLessonInfo[widget.lesson.id];
-    final hasPage =
-        widget.lesson.pageLayout != null || (_hasBookPage && info != null);
+    final hasPage = layout != null || (_hasBookPage && info != null);
+    // The Giriş has pages only (nothing to list or show one by one).
+    final pagesOnly = letters.isEmpty && hasPage;
     final mode =
-        hasPage
+        pagesOnly
+            ? LessonViewMode.book
+            : hasPage
             ? _mode
             : (_mode == LessonViewMode.book ? LessonViewMode.grid : _mode);
 
     final Widget view = switch (mode) {
       LessonViewMode.book => _pageView(info),
       LessonViewMode.single => SingleLetterPager(
-        key: ValueKey('single-$_singleLetterIndex'),
+        // Opened fresh from the other views; swiping must not rebuild it.
+        key: const ValueKey('single'),
         letters: letters,
-        initialIndex: _singleLetterIndex,
+        initialIndex: _position.item,
         showCounter: true,
-        onIndexChanged: (index) => setState(() => _currentPageIndex = index),
+        pageLabelOf: _position.pageLabelOf,
+        onIndexChanged: (index) => setState(() => _position.showItem(index)),
+      ),
+      LessonViewMode.grid when layout != null => LessonGridPager(
+        letters: letters,
+        layout: layout,
+        initialPage: _position.page,
+        onPageChanged: _position.showPage,
+        formsTable: _isFormsTable,
+        onTapLetter: _playLetterSound,
+        onOpenLetter: _openSingleLetter,
       ),
       LessonViewMode.grid =>
         _isFormsTable
@@ -178,12 +185,16 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
     };
 
     return Scaffold(
+      // The title bar and the Sayfa / Grid / Tekli selector are part of the
+      // scrolling content, not fixed: scrolling the page up moves them off
+      // the screen (more room for the book); they come back only when the
+      // page is scrolled back to its top.
       body: NestedScrollView(
-        floatHeaderSlivers: true,
+        key: const ValueKey('lesson-scroll'),
         headerSliverBuilder:
             (context, innerBoxIsScrolled) => [
               SliverAppBar(
-                floating: true,
+                floating: false,
                 pinned: false,
                 forceElevated: innerBoxIsScrolled,
                 toolbarHeight: 48,
@@ -216,34 +227,32 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
                     ),
                 ],
               ),
+              if (!pagesOnly)
+                SliverToBoxAdapter(
+                  key: const ValueKey('lesson-mode-header'),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+                    child: LessonModeToggle(
+                      mode: mode,
+                      onChanged: _changeMode,
+                      segments: {
+                        if (hasPage) LessonViewMode.book: '📖 Sayfa',
+                        LessonViewMode.grid: '▦ Grid',
+                        LessonViewMode.single: '🔎 Tekli / Büyük',
+                      },
+                    ),
+                  ),
+                ),
             ],
         body: ReadingTextScale(
           controller: _textScale,
           child: LessonColorScope(
             lesson: widget.lesson,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
-                  child: LessonModeToggle(
-                    mode: mode,
-                    onChanged: _changeMode,
-                    segments: {
-                      if (hasPage) LessonViewMode.book: '📖 Sayfa',
-                      LessonViewMode.grid: '▦ Grid',
-                      LessonViewMode.single: '🔎 Tekli / Büyük',
-                    },
-                  ),
-                ),
-                Expanded(
-                  // Decorative kids in the side margins (desktop/tablet).
-                  child: LessonKidsDecoration(
-                    contentMaxWidth: _contentMaxWidth(mode),
-                    lessonIndex: kElifbaLessons.indexOf(widget.lesson),
-                    child: view,
-                  ),
-                ),
-              ],
+            // Decorative kids in the side margins (desktop/tablet).
+            child: LessonKidsDecoration(
+              contentMaxWidth: _contentMaxWidth(mode),
+              lessonIndex: kElifbaLessons.indexOf(widget.lesson),
+              child: view,
             ),
           ),
         ),
@@ -324,7 +333,7 @@ class _LessonInfoDialog extends StatelessWidget {
                 Flexible(
                   child: SingleChildScrollView(
                     child: Text.rich(
-                      TextSpan(children: info.body),
+                      TextSpan(children: info.summary),
                       style: Theme.of(
                         context,
                       ).textTheme.bodyLarge?.copyWith(height: 1.5),

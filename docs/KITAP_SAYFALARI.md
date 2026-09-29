@@ -12,11 +12,11 @@ sayfası), **Alıştırma** (kitapta "ALIŞTIRMALAR"), **Bilgi** (okunacak öğe
 |---|---|---|---|---|
 | 1 | Künye | – | – | eğitim dışı |
 | 2 | Ayet, hadis, açıklama | Bilgi | – | |
-| 3–4 | Harflerin Çıkış Yerleri (Mahreç) | Konu | – (veri yok) | Ders 6 bu sayfalar değil, s. 23 |
-| 5 | Mahreç şeması (çizim) | Bilgi | – | |
-| 6 | HARFLER (28 harf, kalın harfler) | Konu | Ders 1 `letters_data` (28) | Kitap Modu `LessonOneBook` |
-| 7 | Harflerin Yazılış ve Okunuşları (أَلِفْ بَا تَا…) | Konu | – (veri yok) | |
-| 8 | LÂM-ELİF (şekiller tablosu) | Konu | kısmen: Ders 2'deki `لا` | |
+| 3–4 | Harflerin Çıkış Yerleri (Mahreç) | Bilgi | **GİRİŞ** `kCikisYerleriGirisLesson` (öğe yok) | ders değil, numarasız; Ders 6 bu sayfalar değil, s. 23 |
+| 5 | Mahreç şeması (çizim) | Bilgi | **GİRİŞ** | |
+| 6 | HARFLER (28 harf, kalın harfler) | Konu | Ders 1 `letters_data` (28), 1. sayfa | |
+| 7 | Harflerin Yazılış ve Okunuşları (أَلِفْ بَا تَا…) | Konu | Ders 1, 2. sayfa (aynı 28 öğe, adlarıyla) | |
+| 8 | LÂM-ELİF (şekiller tablosu) | Konu | Ders 2 `لا` + şekil sesleri `kLamElifShapeAudio` | her satır kendi kaydı (eski uygulama LINE 1_5.201-204) |
 | 9 | Sırasız Yazılan Harfler | Alıştırma | – (veri yok) | |
 | 10–13 | Harflerin Başta/Ortada/Sonda Yazılışları | Konu | Ders 2 `letter_forms_data` (29) | |
 | **14** | **HAREKELER – ÜSTÜN** | **Konu** | **Ders 3 `ustun_data` 1–28** | **pilot, uygulandı** |

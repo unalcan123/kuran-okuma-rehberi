@@ -14,6 +14,7 @@ import 'services/game_score_store.dart';
 import 'services/leaderboard/firebase_leaderboard_backend.dart';
 import 'services/leaderboard/leaderboard_backend.dart';
 import 'services/leaderboard/leaderboard_service.dart';
+import 'services/reading_settings.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +25,8 @@ void main() {
     games: kOnlineLeaderboardGames,
   );
   unawaited(leaderboard.init());
+  // Sure/dua okuma ayarları (yazı boyutu, hız, meal, tekrar…) cihazdan.
+  unawaited(ReadingSettings.instance.ensureLoaded());
 
   runApp(
     MultiProvider(

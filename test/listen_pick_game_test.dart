@@ -377,7 +377,10 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(ListenPickLessonsScreen), findsOneWidget);
     expect(find.text('Hangi dersten sorular gelsin?'), findsOneWidget);
-    await tester.tap(find.text(kElifbaLessons.first.title));
+    // Picture card: the title is in the picture, not written again.
+    await tester.tap(
+      find.byKey(ValueKey('lesson-card-${kElifbaLessons.first.id}')),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(ListenPickScreen), findsOneWidget);
     expect(find.text('1 / 5'), findsOneWidget);

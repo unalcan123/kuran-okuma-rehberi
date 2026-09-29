@@ -108,7 +108,7 @@ void main() {
         expect(e['lessonId'], t.lessonId, reason: t.id);
       }
       expect(
-        kElifbaLessons.map((l) => l.id),
+        kElifbaAllLessons.map((l) => l.id),
         containsAll(entries.map((e) => e['lessonId']).toSet()),
       );
     });
@@ -359,7 +359,7 @@ void main() {
       TurkishAudioCatalog.debugSetAvailable(all);
       final seen = <String>{};
       final lessonIds = {for (final e in _entries()) e['lessonId'] as String};
-      for (final Lesson lesson in kElifbaLessons.where(
+      for (final Lesson lesson in kElifbaAllLessons.where(
         (l) => lessonIds.contains(l.id),
       )) {
         // A new screen per lesson, as when it is opened from the menu.

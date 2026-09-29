@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../../helpers/arabic_colorizer.dart';
@@ -13,6 +12,7 @@ import '../../../models/turkish_audio.dart';
 import '../../../services/audio_service.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
+import '../../../widgets/book_pager.dart';
 import '../../../widgets/reading_text_settings.dart';
 import '../../../widgets/turkish_audio_block.dart';
 import 'letter_page_background.dart';
@@ -20,8 +20,8 @@ import 'letter_page_background.dart';
 /// The "Sayfa Görünümü": the lesson's pages as printed in the book, one at
 /// a time and in book order — heading, explanation, the items in the book's
 /// table of dashed cells (read right to left) and the book's page number.
-/// Move between pages with the bar at the bottom, a swipe (left = next) or
-/// the ← → keys.
+/// Move between pages with the bar at the bottom, a swipe (left → right =
+/// next, like the Arabic book) or the ← → keys — see [BookPager].
 ///
 /// Items are the lesson's own [letters] (the same list the Grid and
 /// "Tekli / Büyük" views show); [layout] says which of them each page shows,
@@ -57,119 +57,97 @@ class _LessonPageViewState extends State<LessonPageView> {
     initialPage: widget.initialPage,
   );
   late int _page = widget.initialPage;
-  final FocusNode _focusNode = FocusNode();
 
   List<LessonBookPage> get _pages => widget.layout.pages;
 
   @override
   void dispose() {
     _controller.dispose();
-    _focusNode.dispose();
     super.dispose();
   }
 
   void _goTo(int page) {
     if (page < 0 || page >= _pages.length) return;
-    _controller.animateToPage(
-      page,
-      duration: const Duration(milliseconds: 280),
-      curve: Curves.easeOutCubic,
-    );
-  }
-
-  KeyEventResult _handleKey(FocusNode node, KeyEvent event) {
-    if (event is! KeyDownEvent) return KeyEventResult.ignored;
-    if (event.logicalKey == LogicalKeyboardKey.arrowRight) {
-      _goTo(_page + 1);
-      return KeyEventResult.handled;
-    }
-    if (event.logicalKey == LogicalKeyboardKey.arrowLeft) {
-      _goTo(_page - 1);
-      return KeyEventResult.handled;
-    }
-    return KeyEventResult.ignored;
+    BookPager.turnTo(_controller, page);
   }
 
   @override
   Widget build(BuildContext context) {
     final letters = widget.letters;
-    return Stack(
+    return Column(
       children: [
-        const LetterPageBackground(),
-        Column(
-          children: [
-            Expanded(
-              child: Focus(
-                focusNode: _focusNode,
-                autofocus: true,
-                onKeyEvent: _handleKey,
-                child: PageView.builder(
-                  controller: _controller,
-                  itemCount: _pages.length,
-                  onPageChanged: (page) {
-                    setState(() => _page = page);
-                    widget.onPageChanged?.call(page);
-                  },
-                  itemBuilder: (context, index) {
-                    final start = widget.layout.firstItemOf(index);
-                    final end = math.min(
-                      start + _pages[index].totalItems,
-                      letters.length,
-                    );
-                    return LayoutBuilder(
-                      builder: (context, constraints) {
-                        final narrow = constraints.maxWidth < 480;
-                        return SingleChildScrollView(
-                          key: PageStorageKey('book-page-$index'),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: narrow ? 8 : 20,
-                            vertical: 12,
+        Expanded(
+          child: BookPager(
+            controller: _controller,
+            itemCount: _pages.length,
+            pageBackground: const LetterPageBackground(),
+            onPageChanged: (page) {
+              setState(() => _page = page);
+              widget.onPageChanged?.call(page);
+            },
+            itemBuilder: (context, index) {
+              final start = widget.layout.firstItemOf(index);
+              final end = math.min(
+                start + _pages[index].totalItems,
+                letters.length,
+              );
+              return LayoutBuilder(
+                builder: (context, constraints) {
+                  final narrow = constraints.maxWidth < 480;
+                  return SingleChildScrollView(
+                    key: PageStorageKey('book-page-$index'),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: narrow ? 8 : 20,
+                      vertical: 12,
+                    ),
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxWidth: LessonPageView.maxSheetWidth,
+                        ),
+                        child: _BookSheet(
+                          page: _pages[index],
+                          allLetters: letters,
+                          items: letters.sublist(
+                            math.min(start, letters.length),
+                            end,
                           ),
-                          child: Center(
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                maxWidth: LessonPageView.maxSheetWidth,
-                              ),
-                              child: _BookSheet(
-                                page: _pages[index],
-                                allLetters: letters,
-                                items: letters.sublist(start, end),
-                                firstIndex: start,
-                                onTapLetter: widget.onTapLetter,
-                                onOpenLetter: widget.onOpenLetter,
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-              ),
-            ),
-            _PageBar(
-              page: _pages[_page],
-              index: _page,
-              count: _pages.length,
-              onPrevious: _page > 0 ? () => _goTo(_page - 1) : null,
-              onNext: _page < _pages.length - 1 ? () => _goTo(_page + 1) : null,
-            ),
-          ],
+                          firstIndex: start,
+                          onTapLetter: widget.onTapLetter,
+                          onOpenLetter: widget.onOpenLetter,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
+        BookPageBar(
+          page: _pages[_page],
+          index: _page,
+          count: _pages.length,
+          onPrevious: _page > 0 ? () => _goTo(_page - 1) : null,
+          onNext: _page < _pages.length - 1 ? () => _goTo(_page + 1) : null,
         ),
       ],
     );
   }
 }
 
-/// "‹ Önceki Sayfa   Sayfa 14 · Konu · 1 / 3   Sonraki Sayfa ›"
-class _PageBar extends StatelessWidget {
+/// The bar under a paged lesson view (Sayfa and Grid), laid out like the
+/// book's direction — the next page is on the left:
+/// "‹ Sonraki Sayfa   Sayfa 14 · Konu · 1 / 3   Önceki Sayfa ›".
+class BookPageBar extends StatelessWidget {
   final LessonBookPage page;
   final int index;
   final int count;
   final VoidCallback? onPrevious;
   final VoidCallback? onNext;
 
-  const _PageBar({
+  const BookPageBar({
+    super.key,
     required this.page,
     required this.index,
     required this.count,
@@ -191,10 +169,10 @@ class _PageBar extends StatelessWidget {
               textDirection: TextDirection.ltr,
               children: [
                 TextButton.icon(
-                  key: const ValueKey('page-previous'),
-                  onPressed: onPrevious,
+                  key: const ValueKey('page-next'),
+                  onPressed: onNext,
                   icon: const Icon(Icons.chevron_left_rounded),
-                  label: const Text('Önceki Sayfa'),
+                  label: const Text('Sonraki Sayfa'),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -222,12 +200,12 @@ class _PageBar extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  key: const ValueKey('page-next'),
-                  onPressed: onNext,
+                  key: const ValueKey('page-previous'),
+                  onPressed: onPrevious,
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('Sonraki Sayfa'),
+                      Text('Önceki Sayfa'),
                       SizedBox(width: 8),
                       Icon(Icons.chevron_right_rounded),
                     ],
@@ -770,8 +748,13 @@ class _SectionView extends StatelessWidget {
         final item = section.textItems[i];
         cells.add(
           _CellSpec(
-            letter: item == null ? null : allLetters[item],
+            // A cell's own recording (s. 8: each Lâm-Elif shape) wins over
+            // the item's.
+            letter:
+                section.textAudio[i] ??
+                (item == null ? null : allLetters[item]),
             index: item,
+            key: 'book-text-cell-$i',
             text: texts[i],
             profile: profileOf(i),
           ),
@@ -1305,9 +1288,13 @@ class _CellSpec {
   /// A Turkish label instead of Arabic (s. 8's last column).
   final String? label;
 
+  /// Key of the cell's tap target when not the item's (`book-cell-<index>`).
+  final String? key;
+
   const _CellSpec({
     this.letter,
     this.index,
+    this.key,
     required this.text,
     required this.profile,
     this.frame,
@@ -1378,9 +1365,10 @@ class _BookCell extends StatelessWidget {
           color: playing ? AppColors.turquoiseSoft : Colors.transparent,
           child: InkWell(
             key: ValueKey(
-              spec.index == null
-                  ? 'book-derived-cell-${letter.audioAsset}'
-                  : 'book-cell-${spec.index}',
+              spec.key ??
+                  (spec.index == null
+                      ? 'book-derived-cell-${letter.audioAsset}'
+                      : 'book-cell-${spec.index}'),
             ),
             onTap: () => onTap(letter),
             onLongPress: spec.index == null ? null : () => onOpen(spec.index!),

@@ -23,7 +23,7 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - Tema: `lib/theme` (`AppColors`: krem, turkuaz, adaçayı, lacivert, altın; Arapça için
   Hasenat fontu `AppTextTheme`), breakpoint'ler `lib/core/responsive.dart`.
 - Sakin eğitim uygulaması: arcade/neon yok, çocuğu cezalandıran geri bildirim yok.
-- **Ana sayfa**: 4 kart 2×2 grid (içerik < 280 px ise tek sütun), hücreler 4:3 = kart görsellerinin oranı
+- **Ana sayfa**: 4 kart; telefonda (ekran < 600 px, `AppBreakpoints.mobile`) **tek sütun**, 600 px'ten 2×2 (`HomeScreen.columnsFor`), hücreler 4:3 = kart görsellerinin oranı
   (`HomeMenuItem.image`, `assets/images/home/*.webp`, her biri < 200 KB; PNG asılları `assets_src/home/`,
   pakete girmez; görselli kartta başlık yazılmaz). Sıra: Rehber, Dualar,
   Sureler, Oyunlar. Test: `test/home_grid_test.dart`. Ders **Grid** arka planı `LessonGridBackground`
@@ -33,9 +33,41 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   kenarında süs çocuklar `LessonKidsDecoration` (yalnız boş kenarda; masaüstü 2, tablet 1, telefon 0;
   görseller `assets/images/kids/*.webp` gelince görünür). Eski `D:\Elifbe2025` foto kartları kullanılmaz
   (gerçek fotoğraf/telif).
+- **Bize Ulaşın** (`lib/screens/iletisim/contact_screen.dart`): ana sayfada kartların altında; mesaj
+  `url_launcher` ile e-posta uygulamasında hazır açılır (alıcı `kContactEmail` = fluttercanpolat@gmail.com,
+  resim orada ataçla eklenir; uygulama açılamazsa adres kopyalanır). Test: `test/contact_screen_test.dart`.
+- **Sure/Dua okuma ekranı ortak** (`lib/widgets/reading/`): `ReadingScreen` + `ReadingSegment` (sure: besmele +
+  ayetler, veri sırasıyla; dua: bölümler), motor `ReadingPlaybackController` (tek `AudioService`, klip klip;
+  Ayet Ayet / Karışık / Sadece Dinle, tekrar 1-10, bekleme, metni gizle), ayarlar `ReadingSettings`
+  (SharedPreferences `reading.*`; Arapça varsayılan %130 = eski 30/42/46 × 1.3, meal varsayılan kapalı,
+  hız 0.75-1.25 `AudioService.setPlaybackRate`, ekrandan çıkınca 1.0). Sahne görseli `assets/images/reading/`
+  (tasarım taslağından kırpıldı, `tool/crop_lesson_cards.py`). Test: `test/reading_screen_test.dart`.
 - Sağ üstteki yazı boyutu ayarı büyüdükçe harf/sure/dua ızgaralarında sütunlar **birer birer** azalır (kartın asgari genişliği yazı boyutuyla çarpılır; tek sütuna atlamaz). Test: `test/reading_columns_test.dart`.
 - Elifba harf kartı: dokununca ses, **basılı tutunca** Tek Harf sayfası (çift dokunma yok; onDoubleTap tek dokunuşu geciktirir). Test: `test/letter_card_gesture_test.dart`.
-- **Ders 23-30 kitap sayfası gibi açılır** (`BookPage`, `lib/screens/elifba/widgets/book_page.dart`; başlıklar `kBookPageHeadings`): kitaptaki açıklama metni + örnek tabloları, kelimeye dokununca ses. Metin `lib/data/lesson_info_data.dart` (ⓘ penceresi aynı içeriği gösterir); "Durulduğunda / Geçildiğinde" tabloları `WaqfExamplesTable` (Ders 29-30), kelime ızgaraları `WordGridTable` (Ders 23-28, kırmızı işaret kuralları `lib/models/word_highlight.dart`). Örnekler dersin **kendi kelime listesinden** gelir (Arapça tek yerde). Kaynak: `assets/lazim/ELIF BA BASKI DENEME 2012.pdf` s. 50-59 (PDF git'e girmez; sayfaları görmek için PyMuPDF ile PNG'ye çevir; Arapça harekeleri gözle doğrula). Sırada: Ders 1-22'nin kitap sayfaları ve kelime kontrolü (s. 2-49). Testler: `test/book_pages_test.dart`, `test/kelime_sonu_duraklar_test.dart`.
+- **Ders 23-30 kitap sayfası gibi açılır** (`BookPage`, `lib/screens/elifba/widgets/book_page.dart`; başlıklar `kBookPageHeadings`): kitaptaki açıklama metni + örnek tabloları, kelimeye dokununca ses. Metin `lib/data/lesson_info_data.dart` (ⓘ penceresi yalnız açıklamayı gösterir: `LessonInfo.summary`, tablolar/ızgaralar/"Örnekler:" sayfada kalır; test `test/lesson_info_summary_test.dart`); "Durulduğunda / Geçildiğinde" tabloları `WaqfExamplesTable` (Ders 29-30), kelime ızgaraları `WordGridTable` (Ders 23-28, kırmızı işaret kuralları `lib/models/word_highlight.dart`). Örnekler dersin **kendi kelime listesinden** gelir (Arapça tek yerde). Kaynak: `assets/lazim/ELIF BA BASKI DENEME 2012.pdf` s. 50-59 (PDF git'e girmez; sayfaları görmek için PyMuPDF ile PNG'ye çevir; Arapça harekeleri gözle doğrula). Sırada: Ders 1-22'nin kitap sayfaları ve kelime kontrolü (s. 2-49). Testler: `test/book_pages_test.dart`, `test/kelime_sonu_duraklar_test.dart`.
+- **GİRİŞ** "Harflerin Çıkış Yerleri" (PDF s. 3-5) ders değildir: `kCikisYerleriGirisLesson`
+  (`letters_data.dart`, id `giris-harflerin-cikis-yerleri`, öğe yok, yalnız Sayfa), ders listesinin
+  başında ayrı bölüm. `kElifbaLessons` (oyunlar, skorlar) onu içermez; bütün kitap sayfaları için
+  `kElifbaAllLessons`. **Ders 1 = s. 6-7.**
+- **Ders listesi kartları görsel**: `assets/images/lessons/cards/{intro_harflerin_cikis_yerleri,lesson_NN}.png`,
+  master `assets/images/lessons/lesson_cards_master.png`'den `python tool/crop_lesson_cards.py` ile kırpılır
+  (yeniden çizilmez; master pakete girmez). Eşleşme ders kimliğiyle `lib/data/lesson_card_images.dart`;
+  görselde başlık yazılı, `LessonCard` üstüne yazı yazmaz (oran 1.5, `BoxFit.contain`). **Ders 30 master'da
+  yok**: kendi görselinden (`assets_src/lessons/lesson_30_source.png`, pakete girmez) aynı betikle kırpılır
+  (`SINGLE_SOURCES`). Görseli olmayan ders metin kartı olur.
+  **Sure/Dua listeleri de aynı sistem**: ortak `PictureCard` (`lib/widgets/picture_card.dart`), kırpma aynı
+  betikte (`MASTERS`: `duakartlari.png` → `dualar/dua_NN.png`, `sure kartlari.png` → `sureler/sure_NN.png`),
+  eşleşme kimlikle `lib/data/recitation_card_images.dart` (dua görünen başlıkları `kDuaDisplayTitles`).
+  11 sure kartı `kSureler` sırasıyla bağlı (sure master'ının son satırı ortalanmış 2 geniş kart:
+  `row_col_edges`; Tebbet/Kafirun daha geniş, `contain` ile sığar). Test: `test/recitation_cards_test.dart`. Test: `test/lesson_cards_test.dart`.
+- **Sayfa gezinmesi Arapça kitap gibi (RTL)**: parmak soldan sağa = sonraki sayfa; ← sonraki, → önceki;
+  alt çubukta "Sonraki" solda. Tek yer: `BookPager` (`lib/widgets/book_pager.dart`, `PageView(reverse)`
+  + hafif sayfa çevirme: üstteki sayfa gölgeyle alttakinin üstüne kayar). Sayfa, Grid, Tekli hepsi bunu
+  kullanır. **Grid de kitap sayfası sayfa** (`LessonGridPager`, sınırlar `LessonPageLayout.itemsOf` —
+  Sayfa ile aynı). Üç görünüm tek `LessonPosition` (etkin sayfa + öğe) paylaşır. Ders başlığı ve
+  Sayfa/Grid/Tekli seçicisi `NestedScrollView` başlığında, sabit değil (kayıp gider, en üstte döner).
+  Testte `ensureVisible` yerine `revealInLesson` (`test/support/lesson_scroll.dart`). Test:
+  `test/lesson_structure_test.dart`.
 - **Kitap sayfaları envanteri** (PDF s. → konu → tip → ders/veri, sayfa renk profilleri): `docs/KITAP_SAYFALARI.md`.
 - **GLOBAL: 7 kalın harf (خ ص ض ط ظ غ ق) gövdesi HER YERDE kırmızı** (#ED1C24) — sayfa profili
   (PDF siyah bassa da) kapatamaz; yalnız gövde, harekeler kendi kuralıyla. Tek liste

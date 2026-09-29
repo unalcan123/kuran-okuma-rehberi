@@ -8,7 +8,9 @@ import 'package:kuran_okuma_rehberi/screens/home/home_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/dualar/dua_detail_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/dualar/dualar_list_screen.dart';
 import 'package:kuran_okuma_rehberi/services/audio_service.dart';
-import 'package:kuran_okuma_rehberi/widgets/recitation_audio_controls.dart';
+import 'package:kuran_okuma_rehberi/services/reading_settings.dart';
+import 'package:kuran_okuma_rehberi/widgets/reading/reading_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // UI tests simulate playback; device audio decoding requires a real platform.
 class TestAudioService extends ChangeNotifier implements AudioService {
@@ -51,6 +53,33 @@ class TestAudioService extends ChangeNotifier implements AudioService {
     notifyListeners();
   }
 
+  /// Every clip started (one by one, as the reading screen plays them).
+  final played = <String>[];
+  final rates = <double>[];
+  @override
+  double playbackRate = 1.0;
+
+  @override
+  Future<void> setPlaybackRate(double rate) async {
+    playbackRate = rate;
+    rates.add(rate);
+  }
+
+  @override
+  Future<void> playAsset(String asset) async {
+    played.add(asset);
+    currentAsset = asset;
+    state = AudioPlaybackState.playing;
+    notifyListeners();
+  }
+
+  /// The current clip reached its end.
+  void complete() {
+    currentAsset = null;
+    state = AudioPlaybackState.stopped;
+    notifyListeners();
+  }
+
   @override
   Future<void> playOrToggle(String asset) async {
     if (currentAsset == asset) {
@@ -75,6 +104,11 @@ Widget harness(Widget child, TestAudioService audio) =>
     );
 
 void main() {
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
+    ReadingSettings.instance.resetForTest();
+  });
+
   test('Every source segment has an imported nonempty recording', () {
     expect(kDualar.length, 9);
     expect(kDualar.expand((dua) => dua.segments).length, 32);
@@ -109,7 +143,8 @@ void main() {
       expect(tester.takeException(), isNull);
       await tester.drag(find.byType(GridView), const Offset(0, -2500));
       await tester.pumpAndSettle();
-      expect(find.text(kDualar.last.titleTr), findsOneWidget);
+      // Picture cards: the title is in the picture, not written again.
+      expect(find.byKey(ValueKey('dua-card-${kDualar.last.id}')), findsOneWidget);
       for (final dua in kDualar) {
         await tester.pumpWidget(
           harness(DuaDetailScreen(key: ValueKey(dua.id), dua: dua), audio),
@@ -119,30 +154,35 @@ void main() {
           find.text(dua.segments.first.arabic),
         );
         expect(arabic.textDirection, TextDirection.rtl);
+        // Default Arabic size: the earlier size (30 / 42 / 46) × 130 %.
         expect(
           arabic.style!.fontSize,
-          size.width < 600
-              ? 30
-              : size.width < 1024
-              ? 42
-              : 46,
+          closeTo(
+            (size.width < 600
+                    ? 30
+                    : size.width < 1024
+                    ? 42
+                    : 46) *
+                1.3,
+            0.001,
+          ),
         );
         expect(
           audio.preloaded.last,
           dua.segments.map((segment) => segment.audioAsset).toList(),
           reason: "the dua's recordings are fetched when it opens",
         );
-        expect(find.text('Türkçe Anlam'), findsWidgets);
+        // Meal is off by default.
+        expect(find.text('Türkçe Anlam'), findsNothing);
         expect(find.text('Türkçe Okunuş'), findsNothing);
-        final listRect = tester.getRect(find.byType(ListView));
-        final controlsRect = tester.getRect(
-          find.byType(RecitationAudioControls),
-        );
-        expect(listRect.bottom, lessThan(controlsRect.top));
-        await tester.drag(find.byType(ListView), const Offset(0, -10000));
+        final list = find.byType(SingleChildScrollView).first;
+        final listRect = tester.getRect(list);
+        final controlsRect = tester.getRect(find.byType(ReadingPlaybackBar));
+        expect(listRect.bottom, lessThanOrEqualTo(controlsRect.top));
+        await tester.drag(list, const Offset(0, -10000));
         await tester.pumpAndSettle();
         expect(
-          find.text(dua.segments.last.meaningTr).hitTestable(),
+          find.text(dua.segments.last.arabic).hitTestable(),
           findsOneWidget,
         );
         expect(tester.takeException(), isNull);
@@ -163,18 +203,19 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('home-card-image-Namaz Duaları')));
     await tester.pumpAndSettle();
     expect(find.byType(DualarListScreen), findsOneWidget);
-    await tester.tap(find.text(kDualar.first.titleTr));
+    await tester.tap(find.byKey(ValueKey('dua-card-${kDualar.first.id}')));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Dinle'));
     await tester.pumpAndSettle();
-    expect(audio.queue, kDualar.first.playlist);
+    // Parts are played one by one on the shared player, first part first.
+    expect(audio.played, [kDualar.first.playlist.first]);
     await tester.tap(find.text('Duraklat'));
     await tester.pumpAndSettle();
     expect(audio.isPaused, isTrue);
     await tester.tap(find.text('Devam Et'));
     await tester.pumpAndSettle();
     expect(audio.isPlaying, isTrue);
-    await tester.tap(find.byIcon(Icons.stop_rounded));
+    await tester.tap(find.byKey(const ValueKey('reading-stop')));
     await tester.pumpAndSettle();
     expect(audio.currentAsset, isNull);
     await tester.tap(find.text('Dinle'));
@@ -182,11 +223,10 @@ void main() {
     expect(audio.currentAsset, kDualar.first.playlist.first);
     await tester.pageBack();
     await tester.pumpAndSettle();
-    await tester.tap(find.text(kDualar[1].titleTr));
+    await tester.tap(find.byKey(ValueKey('dua-card-${kDualar[1].id}')));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Dinle'));
     await tester.pumpAndSettle();
-    expect(audio.queue, kDualar[1].playlist);
     expect(audio.currentAsset, kDualar[1].playlist.first);
     await tester.pageBack();
     await tester.pumpAndSettle();

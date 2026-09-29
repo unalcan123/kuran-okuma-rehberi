@@ -102,11 +102,12 @@ void main() {
       for (final e in tester.elementList(find.byType(HomeGridCard)))
         tester.getTopLeft(find.byWidget(e.widget)).dx.round(),
     };
-    // The home grid keeps 2 columns on phones too; the phone layout shows
-    // as cards drawn at phone scale (the page is zoomed up).
-    expect(phoneXs.length, 2, reason: 'the phone home grid is 2 x 2 too');
+    // On a phone the home cards are one column, each nearly as wide as
+    // the page (drawn at phone scale: the page is zoomed up).
+    expect(phoneXs.length, 1, reason: 'the phone home grid is one column');
     final card = tester.getRect(find.byType(HomeGridCard).first);
-    expect(card.width, greaterThan(400), reason: 'cards fill half the wide page (minus the margins)');
+    final page = tester.getRect(find.byType(HomeScreen));
+    expect(card.width, greaterThan(page.width * 0.85), reason: 'cards fill the page width (minus the margins)');
     expect(Responsive.deviceClassOf(tester.element(find.byType(HomeScreen))), DeviceClass.mobile);
   });
 

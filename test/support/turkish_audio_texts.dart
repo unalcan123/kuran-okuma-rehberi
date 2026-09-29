@@ -87,7 +87,7 @@ void _collectSpans(
 /// Every listenable text of every lesson, in lesson and page order.
 List<ShownTurkishText> collectShownTurkishTexts() {
   final out = <ShownTurkishText>[];
-  for (final lesson in kElifbaLessons) {
+  for (final lesson in kElifbaAllLessons) {
     final layout = lesson.pageLayout;
     if (layout != null) {
       for (final page in layout.pages) {

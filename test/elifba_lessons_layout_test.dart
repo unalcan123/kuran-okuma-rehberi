@@ -11,20 +11,30 @@ void setSize(WidgetTester tester, Size size) {
   addTearDown(tester.view.resetDevicePixelRatio);
 }
 
-/// Number of cards on the first visible row.
+/// The lesson cards ("Ders …"; not the Giriş).
+final _dersCards = find.byWidgetPredicate(
+  (w) => w is LessonCard && w.lesson.label.startsWith('Ders'),
+);
+
+/// Number of lesson cards on the first visible row of lessons.
 Future<int> cardsPerRow(WidgetTester tester, Size size) async {
   setSize(tester, size);
   await tester.pumpWidget(const MaterialApp(home: ElifbaLessonsScreen()));
   await tester.pumpAndSettle();
   expect(tester.takeException(), isNull, reason: '$size');
+  // Below the Giriş section: bring the first lessons on screen.
+  for (var i = 0; i < 10 && tester.widgetList(_dersCards).length < 2; i++) {
+    await tester.drag(find.byType(ListView), const Offset(0, -100));
+    await tester.pumpAndSettle();
+  }
+  final count = tester.widgetList(_dersCards).length;
   final tops = <double>{
-    for (final card in tester.widgetList(find.byType(LessonCard)).indexed)
-      tester.getTopLeft(find.byType(LessonCard).at(card.$1)).dy,
+    for (var i = 0; i < count; i++) tester.getTopLeft(_dersCards.at(i)).dy,
   };
   final first = tops.reduce((a, b) => a < b ? a : b);
   return [
-    for (var i = 0; i < tester.widgetList(find.byType(LessonCard)).length; i++)
-      if ((tester.getTopLeft(find.byType(LessonCard).at(i)).dy - first).abs() < 1) i,
+    for (var i = 0; i < count; i++)
+      if ((tester.getTopLeft(_dersCards.at(i)).dy - first).abs() < 1) i,
   ].length;
 }
 
@@ -66,7 +76,7 @@ void main() {
       await tester.drag(find.byType(ListView), const Offset(0, -200));
       await tester.pump();
     }
-    expect(seen.length, kElifbaLessons.length);
+    expect(seen.length, kElifbaIntroLessons.length + kElifbaLessons.length);
     expect(tester.takeException(), isNull);
   });
 
@@ -74,8 +84,12 @@ void main() {
     setSize(tester, const Size(852, 393));
     await tester.pumpWidget(const MaterialApp(home: ElifbaLessonsScreen()));
     await tester.pumpAndSettle();
-    final a = tester.getSize(find.byType(LessonCard).at(0));
-    final b = tester.getSize(find.byType(LessonCard).at(1));
+    for (var i = 0; i < 10 && tester.widgetList(_dersCards).length < 2; i++) {
+      await tester.drag(find.byType(ListView), const Offset(0, -100));
+      await tester.pumpAndSettle();
+    }
+    final a = tester.getSize(_dersCards.at(0));
+    final b = tester.getSize(_dersCards.at(1));
     expect(a.height, b.height);
   });
 }

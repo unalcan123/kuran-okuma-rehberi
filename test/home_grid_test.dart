@@ -1,4 +1,5 @@
-// Ana sayfa: 4 kart, 2 x 2 grid (çok dar ekranda tek sütun), kartlar 4:3.
+// Ana sayfa: 4 kart; telefonda (< 600 px) tek sütun, 600 px'ten 2 x 2;
+// kartlar 4:3 (görsellerin kendi oranı, bozulmaz).
 // İlk kart yalnız "Kur'an Okuma Rehberi" görseli (ayrıca başlık yazılmaz) ve
 // Elifba derslerini açar. Ders Grid görünümü hafif gökyüzü arka planında.
 import 'dart:io';
@@ -44,12 +45,16 @@ Widget _home() => MultiProvider(
 
 void main() {
   for (final (size, columns) in const [
-    (Size(360, 800), 2),
+    (Size(300, 640), 1),
+    (Size(360, 800), 1),
+    (Size(390, 844), 1),
+    (Size(412, 915), 1),
+    (Size(600, 960), 2),
+    (Size(768, 1024), 2),
     (Size(800, 1280), 2),
     (Size(1280, 800), 2),
     (Size(800, 360), 2),
     (Size(1920, 1080), 2),
-    (Size(300, 640), 1),
   ]) {
     testWidgets('ana sayfa gridi $size: $columns sütun, kartlar 4:3', (
       tester,
@@ -69,6 +74,29 @@ void main() {
       }
       final rowsOfFirstTwo = rects[0].top == rects[1].top;
       expect(rowsOfFirstTwo, columns == 2);
+      if (columns == 1) {
+        // Telefonda kart ekranın büyük bölümünü kullanır (16-20 px kenar).
+        for (final r in rects) {
+          expect(r.width, greaterThanOrEqualTo(size.width - 2 * 20));
+          expect(r.left, inInclusiveRange(16, 20));
+        }
+        // Başlıkla ilk kart arasında büyük boşluk yok.
+        final subtitle = tester.getRect(
+          find.text('Bugün ne öğrenmek istersin?'),
+        );
+        expect(rects[0].top - subtitle.bottom, lessThanOrEqualTo(24));
+      } else {
+        expect(HomeScreen.columnsFor(size.width), 2);
+      }
+      // Sayfa kayar; sonda "Bize Ulaşın".
+      await tester.scrollUntilVisible(
+        find.byKey(const ValueKey('home-contact')),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(tester.takeException(), isNull);
+      await tester.drag(find.byType(Scrollable).first, const Offset(0, 3000));
+      await tester.pumpAndSettle();
 
       // Her görsel kartını tamamen doldurur; başlık ayrıca yazılmaz.
       for (var i = 0; i < 4; i++) {

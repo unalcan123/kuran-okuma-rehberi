@@ -191,6 +191,10 @@ void main() {
     await tester.tap(find.text('▦ Grid'));
     await tester.pumpAndSettle();
     expect(checkVisible('Grid'), greaterThan(0));
+    // Grid sayfa sayfa: s. 15'e geç.
+    await tester.tap(find.byKey(const ValueKey('page-next')));
+    await tester.pumpAndSettle();
+    expect(checkVisible('Grid s. 15'), greaterThan(0));
     // أَبَقَ: s. 15 (PDF'de ق siyah) — Grid'de de kırmızı.
     final word = tester.widget<ColoredArabicText>(
       find.byWidgetPredicate(
@@ -202,6 +206,10 @@ void main() {
       arabicRed,
     );
     await tester.tap(find.text('📖 Sayfa'));
+    await tester.pumpAndSettle();
+    // Sayfa, Grid'de kalınan s. 15'te açılır; s. 14'e dön.
+    expect(find.text('Sayfa 15'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('page-previous')));
     await tester.pumpAndSettle();
     await tester.longPress(find.byKey(const ValueKey('book-cell-6')));
     await tester.pumpAndSettle();

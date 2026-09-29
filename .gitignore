@@ -74,3 +74,6 @@ assets/lazim/Screenshot*
 /sayfa 54 ses/
 
 __pycache__/
+
+# Kart/tasarım master görselleri (yalnız kırpma kaynağı, pakete girmez; tool/crop_lesson_cards.py)
+/assets/images/lessons/*.png

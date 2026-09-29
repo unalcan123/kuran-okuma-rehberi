@@ -135,7 +135,18 @@ void main() {
 
         await tester.tap(find.byIcon(Icons.info_outline_rounded));
         await tester.pumpAndSettle();
-        expect(allTables, findsNWidgets(tables));
+        // ⓘ yalnız açıklama: örnek tabloları / ızgaraları dersin sayfasında
+        // kalır, pencereye alınmaz.
+        expect(allTables, findsNothing);
+        if (!phrase.startsWith('Örnek')) {
+          expect(
+            find.descendant(
+              of: find.byType(Dialog),
+              matching: find.textContaining(phrase, findRichText: true),
+            ),
+            findsOneWidget,
+          );
+        }
 
         final dialog = tester.getRect(find.byType(Dialog));
         expect(dialog.top, greaterThanOrEqualTo(0));
@@ -148,7 +159,10 @@ void main() {
             matching: find.byType(SingleChildScrollView),
           ),
         );
-        expect(tester.getRect(allTables.last).bottom, lessThanOrEqualTo(dialog.bottom + 1));
+        expect(
+          tester.getRect(find.text('Kapat')).bottom,
+          lessThanOrEqualTo(dialog.bottom + 1),
+        );
         expect(tester.takeException(), isNull);
 
         await tester.tap(find.text('Kapat'));

@@ -21,6 +21,12 @@ class SilentAudio extends ChangeNotifier implements AudioService {
   Future<void> stop() async {}
 
   @override
+  double get playbackRate => 1.0;
+
+  @override
+  Future<void> setPlaybackRate(double rate) async {}
+
+  @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 

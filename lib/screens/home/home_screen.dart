@@ -6,14 +6,17 @@ import '../elifba/elifba_lessons_screen.dart';
 import '../dualar/dualar_list_screen.dart';
 import '../oyunlar/oyunlar_screen.dart';
 import '../sureler/sureler_list_screen.dart';
+import '../iletisim/contact_screen.dart';
 import 'home_menu_item.dart';
 import 'widgets/home_grid_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  /// Below this content width the grid falls back to one column.
-  static const double minTwoColumnWidth = 280;
+  /// Phones (narrower than [AppBreakpoints.mobile], 600 px) get one column:
+  /// each card nearly as wide as the screen. From 600 px: 2 x 2.
+  static int columnsFor(double screenWidth) =>
+      screenWidth < AppBreakpoints.mobile ? 1 : 2;
 
   /// A card is never narrowed below this to fit the screen's height.
   static const double minCardWidth = 150;
@@ -67,7 +70,9 @@ class HomeScreen extends StatelessWidget {
     final items = _menuItems();
     final deviceClass = Responsive.deviceClassOf(context);
     final maxContentWidth = deviceClass == DeviceClass.desktop ? 900.0 : 640.0;
-    final sidePadding = deviceClass == DeviceClass.mobile ? 16.0 : 24.0;
+    final phone = deviceClass == DeviceClass.mobile;
+    final sidePadding = phone ? 18.0 : 24.0;
+    final columns = columnsFor(MediaQuery.sizeOf(context).width);
 
     return Scaffold(
       body: SafeArea(
@@ -77,7 +82,7 @@ class HomeScreen extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.symmetric(
                 horizontal: sidePadding,
-                vertical: 32,
+                vertical: phone ? 20 : 32,
               ),
               children: [
                 Text(
@@ -94,15 +99,12 @@ class HomeScreen extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                 ),
-                const SizedBox(height: 28),
-                // 2 x 2 on every device; one column only on very narrow
-                // screens. Cells are 4:3, the illustrations' own ratio.
+                SizedBox(height: phone ? 16 : 28),
+                // One column on a phone, 2 x 2 from 600 px. Cells are 4:3,
+                // the illustrations' own ratio (never stretched).
                 LayoutBuilder(
                   builder: (context, constraints) {
-                    final spacing =
-                        deviceClass == DeviceClass.mobile ? 12.0 : 20.0;
-                    final columns =
-                        constraints.maxWidth < minTwoColumnWidth ? 1 : 2;
+                    final spacing = phone ? 16.0 : 20.0;
                     // On wide, short windows (landscape) the 2 x 2 grid is
                     // narrowed so all four cards fit the screen's height;
                     // it never gets smaller than [minCardWidth] a card
@@ -144,6 +146,8 @@ class HomeScreen extends StatelessWidget {
                     );
                   },
                 ),
+                SizedBox(height: phone ? 20 : 28),
+                const ContactEntryCard(),
               ],
             ),
           ),

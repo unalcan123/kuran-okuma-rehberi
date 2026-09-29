@@ -38,6 +38,58 @@ class LessonInfo {
     required this.body,
     this.firstSpanIsBookHeading = false,
   });
+
+  /// What the ⓘ window shows: the explanation only. The example tables and
+  /// word grids (and their "Örnekler:" headings) are the lesson itself — they
+  /// stay on the lesson's page ([body]), not in the window.
+  List<InlineSpan> get summary {
+    final out = <InlineSpan>[];
+    for (final span in body) {
+      final kept = _withoutExamples(span);
+      if (kept != null) out.add(kept);
+    }
+    // Drop blank spans left in a row by the removed tables, and at the end.
+    final tidy = <InlineSpan>[];
+    for (final span in out) {
+      if (_isBlank(span) && (tidy.isEmpty || _isBlank(tidy.last))) continue;
+      tidy.add(span);
+    }
+    while (tidy.isNotEmpty && _isBlank(tidy.last)) {
+      tidy.removeLast();
+    }
+    return tidy;
+  }
+
+  /// "Örnekler:", "Diğer bazı örnekler:", "Örneklerle uygulamayı görelim:"
+  /// — a heading (or a sentence's closing words) announcing examples.
+  static final RegExp _examplesLabel = RegExp(
+    r'\s*(Diğer bazı örnekler|Örneklerle uygulamayı görelim|Örnekler)\s*:\s*$',
+  );
+
+  static InlineSpan? _withoutExamples(InlineSpan span) {
+    if (span is WidgetSpan) return null;
+    if (span is! TextSpan) return span;
+    final children = span.children;
+    if (children != null && children.isNotEmpty) {
+      final kept = [
+        for (final child in children)
+          if (_withoutExamples(child) case final c?) c,
+      ];
+      if (kept.isEmpty && span.text == null) return null;
+      return TextSpan(text: span.text, style: span.style, children: kept);
+    }
+    final text = span.text;
+    if (text == null) return span;
+    final trimmed = text.replaceFirst(_examplesLabel, '');
+    if (trimmed == text) return span;
+    if (trimmed.trim().isEmpty) return null;
+    return TextSpan(text: trimmed, style: span.style);
+  }
+
+  static bool _isBlank(InlineSpan span) =>
+      span is TextSpan &&
+      (span.children == null || span.children!.isEmpty) &&
+      (span.text ?? '').trim().isEmpty;
 }
 
 TextSpan _n(String text, {double height = 1.5}) => TextSpan(

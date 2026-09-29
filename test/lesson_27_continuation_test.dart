@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:kuran_okuma_rehberi/models/arabic_letter.dart';
 import 'package:kuran_okuma_rehberi/data/book_highlights.dart';
 import 'package:kuran_okuma_rehberi/data/letters_data.dart';
 import 'package:kuran_okuma_rehberi/data/zamir_he_uzatilmasi_data.dart';
@@ -12,6 +13,7 @@ import 'package:kuran_okuma_rehberi/screens/elifba/widgets/book_page.dart';
 import 'package:kuran_okuma_rehberi/screens/elifba/widgets/lesson_page_view.dart';
 import 'package:kuran_okuma_rehberi/screens/elifba/widgets/single_letter_pager.dart';
 
+import 'support/lesson_scroll.dart';
 import 'book_pages_test.dart' show RecordingAudio, app, setSize;
 
 // PDF pp. 54–55, visually verified row by row, right to left.
@@ -141,8 +143,7 @@ void main() {
           expect(find.text('Sayfa 55'), findsOneWidget);
         }
         final cell = find.byKey(ValueKey('book-cell-$i'));
-        await tester.ensureVisible(cell);
-        await tester.pumpAndSettle();
+        await revealInLesson(tester, cell);
         await tester.tap(cell);
         await tester.pump();
         expect(audio.played.last, same(lesson.letters[i]));
@@ -169,10 +170,24 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('▦ Grid'));
       await tester.pumpAndSettle();
-      expect(
-        tester.widget<AllLettersGrid>(find.byType(AllLettersGrid)).letters,
-        same(lesson.letters),
-      );
+      // Grid by book page: s. 54 has items 0-17, s. 55 items 18-29 — the
+      // lesson's own items, nothing copied.
+      List<ArabicLetter> gridItems() =>
+          tester.widget<AllLettersGrid>(find.byType(AllLettersGrid)).letters;
+      expect(find.text('Sayfa 54'), findsOneWidget);
+      expect(gridItems(), hasLength(18));
+      for (var i = 0; i < 18; i++) {
+        expect(gridItems()[i], same(lesson.letters[i]));
+      }
+      await tester.tap(find.byKey(const ValueKey('page-next')));
+      await tester.pumpAndSettle();
+      expect(find.text('Sayfa 55'), findsOneWidget);
+      expect(gridItems(), hasLength(12));
+      for (var i = 0; i < 12; i++) {
+        expect(gridItems()[i], same(lesson.letters[18 + i]));
+      }
+      await tester.tap(find.byKey(const ValueKey('page-previous')));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('🔎 Tekli / Büyük'));
       await tester.pumpAndSettle();
       expect(

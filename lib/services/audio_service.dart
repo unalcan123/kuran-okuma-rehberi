@@ -44,12 +44,40 @@ class AudioService extends ChangeNotifier {
   /// up instead of starting late or overwriting the newer state.
   int _playToken = 0;
 
+  /// Speed of every clip ([setPlaybackRate]); 1.0 = normal.
+  double _playbackRate = 1.0;
+
+  /// The rate last given to the player (a browser's new audio element
+  /// starts at 1.0 again, so a rate other than 1.0 is set on every play).
+  double _appliedRate = 1.0;
+
   /// The asset path currently loaded (playing or paused) — null when
   /// stopped. Lets UI highlight "this is the thing that's playing".
   String? get currentAsset => _currentAsset;
   AudioPlaybackState get state => _state;
   bool get isPlaying => _state == AudioPlaybackState.playing;
   bool get isPaused => _state == AudioPlaybackState.paused;
+  double get playbackRate => _playbackRate;
+
+  /// Reading speed (the Sureler / Dualar "Okuma Hızı", 0.75–1.25) on the
+  /// same single player, applied to what is playing now and to every clip
+  /// after it. The platforms keep the pitch (time-stretch, not a faster
+  /// tape). Screens that set it put it back to 1.0 when they close, so the
+  /// Elifba sounds always play at normal speed.
+  Future<void> setPlaybackRate(double rate) async {
+    _playbackRate = rate;
+    if (_state != AudioPlaybackState.stopped) await _applyRate();
+  }
+
+  Future<void> _applyRate() async {
+    if (_playbackRate == 1.0 && _appliedRate == 1.0) return;
+    try {
+      await _player.setPlaybackRate(_playbackRate);
+      _appliedRate = _playbackRate;
+    } catch (error) {
+      debugPrint('AudioService: hız ayarlanamadı — $error');
+    }
+  }
 
   /// Downloads these sounds in the background so that tapping them later
   /// starts at once. Call it when a screen opens with the asset paths the
@@ -125,6 +153,8 @@ class AudioService extends ChangeNotifier {
       final source = await _sourceFor(assetPath);
       if (token != _playToken) return;
       await _player.play(source);
+      if (token != _playToken) return;
+      await _applyRate();
     } catch (error) {
       debugPrint('AudioService: "$assetPath" çalınamadı — $error');
       if (token != _playToken) return;

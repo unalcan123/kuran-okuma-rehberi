@@ -20,6 +20,7 @@ dependencies:
   firebase_core: ^4.15.0
   firebase_auth: ^6.7.0
   cloud_firestore: ^6.10.0
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:
@@ -97,6 +98,10 @@ flutter:
     - assets/images/backgrounds/
     - assets/images/elifba/
     - assets/images/home/
+    - assets/images/lessons/cards/
+    - assets/images/lessons/sureler/
+    - assets/images/lessons/dualar/
+    - assets/images/reading/
     - assets/lazim/ders2icinsayfa_alti.png
     - assets/lazim/ders1.png
 

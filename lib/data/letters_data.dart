@@ -275,7 +275,7 @@ final List<Lesson> kElifbaLessons = [
 ];
 
 /// Book pages 3-7 (in book order): s. 3-5 "HARFLERİN ÇIKIŞ YERLERİ" (text
-/// and the mahreç drawing), s. 6 "HARFLER" (the 28 letters, the 7 thick
+/// and the mahreç drawing; the Giriş), s. 6 "HARFLER" (the 28 letters, the 7 thick
 /// ones red — the global rule, see `thickArabicLetters`), s. 7 "HARFLERİN
 /// YAZILIŞ VE OKUNUŞLARI" (each letter's name; the thick letters' names
 /// wholly red). Colors read from the PDF.
@@ -285,7 +285,29 @@ const ArabicColorProfile _wholeRed = ArabicColorProfile({
   ArabicPart.sukun: arabicRed,
 });
 
-const LessonPageLayout kHarfleriTaniyalimPageLayout = LessonPageLayout([
+/// GİRİŞ — "Harflerin Çıkış Yerleri" (book pages 3-5): read before the
+/// lessons, not a lesson itself (no "Ders" number, no items to read). Its
+/// id is new and stable; Ders 1 keeps `harfleri-taniyalim`.
+final Lesson kCikisYerleriGirisLesson = Lesson(
+  id: 'giris-harflerin-cikis-yerleri',
+  label: 'Giriş',
+  title: 'Harflerin Çıkış Yerleri',
+  subtitle: 'Mahreçler • Derslere başlamadan önce',
+  letters: const [],
+  pageLayout: kCikisYerleriGirisPageLayout,
+);
+
+/// The sections shown before the lessons (see [kCikisYerleriGirisLesson]).
+final List<Lesson> kElifbaIntroLessons = [kCikisYerleriGirisLesson];
+
+/// Every lesson page of the book (s. 3-63): the Giriş, then the lessons.
+/// Games and scores use [kElifbaLessons] only.
+final List<Lesson> kElifbaAllLessons = [
+  ...kElifbaIntroLessons,
+  ...kElifbaLessons,
+];
+
+const LessonPageLayout kCikisYerleriGirisPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 3,
     headingAudio: 's003_baslik_1',
@@ -390,6 +412,11 @@ const LessonPageLayout kHarfleriTaniyalimPageLayout = LessonPageLayout([
       FrameRun(0, Color(0xFFF7A941), 'Boğaz'),
     ],
   ),
+]);
+
+/// Ders 1: book pages 6 ("HARFLER") and 7 ("HARFLERİN YAZILIŞ VE
+/// OKUNUŞLARI").
+const LessonPageLayout kHarfleriTaniyalimPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 6,
     headingAudio: 's006_baslik_1',

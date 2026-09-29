@@ -3,6 +3,7 @@
 // geçilebilir. Üç görünüm de aynı Lesson.letters listesini ve öğenin kitap
 // sayfasındaki renk profilini kullanır.
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kuran_okuma_rehberi/data/letters_data.dart';
 import 'package:kuran_okuma_rehberi/data/ustun_data.dart';
@@ -87,7 +88,7 @@ void main() {
     expect(find.byType(LessonPageView), findsOneWidget);
   });
 
-  testWidgets('sayfalar arasında düğme, kaydırma ve klavye ile gezilir', (
+  testWidgets('sayfalar kitap gibi: soldan sağa kaydırma = sonraki sayfa', (
     tester,
   ) async {
     setSize(tester, const Size(1280, 800));
@@ -100,7 +101,8 @@ void main() {
     expect(find.text('ÖRNEKLER'), findsOneWidget);
     expect(find.text('Örnekler · 2 / 3'), findsOneWidget);
 
-    await tester.fling(find.byType(PageView), const Offset(-500, 0), 1500);
+    // Parmak soldan sağa → sonraki sayfa.
+    await tester.fling(find.byType(PageView), const Offset(500, 0), 1500);
     await tester.pumpAndSettle();
     expect(find.text('Sayfa 16'), findsOneWidget);
     final next = tester.widget<TextButton>(
@@ -108,13 +110,35 @@ void main() {
     );
     expect(next.onPressed, isNull);
 
-    await tester.tap(find.byKey(const ValueKey('page-previous')));
+    // Sağdan sola → önceki sayfa.
+    await tester.fling(find.byType(PageView), const Offset(-500, 0), 1500);
     await tester.pumpAndSettle();
     expect(find.text('Sayfa 15'), findsOneWidget);
+
+    // Klavye: ← sonraki (kitapta sonraki sayfa solda), → önceki.
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowLeft);
+    await tester.pumpAndSettle();
+    expect(find.text('Sayfa 16'), findsOneWidget);
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+    await tester.pumpAndSettle();
+    expect(find.text('Sayfa 15'), findsOneWidget);
+
+    // "Sonraki Sayfa" solda, "Önceki Sayfa" sağda.
+    expect(
+      tester.getCenter(find.byKey(const ValueKey('page-next'))).dx,
+      lessThan(tester.getCenter(find.byKey(const ValueKey('page-previous'))).dx),
+    );
+
+    await tester.tap(find.byKey(const ValueKey('page-previous')));
+    await tester.pumpAndSettle();
+    expect(find.text('Sayfa 14'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('page-next')));
+    await tester.pumpAndSettle();
 
     // Tekli / Büyük, bulunulan sayfanın ilk öğesinden açılır.
     await _mode(tester, '🔎 Tekli / Büyük');
     expect(find.text('29 / 92'), findsOneWidget);
+    expect(find.text('Sayfa 15'), findsOneWidget);
   });
 
   testWidgets('üç görünüm aynı öğeyi aynı sayfa renkleriyle gösterir', (
@@ -132,10 +156,14 @@ void main() {
     expect(widgetOf('خَ').profile, p14); // Sayfa
     await _mode(tester, '▦ Grid');
     expect(widgetOf('خَ').profile, p14);
+    await tester.tap(find.byKey(const ValueKey('page-next')));
+    await tester.pumpAndSettle();
     expect(widgetOf('أَبَقَ').profile, p15);
 
     // Basılı tutunca Tekli / Büyük'te açılır.
     await _mode(tester, '📖 Sayfa');
+    await tester.tap(find.byKey(const ValueKey('page-previous')));
+    await tester.pumpAndSettle();
     await tester.longPress(find.byKey(const ValueKey('book-cell-6')));
     await tester.pumpAndSettle();
     expect(find.byType(SingleLetterPager), findsOneWidget);
@@ -155,19 +183,31 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('single-next')));
     await tester.pumpAndSettle();
     expect(find.text('8 / 92'), findsOneWidget);
-    await tester.fling(find.byType(PageView), const Offset(-500, 0), 1500);
+    // Tekli de kitap yönünde: soldan sağa = sonraki.
+    await tester.fling(find.byType(PageView), const Offset(500, 0), 1500);
     await tester.pumpAndSettle();
     expect(find.text('9 / 92'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('single-previous')));
     await tester.pumpAndSettle();
     expect(find.text('8 / 92'), findsOneWidget);
 
-    // Tekli'de s. 15'in öğesine gelip Sayfa'ya dönünce s. 15 açılır.
-    for (var i = 0; i < 25; i++) {
+    // Tekli'de s. 14'ün son öğesinden sonra s. 15'e geçildiği bilinir.
+    for (var i = 0; i < 20; i++) {
+      await tester.tap(find.byKey(const ValueKey('single-next')));
+      await tester.pumpAndSettle();
+    }
+    expect(find.text('28 / 92'), findsOneWidget);
+    expect(find.text('Sayfa 14'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('single-next')));
+    await tester.pumpAndSettle();
+    expect(find.text('29 / 92'), findsOneWidget);
+    expect(find.text('Sayfa 15'), findsOneWidget);
+    for (var i = 0; i < 4; i++) {
       await tester.tap(find.byKey(const ValueKey('single-next')));
       await tester.pumpAndSettle();
     }
     expect(find.text('33 / 92'), findsOneWidget);
+    // Tekli'de s. 15'in öğesine gelip Sayfa'ya dönünce s. 15 açılır.
     await _mode(tester, '📖 Sayfa');
     expect(find.text('Sayfa 15'), findsOneWidget);
   });

@@ -649,6 +649,46 @@ const ArabicLetter kHemzeFormRow = ArabicLetter(
   ],
 );
 
+/// s. 8 "LÂM - ELİF ŞEKİLLERİ": each row of the table is read differently,
+/// so each has its own recording (from the old app's
+/// `ders_1_harfler_2_lamelif.json`: LINE 1_5.201-204). The ayrı and bitişik
+/// shape of a row are read the same. Not lesson items: the lesson's Lâm-Elif
+/// item (its name, "Lâm Elif") stays [kLetterFormLetters][27].
+const ArabicLetter kLamElifLa = ArabicLetter(
+  order: 0,
+  isolatedForm: 'لا',
+  turkishName: 'Lâ',
+  audioAsset: '$_ders2AudioDir/28a_lamelif_la.mp3',
+);
+
+const ArabicLetter kLamElifUzatmaliHemze = ArabicLetter(
+  order: 0,
+  isolatedForm: 'لآ',
+  turkishName: 'Lâm + uzatmalı hemze',
+  audioAsset: '$_ders2AudioDir/28b_lamelif_uzatmali_hemze.mp3',
+);
+
+const ArabicLetter kLamElifUstunHemze = ArabicLetter(
+  order: 0,
+  isolatedForm: 'لأ',
+  turkishName: 'Lâm + üstünlü hemze',
+  audioAsset: '$_ders2AudioDir/28c_lamelif_ustun_hemze.mp3',
+);
+
+const ArabicLetter kLamElifEsreHemze = ArabicLetter(
+  order: 0,
+  isolatedForm: 'لإ',
+  turkishName: 'Lâm + esreli hemze',
+  audioAsset: '$_ders2AudioDir/28d_lamelif_esre_hemze.mp3',
+);
+
+const List<ArabicLetter> kLamElifShapeAudio = [
+  kLamElifLa,
+  kLamElifUzatmaliHemze,
+  kLamElifUstunHemze,
+  kLamElifEsreHemze,
+];
+
 /// Book pages 8-13 (in book order): s. 8 "LÂM - ELİF" (its shapes; لا is
 /// this lesson's item), s. 9 "SIRASIZ YAZILAN HARFLER" (the letters out of
 /// order, the 7 thick ones red by the global rule), s. 10-13 "HARFLERİN BAŞTA, ORTADA, SONDA
@@ -689,6 +729,16 @@ const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
         titleAudio: 's008_baslik_2',
         texts: ['لا', 'ـلا', 'لآ', 'ـلآ', 'لأ', 'ـلأ', 'لإ', 'ـلإ'],
         textItems: {0: 27},
+        textAudio: {
+          0: kLamElifLa,
+          1: kLamElifLa,
+          2: kLamElifUzatmaliHemze,
+          3: kLamElifUzatmaliHemze,
+          4: kLamElifUstunHemze,
+          5: kLamElifUstunHemze,
+          6: kLamElifEsreHemze,
+          7: kLamElifEsreHemze,
+        },
         rowLabels: [
           'Lâm + Elif',
           'Lâm + Uzatmalı Hemze',

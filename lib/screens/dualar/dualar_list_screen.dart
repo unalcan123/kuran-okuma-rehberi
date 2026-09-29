@@ -2,13 +2,14 @@ import '../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/dualar_data.dart';
+import '../../data/recitation_card_images.dart';
 import '../../models/dua.dart';
 import '../../widgets/holy_places_background.dart';
 import 'dua_detail_screen.dart';
-import '../../widgets/recitation_card.dart';
+import '../../widgets/picture_card.dart';
 
-/// "Namaz Duaları" home — each prayer as a card on one
-/// responsive grid.
+/// "Namaz Duaları" home — each prayer as a picture card ([PictureCard],
+/// [kDuaCardImages]) on one responsive grid.
 ///
 /// Column count follows the same rule the Elifba grid uses: how many
 /// cards actually fit at a comfortable minimum width, not how wide
@@ -66,19 +67,23 @@ class _DualarListScreenState extends State<DualarListScreen> {
                     return GridView.builder(
                       padding: const EdgeInsets.all(20),
                       itemCount: kDualar.length,
+                      // Picture cards (PictureCard): every card has the
+                      // pictures' shape; the whole card opens the prayer.
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: columns,
                         mainAxisSpacing: 16,
                         crossAxisSpacing: 16,
-                        mainAxisExtent:
-                            290 + (readingScale - 1) * 40,
+                        childAspectRatio: kDuaCardAspectRatio,
                       ),
                       itemBuilder: (context, index) {
                         final dua = kDualar[index];
-                        return RecitationCard(
-                          title: dua.titleTr,
-                          arabic: dua.segments.first.arabic,
-                          isPreview: true,
+                        return PictureCard(
+                          key: ValueKey('dua-card-${dua.id}'),
+                          image: kDuaCardImages[dua.id],
+                          aspectRatio: kDuaCardAspectRatio,
+                          radiusFactor: kDuaCardRadiusFactor,
+                          label: 'Dua ${dua.order}',
+                          title: kDuaDisplayTitles[dua.id] ?? dua.titleTr,
                           onTap: () => _openDua(context, dua),
                         );
                       },

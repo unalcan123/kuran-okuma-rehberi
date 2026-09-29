@@ -1,14 +1,15 @@
 import '../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/recitation_card_images.dart';
 import '../../data/sureler_data.dart';
 import '../../models/surah.dart';
 import '../../widgets/holy_places_background.dart';
+import '../../widgets/picture_card.dart';
 import 'surah_detail_screen.dart';
-import 'widgets/surah_card.dart';
 
-/// "Namaz Sureleri" home — every short surah as a card on one
-/// responsive grid.
+/// "Namaz Sureleri" home — every short surah as a picture card
+/// ([PictureCard], [kSurahCardImages]) on one responsive grid.
 ///
 /// Column count follows the same rule the Elifba grid uses: how many
 /// cards actually fit at a comfortable minimum width, not how wide
@@ -66,17 +67,24 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                     return GridView.builder(
                       padding: const EdgeInsets.all(20),
                       itemCount: kSureler.length,
+                      // Picture cards (PictureCard): every card has the
+                      // pictures' shape; the whole card opens the surah.
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: columns,
                         mainAxisSpacing: 16,
                         crossAxisSpacing: 16,
-                        mainAxisExtent:
-                            290 + (readingScale - 1) * 40,
+                        childAspectRatio: kSurahCardAspectRatio,
                       ),
                       itemBuilder: (context, index) {
                         final surah = kSureler[index];
-                        return SurahCard(
-                          surah: surah,
+                        return PictureCard(
+                          key: ValueKey('surah-card-${surah.id}'),
+                          image: kSurahCardImages[surah.id],
+                          aspectRatio: kSurahCardAspectRatio,
+                          radiusFactor: kSurahCardRadiusFactor,
+                          label: 'Sure ${surah.order}',
+                          title: surah.titleTr,
+                          arabic: surah.arabicName,
                           onTap: () => _openSurah(context, surah),
                         );
                       },

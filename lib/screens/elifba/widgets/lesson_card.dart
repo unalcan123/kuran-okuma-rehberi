@@ -1,90 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/lesson_card_images.dart';
 import '../../../models/lesson.dart';
-import '../../../theme/app_colors.dart';
+import '../../../widgets/picture_card.dart';
 
+/// A lesson in the lesson list: its picture card ([kLessonCardImages]) —
+/// the picture already shows "Ders N" and the title, so nothing is written
+/// over it. A lesson without a picture gets a plain text card of the same
+/// shape ([PictureCard]).
 class LessonCard extends StatelessWidget {
   final Lesson lesson;
   final VoidCallback onTap;
 
   const LessonCard({super.key, required this.lesson, required this.onTap});
 
+  /// Width : height of every card. The pictures are 1.38-1.82 (median ~1.5);
+  /// each is fitted whole (BoxFit.contain), so no title or badge is cut.
+  static const double aspectRatio = 1.5;
+
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: AppColors.surface,
-      borderRadius: BorderRadius.circular(24),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          // Cards side by side are stretched to one height; keep the
-          // content centred in the taller ones.
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: AppColors.divider),
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  color: AppColors.turquoiseSoft,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Center(
-                  child: Text(
-                    lesson.letters.first.isolatedForm,
-                    style: const TextStyle(
-                      fontSize: 26,
-                      color: AppColors.turquoise,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      lesson.label,
-                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: AppColors.turquoise,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.3,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      lesson.title,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.textPrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      lesson.subtitle,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.textSecondary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Icon(
-                Icons.chevron_right_rounded,
-                color: AppColors.textSecondary,
-              ),
-            ],
-          ),
-        ),
-      ),
+    final image = kLessonCardImages[lesson.id];
+    return PictureCard(
+      image: image,
+      aspectRatio: aspectRatio,
+      // 16 px on a ~245 px wide card.
+      radiusFactor: 16 / 245,
+      label: lesson.label,
+      title: lesson.title,
+      subtitle: lesson.subtitle,
+      tapKey: image == null ? null : ValueKey('lesson-card-image-$image'),
+      onTap: onTap,
     );
   }
 }

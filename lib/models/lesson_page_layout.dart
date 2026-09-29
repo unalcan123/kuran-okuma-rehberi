@@ -62,6 +62,56 @@ class LessonPageLayout {
   /// Index in [pages] of the page showing item [itemIndex].
   int pageIndexOf(int itemIndex) => _find(itemIndex)?.$1 ?? 0;
 
+  /// The lesson items page [pageIndex] shows, in the page's order and
+  /// once each: its run of items, then items shown by reference. The Grid
+  /// view shows a page with exactly these (the same page boundaries as the
+  /// Sayfa view); empty for an explanation page.
+  List<int> itemsOf(int pageIndex) {
+    final items = <int>[];
+    var start = 0;
+    for (var p = 0; p < pages.length; p++) {
+      for (final section in pages[p].tables) {
+        if (p == pageIndex) {
+          for (var i = 0; i < section.itemCount; i++) {
+            items.add(start + i);
+          }
+          items.addAll(section.refs ?? const []);
+          final texts = section.textItems.keys.toList()..sort();
+          items.addAll([for (final t in texts) section.textItems[t]!]);
+        }
+        start += section.itemCount;
+      }
+      if (p == pageIndex) break;
+    }
+    final seen = <int>{};
+    return [for (final i in items) if (seen.add(i)) i];
+  }
+
+  /// Page to show for item [itemIndex] when the student was on page
+  /// [currentPage]: that page if it shows the item (an item can be on
+  /// more than one page, e.g. s. 6 and s. 7), else the item's first page.
+  int pageShowing(int itemIndex, int currentPage) =>
+      currentPage >= 0 &&
+              currentPage < pages.length &&
+              itemsOf(currentPage).contains(itemIndex)
+          ? currentPage
+          : pageIndexOf(itemIndex);
+
+  /// Recordings the pages play besides the lesson's items (e.g. s. 8's
+  /// Lâm-Elif shapes), for preloading.
+  Iterable<String> get extraAudioAssets sync* {
+    for (final page in pages) {
+      for (final section in page.tables) {
+        for (final item in [
+          ...section.textAudio.values,
+          ...?section.derivedAudioItems,
+        ]) {
+          if (item.audioAsset case final asset?) yield asset;
+        }
+      }
+    }
+  }
+
   /// Index in the lesson's items of the first item on page [pageIndex]
   /// (0 for a page without items).
   int firstItemOf(int pageIndex) {
@@ -209,6 +259,12 @@ class BookSection {
   /// index): tapping plays the item (e.g. s. 8's لا).
   final Map<int, int> textItems;
 
+  /// Cells of [texts] with their own recording that are not lesson items
+  /// (position → the recording; e.g. s. 8's لآ لأ لإ, each read
+  /// differently). Tapping plays it; a cell also in [textItems] still
+  /// opens that item on long-press.
+  final Map<int, ArabicLetter> textAudio;
+
   /// For [BookSectionKind.forms]: rows the book adds between the items'
   /// rows, keyed by the position they come before (e.g. s. 10: the hemze
   /// row after elif). Display only.
@@ -253,6 +309,7 @@ class BookSection {
     this.texts,
     this.rowLabels,
     this.textItems = const {},
+    this.textAudio = const {},
     this.extraRows = const {},
     this.derived,
     this.derivedProfile,
