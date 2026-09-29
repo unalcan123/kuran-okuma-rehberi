@@ -11,6 +11,7 @@ import '../../theme/app_text_theme.dart';
 import '../holy_places_background.dart';
 import 'reading_segment_card.dart';
 import 'reading_settings_sheet.dart';
+import '../tablet_zoom.dart';
 
 /// The children's reading screen shared by a surah and a prayer: a calm
 /// picture on top (mosque, a boy with his Mushaf, a stream), the parts on
@@ -193,22 +194,31 @@ class ReadingScreenState extends State<ReadingScreen> {
           ReadingSettingsButton(nouns: widget.nouns, settings: _settings),
         ],
       ),
-      body: Stack(
+      body: TabletZoom(child: Stack(
         children: [
-          // Sky, Kâbe, Mescid-i Nebevî, mosque, lanterns, moon — in the
-          // side margins only; the cards in the middle stay on calm sky.
-          HolyPlacesBackground(contentWidth: maxContentWidth),
+          // Behind the bottom bar too (the bar is almost opaque).
+          const Positioned.fill(
+            child: ColoredBox(color: HolyPlacesPainter.meadowLight),
+          ),
           SafeArea(
             top: false,
             child: Column(
               children: [
                 Expanded(
-                  child: NotificationListener<ScrollNotification>(
-                    onNotification: _onScrollNotification,
-                    child: ListenableBuilder(
-                      listenable: Listenable.merge([_settings, _player]),
-                      builder: (context, _) => _list(maxContentWidth, device),
-                    ),
+                  child: Stack(
+                    children: [
+                      // Sky, birds, butterflies and, on the grass at the
+                      // bottom (above the bar), the Kâbe in the middle.
+                      HolyPlacesBackground(contentWidth: maxContentWidth),
+                      NotificationListener<ScrollNotification>(
+                        onNotification: _onScrollNotification,
+                        child: ListenableBuilder(
+                          listenable: Listenable.merge([_settings, _player]),
+                          builder:
+                              (context, _) => _list(maxContentWidth, device),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 ListenableBuilder(
@@ -228,7 +238,7 @@ class ReadingScreenState extends State<ReadingScreen> {
             ),
           ),
         ],
-      ),
+      )),
     );
   }
 
@@ -241,7 +251,13 @@ class ReadingScreenState extends State<ReadingScreen> {
     return SingleChildScrollView(
       key: _viewportKey,
       controller: _scroll,
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+      // At the end, room to see the Kâbe scene below the last card.
+      padding: EdgeInsets.fromLTRB(
+        16,
+        0,
+        16,
+        HolyPlacesPainter.sceneHeightFor(MediaQuery.sizeOf(context)),
+      ),
       child: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: maxContentWidth),

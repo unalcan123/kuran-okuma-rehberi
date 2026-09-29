@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import '../../../widgets/reading_text_settings.dart';
 
 import '../../../models/arabic_letter.dart';
 import 'letter_card.dart';
 import '../../../widgets/lesson_grid_background.dart';
 import 'mahrec_banner.dart';
+import '../../../widgets/arabic_scale.dart';
 
 class _LetterGroup {
   final String? label;
@@ -89,7 +89,7 @@ class AllLettersGrid extends StatelessWidget {
     final minCardWidth =
         hasPositionForms ? _minCardWidthPositionForms : _minCardWidthSimple;
     final maxColumns = hasPositionForms ? 3 : 6;
-    final readingScale = ReadingTextScale.factorOf(context);
+    final readingScale = ArabicScale.arabicFactorOf(context);
     // Bigger letters need wider cards, so the columns thin out one at a
     // time as the reading size grows (5 -> 4 -> 3 -> ...) instead of
     // jumping to a single column.

@@ -10,6 +10,7 @@ import 'package:kuran_okuma_rehberi/screens/elifba/widgets/lesson_page_view.dart
 import 'package:kuran_okuma_rehberi/screens/elifba/widgets/letter_page.dart';
 import 'package:kuran_okuma_rehberi/widgets/lesson_grid_background.dart';
 import 'package:kuran_okuma_rehberi/widgets/lesson_kids_decoration.dart';
+import 'package:kuran_okuma_rehberi/widgets/tablet_zoom.dart';
 
 import 'book_pages_test.dart' show RecordingAudio, app, setSize;
 
@@ -30,16 +31,22 @@ Future<void> _open(WidgetTester tester, Size size, {String? mode}) async {
   }
 }
 
-/// The kids stay in the margins outside [content] wide content.
+/// The kids stay in the margins outside [content] wide content. On a
+/// tablet or a desktop the lesson is laid out 1/zoom smaller and enlarged
+/// ([TabletZoom]): [content] and the kids' widths are in that layout.
 void _expectInMargins(WidgetTester tester, Size size, double content) {
-  final margin = (size.width - content) / 2;
+  final zoom = TabletZoom.zoomFor(size);
+  final margin = (size.width / zoom - content) / 2 * zoom;
   for (final key in [_left, _right]) {
     final kid = find.byKey(key);
     if (kid.evaluate().isEmpty) continue;
     final r = tester.getRect(kid);
     expect(r.left, greaterThanOrEqualTo(0), reason: '$key');
     expect(r.right, lessThanOrEqualTo(size.width), reason: '$key');
-    expect(r.width, lessThanOrEqualTo(LessonKidsDecoration.maxKidWidth));
+    expect(
+      r.width,
+      lessThanOrEqualTo(LessonKidsDecoration.maxKidWidth * zoom + 0.01),
+    );
     if (key == _left) {
       expect(r.right, lessThanOrEqualTo(margin), reason: 'sol çocuk içerikte');
     } else {
@@ -88,7 +95,8 @@ void main() {
   testWidgets('tablet: yalnız sağda tek, küçük çocuk (kenar yetiyorsa)', (
     tester,
   ) async {
-    const size = Size(1000, 800);
+    // 1200 × 900, enlarged 20 %: laid out at 1000 × 750 (tablet).
+    const size = Size(1200, 900);
     await _open(tester, size);
     expect(find.byKey(_left), findsNothing);
     expect(find.byKey(_right), findsOneWidget);
@@ -119,11 +127,16 @@ void main() {
     expect(find.byKey(_left), findsNothing);
     expect(find.byKey(_right), findsNothing);
 
-    const wide = Size(1920, 1080);
+    // Laid out at 1920 × 1080 after the 20 % enlargement (TabletZoom).
+    const wide = Size(2304, 1296);
     await _open(tester, wide, mode: '🔎 Tekli / Büyük');
     expect(find.byKey(_left), findsOneWidget);
     expect(find.byKey(_right), findsOneWidget);
-    _expectInMargins(tester, wide, wide.width * LetterPage.maxGlyphWidthFactor);
+    _expectInMargins(
+      tester,
+      wide,
+      wide.width / TabletZoom.factor * LetterPage.maxGlyphWidthFactor,
+    );
     // Tekli'nin arka planı da çocuk kitabı gökyüzü.
     expect(find.byType(LessonGridBackground), findsWidgets);
   });

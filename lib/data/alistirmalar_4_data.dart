@@ -31,8 +31,8 @@ const List<ArabicLetter> kAlistirmalar4Words = [
 final Lesson kAlistirmalar4Lesson = Lesson(
   id: 'alistirmalar-4',
   label: 'Ders 34',
-  title: 'Alıştırmalar 4',
-  subtitle: '18 kayıt • Genel okuma alıştırması',
+  title: 'Örnekler 4',
+  subtitle: '18 kayıt • Genel okuma örnekleri',
   letters: kAlistirmalar4Words,
   pageLayout: kAlistirmalar4PageLayout,
 );
@@ -43,7 +43,7 @@ const LessonPageLayout kAlistirmalar4PageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 63,
     type: LessonPageType.exercise,
-    heading: 'ALIŞTIRMALAR - 4',
+    heading: 'ÖRNEKLER - 4',
     colorProfile: ArabicColorProfile({ArabicPart.maddah: arabicRed}),
     sections: [
       BookSection(

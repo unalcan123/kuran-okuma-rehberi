@@ -16,7 +16,7 @@ const List<ArabicLetter> kZamirHeUzatmaMedWords = [
 final Lesson kZamirHeUzatmaMedLesson = Lesson(
   id: 'zamir-he-uzatma-med',
   label: 'Ders 28',
-  title: 'Zamir (He) - Med İle Uzatma',
+  title: 'Uzun Med İşareti',
   subtitle: '6 kayıt • Med işaretiyle uzatma',
   letters: kZamirHeUzatmaMedWords,
 );

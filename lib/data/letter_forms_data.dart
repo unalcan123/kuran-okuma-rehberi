@@ -621,34 +621,6 @@ final Lesson kHarflerinYazilislariLesson = Lesson(
   pageLayout: kHarflerinYazilislariPageLayout,
 );
 
-/// The book's hemze row under elif (s. 10): hemze written at the start,
-/// middle and end of words. Shown only on the book page (no recording).
-const ArabicLetter kHemzeFormRow = ArabicLetter(
-  order: 0,
-  isolatedForm: 'أ',
-  formExamples: [
-    [
-      FormWord('اذن', [0]),
-      FormWord('أذن', [0]),
-      FormWord('اِرم', [0]),
-      FormWord('إرم', [0]),
-    ],
-    [
-      FormWord('سال', [1]),
-      FormWord('سأل', [1]),
-      FormWord('يئس', [1]),
-      FormWord('رؤس', [1]),
-    ],
-    [
-      FormWord('نبا', [2]),
-      FormWord('نبأ', [2]),
-      FormWord('نبا', [2]),
-      FormWord('نبإ', [2]),
-      FormWord('قرئ', [2]),
-    ],
-  ],
-);
-
 /// s. 8 "LÂM - ELİF ŞEKİLLERİ": each row of the table is read differently,
 /// so each has its own recording (from the old app's
 /// `ders_1_harfler_2_lamelif.json`: LINE 1_5.201-204). The ayrı and bitişik
@@ -689,11 +661,12 @@ const List<ArabicLetter> kLamElifShapeAudio = [
   kLamElifEsreHemze,
 ];
 
-/// Book pages 8-13 (in book order): s. 8 "LÂM - ELİF" (its shapes; لا is
-/// this lesson's item), s. 9 "SIRASIZ YAZILAN HARFLER" (the letters out of
-/// order, the 7 thick ones red by the global rule), s. 10-13 "HARFLERİN BAŞTA, ORTADA, SONDA
+/// Book pages 8 and 11-13 (in book order): s. 8 "LÂM - ELİF" (its shapes;
+/// لا is this lesson's item), s. 11-13 "HARFLERİN BAŞTA, ORTADA, SONDA
 /// YAZILIŞLARINA ÖRNEKLER" (the letter red; in the example words the
-/// letters the book prints red). Colors read from the PDF.
+/// letters the book prints red). Colors read from the PDF. s. 9 ("Sırasız
+/// yazılan harfler") and s. 10 (Elif and hemze forms) are left out of the
+/// lesson on purpose; Elif's row opens s. 11 with s. 10's heading.
 const ArabicColorProfile _formsLetterRed = ArabicColorProfile({
   ArabicPart.letter: arabicRed,
 });
@@ -751,54 +724,17 @@ const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
     ],
   ),
   LessonBookPage(
-    bookPage: 9,
-    headingAudio: 's009_baslik_1',
-    type: LessonPageType.exercise,
-    kicker: 'SIRASIZ YAZILAN',
-    heading: 'HARFLER',
-    colorProfile: ArabicColorProfile.none,
-    sections: [
-      BookSection(
-        refs: [
-          23, 5, 7, 1, 12, 20, 28, 25, 21, 18, 0, 19, 10, 26, //
-          6, 13, 14, 9, 16, 22, 15, 11, 17, 8, 4, 2, 24, 3,
-        ],
-        columns: 4,
-      ),
-    ],
-  ),
-  LessonBookPage(
-    bookPage: 10,
+    bookPage: 11,
     headingAudio: 's010_baslik_1',
-    introAudio: {0: TrAudio('s010_01'), 1: TrAudio('s010_02')},
     type: LessonPageType.lesson,
     kicker: 'HARFLERİN',
     heading: 'BAŞTA, ORTADA, SONDA YAZILIŞLARINA',
     subheading: 'ÖRNEKLER',
-    intro: [
-      '* Kelimeyi oluşturan her harfin kendinden önceki harfe bitiştiğini ve '
-          '( «ا د ذ ر ز و» ) harflerinin, kendilerinden sonra gelen harflere '
-          'bitişmediğini hatırlayalım.',
-      '«Not:» Harflerin kelimelere nasıl bitiştiğini görelim. Kelimeleri '
-          'okumaya çalışmayalım. Henüz harekeleri öğrenmedik.',
-    ],
     colorProfile: _formsLetterRed,
     sections: [
       BookSection(
         kind: BookSectionKind.forms,
-        refs: [0],
-        extraRows: {1: kHemzeFormRow},
-      ),
-    ],
-  ),
-  LessonBookPage(
-    bookPage: 11,
-    type: LessonPageType.lesson,
-    colorProfile: _formsLetterRed,
-    sections: [
-      BookSection(
-        kind: BookSectionKind.forms,
-        refs: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        refs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       ),
     ],
   ),

@@ -250,7 +250,7 @@ final Map<String, LessonInfo> kLessonInfo = {
   ),
 
   'harekeler-alistirmalari': LessonInfo(
-    title: 'Harekeler Alıştırmaları',
+    title: 'Harekeler Örnekleri',
     body: [
       _n(
         'Üstün, esre, ötre ve cezmi bir arada kullanan karma kelime okuma pratiği.',
@@ -270,7 +270,7 @@ final Map<String, LessonInfo> kLessonInfo = {
   ),
 
   'alistirmalar-sedde': LessonInfo(
-    title: 'Şedde Alıştırmaları',
+    title: 'Şedde Örnekleri',
     body: [_n('Şeddeli harflerle kelime okuma pratiği.')],
   ),
 
@@ -294,7 +294,7 @@ final Map<String, LessonInfo> kLessonInfo = {
   ),
 
   'uzatma-elif-alistirmalari': LessonInfo(
-    title: 'Uzatma Harfleri - Elif Alıştırmaları',
+    title: 'Uzatma Harfleri - Elif Örnekleri',
     body: [_n('Elif uzatmalı (medli) kelimelerle okuma pratiği.')],
   ),
 
@@ -312,7 +312,7 @@ final Map<String, LessonInfo> kLessonInfo = {
   ),
 
   'uzatma-ya-alistirmalari': LessonInfo(
-    title: 'Uzatma Harfleri - Ya Alıştırmaları',
+    title: 'Uzatma Harfleri - Ya Örnekleri',
     body: [_n('Ye uzatmalı (medli) kelimelerle okuma pratiği.')],
   ),
 
@@ -330,7 +330,7 @@ final Map<String, LessonInfo> kLessonInfo = {
   ),
 
   'uzatma-vav-alistirmalari': LessonInfo(
-    title: 'Uzatma Harfleri - Vav Alıştırmaları',
+    title: 'Uzatma Harfleri - Vav Örnekleri',
     body: [_n('Vav uzatmalı (medli) kelimelerle okuma pratiği.')],
   ),
 
@@ -629,7 +629,7 @@ final Map<String, LessonInfo> kLessonInfo = {
   ),
 
   'zamir-he-uzatma-med': LessonInfo(
-    title: 'Zamir (He) - Med İle Uzatma',
+    title: 'Uzun Med İşareti',
     body: [
       _tr('s055_03', [
         _n(
@@ -793,34 +793,34 @@ final Map<String, LessonInfo> kLessonInfo = {
   ),
 
   'alistirmalar-1': LessonInfo(
-    title: 'Alıştırmalar 1',
+    title: 'Örnekler 1',
     body: [
       _n(
-        'Öğrenilen kuralların hepsini bir araya getiren genel okuma alıştırması.',
+        'Öğrenilen kuralların hepsini bir araya getiren genel okuma örnekleri.',
       ),
     ],
   ),
   'alistirmalar-2': LessonInfo(
-    title: 'Alıştırmalar 2',
+    title: 'Örnekler 2',
     body: [
       _n(
-        'Öğrenilen kuralların hepsini bir araya getiren genel okuma alıştırması.',
+        'Öğrenilen kuralların hepsini bir araya getiren genel okuma örnekleri.',
       ),
     ],
   ),
   'alistirmalar-3': LessonInfo(
-    title: 'Alıştırmalar 3',
+    title: 'Örnekler 3',
     body: [
       _n(
-        'Öğrenilen kuralların hepsini bir araya getiren genel okuma alıştırması.',
+        'Öğrenilen kuralların hepsini bir araya getiren genel okuma örnekleri.',
       ),
     ],
   ),
   'alistirmalar-4': LessonInfo(
-    title: 'Alıştırmalar 4',
+    title: 'Örnekler 4',
     body: [
       _n(
-        'Öğrenilen kuralların hepsini bir araya getiren genel okuma alıştırması.',
+        'Öğrenilen kuralların hepsini bir araya getiren genel okuma örnekleri.',
       ),
     ],
   ),

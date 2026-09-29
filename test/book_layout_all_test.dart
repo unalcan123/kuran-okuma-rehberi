@@ -41,7 +41,9 @@ void main() {
     expect(last, 63);
   });
 
-  test('every book page of s. 3-63 belongs to a lesson', () {
+  // s. 9 ("Sırasız yazılan harfler") and s. 10 (Elif / hemze forms) are
+  // left out of Ders 2 on purpose.
+  test('every book page of s. 3-63 but s. 9-10 belongs to a lesson', () {
     final pages = <int>{};
     for (final lesson in kElifbaAllLessons) {
       final layout = lesson.pageLayout;
@@ -54,7 +56,7 @@ void main() {
         }
       }
     }
-    expect(pages, {for (var p = 3; p <= 63; p++) p});
+    expect(pages, {for (var p = 3; p <= 63; p++) if (p != 9 && p != 10) p});
   });
 
   for (final size in const [Size(360, 800), Size(800, 360), Size(1280, 800)]) {

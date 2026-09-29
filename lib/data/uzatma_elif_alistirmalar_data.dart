@@ -42,7 +42,7 @@ const List<ArabicLetter> kUzatmaElifAlistirmalariWords = [
 final Lesson kUzatmaElifAlistirmalariLesson = Lesson(
   id: 'uzatma-elif-alistirmalari',
   label: 'Ders 12',
-  title: 'Uzatma Harfleri - Elif Alıştırmaları',
+  title: 'Uzatma Harfleri - Elif Örnekleri',
   subtitle: '28 kayıt • Elif uzatmalı kelime okuma',
   letters: kUzatmaElifAlistirmalariWords,
   pageLayout: kUzatmaElifAlistirmalariPageLayout,

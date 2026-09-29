@@ -2,25 +2,27 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import '../theme/app_colors.dart';
 import 'lesson_grid_background.dart';
 
 /// A cute children's-book backdrop for the Namaz Duaları / Namaz Sureleri
 /// screens: a smiling crescent moon, twinkling stars, a cloud with a face,
-/// two glowing lanterns, and along the bottom a little Kâbe, the green dome
-/// of Mescid-i Nebevî and a mosque with pencil minarets on green hills with
-/// flowers and a butterfly.
+/// two glowing lanterns, birds, many butterflies, and along the bottom the
+/// Kâbe between the green dome of Mescid-i Nebevî and a mosque with pencil
+/// minarets, on green hills full of grass and flowers.
 ///
 /// Our own drawing in shapes (no photos, no picture files, no writing or
-/// Arabic letters), soft and rounded, like the home illustrations. The holy
-/// places stand at the left and right edges, so the (opaque) cards in the
-/// middle stay on a calm sky. Purely ornamental: never takes touches. Use it
-/// as the first child of a [Stack].
+/// Arabic letters), soft and rounded, like the home illustrations, in
+/// brighter pastels. The Kâbe stands on the grass at the bottom, in the very
+/// middle of the screen on every width ([HolyPlacesPainter.kaabaCenterX]);
+/// birds, butterflies and clouds spread down both sides and across the
+/// middle. Lists keep [HolyPlacesPainter.sceneHeightFor] of room at their
+/// end so the scene can be seen. Purely ornamental: never takes touches.
+/// Use it as the first child of a [Stack].
 class HolyPlacesBackground extends StatelessWidget {
   const HolyPlacesBackground({super.key, this.contentWidth});
 
-  /// How wide the page's content (cards) gets: the holy places are sized to
-  /// fit the empty margins beside it. Null: they use their normal size.
+  /// How wide the page's content (cards) gets: side decorations go in the
+  /// empty margins beside it when there are any.
   final double? contentWidth;
 
   @override
@@ -44,9 +46,6 @@ class HolyPlacesPainter extends LessonGridBackgroundPainter {
   /// See [HolyPlacesBackground.contentWidth].
   final double? contentWidth;
 
-  /// Width of each group of buildings at scale 1 (left: Nebevî + Kâbe).
-  static const double groupWidth = 200;
-
   static const Color skyTop = Color(0xFFDDEFFB);
   static const Color moon = Color(0xFFFFE08A);
   static const Color cheek = Color(0xFFF8B4C4);
@@ -59,6 +58,45 @@ class HolyPlacesPainter extends LessonGridBackgroundPainter {
   static const Color blueWall = Color(0xFFD4E2F4);
   static const Color teal = Color(0xFF5CC1B5);
 
+  /// Brighter pastel tones than the lesson grid's (still soft, not neon).
+  static const Color skyBright = Color(0xFFBDE3FA);
+  static const Color skyLight = Color(0xFFE2F3FC);
+  static const Color meadowLight = Color(0xFFEAF7E1);
+  static const Color hillBackBright = Color(0xFFB2E09A);
+  static const Color hillFrontBright = Color(0xFF8FD17A);
+  static const List<Color> flowerColors = [
+    Color(0xFFF48FB1), // pink
+    Color(0xFFFFD54F), // yellow
+    Color(0xFFFFFFFF), // white
+    Color(0xFFB39DDB), // lilac
+    Color(0xFFFFB74D), // orange
+  ];
+  static const List<Color> butterflyColors = [
+    Color(0xFFF7A8C8),
+    Color(0xFFFFCC80),
+    Color(0xFFB3A6F0),
+    Color(0xFF8ED1F2),
+    Color(0xFFA5DE8F),
+  ];
+
+  /// How far up from the bottom the grassy hills reach on a [size] screen.
+  static double groundHeightFor(Size size) =>
+      math.min(size.height * 0.2, 170.0);
+
+  /// Width of the Kâbe on a [size] screen.
+  static double kaabaWidthFor(Size size) =>
+      (size.width * 0.14).clamp(60.0, 128.0).toDouble();
+
+  /// Height of the bottom scene (the hills with the Kâbe and the mosques):
+  /// a list keeps this much room at its end so, scrolled to the end, the
+  /// scene is seen.
+  static double sceneHeightFor(Size size) =>
+      groundHeightFor(size) * 0.5 + kaabaWidthFor(size) * 1.25;
+
+  /// X of the Kâbe's center: always the middle of the screen, the same
+  /// distance from the left and the right edge.
+  static double kaabaCenterX(Size size) => size.width / 2;
+
   @override
   void paint(Canvas canvas, Size size) {
     if (size.isEmpty) return;
@@ -70,88 +108,163 @@ class HolyPlacesPainter extends LessonGridBackgroundPainter {
         ..shader = const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            skyTop,
-            LessonGridBackgroundPainter.skyMiddle,
-            AppColors.background,
-          ],
-          stops: [0, 0.5, 1],
+          colors: [skyBright, skyLight, meadowLight],
+          stops: [0, 0.55, 1],
         ).createShader(rect),
     );
     final unit = (math.min(w, h) / 600).clamp(0.55, 1.2).toDouble();
+    // Side decorations sit in the margins beside the content when there
+    // are any, else near the edges.
+    final content = contentWidth;
+    final margin = content == null ? 0.0 : math.max(0.0, (w - content) / 2);
+    final sideL = margin > 60 * unit ? margin / 2 : w * 0.05;
+    final sideR = w - sideL;
 
-    // Top: lanterns on the left, a smiling moon on the right, stars.
+    // Top: lanterns on the left, a smiling moon on the right, stars, clouds
+    // and a few birds.
     drawLantern(canvas, Offset(w * 0.04, 0), 70 * unit, 16 * unit, gold);
     drawLantern(canvas, Offset(w * 0.085, 0), 44 * unit, 13 * unit, teal);
     drawMoon(canvas, Offset(w - 58 * unit, 62 * unit), 30 * unit);
     const stars = <(double, double, double)>[
       (0.16, 0.08, 1.0),
       (0.83, 0.20, 0.8),
-      (0.05, 0.30, 0.8),
-      (0.95, 0.33, 1.0),
       (0.40, 0.04, 0.6),
       (0.62, 0.07, 0.7),
-      (0.10, 0.52, 0.6),
-      (0.91, 0.55, 0.7),
     ];
     for (final (x, y, s) in stars) {
       drawStar(canvas, Offset(x * w, y * h), 8 * unit * s);
     }
     drawCloud(canvas, Offset(w * 0.24, 40 * unit), 44 * unit);
-    drawCloud(canvas, Offset(w * 0.93, h * 0.44), 40 * unit);
-    drawCloudFace(canvas, Offset(w * 0.03, h * 0.42), 42 * unit);
-
-    // Bottom: hills, then the holy places at the edges.
-    final hillHeight = math.min(h * 0.13, 120.0);
-    drawHill(
-      canvas,
-      size,
-      hillHeight,
-      LessonGridBackgroundPainter.hillBack,
-      phase: 0.3,
-    );
-    final ground = h - hillHeight * 0.45;
-    // Buildings fit the margin beside the content when there is one
-    // (never smaller than 0.5, never bigger than 1.3 of their size).
-    final content = contentWidth;
-    final margin = content == null ? null : (w - content) / 2;
-    final s =
-        margin == null
-            ? 1.3 * unit
-            : (margin / (groupWidth * 1.05)).clamp(0.5, 1.3).toDouble();
-    drawNebevi(canvas, Offset(6 + 70 * s, ground), 62 * s);
-    drawKaaba(canvas, Offset(6 + 172 * s, ground - 2 * s), 46 * s);
-    drawMosque(canvas, Offset(w - 6 - 80 * s, ground), 64 * s);
-    drawHill(
-      canvas,
-      size,
-      hillHeight * 0.55,
-      LessonGridBackgroundPainter.hillFront,
-      phase: 0.7,
-    );
-
-    // Flowers, grass and a butterfly in the corners.
-    final front = h - hillHeight * 0.16;
-    for (final x in [0.03, 0.09, 0.15, 0.85, 0.91, 0.97]) {
-      drawGrass(canvas, Offset(x * w, front + 4 * unit), 9 * unit);
+    drawCloud(canvas, Offset(w * 0.72, 30 * unit), 36 * unit);
+    drawCloudFace(canvas, Offset(sideL, h * 0.36), 40 * unit);
+    drawCloud(canvas, Offset(sideR, h * 0.44), 38 * unit);
+    const birds = <(double, double, double)>[
+      (0.33, 0.12, 1.0),
+      (0.58, 0.16, 0.8),
+      (0.47, 0.09, 0.7),
+    ];
+    for (final (x, y, s) in birds) {
+      drawBird(canvas, Offset(x * w, y * h), 11 * unit * s, x > 0.5);
     }
-    const flowers = <double>[0.06, 0.12, 0.18, 0.82, 0.88, 0.94];
-    for (var i = 0; i < flowers.length; i++) {
-      drawFlower(
+
+    // The middle of the page: butterflies (and a bird) down both sides and
+    // across, so no wide empty band is left.
+    final flutter = <(double, double, double)>[
+      (sideL, 0.26, 0.2),
+      (sideR, 0.3, -0.3),
+      (sideL + 26 * unit, 0.52, -0.2),
+      (sideR - 20 * unit, 0.6, 0.25),
+      (sideL, 0.7, 0.3),
+      (sideR, 0.76, -0.15),
+      (w * 0.36, 0.48, 0.15),
+      (w * 0.66, 0.4, -0.25),
+      (w * 0.5, 0.64, 0.1),
+    ];
+    for (var i = 0; i < flutter.length; i++) {
+      final (x, y, tilt) = flutter[i];
+      drawButterfly(
         canvas,
-        Offset(flowers[i] * w, front - (i.isEven ? 0 : 6) * unit),
-        6.5 * unit,
-        LessonGridBackgroundPainter.petals[i %
-            LessonGridBackgroundPainter.petals.length],
+        Offset(x, y * h),
+        (i < 6 ? 15 : 12) * unit,
+        butterflyColors[i % butterflyColors.length],
+        tilt: tilt,
       );
     }
+    drawBird(canvas, Offset(sideR, h * 0.18), 12 * unit, true);
+
+    // Bottom: grassy hills with the Kâbe in the very middle, Mescid-i
+    // Nebevî on its left and a mosque on its right, trees at the edges.
+    final ground = groundHeightFor(size);
+    drawHill(canvas, size, ground, hillBackBright, phase: 0.3);
+    final k = kaabaWidthFor(size);
+    final cx = kaabaCenterX(size);
+    final base = h - ground * 0.5;
+    // Neighbours as far out as fits (never off screen, never on the Kâbe).
+    final spread = math.min(k * 2.4, w * 0.3);
+    final d = k * 0.72;
+    drawTree(canvas, Offset(w * 0.035, base + 6 * unit), 34 * unit);
+    drawTree(canvas, Offset(w * 0.965, base + 6 * unit), 34 * unit);
+    drawNebevi(canvas, Offset(cx - spread, base), d);
+    drawMosque(canvas, Offset(cx + spread, base), d);
+    drawKaaba(canvas, Offset(cx, base), k);
+    drawHill(canvas, size, ground * 0.5, hillFrontBright, phase: 0.7);
+
+    // Grass tufts and flowers all along the front; the Kâbe's front is
+    // kept clear.
+    final front = h - ground * 0.14;
+    final step = 26 * unit;
+    var i = 0;
+    for (var x = step / 2; x < w; x += step, i++) {
+      if ((x - cx).abs() < k * 0.6) continue;
+      drawGrass(
+        canvas,
+        Offset(x, front + (i.isEven ? 4 : 10) * unit),
+        9 * unit,
+      );
+      if (i.isOdd) {
+        drawFlower(
+          canvas,
+          Offset(x + 6 * unit, front - (i % 4 == 1 ? 2 : 10) * unit),
+          6.5 * unit,
+          flowerColors[i % flowerColors.length],
+        );
+      }
+    }
+    // Butterflies over the meadow, beside the Kâbe.
     drawButterfly(
       canvas,
-      Offset(w * 0.90, h * 0.58),
-      15 * unit,
-      const Color(0xFFF7A8C8),
+      Offset(cx - k * 1.1, h - ground * 0.95),
+      13 * unit,
+      butterflyColors[0],
+      tilt: -0.2,
+    );
+    drawButterfly(
+      canvas,
+      Offset(cx + k * 1.15, h - ground * 1.05),
+      12 * unit,
+      butterflyColors[2],
       tilt: 0.25,
     );
+  }
+
+  /// A round little bird with a wing, a beak and an eye, flying left or
+  /// ([facingRight]) right; [r] is about its body radius.
+  @protected
+  void drawBird(Canvas canvas, Offset c, double r, bool facingRight) {
+    final dir = facingRight ? 1.0 : -1.0;
+    const body = Color(0xFF7FC4E8);
+    canvas
+      ..drawOval(
+        Rect.fromCenter(center: c, width: r * 2.2, height: r * 1.6),
+        Paint()..color = body.withValues(alpha: 0.9),
+      )
+      ..drawCircle(
+        c.translate(dir * r * 0.95, -r * 0.45),
+        r * 0.62,
+        Paint()..color = body.withValues(alpha: 0.95),
+      )
+      ..drawPath(
+        Path()
+          ..moveTo(c.dx + dir * r * 1.5, c.dy - r * 0.55)
+          ..lineTo(c.dx + dir * r * 1.95, c.dy - r * 0.4)
+          ..lineTo(c.dx + dir * r * 1.5, c.dy - r * 0.25)
+          ..close(),
+        Paint()..color = const Color(0xFFFFB74D),
+      )
+      ..drawCircle(
+        c.translate(dir * r * 1.1, -r * 0.55),
+        r * 0.1,
+        Paint()..color = LessonGridBackgroundPainter.ink,
+      )
+      // Wing, lifted.
+      ..drawOval(
+        Rect.fromCenter(
+          center: c.translate(-dir * r * 0.2, -r * 0.55),
+          width: r * 1.2,
+          height: r * 0.75,
+        ),
+        Paint()..color = const Color(0xFFB9E1F5),
+      );
   }
 
   /// A hanging lantern: string of [drop] from [top], body [r] wide, soft glow.

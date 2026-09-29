@@ -14,6 +14,7 @@ import 'package:kuran_okuma_rehberi/screens/elifba/widgets/lesson_page_view.dart
 import 'package:kuran_okuma_rehberi/screens/elifba/widgets/single_letter_pager.dart';
 
 import 'book_pages_test.dart' show RecordingAudio, app, setSize;
+import 'support/lesson_scroll.dart';
 
 Finder _arabic(String text) =>
     find.byWidgetPredicate((w) => w is ColoredArabicText && w.text == text);
@@ -75,9 +76,18 @@ void main() {
     expect(first.top, second.top);
     expect(first.height, greaterThan(40));
 
+    // Masaüstünde her şey %20 büyük (TabletZoom): hücre aşağıda kalabilir.
+    await revealInLesson(tester, find.byKey(const ValueKey('book-cell-1')));
     await tester.tap(find.byKey(const ValueKey('book-cell-1')));
     await tester.pump();
     expect(audio.played.single.isolatedForm, 'بَ');
+    // Başa dön: görünüm seçicisi yeniden görünsün.
+    await tester.fling(
+      find.byType(NestedScrollView),
+      const Offset(0, 3000),
+      3000,
+    );
+    await tester.pumpAndSettle();
 
     // Başka görünüme geçip dersi yeniden açınca yine Sayfa.
     await _mode(tester, '▦ Grid');

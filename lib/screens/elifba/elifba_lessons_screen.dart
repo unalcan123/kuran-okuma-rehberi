@@ -5,6 +5,7 @@ import '../../models/lesson.dart';
 import '../../theme/app_colors.dart';
 import 'lesson_letters_screen.dart';
 import 'widgets/lesson_card.dart';
+import '../../widgets/tablet_zoom.dart';
 
 /// The Elifba lessons, as many cards side by side as comfortably fit — after
 /// the GİRİŞ section ("Harflerin Çıkış Yerleri", [kElifbaIntroLessons]),
@@ -17,7 +18,7 @@ class ElifbaLessonsScreen extends StatelessWidget {
   const ElifbaLessonsScreen({super.key});
 
   static const double maxContentWidth = 1100;
-  static const double _minCardWidth = 330;
+  static const double _minCardWidth = 290;
   static const int _maxColumns = 3;
   static const double _padding = 24;
   static const double _gap = 16;
@@ -32,7 +33,7 @@ class ElifbaLessonsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Elifba Dersleri')),
-      body: Center(
+      body: TabletZoom(child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: maxContentWidth),
           child: LayoutBuilder(
@@ -70,7 +71,7 @@ class ElifbaLessonsScreen extends StatelessWidget {
             },
           ),
         ),
-      ),
+      )),
     );
   }
 

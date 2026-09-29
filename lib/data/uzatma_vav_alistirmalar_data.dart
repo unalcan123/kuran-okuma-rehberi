@@ -42,7 +42,7 @@ const List<ArabicLetter> kUzatmaVavAlistirmalariWords = [
 final Lesson kUzatmaVavAlistirmalariLesson = Lesson(
   id: 'uzatma-vav-alistirmalari',
   label: 'Ders 16',
-  title: 'Uzatma Harfleri - Vav Alıştırmaları',
+  title: 'Uzatma Harfleri - Vav Örnekleri',
   subtitle: '28 kayıt • Vav uzatmalı kelime okuma',
   letters: kUzatmaVavAlistirmalariWords,
   pageLayout: kUzatmaVavAlistirmalariPageLayout,

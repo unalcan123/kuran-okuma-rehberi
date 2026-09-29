@@ -79,7 +79,7 @@ const List<ArabicLetter> kAlistirmalarSeddeWords = [
 final Lesson kAlistirmalarSeddeLesson = Lesson(
   id: 'alistirmalar-sedde',
   label: 'Ders 10',
-  title: 'Şedde Alıştırmaları',
+  title: 'Şedde Örnekleri',
   subtitle: '64 kayıt • Şeddeli kelime okuma',
   letters: kAlistirmalarSeddeWords,
   pageLayout: kAlistirmalarSeddePageLayout,

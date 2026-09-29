@@ -39,8 +39,8 @@ ArabicLetter(order: 27, isolatedForm: 'عَلَيْهَا قُعُودٌ', audio
 final Lesson kAlistirmalar2Lesson = Lesson(
   id: 'alistirmalar-2',
   label: 'Ders 32',
-  title: 'Alıştırmalar 2',
-  subtitle: '27 kayıt • Genel okuma alıştırması',
+  title: 'Örnekler 2',
+  subtitle: '27 kayıt • Genel okuma örnekleri',
   letters: kAlistirmalar2Words,
   pageLayout: kAlistirmalar2PageLayout,
 );
@@ -51,7 +51,7 @@ const LessonPageLayout kAlistirmalar2PageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 61,
     type: LessonPageType.exercise,
-    heading: 'ALIŞTIRMALAR - 2',
+    heading: 'ÖRNEKLER - 2',
     colorProfile: ArabicColorProfile.none,
     sections: [
       BookSection(

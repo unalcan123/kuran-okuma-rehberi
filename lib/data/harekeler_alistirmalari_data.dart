@@ -67,7 +67,7 @@ const List<ArabicLetter> kHarekelerAlistirmalariWords = [
 final Lesson kHarekelerAlistirmalariLesson = Lesson(
   id: 'harekeler-alistirmalari',
   label: 'Ders 8',
-  title: 'Harekeler Alıştırmaları',
+  title: 'Harekeler Örnekleri',
   subtitle: '52 kayıt • Üstün, esre, ötre ve cezm ile kelime okuma',
   letters: kHarekelerAlistirmalariWords,
   pageLayout: kHarekelerAlistirmalariPageLayout,

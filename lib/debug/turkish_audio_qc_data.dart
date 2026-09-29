@@ -90,25 +90,11 @@ const List<TrAudioQcEntry> kTrAudioQcEntries = [
     ttsText: 'Lâm elif şekilleri.',
   ),
   TrAudioQcEntry(
-    id: 's009_baslik_1',
-    pdfPage: 9,
-    heading: true,
-    text: 'SIRASIZ YAZILAN HARFLER',
-    ttsText: 'Sırasız yazılan harfler.',
-  ),
-  TrAudioQcEntry(
     id: 's010_baslik_1',
     pdfPage: 10,
     heading: true,
     text: 'HARFLERİN BAŞTA, ORTADA, SONDA YAZILIŞLARINA ÖRNEKLER',
     ttsText: 'Harflerin başta, ortada ve sonda yazılışlarına örnekler.',
-  ),
-  TrAudioQcEntry(
-    id: 's010_02',
-    pdfPage: 10,
-    heading: false,
-    text: 'Not: Harflerin kelimelere nasıl bitiştiğini görelim. Kelimeleri okumaya çalışmayalım. Henüz harekeleri öğrenmedik.',
-    ttsText: 'Not. Harflerin kelimelere nasıl bitiştiğini görelim. Kelimeleri okumaya çalışmayalım. Henüz harekeleri öğrenmedik.',
   ),
   TrAudioQcEntry(
     id: 's014_01',

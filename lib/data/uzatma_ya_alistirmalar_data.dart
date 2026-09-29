@@ -42,7 +42,7 @@ const List<ArabicLetter> kUzatmaYaAlistirmalariWords = [
 final Lesson kUzatmaYaAlistirmalariLesson = Lesson(
   id: 'uzatma-ya-alistirmalari',
   label: 'Ders 14',
-  title: 'Uzatma Harfleri - Ya Alıştırmaları',
+  title: 'Uzatma Harfleri - Ya Örnekleri',
   subtitle: '28 kayıt • Ye uzatmalı kelime okuma',
   letters: kUzatmaYaAlistirmalariWords,
   pageLayout: kUzatmaYaAlistirmalariPageLayout,

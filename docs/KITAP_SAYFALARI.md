@@ -17,8 +17,9 @@ sayfası), **Alıştırma** (kitapta "ALIŞTIRMALAR"), **Bilgi** (okunacak öğe
 | 6 | HARFLER (28 harf, kalın harfler) | Konu | Ders 1 `letters_data` (28), 1. sayfa | |
 | 7 | Harflerin Yazılış ve Okunuşları (أَلِفْ بَا تَا…) | Konu | Ders 1, 2. sayfa (aynı 28 öğe, adlarıyla) | |
 | 8 | LÂM-ELİF (şekiller tablosu) | Konu | Ders 2 `لا` + şekil sesleri `kLamElifShapeAudio` | her satır kendi kaydı (eski uygulama LINE 1_5.201-204) |
-| 9 | Sırasız Yazılan Harfler | Alıştırma | – (veri yok) | |
-| 10–13 | Harflerin Başta/Ortada/Sonda Yazılışları | Konu | Ders 2 `letter_forms_data` (29) | |
+| 9 | Sırasız Yazılan Harfler | Alıştırma | – **derste yok** (2026-09-29 çıkarıldı) | |
+| 10 | Başta/Ortada/Sonda Yazılışları — Elif + hemze | Konu | – **derste yok** (2026-09-29 çıkarıldı) | Elif satırı ve başlık s. 11'de |
+| 11–13 | Harflerin Başta/Ortada/Sonda Yazılışları | Konu | Ders 2 `letter_forms_data` (29) | |
 | **14** | **HAREKELER – ÜSTÜN** | **Konu** | **Ders 3 `ustun_data` 1–28** | **pilot, uygulandı** |
 | **15** | **ÖRNEKLER (Üstün)** | **Örnekler** | **Ders 3, 29–56** | **pilot** |
 | **16** | (Örnekler devamı) | **Örnekler** | **Ders 3, 57–92** | **pilot** |

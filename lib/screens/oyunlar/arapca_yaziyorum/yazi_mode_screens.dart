@@ -765,7 +765,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                 color: AppColors.turquoise,
               ),
               Text(
-                done == 0 ? 'Alıştırmalar bitti.' : 'Tebrikler!',
+                done == 0 ? 'Örnekler bitti.' : 'Tebrikler!',
                 textAlign: TextAlign.center,
                 style: textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w800,
@@ -811,7 +811,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                 key: const ValueKey('restart-button'),
                 onPressed: _restart,
                 icon: const Icon(Icons.replay_rounded),
-                label: const Text('Yeni alıştırmalar'),
+                label: const Text('Yeni örnekler'),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.turquoise,
                   minimumSize: const Size.fromHeight(52),

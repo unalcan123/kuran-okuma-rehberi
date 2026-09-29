@@ -20,6 +20,7 @@ import 'package:kuran_okuma_rehberi/services/turkish_audio_catalog.dart';
 import 'book_pages_test.dart' show app, lessonOf, setSize;
 import 'support/silent_audio.dart';
 import 'support/turkish_audio_texts.dart';
+import 'support/lesson_scroll.dart';
 
 /// One player, like AudioService: whatever was asked last is the one
 /// sound playing, Turkish or Arabic.
@@ -122,10 +123,10 @@ void main() {
       }
     });
 
-    test('sayılar: 71 açıklama + 34 başlık', () {
+    test('sayılar: 69 açıklama + 33 başlık', () {
       final headings = entries.where((e) => e['kind'] == 'heading').length;
-      expect(entries.length - headings, 71);
-      expect(headings, 34);
+      expect(entries.length - headings, 69);
+      expect(headings, 33);
       // Tekrar eden genel başlıklar (ÖRNEKLER, ALIŞTIRMALAR) seslendirilmez.
       for (final e in entries) {
         expect(e['text'], isNot(startsWith('ÖRNEKLER')));
@@ -274,13 +275,16 @@ void main() {
       expect(_isPlayingIcon(tester, 's014_01'), isFalse);
       expect(_isPlayingIcon(tester, 's014_02'), isTrue);
 
-      // Arabic cell: the Turkish one stops.
+      // Arabic cell: the Turkish one stops. (Enlarged 20 % on a desktop,
+      // TabletZoom: the cell may be below the fold.)
+      await revealInLesson(tester, find.byKey(const ValueKey('book-cell-1')));
       await tester.tap(find.byKey(const ValueKey('book-cell-1')));
       await tester.pump();
       expect(audio.log.last, startsWith('ar:'));
       expect(_isPlayingIcon(tester, 's014_02'), isFalse);
 
       // Turkish again: the Arabic one stops; same block again restarts it.
+      await revealInLesson(tester, _block('s014_02'));
       await tester.tap(_block('s014_02'));
       await tester.tap(_block('s014_02'));
       await tester.pump();

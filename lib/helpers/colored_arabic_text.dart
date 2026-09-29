@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../widgets/arabic_scale.dart';
 import 'arabic_colorizer.dart';
 
 /// Elifba öğretim ekranlarında Arapça metin için ortak widget: [Text] gibi
@@ -52,6 +53,12 @@ class ColoredArabicText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // A lesson's Arabic is drawn larger on tablets and desktops.
+    final scale = ArabicScale.of(context);
+    final style =
+        scale == 1 || this.style.fontSize == null
+            ? this.style
+            : this.style.copyWith(fontSize: this.style.fontSize! * scale);
     final base = Text(
       text,
       style: style,

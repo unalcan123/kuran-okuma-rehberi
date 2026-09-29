@@ -23,6 +23,8 @@ class PictureCard extends StatelessWidget {
     this.subtitle,
     this.arabic,
     this.tapKey,
+    this.imageSize,
+    this.overlay,
   });
 
   final String? image;
@@ -43,6 +45,14 @@ class PictureCard extends StatelessWidget {
   /// Key of the tap target (for tests).
   final Key? tapKey;
 
+  /// The picture's pixel size; with [overlay], where the fitted picture
+  /// lies inside the card.
+  final Size? imageSize;
+
+  /// Drawn exactly over the fitted picture (same size), above it; taps go
+  /// through to the card.
+  final Widget? overlay;
+
   @override
   Widget build(BuildContext context) {
     final image = this.image;
@@ -59,6 +69,8 @@ class PictureCard extends StatelessWidget {
                   radiusFactor: radiusFactor,
                   onTap: onTap,
                   tapKey: tapKey,
+                  imageSize: imageSize,
+                  overlay: overlay,
                 )
                 : _TextCard(card: this),
       ),
@@ -71,12 +83,16 @@ class _Picture extends StatelessWidget {
   final double radiusFactor;
   final VoidCallback onTap;
   final Key? tapKey;
+  final Size? imageSize;
+  final Widget? overlay;
 
   const _Picture({
     required this.image,
     required this.radiusFactor,
     required this.onTap,
     this.tapKey,
+    this.imageSize,
+    this.overlay,
   });
 
   @override
@@ -86,7 +102,7 @@ class _Picture extends StatelessWidget {
         final radius = BorderRadius.circular(
           constraints.maxWidth * radiusFactor,
         );
-        return Material(
+        final picture = Material(
           type: MaterialType.transparency,
           child: InkWell(
             key: tapKey,
@@ -97,6 +113,21 @@ class _Picture extends StatelessWidget {
             // Ink paints on the Material, so the ripple shows over it.
             child: Ink.image(image: AssetImage(image), fit: BoxFit.contain),
           ),
+        );
+        final overlay = this.overlay;
+        final imageSize = this.imageSize;
+        if (overlay == null || imageSize == null) return picture;
+        final box = constraints.biggest;
+        final fitted = applyBoxFit(BoxFit.contain, imageSize, box).destination;
+        final rect = Alignment.center.inscribe(fitted, Offset.zero & box);
+        return Stack(
+          children: [
+            Positioned.fill(child: picture),
+            Positioned.fromRect(
+              rect: rect,
+              child: IgnorePointer(child: overlay),
+            ),
+          ],
         );
       },
     );

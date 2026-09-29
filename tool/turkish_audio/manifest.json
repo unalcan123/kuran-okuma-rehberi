@@ -481,20 +481,6 @@
       "status": "generated"
     },
     {
-      "id": "s009_baslik_1",
-      "kind": "heading",
-      "text": "SIRASIZ YAZILAN HARFLER",
-      "ttsText": "Sırasız yazılan harfler.",
-      "pdfPage": 9,
-      "lessonId": "harflerin-yazilislari",
-      "needsPronunciationReview": false,
-      "file": "assets/audio/tr/s009_baslik_1.mp3",
-      "voiceId": "J17lijyP1BHYcM7ld0Rg",
-      "model": "eleven_multilingual_v2",
-      "textHash": "sha256:8e5a5bb0d6da152510c6f325f8457effbcba8cbd71de46f765fedbdca68ee7ed",
-      "status": "generated"
-    },
-    {
       "id": "s010_baslik_1",
       "kind": "heading",
       "text": "HARFLERİN BAŞTA, ORTADA, SONDA YAZILIŞLARINA ÖRNEKLER",
@@ -506,34 +492,6 @@
       "voiceId": "J17lijyP1BHYcM7ld0Rg",
       "model": "eleven_multilingual_v2",
       "textHash": "sha256:bdc0d0a24132d074f83d46dd10d3a34c8231f2d051930fa971667411dae5b30c",
-      "status": "generated"
-    },
-    {
-      "id": "s010_01",
-      "kind": "explanation",
-      "text": "Kelimeyi oluşturan her harfin kendinden önceki harfe bitiştiğini ve ( ا د ذ ر ز و ) harflerinin, kendilerinden sonra gelen harflere bitişmediğini hatırlayalım.",
-      "ttsText": null,
-      "pdfPage": 10,
-      "lessonId": "harflerin-yazilislari",
-      "needsPronunciationReview": true,
-      "file": "assets/audio/tr/s010_01.mp3",
-      "voiceId": null,
-      "model": null,
-      "textHash": null,
-      "status": "pendingReview"
-    },
-    {
-      "id": "s010_02",
-      "kind": "explanation",
-      "text": "Not: Harflerin kelimelere nasıl bitiştiğini görelim. Kelimeleri okumaya çalışmayalım. Henüz harekeleri öğrenmedik.",
-      "ttsText": "Not. Harflerin kelimelere nasıl bitiştiğini görelim. Kelimeleri okumaya çalışmayalım. Henüz harekeleri öğrenmedik.",
-      "pdfPage": 10,
-      "lessonId": "harflerin-yazilislari",
-      "needsPronunciationReview": false,
-      "file": "assets/audio/tr/s010_02.mp3",
-      "voiceId": "J17lijyP1BHYcM7ld0Rg",
-      "model": "eleven_multilingual_v2",
-      "textHash": "sha256:a4e3812f0398579bcead5b2e4fc589a1fc533ebb98214e6589b51d71913cf6e1",
       "status": "generated"
     },
     {

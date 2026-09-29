@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/reading_segment.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_text_theme.dart';
+import '../lesson_grid_background.dart';
 import '../reading_arabic_text.dart';
 
 /// Soft pastel colors of the number badges, in turn (like the design).
@@ -12,6 +13,14 @@ const List<(Color, Color)> _badgeColors = [
   (Color(0xFFDCEEFB), Color(0xFF3F7DB5)),
   (Color(0xFFEDE3FA), Color(0xFF7A55B5)),
   (Color(0xFFFCE1E4), Color(0xFFC0485A)),
+];
+
+/// Soft card tints, in turn (fill, border): mint, sky, peach, lilac.
+const List<(Color, Color)> _cardTints = [
+  (Color(0xFFF2FAF3), Color(0xFFCDEAD4)),
+  (Color(0xFFF0F7FD), Color(0xFFC8E2F3)),
+  (Color(0xFFFFF7EF), Color(0xFFF3DAC4)),
+  (Color(0xFFF7F3FD), Color(0xFFDBD1F1)),
 ];
 
 /// One ayet / prayer part on a reading screen: number, the Arabic (the
@@ -78,6 +87,7 @@ class ReadingSegmentCard extends StatelessWidget {
         ),
     ];
 
+    final (tint, tintBorder) = _cardTints[index % _cardTints.length];
     final badge =
         opening
             ? Icon(Icons.auto_awesome_rounded, color: accent, size: 26)
@@ -94,11 +104,11 @@ class ReadingSegmentCard extends StatelessWidget {
                   accent.withValues(alpha: 0.08),
                   AppColors.surface,
                 )
-                : (opening ? const Color(0xFFFFFCF4) : AppColors.surface),
+                : (opening ? const Color(0xFFFFFCF4) : tint),
         borderRadius: BorderRadius.circular(26),
         border: Border.all(
-          color: isActive ? accent.withValues(alpha: 0.75) : AppColors.divider,
-          width: isActive ? 2.2 : 1,
+          color: isActive ? accent.withValues(alpha: 0.75) : tintBorder,
+          width: isActive ? 2.2 : 1.5,
         ),
         boxShadow: [
           BoxShadow(
@@ -108,7 +118,9 @@ class ReadingSegmentCard extends StatelessWidget {
           ),
         ],
       ),
-      padding: const EdgeInsets.fromLTRB(14, 10, 8, 14),
+      // Room at the bottom for the corner decorations (never on the text).
+      padding: const EdgeInsets.fromLTRB(14, 10, 8, 24),
+      foregroundDecoration: const _CornerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -168,11 +180,7 @@ class _Badge extends StatelessWidget {
       decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
       child: Text(
         '$number',
-        style: TextStyle(
-          color: fg,
-          fontWeight: FontWeight.w800,
-          fontSize: 17,
-        ),
+        style: TextStyle(color: fg, fontWeight: FontWeight.w800, fontSize: 17),
       ),
     );
   }
@@ -261,4 +269,52 @@ class _YourTurn extends StatelessWidget {
       ],
     ),
   );
+}
+
+/// A little flower in the bottom-left corner of a reading card and a
+/// butterfly in the bottom-right one, in the card's bottom padding, so they
+/// never come over the Arabic or the buttons.
+class _CornerDecoration extends Decoration {
+  const _CornerDecoration();
+
+  @override
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) => _CornerPainter();
+}
+
+class _CornerPainter extends BoxPainter {
+  static const _shapes = _CornerShapes();
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    final size = configuration.size;
+    if (size == null || size.height < 60) return;
+    _shapes.paintCorners(canvas, offset & size);
+  }
+}
+
+/// The background's shapes, for the corners.
+class _CornerShapes extends LessonGridBackgroundPainter {
+  const _CornerShapes();
+
+  void paintCorners(Canvas canvas, Rect card) {
+    drawFlower(
+      canvas,
+      Offset(card.left + 18, card.bottom - 16),
+      6,
+      const Color(0xFFF7A8C8),
+    );
+    drawFlower(
+      canvas,
+      Offset(card.left + 32, card.bottom - 12),
+      4.5,
+      const Color(0xFFFFD54F),
+    );
+    drawButterfly(
+      canvas,
+      Offset(card.right - 22, card.bottom - 13),
+      8,
+      const Color(0xFFB3A6F0),
+      tilt: 0.3,
+    );
+  }
 }

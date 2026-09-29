@@ -13,9 +13,9 @@ import '../../../services/audio_service.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
 import '../../../widgets/book_pager.dart';
-import '../../../widgets/reading_text_settings.dart';
 import '../../../widgets/turkish_audio_block.dart';
 import 'letter_page_background.dart';
+import '../../../widgets/arabic_scale.dart';
 
 /// The "Sayfa Görünümü": the lesson's pages as printed in the book, one at
 /// a time and in book order — heading, explanation, the items in the book's
@@ -1020,7 +1020,7 @@ class _BookTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textScale = ReadingTextScale.factorOf(context);
+    final textScale = ArabicScale.arabicFactorOf(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
@@ -1153,7 +1153,7 @@ class _FormsTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textScale = ReadingTextScale.factorOf(context);
+    final textScale = ArabicScale.arabicFactorOf(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         final cellWidth = constraints.maxWidth / 4;

@@ -147,7 +147,8 @@ void main() {
         await tester.pumpWidget(harness(screen, audio));
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
-        final first = tester.getSize(find.byType(PictureCard).first);
+        // On screen (TabletZoom enlarges it on a tablet or a desktop).
+        final first = tester.getRect(find.byType(PictureCard).first).size;
         expect(first.width, greaterThanOrEqualTo(200), reason: '$screen');
         for (var i = 0; i < 10; i++) {
           await tester.drag(find.byType(GridView), const Offset(0, -300));

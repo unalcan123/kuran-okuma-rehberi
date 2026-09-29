@@ -42,6 +42,26 @@ void main() {
     }
   }
 
+  test('Kâbe her genişlikte yatayda tam ortada, altta çimenlikte', () {
+    for (final size in const [
+      Size(360, 800),
+      Size(800, 1280),
+      Size(1280, 800),
+      Size(1920, 1080),
+    ]) {
+      final center = HolyPlacesPainter.kaabaCenterX(size);
+      final half = HolyPlacesPainter.kaabaWidthFor(size) / 2;
+      // Sol ve sağ kenara eşit uzaklık.
+      expect(center - half, closeTo(size.width - (center + half), 0.001));
+      // Ekrana sığar; sahne alt kısımda kalır.
+      expect(center - half, greaterThan(0));
+      expect(
+        HolyPlacesPainter.sceneHeightFor(size),
+        lessThan(size.height * 0.45),
+      );
+    }
+  });
+
   test('her boyutta çizilir (boş ve çok küçük dahil)', () {
     const painter = HolyPlacesPainter();
     for (final size in const [

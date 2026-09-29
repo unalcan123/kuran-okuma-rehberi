@@ -21,6 +21,8 @@ import 'widgets/lesson_page_view.dart';
 import 'widgets/letter_forms_table.dart';
 import 'widgets/letter_page.dart';
 import 'widgets/single_letter_pager.dart';
+import '../../widgets/arabic_scale.dart';
+import '../../widgets/tablet_zoom.dart';
 
 /// A lesson, in three views over the same [Lesson.letters]:
 /// - "Sayfa" (default, every time the lesson opens): the lesson's pages as
@@ -104,9 +106,12 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
       _isFormsTable
           ? LetterFormsTable.maxContentWidth
           : AllLettersGrid.maxContentWidth,
-    // The letter / word may grow to 85 % of the screen (LetterPage).
+    // The letter / word may grow to 85 % of the screen (LetterPage), as
+    // laid out inside the body's TabletZoom.
     LessonViewMode.single =>
-      MediaQuery.sizeOf(context).width * LetterPage.maxGlyphWidthFactor,
+      MediaQuery.sizeOf(context).width /
+          TabletZoom.zoomFor(MediaQuery.sizeOf(context)) *
+          LetterPage.maxGlyphWidthFactor,
   };
 
   void _showLessonInfo(LessonInfo info) {
@@ -189,7 +194,7 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
       // scrolling content, not fixed: scrolling the page up moves them off
       // the screen (more room for the book); they come back only when the
       // page is scrolled back to its top.
-      body: NestedScrollView(
+      body: TabletZoom(child: NestedScrollView(
         key: const ValueKey('lesson-scroll'),
         headerSliverBuilder:
             (context, innerBoxIsScrolled) => [
@@ -246,7 +251,10 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
             ],
         body: ReadingTextScale(
           controller: _textScale,
-          child: LessonColorScope(
+          // The lesson's Arabic ~30 % larger on tablets and desktops.
+          child: ArabicScale(
+            factor: ArabicScale.lessonFactorFor(MediaQuery.sizeOf(context)),
+            child: LessonColorScope(
             lesson: widget.lesson,
             // Decorative kids in the side margins (desktop/tablet).
             child: LessonKidsDecoration(
@@ -255,8 +263,9 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
               child: view,
             ),
           ),
+          ),
         ),
-      ),
+      )),
     );
   }
 }

@@ -151,7 +151,7 @@ enum LessonPageType {
   examples('Örnekler'),
 
   /// "ALIŞTIRMALAR" or a practice table (e.g. s. 9, s. 23, s. 60-63).
-  exercise('Alıştırma'),
+  exercise('Örnekler'),
 
   /// Explanation without items to read (e.g. s. 3-5, çıkış yerleri).
   info('Bilgi');

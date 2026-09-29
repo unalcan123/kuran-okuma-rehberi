@@ -7,6 +7,7 @@ import '../../models/surah.dart';
 import '../../widgets/holy_places_background.dart';
 import '../../widgets/picture_card.dart';
 import 'surah_detail_screen.dart';
+import '../../widgets/tablet_zoom.dart';
 
 /// "Namaz Sureleri" home — every short surah as a picture card
 /// ([PictureCard], [kSurahCardImages]) on one responsive grid.
@@ -32,7 +33,7 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
   }
 
   static const double _maxContentWidth = 1100;
-  static const double _minCardWidth = 220;
+  static const double _minCardWidth = 240;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
           ),
         ],
       ),
-      body: ReadingTextScale(
+      body: TabletZoom(child: ReadingTextScale(
         controller: _textScale,
         child: Stack(
           children: [
@@ -65,7 +66,16 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                         .clamp(1, 4);
 
                     return GridView.builder(
-                      padding: const EdgeInsets.all(20),
+                      // At the end, room to see the Kâbe scene.
+                      padding: EdgeInsets.fromLTRB(
+                        20,
+                        20,
+                        20,
+                        20 +
+                            HolyPlacesPainter.sceneHeightFor(
+                              MediaQuery.sizeOf(context),
+                            ),
+                      ),
                       itemCount: kSureler.length,
                       // Picture cards (PictureCard): every card has the
                       // pictures' shape; the whole card opens the surah.
@@ -95,7 +105,7 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 

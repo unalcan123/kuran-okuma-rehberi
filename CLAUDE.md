@@ -28,8 +28,12 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   pakete girmez; görselli kartta başlık yazılmaz). Sıra: Rehber, Dualar,
   Sureler, Oyunlar. Test: `test/home_grid_test.dart`. Ders **Grid** arka planı `LessonGridBackground`
   (yalnız şekillerle çizilir, çok soluk; kelebek/arı/tavşan, ağaç/çiçek; Sayfa/Tekli dokunulmadı).
-  Dualar/Sureler listeleri `HolyPlacesBackground` (sevimli Kâbe, yeşil kubbe, cami, fener, gülen
-  hilal — kendi çizimimiz, fotoğraf yok; binalar içerik kenarına sığacak ölçekte). Ders ekranı
+  Dualar/Sureler listeleri ve okuma ekranları `HolyPlacesBackground` (kendi çizimimiz, fotoğraf yok;
+  canlı pastel): **Kâbe altta çimenlikte, yatayda ekranın tam ortasında** (`kaabaCenterX`), solunda
+  yeşil kubbe, sağında cami; çimen/çiçek boydan boya, kuşlar, kenarlarda ve ortada kelebekler.
+  Listeler sonda `sceneHeightFor` kadar boşluk bırakır (sona kaydırınca sahne görünür). Okuma
+  kutuları sırayla pastel tonlu, ince renkli çerçeveli, alt köşelerde küçük çiçek/kelebek (yazıya
+  değmez). Test: `test/holy_places_background_test.dart`. Ders ekranı
   kenarında süs çocuklar `LessonKidsDecoration` (yalnız boş kenarda; masaüstü 2, tablet 1, telefon 0;
   görseller `assets/images/kids/*.webp` gelince görünür). Eski `D:\Elifbe2025` foto kartları kullanılmaz
   (gerçek fotoğraf/telif).
@@ -54,7 +58,11 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - **Ders listesi kartları görsel**: `assets/images/lessons/cards/{intro_harflerin_cikis_yerleri,lesson_NN}.png`,
   master `assets/images/lessons/lesson_cards_master.png`'den `python tool/crop_lesson_cards.py` ile kırpılır
   (yeniden çizilmez; master pakete girmez). Eşleşme ders kimliğiyle `lib/data/lesson_card_images.dart`;
-  görselde başlık yazılı, `LessonCard` üstüne yazı yazmaz (oran 1.5, `BoxFit.contain`). **Ders 30 master'da
+  görseldeki başlık ve Arapça güvenilmez (yanlışları vardı): `LessonCard` onları örter (`kLessonCardArt`:
+  görsel boyutu + başlık/harf levhası dikdörtgenleri, görselin kesirleri) ve dersin kendi etiketini,
+  başlığını (`Lesson.title`) ve konuya uygun Arapça örneği yazar (üstün بَ, esre بِ, ötre بُ, cezm بْ …;
+  kelimeler dersin kendi listesinden). Görsel yeniden kırpılırsa dikdörtgenleri yeniden ölç
+  (oran 1.5, `BoxFit.contain`). **Ders 30 master'da
   yok**: kendi görselinden (`assets_src/lessons/lesson_30_source.png`, pakete girmez) aynı betikle kırpılır
   (`SINGLE_SOURCES`). Görseli olmayan ders metin kartı olur.
   **Sure/Dua listeleri de aynı sistem**: ortak `PictureCard` (`lib/widgets/picture_card.dart`), kırpma aynı
@@ -70,6 +78,18 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   Sayfa/Grid/Tekli seçicisi `NestedScrollView` başlığında, sabit değil (kayıp gider, en üstte döner).
   Testte `ensureVisible` yerine `revealInLesson` (`test/support/lesson_scroll.dart`). Test:
   `test/lesson_structure_test.dart`.
+- **Ders 2 = s. 8 ve 11-13**: s. 9 (Sırasız harfler) ve s. 10 (Elif/hemze biçimleri) kasıtlı olarak
+  derste yok; Elif satırı ve "Başta, ortada, sonda" başlığı s. 11'de. Kullanıcıya görünen
+  "Alıştırma(lar)" yok, hep "Örnekler" (Ders 31-34 "Örnekler 1-4"; Ders 28 = "Uzun Med İşareti").
+  Test: `test/lesson_cards_test.dart`.
+- **Tablet/masaüstü büyütme** (`TabletZoom`, `lib/widgets/tablet_zoom.dart`): kısa kenarı ≥ 600 px
+  ekranda ders listesi, ders, sure/dua liste ve okuma ekranlarının gövdesi 1/1.2 boyutta dizilip
+  1.2× büyütülür (yazı, Arapça, görsel, düğme birlikte; sütunlar kendiliğinden azalır). Telefon
+  (yatay da) aynen. İçeride `MediaQuery` düzen boyutunu verir; gövde dışındaki bağlamda ekran
+  boyutu kullanan kod `TabletZoom.zoomFor`'a bölmeli. **Ders Arapçası toplam %30**: `ArabicScale`
+  (ders ekranı, 1.3 / zoom), `ColoredArabicText` yazı boyutuna uygular; hücre/sütun hesapları
+  `ArabicScale.arabicFactorOf` kullanır (harf küçülmez, satırdaki örnek sayısı azalır).
+  Test: `test/tablet_zoom_test.dart`.
 - **Kitap sayfaları envanteri** (PDF s. → konu → tip → ders/veri, sayfa renk profilleri): `docs/KITAP_SAYFALARI.md`.
 - **GLOBAL: 7 kalın harf (خ ص ض ط ظ غ ق) gövdesi HER YERDE kırmızı** (#ED1C24) — sayfa profili
   (PDF siyah bassa da) kapatamaz; yalnız gövde, harekeler kendi kuralıyla. Tek liste

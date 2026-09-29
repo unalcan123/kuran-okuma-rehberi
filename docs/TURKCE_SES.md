@@ -41,7 +41,9 @@ birleşse/yeniden numaralansa da dosya adı değişmez. Manifest'te `lessonId`
   kendi eklediği başlıklar (kitapta başlık yok).
 
 ## Sayılar
-105 kayıt = 71 açıklama + 34 başlık. Envanter denetimi (2026-09-27): 53 mp3 =
+102 kayıt = 69 açıklama + 33 başlık (2026-09-29: Ders 2'den s. 9 ve s. 10
+çıkarılınca `s009_baslik_1`, `s010_01`, `s010_02` manifest'ten ve paketten silindi; mp3'ler
+git geçmişinde. `s010_baslik_1` s. 11'in başlığı olarak kaldı). Eski not: Envanter denetimi (2026-09-27): 53 mp3 =
 53 `generated` kayıt; hepsi aynı ses/model, `textHash` güncel, ffprobe ile okunuyor
 (mono 24 kHz), 0 bayt/sahipsiz/çift kimlik yok; 105 kimliğin hepsi uygulamada tam
 bir kez bağlı.
