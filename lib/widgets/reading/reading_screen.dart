@@ -93,7 +93,9 @@ class ReadingScreenState extends State<ReadingScreen> {
   void _onPlayer() {
     final active = _player.activeIndex;
     if (active != null && active != _lastActive) {
-      WidgetsBinding.instance.addPostFrameCallback((_) => _bringIntoView(active));
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _bringIntoView(active),
+      );
     }
     _lastActive = active;
   }
@@ -133,6 +135,13 @@ class ReadingScreenState extends State<ReadingScreen> {
     _userScrolled = false;
     _lastActive = null;
     await _player.start();
+  }
+
+  /// "Ezberle": the same, each part repeated.
+  Future<void> startMemorizing() async {
+    _userScrolled = false;
+    _lastActive = null;
+    await _player.startMemorizing();
   }
 
   bool _onScrollNotification(ScrollNotification notification) {
@@ -180,7 +189,9 @@ class ReadingScreenState extends State<ReadingScreen> {
               ),
           ],
         ),
-        actions: [ReadingSettingsButton(nouns: widget.nouns, settings: _settings)],
+        actions: [
+          ReadingSettingsButton(nouns: widget.nouns, settings: _settings),
+        ],
       ),
       body: Stack(
         children: [
@@ -201,12 +212,16 @@ class ReadingScreenState extends State<ReadingScreen> {
                   ),
                 ),
                 ListenableBuilder(
-                  listenable: _player,
+                  listenable: Listenable.merge([_settings, _player]),
                   builder:
                       (context, _) => ReadingPlaybackBar(
                         player: _player,
                         maxWidth: maxContentWidth,
+                        repeatCount: _settings.repeatCount,
+                        nouns: widget.nouns,
+                        segments: widget.segments,
                         onListen: startListening,
+                        onMemorize: startMemorizing,
                       ),
                 ),
               ],
@@ -244,7 +259,9 @@ class ReadingScreenState extends State<ReadingScreen> {
                     segment: widget.segments[i],
                     // The besmele heading is set a little smaller.
                     fontSize:
-                        widget.segments[i].isOpening ? fontSize * 0.87 : fontSize,
+                        widget.segments[i].isOpening
+                            ? fontSize * 0.87
+                            : fontSize,
                     showArabic: _settings.showArabic,
                     showMeaning: _settings.showMeaning,
                     isActive: _player.activeIndex == i,
@@ -289,28 +306,159 @@ class _Scene extends StatelessWidget {
   );
 }
 
-/// The big bottom bar: "🔊 Dinle"; while reading "⏸ Duraklat" (or "Devam
-/// Et") and "■ Durdur". Above the system bars (SafeArea), never over the
-/// cards (it sits below the list).
+/// The bottom bar. Idle: two big buttons — "Dinle" (start to end, once)
+/// and "Ezberle 3x" (each part repeated). While reading: "Duraklat" (or
+/// "Devam Et") and "Durdur", and while memorizing a small line saying where
+/// the student is ("Ezber · 2. Ayet · 1/3"). Above the system bars
+/// (SafeArea), never over the cards (it sits below the list).
 class ReadingPlaybackBar extends StatelessWidget {
   const ReadingPlaybackBar({
     super.key,
     required this.player,
     required this.onListen,
+    required this.onMemorize,
+    required this.repeatCount,
+    required this.nouns,
+    required this.segments,
     this.maxWidth = 820,
   });
 
   final ReadingPlaybackController player;
   final Future<void> Function() onListen;
+  final Future<void> Function() onMemorize;
+  final int repeatCount;
+  final ReadingNouns nouns;
+  final List<ReadingSegment> segments;
   final double maxWidth;
+
+  static const double _height = 60;
 
   @override
   Widget build(BuildContext context) {
     final playingAll = player.isPlayingAll;
     final playing = playingAll && player.isPlaying;
-    final paused = playingAll && player.isPaused;
-    final label = playing ? 'Duraklat' : (paused ? 'Devam Et' : 'Dinle');
     final step = player.currentStep;
+    final textStyle = Theme.of(context).textTheme.titleMedium?.copyWith(
+      fontSize: 19,
+      fontWeight: FontWeight.w800,
+    );
+
+    Widget bigButton({
+      required Key key,
+      required IconData icon,
+      required String label,
+      required Color color,
+      required VoidCallback onPressed,
+      String? badge,
+    }) => SizedBox(
+      height: _height,
+      child: FilledButton(
+        key: key,
+        style: FilledButton.styleFrom(
+          backgroundColor: color,
+          foregroundColor: Colors.white,
+          shape: const StadiumBorder(),
+          padding: const EdgeInsets.symmetric(horizontal: 14),
+          // From the theme (keeps the app's font family).
+          textStyle: textStyle,
+        ),
+        onPressed: onPressed,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, size: 28),
+              const SizedBox(width: 8),
+              Text(label),
+              if (badge != null) ...[
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 2,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.25),
+                    borderRadius: BorderRadius.circular(99),
+                  ),
+                  child: Text(badge),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+
+    final Widget buttons;
+    if (!playingAll) {
+      buttons = Row(
+        children: [
+          Expanded(
+            child: bigButton(
+              key: const ValueKey('reading-listen'),
+              icon: Icons.volume_up_rounded,
+              label: 'Dinle',
+              color: AppColors.turquoise,
+              onPressed: onListen,
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: bigButton(
+              key: const ValueKey('reading-memorize'),
+              icon: Icons.psychology_rounded,
+              label: 'Ezberle',
+              badge: '${repeatCount}x',
+              color: AppColors.skyBlue,
+              onPressed: onMemorize,
+            ),
+          ),
+        ],
+      );
+    } else {
+      buttons = Row(
+        children: [
+          Expanded(
+            child: bigButton(
+              key: const ValueKey('reading-pause'),
+              icon: playing ? Icons.pause_rounded : Icons.play_arrow_rounded,
+              label: playing ? 'Duraklat' : 'Devam Et',
+              color:
+                  player.isMemorizing ? AppColors.skyBlue : AppColors.turquoise,
+              onPressed: playing ? player.pause : player.resume,
+            ),
+          ),
+          const SizedBox(width: 12),
+          SizedBox(
+            width: _height,
+            height: _height,
+            child: IconButton.filledTonal(
+              key: const ValueKey('reading-stop'),
+              tooltip: 'Durdur',
+              onPressed: player.stop,
+              iconSize: 30,
+              icon: const Icon(Icons.stop_rounded),
+            ),
+          ),
+        ],
+      );
+    }
+
+    String? status;
+    if (player.isMemorizing && step != null) {
+      final segment = segments[step.segment];
+      final name =
+          segment.isOpening
+              ? 'Besmele'
+              : '${segment.number ?? step.segment + 1}. ${nouns.one}';
+      status =
+          step.of > 1
+              ? 'Ezber · $name · ${step.repeat}/${step.of}'
+              : 'Ezber · $name';
+    }
+
     return Container(
       decoration: BoxDecoration(
         color: AppColors.surface.withValues(alpha: 0.96),
@@ -322,59 +470,23 @@ class ReadingPlaybackBar extends StatelessWidget {
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: maxWidth),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
-              child: Row(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 60,
-                      child: FilledButton.icon(
-                        key: const ValueKey('reading-listen'),
-                        style: FilledButton.styleFrom(
-                          backgroundColor: AppColors.turquoise,
-                          foregroundColor: Colors.white,
-                          shape: const StadiumBorder(),
-                          // From the theme (keeps the app's font family).
-                          textStyle: Theme.of(context).textTheme.titleMedium
-                              ?.copyWith(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
-                              ),
-                        ),
-                        onPressed:
-                            playing
-                                ? player.pause
-                                : (paused ? player.resume : onListen),
-                        icon: Icon(
-                          playing
-                              ? Icons.pause_rounded
-                              : (paused
-                                  ? Icons.play_arrow_rounded
-                                  : Icons.volume_up_rounded),
-                          size: 28,
-                        ),
-                        label: Text(
-                          step != null && playingAll && step.of > 1
-                              ? '$label  ·  ${step.repeat}/${step.of}'
-                              : label,
+                  if (status != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 6),
+                      child: Text(
+                        status,
+                        key: const ValueKey('reading-status'),
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: AppColors.navy,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                     ),
-                  ),
-                  if (player.isActive) ...[
-                    const SizedBox(width: 12),
-                    SizedBox(
-                      width: 60,
-                      height: 60,
-                      child: IconButton.filledTonal(
-                        key: const ValueKey('reading-stop'),
-                        tooltip: 'Durdur',
-                        onPressed: player.stop,
-                        iconSize: 30,
-                        icon: const Icon(Icons.stop_rounded),
-                      ),
-                    ),
-                  ],
+                  buttons,
                 ],
               ),
             ),

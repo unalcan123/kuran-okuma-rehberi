@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// How "Dinle" reads a surah / prayer.
+/// A play order (see `buildPlaybackPlan`). On screen there are only two
+/// buttons: "Dinle" = [listenOnly]; "Ezberle" = [stepByStep], or [shuffled]
+/// with the "Karışık sıra" option ([ReadingSettings.memorizeShuffled]).
 enum MemorizationMode {
   /// Each part [ReadingSettings.repeatCount] times, then the next.
   stepByStep,
@@ -34,6 +36,9 @@ class ReadingSettings extends ChangeNotifier {
   static const int minRepeat = 1;
   static const int maxRepeat = 10;
 
+  /// "Ezberle": each part this many times unless the student picks another.
+  static const int defaultRepeat = 3;
+
   /// Seconds between two parts.
   static const List<int> pauses = [1, 2, 3, 5];
   static const int defaultPause = 2;
@@ -44,9 +49,9 @@ class ReadingSettings extends ChangeNotifier {
   double _speed = defaultSpeed;
   bool _showArabic = true;
   bool _showMeaning = false;
-  int _repeatCount = 1;
+  int _repeatCount = defaultRepeat;
   int _pauseSeconds = defaultPause;
-  MemorizationMode _mode = MemorizationMode.listenOnly;
+  bool _memorizeShuffled = false;
   bool _hideTextWhileMemorizing = false;
 
   double get arabicScale => _arabicScale;
@@ -55,7 +60,14 @@ class ReadingSettings extends ChangeNotifier {
   bool get showMeaning => _showMeaning;
   int get repeatCount => _repeatCount;
   int get pauseSeconds => _pauseSeconds;
-  MemorizationMode get mode => _mode;
+  /// "Karışık sıra": "Ezberle" takes the parts in a random order.
+  bool get memorizeShuffled => _memorizeShuffled;
+
+  /// The order "Ezberle" uses.
+  MemorizationMode get memorizeMode =>
+      _memorizeShuffled
+          ? MemorizationMode.shuffled
+          : MemorizationMode.stepByStep;
   bool get hideTextWhileMemorizing => _hideTextWhileMemorizing;
 
   /// The Arabic font size of a reading screen's text at 100 %, by screen
@@ -80,17 +92,18 @@ class ReadingSettings extends ChangeNotifier {
       _speed = _pick(prefs.getDouble('${_prefix}speed'), speeds, defaultSpeed);
       _showArabic = prefs.getBool('${_prefix}showArabic') ?? true;
       _showMeaning = prefs.getBool('${_prefix}showMeaning') ?? false;
-      _repeatCount = (prefs.getInt('${_prefix}repeatCount') ?? 1).clamp(
+      _repeatCount = (prefs.getInt('${_prefix}repeatCount') ??
+              defaultRepeat)
+          .clamp(
         minRepeat,
         maxRepeat,
       );
       final pause = prefs.getInt('${_prefix}pauseSeconds');
       _pauseSeconds = pauses.contains(pause) ? pause! : defaultPause;
-      final mode = prefs.getString('${_prefix}mode');
-      _mode = MemorizationMode.values.firstWhere(
-        (m) => m.name == mode,
-        orElse: () => MemorizationMode.listenOnly,
-      );
+      _memorizeShuffled =
+          prefs.getBool('${_prefix}memorizeShuffled') ??
+          // The first version kept a mode; "shuffled" means the same.
+          prefs.getString('${_prefix}mode') == MemorizationMode.shuffled.name;
       _hideTextWhileMemorizing =
           prefs.getBool('${_prefix}hideTextWhileMemorizing') ?? false;
       notifyListeners();
@@ -168,11 +181,11 @@ class ReadingSettings extends ChangeNotifier {
     _save((p) => p.setInt('${_prefix}pauseSeconds', value));
   }
 
-  set mode(MemorizationMode value) {
-    if (value == _mode) return;
-    _mode = value;
+  set memorizeShuffled(bool value) {
+    if (value == _memorizeShuffled) return;
+    _memorizeShuffled = value;
     notifyListeners();
-    _save((p) => p.setString('${_prefix}mode', value.name));
+    _save((p) => p.setBool('${_prefix}memorizeShuffled', value));
   }
 
   set hideTextWhileMemorizing(bool value) {
@@ -189,9 +202,9 @@ class ReadingSettings extends ChangeNotifier {
     _speed = defaultSpeed;
     _showArabic = true;
     _showMeaning = false;
-    _repeatCount = 1;
+    _repeatCount = defaultRepeat;
     _pauseSeconds = defaultPause;
-    _mode = MemorizationMode.listenOnly;
+    _memorizeShuffled = false;
     _hideTextWhileMemorizing = false;
     _loading = null;
     notifyListeners();

@@ -37,8 +37,10 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   `url_launcher` ile e-posta uygulamasında hazır açılır (alıcı `kContactEmail` = fluttercanpolat@gmail.com,
   resim orada ataçla eklenir; uygulama açılamazsa adres kopyalanır). Test: `test/contact_screen_test.dart`.
 - **Sure/Dua okuma ekranı ortak** (`lib/widgets/reading/`): `ReadingScreen` + `ReadingSegment` (sure: besmele +
-  ayetler, veri sırasıyla; dua: bölümler), motor `ReadingPlaybackController` (tek `AudioService`, klip klip;
-  Ayet Ayet / Karışık / Sadece Dinle, tekrar 1-10, bekleme, metni gizle), ayarlar `ReadingSettings`
+  ayetler, veri sırasıyla; dua: bölümler), motor `ReadingPlaybackController` (tek `AudioService`, klip klip).
+  Çocuklar için sade: altta iki düğme — **Dinle** (hep baştan sona bir kez, kısa ara) ve **Ezberle Nx**
+  (her bölüm N kez, varsayılan 3; ayarlarda tekrar 1-10, bekleme, "Metni gizle", "Karışık sıra"; mod
+  seçimi yok). Ayarlar `ReadingSettings`
   (SharedPreferences `reading.*`; Arapça varsayılan %130 = eski 30/42/46 × 1.3, meal varsayılan kapalı,
   hız 0.75-1.25 `AudioService.setPlaybackRate`, ekrandan çıkınca 1.0). Sahne görseli `assets/images/reading/`
   (tasarım taslağından kırpıldı, `tool/crop_lesson_cards.py`). Test: `test/reading_screen_test.dart`.

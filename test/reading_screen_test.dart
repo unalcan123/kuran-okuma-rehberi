@@ -166,13 +166,26 @@ void main() {
       expect(audio.playbackRate, 1.0);
     });
 
-    testWidgets('tekrar sayısı 1-10', (tester) async {
+    testWidgets('tekrar sayısı 1-10 (Ezberle varsayılanı 3x)', (tester) async {
       await openSurah(tester);
+      expect(settings.repeatCount, 3);
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('reading-memorize')),
+          matching: find.text('3x'),
+        ),
+        findsOneWidget,
+      );
       await openSettings(tester);
       final up = find.byKey(const ValueKey('repeat-up'));
       final down = find.byKey(const ValueKey('repeat-down'));
       await inSheet(tester, up);
-      expect(find.text('1x'), findsOneWidget);
+      expect(find.text('3x'), findsWidgets);
+      for (var i = 0; i < 3; i++) {
+        await tester.tap(down);
+        await tester.pump();
+      }
+      expect(settings.repeatCount, 1);
       expect(
         tester
             .widget<IconButton>(
@@ -186,7 +199,10 @@ void main() {
         await tester.pump();
       }
       expect(settings.repeatCount, 10);
-      expect(find.text('10x'), findsOneWidget);
+      expect(
+        tester.widget<Text>(find.byKey(const ValueKey('repeat-count'))).data,
+        '10x',
+      );
       expect(
         tester
             .widget<IconButton>(
@@ -207,7 +223,7 @@ void main() {
         'reading.showMeaning': true,
         'reading.repeatCount': 4,
         'reading.pauseSeconds': 5,
-        'reading.mode': 'shuffled',
+        'reading.memorizeShuffled': true,
         'reading.hideTextWhileMemorizing': true,
       });
       settings.resetForTest();
@@ -217,7 +233,8 @@ void main() {
       expect(settings.showMeaning, isTrue);
       expect(settings.repeatCount, 4);
       expect(settings.pauseSeconds, 5);
-      expect(settings.mode, MemorizationMode.shuffled);
+      expect(settings.memorizeShuffled, isTrue);
+      expect(settings.memorizeMode, MemorizationMode.shuffled);
       expect(settings.hideTextWhileMemorizing, isTrue);
     });
   });
@@ -392,13 +409,14 @@ void main() {
       },
     );
 
-    testWidgets('tekrar = 3 aynı bölümü 3 kez çalar (ekranda)', (tester) async {
-      settings.mode = MemorizationMode.stepByStep;
-      settings.repeatCount = 3;
+    testWidgets('Ezberle (3x): aynı bölümü 3 kez çalar, nerede olduğu yazar', (
+      tester,
+    ) async {
       final audio = await openSurah(tester);
-      await tester.tap(find.byKey(const ValueKey('reading-listen')));
+      await tester.tap(find.byKey(const ValueKey('reading-memorize')));
       await tester.pumpAndSettle();
-      expect(find.text('Duraklat  ·  1/3'), findsOneWidget);
+      expect(find.text('Ezber · Besmele · 1/3'), findsOneWidget);
+      expect(find.text('Duraklat'), findsOneWidget);
       for (var i = 0; i < 3; i++) {
         audio.complete();
         await tester.pump();
@@ -408,12 +426,33 @@ void main() {
       final besmele = kSureler.first.besmeleAudioAsset;
       final ayet1 = kSureler.first.ayetler.first.audioAsset;
       expect(audio.played, [besmele, besmele, besmele, ayet1]);
+      expect(find.text('Ezber · 1. Ayet · 1/3'), findsOneWidget);
     });
 
-    testWidgets('Karışık mod ekranda da tek tek çalar', (tester) async {
-      settings.mode = MemorizationMode.shuffled;
+    testWidgets('Dinle ezber ayarlarını kullanmaz: baştan sona bir kez', (
+      tester,
+    ) async {
+      settings.repeatCount = 5;
+      settings.memorizeShuffled = true;
       final audio = await openSurah(tester);
       await tester.tap(find.byKey(const ValueKey('reading-listen')));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey('reading-status')), findsNothing);
+      for (var i = 1; i < kSureler.first.playlist.length; i++) {
+        audio.complete();
+        await tester.pump();
+        // Just listening: a short natural gap, not the memorizing pause.
+        await tester.pump(const Duration(milliseconds: 800));
+        await tester.pumpAndSettle();
+      }
+      expect(audio.played, kSureler.first.playlist);
+    });
+
+    testWidgets('Karışık sıra ekranda da tek tek çalar', (tester) async {
+      settings.memorizeShuffled = true;
+      settings.repeatCount = 1;
+      final audio = await openSurah(tester);
+      await tester.tap(find.byKey(const ValueKey('reading-memorize')));
       await tester.pumpAndSettle();
       final plan = playerOf(tester).plan;
       for (var i = 1; i < plan.length; i++) {
@@ -429,12 +468,11 @@ void main() {
     testWidgets('metni gizle: dinledikten sonra "Şimdi sen oku", Göster', (
       tester,
     ) async {
-      settings.mode = MemorizationMode.stepByStep;
       settings.repeatCount = 2;
       settings.hideTextWhileMemorizing = true;
       final audio = await openSurah(tester);
       final besmele = kSureler.first.besmele;
-      await tester.tap(find.byKey(const ValueKey('reading-listen')));
+      await tester.tap(find.byKey(const ValueKey('reading-memorize')));
       await tester.pumpAndSettle();
       // First time: seen and heard.
       expect(find.text(besmele), findsOneWidget);
@@ -452,35 +490,50 @@ void main() {
       expect(find.text(besmele), findsOneWidget); // stays shown for this part
     });
 
-    testWidgets('metni gizle başlangıçta KAPALI ve yalnız Ayet Ayet modunda', (
+    testWidgets('ayarlarda ezber sade: iki anahtar, mod seçimi yok', (
       tester,
     ) async {
       await openSurah(tester);
       expect(settings.hideTextWhileMemorizing, isFalse);
+      expect(settings.memorizeShuffled, isFalse);
       await openSettings(tester);
       final hide = find.byKey(const ValueKey('hide-text'));
       await inSheet(tester, hide);
-      expect(
-        tester
-            .widget<SwitchListTile>(
-              find.descendant(of: hide, matching: find.byType(SwitchListTile)),
-            )
-            .onChanged,
-        isNull,
-      );
-      await inSheet(tester, find.byKey(const ValueKey('mode-stepByStep')));
-      await tester.tap(find.byKey(const ValueKey('mode-stepByStep')));
+      expect(find.text('Sadece Dinle'), findsNothing);
+      expect(find.text('Ayet Ayet'), findsNothing);
+      await tester.tap(hide);
       await tester.pumpAndSettle();
-      await inSheet(tester, hide);
-      expect(
-        tester
-            .widget<SwitchListTile>(
-              find.descendant(of: hide, matching: find.byType(SwitchListTile)),
-            )
-            .onChanged,
-        isNotNull,
-      );
+      expect(settings.hideTextWhileMemorizing, isTrue);
+      final shuffled = find.byKey(const ValueKey('memorize-shuffled'));
+      await inSheet(tester, shuffled);
+      await tester.tap(shuffled);
+      await tester.pumpAndSettle();
+      expect(settings.memorizeShuffled, isTrue);
     });
+
+    testWidgets(
+      'metni gizle karışık sırada da: ikinci gelişte "Şimdi sen oku"',
+      (tester) async {
+        settings.memorizeShuffled = true;
+        settings.repeatCount = 2;
+        settings.hideTextWhileMemorizing = true;
+        final audio = await openSurah(tester);
+        await tester.tap(find.byKey(const ValueKey('reading-memorize')));
+        await tester.pumpAndSettle();
+        final player = playerOf(tester);
+        final seen = <int>{};
+        for (var i = 0; i < player.plan.length - 1; i++) {
+          final active = player.activeIndex!;
+          expect(
+            find.byKey(ValueKey('reading-hidden-$active')),
+            seen.contains(active) ? findsOneWidget : findsNothing,
+            reason: 'step $i, segment $active',
+          );
+          seen.add(active);
+          await finishClip(audio, tester);
+        }
+      },
+    );
   });
 
   group('sure ve dua aynı altyapı', () {
@@ -505,11 +558,10 @@ void main() {
       }
     });
 
-    testWidgets('dua ekranı aynı ekran ve motor; Bölüm Bölüm, tekrar', (
+    testWidgets('dua ekranı aynı ekran ve motor; Ezberle, tekrar', (
       tester,
     ) async {
       setSize(tester, const Size(390, 844));
-      settings.mode = MemorizationMode.stepByStep;
       settings.repeatCount = 2;
       final audio = TestAudioService();
       addTearDown(audio.dispose);
@@ -518,10 +570,9 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(ReadingScreen), findsOneWidget);
       await openSettings(tester);
-      await inSheet(tester, find.text('Bölüm Bölüm'));
       await inSheet(tester, find.text('Bölümler Arası Bekleme'));
       await closeSettings(tester);
-      await tester.tap(find.byKey(const ValueKey('reading-listen')));
+      await tester.tap(find.byKey(const ValueKey('reading-memorize')));
       await tester.pumpAndSettle();
       audio.complete();
       await tester.pump();

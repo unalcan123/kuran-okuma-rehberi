@@ -5,16 +5,13 @@ import '../../theme/app_colors.dart';
 
 /// Words that differ between a surah ("Ayet") and a prayer ("Bölüm").
 class ReadingNouns {
-  const ReadingNouns({required this.one, required this.stepByStep});
+  const ReadingNouns({required this.one});
 
   /// "Ayet" / "Bölüm".
   final String one;
 
-  /// "Ayet Ayet" / "Bölüm Bölüm".
-  final String stepByStep;
-
-  static const surah = ReadingNouns(one: 'Ayet', stepByStep: 'Ayet Ayet');
-  static const dua = ReadingNouns(one: 'Bölüm', stepByStep: 'Bölüm Bölüm');
+  static const surah = ReadingNouns(one: 'Ayet');
+  static const dua = ReadingNouns(one: 'Bölüm');
 }
 
 /// The ⚙ button of a reading screen: opens [ReadingSettingsSheet].
@@ -56,7 +53,8 @@ class ReadingSettingsButton extends StatelessWidget {
 
 /// The reading screens' settings — the same for Sureler and Dualar:
 /// OKUMA (Arabic size, speed), İÇERİK (Arabic text, Turkish meaning),
-/// EZBER / TEKRAR (mode, repeat count, pause, hide the text). Every change
+/// EZBER (repeat count, pause, hide the text, random order — used by the
+/// "Ezberle" button; "Dinle" always reads start to end once). Every change
 /// is saved on the device ([ReadingSettings]).
 class ReadingSettingsSheet extends StatelessWidget {
   const ReadingSettingsSheet({
@@ -191,43 +189,28 @@ class ReadingSettingsSheet extends StatelessWidget {
         value: settings.showMeaning,
         onChanged: (v) => settings.showMeaning = v,
       ),
-      const _SectionTitle('EZBER / TEKRAR'),
-      _Label(Icons.school_rounded, 'Ezber Modu'),
-      Row(
-        children: [
-          for (final (mode, icon, title, hint) in [
-            (
-              MemorizationMode.stepByStep,
-              Icons.menu_book_rounded,
-              nouns.stepByStep,
-              'Sırasıyla ilerle',
-            ),
-            (
-              MemorizationMode.shuffled,
-              Icons.shuffle_rounded,
-              'Karışık',
-              'Rastgele sıra',
-            ),
-            (
-              MemorizationMode.listenOnly,
-              Icons.hearing_rounded,
-              'Sadece Dinle',
-              'Baştan sona',
-            ),
-          ]) ...[
-            if (mode != MemorizationMode.stepByStep) const SizedBox(width: 8),
+      const _SectionTitle('EZBER'),
+      Container(
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          color: AppColors.skyBlueSoft,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            const Icon(Icons.lightbulb_rounded, color: AppColors.skyBlue),
+            const SizedBox(width: 10),
             Expanded(
-              child: _ModeTile(
-                key: ValueKey('mode-${mode.name}'),
-                icon: icon,
-                title: title,
-                hint: hint,
-                selected: settings.mode == mode,
-                onTap: () => settings.mode = mode,
+              child: Text(
+                'Aşağıdaki "Ezberle" düğmesine bas: her '
+                '${nouns.one.toLowerCase()} ${settings.repeatCount} kez '
+                'okunur, sonra bir sonrakine geçilir.',
+                key: const ValueKey('memorize-tip'),
+                style: theme.bodyMedium?.copyWith(color: AppColors.textPrimary),
               ),
             ),
           ],
-        ],
+        ),
       ),
       const SizedBox(height: 16),
       Row(
@@ -287,40 +270,20 @@ class ReadingSettingsSheet extends StatelessWidget {
       _Switch(
         key: const ValueKey('hide-text'),
         icon: Icons.visibility_off_rounded,
-        title: 'Ezberlerken metni gizle',
-        subtitle:
-            settings.mode == MemorizationMode.stepByStep
-                ? '${nouns.one} önce görünür ve okunur; sonra '
-                    '"Şimdi sen oku" çıkar.'
-                : '"${nouns.stepByStep}" modunda çalışır.',
+        title: 'Metni gizle',
+        subtitle: '${nouns.one} bir kez dinlenince "Şimdi sen oku" çıkar.',
         value: settings.hideTextWhileMemorizing,
-        onChanged:
-            settings.mode == MemorizationMode.stepByStep
-                ? (v) => settings.hideTextWhileMemorizing = v
-                : null,
+        onChanged: (v) => settings.hideTextWhileMemorizing = v,
       ),
-      const SizedBox(height: 8),
-      Container(
-        padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: AppColors.skyBlueSoft,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          children: [
-            const Icon(Icons.lightbulb_rounded, color: AppColors.skyBlue),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                'Ezberlerken her ${nouns.one.toLowerCase()} istenen '
-                'sayıda tekrarlanır ve bir sonrakine otomatik geçilir.',
-                style: theme.bodyMedium?.copyWith(
-                  color: AppColors.textSecondary,
-                ),
-              ),
-            ),
-          ],
-        ),
+      _Switch(
+        key: const ValueKey('memorize-shuffled'),
+        icon: Icons.shuffle_rounded,
+        title: 'Karışık sıra',
+        subtitle:
+            '${nouns.one == 'Ayet' ? 'Ayetler' : 'Bölümler'} '
+            'rastgele sırayla gelir.',
+        value: settings.memorizeShuffled,
+        onChanged: (v) => settings.memorizeShuffled = v,
       ),
     ],
   );
@@ -447,71 +410,5 @@ class _Switch extends StatelessWidget {
     onChanged: onChanged,
     activeColor: Colors.white,
     activeTrackColor: AppColors.skyBlue,
-  );
-}
-
-class _ModeTile extends StatelessWidget {
-  const _ModeTile({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.hint,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final IconData icon;
-  final String title;
-  final String hint;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) => Semantics(
-    selected: selected,
-    button: true,
-    child: Material(
-      color: selected ? AppColors.skyBlueSoft : AppColors.surface,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: onTap,
-        child: Container(
-          constraints: const BoxConstraints(minHeight: 96),
-          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: selected ? AppColors.skyBlue : AppColors.divider,
-              width: selected ? 2 : 1,
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, color: selected ? AppColors.skyBlue : AppColors.navy),
-              const SizedBox(height: 6),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w800,
-                  color: AppColors.navy,
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                hint,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: AppColors.textSecondary,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
   );
 }

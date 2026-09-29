@@ -99,10 +99,16 @@ enum ReadingPlaybackStatus {
   waiting,
 }
 
-/// Plays a reading screen's segments on the app's single [AudioService] —
-/// "Dinle" in the chosen [MemorizationMode] with repeats, speed and pauses
-/// from [ReadingSettings], or one segment on its own play button — and
-/// tells the screen which segment is active (to highlight and scroll to).
+/// Plays a reading screen's segments on the app's single [AudioService] and
+/// tells the screen which segment is active (to highlight and scroll to):
+///
+/// - "Dinle" ([start]): start to end, once, with a short natural gap;
+/// - "Ezberle" ([startMemorizing]): each segment [ReadingSettings.repeatCount]
+///   times (or in a random order with "Karışık sıra"), with the chosen pause
+///   between segments and, with "Metni gizle", "Şimdi sen oku";
+/// - a segment's own play button ([playSingle]).
+///
+/// The speed comes from [ReadingSettings] in all three.
 ///
 /// It plays one clip at a time ([AudioService.playAsset]) and notices the
 /// end of a clip from the service's state, so anything else that starts a
@@ -114,6 +120,7 @@ class ReadingPlaybackController extends ChangeNotifier {
     ReadingSettings? settings,
     math.Random? random,
     this.repeatGap = const Duration(milliseconds: 700),
+    this.listenGap = const Duration(milliseconds: 700),
   }) : settings = settings ?? ReadingSettings.instance,
        _random = random {
     audio.addListener(_onAudio);
@@ -130,10 +137,17 @@ class ReadingPlaybackController extends ChangeNotifier {
   /// Short pause between two repeats of the same segment.
   final Duration repeatGap;
 
+  /// Pause between two segments when just listening ("Dinle").
+  final Duration listenGap;
+
   ReadingPlaybackStatus _status = ReadingPlaybackStatus.idle;
   List<PlaybackStep> _plan = const [];
   int _step = 0;
   bool _single = false;
+  bool _memorizing = false;
+
+  /// Segments heard at least once in this "Ezberle" run.
+  final Set<int> _heard = {};
   Timer? _timer;
   bool _pausedWhileWaiting = false;
   bool _revealed = false;
@@ -151,8 +165,12 @@ class ReadingPlaybackController extends ChangeNotifier {
       _status == ReadingPlaybackStatus.waiting;
   bool get isPaused => _status == ReadingPlaybackStatus.paused;
 
-  /// "Dinle" (the whole reading) rather than one segment's own button.
+  /// "Dinle" or "Ezberle" (the whole reading) rather than one segment's own
+  /// button.
   bool get isPlayingAll => isActive && !_single;
+
+  /// "Ezberle" is running.
+  bool get isMemorizing => isActive && _memorizing;
 
   /// The play order of the current "Dinle" (for tests / display).
   List<PlaybackStep> get plan => _plan;
@@ -164,18 +182,16 @@ class ReadingPlaybackController extends ChangeNotifier {
   /// again / next after a pause); null when nothing plays.
   int? get activeIndex => currentStep?.segment;
 
-  /// "Metni Gizle": in "Ayet Ayet" with the option on, the active
-  /// segment's text is hidden once the student has heard it (from its
-  /// second repeat, and in the pause after it) until "Göster".
+  /// "Metni gizle" while memorizing: once the student has heard the active
+  /// segment, its text makes room for "Şimdi sen oku" (its next repeats and
+  /// the pause after it) until "Göster".
   bool isTextHidden(int index) {
     final step = currentStep;
-    if (step == null || _single || _revealed) return false;
-    if (index != step.segment) return false;
-    if (settings.mode != MemorizationMode.stepByStep ||
-        !settings.hideTextWhileMemorizing) {
+    if (step == null || !_memorizing || _revealed) return false;
+    if (index != step.segment || !settings.hideTextWhileMemorizing) {
       return false;
     }
-    return step.repeat > 1 || _status == ReadingPlaybackStatus.waiting;
+    return _heard.contains(index);
   }
 
   /// "Göster": the hidden text comes back until the next segment.
@@ -184,14 +200,21 @@ class ReadingPlaybackController extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// "Dinle": from the first segment, in the chosen mode.
-  Future<void> start() async {
+  /// "Dinle": start to end, once.
+  Future<void> start() => _startPlan(memorize: false);
+
+  /// "Ezberle": each segment [ReadingSettings.repeatCount] times.
+  Future<void> startMemorizing() => _startPlan(memorize: true);
+
+  Future<void> _startPlan({required bool memorize}) async {
     _cancelTimer();
     _single = false;
+    _memorizing = memorize;
+    _heard.clear();
     _plan = buildPlaybackPlan(
       segments,
-      mode: settings.mode,
-      repeatCount: settings.repeatCount,
+      mode: memorize ? settings.memorizeMode : MemorizationMode.listenOnly,
+      repeatCount: memorize ? settings.repeatCount : 1,
       random: _random,
     );
     _step = 0;
@@ -208,6 +231,7 @@ class ReadingPlaybackController extends ChangeNotifier {
     }
     _cancelTimer();
     _single = true;
+    _memorizing = false;
     _plan = [PlaybackStep(index)];
     _step = 0;
     await _playStep();
@@ -285,6 +309,7 @@ class ReadingPlaybackController extends ChangeNotifier {
   }
 
   void _afterClip() {
+    _heard.add(_plan[_step].segment);
     if (_step + 1 >= _plan.length) {
       _reset();
       notifyListeners();
@@ -292,7 +317,9 @@ class ReadingPlaybackController extends ChangeNotifier {
     }
     final sameNext = _plan[_step + 1].segment == _plan[_step].segment;
     final gap =
-        sameNext ? repeatGap : Duration(seconds: settings.pauseSeconds);
+        !_memorizing
+            ? listenGap
+            : (sameNext ? repeatGap : Duration(seconds: settings.pauseSeconds));
     _setStatus(ReadingPlaybackStatus.waiting);
     _timer = Timer(gap, () => unawaited(_advance()));
   }
@@ -327,6 +354,8 @@ class ReadingPlaybackController extends ChangeNotifier {
     _plan = const [];
     _step = 0;
     _single = false;
+    _memorizing = false;
+    _heard.clear();
     _expected = null;
     _clipStarted = false;
     _pausedWhileWaiting = false;
