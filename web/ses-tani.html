@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Ana ekrana eklenince de (manifest yok) bu sayfa tam ekran açılsın. -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="robots" content="noindex">
+<title>Ses tanı sayfası</title>
+<style>
+  body { font: 16px -apple-system, system-ui, sans-serif; margin: 0 auto; padding: 12px 14px 40px; max-width: 760px; background: #f4f6f7; color: #17303c; }
+  h1 { font-size: 20px; margin: 6px 0; }
+  h2 { font-size: 16px; margin: 18px 0 6px; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; }
+  button, select { font: inherit; padding: 12px; border: 1px solid #b9cad3; border-radius: 10px; background: #fff; }
+  button.path { flex: 1 1 46%; text-align: left; }
+  button:active { background: #dfeef2; }
+  .small { font-size: 13px; color: #456; }
+  pre { white-space: pre-wrap; background: #13303c; color: #dff3ea; padding: 10px; border-radius: 10px; font-size: 11.5px; max-height: 50vh; overflow: auto; }
+  #status { font: 12px monospace; background: #fff; padding: 8px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<h1>Ses tanı sayfası (iPhone / iPad)</h1>
+<p class="small">Yalnız deneme içindir; uygulamanın kendi ses dosyalarını çalar, hiçbir şey göndermez.
+Sessiz anahtarını kapatın. Her yolu önce tek dokunuşla dinleyin. Sonuçları “Günlüğü kopyala” ile paylaşın.</p>
+<div id="status">yükleniyor…</div>
+
+<h2>1. Kayıt ve hız</h2>
+<div class="row">
+  <select id="clip"></select>
+  <select id="rate">
+    <option value="0.75">hız 0,75</option>
+    <option value="1" selected>hız 1,0</option>
+    <option value="1.25">hız 1,25</option>
+  </select>
+</div>
+
+<h2>2. Tek dokunuş — yol seçin</h2>
+<div class="row">
+  <button class="path" data-path="P1">P1 · eski yol: öğe → Web Audio köprüsü + panner, seek</button>
+  <button class="path" data-path="P2">P2 · P1, seek yok</button>
+  <button class="path" data-path="P3">P3 · köprüsüz öğe (her dokunuşta yeni)</button>
+  <button class="path" data-path="P3b">P3b · köprüsüz tek öğe (yeni uygulama: sure/dua)</button>
+  <button class="path" data-path="P4">P4 · çözülmüş buffer (yeni uygulama: harf)</button>
+  <button class="path" id="stop">Durdur</button>
+</div>
+<p class="small">Hız yalnız öğe yollarına uygulanır (P1 hızı eski uygulama gibi çaldıktan sonra ayarlar; P3/P3b çalmadan önce ve perdeyi korur).
+P4 her zaman 1,0 (buffer hızı perdeyi değiştirir; uygulama Kur'an okumasında bunu kullanmaz).</p>
+
+<h2>3. Zorlama denemeleri (son seçilen yol ile)</h2>
+<div class="row">
+  <button class="path" id="rapid">20 harf, 150 ms arayla (hızlı dokunuş)</button>
+  <button class="path" id="many">200 tekrar, sonra tek temiz çalış</button>
+</div>
+<p class="small">Arka plan denemesi: bir ses çalın, uygulamadan çıkın / ekranı kilitleyin, 30 sn sonra dönün, aynı yolu tekrar deneyin.
+Hoparlör ve Bluetooth kulaklıkla ayrı ayrı; Safari sekmesinde ve “Ana Ekrana Ekle” ile eklenmiş bu sayfada ayrı ayrı deneyin.</p>
+
+<h2>4. Günlük</h2>
+<div class="row">
+  <button id="copy">Günlüğü kopyala</button>
+  <button id="download">Günlüğü indir</button>
+  <button id="clear">Temizle</button>
+</div>
+<pre id="log"></pre>
+
+<script>
+'use strict';
+const BASE = 'assets/assets/audio/';
+const CLIPS = [
+  ['Elif (32 kHz)', 'elifba/ders_1_harfler/01_elif.mp3'],
+  ['Ra (32 kHz)', 'elifba/ders_1_harfler/10_ra.mp3'],
+  ['Lam (32 kHz)', 'elifba/ders_1_harfler/23_lam.mp3'],
+  ['Sin (32 kHz)', 'elifba/ders_1_harfler/12_sin.mp3'],
+  ['Fatiha 1. ayet (44,1 kHz)', 'sureler/01_fatiha/01_ayet.mp3'],
+  ['Fatiha besmele (44,1 kHz)', 'sureler/01_fatiha/00_besmele.mp3'],
+  ['Doğru sesi (oyun)', 'oyunlar/dogru.mp3'],
+  ['Türkçe açıklama', 'tr/s003_01.mp3'],
+];
+const RAPID = ['01_elif','02_be','03_te','04_se','05_cim','06_ha','07_hi','08_dal','09_zel','10_ra',
+  '11_ze','12_sin','13_shin','14_sad','15_dad','16_ti','17_zi','18_ayn','19_gayn','20_fe']
+  .map((n) => 'elifba/ders_1_harfler/' + n + '.mp3');
+
+const t0 = performance.now();
+const lines = [];
+const logEl = document.getElementById('log');
+const statusEl = document.getElementById('status');
+function log(msg) {
+  const line = String(Math.round(performance.now() - t0)).padStart(7) + ' ' + msg;
+  lines.push(line);
+  if (lines.length > 3000) lines.shift();
+  logEl.textContent = lines.slice(-200).join('\n');
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+// ---- Ortam ve derleme ----------------------------------------------------
+const standalone = (navigator.standalone === true) || matchMedia('(display-mode: standalone)').matches;
+let buildInfo = '?';
+log('tarayıcı: ' + navigator.userAgent);
+log('ana ekran (standalone): ' + standalone + ', güvenli bağlam: ' + window.isSecureContext);
+Promise.all([
+  fetch('version.json', { cache: 'no-store' }).then((r) => r.ok ? r.json() : null).catch(() => null),
+  fetch('main.dart.js', { method: 'HEAD', cache: 'no-store' }).then((r) => r.headers.get('last-modified') || r.headers.get('etag')).catch(() => null),
+]).then(([v, mod]) => {
+  buildInfo = (v ? v.version + '+' + v.build_number : '?') + ' / main.dart.js ' + (mod || '?');
+  log('derleme: ' + buildInfo);
+  updateStatus();
+});
+
+// ---- Ses bağlamı: ilk dokunuşta, await olmadan ----------------------------
+let ctx = null;
+let resumeFailed = false;
+function describeCtx() {
+  if (!ctx) return 'bağlam yok';
+  let s = ctx.state + ' ' + ctx.sampleRate + ' Hz';
+  if ('baseLatency' in ctx) s += ' base ' + Math.round(ctx.baseLatency * 1000) + ' ms';
+  if ('outputLatency' in ctx) s += ' out ' + Math.round(ctx.outputLatency * 1000) + ' ms';
+  return s;
+}
+function updateStatus() {
+  statusEl.textContent = 'derleme ' + buildInfo + '\nbağlam: ' + describeCtx() +
+    '\nana ekran: ' + standalone + ' · görünür: ' + document.visibilityState +
+    ' · P1 düğümleri (ayrılmamış panner): ' + p1Panners;
+}
+function makeCtx(why) {
+  if (ctx && ctx.state !== 'closed') { try { ctx.close(); } catch (e) {} }
+  const C = window.AudioContext || window.webkitAudioContext;
+  ctx = new C();
+  resumeFailed = false;
+  decoded.clear();
+  const mine = ctx;
+  ctx.addEventListener('statechange', () => { if (mine === ctx) { log('bağlam → ' + ctx.state); updateStatus(); } });
+  log('yeni bağlam (' + why + '): ' + describeCtx());
+  // iOS kilidi: sessiz tek örnek
+  const b = ctx.createBufferSource();
+  b.buffer = ctx.createBuffer(1, 1, ctx.sampleRate);
+  b.connect(ctx.destination);
+  b.onended = () => b.disconnect();
+  b.start(0);
+}
+function onGesture(e) {
+  if (!ctx || ctx.state === 'closed' || (ctx.state === 'interrupted' && resumeFailed)) makeCtx(e.type);
+  if (ctx.state !== 'running') {
+    const c = ctx;
+    log('resume (' + e.type + ', ' + c.state + ')');
+    c.resume().then(() => { resumeFailed = false; }, (err) => { resumeFailed = true; log('resume reddedildi ' + err); });
+    setTimeout(() => { if (c === ctx && c.state !== 'running') { resumeFailed = true; log('resume olmadı: ' + c.state); } }, 1200);
+  }
+  if (!sharedUnlocked) { sharedUnlocked = true; if (!shared.getAttribute('src')) shared.load(); }
+  updateStatus();
+}
+['pointerdown', 'pointerup', 'touchstart', 'touchend', 'mousedown', 'keydown', 'click']
+  .forEach((t) => window.addEventListener(t, onGesture, { capture: true, passive: true }));
+document.addEventListener('visibilitychange', () => { log('görünürlük: ' + document.visibilityState + ' / ' + describeCtx()); updateStatus(); });
+window.addEventListener('pagehide', () => log('pagehide'));
+window.addEventListener('pageshow', (e) => log('pageshow persisted=' + e.persisted));
+
+// ---- Kayıtlar ----------------------------------------------------------------
+const bytes = new Map();
+const decoded = new Map();
+async function getBytes(path) {
+  if (!bytes.has(path)) {
+    const r = await fetch(BASE + path);
+    if (!r.ok) throw new Error('indirilemedi ' + path + ' ' + r.status);
+    bytes.set(path, await r.arrayBuffer());
+  }
+  return bytes.get(path);
+}
+function dataUri(buf) {
+  return new Promise((ok) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.readAsDataURL(new Blob([buf], { type: 'audio/mpeg' })); });
+}
+async function getDecoded(path) {
+  if (!decoded.has(path)) {
+    const copy = (await getBytes(path)).slice(0);
+    const t = performance.now();
+    const b = await ctx.decodeAudioData(copy);
+    log('çözüldü ' + path.split('/').pop() + ' ' + b.duration.toFixed(2) + ' sn ' + b.sampleRate + ' Hz, ' + Math.round(performance.now() - t) + ' ms');
+    decoded.set(path, b);
+  }
+  return decoded.get(path);
+}
+
+// ---- Öğe olayları ve takılma ölçümü --------------------------------------
+function watchElement(el, label) {
+  ['loadeddata', 'playing', 'waiting', 'stalled', 'seeking', 'seeked', 'ended', 'error'].forEach((t) =>
+    el.addEventListener(t, () => log(label + ' ' + t + ' t=' + el.currentTime.toFixed(2) + ' hız=' + el.playbackRate +
+      (t === 'error' && el.error ? ' hata ' + el.error.code : ''))));
+  let timer = null;
+  el.addEventListener('playing', () => {
+    clearInterval(timer);
+    let wall = performance.now(), time = el.currentTime, worst = 0;
+    timer = setInterval(() => {
+      if (el.paused || el.ended) {
+        clearInterval(timer);
+        if (worst > 0) log(label + ' en uzun takılma ' + worst + ' ms');
+        return;
+      }
+      const w = performance.now(), tt = el.currentTime;
+      const expected = (w - wall) / 1000 * el.playbackRate, adv = tt - time;
+      if (expected > 0.12 && adv < expected * 0.5) {
+        const ms = Math.round((expected - adv) * 1000);
+        worst = Math.max(worst, ms);
+        log(label + ' TAKILMA ' + ms + ' ms (t=' + tt.toFixed(2) + ')');
+      }
+      wall = w; time = tt;
+    }, 150);
+  });
+}
+
+// ---- Yollar ------------------------------------------------------------------
+let current = null;     // { stop() }
+let request = 0;
+let p1Panners = 0;
+const shared = new Audio();
+let sharedUnlocked = false;
+let sharedUrl = null;
+shared.preload = 'auto';
+watchElement(shared, 'P3b');
+const rate = () => parseFloat(document.getElementById('rate').value);
+const selected = () => document.getElementById('clip').value;
+
+function stopCurrent() { if (current) { try { current.stop(); } catch (e) { log('durdurma hatası ' + e); } current = null; } }
+
+const PATHS = {
+  // audioplayers_web 5.2.0 gibi: her dokunuşta yeni öğe + köprü + panner,
+  // data URI, load(), loadeddata, currentTime = 0, play(), sonra hız.
+  async P1(path, id, seek = true, label = 'P1') {
+    const uri = await dataUri(await getBytes(path));
+    if (id !== request) return;
+    const el = new Audio();
+    el.src = uri;
+    el.playbackRate = rate();
+    const src = ctx.createMediaElementSource(el);
+    const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : ctx.createGain();
+    src.connect(pan); pan.connect(ctx.destination); p1Panners++;
+    watchElement(el, label);
+    current = { stop() { src.disconnect(); el.pause(); el.src = ''; el.remove(); /* panner bilerek ayrılmaz */ } };
+    el.load();
+    await new Promise((ok) => el.addEventListener('loadeddata', ok, { once: true }));
+    if (id !== request) return;
+    if (ctx.state === 'suspended') await ctx.resume();
+    if (seek) el.currentTime = 0;
+    await el.play();
+    if (rate() !== 1) el.playbackRate = rate();
+  },
+  P2(path, id) { return PATHS.P1(path, id, false, 'P2'); },
+  // Köprüsüz, her dokunuşta yeni öğe.
+  async P3(path, id) {
+    const url = URL.createObjectURL(new Blob([await getBytes(path)], { type: 'audio/mpeg' }));
+    if (id !== request) { URL.revokeObjectURL(url); return; }
+    const el = new Audio();
+    watchElement(el, 'P3');
+    el.preservesPitch = true; el.webkitPreservesPitch = true;
+    el.defaultPlaybackRate = rate();
+    el.src = url;
+    el.playbackRate = rate();
+    current = { stop() { el.pause(); el.removeAttribute('src'); el.load(); URL.revokeObjectURL(url); } };
+    await el.play();
+  },
+  // Yeni uygulamanın sure/dua yolu: tek öğe, kaynak değişir.
+  async P3b(path, id) {
+    const buf = await getBytes(path);
+    if (id !== request) return;
+    const old = sharedUrl;
+    sharedUrl = URL.createObjectURL(new Blob([buf], { type: 'audio/mpeg' }));
+    shared.preservesPitch = true; shared.webkitPreservesPitch = true;
+    shared.defaultPlaybackRate = rate();
+    shared.src = sharedUrl;
+    shared.playbackRate = rate();
+    if (old) URL.revokeObjectURL(old);
+    current = { stop() { shared.pause(); } };
+    await shared.play();
+  },
+  // Yeni uygulamanın harf yolu: çözülmüş buffer, her çalışta yeni kaynak.
+  async P4(path, id) {
+    const b = await getDecoded(path);
+    if (id !== request) return;
+    if (ctx.state !== 'running') {
+      await Promise.race([ctx.resume(), new Promise((ok) => setTimeout(ok, 1500))]);
+      if (ctx.state !== 'running') { log('P4 bağlam çalışmıyor: ' + ctx.state); return; }
+    }
+    if (id !== request) return;
+    const s = ctx.createBufferSource(); s.buffer = b;
+    const g = ctx.createGain();
+    s.connect(g); g.connect(ctx.destination);
+    let stopped = false;
+    s.onended = () => { s.disconnect(); g.disconnect(); if (!stopped) log('P4 ended'); };
+    s.start(0);
+    log('P4 çal ' + b.duration.toFixed(2) + ' sn, bağlam ' + ctx.sampleRate + ' Hz');
+    current = { stop() {
+      stopped = true;
+      const now = ctx.currentTime;
+      g.gain.setValueAtTime(g.gain.value, now);
+      g.gain.linearRampToValueAtTime(0, now + 0.012);
+      s.stop(now + 0.015);
+    } };
+  },
+};
+
+let lastPath = 'P4';
+async function play(pathName, clip, quiet) {
+  lastPath = pathName;
+  const id = ++request;
+  stopCurrent();
+  if (!ctx) makeCtx('çalma');
+  if (!quiet) log('— ' + pathName + ' ' + clip.split('/').pop() + ' hız ' + rate());
+  const t = performance.now();
+  try {
+    await PATHS[pathName](clip, id);
+    if (!quiet && id === request) log(pathName + ' başladı (' + Math.round(performance.now() - t) + ' ms)');
+  } catch (e) {
+    log(pathName + ' HATA ' + (e && e.name) + ' ' + (e && e.message));
+  }
+  updateStatus();
+}
+
+const clipSel = document.getElementById('clip');
+CLIPS.forEach(([name, path]) => { const o = document.createElement('option'); o.value = path; o.textContent = name; clipSel.append(o); });
+document.querySelectorAll('button[data-path]').forEach((b) => b.addEventListener('click', () => play(b.dataset.path, selected())));
+document.getElementById('stop').addEventListener('click', () => { request++; stopCurrent(); log('durduruldu'); });
+const sleep = (ms) => new Promise((ok) => setTimeout(ok, ms));
+document.getElementById('rapid').addEventListener('click', async () => {
+  log('== hızlı dokunuş: ' + lastPath + ', 20 harf / 150 ms');
+  for (const clip of RAPID) { play(lastPath, clip, true); await sleep(150); }
+  log('== hızlı dokunuş bitti (son harf duyulmalı: Fe)');
+});
+document.getElementById('many').addEventListener('click', async () => {
+  log('== 200 tekrar: ' + lastPath);
+  for (let i = 0; i < 200; i++) { play(lastPath, RAPID[i % RAPID.length], true); await sleep(60); }
+  await sleep(800);
+  log('== 200 tekrar bitti; şimdi tek temiz çalış (Elif)');
+  await play(lastPath, CLIPS[0][1]);
+});
+document.getElementById('copy').addEventListener('click', () => {
+  const text = 'derleme ' + buildInfo + '\n' + lines.join('\n');
+  navigator.clipboard.writeText(text).then(() => log('kopyalandı'), () => log('kopyalanamadı; “indir”i deneyin'));
+});
+document.getElementById('download').addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['derleme ' + buildInfo + '\n' + lines.join('\n')], { type: 'text/plain' }));
+  a.download = 'ses-tani-' + new Date().toISOString().replace(/[:.]/g, '-') + '.txt';
+  a.click();
+});
+document.getElementById('clear').addEventListener('click', () => { lines.length = 0; logEl.textContent = ''; });
+setInterval(updateStatus, 1000);
+updateStatus();
+</script>
+</body>
+</html>

@@ -9,6 +9,8 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   — ne yapıldı, kurallar, dosya haritası, yeni oyun ekleme, sırada ne var.
 - **Ses** (kayıt formatı, web'de önbellek/ön yükleme, gecikme ölçümü): `docs/SES.md`.
   Ses dosyası ekleyince/değiştirince `kSoundCacheVersion`'ı güncelle (test söyler); kaynağı küçült.
+  Web kendi ses motorunu kullanır (`WebAudioEngine`: harf/efekt çözülmüş buffer, sure/dua/Türkçe köprüsüz
+  `<audio>`); uygulamalar audioplayers. Deneme bayrakları `?ses=eski`, `?sesTani=1`; cihaz sayfası `web/ses-tani.html`.
 - **Türkçe açıklama sesleri** (🔊, kalıcı `sPPP_KK` kimlikleri, manifest, ElevenLabs
   üreticisi — uygulama API çağırmaz, anahtar asla depoya/koda girmez): `docs/TURKCE_SES.md`.
 - **Web/telefon görünümü** (tarayıcı sayfayı geniş yerleştirince her şey küçülüyordu; `PhoneZoomFix`): `docs/WEB.md`.

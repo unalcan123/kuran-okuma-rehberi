@@ -31,7 +31,8 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AudioService()),
+        // Hemen kurulur (lazy değil): web'de ses bağlamı ilk dokunuşta açılsın.
+        ChangeNotifierProvider(create: (_) => AudioService(), lazy: false),
         Provider(create: (_) => GameScoreStore()),
         // Yerel oyuncu profilleri + oyun başına skor tabloları.
         ChangeNotifierProvider(create: (_) => PlayerRepository()..load()),

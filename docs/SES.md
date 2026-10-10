@@ -20,8 +20,8 @@ dokunuş, eski isteğin hata durumunu geri yazıp yeni sesin durumunu bozabiliyo
    - Ekran açılınca `AudioService.preload([...])` o ekranın tüm seslerini arka planda indirir
      (6 dosya birden). Çağıranlar: Elifba dersi (`lesson_letters_screen`), Sürükle & Bırak,
      Dinle ve Seç (ders sesleri + `dogru.mp3`), sure ve dua detayı.
-   - Çalarken web'de ses bellekteyse `BytesSource` (data-URI) ile çalınır: dokununca ağ yok.
-     Bellekte yoksa önce yüklenir (bir dahaki sefere hazır olur).
+   - Çalarken web'de ses bellekten çalınır: dokununca ağ yok. Bellekte yoksa önce yüklenir
+     (bir dahaki sefere hazır olur). 2026-10-10'dan beri data-URI değil, aşağıdaki "Web ses motoru".
    - Sure/dua dizilerinde sıradaki klip önceden hazırlanır (klipler arası boşluk kısalır).
    - Yalnızca **web'de** çalışır (`kIsWeb`); telefon/masaüstü uygulamasında dosyalar zaten
      yerel, `AssetSource` aynen kullanılır.
@@ -42,6 +42,45 @@ dokunuş, eski isteğin hata durumunu geri yazıp yeni sesin durumunu bozabiliyo
      eski sürümlerin önbelleği otomatik silinir.
    - Depolama dolu / özel mod gibi durumlarda yazma sessizce atlanır, ses yine çalar.
    - Safari, sık kullanılmayan sitelerin depolamasını ~7 günde silebilir (o zaman yeniden iner).
+
+## Web ses motoru (2026-10-10, iPhone/iPad Safari cızırtı / yarım harf şikâyeti)
+Uygulamalar (Android, Windows, ileride iOS) `audioplayers` ile çalmaya devam eder
+(`PluginAudioEngine`). **Web'de** `audioplayers` her sesi `<audio>` → Web Audio köprüsünden
+(MediaElementAudioSourceNode) geçiriyor, her dokunuşta yeni öğe + başa sarma (seek) yapıyordu;
+Safari'deki bozulmanın en güçlü şüphelisi bu köprü (araştırma raporu, bkz. kullanıcı klasörü).
+Artık web kendi motorunu kullanır; `AudioService`'in dışa açık hali aynı.
+
+- Dosyalar: `lib/services/audio_engine.dart` (arayüz, platform seçimi), `plugin_audio_engine.dart`
+  (audioplayers), `web_audio/web_audio_engine.dart` (mantık: istek kimlikleri, yönlendirme, ön bellek;
+  tarayıcısız test edilir), `web_audio/js_web_audio_port.dart` (gerçek tarayıcı), `web_audio/audio_diagnostics_web.dart`.
+- **Kısa sesler** (`audio/elifba/`, `audio/oyunlar/`, hız 1,0, ≤ 96 KB): tek AudioContext, her kayıt
+  bir kez `decodeAudioData` ile çözülür, her çalış yeni AudioBufferSourceNode (→ GainNode → çıkış).
+  Önceki harf ~12 ms kısılarak durur (tık sesi olmasın), düğümler ayrılır. Çözülmüş ses ön belleği
+  **sınırlı** (20 MB, en eski kullanılan atılır; bir ders ~4-5 MB). Ekran açılınca `preload` o ekranın
+  kısa seslerini sırayla çözer — ama bağlam ilk dokunuşta kurulduktan sonra. Efekt kanalı ayrı (harfi kesmez).
+- **Sure/dua, Türkçe açıklama ve hız ≠ 1,0 olan her şey**: Web Audio'ya **bağlanmamış** tek `<audio>`
+  öğesi (kanal başına bir tane, yeniden kullanılır), kayıt bellekten object URL ile. Hız `play()`'den
+  **önce** `defaultPlaybackRate` + `playbackRate` olarak verilir (yeni kaynak hızı sıfırlamasın),
+  `preservesPitch` açık. Buffer hızı perdeyi değiştirdiği için Kur'an okuması asla buffer'dan çalmaz.
+- **İlk dokunuş**: pencerede capture dinleyicisi, Flutter dokunuşu işlemeden ve hiç `await` olmadan
+  bağlamı kurar/uyandırır, bir sessiz örnek çalar, `<audio>` öğelerine `load()` der (iOS sonra
+  dokunuşsuz çalmaya — sıradaki ayete — izin versin). `interrupted` kalıp uyanmayan bağlam bir
+  sonraki dokunuşta yenilenir (WebKit 276016).
+- **Kendiliğinden ses yok**: bağlam çalışmıyorsa istek düşer (sonra çalmaz). Arka plana geçince ve
+  kesintide (`interrupted`/`suspended`) çalan harf/efekt durur; geri dönünce yalnız bağlam uyandırılır.
+- **Yarışlar**: her ana kanal isteğinin kimliği var; eski isteğin indirme/çözme/bağlam beklemesi yeni
+  istek ya da `stop()` gelince vazgeçer; eski sesin geç gelen "bitti" olayı yenisini bitirmez
+  (`AudioService` de kimliğe bakar). Hız 1,0'a dönüşü ses dururken de saklanır.
+- **Deneme bayrakları** (yalnız adreste, çocuğa görünmez): `?ses=eski` = eski audioplayers yolu
+  (karşılaştırma için), `?sesTani=1` = sol altta günlük kutusu (bağlam durumu, örnekleme hızı,
+  gecikmeler, öğe olayları, gerçek hız/perde, takılma ölçümü; "Günlüğü kopyala"). Derleme etiketi:
+  `--dart-define=KURAN_BUILD=...`.
+- **Cihaz tanı sayfası** `web/ses-tani.html` (derlemeyle yayına girer, `noindex`): aynı kayıtla
+  P1 eski köprülü yol (audioplayers 5.2.0 taklidi) / P2 seek'siz / P3 köprüsüz yeni öğe / P3b
+  köprüsüz tek öğe (yeni sure yolu) / P4 çözülmüş buffer (yeni harf yolu); hız 0,75-1,25, 20 hızlı
+  dokunuş, 200 tekrar, arka plan, takılma ölçümü, derleme kimliği, ana ekran tespiti.
+- Testler: `test/web_audio_engine_test.dart` (sahte tarayıcıyla gerçek motor). **Chrome'da geçmesi
+  Safari'nin düzeldiğini kanıtlamaz**; gerçek iPhone/iPad denemesi gerekir.
 
 ## Ölçüm (gerçek Chrome, headless, 2026-09-19, tek bilgisayar / hızlı bağlantı)
 | | Eski (yayındaki) | Yeni |

@@ -2,12 +2,13 @@ const puppeteer = require('puppeteer-core');
 
 const CHROME = process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 
-async function launch({ width = 800, height = 1100, url = 'http://localhost:8099/', userDataDir } = {}) {
+async function launch({ width = 800, height = 1100, url = 'http://localhost:8099/', userDataDir, autoplay = true, beforeLoad } = {}) {
   const browser = await puppeteer.launch({
     executablePath: CHROME,
     headless: 'new',
     userDataDir,
-    args: ['--autoplay-policy=no-user-gesture-required', '--no-sandbox', '--mute-audio'],
+    // autoplay: false keeps the real rule (sound only after a touch).
+    args: [...(autoplay ? ['--autoplay-policy=no-user-gesture-required'] : []), '--no-sandbox', '--mute-audio'],
   });
   const page = await browser.newPage();
   await page.setViewport({ width, height });
@@ -30,6 +31,7 @@ async function launch({ width = 800, height = 1100, url = 'http://localhost:8099
       return orig.apply(this, arguments);
     };
   });
+  if (beforeLoad) await page.evaluateOnNewDocument(beforeLoad);
   await page.goto(url, { waitUntil: 'networkidle2' });
   return { browser, page, audioRequests };
 }

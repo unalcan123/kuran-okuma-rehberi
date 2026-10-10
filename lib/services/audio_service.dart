@@ -1,22 +1,23 @@
 import 'dart:async';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 
 import '../models/arabic_letter.dart';
+import 'audio_engine.dart';
 import 'sound_cache.dart';
 import 'sound_store.dart';
 
 enum AudioPlaybackState { stopped, playing, paused }
 
-/// App-wide audio player — one [AudioPlayer] instance for the whole
+/// App-wide audio player — one player for the whole
 /// app, so starting a new sound always stops whatever was playing
-/// instead of two clips overlapping.
+/// instead of two clips overlapping. The sound itself comes from an
+/// [AudioEngine] (`audioplayers` in the apps, its own engine on the web).
 ///
 /// Elifba only ever plays one short clip at a time ([playLetter]).
 /// Sureler need a bit more: play/pause/stop and reciting a surah's
 /// besmele + ayetler back-to-back as one continuous "Dinle" ([playPlaylist]).
-/// Both sit on the same [AudioPlayer], so nothing can play over
+/// Both sit on the same player, so nothing can play over
 /// anything else app-wide.
 ///
 /// On the web a sound is a download, and the browser player fetches the
@@ -24,14 +25,13 @@ enum AudioPlaybackState { stopped, playing, paused }
 /// when they open, and every sound is played from memory once loaded
 /// (see [SoundCache]). Native apps have the files locally and skip this.
 class AudioService extends ChangeNotifier {
-  AudioService({SoundCache? cache})
+  AudioService({SoundCache? cache, AudioEngineFactory? engine})
     : _cache =
           cache ?? SoundCache(store: createSoundStore(kSoundCacheVersion)) {
-    _player.onPlayerComplete.listen((_) => _handleComplete());
+    _engine = (engine ?? createAudioEngine)(_cache)..onEnded = _handleEnded;
   }
 
-  final AudioPlayer _player = AudioPlayer();
-  AudioPlayer? _effectPlayer;
+  late final AudioEngine _engine;
   final SoundCache _cache;
 
   String? _currentAsset;
@@ -44,12 +44,9 @@ class AudioService extends ChangeNotifier {
   /// up instead of starting late or overwriting the newer state.
   int _playToken = 0;
 
-  /// Speed of every clip ([setPlaybackRate]); 1.0 = normal.
+  /// Speed of every clip ([setPlaybackRate]); 1.0 = normal. Kept while
+  /// nothing plays too: the next clip starts at it.
   double _playbackRate = 1.0;
-
-  /// The rate last given to the player (a browser's new audio element
-  /// starts at 1.0 again, so a rate other than 1.0 is set on every play).
-  double _appliedRate = 1.0;
 
   /// The asset path currently loaded (playing or paused) — null when
   /// stopped. Lets UI highlight "this is the thing that's playing".
@@ -66,14 +63,9 @@ class AudioService extends ChangeNotifier {
   /// Elifba sounds always play at normal speed.
   Future<void> setPlaybackRate(double rate) async {
     _playbackRate = rate;
-    if (_state != AudioPlaybackState.stopped) await _applyRate();
-  }
-
-  Future<void> _applyRate() async {
-    if (_playbackRate == 1.0 && _appliedRate == 1.0) return;
+    if (_state == AudioPlaybackState.stopped) return;
     try {
-      await _player.setPlaybackRate(_playbackRate);
-      _appliedRate = _playbackRate;
+      await _engine.setRate(rate);
     } catch (error) {
       debugPrint('AudioService: hız ayarlanamadı — $error');
     }
@@ -84,12 +76,12 @@ class AudioService extends ChangeNotifier {
   /// screen can play; nulls are ignored. Only does something on the web.
   void preload(Iterable<String?> assetPaths) {
     if (!kIsWeb) return;
-    unawaited(
-      _cache.preload([
-        for (final path in assetPaths)
-          if (path != null && path.isNotEmpty) path,
-      ]),
-    );
+    final paths = [
+      for (final path in assetPaths)
+        if (path != null && path.isNotEmpty) path,
+    ];
+    unawaited(_cache.preload(paths));
+    _engine.preload(paths);
   }
 
   Future<void> playLetter(ArabicLetter letter) async {
@@ -142,19 +134,16 @@ class AudioService extends ChangeNotifier {
     await _start(queue[_queueIndex]);
   }
 
+  /// Synchronous up to the engine's first wait, so that on the web a sound
+  /// already in memory starts within the touch that asked for it.
   Future<void> _start(String assetPath) async {
     final token = ++_playToken;
+    _currentAsset = assetPath;
+    _state = AudioPlaybackState.playing;
+    notifyListeners();
+    if (token != _playToken) return; // a listener already started another
     try {
-      await _player.stop();
-      if (token != _playToken) return;
-      _currentAsset = assetPath;
-      _state = AudioPlaybackState.playing;
-      notifyListeners();
-      final source = await _sourceFor(assetPath);
-      if (token != _playToken) return;
-      await _player.play(source);
-      if (token != _playToken) return;
-      await _applyRate();
+      await _engine.play(token, assetPath, rate: _playbackRate);
     } catch (error) {
       debugPrint('AudioService: "$assetPath" çalınamadı — $error');
       if (token != _playToken) return;
@@ -166,21 +155,12 @@ class AudioService extends ChangeNotifier {
     }
   }
 
-  /// From memory on the web (loading it first if it isn't there yet),
-  /// straight from the app's own files everywhere else.
-  Future<Source> _sourceFor(String assetPath) async {
-    if (!kIsWeb) return AssetSource(assetPath);
-    final bytes = await _cache.load(assetPath);
-    if (bytes == null) return AssetSource(assetPath);
-    return BytesSource(
-      bytes,
-      mimeType: assetPath.endsWith('.wav') ? 'audio/wav' : 'audio/mpeg',
-    );
-  }
-
-  void _handleComplete() {
+  /// The engine reports the end of request [id]; an older request's end
+  /// (a sound already replaced or stopped) is ignored.
+  void _handleEnded(int id, {bool interrupted = false}) {
+    if (id != _playToken || _state == AudioPlaybackState.stopped) return;
     final queue = _queue;
-    if (queue != null && _queueIndex < queue.length - 1) {
+    if (!interrupted && queue != null && _queueIndex < queue.length - 1) {
       _queueIndex++;
       _playQueueCurrent();
       return;
@@ -196,9 +176,7 @@ class AudioService extends ChangeNotifier {
   /// anda yalnızca bir efekt çalar.
   Future<void> playEffect(String assetPath) async {
     try {
-      final player = _effectPlayer ??= AudioPlayer();
-      await player.stop();
-      await player.play(await _sourceFor(assetPath));
+      await _engine.playEffect(assetPath);
     } catch (error) {
       debugPrint('AudioService: efekt "$assetPath" çalınamadı — $error');
     }
@@ -206,7 +184,7 @@ class AudioService extends ChangeNotifier {
 
   Future<void> stopEffect() async {
     try {
-      await _effectPlayer?.stop();
+      await _engine.stopEffect();
     } catch (error) {
       debugPrint('AudioService: efekt durdurulamadı — $error');
     }
@@ -214,32 +192,31 @@ class AudioService extends ChangeNotifier {
 
   Future<void> pause() async {
     if (_state != AudioPlaybackState.playing) return;
-    await _player.pause();
     _state = AudioPlaybackState.paused;
     notifyListeners();
+    await _engine.pause();
   }
 
   Future<void> resume() async {
     if (_state != AudioPlaybackState.paused) return;
-    await _player.resume();
     _state = AudioPlaybackState.playing;
     notifyListeners();
+    await _engine.resume();
   }
 
   Future<void> stop() async {
     _playToken++;
     _queue = null;
     _queueIndex = 0;
-    await _player.stop();
     _currentAsset = null;
     _state = AudioPlaybackState.stopped;
     notifyListeners();
+    await _engine.stop();
   }
 
   @override
   void dispose() {
-    _player.dispose();
-    _effectPlayer?.dispose();
+    _engine.dispose();
     super.dispose();
   }
 }

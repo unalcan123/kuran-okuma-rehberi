@@ -9,8 +9,8 @@ async function stores(page) {
 }
 async function openLesson(page) {
   await enableSemantics(page);
-  await clickText(page, 'Elifba Dersleri'); await sleep(1200);
-  await clickText(page, 'Harfleri Tanıyalım'); await sleep(3500);
+  await clickText(page, "Kur'an Okuma Rehberi", { exact: true, nth: 1 }); await sleep(1200);
+  await clickText(page, 'Ders 1 · Harfleri Tanıyalım', { exact: true }); await sleep(3500);
 }
 (async () => {
   const { browser, page, audioRequests } = await launch({ url: URL_ });
@@ -23,10 +23,9 @@ async function openLesson(page) {
   mark = audioRequests.length;
   await openLesson(page);
   console.log(`after reload (2nd visit) -> audio downloads from the server: ${audioRequests.length - mark}`);
-  // tap a few letters: still instant and from memory?
-  const plays0 = await page.evaluate(() => window.__plays.length);
-  await page.mouse.click(90, 130); await sleep(500);
-  const plays = await page.evaluate((n) => window.__plays.slice(n).map((p) => p.kind), plays0);
-  console.log('a tap plays from:', plays.join(','), '| audio downloads so far in 2nd visit:', audioRequests.length - mark);
+  // tap a letter: still from memory, no download?
+  const mark2 = audioRequests.length;
+  await clickText(page, 'Elif. Dinle'); await sleep(500);
+  console.log('a tap downloads:', audioRequests.length - mark2, '| audio downloads so far in 2nd visit:', audioRequests.length - mark);
   await browser.close();
 })().catch((e) => { console.error('FAIL', e.message); process.exit(1); });
