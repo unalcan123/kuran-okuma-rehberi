@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -148,7 +149,7 @@ class _TappableWordState extends State<TappableWord> {
 
     return Semantics(
       container: true,
-      label: 'Kelime ${wordIndex + 1}',
+      label: context.t("Kelime {n}", {"n": wordIndex + 1}),
       child: SizedBox.fromSize(
         size: size,
         child: Stack(
@@ -169,7 +170,7 @@ class _TappableWordState extends State<TappableWord> {
                 rect: boxes[k].shift(origin),
                 child: Semantics(
                   button: true,
-                  label: 'Kelimenin ${k + 1}. harfi',
+                  label: context.t("Kelimenin {n}. harfi", {"n": k + 1}),
                   selected: markOf(k) == WordLetterMark.found,
                   child: Material(
                     type: MaterialType.transparency,

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -354,8 +355,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                     child: FittedBox(
                       child: Padding(
                         padding: const EdgeInsets.all(6),
-                        child: Text(
-                          card.text,
+                        child: Text(context.t(card.text),
                           textDirection: TextDirection.rtl,
                           textScaler: TextScaler.noScaling,
                           style: singleGlyphStyle(
@@ -488,14 +488,17 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Harf Treni',
+              context.t('Harf Treni'),
               style: textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppColors.textPrimary,
               ),
             ),
             Text(
-              'Seviye ${_level.number} · ${_level.title}',
+              context.t("Seviye {n} · {title}", {
+                "n": _level.number,
+                "title": context.t(_level.title),
+              }),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: textTheme.bodySmall?.copyWith(
@@ -578,7 +581,10 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
             borderRadius: BorderRadius.circular(14),
           ),
           child: Text(
-            '${state.placed.length} / ${state.wagons} vagon hazır',
+            context.t("{n} / {total} vagon hazır", {
+              "n": state.placed.length,
+              "total": state.wagons,
+            }),
             style: textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w800,
               color: AppColors.navy,
@@ -588,7 +594,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
         const SizedBox(width: 8),
         Expanded(
           child: Text(
-            '${_target.name} harfini bul',
+            context.t("{name} harfini bul", {"name": _target.name}),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: textTheme.titleSmall?.copyWith(
@@ -734,7 +740,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
           key: const ValueKey('hint-button'),
           onPressed: state.hintedId != null ? null : _hint,
           icon: const Icon(Icons.lightbulb_rounded),
-          label: const Text('İpucu'),
+          label: Text(context.t('İpucu')),
           style: FilledButton.styleFrom(
             backgroundColor: AppColors.gold,
             minimumSize: const Size(160, 50),
@@ -745,7 +751,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
           key: const ValueKey('hint-button'),
           onPressed: state.hintedId != null ? null : _hint,
           icon: const Icon(Icons.lightbulb_outline_rounded),
-          label: const Text('İpucu'),
+          label: Text(context.t('İpucu')),
           style: OutlinedButton.styleFrom(
             foregroundColor: AppColors.textSecondary,
             minimumSize: const Size(140, 46),
@@ -777,7 +783,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  'Bütün trenler istasyonda!',
+                  context.t('Bütün trenler istasyonda!'),
                   textAlign: TextAlign.center,
                   style: textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w800,
@@ -786,7 +792,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${s.trainsDone} tren dolduruldu.',
+                  context.t("{n} tren dolduruldu.", {"n": s.trainsDone}),
                   key: const ValueKey('trains-done'),
                   textAlign: TextAlign.center,
                   style: line,
@@ -795,8 +801,10 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                 GameResultSummary(result: _result!, submission: _submission),
                 const SizedBox(height: 8),
                 Text(
-                  'Tekrar deneyerek: ${s.countOf(TrainFind.afterRetry)} · '
-                  'İpucuyla: ${s.countOf(TrainFind.withHint)}',
+                  context.t("Tekrar deneyerek: {retry} · İpucuyla: {hint}", {
+                    "retry": s.countOf(TrainFind.afterRetry),
+                    "hint": s.countOf(TrainFind.withHint),
+                  }),
                   key: const ValueKey('find-kinds'),
                   textAlign: TextAlign.center,
                   style: line,
@@ -804,7 +812,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                 if (weak.isNotEmpty) ...[
                   const SizedBox(height: 16),
                   Text(
-                    'Tekrar çalışalım',
+                    context.t('Tekrar çalışalım'),
                     textAlign: TextAlign.center,
                     style: textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800,
@@ -857,7 +865,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                   key: const ValueKey('replay-button'),
                   onPressed: () => _start(focus: const []),
                   icon: const Icon(Icons.replay_rounded),
-                  label: const Text('Tekrar Oyna'),
+                  label: Text(context.t('Tekrar Oyna')),
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColors.turquoise,
                     minimumSize: const Size.fromHeight(54),
@@ -869,7 +877,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                     key: const ValueKey('practice-button'),
                     onPressed: () => _start(focus: weak),
                     icon: const Icon(Icons.search_rounded),
-                    label: const Text('Zorlandıklarımı Çalış'),
+                    label: Text(context.t('Zorlandıklarımı Çalış')),
                     style: FilledButton.styleFrom(
                       backgroundColor: AppColors.goldSoft,
                       foregroundColor: AppColors.navy,
@@ -885,7 +893,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
                     foregroundColor: AppColors.navy,
                     minimumSize: const Size.fromHeight(54),
                   ),
-                  child: const Text('Oyunlara Dön'),
+                  child: Text(context.t('Oyunlara Dön')),
                 ),
               ],
             ),
@@ -930,8 +938,7 @@ class _MessageLine extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       Expanded(
-                        child: Text(
-                          t,
+                        child: Text(context.t(t),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(
@@ -1058,7 +1065,7 @@ class _DemoState extends State<_Demo> with SingleTickerProviderStateMixin {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Doğru karta dokun, vagona gitsin!',
+                          context.t('Doğru karta dokun, vagona gitsin!'),
                           textAlign: TextAlign.center,
                           style: textTheme.titleLarge?.copyWith(
                             color: Colors.white,
@@ -1074,7 +1081,7 @@ class _DemoState extends State<_Demo> with SingleTickerProviderStateMixin {
                             backgroundColor: AppColors.turquoise,
                             minimumSize: const Size(180, 50),
                           ),
-                          child: const Text('Anladım'),
+                          child: Text(context.t('Anladım')),
                         ),
                       ],
                     ),

@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../theme/app_colors.dart';
@@ -99,8 +100,7 @@ class DetectiveCard extends StatelessWidget {
                         alignment: Alignment.center,
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
-                          child: Text(
-                            text,
+                          child: Text(context.t(text),
                             textDirection: TextDirection.rtl,
                             textScaler: TextScaler.noScaling,
                             style: singleGlyphStyle(

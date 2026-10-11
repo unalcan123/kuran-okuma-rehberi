@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:math' as math;
 
 import '../game_texts.dart';
@@ -222,7 +223,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
 
   @override
   Widget build(BuildContext context) {
-    final l = const GameTexts();
+    final l = GameTexts.of(context);
     final compact = MediaQuery.sizeOf(context).height < 480;
 
     return Scaffold(
@@ -301,7 +302,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
     final listen = TextButton.icon(
       onPressed: gameRunning ? replayTarget : null,
       icon: const Icon(Icons.volume_up_rounded, size: 20),
-      label: Text(l.bpListenAgain),
+      label: Text(context.t(l.bpListenAgain)),
       style: TextButton.styleFrom(
         foregroundColor: _ink,
         minimumSize: const Size(48, 40),
@@ -314,8 +315,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
       icon: const Icon(Icons.arrow_back_rounded, color: _ink),
       onPressed: () => Navigator.of(context).maybePop(),
     );
-    final title = Text(
-      l.haGame,
+    final title = Text(context.t(l.haGame),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(
@@ -358,8 +358,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
             children: [
               listen,
               Flexible(
-                child: Text(
-                  l.bpListenAndFind,
+                child: Text(context.t(l.bpListenAndFind),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -469,8 +468,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       // Harf tek Text: birleşim ve harekeler bozulmaz.
-                      child: ColoredArabicText(
-                        c.letter.char,
+                      child: ColoredArabicText(c.letter.char,
                         textDirection: TextDirection.rtl,
                         style: lessonArabicStyle(
                           c.height * 0.62,
@@ -543,7 +541,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
         (l.haCars, '${e.spawned}'),
         (l.haMissedTarget, '${e.missedTargets}'),
         (l.haWrong, '${e.wrongTaps}'),
-        (l.bpAccuracy, '%${e.accuracyPercent}'),
+        (l.bpAccuracy, l.percent(e.accuracyPercent)),
         (l.bpBest, '$best'),
       ],
       footer: '',

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import '../../../widgets/reading_text_settings.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class LetterFormsTable extends StatelessWidget {
                         horizontal: BorderSide(color: _line),
                       ),
                     ),
-                    child: const Column(
+                    child: Column(
                       children: [
                         Icon(
                           Icons.auto_awesome,
@@ -64,7 +65,7 @@ class LetterFormsTable extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'HARFLERİN',
+                          context.t("HARFLERİN"),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: _ink,
@@ -74,7 +75,9 @@ class LetterFormsTable extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'BAŞTA, ORTADA, SONDA\nYAZILIŞLARINA ÖRNEKLER',
+                          context.t(
+                            "BAŞTA, ORTADA, SONDA\nYAZILIŞLARINA ÖRNEKLER",
+                          ),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: _ink,
@@ -85,20 +88,22 @@ class LetterFormsTable extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: 18, horizontal: 4),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
-                          'Harflerin kelimelere nasıl bitiştiğini inceleyelim. '
-                          'ا، د، ذ، ر، ز، و harfleri kendilerinden sonra gelen harfe bitişmez.',
+                          context.t(
+                            "Harflerin kelimelere nasıl bitiştiğini inceleyelim. ا، د، ذ، ر، ز، و harfleri kendilerinden sonra gelen harfe bitişmez.",
+                          ),
                           style: TextStyle(fontSize: 14, height: 1.6),
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'Not: Henüz harekeleri öğrenmedik. Kelimeleri okumaya değil, '
-                          'kırmızı harflerin yazılışına dikkat edelim.',
+                          context.t(
+                            "Not: Henüz harekeleri öğrenmedik. Kelimeleri okumaya değil, kırmızı harflerin yazılışına dikkat edelim.",
+                          ),
                           style: TextStyle(
                             fontSize: 14,
                             height: 1.6,
@@ -119,10 +124,12 @@ class LetterFormsTable extends StatelessWidget {
                       );
                     },
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(top: 18, bottom: 8),
                     child: Text(
-                      'Harfe dokunarak dinleyin. Basılı tutarak tek harf görünümünü açın.',
+                      context.t(
+                        "Harfe dokunarak dinleyin. Basılı tutarak tek harf görünümünü açın.",
+                      ),
                       textAlign: TextAlign.center,
                       style: TextStyle(color: _ink, fontSize: 12, height: 1.5),
                     ),
@@ -165,8 +172,7 @@ class LetterFormsTable extends StatelessWidget {
           for (final label in ['HARF', 'BAŞTA', 'ORTADA', 'SONDA'])
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 2),
-              child: Text(
-                label,
+              child: Text(context.t(label),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 12,
@@ -182,7 +188,9 @@ class LetterFormsTable extends StatelessWidget {
           children: [
             Semantics(
               button: true,
-              label: '${letters[i].turkishName} harfini dinle',
+              label: context.t("{name} harfini dinle", {
+                "name": letters[i].turkishName,
+              }),
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
@@ -198,13 +206,15 @@ class LetterFormsTable extends StatelessWidget {
             ),
             for (var position = 0; position < 3; position++)
               if (i == 0 && position == 0)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 4, vertical: 14),
                   child: Column(
                     children: [
                       Text('×', style: TextStyle(fontSize: 28)),
                       Text(
-                        'Elif kelimenin başında bulunmaz; hemze bulunur.',
+                        context.t(
+                          "Elif kelimenin başında bulunmaz; hemze bulunur.",
+                        ),
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 11, height: 1.4),
                       ),

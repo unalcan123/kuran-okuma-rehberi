@@ -1,5 +1,7 @@
+import '../../widgets/recitation_title_overlay.dart';
 import '../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
+import '../../l10n/l10n.dart';
 
 import '../../data/recitation_card_images.dart';
 import '../../data/sureler_data.dart';
@@ -39,7 +41,7 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Namaz Sureleri'),
+        title: Text(context.t('Namaz Sureleri')),
         actions: [
           ReadingTextSettingsButton(
             showMeaningToggle: false,
@@ -47,65 +49,79 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
           ),
         ],
       ),
-      body: TabletZoom(child: ReadingTextScale(
-        controller: _textScale,
-        child: Stack(
-          children: [
-            // Cute holy places (Kâbe, green dome, mosque), drawn in shapes.
-            const HolyPlacesBackground(contentWidth: _maxContentWidth),
-            Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: _maxContentWidth),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    final readingScale = ReadingTextScale.factorOf(context);
-                    // Bigger text needs wider cards: columns thin out one by one.
-                    final columns = (constraints.maxWidth /
-                            (_minCardWidth * (readingScale > 1 ? readingScale : 1)))
-                        .floor()
-                        .clamp(1, 4);
+      body: TabletZoom(
+        child: ReadingTextScale(
+          controller: _textScale,
+          child: Stack(
+            children: [
+              // Cute holy places (Kâbe, green dome, mosque), drawn in shapes.
+              const HolyPlacesBackground(contentWidth: _maxContentWidth),
+              Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: _maxContentWidth),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final readingScale = ReadingTextScale.factorOf(context);
+                      // Bigger text needs wider cards: columns thin out one by one.
+                      final columns = (constraints.maxWidth /
+                              (_minCardWidth *
+                                  (readingScale > 1 ? readingScale : 1)))
+                          .floor()
+                          .clamp(1, 4);
 
-                    return GridView.builder(
-                      // At the end, room to see the Kâbe scene.
-                      padding: EdgeInsets.fromLTRB(
-                        20,
-                        20,
-                        20,
-                        20 +
-                            HolyPlacesPainter.sceneHeightFor(
-                              MediaQuery.sizeOf(context),
-                            ),
-                      ),
-                      itemCount: kSureler.length,
-                      // Picture cards (PictureCard): every card has the
-                      // pictures' shape; the whole card opens the surah.
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: columns,
-                        mainAxisSpacing: 16,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: kSurahCardAspectRatio,
-                      ),
-                      itemBuilder: (context, index) {
-                        final surah = kSureler[index];
-                        return PictureCard(
-                          key: ValueKey('surah-card-${surah.id}'),
-                          image: kSurahCardImages[surah.id],
-                          aspectRatio: kSurahCardAspectRatio,
-                          radiusFactor: kSurahCardRadiusFactor,
-                          label: 'Sure ${surah.order}',
-                          title: surah.titleTr,
-                          arabic: surah.arabicName,
-                          onTap: () => _openSurah(context, surah),
-                        );
-                      },
-                    );
-                  },
+                      return GridView.builder(
+                        // At the end, room to see the Kâbe scene.
+                        padding: EdgeInsets.fromLTRB(
+                          20,
+                          20,
+                          20,
+                          20 +
+                              HolyPlacesPainter.sceneHeightFor(
+                                MediaQuery.sizeOf(context),
+                              ),
+                        ),
+                        itemCount: kSureler.length,
+                        // Picture cards (PictureCard): every card has the
+                        // pictures' shape; the whole card opens the surah.
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: columns,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          childAspectRatio: kSurahCardAspectRatio,
+                        ),
+                        itemBuilder: (context, index) {
+                          final surah = kSureler[index];
+                          return PictureCard(
+                            key: ValueKey('surah-card-${surah.id}'),
+                            image: kSurahCardImages[surah.id],
+                            aspectRatio: kSurahCardAspectRatio,
+                            radiusFactor: kSurahCardRadiusFactor,
+                            label: context.t('Sure {n}', {'n': surah.order}),
+                            title: context.t(surah.titleTr),
+                            imageSize: const Size(490, 250),
+                            overlay:
+                                context.language == AppLanguage.tr
+                                    ? null
+                                    : RecitationTitleOverlay(
+                                      title: context.t(surah.titleTr),
+                                      label: context.t('Sure {n}', {
+                                        'n': surah.order,
+                                      }),
+                                      prayer: false,
+                                    ),
+                            arabic: surah.arabicName,
+                            onTap: () => _openSurah(context, surah),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 

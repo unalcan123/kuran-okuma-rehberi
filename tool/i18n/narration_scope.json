@@ -1,0 +1,16 @@
+{
+  "lessonStart": 1,
+  "excludeIntroFromNewNarration": true,
+  "preserveExistingIntroRecordings": true,
+  "priorityLanguages": [
+    "tr",
+    "fr",
+    "es",
+    "en"
+  ],
+  "deferredLanguages": [
+    "de",
+    "bs"
+  ],
+  "includeGames": true
+}

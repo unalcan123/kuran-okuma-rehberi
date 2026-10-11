@@ -44,12 +44,8 @@ class BookPager extends StatefulWidget {
   static const Duration turnDuration = Duration(milliseconds: 320);
 
   /// Turns to [page] (by button or key).
-  static Future<void> turnTo(PageController controller, int page) =>
-      controller.animateToPage(
-        page,
-        duration: turnDuration,
-        curve: Curves.easeOutCubic,
-      );
+  static Future<void> turnTo(PageController controller, int page) => controller
+      .animateToPage(page, duration: turnDuration, curve: Curves.easeOutCubic);
 
   /// The page's paint for a turn [delta] pages away from the current
   /// position: positive = the upper page coming in (0 < delta < 1), negative

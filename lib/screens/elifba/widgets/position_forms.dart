@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import '../../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 
@@ -109,8 +110,7 @@ class _FormColumn extends StatelessWidget {
     if (large) {
       Widget arabic(String text, double size, Color color) => ReadingFittedBox(
         fit: BoxFit.scaleDown,
-        child: ColoredArabicText(
-          text,
+        child: ColoredArabicText(text,
           textDirection: TextDirection.rtl,
           profile: ArabicColorProfile.none,
           style: AppTextTheme.arabicSmall(
@@ -127,8 +127,7 @@ class _FormColumn extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(
-              label,
+            Text(context.t(label),
               maxLines: 1,
               style: const TextStyle(
                 fontSize: 14,
@@ -147,8 +146,7 @@ class _FormColumn extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          label,
+        Text(context.t(label),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -160,8 +158,7 @@ class _FormColumn extends StatelessWidget {
         SizedBox(height: compact ? 2 : 4 * scale),
         ReadingFittedBox(
           fit: BoxFit.scaleDown,
-          child: ColoredArabicText(
-            form,
+          child: ColoredArabicText(form,
             profile: ArabicColorProfile.none,
             style: AppTextTheme.arabicSmall(
               fontSize: compact ? 34 : 56 * scale,
@@ -203,8 +200,7 @@ class _HighlightedExample extends StatelessWidget {
     final targetIndex = example.indexOf(target);
     final style = AppTextTheme.arabicSmall(fontSize: compact ? 29 : 44 * scale);
     // One text run (never split into spans); the 7 thick letters stay red.
-    return ColoredArabicText(
-      example,
+    return ColoredArabicText(example,
       style: style,
       textDirection: TextDirection.rtl,
       profile:

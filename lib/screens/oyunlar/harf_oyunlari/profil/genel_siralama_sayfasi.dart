@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -61,7 +62,7 @@ class _GenelSiralamaSayfasiState extends State<GenelSiralamaSayfasi> {
 
   @override
   Widget build(BuildContext context) {
-    const l = GameTexts();
+    final l = GameTexts.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFFE8F4F1),
       appBar: AppBar(
@@ -74,8 +75,7 @@ class _GenelSiralamaSayfasiState extends State<GenelSiralamaSayfasi> {
             const Icon(Icons.emoji_events_rounded),
             const SizedBox(width: 8),
             Flexible(
-              child: Text(
-                l.lbTitle,
+              child: Text(context.t(l.lbTitle),
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(fontWeight: FontWeight.w800),
               ),

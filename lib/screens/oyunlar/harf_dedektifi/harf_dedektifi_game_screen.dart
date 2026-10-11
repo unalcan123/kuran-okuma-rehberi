@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -385,14 +386,13 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Harf Dedektifi',
+              context.t('Harf Dedektifi'),
               style: textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppColors.textPrimary,
               ),
             ),
-            Text(
-              _mode.title,
+            Text(context.t(_mode.title),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: textTheme.bodySmall?.copyWith(
@@ -631,7 +631,9 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
     return Column(
       children: [
         Text(
-          'Tanıyalım: ${letter.name} harfinin yazılışları',
+          context.t("Tanıyalım: {name} harfinin yazılışları", {
+            "name": letter.name,
+          }),
           textAlign: TextAlign.center,
           style: textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w800,
@@ -642,7 +644,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 4),
             child: Text(
-              'Bu harf kendinden sonraki harfe bağlanmaz.',
+              context.t('Bu harf kendinden sonraki harfe bağlanmaz.'),
               textAlign: TextAlign.center,
               style: textTheme.bodyMedium?.copyWith(
                 color: AppColors.textSecondary,
@@ -741,7 +743,11 @@ class _TargetHeader extends StatelessWidget {
     };
     return Semantics(
       container: true,
-      label: '${letter.name} harfini bul. Bulunan: $found / $total',
+      label: context.t("{name} harfini bul. Bulunan: {found} / {total}", {
+        "name": letter.name,
+        "found": found,
+        "total": total,
+      }),
       child: Row(
         children: [
           IconButton.filled(
@@ -783,8 +789,7 @@ class _TargetHeader extends StatelessWidget {
                 child: FittedBox(
                   child: Padding(
                     padding: const EdgeInsets.all(6),
-                    child: Text(
-                      letter.char,
+                    child: Text(context.t(letter.char),
                       textScaler: TextScaler.noScaling,
                       style: singleGlyphStyle(glyph * 0.7),
                     ),
@@ -800,8 +805,7 @@ class _TargetHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    instruction,
+                  Text(context.t(instruction),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: (compact
@@ -819,8 +823,7 @@ class _TargetHeader extends StatelessWidget {
                     runSpacing: 4,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      Text(
-                        letter.name,
+                      Text(context.t(letter.name),
                         style: textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.w700,
                           color: AppColors.textSecondary,
@@ -837,7 +840,10 @@ class _TargetHeader extends StatelessWidget {
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: Text(
-                          'Bulunan: $found / $total',
+                          context.t("Bulunan: {found} / {total}", {
+                            "found": found,
+                            "total": total,
+                          }),
                           style: textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w800,
                             color: AppColors.navy,
@@ -919,8 +925,7 @@ class _FeedbackArea extends StatelessWidget {
         AppColors.skyBlueSoft,
       ),
     };
-    final message = Text(
-      feedback.text,
+    final message = Text(context.t(feedback.text),
       maxLines: feedback.compare == null ? 3 : 4,
       overflow: TextOverflow.ellipsis,
       style: textTheme.titleSmall?.copyWith(
@@ -1032,7 +1037,7 @@ class _CompareGlyph extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(caption, maxLines: 1, style: style),
+          Text(context.t(caption), maxLines: 1, style: style),
           Container(
             width: 56,
             height: 50,
@@ -1048,8 +1053,7 @@ class _CompareGlyph extends StatelessWidget {
             child: FittedBox(
               child: Padding(
                 padding: const EdgeInsets.all(4),
-                child: Text(
-                  text,
+                child: Text(context.t(text),
                   textDirection: TextDirection.rtl,
                   textScaler: TextScaler.noScaling,
                   style: singleGlyphStyle(36),
@@ -1057,8 +1061,7 @@ class _CompareGlyph extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            name,
+          Text(context.t(name),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: style?.copyWith(color: AppColors.navy),
@@ -1102,7 +1105,7 @@ class _RoundActions extends StatelessWidget {
         autofocus: true,
         onPressed: onStart,
         icon: const Icon(Icons.search_rounded),
-        label: const Text('Aramaya Başla'),
+        label: Text(context.t('Aramaya Başla')),
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.turquoise,
           minimumSize: const Size(200, 50),
@@ -1127,7 +1130,7 @@ class _RoundActions extends StatelessWidget {
         key: const ValueKey('hint-button'),
         onPressed: hintActive ? null : onHint,
         icon: const Icon(Icons.lightbulb_rounded),
-        label: const Text('İpucu'),
+        label: Text(context.t('İpucu')),
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.gold,
           foregroundColor: Colors.white,
@@ -1140,7 +1143,7 @@ class _RoundActions extends StatelessWidget {
         key: const ValueKey('hint-button'),
         onPressed: hintActive ? null : onHint,
         icon: const Icon(Icons.lightbulb_outline_rounded),
-        label: const Text('İpucu'),
+        label: Text(context.t('İpucu')),
         style: OutlinedButton.styleFrom(
           foregroundColor: AppColors.textSecondary,
           side: const BorderSide(color: AppColors.divider, width: 1.5),
@@ -1285,7 +1288,7 @@ class _DetectiveFinishView extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Tebrikler, dedektif!',
+                  context.t('Tebrikler, dedektif!'),
                   textAlign: TextAlign.center,
                   style: textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w800,
@@ -1294,7 +1297,7 @@ class _DetectiveFinishView extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${session.roundCount} turu tamamladın.',
+                  context.t("{n} turu tamamladın.", {"n": session.roundCount}),
                   textAlign: TextAlign.center,
                   style: lineStyle,
                 ),
@@ -1302,7 +1305,7 @@ class _DetectiveFinishView extends StatelessWidget {
                 GameResultSummary(result: result, submission: submission),
                 const SizedBox(height: 12),
                 Text(
-                  'Bulunan örnek: ${session.foundCount}',
+                  context.t("Bulunan örnek: {n}", {"n": session.foundCount}),
                   key: const ValueKey('found-total'),
                   textAlign: TextAlign.center,
                   style: lineStyle?.copyWith(
@@ -1311,8 +1314,10 @@ class _DetectiveFinishView extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Tekrar deneyerek: ${session.countOf(FindKind.afterRetry)}'
-                  ' · İpucuyla: ${session.countOf(FindKind.withHint)}',
+                  context.t("Tekrar deneyerek: {retry} · İpucuyla: {hint}", {
+                    "retry": session.countOf(FindKind.afterRetry),
+                    "hint": session.countOf(FindKind.withHint),
+                  }),
                   key: const ValueKey('find-kinds'),
                   textAlign: TextAlign.center,
                   style: lineStyle,
@@ -1320,7 +1325,7 @@ class _DetectiveFinishView extends StatelessWidget {
                 if (weak.isNotEmpty) ...[
                   const SizedBox(height: 18),
                   Text(
-                    'Tekrar çalışalım',
+                    context.t('Tekrar çalışalım'),
                     textAlign: TextAlign.center,
                     style: textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800,
@@ -1340,7 +1345,7 @@ class _DetectiveFinishView extends StatelessWidget {
                   key: const ValueKey('replay-button'),
                   onPressed: onReplay,
                   icon: const Icon(Icons.replay_rounded),
-                  label: const Text('Tekrar Oyna'),
+                  label: Text(context.t('Tekrar Oyna')),
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColors.turquoise,
                     minimumSize: const Size.fromHeight(54),
@@ -1355,7 +1360,7 @@ class _DetectiveFinishView extends StatelessWidget {
                     key: const ValueKey('practice-button'),
                     onPressed: onPractice,
                     icon: const Icon(Icons.search_rounded),
-                    label: const Text('Zorlandıklarımı Çalış'),
+                    label: Text(context.t('Zorlandıklarımı Çalış')),
                     style: FilledButton.styleFrom(
                       backgroundColor: AppColors.goldSoft,
                       foregroundColor: AppColors.navy,
@@ -1381,7 +1386,7 @@ class _DetectiveFinishView extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  child: const Text('Oyunlara Dön'),
+                  child: Text(context.t('Oyunlara Dön')),
                 ),
               ],
             ),
@@ -1422,8 +1427,7 @@ class _WeakChip extends StatelessWidget {
             style: singleGlyphStyle(34),
           ),
           const SizedBox(width: 8),
-          Text(
-            label,
+          Text(context.t(label),
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w700,
               color: AppColors.navy,

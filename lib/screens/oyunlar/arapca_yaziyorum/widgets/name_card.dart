@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -58,7 +59,7 @@ class NameCard extends StatelessWidget {
               if (frame == CardFrame.stars) Icon(Icons.star_rounded, color: fg),
               const SizedBox(width: 6),
               Text(
-                'Benim adım',
+                context.t('Benim adım'),
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w800,
                   color: AppColors.navy,

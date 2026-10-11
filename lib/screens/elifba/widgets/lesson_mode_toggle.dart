@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_colors.dart';
@@ -75,8 +76,7 @@ class _Segment extends StatelessWidget {
             horizontal: compact ? 10 : 18,
             vertical: 10,
           ),
-          child: Text(
-            label,
+          child: Text(context.t(label),
             maxLines: 1,
             style: TextStyle(
               fontSize: 14,

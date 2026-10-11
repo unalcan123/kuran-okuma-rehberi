@@ -52,6 +52,12 @@ List<Map<String, dynamic>> _entries() => [
   for (final e in _manifest()['entries'] as List) e as Map<String, dynamic>,
 ];
 
+List<Map<String, dynamic>> _recordingInventory() => [
+  for (final path in ['tool/i18n/audio_tr.json', 'tool/i18n/game_audio_tr.json'])
+    for (final e in (jsonDecode(File(path).readAsStringSync()) as Map)['entries'] as List)
+      e as Map<String, dynamic>,
+];
+
 Set<String> _allAssets() => {
   for (final e in _entries()) 'audio/tr/${e['id']}.mp3',
 };
@@ -175,7 +181,7 @@ void main() {
           if (f is File && f.path.endsWith('.mp3'))
             f.uri.pathSegments.last: f.lengthSync(),
       };
-      final entries = _entries();
+      final entries = _recordingInventory();
       final named = {for (final e in entries) '${e['id']}.mp3'};
       expect(
         files.keys.toSet().difference(named),
@@ -198,7 +204,13 @@ void main() {
         }
         // Telaffuz incelemesi bitmeden kayıt üretilmez.
         if (e['needsPronunciationReview'] == true) {
-          expect(e['status'], isNot('generated'), reason: name);
+          if (e['status'] == 'generated') {
+            // Explicitly opted-in recordings use prepared Turkish letter names.
+            expect(e['pronunciationPreparation'], isNotNull, reason: name);
+            expect(hasArabicLetter(e['ttsText'] as String), isFalse, reason: name);
+          } else {
+            expect(files.containsKey(name), isFalse, reason: name);
+          }
         }
       }
     });
@@ -207,7 +219,7 @@ void main() {
       tester,
     ) async {
       final generated = {
-        for (final e in _entries())
+        for (final e in _recordingInventory())
           if (e['status'] == 'generated') 'audio/tr/${e['id']}.mp3',
       };
       final manifest = await tester.runAsync(

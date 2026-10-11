@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/responsive.dart';
@@ -43,7 +44,7 @@ class _HarfDedektifiScreenState extends State<HarfDedektifiScreen> {
         _choice.letterIds == null ||
         DetectiveRoundFactory.choiceFits(_mode, _choice.ids);
     return Scaffold(
-      appBar: AppBar(title: const Text('Harf Dedektifi')),
+      appBar: AppBar(title: Text(context.t('Harf Dedektifi'))),
       body: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: maxWidth),
@@ -71,14 +72,16 @@ class _HarfDedektifiScreenState extends State<HarfDedektifiScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Harf Dedektifi',
+                          context.t('Harf Dedektifi'),
                           style: textTheme.headlineSmall?.copyWith(
                             fontWeight: FontWeight.w800,
                             color: AppColors.navy,
                           ),
                         ),
                         Text(
-                          'Harfleri farklı şekilleriyle ve kelimelerin içinde bul!',
+                          context.t(
+                            'Harfleri farklı şekilleriyle ve kelimelerin içinde bul!',
+                          ),
                           style: textTheme.titleSmall?.copyWith(
                             color: AppColors.textSecondary,
                           ),
@@ -108,7 +111,7 @@ class _HarfDedektifiScreenState extends State<HarfDedektifiScreen> {
                   for (final choice in kLetterChoices)
                     ChoiceChip(
                       key: ValueKey('choice-${choice.id}'),
-                      label: Text(choice.title),
+                      label: Text(context.t(choice.title)),
                       selected: choice == _choice,
                       showCheckmark: false,
                       selectedColor: AppColors.turquoiseSoft,
@@ -182,7 +185,9 @@ class _HarfDedektifiScreenState extends State<HarfDedektifiScreen> {
                   const SizedBox(width: 6),
                   Flexible(
                     child: Text(
-                      '$kDetectiveRoundCount kısa tur · süre yok',
+                      context.t("{n} kısa tur · süre yok", {
+                        "n": kDetectiveRoundCount,
+                      }),
                       style: textTheme.titleSmall?.copyWith(
                         color: AppColors.textSecondary,
                         fontWeight: FontWeight.w700,
@@ -196,7 +201,7 @@ class _HarfDedektifiScreenState extends State<HarfDedektifiScreen> {
                 key: const ValueKey('detective-start'),
                 onPressed: _start,
                 icon: const Icon(Icons.search_rounded),
-                label: const Text('Başla'),
+                label: Text(context.t('Başla')),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.turquoise,
                   minimumSize: const Size.fromHeight(56),
@@ -221,8 +226,7 @@ class _SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.only(bottom: 8),
-    child: Text(
-      text,
+    child: Text(context.t(text),
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
         fontWeight: FontWeight.w800,
         color: AppColors.navy,
@@ -279,14 +283,13 @@ class _ModeTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        mode.title,
+                        context.t(mode.title),
                         style: textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.w800,
                           color: AppColors.navy,
                         ),
                       ),
-                      Text(
-                        mode.subtitle,
+                      Text(context.t(mode.subtitle),
                         style: textTheme.bodyMedium?.copyWith(
                           color: AppColors.textSecondary,
                         ),

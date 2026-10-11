@@ -61,7 +61,15 @@ def save_manifest(path: Path, manifest: dict) -> None:
     with tmp.open("w", encoding="utf-8", newline="\n") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
         f.write("\n")
-    tmp.replace(path)
+    import time
+    for attempt in range(8):
+        try:
+            tmp.replace(path)
+            break
+        except PermissionError:
+            if attempt == 7:
+                raise
+            time.sleep(0.1 * (attempt + 1))
 
 
 def spoken(entry: dict) -> str:
@@ -183,6 +191,26 @@ def main() -> int:
         parser.error("--all, --id veya --dry-run ver")
 
     manifest = load_manifest(args.manifest)
+    # Editable narration files are the authority for spoken text, not display text.
+    import re
+    language = manifest.get("language", "tr")
+    text_file = ROOT / "tool/i18n" / f"seslendirme_metinleri_{language}.txt"
+    if text_file.exists():
+        raw_text = text_file.read_text(encoding="utf-8-sig")
+        markers = list(re.finditer(r"^\[([a-zA-Z0-9_]+)\]\s*$", raw_text, re.MULTILINE))
+        overrides = {}
+        for i, marker in enumerate(markers):
+            record_id = marker.group(1)
+            end = markers[i + 1].start() if i + 1 < len(markers) else len(raw_text)
+            text = raw_text[marker.end():end].strip()
+            if record_id in overrides or not text:
+                raise ValueError(f"Invalid or duplicate narration block: {record_id}")
+            if re.search(r"[\u0600-\u06ff]", text):
+                raise ValueError(f"Use Latin pronunciation spelling in narration: {record_id}")
+            overrides[record_id] = text
+        for entry in manifest["entries"]:
+            if entry["id"] in overrides:
+                entry["ttsText"] = overrides[entry["id"]]
     defaults = manifest.get("defaults", {})
     voice = args.voice or os.environ.get("ELEVENLABS_VOICE_ID") or defaults.get("voiceId")
     model = args.model or defaults.get("model") or "eleven_multilingual_v2"
@@ -197,7 +225,8 @@ def main() -> int:
 
     todo, skipped = [], {"up-to-date": 0, "review": 0}
     for entry in chosen:
-        state = status(entry, voice, model)
+        entry_model = args.model or entry.get("model") or model
+        state = status(entry, voice, entry_model)
         if entry.get("needsPronunciationReview") and not args.include_review:
             skipped["review"] += 1
             if args.id:
@@ -206,10 +235,10 @@ def main() -> int:
         if state == "up-to-date" and not args.force:
             skipped["up-to-date"] += 1
             continue
-        todo.append((entry, state))
+        todo.append((entry, state, entry_model))
 
     stray = sorted(
-        p.name for p in (ROOT / "assets/audio/tr").glob("*.mp3")
+        p.name for p in (ROOT / "assets/audio" / manifest.get("language", "tr")).glob("*.mp3")
         if p.stem not in by_id
     )
     print(
@@ -222,7 +251,7 @@ def main() -> int:
         print("Uyarı: manifest'te olmayan dosyalar: " + ", ".join(stray))
 
     if args.dry_run:
-        for entry, state in todo:
+        for entry, state, entry_model in todo:
             mark = " [inceleme]" if entry.get("needsPronunciationReview") else ""
             print(f"  {entry['id']:<16} {state:<9}{mark} {spoken(entry)[:70]}")
         return 0
@@ -236,19 +265,20 @@ def main() -> int:
         print("ELEVENLABS_API_KEY yok (ortam değişkeni ya da .env).", file=sys.stderr)
         return 2
 
-    # generation status of every record: generated | pending | pendingReview | failed
-    for entry in entries:
-        if status(entry, voice, model) == "up-to-date":
+    # generation status of selected records: generated | pending | pendingReview | failed
+    for entry in chosen:
+        entry_model = args.model or entry.get("model") or model
+        if status(entry, voice, entry_model) == "up-to-date":
             entry["status"] = "generated"
         elif entry.get("status") != "failed":
             entry["status"] = "pendingReview" if entry.get("needsPronunciationReview") else "pending"
     save_manifest(args.manifest, manifest)
 
     failures = 0
-    for entry, state in todo:
+    for entry, state, entry_model in todo:
         text = spoken(entry)
         try:
-            audio = synthesize(key, voice, model, defaults, text)
+            audio = synthesize(key, voice, entry_model, defaults, text)
             if not args.no_transcode:
                 audio = transcode(audio, defaults.get("transcode") or {})
         except (RuntimeError, subprocess.CalledProcessError) as error:
@@ -260,7 +290,7 @@ def main() -> int:
         target = ROOT / entry["file"]
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(audio)
-        entry.update(voiceId=voice, model=model, textHash=text_hash(text), status="generated")
+        entry.update(voiceId=voice, model=entry_model, textHash=text_hash(text), status="generated")
         save_manifest(args.manifest, manifest)  # progress survives a stop
         size = len(audio) // 1024
         warn = "  (!) 240 KB'tan büyük" if len(audio) > MAX_BYTES else ""

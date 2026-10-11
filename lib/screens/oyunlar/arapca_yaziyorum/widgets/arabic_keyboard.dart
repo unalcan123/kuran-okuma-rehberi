@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../theme/app_colors.dart';
@@ -66,7 +67,7 @@ class ArabicKeyboard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 4),
               child: Text(
-                'Hareke, imleçten önceki harfe eklenir.',
+                context.t('Hareke, imleçten önceki harfe eklenir.'),
                 style: Theme.of(
                   context,
                 ).textTheme.bodySmall?.copyWith(color: AppColors.textSecondary),
@@ -201,8 +202,7 @@ class _SectionBar extends StatelessWidget {
                     ),
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
-                      child: Text(
-                        label,
+                      child: Text(context.t(label),
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.w800,
                           color: s == section ? Colors.white : AppColors.navy,
@@ -259,8 +259,7 @@ class _Key extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 2),
-                child: Text(
-                  yaziKey.label,
+                child: Text(context.t(yaziKey.label),
                   textDirection: TextDirection.rtl,
                   textScaler: TextScaler.noScaling,
                   style: singleGlyphStyle(haraka ? 30 : 28),
@@ -302,8 +301,7 @@ class _ActionKey extends StatelessWidget {
             children: [
               Icon(icon, color: AppColors.navy),
               const SizedBox(width: 6),
-              Text(
-                label,
+              Text(context.t(label),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w800,
                   color: AppColors.navy,

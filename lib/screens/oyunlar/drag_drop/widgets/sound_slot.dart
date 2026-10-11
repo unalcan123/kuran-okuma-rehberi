@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../helpers/colored_arabic_text.dart';
@@ -70,7 +71,7 @@ class SoundSlot extends StatelessWidget {
   Widget _card(BuildContext context, bool hovering) {
     return Semantics(
       button: true,
-      label: 'Sesi dinle',
+      label: context.t("Sesi dinle"),
       child: Material(
         color: placed || hovering ? AppColors.surface : accentSoft,
         shape: RoundedRectangleBorder(
@@ -123,7 +124,7 @@ class SoundSlot extends StatelessWidget {
           Icon(Icons.volume_up_rounded, size: size * 0.36, color: accent),
           if (size >= 96)
             Text(
-              'Dinle',
+              context.t('Dinle'),
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: accent,
@@ -151,8 +152,7 @@ class SoundSlot extends StatelessWidget {
         fit: BoxFit.scaleDown,
         child: Padding(
           padding: EdgeInsets.all(size * 0.14),
-          child: ColoredArabicText(
-            letter.isolatedForm,
+          child: ColoredArabicText(letter.isolatedForm,
             textDirection: TextDirection.rtl,
             style: AppTextTheme.arabicLetter(fontSize: size * 0.56),
           ),

@@ -124,7 +124,7 @@ class PlayerRepository extends ChangeNotifier {
 
   /// Geçerliyse `null`, değilse hata nedeni. Kurallar çevrimiçi sıralamayla
   /// aynıdır ([NicknamePolicy]); ayrıca bu cihazda aynı ad iki kez olamaz.
-  /// [forRename]: tek oyuncunun kendi adını düzeltmesi (aynı ad denetimi yok).
+  /// [forRename]: yalnızca aktif oyuncunun kendi kaydı karşılaştırmadan çıkarılır.
   PlayerNameError? validateName(String raw, {bool forRename = false}) {
     final policyError = NicknamePolicy.validate(raw);
     if (policyError != null) {
@@ -136,9 +136,12 @@ class PlayerRepository extends ChangeNotifier {
         NicknameError.notAllowed => PlayerNameError.notAllowed,
       };
     }
-    if (forRename) return null;
-    final lower = normalizeName(raw).toLowerCase();
-    if (_profiles.any((p) => p.displayName.toLowerCase() == lower)) {
+    final key = NicknamePolicy.uniqueKey(raw);
+    final excludedId = forRename ? activePlayer?.id : null;
+    if (_profiles.any(
+      (p) =>
+          p.id != excludedId && NicknamePolicy.uniqueKey(p.displayName) == key,
+    )) {
       return PlayerNameError.taken;
     }
     return null;
@@ -175,8 +178,8 @@ class PlayerRepository extends ChangeNotifier {
     final name = normalizeName(rawName);
     final current = activePlayer;
     if (current == null) {
-      await createProfile(name, kPlayerAvatars.first.id);
-      return null;
+      final created = await createProfile(name, kPlayerAvatars.first.id);
+      return created == null ? PlayerNameError.taken : null;
     }
     if (current.displayName == name) return null;
     final i = _profiles.indexWhere((p) => p.id == current.id);

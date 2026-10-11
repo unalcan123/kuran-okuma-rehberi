@@ -82,6 +82,9 @@ flutter:
     - assets/audio/oyunlar/
     # Türkçe açıklama sesleri (tool/turkish_audio); dosyası olmayan açıklamada 🔊 görünmez
     - assets/audio/tr/
+    - assets/audio/fr/
+    - assets/audio/es/
+    - assets/audio/en/
     - assets/audio/sureler/01_fatiha/
     - assets/audio/sureler/02_fil/
     - assets/audio/sureler/03_kureys/
@@ -98,6 +101,7 @@ flutter:
     - assets/images/backgrounds/
     - assets/images/elifba/
     - assets/images/home/
+    - assets/images/home/localized/
     - assets/images/lessons/cards/
     - assets/images/lessons/sureler/
     - assets/images/lessons/dualar/

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -138,10 +139,10 @@ class _DragDropGameScreenState extends State<DragDropGameScreen> {
       _submission = null;
     });
     _store.submit(widget.level.gameKey, result).then((submission) {
-          if (mounted && identical(_result, result)) {
-            setState(() => _submission = submission);
-          }
-        });
+      if (mounted && identical(_result, result)) {
+        setState(() => _submission = submission);
+      }
+    });
   }
 
   void _onLetterDropped(ArabicLetter slot, ArabicLetter dropped) {
@@ -216,14 +217,14 @@ class _DragDropGameScreenState extends State<DragDropGameScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Sürükle & Bırak',
+              context.t('Sürükle & Bırak'),
               style: textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppColors.textPrimary,
               ),
             ),
             Text(
-              widget.level.title,
+              context.t(widget.level.title),
               style: textTheme.bodySmall?.copyWith(
                 color: AppColors.textSecondary,
               ),
@@ -244,7 +245,7 @@ class _DragDropGameScreenState extends State<DragDropGameScreen> {
                 _finished
                     ? GameFinishView(
                       title: 'Tebrikler!',
-                      message: 'Harfleri tamamladın.',
+                      message: context.t("Harfleri tamamladın."),
                       summary:
                           _result == null
                               ? null

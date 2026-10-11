@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/reading_segment.dart';
@@ -15,7 +16,7 @@ class SurahDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ReadingScreen(
-    title: surah.titleTr,
+    title: context.t(surah.titleTr),
     arabicTitle: surah.arabicName,
     segments: ReadingSegment.ofSurah(surah),
     nouns: ReadingNouns.surah,

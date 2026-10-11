@@ -21,6 +21,8 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FakeAudio extends ChangeNotifier implements AudioService {
+  @override
+  String? get currentAsset => null;
   final played = <String>[];
   final effects = <String>[];
 

@@ -21,7 +21,7 @@ class TurkishAudioCatalog {
       final manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
       available.value = {
         for (final asset in manifest.listAssets())
-          if (asset.startsWith('assets/audio/tr/') && asset.endsWith('.mp3'))
+          if (RegExp(r'^assets/audio/(tr|es|fr|de|en|bs)/').hasMatch(asset) && asset.endsWith('.mp3'))
             asset.substring('assets/'.length),
       };
     } catch (error) {

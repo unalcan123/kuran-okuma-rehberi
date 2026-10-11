@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import '../../../widgets/lesson_grid_background.dart';
 import '../../../widgets/reading_text_settings.dart';
 import 'dart:math' as math;
@@ -126,7 +127,9 @@ class LetterFormsPage extends StatelessWidget {
       Expanded(
         child: Semantics(
           button: true,
-          label: '${letter.turkishName ?? ''} harfini dinle',
+          label: context.t("{name} harfini dinle", {
+            "name": letter.turkishName ?? '',
+          }),
           child: GestureDetector(
             onTap: onPlay,
             behavior: HitTestBehavior.opaque,
@@ -135,8 +138,7 @@ class LetterFormsPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: ReadingFittedBox(
                   fit: BoxFit.contain,
-                  child: Text(
-                    letter.isolatedForm,
+                  child: Text(context.t(letter.isolatedForm),
                     key: const ValueKey('forms-hero-glyph'),
                     textDirection: TextDirection.rtl,
                     style: AppTextTheme.arabicLetter(
@@ -159,8 +161,8 @@ class LetterFormsPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         ),
         icon: const Icon(Icons.volume_up_rounded),
-        label: const Text(
-          'Dinle',
+        label: Text(
+          context.t("Dinle"),
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
       ),
@@ -175,7 +177,7 @@ class LetterFormsPage extends StatelessWidget {
       children: [
         const Divider(color: AppColors.divider, height: 12),
         Text(
-          'Kelime İçindeki Yazılışı',
+          context.t("Kelime İçindeki Yazılışı"),
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 15 * scale,
@@ -246,8 +248,7 @@ class _FormTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = Text(
-      label,
+    final title = Text(context.t(label),
       maxLines: 1,
       textAlign: TextAlign.center,
       style: TextStyle(
@@ -258,8 +259,7 @@ class _FormTile extends StatelessWidget {
     );
     Widget arabic(String value, double size, Color color) => ReadingFittedBox(
       fit: BoxFit.scaleDown,
-      child: ColoredArabicText(
-        value,
+      child: ColoredArabicText(value,
         textDirection: TextDirection.rtl,
         profile: ArabicColorProfile.none,
         style: AppTextTheme.arabicSmall(

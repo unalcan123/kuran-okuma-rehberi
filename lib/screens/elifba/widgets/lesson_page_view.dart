@@ -9,6 +9,8 @@ import '../../../helpers/haraka_colors.dart';
 import '../../../models/arabic_letter.dart';
 import '../../../models/lesson_page_layout.dart';
 import '../../../models/turkish_audio.dart';
+import '../../../l10n/l10n.dart';
+import '../../../l10n/explanation_ids.g.dart';
 import '../../../services/audio_service.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
@@ -172,7 +174,7 @@ class BookPageBar extends StatelessWidget {
                   key: const ValueKey('page-next'),
                   onPressed: onNext,
                   icon: const Icon(Icons.chevron_left_rounded),
-                  label: const Text('Sonraki Sayfa'),
+                  label: Text(context.t('Sonraki Sayfa')),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -180,7 +182,7 @@ class BookPageBar extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Sayfa ${page.bookPage}',
+                        context.t('Sayfa {n}', {'n': page.bookPage}),
                         key: const ValueKey('page-number'),
                         style: Theme.of(
                           context,
@@ -190,7 +192,7 @@ class BookPageBar extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${page.type.label} · ${index + 1} / $count',
+                        '${context.t(page.type.label)} · ${index + 1} / $count',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: AppColors.textSecondary,
                           fontWeight: FontWeight.w600,
@@ -202,12 +204,12 @@ class BookPageBar extends StatelessWidget {
                 TextButton(
                   key: const ValueKey('page-previous'),
                   onPressed: onPrevious,
-                  child: const Row(
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('Önceki Sayfa'),
-                      SizedBox(width: 8),
-                      Icon(Icons.chevron_right_rounded),
+                      Text(context.t('Önceki Sayfa')),
+                      const SizedBox(width: 8),
+                      const Icon(Icons.chevron_right_rounded),
                     ],
                   ),
                 ),
@@ -299,7 +301,7 @@ class _BookSheet extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8),
-                          Text(item.label),
+                          Text(context.t(item.label)),
                         ],
                       ),
                   ],
@@ -487,7 +489,7 @@ class BookFrameHeading extends StatelessWidget {
                               if (kicker != null)
                                 withSpeaker(
                                   Text(
-                                    kicker!,
+                                    context.t(kicker!),
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: kickerColor ?? color,
@@ -501,7 +503,7 @@ class BookFrameHeading extends StatelessWidget {
                               if (heading != null)
                                 withSpeaker(
                                   Text(
-                                    heading!,
+                                    context.t(heading!),
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: color,
@@ -515,7 +517,7 @@ class BookFrameHeading extends StatelessWidget {
                                 ),
                               if (subheading != null)
                                 Text(
-                                  subheading!,
+                                  context.t(subheading!),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: color,
@@ -524,7 +526,7 @@ class BookFrameHeading extends StatelessWidget {
                                 ),
                               if (arabic.isNotEmpty)
                                 Text(
-                                  arabic,
+                                  context.t(arabic),
                                   textDirection: TextDirection.rtl,
                                   style: AppTextTheme.arabicSmall(
                                     fontSize: size * 1.25,
@@ -638,9 +640,13 @@ class _IntroText extends StatelessWidget {
     ).textTheme.bodyLarge?.copyWith(height: 1.45, color: AppColors.textPrimary);
     final blocks = <Widget>[];
     for (var i = 0; i < paragraphs.length;) {
-      final recording = audio[i];
+      final inferred = kExplanationAudioIds[paragraphs[i].trim()];
+      final recording =
+          audio[i] ?? (inferred == null ? null : TrAudio(inferred));
       final end = math.min(i + (recording?.paragraphs ?? 1), paragraphs.length);
-      final group = [for (var j = i; j < end; j++) _paragraph(j, style)];
+      final group = [
+        for (var j = i; j < end; j++) _paragraph(context, j, style),
+      ];
       blocks.add(
         recording == null
             ? group.single
@@ -660,7 +666,7 @@ class _IntroText extends StatelessWidget {
     );
   }
 
-  Widget _paragraph(int i, TextStyle? style) => Padding(
+  Widget _paragraph(BuildContext context, int i, TextStyle? style) => Padding(
     // A new paragraph after the bullets gets a gap, as in the book.
     padding: EdgeInsets.only(
       top:
@@ -680,7 +686,10 @@ class _IntroText extends StatelessWidget {
                 Expanded(
                   child: Text.rich(
                     TextSpan(
-                      children: spans(paragraphs[i].substring(2), style),
+                      children: spans(
+                        context.t(paragraphs[i]).substring(2),
+                        style,
+                      ),
                     ),
                     style: style,
                   ),
@@ -688,7 +697,7 @@ class _IntroText extends StatelessWidget {
               ],
             )
             : Text.rich(
-              TextSpan(children: spans(paragraphs[i], style)),
+              TextSpan(children: spans(context.t(paragraphs[i]), style)),
               style: style,
             ),
   );
@@ -906,7 +915,7 @@ class _SectionView extends StatelessWidget {
                       Container(width: 28, height: 3, color: run.color),
                       const SizedBox(width: 8),
                       Text(
-                        run.label,
+                        context.t(run.label),
                         style: const TextStyle(
                           color: AppColors.textPrimary,
                           fontSize: 13,
@@ -930,7 +939,7 @@ class _SectionView extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  section.label!,
+                  context.t(section.label!),
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 13,
@@ -1194,7 +1203,7 @@ class _FormsTable extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(4),
                     child: Text(
-                      note,
+                      context.t(note),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: AppColors.textPrimary,
@@ -1326,7 +1335,7 @@ class _BookCell extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(6),
             child: Text(
-              spec.label!,
+              context.t(spec.label!),
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: AppColors.textPrimary,
@@ -1360,7 +1369,9 @@ class _BookCell extends StatelessWidget {
       solid: spec.frame,
       child: Semantics(
         button: true,
-        label: '${letter.turkishName ?? 'Kelime'}. Dinle',
+        label: context.t("{name}. Dinle", {
+          "name": letter.turkishName ?? 'Kelime',
+        }),
         child: Material(
           color: playing ? AppColors.turquoiseSoft : Colors.transparent,
           child: InkWell(

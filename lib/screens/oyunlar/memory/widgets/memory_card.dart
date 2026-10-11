@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -111,7 +112,8 @@ class MemoryCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(size * 0.18),
         side: BorderSide(
-          color: matched ? AppColors.sage : AppColors.gold.withValues(alpha: 0.7),
+          color:
+              matched ? AppColors.sage : AppColors.gold.withValues(alpha: 0.7),
           width: matched ? 2.5 : 2,
         ),
       ),
@@ -140,8 +142,7 @@ class MemoryCard extends StatelessWidget {
               ),
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: ColoredArabicText(
-                  letter.isolatedForm,
+                child: ColoredArabicText(letter.isolatedForm,
                   textDirection: TextDirection.rtl,
                   style: AppTextTheme.arabicLetter(fontSize: size * 0.5),
                 ),
@@ -152,8 +153,7 @@ class MemoryCard extends StatelessWidget {
                 bottom: size * 0.07,
                 left: 0,
                 right: 0,
-                child: Text(
-                  letter.turkishName!,
+                child: Text(context.t(letter.turkishName!),
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(

@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "language": "es",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_flash_v2_5",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "es",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    }
+  },
+  "entries": [
+    {
+      "id": "game_1163b4ee95e9e8b1",
+      "kind": "game",
+      "text": "Escucha el sonido y arrastra la letra al lugar correcto.",
+      "ttsText": "Escucha el sonido y arrastra la letra al lugar correcto.",
+      "file": "assets/audio/es/game_1163b4ee95e9e8b1.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:a557dc55628720460144d136c2d7d5984be64237613d15d6df8adeee317781f6"
+    },
+    {
+      "id": "game_76383fc2e674b663",
+      "kind": "game",
+      "text": "Escucha el sonido y elige la respuesta correcta.",
+      "ttsText": "Escucha el sonido y elige la respuesta correcta.",
+      "file": "assets/audio/es/game_76383fc2e674b663.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:e871a621f743b7beebb46c7308c68ffddace74b5232c7bc511761549a1155482"
+    },
+    {
+      "id": "game_6699058eadcc8a1e",
+      "kind": "game",
+      "text": "Recuerda las letras y dónde están. Toca una letra para escucharla.",
+      "ttsText": "Recuerda las letras y dónde están. Toca una letra para escucharla.",
+      "file": "assets/audio/es/game_6699058eadcc8a1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:bd3fc61a0a81ad11cc6c3af239dd576515bd0f3c1a34b1b4b8b6c853eec91b8f"
+    },
+    {
+      "id": "game_22befd00bdb2fd62",
+      "kind": "game",
+      "text": "Encuentra las letras iguales.",
+      "ttsText": "Encuentra las letras iguales.",
+      "file": "assets/audio/es/game_22befd00bdb2fd62.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:e7dcf4108f74d0cc301fb9f3a9dfa37fa09875f8fdf7c09ede7ef774bed32c91"
+    },
+    {
+      "id": "game_dbe823f3a90768fe",
+      "kind": "game",
+      "text": "Encuentra todas las formas de la misma letra.",
+      "ttsText": "Encuentra todas las formas de la misma letra.",
+      "file": "assets/audio/es/game_dbe823f3a90768fe.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:11e73d15bd386f26bc1f7556bd61f580f823358ce764f7be2fb9059d33339334"
+    },
+    {
+      "id": "game_80ea5039cfcaba33",
+      "kind": "game",
+      "text": "Encuentra la letra entre otras parecidas.",
+      "ttsText": "Encuentra la letra entre otras parecidas.",
+      "file": "assets/audio/es/game_80ea5039cfcaba33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:635b85347b83b6eb3d64ad88eff6662e145592df399668cedeaf55b356dd6397"
+    },
+    {
+      "id": "game_31d31c3da808fd12",
+      "kind": "game",
+      "text": "Toca la letra dentro de las palabras.",
+      "ttsText": "Toca la letra dentro de las palabras.",
+      "file": "assets/audio/es/game_31d31c3da808fd12.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:ec7deee1ea74bc3e6718cbbafa2a177568ffdaa9ae290dcca9ea4150c07948c5"
+    },
+    {
+      "id": "game_48b76d43e605c0cd",
+      "kind": "game",
+      "text": "¡Encuentra las letras iguales y llena los vagones!",
+      "ttsText": "¡Encuentra las letras iguales y llena los vagones!",
+      "file": "assets/audio/es/game_48b76d43e605c0cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:895e76aeb7b4ec97b0db1f36b23d38d9da01117ecdf0e18e51a5c958d1656d67"
+    },
+    {
+      "id": "game_a2706d5ac68952cd",
+      "kind": "game",
+      "text": "¡Escucha el sonido, encuentra la letra correcta y explota el globo!",
+      "ttsText": "¡Escucha el sonido, encuentra la letra correcta y explota el globo!",
+      "file": "assets/audio/es/game_a2706d5ac68952cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:71e2bf78b297a8cd8878e1fb33e370ba5425d44acc560c97df486b4c9110408e"
+    },
+    {
+      "id": "game_9ebfbc7f7518cbdd",
+      "kind": "game",
+      "text": "¡Escucha el sonido y atrapa el coche con la letra correcta!",
+      "ttsText": "¡Escucha el sonido y atrapa el coche con la letra correcta!",
+      "file": "assets/audio/es/game_9ebfbc7f7518cbdd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:35dff6ac69659761fb43bbbef0aed5a5442e2294b60b2ef897b0e835215a9d02"
+    },
+    {
+      "id": "game_0d44cf633f9e8dea",
+      "kind": "game",
+      "text": "Escucha y observa la letra. Pulsa el botón para ver cómo se escribe.",
+      "ttsText": "Escucha y observa la letra. Pulsa el botón para ver cómo se escribe.",
+      "file": "assets/audio/es/game_0d44cf633f9e8dea.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:592a656331eae862673ec2bd7254d5beb97ab592c245b0563e1d6ebda58c391a"
+    },
+    {
+      "id": "game_088fa9be949d3bf9",
+      "kind": "game",
+      "text": "Vamos a verlo juntos: observa cómo se escribe la letra.",
+      "ttsText": "Vamos a verlo juntos: observa cómo se escribe la letra.",
+      "file": "assets/audio/es/game_088fa9be949d3bf9.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:71194dc23a89ba124ee3f0148238020593539f5f7cfa1ec38296f2606423ca07"
+    },
+    {
+      "id": "game_52e28a03234a1b33",
+      "kind": "game",
+      "text": "Los puntos de esta letra van arriba. Vamos a verlo juntos.",
+      "ttsText": "Los puntos de esta letra van arriba. Vamos a verlo juntos.",
+      "file": "assets/audio/es/game_52e28a03234a1b33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:863338a6f94924de623903ad6b87ebadee6b84e7995d2dbbe6f749fe7f5c7001"
+    },
+    {
+      "id": "game_9e452fdee48f0527",
+      "kind": "game",
+      "text": "Los puntos de esta letra van abajo. Vamos a verlo juntos.",
+      "ttsText": "Los puntos de esta letra van abajo. Vamos a verlo juntos.",
+      "file": "assets/audio/es/game_9e452fdee48f0527.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:2604797af0c6e2ac7165decee24c9885cfa7f32654a523581b34726dddaf1a15"
+    },
+    {
+      "id": "game_3c3e8f3bf784b2a4",
+      "kind": "game",
+      "text": "¡Lo estás haciendo muy bien!",
+      "ttsText": "¡Lo estás haciendo muy bien!",
+      "file": "assets/audio/es/game_3c3e8f3bf784b2a4.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:e37c5bab8467a26d3acea69c39fb867d6a383fc12041a2080f8f736377ebc9cd"
+    },
+    {
+      "id": "game_62340b2635a94601",
+      "kind": "game",
+      "text": "Jugar de nuevo",
+      "ttsText": "Jugar de nuevo",
+      "file": "assets/audio/es/game_62340b2635a94601.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:b92c7344f600b33c06d41241191b8ae56440c9693ccad0b6a8039329096cc26d"
+    },
+    {
+      "id": "game_a7869068cb320a7c",
+      "kind": "game",
+      "text": "Volver a los juegos",
+      "ttsText": "Volver a los juegos",
+      "file": "assets/audio/es/game_a7869068cb320a7c.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:f55f79df387e9a1004087ef5f1c0ca4817b99fa41fa62b6a682ef61e1881f19c"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/lesson_card_images.dart';
+import '../../../l10n/l10n.dart';
 import '../../../helpers/colored_arabic_text.dart';
 import '../../../models/lesson.dart';
 import '../../../theme/app_colors.dart';
@@ -31,8 +32,8 @@ class LessonCard extends StatelessWidget {
       aspectRatio: aspectRatio,
       // 16 px on a ~245 px wide card.
       radiusFactor: 16 / 245,
-      label: lesson.label,
-      title: lesson.title,
+      label: context.t(lesson.label),
+      title: context.t(lesson.title),
       subtitle: lesson.subtitle,
       tapKey: image == null ? null : ValueKey('lesson-card-image-$image'),
       imageSize: art?.size,
@@ -41,8 +42,8 @@ class LessonCard extends StatelessWidget {
               ? null
               : LessonCardTexts(
                 art: art,
-                label: lesson.label,
-                title: lesson.title,
+                label: context.t(lesson.label),
+                title: context.t(lesson.title),
               ),
       onTap: onTap,
     );
@@ -140,8 +141,7 @@ class _TitlePlate extends StatelessWidget {
                       color: AppColors.turquoiseSoft,
                       borderRadius: BorderRadius.circular(99),
                     ),
-                    child: Text(
-                      label,
+                    child: Text(context.t(label),
                       style: theme.labelMedium?.copyWith(
                         fontSize: unit * 0.05,
                         color: AppColors.navy,
@@ -151,8 +151,7 @@ class _TitlePlate extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: unit * 0.012),
-                  Text(
-                    title,
+                  Text(context.t(title),
                     style: theme.titleLarge?.copyWith(
                       fontSize: unit * 0.068,
                       color: AppColors.navy,
@@ -191,8 +190,7 @@ class _ArabicTile extends StatelessWidget {
       child: SizedBox.expand(
         child: FittedBox(
           fit: BoxFit.contain,
-          child: ColoredArabicText(
-            arabic,
+          child: ColoredArabicText(arabic,
             textDirection: TextDirection.rtl,
             style: AppTextTheme.arabicLetter(
               fontSize: 40,

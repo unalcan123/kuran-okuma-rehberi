@@ -1,0 +1,527 @@
+{
+  "Dil seç": [
+    "Elegir idioma",
+    "Choisir la langue",
+    "Sprache wählen",
+    "Choose language",
+    "Odaberi jezik"
+  ],
+  "Kur'an Okuma Rehberi": [
+    "Guía de lectura del Corán",
+    "Guide de lecture du Coran",
+    "Anleitung zum Koranlesen",
+    "Quran Reading Guide",
+    "Vodič za učenje Kur'ana"
+  ],
+  "Bugün ne öğrenmek istersin?": [
+    "¿Qué quieres aprender hoy?",
+    "Que veux-tu apprendre aujourd'hui ?",
+    "Was möchtest du heute lernen?",
+    "What would you like to learn today?",
+    "Šta želiš naučiti danas?"
+  ],
+  "Arapça Yazıyorum": [
+    "Escribo en árabe",
+    "J'écris en arabe",
+    "Ich schreibe Arabisch",
+    "I Write Arabic",
+    "Pišem arapski"
+  ],
+  "Ekrandaki Arapça klavyeyle yaz; harfler kendiliğinden birleşir.": [
+    "Escribe con el teclado árabe de la pantalla; las letras se unen solas.",
+    "Écris avec le clavier arabe à l'écran ; les lettres se relient automatiquement.",
+    "Schreibe mit der arabischen Bildschirmtastatur; die Buchstaben verbinden sich automatisch.",
+    "Type with the Arabic keyboard on the screen; the letters join automatically.",
+    "Piši arapskom tastaturom na ekranu; slova se sama spajaju."
+  ],
+  "Geri": [
+    "Atrás",
+    "Retour",
+    "Zurück",
+    "Back",
+    "Nazad"
+  ],
+  "Doğruluk": [
+    "Precisión",
+    "Précision",
+    "Genauigkeit",
+    "Accuracy",
+    "Tačnost"
+  ],
+  "Oyunlara Dön": [
+    "Volver a los juegos",
+    "Retour aux jeux",
+    "Zurück zu den Spielen",
+    "Back to Games",
+    "Nazad na igre"
+  ],
+  "En İyi": [
+    "Mejor resultado",
+    "Meilleur résultat",
+    "Bestes Ergebnis",
+    "Best",
+    "Najbolji rezultat"
+  ],
+  "Bul & Patlat Tamamlandı": [
+    "Buscar y explotar completado",
+    "Trouve et éclate terminé",
+    "Finden und Platzen abgeschlossen",
+    "Find and Pop Complete",
+    "Pronađi i probuši završeno"
+  ],
+  "Doğru": [
+    "Correcto",
+    "Correct",
+    "Richtig",
+    "Correct",
+    "Tačno"
+  ],
+  "Sesi dinle, doğru harfi bul ve balonu patlat!": [
+    "¡Escucha, encuentra la letra correcta y explota el globo!",
+    "Écoute, trouve la bonne lettre et éclate le ballon !",
+    "Hör zu, finde den richtigen Buchstaben und lass den Ballon platzen!",
+    "Listen, find the correct letter and pop the balloon!",
+    "Poslušaj, pronađi tačno slovo i probuši balon!"
+  ],
+  "Bul & Patlat": [
+    "Busca y explota",
+    "Trouve et éclate",
+    "Finden und Platzen",
+    "Find and Pop",
+    "Pronađi i probuši"
+  ],
+  "Seviye": [
+    "Nivel",
+    "Niveau",
+    "Stufe",
+    "Level",
+    "Nivo"
+  ],
+  "Yavaş": [
+    "Lento",
+    "Lent",
+    "Langsam",
+    "Slow",
+    "Sporo"
+  ],
+  "Biraz Hızlı": [
+    "Algo rápido",
+    "Un peu rapide",
+    "Etwas schneller",
+    "A Little Faster",
+    "Malo brže"
+  ],
+  "Hızlı": [
+    "Rápido",
+    "Rapide",
+    "Schnell",
+    "Fast",
+    "Brzo"
+  ],
+  "Sesi tekrar dinle": [
+    "Escuchar de nuevo",
+    "Réécouter",
+    "Noch einmal anhören",
+    "Listen Again",
+    "Poslušaj ponovo"
+  ],
+  "Dinle ve bul": [
+    "Escucha y encuentra",
+    "Écoute et trouve",
+    "Hören und Finden",
+    "Listen and Find",
+    "Poslušaj i pronađi"
+  ],
+  "Kaçan": [
+    "Escapados",
+    "Échappés",
+    "Entkommen",
+    "Escaped",
+    "Propušteno"
+  ],
+  "BAŞLA": [
+    "EMPEZAR",
+    "COMMENCER",
+    "STARTEN",
+    "START",
+    "POČNI"
+  ],
+  "Toplam balon": [
+    "Total de globos",
+    "Total des ballons",
+    "Ballons insgesamt",
+    "Total Balloons",
+    "Ukupno balona"
+  ],
+  "Yanlış dokunma": [
+    "Toques incorrectos",
+    "Touches incorrectes",
+    "Falsche Berührungen",
+    "Incorrect Taps",
+    "Pogrešni dodiri"
+  ],
+  "Geçen Araba": [
+    "Coches que pasaron",
+    "Voitures passées",
+    "Vorbeigefahrene Autos",
+    "Cars Passed",
+    "Prošla auta"
+  ],
+  "Harf Arabaları Tamamlandı": [
+    "Coches de letras completado",
+    "Voitures de lettres terminé",
+    "Buchstabenautos abgeschlossen",
+    "Letter Cars Complete",
+    "Auta sa slovima završeno"
+  ],
+  "Sesi dinle, doğru harfli arabayı yakala!": [
+    "¡Escucha y atrapa el coche con la letra correcta!",
+    "Écoute et attrape la voiture avec la bonne lettre !",
+    "Hör zu und fange das Auto mit dem richtigen Buchstaben!",
+    "Listen and catch the car with the correct letter!",
+    "Poslušaj i uhvati auto s tačnim slovom!"
+  ],
+  "Harf Arabaları": [
+    "Coches de letras",
+    "Voitures de lettres",
+    "Buchstabenautos",
+    "Letter Cars",
+    "Auta sa slovima"
+  ],
+  "Kaçırılan Hedef": [
+    "Objetivos perdidos",
+    "Cibles manquées",
+    "Verpasste Ziele",
+    "Missed Targets",
+    "Propuštene mete"
+  ],
+  "Yanlış": [
+    "Incorrecto",
+    "Incorrect",
+    "Falsch",
+    "Incorrect",
+    "Netačno"
+  ],
+  "Genel Sıralama": [
+    "Clasificación general",
+    "Classement général",
+    "Gesamtrangliste",
+    "Overall Leaderboard",
+    "Ukupni poredak"
+  ],
+  "Tüm oyuncular arasında sıran": [
+    "Tu puesto entre todos los jugadores",
+    "Ta place parmi tous les joueurs",
+    "Dein Platz unter allen Spielern",
+    "Your Rank Among All Players",
+    "Tvoje mjesto među svim igračima"
+  ],
+  "Sıralama yükleniyor…": [
+    "Cargando clasificación…",
+    "Chargement du classement…",
+    "Rangliste wird geladen…",
+    "Loading leaderboard…",
+    "Učitavanje poretka…"
+  ],
+  "SEN": [
+    "TÚ",
+    "TOI",
+    "DU",
+    "YOU",
+    "TI"
+  ],
+  "{total} oyuncu arasında {rank}. sıradasın": [
+    "Estás en el puesto {rank} de {total} jugadores",
+    "Tu es à la place {rank} sur {total} joueurs",
+    "Du bist auf Platz {rank} von {total} Spielern",
+    "You are ranked {rank} out of {total} players",
+    "Na {rank}. si mjestu od {total} igrača"
+  ],
+  "{total} oyuncu": [
+    "{total} jugadores",
+    "{total} joueurs",
+    "{total} Spieler",
+    "{total} players",
+    "{total} igrača"
+  ],
+  "Skorun bu cihaza kaydedildi. İnternet olunca genel sıralama güncellenecek.": [
+    "Tu puntuación se guardó en este dispositivo. La clasificación se actualizará cuando haya conexión.",
+    "Ton score est enregistré sur cet appareil. Le classement sera actualisé avec une connexion Internet.",
+    "Dein Ergebnis wurde auf diesem Gerät gespeichert. Die Rangliste wird aktualisiert, sobald Internet verfügbar ist.",
+    "Your score was saved on this device. The leaderboard will update when an Internet connection is available.",
+    "Rezultat je sačuvan na ovom uređaju. Poredak će se ažurirati kada bude interneta."
+  ],
+  "Genel sıralama şu anda yüklenemiyor.": [
+    "No se puede cargar la clasificación ahora.",
+    "Le classement ne peut pas être chargé pour le moment.",
+    "Die Rangliste kann gerade nicht geladen werden.",
+    "The leaderboard cannot be loaded right now.",
+    "Poredak se trenutno ne može učitati."
+  ],
+  "Tekrar dene": [
+    "Inténtalo de nuevo",
+    "Réessaie",
+    "Versuche es erneut",
+    "Try Again",
+    "Pokušaj ponovo"
+  ],
+  "Genel sıralamada yer almak için bir oyuncu adı seç.": [
+    "Elige un nombre de jugador para aparecer en la clasificación.",
+    "Choisis un nom de joueur pour apparaître dans le classement.",
+    "Wähle einen Spielernamen, um in der Rangliste zu erscheinen.",
+    "Choose a player name to appear on the leaderboard.",
+    "Odaberi ime igrača da se pojaviš na poretku."
+  ],
+  "Bu oyuncu adı genel sıralamada kullanılamıyor; yeni bir oyuncu adı oluştur.": [
+    "Este nombre no se puede usar en la clasificación; elige otro.",
+    "Ce nom ne peut pas être utilisé dans le classement ; choisis-en un autre.",
+    "Dieser Spielername kann nicht in der Rangliste verwendet werden; wähle einen neuen.",
+    "This player name cannot be used on the leaderboard; choose a new one.",
+    "Ovo ime se ne može koristiti na poretku; odaberi novo."
+  ],
+  "Henüz kimse yok. İlk sen ol!": [
+    "Todavía no hay nadie. ¡Sé el primero!",
+    "Il n'y a encore personne. Sois le premier !",
+    "Noch ist niemand da. Sei der Erste!",
+    "No one is here yet. Be the first!",
+    "Još nema nikoga. Budi prvi!"
+  ],
+  "Genel en iyin": [
+    "Tu mejor resultado general",
+    "Ton meilleur résultat général",
+    "Dein bestes Gesamtergebnis",
+    "Your Overall Best",
+    "Tvoj najbolji ukupni rezultat"
+  ],
+  "Bir ad yaz.": [
+    "Escribe un nombre.",
+    "Écris un nom.",
+    "Gib einen Namen ein.",
+    "Enter a name.",
+    "Upiši ime."
+  ],
+  "En fazla 16 harf.": [
+    "Máximo 16 caracteres.",
+    "16 caractères maximum.",
+    "Höchstens 16 Zeichen.",
+    "Up to 16 characters.",
+    "Najviše 16 znakova."
+  ],
+  "En az 2 harf.": [
+    "Al menos 2 caracteres.",
+    "Au moins 2 caractères.",
+    "Mindestens 2 Zeichen.",
+    "At least 2 characters.",
+    "Najmanje 2 znaka."
+  ],
+  "Sadece harf, rakam ve boşluk kullan.": [
+    "Usa solo letras, números y espacios.",
+    "Utilise seulement des lettres, des chiffres et des espaces.",
+    "Verwende nur Buchstaben, Zahlen und Leerzeichen.",
+    "Use only letters, numbers and spaces.",
+    "Koristi samo slova, brojeve i razmake."
+  ],
+  "Başka bir ad seç.": [
+    "Elige otro nombre.",
+    "Choisis un autre nom.",
+    "Wähle einen anderen Namen.",
+    "Choose another name.",
+    "Odaberi drugo ime."
+  ],
+  "Bu ad zaten kullanılıyor.": [
+    "Este nombre ya está en uso.",
+    "Ce nom est déjà utilisé.",
+    "Dieser Name wird bereits verwendet.",
+    "This name is already in use.",
+    "Ovo ime je već zauzeto."
+  ],
+  "Oyuncu": [
+    "Jugador",
+    "Joueur",
+    "Spieler",
+    "Player",
+    "Igrač"
+  ],
+  "Adını yaz": [
+    "Escribe tu nombre",
+    "Écris ton nom",
+    "Gib deinen Namen ein",
+    "Enter Your Name",
+    "Upiši svoje ime"
+  ],
+  "Genel sıralamada bu adla görüneceksin. Sonra istersen düzeltebilirsin.": [
+    "Aparecerás con este nombre en la clasificación. Puedes cambiarlo después.",
+    "Tu apparaîtras sous ce nom dans le classement. Tu pourras le modifier plus tard.",
+    "Mit diesem Namen erscheinst du in der Rangliste. Du kannst ihn später ändern.",
+    "You will appear with this name on the leaderboard. You can change it later.",
+    "Na poretku ćeš se pojaviti pod ovim imenom. Kasnije ga možeš promijeniti."
+  ],
+  "Devam": [
+    "Continuar",
+    "Continuer",
+    "Weiter",
+    "Continue",
+    "Nastavi"
+  ],
+  "Kaydet": [
+    "Guardar",
+    "Enregistrer",
+    "Speichern",
+    "Save",
+    "Sačuvaj"
+  ],
+  "Takma ad yeterli, tam adını yazma": [
+    "Basta un apodo; no escribas tu nombre completo",
+    "Un surnom suffit ; n'écris pas ton nom complet",
+    "Ein Spitzname reicht; gib nicht deinen vollständigen Namen ein",
+    "A nickname is enough; do not enter your full name",
+    "Nadimak je dovoljan; ne upisuj puno ime"
+  ],
+  "Oyuncu Adın": [
+    "Tu nombre de jugador",
+    "Ton nom de joueur",
+    "Dein Spielername",
+    "Your Player Name",
+    "Tvoje ime igrača"
+  ],
+  "Tekrar Oyna": [
+    "Jugar de nuevo",
+    "Rejouer",
+    "Noch einmal spielen",
+    "Play Again",
+    "Igraj ponovo"
+  ],
+  "Puan": [
+    "Puntos",
+    "Score",
+    "Punkte",
+    "Score",
+    "Bodovi"
+  ],
+  "Oyuncu: {name}": [
+    "Jugador: {name}",
+    "Joueur : {name}",
+    "Spieler: {name}",
+    "Player: {name}",
+    "Igrač: {name}"
+  ],
+  "%{n}": [
+    "{n}%",
+    "{n} %",
+    "{n} %",
+    "{n}%",
+    "{n}%"
+  ],
+  "Açıklamayı dinle": [
+    "Escuchar la explicación",
+    "Écouter l'explication",
+    "Erklärung anhören",
+    "Listen to the Explanation",
+    "Poslušaj objašnjenje"
+  ],
+  "Sonraki Sayfa": [
+    "Página siguiente",
+    "Page suivante",
+    "Nächste Seite",
+    "Next Page",
+    "Sljedeća stranica"
+  ],
+  "Önceki Sayfa": [
+    "Página anterior",
+    "Page précédente",
+    "Vorherige Seite",
+    "Previous Page",
+    "Prethodna stranica"
+  ],
+  "Namaz Duaları": [
+    "Súplicas de la oración",
+    "Invocations de la prière",
+    "Bittgebete für das Gebet",
+    "Prayer Supplications",
+    "Namaski dovi"
+  ],
+  "Namaz Sureleri": [
+    "Suras de la oración",
+    "Sourates de la prière",
+    "Suren für das Gebet",
+    "Prayer Surahs",
+    "Namaski sure"
+  ],
+  "Oyunlar": [
+    "Juegos",
+    "Jeux",
+    "Spiele",
+    "Games",
+    "Igre"
+  ],
+  "Harfleri tanı, dinle ve öğren": [
+    "Conoce, escucha y aprende las letras",
+    "Découvre, écoute et apprends les lettres",
+    "Erkenne, höre und lerne die Buchstaben",
+    "Recognize, Listen and Learn the Letters",
+    "Upoznaj, slušaj i uči slova"
+  ],
+  "Namaz dualarını öğren": [
+    "Aprende las súplicas de la oración",
+    "Apprends les invocations de la prière",
+    "Lerne die Bittgebete für das Gebet",
+    "Learn the Prayer Supplications",
+    "Nauči namaske dove"
+  ],
+  "Kısa sureleri öğren": [
+    "Aprende las suras cortas",
+    "Apprends les sourates courtes",
+    "Lerne die kurzen Suren",
+    "Learn the Short Surahs",
+    "Nauči kratke sure"
+  ],
+  "Öğrendiklerini pekiştir": [
+    "Practica lo aprendido",
+    "Entraîne-toi avec ce que tu as appris",
+    "Übe, was du gelernt hast",
+    "Practice What You Have Learned",
+    "Uvježbaj naučeno"
+  ],
+  "Elifba Dersleri": [
+    "Lecciones del alfabeto árabe",
+    "Leçons de l'alphabet arabe",
+    "Arabische Alphabetlektionen",
+    "Arabic Alphabet Lessons",
+    "Lekcije arapskog pisma"
+  ],
+  "GİRİŞ": [
+    "INTRODUCCIÓN",
+    "INTRODUCTION",
+    "EINFÜHRUNG",
+    "INTRODUCTION",
+    "UVOD"
+  ],
+  "DERSLER": [
+    "LECCIONES",
+    "LEÇONS",
+    "LEKTIONEN",
+    "LESSONS",
+    "LEKCIJE"
+  ],
+  "Kapat": [
+    "Cerrar",
+    "Fermer",
+    "Schließen",
+    "Close",
+    "Zatvori"
+  ],
+  "Dinle": [
+    "Escuchar",
+    "Écouter",
+    "Anhören",
+    "Listen",
+    "Poslušaj"
+  ],
+  "Sayfa {n}": [
+    "Página {n}",
+    "Page {n}",
+    "Seite {n}",
+    "Page {n}",
+    "Stranica {n}"
+  ]
+}

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import '../../../widgets/lesson_grid_background.dart';
 import '../../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +172,7 @@ class _SoundButton extends StatelessWidget {
                   ),
                   SizedBox(width: 10 * scale),
                   Text(
-                    'Dinle',
+                    context.t("Dinle"),
                     style: TextStyle(
                       color: AppColors.turquoise,
                       fontWeight: FontWeight.w700,

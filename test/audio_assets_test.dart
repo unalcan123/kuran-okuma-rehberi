@@ -11,12 +11,12 @@ String _norm(String path) => path.replaceAll(r'\', '/');
 
 void main() {
   final all =
-      Directory(
-        'assets/audio',
-      ).listSync(recursive: true).whereType<File>()
-        // Hidden placeholder files (e.g. .gitkeep) are not sounds.
-        .where((f) => !_norm(f.path).split('/').last.startsWith('.'))
-        .toList()
+      Directory('assets/audio')
+          .listSync(recursive: true)
+          .whereType<File>()
+          // Hidden placeholder files (e.g. .gitkeep) are not sounds.
+          .where((f) => !_norm(f.path).split('/').last.startsWith('.'))
+          .toList()
         ..sort((a, b) => _norm(a.path).compareTo(_norm(b.path)));
   final files = all.where((f) => f.path.endsWith('.mp3')).toList();
 
@@ -32,8 +32,20 @@ void main() {
   });
 
   test('all recordings together stay light enough to download', () {
-    final total = files.fold<int>(0, (sum, f) => sum + f.lengthSync());
-    expect(total, lessThan(30 * 1024 * 1024));
+    // Arabic and effects are shared; explanation clips load on demand only
+    // in the selected language, never all language folders at once.
+    const languages = ['tr', 'es', 'fr', 'en', 'de', 'bs'];
+    for (final language in languages) {
+      final selected = files.where((file) {
+        final path = _norm(file.path);
+        return !languages.any(
+              (code) => path.startsWith('assets/audio/$code/'),
+            ) ||
+            path.startsWith('assets/audio/$language/');
+      });
+      final total = selected.fold<int>(0, (sum, f) => sum + f.lengthSync());
+      expect(total, lessThan(30 * 1024 * 1024), reason: language);
+    }
   });
 
   test('Elifba letter clips are tiny (one tap = a few KB)', () {
@@ -58,8 +70,7 @@ void main() {
   test('kSoundCacheVersion matches the current audio files', () {
     var hash = 0x811c9dc5; // FNV-1a, 32 bit
     for (final file in all) {
-      final line =
-          '${file.path.replaceAll('\\', '/')}:${file.lengthSync()}\n';
+      final line = '${file.path.replaceAll('\\', '/')}:${file.lengthSync()}\n';
       for (final unit in line.codeUnits) {
         hash = ((hash ^ unit) * 0x01000193) & 0xffffffff;
       }

@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
@@ -174,8 +175,7 @@ class _TextCard extends StatelessWidget {
                       color: AppColors.turquoiseSoft,
                       borderRadius: BorderRadius.circular(99),
                     ),
-                    child: Text(
-                      card.label,
+                    child: Text(context.t(card.label),
                       style: theme.labelMedium?.copyWith(
                         color: AppColors.navy,
                         fontWeight: FontWeight.w700,
@@ -183,8 +183,7 @@ class _TextCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    card.title,
+                  Text(context.t(card.title),
                     style: theme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w800,
                       color: AppColors.navy,
@@ -192,8 +191,7 @@ class _TextCard extends StatelessWidget {
                   ),
                   if (card.subtitle != null) ...[
                     const SizedBox(height: 6),
-                    Text(
-                      card.subtitle!,
+                    Text(context.t(card.subtitle!),
                       style: theme.bodyMedium?.copyWith(
                         color: AppColors.textSecondary,
                       ),
@@ -201,8 +199,7 @@ class _TextCard extends StatelessWidget {
                   ],
                   if (card.arabic != null) ...[
                     const SizedBox(height: 4),
-                    Text(
-                      card.arabic!,
+                    Text(context.t(card.arabic!),
                       textDirection: TextDirection.rtl,
                       style: AppTextTheme.arabicSmall(
                         fontSize: 24,

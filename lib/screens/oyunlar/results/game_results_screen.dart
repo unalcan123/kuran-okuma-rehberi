@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -42,19 +43,20 @@ class _GameResultsScreenState extends State<GameResultsScreen> {
       context: context,
       builder:
           (context) => AlertDialog(
-            title: const Text('Sonuçlar silinsin mi?'),
-            content: const Text(
-              'Tüm oyunların puanları, ortalamaları ve rekorları silinecek. '
-              'Bu işlem geri alınamaz.',
+            title: Text(context.t('Sonuçlar silinsin mi?')),
+            content: Text(
+              context.t(
+                "Tüm oyunların puanları, ortalamaları ve rekorları silinecek. Bu işlem geri alınamaz.",
+              ),
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('Vazgeç'),
+                child: Text(context.t('Vazgeç')),
               ),
               TextButton(
                 onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('Sıfırla'),
+                child: Text(context.t('Sıfırla')),
               ),
             ],
           ),
@@ -73,10 +75,10 @@ class _GameResultsScreenState extends State<GameResultsScreen> {
     final maxWidth = Responsive.isDesktop(context) ? 800.0 : 640.0;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sonuçlarım'),
+        title: Text(context.t('Sonuçlarım')),
         actions: [
           IconButton(
-            tooltip: 'Sonuçları sıfırla',
+            tooltip: context.t("Sonuçları sıfırla"),
             icon: const Icon(Icons.delete_outline_rounded),
             onPressed: _totalPlays == 0 ? null : _confirmReset,
           ),
@@ -103,7 +105,9 @@ class _GameResultsScreenState extends State<GameResultsScreen> {
                   Text(
                     totalPlays == 0
                         ? 'Oyun oynadıkça puanların burada görünür.'
-                        : 'Toplam $totalPlays oyun oynadın.',
+                        : context.t('Toplam {n} oyun oynadın.', {
+                          'n': totalPlays,
+                        }),
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w700,
                       color: AppColors.textSecondary,
@@ -160,7 +164,7 @@ class _GameSection extends StatelessWidget {
               const SizedBox(width: 14),
               Expanded(
                 child: Text(
-                  game.title,
+                  context.t(game.title),
                   style: textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.w700,
                     color: AppColors.textPrimary,
@@ -172,7 +176,7 @@ class _GameSection extends StatelessWidget {
           if (played.isEmpty) ...[
             const SizedBox(height: 14),
             Text(
-              'Henüz oynanmadı.',
+              context.t('Henüz oynanmadı.'),
               style: textTheme.bodyLarge?.copyWith(
                 color: AppColors.textSecondary,
               ),
@@ -215,7 +219,7 @@ class _ResultRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          title,
+          context.t(title),
           style: textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w800,
             color: AppColors.navy,
@@ -232,8 +236,8 @@ class _ResultRow extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           history.recent.length < GameHistory.recentCount
-              ? 'Son ${history.recent.length} oyun'
-              : 'Son ${GameHistory.recentCount} oyun',
+              ? context.t('Son {n} oyun', {'n': history.recent.length})
+              : context.t('Son {n} oyun', {'n': GameHistory.recentCount}),
           style: muted,
         ),
         const SizedBox(height: 6),
@@ -250,7 +254,8 @@ class _ResultRow extends StatelessWidget {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             color: accent.withValues(
-                              alpha: i == history.recent.length - 1 ? 0.28 : 0.12,
+                              alpha:
+                                  i == history.recent.length - 1 ? 0.28 : 0.12,
                             ),
                             borderRadius: BorderRadius.circular(14),
                           ),
@@ -288,15 +293,13 @@ class _Fact extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            value,
+          Text(context.t(value),
             style: textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w800,
               color: AppColors.navy,
             ),
           ),
-          Text(
-            label,
+          Text(context.t(label),
             style: textTheme.bodySmall?.copyWith(
               color: AppColors.textSecondary,
             ),

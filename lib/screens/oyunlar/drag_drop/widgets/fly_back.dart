@@ -23,8 +23,7 @@ class FlyBack extends StatefulWidget {
   State<FlyBack> createState() => _FlyBackState();
 }
 
-class _FlyBackState extends State<FlyBack>
-    with SingleTickerProviderStateMixin {
+class _FlyBackState extends State<FlyBack> with SingleTickerProviderStateMixin {
   late final AnimationController _controller =
       AnimationController(
           vsync: this,

@@ -1,0 +1,751 @@
+# SESLENDIRME METINLERI — TR
+# Her [kayit_kimligi] altindaki metni duzenleyebilirsin.
+# Kimlik satirlarini silme veya degistirme. Bu dosya sesi degistirir; ekrandaki metni degistirmez.
+# Arapca harfler seslendirme metninde Latin harfleriyle yazilmistir.
+
+[s003_baslik_1]
+Harflerin çıkış yerleri.
+
+[s003_01]
+Harfin çıkış yeri, mahreç kelimesi ile ifade edilir. Beş ana mahreç bölgesi vardır.
+
+[s003_02]
+1. CEVF: Nefes borusu ve ağız boşluğu bölgesidir. Nefesin geçtiği bu bölgeden, harekesiz ( Vâv Elif Yâ ) harfleri, yani Med (Uzatma) harfleri çıkar. Bu harfler harekesiz oldukları için tek başlarına okunamazlar. Harekeli bir harfe bitişir, onu uzatarak okuturlar.
+
+[s003_baslik_2]
+Boğaz.
+
+[s003_03]
+( Hemze He ) Boğazın göğse bitiştiği yerden çıkar. Hemze ( Hemze ), Elif’in ( Elif ) harekeli halidir.
+
+[s003_04]
+( Ha Ayn ) Boğazın ortasından çıkar.
+
+[s003_05]
+( Hı Gayn ) Boğazın (ağız boşluğuna bitiştiği) üst kısmından çıkar.
+
+[s003_baslik_3]
+Dil ve ağız içi.
+
+[s003_06]
+( Kaf ) Dil kökü ve tavanından çıkar.
+
+[s003_07]
+( Kef ) Dil ortası ile dil kökü arası, ağız tavanına doğru kaldırılarak çıkarılır.
+
+[s003_08]
+( Cim Şın Yâ ) Dil ortası ağız tavanına doğru kaldırılarak çıkarılır.
+
+[s003_09]
+( Dad ) Dilin yan tarafı, üst azı dişlerinin iç kısmına bastırıldıktan sonra yavaşça çekilerek çıkar.
+
+[s003_10]
+( Lâm ) Dil ucu sağ veya sol köşesinin, üst ön diş etlerine değdirilmesi ile çıkar.
+
+[s003_11]
+( Nûn ) Dil ucu altının, üst ön diş etlerine değdirilmesi ile çıkar.
+
+[s004_01]
+( Ra ) Dildeki çıkış noktası, dil üstünün uca yakın kısmıdır. Dil ucu, üst ön damağa doğru kıvrılarak kaldırılır ve bu noktanın titretilmesi ile çıkar. Bu esnada dil; damak, diş gibi yerlere yapışmamalıdır.
+
+[s004_02]
+( Tı Dal Te ) Dil ucu, üst ön iki dişin arkasına değdirilip çekilmesiyle çıkar. ( Tı ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı da ayrıca üst damağa doğru kaldırılır.
+
+[s004_03]
+( Sad Sin Ze ) Dil ucu, alt ön iki dişin üst kısmına dokunur. Bu haldeyken, dil üzerinden kayan ses, alt ön dişlerin üstünden çıkar.
+
+[s004_04]
+( Sad ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı da ayrıca üst damağa doğru kaldırılır.
+
+[s004_05]
+( Zı Zel Se ) Dil ucu, üst ön dişlerin keskin yerine değdirilerek çıkar.
+
+[s004_06]
+( Zı ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı da ayrıca üst damağa doğru kaldırılır.
+
+[s004_baslik_1]
+Dudak.
+
+[s004_07]
+( Fe ) Üst ön dişlerin ucu, alt dudağın içine değdirilerek çıkar.
+
+[s004_08]
+( Vâv Mim Be ) Bu harfler iki dudak harfidir. Dudakların kapatılmasıyla ( Mim ), kuvvetli kapatılıp açılmasıyla ( Be ), u pozisyonunda ileri uzatılmasıyla ( Vâv ) çıkar. Yalnız, üstünlü ve esreli vâv harfinde ( esreli Vâv üstünlü Vâv ), dudağı uzattıktan sonra geri çekmek gerekirken, ötreli ve sakin vâvlarda ( cezimli Vâv ötreli Vâv ) sadece uzatmak yeterlidir.
+
+[s004_09]
+Geniz. Burun içi bölgesidir. Bu mahreçten harf çıkmaz. Gunne dediğimiz, sesin iki hareke miktarı tutulması işi burada yapılır.
+
+[s004_10]
+Önemli not. Mahreçler için mutlaka seslendirme desteği alınız.
+
+[s006_baslik_1]
+Harfler.
+
+[s006_01]
+Kur’ân-ı Kerîm harfleri 28 tanedir. Bunların 7’si kalın, 21’i de ince harf olarak kabul edilir. Kalın harfler şunlardır: Hı, Sad, Dad, Tı, Zı, Gayn ve Kaf.
+
+[s007_baslik_1]
+Harflerin yazılış ve okunuşları.
+
+[s008_baslik_1]
+LÂM - ELİF ( LâmElif )
+
+[s008_01]
+LÂMELİF ( LâmElif ): Lâm ( Lâm ) harfinin, Elif veya Hemze ( Elif Hemze ) ile bitişme durumunu gösteren özel bir şekildir. Harf değildir. LÂMELİF adından da anlaşılacağı gibi önce Lâm, sonra Elif okunur. Sağ tarafı Lâm’ı, sol tarafı ise Elif’i gösterir.
+
+[s008_02]
+Lâm’a bitişen harekesiz Elif ise, Lâm’ı uzatarak lâ şeklinde okutur. Eğer Lâm’a bitişen Hemze ise, her ikisi de kendi harekesi ile okunur.
+
+[s008_03]
+Lâm elif, diğer harflere yalnızca sağından birleşir.
+
+[s008_baslik_2]
+Lâm elif şekilleri.
+
+[s010_baslik_1]
+Harflerin başta, ortada ve sonda yazılışlarına örnekler.
+
+[s014_baslik_1]
+HAREKELER ÜSTÜN ( Fetha )
+
+[s014_01]
+Harekeler, Türkçedeki sesli harflere benzerler. Fakat hiçbir hareke, bildiğimiz sesli harflerle birebir örtüşmez.
+
+[s014_02]
+Üstün, harfin üzerine konan ve sol tarafından aşağı doğru eğik küçük bir çizgidir. İnce harflere e, kalın harflere ise a sesi verir.
+
+[s015_01]
+Üstün’ün ince harflere e, kalın harflere ise a sesi verdiğini hatırlayalım.
+
+[s017_baslik_1]
+HAREKELER ESRE ( Kesra )
+
+[s017_01]
+Harfin altına konan ve sol taraftan aşağı doğru eğik küçük bir çizgidir. İnce harflere i, kalın harflere ise ı’dan i’ye doğru yönelen bir ses verir.
+
+[s020_baslik_1]
+HAREKELER ÖTRE ( Damme )
+
+[s020_01]
+Harfin üstüne konan ve küçük Vâv harfine benzer bir şekildir. İnce harflere u ile ü arası bir ses, kalın harflere ise u sesi verir.
+
+[s023_baslik_1]
+Harekeli harfler. Çıkış yerleri sırasına göre.
+
+[s024_baslik_1]
+CEZİM ( Cezim )
+
+[s024_01]
+Harfin üstüne konan, yuvarlak, küçük bir şekildir ve harfi, yönsüz olarak yalın bir şekilde okutur.
+
+[s024_02]
+Her harfin cezimli durumunu iyice tanıyabilmek için, öncesine sırayla, üstün, esre ve ötreli bir Hemze getirerek okuyalım.
+
+[s028_baslik_1]
+ŞEDDE ( Şedde )
+
+[s028_01]
+Harfin üstüne konan, ters çevrilmiş m harfine benzer bir şekildir ve harfi iki kere okutur. Şeddeli harf aynı zamanda harekeli olur.
+
+[s032_baslik_1]
+UZATMA HARFLERİ ELİF ( Elif )
+
+[s032_01]
+Üstünlü harfi iki hareke miktarı uzatır. Harf kalın ise a sesiyle, ince ise e ile a arası bir sesle uzatır.
+
+[s032_02]
+Uzatma (MED) Harfleri ( Yâ Elif Vâv ): Kısaca “VÂY” harfleri dediğimiz, harekesiz ( Vâv ), ( Elif ) ve ( Yâ ) harfleridir. Bir önceki harfi uzatarak okutur.
+
+[s034_baslik_1]
+YÂ ( Yâ )
+
+[s034_01]
+Kendinden önceki esreli harfi iki hareke miktarı uzatır. Harf ince ise i sesiyle, kalın ise ı’dan i’ye doğru bir sesle uzatır.
+
+[s036_baslik_1]
+VÂV ( Vâv )
+
+[s036_01]
+Kendisinden önceki ötreli harfi iki hareke miktarı uzatır. Harf kalın ise u sesiyle, ince ise u ile ü arası bir sesle uzatır.
+
+[s038_baslik_1]
+Kelime sonunda uzatan VÂV ( Vâv )
+
+[s038_01]
+Bazen kelime sonunda gelen harekesiz VÂV, bitiştiği ötreli harfi tek başına uzatır. ( Zû Zû ) gibi. Çoğu kez de bu VÂV’dan sonra ELİF de bulunur. Bu durumda ELİF ilave bir uzatma görevi yapmaz. Uzatma miktarı yine iki hareke olur.
+
+[s039_baslik_1]
+Çeker üstün.
+
+[s039_01]
+Dik yazılan Üstün’e verilen addır. Uzatma harfi olsun veya olmasın, üstünde bulunduğu harfin uzatılacağını gösterir. Eğer bir uzatma harfi varsa, bunun Elif, Vâv veya Ye harfi olması fark etmez. Her durumda, üstünde bulunduğu harfi yukarı doğru, üstün sesi yönünde uzatır.
+
+[s039_baslik_2]
+Çeker esre.
+
+[s039_02]
+Dik yazılan Esre’ye verilen addır. Ayrıca uzatma harfi olsun veya olmasın, altına yazıldığı harfi esre yönünde uzatarak okutur.
+
+[s040_baslik_1]
+Tenvinler. Çift harekeler.
+
+[s040_01]
+Tenvin: Bir harfe, aynı hareke, iki kere konursa buna “Tenvin” denir ve geçerek okuyuşta harfin sonunu “Cezimli Nûn” ( cezimli Nûn ) varmış gibi okutur. Üç çeşit Tenvin vardır: “İki Üstün”, “İki Esre” ve “İki Ötre”.
+
+[s040_02]
+Harfin üzerine konan, sol taraftan aşağı doğru eğik, üst üste, küçük çift çizgidir. Geçişte, ince harflere en, kalın harflere ise an sesi verir.
+
+[s040_baslik_2]
+İKİ ÜSTÜNLÜ HARFLER ( iki üstün işareti ) Fethateyn
+
+[s041_01]
+İki üstün alan harfin soluna, genellikle Elif harfi de yazılır. Geçişte okunmayan bu Elif, durulduğunda uzatma harfi görevi yapar. İki üstündeki Nûn sesi kalkar ve harf, üstün yönünde iki hareke miktarı uzatılarak okunur. Harf kalın ise a sesiyle, ince ise e ile a arası bir sesle uzatır.
+
+[s044_baslik_1]
+İKİ ESRELİ HARFLER ( Kesrateyn )
+
+[s047_baslik_1]
+İKİ ÖTRELİ HARFLER ( Dammeteyn )
+
+[s050_baslik_1]
+Elif Lâm.
+
+[s050_01]
+Bir kelimede önce Lâm (Lâm), sonra Elif (Elif) yazılması gerektiğinde, bunun için Lâmelif’in (LâmElif) kullanıldığını görmüştük.
+
+[s050_02]
+Eğer önce Elif (Elif), sonra cezimli Lâm (cezimli Lâm) kelimenin başında bulunursa; buna Elif-Lâm takısı veya kısaca El takısı (El) denir.
+
+[s050_03]
+Lâm (Lâm)’dan önceki Elif (Elif), burada Hemze pozisyonundadır. Çünkü harekeli okunabilecek bir konumdadır. Uzatma görevi olmayan, harekeli Elif’lere Hemze dendiğini unutmayalım.
+
+[s050_04]
+Kendisinden sonra gelen harf, Lâm’ın nasıl okunacağını belirler. Buna göre: (Ebği hacceke ve haf akîmehû) cümlesini oluşturan (Hemze Be Cim Ha Hı Ayn Gayn Fe Kaf Kef Mim Vâv He Yâ) Harflerinden biri gelirse; Lâm cezimli olarak okunur. Bu harfler, tamamı 28 olan Kur’an harflerinin yarısıdır.
+
+[s051_01]
+Geriye kalan 14 harften (Dad Sad Şın Sin Ze Ra Dal Zel Te Se Tı Zı Lâm Nûn) biri geldiğinde ise; Lâm okunmaz. Sonraki harf mutlaka şeddeli okunur.
+
+[s052_01]
+El takısı (El)’ndaki Lâm’ın, iki şekildeki farklı okunuşunu görmüş olduk. Lâm’dan önceki Hemze’ye gelince;
+
+[s052_02]
+Bir önceki harften veya kelimeden geçiş yaparken, El takısı (El)’ndaki Hemze okunmaz.
+
+[s052_03]
+Eğer okumaya El takısı (El)’nın Hemze’siyle başlanırsa, bu durumda Hemze her zaman üstünlü olarak okunur.
+
+[s052_04]
+Harekesi kalıcı olmadığından dolayı bu Hemze’yi Vasıl Hemze’si olarak tanımlamak daha doğrudur.
+
+[s053_baslik_1]
+OKUNMAYAN HEMZE (Vasıl Hemzesi) ( vasıl işaretli Elif )
+
+[s053_01]
+Kelime başında bulunan bazı Hemze’ler, önceki kelime veya harfle beraber okunurken harekesi düşer, orada sanki bir hemze yokmuş gibi okunur. Harekesiz Elif (Elif) şeklinde yazılır. Bazen üzerine, okunmadığını gösteren küçük bir “vasıl işareti” (vasıl işaretli Elif) konur. Bu durumdaki hemzelere Vasıl Hemzesi denir.
+
+[s053_02]
+Eğer öncesiyle beraber değil de, kelime başında ilk harf olarak okunursa, harekesi verilerek okunur.
+
+[s053_03]
+Her Elif-Lâm takısı (El)’nın Elif’inin de böyle olduğunu bir önceki derste görmüştük.
+
+[s054_baslik_1]
+ZAMİR "HE" ( He He )’NİN UZATILMASI
+
+[s054_baslik_2]
+He harfi hangi durumlarda uzatılır?
+
+[s054_01]
+He harfinden önceki harf harekeli ise, He harfi uzatılarak okunur. Ne kadar uzatılacağını ise, He harfinden sonra gelen harf belirler. Şöyle ki.
+
+[s054_02]
+Uzatılan He harfinden sonra Hemze gelirse, dört hareke miktarı uzatılır.
+
+[s054_03]
+Uzatılan He harfinden sonra Hemze dışında herhangi bir harf gelirse, iki hareke miktarı uzatılır.
+
+[s054_baslik_3]
+He harfi hangi durumlarda uzatılmaz?
+
+[s054_04]
+He harfinden önce uzatma harflerinden biri gelirse, He harfi uzatılmadan okunur. He harfinden sonra ise, hangi harf gelirse gelsin, durumu etkilemez.
+
+[s055_01]
+He harfinden önce cezimli herhangi bir harf gelirse, He harfi yine uzatılmadan okunur. He harfinden sonra ise, hangi harf gelirse gelsin, durumu etkilemez.
+
+[s055_02]
+He harfinden önce harekeli bir harf olsa bile, önceki kelimeye cezimli veya şeddeli bir harfle bağlanarak geçiş yapılırsa, He harfi yine uzatılmadan okunur.
+
+[s055_baslik_1]
+Uzun med işareti.
+
+[s055_03]
+Uzatma miktarı iki harekenin üzerinde olan bazı Med çeşitlerinin üzerinde bulunur. Tecvid derslerinde ayrıntılı bilgi verilecektir.
+
+[s056_baslik_1]
+KAPALI “TE” ( Kapalı Te – Kapalı Te )
+
+[s056_01]
+Bazen “Te (Te)” harfi, “Kapalı Te” denilen şekilde yazılır: (Kapalı Te , Kapalı Te). Bu sadece kelime sonunda olur. Önceki harfe bitişirse (Kapalı Te) şeklinde, bitişmediği durumlarda ise (Kapalı Te) şeklinde yazılır.
+
+[s056_02]
+Sonunda “Kapalı Te” olan kelimede durulduğunda cezimli He (cezimli He) gibi okunur. Sonraki kelimeye geçildiğinde ise yine “Te” olarak, harekesiyle okunur.
+
+[s057_baslik_1]
+Kelime sonundaki harekeli harfte nasıl durulur?
+
+[s057_01]
+Kur’an okurken genellikle ayet sonlarında, durak işaretlerinde veya nefes almamız gerektiğinde dururuz. Bu duruş da, sadece kelime sonlarında olabilir.
+
+[s057_02]
+Üstün, Esre veya Ötre harekeleri ile duruş yapılmaz. Kelime sonundaki harf sakin değilse, yani cezimli bir harf veya uzatma harfi değilse, harekesi okunmaz ve harf, sanki üzerinde cezim varmış gibi okunur.
+
+[s057_03]
+Tenvinlilerde ise uygulama şöyledir. Elif ile birlikte yazılan iki üstünlüde, Üstün’ün biri kaldırılır. Harf, tek üstün ile, iki hareke miktarı uzatılarak okunur.
+
+[s058_01]
+Elifsiz yazılan iki üstünlü bir Hemzede durulduğunda da, yanında Elif varmış gibi, iki hareke miktarı uzatılarak okunur.
+
+[s058_02]
+İki Esre veya İki Ötreli harflerde ise, Cezim’le durulur.
+
+[x_b82c6976cab96a17]
+Harfleri Tanıyalım
+
+[x_0f4bcb723513e72a]
+28 harf • Elifba'nın ilk adımı
+
+[x_f40fb061502cb509]
+- Bunların 7’si kalın, 21’i de ince harf olarak kabul edilir.
+
+[x_71a9851229f63d6d]
+- Kalın harfler şunlardır: ﴾ Hı Sad Dad Tı Zı Gayn Kaf ﴿
+
+[x_6a0d9bbec6326699]
+Kur’ân-ı Kerîm Harfleri
+
+[x_a485a0a32993e75e]
+Kur’ân-ı Kerîm harfleri 28 tanedir. Bunların 7’si kalın, 21’i ise ince harf olarak kabul edilir. Kalın harfler şunlardır: Hı, Sad, Dad, Tı, Zı, Gayn ve Kaf.
+
+[x_c56cf2512dc306b7]
+Harflerin Yazılışları
+
+[x_7bc7708c9751a4aa]
+29 harf • Baş, orta, son yazılışları
+
+[x_e7f283474e3b8c77]
+* LÂMELİF adından da anlaşılacağı gibi önce Lâm, sonra Elif okunur. Sağ tarafı Lâm’ı, sol tarafı ise Elif’i gösterir.
+
+[x_1cb022bf5738e743]
+* Eğer Lâm’a bitişen Hemze ise; her ikisi de kendi harekesi ile okunur.
+
+[x_30a4198490501369]
+Yazılış durumları şöyledir:
+
+[x_4216f159ff83b111]
+ÖRNEKLER
+
+[x_90e33b27649ad0f9]
+Kelimeyi oluşturan her harf, kendinden önceki harfe bitişir. Şu harfler ise Zel Dal Elif Ze Ra Vâv kendilerinden sonra gelen harflere bitişmez. Harflerin kelimelere nasıl bitiştiğini görelim. Kelimeleri okumaya çalışmayalım — harekeleri henüz öğrenmedik.
+
+[x_42cf42e6c42fcdf9]
+Üstün
+
+[x_14d9ca57d9049ae3]
+92 kayıt • Harf + üstün ve kelime okuma
+
+[x_cebf9ddad8b8dfca]
+- Fakat hiçbir hareke, bildiğimiz sesli harflerle birebir örtüşmez.
+
+[x_22e0507842fcf856]
+Üstün Harekesi
+
+[x_c62e23b9551c4568]
+Üstün, harfin üzerine konan ve sol tarafından aşağı doğru eğik küçük bir çizgidir. İnce harflere “E” kalın harflere ise “A” sesi verir.
+
+[x_81d7939a0d187c0b]
+Esre
+
+[x_7a758e6c92667f99]
+84 kayıt • Harf + esre ve kelime okuma
+
+[x_98bd13567b37dd3f]
+Esre Harekesi
+
+[x_8de58fb628e2a7f8]
+Esre, harfin altına konan ve sol taraftan aşağı doğru eğik küçük bir çizgidir. İnce harflere “İ” kalın harflere ise “I” dan “İ”ye doğru yönelen bir ses verir.
+
+[x_8c6bfd229e811845]
+Ötre
+
+[x_3310d4d4e9855cd8]
+92 kayıt • Harf + ötre ve kelime okuma
+
+[x_48432a69ef21d522]
+İnce harflere “U-Ü” arası bir ses, kalın harflere ise “U” sesi verir.
+
+[x_935d97c874476276]
+Ötre Harekesi
+
+[x_3be206abeada3069]
+Ötre, harfin üstüne konan ve küçük “Vâv” harfine benzer bir şekildir. İnce harflere “U-Ü” arası bir ses, kalın harflere ise “U” sesi verir.
+
+[x_c1e944311da3969a]
+Çıkış Yerleri Sıralı
+
+[x_0ae086cfc717a76f]
+28 kayıt • Harf + üç hareke, mahreç sırasıyla
+
+[x_38db3a3a51a8181e]
+(Çıkış Yerleri Sırasına Göre)
+
+[x_49e5c7d0e211ff24]
+Bu ders, harfleri alfabetik sırayla değil, ağızdaki çıkış (mahreç) yerlerine göre sıralar — her harf üç harekesiyle (üstün, esre, ötre) birlikte okunur.
+
+[x_4932ab9aca1d314d]
+Cezm
+
+[x_5bf8d8b2bb617cdb]
+81 kayıt • Hemze + harf + cezm, üç harekeyle
+
+[x_27e0c2b29bd68924]
+Cezm, harfin üstüne konan yuvarlak ve küçük bir şekildir. Görevi, üzerine geldiği harfi bir önceki harfe bağlayarak okutmasıdır.
+
+[x_098cefa838898047]
+Harekeler Örnekleri
+
+[x_e146011776dfddbb]
+52 kayıt • Üstün, esre, ötre ve cezm ile kelime okuma
+
+[x_40775b72173dc32b]
+Üstün, esre, ötre ve cezmi bir arada kullanan karma kelime okuma pratiği.
+
+[x_25c0e6dfb78bd73c]
+Şedde
+
+[x_8fa1feca1dfa2c3d]
+56 kayıt • Harf + şedde çiftleri
+
+[x_525749d1702ba4ca]
+Şedde, harfi iki kere okutur. Şeddeli harf aynı zamanda harekeli olur. Mesela: cennet, anne, himmet
+
+[x_afa2f17b321ebdf6]
+Şedde Örnekleri
+
+[x_862db07c5ab1a8a5]
+64 kayıt • Şeddeli kelime okuma
+
+[x_def4f63df7e7022d]
+Şeddeli harflerle kelime okuma pratiği.
+
+[x_3ac5fd22fdbdcd3f]
+Uzatma Harfleri - Elif
+
+[x_dd49c94435908c6d]
+28 kayıt • Üstün + elif ile uzatma
+
+[x_9656e3ffcf82befc]
+Uzatma (MED) Harfleri (Vâv Elif Yâ): Kısaca “VAY” harfleri dediğimiz (Vâv), (Elif) ve (Yâ) harfleridir. Bir önceki harfi uzatarak okutur. Elif: Üstünlü harfi iki hareke miktarı uzatır. Harf kalın ise “A” sesiyle, ince ise “E-A” arası bir sesle uzatır.
+
+[x_6b4efc8093d9600b]
+Uzatma Harfleri - Elif Örnekleri
+
+[x_72dc3a39d4a06fe1]
+28 kayıt • Elif uzatmalı kelime okuma
+
+[x_a4bcc9ec7b80f61a]
+Elif uzatmalı (medli) kelimelerle okuma pratiği.
+
+[x_c735235867cdab56]
+Uzatma Harfleri - Ya
+
+[x_769c123c25774a2c]
+28 kayıt • Esre + ye ile uzatma
+
+[x_30a7c99b0d09fd6e]
+Harf ince ise “İ” sesiyle, kalın ise “I” dan “İ” ye doğru bir sesle uzatır.
+
+[x_e6a80b77900962d7]
+Kendinden önceki esreli harfi iki hareke miktarı uzatır. Harf ince ise “İ” sesiyle, kalın ise “I” sesine yakın uzatılır.
+
+[x_6ceec3c1c26cca34]
+Uzatma Harfleri - Ya Örnekleri
+
+[x_080991ab999c73e9]
+28 kayıt • Ye uzatmalı kelime okuma
+
+[x_91b3a380f22f9ca7]
+Ye uzatmalı (medli) kelimelerle okuma pratiği.
+
+[x_6deeb6f1701c7458]
+Uzatma Harfleri - Vav
+
+[x_d4b1924c203c31ea]
+28 kayıt • Ötre + vav ile uzatma
+
+[x_e63df5af43637e14]
+Harf kalın ise “U” sesiyle, ince ise “U-Ü” arası bir sesle uzatır.
+
+[x_0e483c448c80cdce]
+Kendinden önceki ötreli harfi iki hareke miktarı uzatır. Harf kalın ise “U” sesiyle, ince ise “U-Ü” arasında bir sesle uzatır.
+
+[x_67ba269dfa1e5038]
+Uzatma Harfleri - Vav Örnekleri
+
+[x_ae7ee980fbd46713]
+28 kayıt • Vav uzatmalı kelime okuma
+
+[x_729d66cdf58d7089]
+Vav uzatmalı (medli) kelimelerle okuma pratiği.
+
+[x_74e73f18eccdfabf]
+Uzatma Harfleri - Vav Kelime Sonunda
+
+[x_eb1bb22d80a3312c]
+9 kayıt • Kelime sonunda vav uzatması
+
+[x_ce7ca2438600a54a]
+* Çoğu kez de bu VÂV’dan sonra ELİF de bulunur. Bu durumda ELİF ilave bir uzatma görevi yapmaz. Uzatma miktarı yine iki hareke olur.
+
+[x_7b676c2262aae319]
+Bazen kelime sonunda gelen harekesiz Vâv, bittiği ötreli harfi tek başına uzatır. (Zû “Zû”) gibi. Çoğu kez bu Vâv’dan sonra Elif bulunur. Bu durumda Elif ilave bir uzatma görevi yapmaz — uzatma miktarı yine iki hareke olur.
+
+[x_58d5026932499006]
+Çeker Üstün
+
+[x_7316892e1bb30a83]
+10 kayıt • Hançer elif ile uzatma
+
+[x_beb761c4e84992e1]
+* Uzatma harfi olsun veya olmasın, üstünde bulunduğu harfin uzatılacağını gösterir.
+
+[x_4649df589c14ddee]
+* Eğer bir uzatma harfi varsa bunun, “Elif”, “Vâv” veya “Ye” olması fark etmez. Her durumda, üstünde bulunduğu harfi yukarı doğru, üstün sesi yönünde uzatır.
+
+[x_107b461760d1b58a]
+Çeker Üstün () Dik yazılan üstüne verilen addır. Uzatma harfi olsun veya olmasın, üstünde bulunduğu harfin uzatılacağını gösterir.
+
+[x_0df408dd666b1c3e]
+Çeker Esre
+
+[x_6d082d7d98a8dbc6]
+8 kayıt • Alt hançer ile uzatma
+
+[x_7bdc91d8726cd924]
+* Ayrıca uzatma harfi olsun veya olmasın, altına yazıldığı harfi esre yönünde uzatarak okutur.
+
+[x_47fd3f1642a496c6]
+Çeker Esre ( ) Dik yazılan esreye verilen addır. Altına yazıldığı harfi esre yönünde uzatarak okutur.
+
+[x_5a3214211257a036]
+Tenvin - İki Üstün
+
+[x_8e280f3ce388f430]
+88 kayıt • Harf + tenvin ve kelime okuma
+
+[x_c3b4622fe6885a8c]
+(ÇİFT HAREKELER)
+
+[x_806899ee6f662f9a]
+Üç çeşit Tenvin vardır: “İki Üstün”, “İki Esre” ve “İki Ötre”.
+
+[x_64d7457a9ff6dedf]
+* Geçişte, ince harflere “En”, kalın harflere ise “An” sesi verir.
+
+[x_5f67d27fbb01edec]
+* Geçişte okunmayan bu Elif, durulduğunda uzatma harfi görevi yapar. İki üstündeki Nûn sesi kalkar ve harf, üstün yönünde iki hareke miktarı uzatılarak okunur. Harf kalın ise “A” sesiyle, ince ise “E-A” arası bir sesle uzatır.
+
+[x_71439c414a7220ef]
+Tenvin: Bir harfe aynı hareke iki kere konursa buna “tenvin” denir ve geçerek okunuş yapılır — kelime sonunda yazıya geçmeyen bir “n” sesi eklenir.
+
+[x_f803b99672434279]
+Tenvin - İki Esre
+
+[x_14e181db748be447]
+92 kayıt • Harf + tenvin ve kelime okuma
+
+[x_e15b2f3a948d74e0]
+Tenvin - İki Ötre
+
+[x_23ac5515d9e75dc3]
+El Takısı - Okunan Harfler
+
+[x_9a88e8ede5a0591e]
+16 kayıt • Kameri harflerde el takısının okunuşu
+
+[x_038c31203bc9a86c]
+Örnekler:
+
+[x_38357289d15cc372]
+El Takısı - Okunmayan Harfler
+
+[x_11921bda749f95f8]
+16 kayıt • Şemsi harflerde el takısının okunuşu
+
+[x_33d09f4219a08cb7]
+El Takısı ve Hemze
+
+[x_e4e1700a27e7e1f9]
+9 kayıt • El takısı ve hemzeli kelime okuma
+
+[x_8d40a624290ca269]
+EL TAKISI’NDAKİ HEMZE
+
+[x_916e28d6dfc7e4ca]
+El Takısı - Hemze-i Vasıl
+
+[x_b6f314c196dcf6cf]
+12 kayıt • Yalın ve bitişik hemze-i vasıl karşılaştırması
+
+[x_dc90b2bbb6c1e2b7]
+(Vasıl Hemzesi)
+
+[x_86f5b8e231233867]
+Zamir (He) Uzatılması
+
+[x_29881b4b13fe0c1f]
+30 örnek • Hû/hî zamirinin uzatıldığı ve uzatılmadığı hâller
+
+[x_6d1cb525ce29efc0]
+Örnekler:
+
+[x_94ed5dc0231585ae]
+He’den sonra ise, hangi harf gelirse gelsin, durumu etkilemez.
+
+[x_a6eb86d55ff2c4aa]
+He’den sonra ise, hangi harf gelirse gelsin durumu etkilemez.
+
+[x_1d1faaa83fcf957e]
+ZAMİR “HE”’NİN
+
+[x_ee8e1cbd3c2079b9]
+He Harfi Hangi Durumlarda Uzatılır? He’den önceki harf harekeli ise uzatılarak okunur. Ne kadar uzatılacağını ise, He’den sonra gelen harf belirler. Şöyle ki: • Uzatılan He’den sonra Hemze gelirse 4 hareke miktarı uzatılır. Örnekler:
+
+[x_96c5d379513d8b1e]
+• Uzatılan He’den sonra Hemze’nin dışında herhangi bir harf gelirse 2 hareke miktarı uzatılır. Örnekler:
+
+[x_28754253bf2b3bf0]
+He Harfi Hangi Durumlarda Uzatılmaz? • He’den önce uzatma harflerinden biri gelirse He uzatılmadan okunur. He’den sonra ise, hangi harf gelirse gelsin, durumu etkilemez. Örnekler:
+
+[x_61aadc3dfcac8192]
+• He’den önce cezimli herhangi bir harf gelirse, yine uzatılmadan okunur. He’den sonra ise, hangi harf gelirse gelsin durumu etkilemez. Örnekler:
+
+[x_1bfb1f81a526bd8d]
+• He harfinden (önce harekeli bir harf olsa bile) önündeki kelimeye cezimli veya şeddeli bir harfe bağlanarak geçiş yapılırsa yine "He" uzatılmadan okunur. Örnekler:
+
+[x_27786241ecd048a1]
+Uzun Med İşareti
+
+[x_77f7e81c04b47d5c]
+6 kayıt • Med işaretiyle uzatma
+
+[x_4e1d669af6d7c6c3]
+Kapalı Te
+
+[x_e8f29b4a56c0aeae]
+12 kayıt • Durak hâlinde kapalı tenin okunuşu
+
+[x_cfe5770979bae97f]
+Örneklerle uygulamayı görelim:
+
+[x_e5714a57261801f2]
+Kelime Sonu Durakları (Duruş)
+
+[x_120b40ec2d1fb2f4]
+28 kayıt • Durak hâlinde kelime sonlarının okunuşu
+
+[x_b88ac8cf3bf1fad4]
+NASIL DURULUR?
+
+[x_498f7161c2217090]
+Kelime sonundaki harekeli harfte nasıl durulur?
+
+[x_58eb04ec1974a351]
+Diğer bazı örnekler:
+
+[x_481eab08538f248a]
+Örnekler 1
+
+[x_20bddcdfee185870]
+24 kayıt • Genel okuma örnekleri
+
+[x_6aa191334112403e]
+ÖRNEKLER - 1
+
+[x_a2e7e3d43413bac8]
+Öğrenilen kuralların hepsini bir araya getiren genel okuma örnekleri.
+
+[x_c09e400760ae1c4e]
+Örnekler 2
+
+[x_e35317198f77e9b8]
+27 kayıt • Genel okuma örnekleri
+
+[x_40652d006998933c]
+ÖRNEKLER - 2
+
+[x_e9f0754f783d9731]
+Örnekler 3
+
+[x_81c650f34f9ef7ba]
+18 kayıt • Genel okuma örnekleri
+
+[x_78536bbcb13116f5]
+ÖRNEKLER - 3
+
+[x_fe1c5274c7343aac]
+Örnekler 4
+
+[x_1dba50210b528662]
+ÖRNEKLER - 4
+
+[game_1163b4ee95e9e8b1]
+Sesi dinle, harfi doğru yere sürükle.
+
+[game_76383fc2e674b663]
+Sesi dinle, doğru olanı seç.
+
+[game_6699058eadcc8a1e]
+Harfleri ve yerlerini aklında tut. Dokununca sesini dinlersin.
+
+[game_22befd00bdb2fd62]
+Aynı harfleri bul.
+
+[game_dbe823f3a90768fe]
+Aynı harfin bütün yazılışlarını bul.
+
+[game_80ea5039cfcaba33]
+Aynı harfi benzerlerinin arasından bul.
+
+[game_31d31c3da808fd12]
+Kelimelerin içinde harfe dokun.
+
+[game_48b76d43e605c0cd]
+Aynı harfleri bul, vagonları doldur!
+
+[game_a2706d5ac68952cd]
+Sesi dinle, doğru harfi bul ve balonu patlat!
+
+[game_9ebfbc7f7518cbdd]
+Sesi dinle, doğru harfli arabayı yakala!
+
+[game_0d44cf633f9e8dea]
+Harfi dinle ve izle. Nasıl çizildiğini görmek için düğmeye bas.
+
+[game_088fa9be949d3bf9]
+Birlikte bakalım: harf nasıl çiziliyor, izle.
+
+[game_52e28a03234a1b33]
+Bu harfin noktaları üstte olur. Birlikte bakalım.
+
+[game_9e452fdee48f0527]
+Bu harfin noktaları altta olur. Birlikte bakalım.
+
+[game_3c3e8f3bf784b2a4]
+Güzel gidiyorsun!
+
+[game_62340b2635a94601]
+Tekrar Oyna
+
+[game_a7869068cb320a7c]
+Oyunlara Dön

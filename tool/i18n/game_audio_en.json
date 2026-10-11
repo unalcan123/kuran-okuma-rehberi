@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "language": "en",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_flash_v2_5",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "en",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    }
+  },
+  "entries": [
+    {
+      "id": "game_1163b4ee95e9e8b1",
+      "kind": "game",
+      "text": "Listen to the sound and drag the letter to the right place.",
+      "ttsText": "Listen to the sound and drag the letter to the right place.",
+      "file": "assets/audio/en/game_1163b4ee95e9e8b1.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:546eea2200920d3eda081b6393b348901e44c60f2a1c306443b977faacaa7cf8"
+    },
+    {
+      "id": "game_76383fc2e674b663",
+      "kind": "game",
+      "text": "Listen to the sound and choose the correct answer.",
+      "ttsText": "Listen to the sound and choose the correct answer.",
+      "file": "assets/audio/en/game_76383fc2e674b663.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:ea81c7936ae7292b8ca9fcbe1a5bb82323f0992ba318cdaf4bf27e70f9fe5ed3"
+    },
+    {
+      "id": "game_6699058eadcc8a1e",
+      "kind": "game",
+      "text": "Remember the letters and their positions. Tap a letter to hear it.",
+      "ttsText": "Remember the letters and their positions. Tap a letter to hear it.",
+      "file": "assets/audio/en/game_6699058eadcc8a1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:70bf624dc5e92f94a04af2ebe1cfdb83778bfa51cbc8d2c800dd6f8eec62cc68"
+    },
+    {
+      "id": "game_22befd00bdb2fd62",
+      "kind": "game",
+      "text": "Find the matching letters.",
+      "ttsText": "Find the matching letters.",
+      "file": "assets/audio/en/game_22befd00bdb2fd62.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:dc2727bbda0d706389c676281da3e3f574c59d5cab237d87708368149f31ab0d"
+    },
+    {
+      "id": "game_dbe823f3a90768fe",
+      "kind": "game",
+      "text": "Find every form of the same letter.",
+      "ttsText": "Find every form of the same letter.",
+      "file": "assets/audio/en/game_dbe823f3a90768fe.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:c02b46102e3f04e74c4540ed8558459f54f22d85b1e18f9cfdd96dc2389dc756"
+    },
+    {
+      "id": "game_80ea5039cfcaba33",
+      "kind": "game",
+      "text": "Find the letter among similar letters.",
+      "ttsText": "Find the letter among similar letters.",
+      "file": "assets/audio/en/game_80ea5039cfcaba33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:2b7b5fff70c4531f6b184b674b14d4cb85c3f8d88ae956fabac940f4068065fd"
+    },
+    {
+      "id": "game_31d31c3da808fd12",
+      "kind": "game",
+      "text": "Tap the letter inside the words.",
+      "ttsText": "Tap the letter inside the words.",
+      "file": "assets/audio/en/game_31d31c3da808fd12.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:4fc85e984d72642bbae9b583c2c3cc8c2f3ef5b754e7cfc9a273796507ef7391"
+    },
+    {
+      "id": "game_48b76d43e605c0cd",
+      "kind": "game",
+      "text": "Find the matching letters and fill the carriages!",
+      "ttsText": "Find the matching letters and fill the carriages!",
+      "file": "assets/audio/en/game_48b76d43e605c0cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:346fc6ade47ae1ce99d6e9665fb1a954eafbac8bd60fcb7356e185d8bed68f44"
+    },
+    {
+      "id": "game_a2706d5ac68952cd",
+      "kind": "game",
+      "text": "Listen to the sound, find the right letter and pop the balloon!",
+      "ttsText": "Listen to the sound, find the right letter and pop the balloon!",
+      "file": "assets/audio/en/game_a2706d5ac68952cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:bfb4d073d6e9427641470aae2bf0ad2a723d058af5c4c165bb894b53f4bcd1ac"
+    },
+    {
+      "id": "game_9ebfbc7f7518cbdd",
+      "kind": "game",
+      "text": "Listen to the sound and catch the car with the right letter!",
+      "ttsText": "Listen to the sound and catch the car with the right letter!",
+      "file": "assets/audio/en/game_9ebfbc7f7518cbdd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:daf9bcc531a4ef5e47d5a430eae993918bba09cc39a8e6490702a6c53e149ead"
+    },
+    {
+      "id": "game_0d44cf633f9e8dea",
+      "kind": "game",
+      "text": "Listen to and watch the letter. Press the button to see how to draw it.",
+      "ttsText": "Listen to and watch the letter. Press the button to see how to draw it.",
+      "file": "assets/audio/en/game_0d44cf633f9e8dea.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:c84f1d80f70eb8dd8a5c2eaa8a6aac8723787bb988b2c92aa044262ea63fd40c"
+    },
+    {
+      "id": "game_088fa9be949d3bf9",
+      "kind": "game",
+      "text": "Let's look together: watch how the letter is drawn.",
+      "ttsText": "Let's look together: watch how the letter is drawn.",
+      "file": "assets/audio/en/game_088fa9be949d3bf9.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:c010727b245458c9192895d0afa9806997a7574b7e112f6bd0a2b8e792d48edc"
+    },
+    {
+      "id": "game_52e28a03234a1b33",
+      "kind": "game",
+      "text": "This letter's dots go above it. Let's look together.",
+      "ttsText": "This letter's dots go above it. Let's look together.",
+      "file": "assets/audio/en/game_52e28a03234a1b33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:3a23850eb114440c53d1d80fab343a0608123fb3afc82b43a0fe730c0dd88248"
+    },
+    {
+      "id": "game_9e452fdee48f0527",
+      "kind": "game",
+      "text": "This letter's dots go below it. Let's look together.",
+      "ttsText": "This letter's dots go below it. Let's look together.",
+      "file": "assets/audio/en/game_9e452fdee48f0527.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:ae0ff70d612cd1a7ff781d8248191f7ee2baed00eb6aa1f34c2671c0269e4ef8"
+    },
+    {
+      "id": "game_3c3e8f3bf784b2a4",
+      "kind": "game",
+      "text": "You're doing well!",
+      "ttsText": "You're doing well!",
+      "file": "assets/audio/en/game_3c3e8f3bf784b2a4.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:bcfb355067b276654e96d2c8d99afa80e6130bbcb9c575ab553671e3469ce27a"
+    },
+    {
+      "id": "game_62340b2635a94601",
+      "kind": "game",
+      "text": "Play again",
+      "ttsText": "Play again",
+      "file": "assets/audio/en/game_62340b2635a94601.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:5ef30d27f8bc261c9af7c5220ebca9e22ad51e60ff89bbdccceeb7102e21a32f"
+    },
+    {
+      "id": "game_a7869068cb320a7c",
+      "kind": "game",
+      "text": "Back to games",
+      "ttsText": "Back to games",
+      "file": "assets/audio/en/game_a7869068cb320a7c.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:7c84229540fabf0374a681d90d148b075261934d96e696295f6b0803cd7da67c"
+    }
+  ]
+}

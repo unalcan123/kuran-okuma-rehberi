@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/reading_segment.dart';
@@ -141,8 +142,8 @@ class ReadingSegmentCard extends StatelessWidget {
                 key: ValueKey('reading-play-$index'),
                 tooltip:
                     isActive && isPlaying
-                        ? 'Duraklat'
-                        : (opening ? 'Besmeleyi dinle' : 'Bunu dinle'),
+                        ? context.t('Duraklat')
+                        : context.t(opening ? 'Besmeleyi dinle' : 'Bunu dinle'),
                 onPressed: onPlay,
                 constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
                 iconSize: 34,
@@ -200,7 +201,7 @@ class _Note extends StatelessWidget {
       children: [
         const Divider(color: AppColors.divider, height: 16),
         Text(
-          title,
+          context.t(title),
           style: Theme.of(context).textTheme.labelLarge?.copyWith(
             color: AppColors.turquoise,
             fontWeight: FontWeight.w800,
@@ -208,7 +209,7 @@ class _Note extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          text,
+          context.t(text),
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
             color: AppColors.textSecondary,
             height: 1.5,
@@ -242,14 +243,14 @@ class _YourTurn extends StatelessWidget {
       spacing: 12,
       runSpacing: 10,
       children: [
-        const Row(
+        Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.record_voice_over_rounded, color: AppColors.gold),
             SizedBox(width: 8),
             Flexible(
               child: Text(
-                'Şimdi sen oku',
+                context.t("Şimdi sen oku"),
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w800,
@@ -264,7 +265,7 @@ class _YourTurn extends StatelessWidget {
           onPressed: onReveal,
           style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
           icon: const Icon(Icons.visibility_rounded),
-          label: const Text('Göster'),
+          label: Text(context.t("Göster")),
         ),
       ],
     ),

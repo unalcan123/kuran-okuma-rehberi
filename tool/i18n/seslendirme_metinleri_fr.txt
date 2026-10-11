@@ -1,0 +1,676 @@
+# SESLENDIRME METINLERI — FR
+# Her [kayit_kimligi] altindaki metni duzenleyebilirsin.
+# Kimlik satirlarini silme veya degistirme. Bu dosya sesi degistirir; ekrandaki metni degistirmez.
+# Arapca harfler seslendirme metninde Latin harfleriyle yazilmistir.
+
+[x_b82c6976cab96a17]
+Découvrons les lettres
+
+[x_0f4bcb723513e72a]
+28 lettres • Le premier pas dans l'alphabet arabe
+
+[s047_baslik_1]
+DOUBLE DAMMA LETTRES
+
+[s006_01]
+L'alphabet du Coran comprend 28 lettres. - 7 sont considérées comme emphatiques et 21 comme légères. - Les lettres emphatiques sont : Kha Sad Dad Ta emphatique Za emphatique Ghayn Qaf
+
+[x_f40fb061502cb509]
+7 sont considérées comme emphatiques et 21 comme légères.
+
+[x_71a9851229f63d6d]
+Les lettres emphatiques sont : Kha Sad Dad Ta emphatique Za emphatique Ghayn Qaf
+
+[s010_baslik_1]
+DES LETTRES DES FORMES INITIALES, MÉDIANES ET FINALES
+
+[s007_baslik_1]
+DES LETTRES ÉCRITURE ET PRONONCIATION
+
+[x_6a0d9bbec6326699]
+Les lettres du Coran
+
+[x_a485a0a32993e75e]
+L'alphabet du Coran comprend 28 lettres. On considère 7 lettres comme emphatiques et 21 comme légères. Les lettres emphatiques sont : Kha Sad Dad Ta emphatique Za emphatique Ghayn Qaf
+
+[x_c56cf2512dc306b7]
+L'écriture des lettres
+
+[x_7bc7708c9751a4aa]
+29 lettres • Formes initiales, médianes et finales
+
+[s008_baslik_1]
+LAM - ALIF
+
+[s008_01]
+LAM-ALIF ( Lam Alif ) est une forme spéciale représentant la liaison de lam ( Lam ) avec alif ou hamza ( Alif Hamza ). Ce n'est pas une lettre indépendante. * Comme son nom l'indique, dans LAM-ALIF, on lit d'abord lam, puis alif. La partie droite représente lam et la partie gauche alif.
+
+[x_e7f283474e3b8c77]
+Comme son nom l'indique, dans LAM-ALIF, on lit d'abord lam, puis alif. La partie droite représente lam et la partie gauche alif.
+
+[s008_02]
+Si lam est relié à un alif sans voyelle, celui-ci prolonge lam, qui se lit lā. * Si c'est une hamza qui est reliée à lam, les deux lettres se lisent avec leur propre voyelle.
+
+[x_1cb022bf5738e743]
+Si c'est une hamza qui est reliée à lam, les deux lettres se lisent avec leur propre voyelle.
+
+[s008_03]
+Lam-alif ne se relie aux autres lettres que par sa droite.
+
+[x_30a4198490501369]
+Voici ses formes d'écriture :
+
+[s008_baslik_2]
+FORMES DE LAM-ALIF
+
+[x_4216f159ff83b111]
+EXEMPLES
+
+[x_90e33b27649ad0f9]
+Chaque lettre d'un mot se relie à la lettre précédente. Cependant, les lettres Dhal Dal Alif Zay Ra Waw ne se relient pas à la lettre suivante. Voyons comment les lettres se relient dans les mots. N'essayons pas encore de lire les mots : nous n'avons pas encore appris les signes vocaliques.
+
+[x_42cf42e6c42fcdf9]
+Fatha
+
+[x_14d9ca57d9049ae3]
+92 enregistrements • Lettre + fatha et lecture de mots
+
+[s020_baslik_1]
+SIGNES VOCALIQUES DAMMA
+
+[s014_baslik_1]
+SIGNES VOCALIQUES FATHA
+
+[s014_01]
+Les signes vocaliques ressemblent aux voyelles du turc. - Cependant, aucune ne correspond exactement aux voyelles que nous connaissons.
+
+[x_cebf9ddad8b8dfca]
+Cependant, aucune ne correspond exactement aux voyelles que nous connaissons.
+
+[s014_02]
+La fatha est un petit trait au-dessus de la lettre, incliné vers le bas à gauche. Elle donne un son E aux lettres légères et un son A aux lettres emphatiques.
+
+[s015_01]
+Rappelons que la fatha donne un son E aux lettres légères et un son A aux lettres emphatiques.
+
+[x_22e0507842fcf856]
+Le signe fatha
+
+[x_c62e23b9551c4568]
+La fatha est un petit trait au-dessus de la lettre, incliné vers le bas à gauche. Elle donne un son E aux lettres légères et un son A aux lettres emphatiques.
+
+[x_81d7939a0d187c0b]
+Kasra
+
+[x_7a758e6c92667f99]
+84 enregistrements • Lettre + kasra et lecture de mots
+
+[s017_baslik_1]
+SIGNES VOCALIQUES KASRA
+
+[s017_01]
+C'est un petit trait sous la lettre, incliné vers le bas à gauche. Il donne un son i aux lettres légères et un son allant du ı turc sans point vers i aux lettres emphatiques.
+
+[x_98bd13567b37dd3f]
+Le signe kasra
+
+[x_8de58fb628e2a7f8]
+La kasra est un petit trait sous la lettre, incliné vers le bas à gauche. Elle donne un son İ aux lettres légères et un son allant du I turc vers İ aux lettres emphatiques.
+
+[x_8c6bfd229e811845]
+Damma
+
+[x_3310d4d4e9855cd8]
+92 enregistrements • Lettre + damma et lecture de mots
+
+[s020_01]
+C'est un signe au-dessus de la lettre qui ressemble à un petit waw. Il donne aux lettres légères un son entre U et Ü et aux lettres emphatiques un son U.
+
+[x_48432a69ef21d522]
+Il donne aux lettres légères un son entre U et Ü et aux lettres emphatiques un son U.
+
+[x_935d97c874476276]
+Le signe damma
+
+[x_3be206abeada3069]
+La damma est un signe au-dessus de la lettre qui ressemble à un petit waw. Elle donne aux lettres légères un son entre U et Ü et aux lettres emphatiques un son U.
+
+[x_c1e944311da3969a]
+Classées par point d'articulation
+
+[x_0ae086cfc717a76f]
+28 enregistrements • Lettre + trois voyelles, par articulation
+
+[s023_baslik_1]
+LETTRES VOCALISÉES
+
+[x_38db3a3a51a8181e]
+(Selon le point d'articulation)
+
+[x_49e5c7d0e211ff24]
+Cette leçon classe les lettres selon leur point d'articulation dans la bouche, et non par ordre alphabétique. Chaque lettre est lue avec les trois signes vocaliques : fatha, kasra et damma.
+
+[x_4932ab9aca1d314d]
+Soukoun
+
+[x_5bf8d8b2bb617cdb]
+81 enregistrements • Hamza + lettre + soukoun, avec trois voyelles
+
+[s024_baslik_1]
+SOUKOUN
+
+[s024_01]
+C'est un petit signe rond au-dessus de la lettre. Il indique que la lettre se prononce sans ajouter de voyelle.
+
+[s024_02]
+Pour bien reconnaître chaque lettre avec soukoun, lisons-la en plaçant devant elle, tour à tour, une hamza avec fatha, kasra et damma.
+
+[x_27e0c2b29bd68924]
+Le soukoun est un petit signe rond au-dessus de la lettre. Il sert à lire la lettre reliée à la précédente, sans ajouter de voyelle propre.
+
+[x_098cefa838898047]
+Exemples avec les signes vocaliques
+
+[x_e146011776dfddbb]
+52 enregistrements • Lecture de mots avec fatha, kasra, damma et soukoun
+
+[x_40775b72173dc32b]
+Entraînement à la lecture de mots combinant fatha, kasra, damma et soukoun.
+
+[x_25c0e6dfb78bd73c]
+Chadda
+
+[x_8fa1feca1dfa2c3d]
+56 enregistrements • Paires de lettre + chadda
+
+[s028_baslik_1]
+CHADDA
+
+[s028_01]
+C'est un signe au-dessus de la lettre, semblable à un m renversé, qui fait lire la lettre deux fois. La lettre portant une chadda porte aussi un signe vocalique.
+
+[x_525749d1702ba4ca]
+La chadda fait lire la lettre deux fois. La lettre portant une chadda porte aussi une voyelle. Exemples en turc : cennet, anne, himmet.
+
+[x_afa2f17b321ebdf6]
+Exemples avec chadda
+
+[x_862db07c5ab1a8a5]
+64 enregistrements • Lecture de mots avec chadda
+
+[x_def4f63df7e7022d]
+Entraînement à la lecture de mots avec des lettres portant une chadda.
+
+[x_3ac5fd22fdbdcd3f]
+Lettres de prolongation - Alif
+
+[x_dd49c94435908c6d]
+28 enregistrements • Prolongation avec fatha + alif
+
+[s032_baslik_1]
+LETTRES DE PROLONGATION ALIF
+
+[s032_01]
+Il prolonge pendant deux temps la lettre portant une fatha. Si elle est emphatique, le son est A ; si elle est légère, le son est entre E et A.
+
+[s032_02]
+Lettres de prolongation (MADD) ( Alif Waw ) : ce sont les lettres sans voyelle ( Waw ), ( Alif ) et ( ), que nous appelons waw, alif et ya. Elles prolongent la lettre précédente.
+
+[x_9656e3ffcf82befc]
+Lettres de prolongation (MADD) ( Alif Waw ) : ce sont les lettres sans voyelle ( Waw ), ( Alif ) et ( ), que nous appelons waw, alif et ya. Elles prolongent la lettre précédente. Alif: Il prolonge pendant deux temps la lettre portant une fatha. Si elle est emphatique, le son est A ; si elle est légère, le son est entre E et A.
+
+[x_6b4efc8093d9600b]
+Lettres de prolongation - Alif - Exemples
+
+[x_72dc3a39d4a06fe1]
+28 enregistrements • Lecture de mots prolongés avec alif
+
+[x_a4bcc9ec7b80f61a]
+Entraînement à la lecture de mots prolongés avec alif (madd).
+
+[x_c735235867cdab56]
+Lettres de prolongation - Ya
+
+[x_769c123c25774a2c]
+28 enregistrements • Prolongation avec kasra + ya
+
+[s034_baslik_1]
+YA
+
+[s034_01]
+Il prolonge pendant deux temps la lettre précédente portant une kasra. Si la lettre est légère, elle se prolonge avec le son İ ; si elle est emphatique, avec un son allant du I turc vers İ.
+
+[x_30a7c99b0d09fd6e]
+Si la lettre est légère, elle se prolonge avec le son İ ; si elle est emphatique, avec un son allant du I turc vers İ.
+
+[x_e6a80b77900962d7]
+Il prolonge pendant deux temps la lettre précédente portant une kasra. Si elle est légère, le son est İ ; si elle est emphatique, il est proche du I turc.
+
+[x_6ceec3c1c26cca34]
+Lettres de prolongation - Ya - Exemples
+
+[x_080991ab999c73e9]
+28 enregistrements • Lecture de mots prolongés avec ya
+
+[x_91b3a380f22f9ca7]
+Entraînement à la lecture de mots prolongés avec ya (madd).
+
+[x_6deeb6f1701c7458]
+Lettres de prolongation - Waw
+
+[x_d4b1924c203c31ea]
+28 enregistrements • Prolongation avec damma + waw
+
+[s038_baslik_1]
+Prolongation en fin de mot WAW
+
+[s036_01]
+Il prolonge pendant deux temps la lettre précédente portant une damma. Si la lettre est emphatique, elle se prolonge avec U ; si elle est légère, avec un son entre U et Ü.
+
+[x_e63df5af43637e14]
+Si la lettre est emphatique, elle se prolonge avec U ; si elle est légère, avec un son entre U et Ü.
+
+[x_0e483c448c80cdce]
+Il prolonge pendant deux temps la lettre précédente portant une damma. Si elle est emphatique, le son est U ; si elle est légère, il est entre U et Ü.
+
+[x_67ba269dfa1e5038]
+Lettres de prolongation - Waw - Exemples
+
+[x_ae7ee980fbd46713]
+28 enregistrements • Lecture de mots prolongés avec waw
+
+[x_729d66cdf58d7089]
+Entraînement à la lecture de mots prolongés avec waw (madd).
+
+[x_74e73f18eccdfabf]
+Lettres de prolongation - Waw - En fin de mot
+
+[x_eb1bb22d80a3312c]
+9 enregistrements • Prolongation avec waw en fin de mot
+
+[s038_01]
+Parfois, un WAW sans voyelle en fin de mot prolonge à lui seul la lettre avec damma à laquelle il est relié, comme dans ( Dhu Dhū ). * Souvent, cet WAW est également suivi d'un ALIF. Cet ALIF n'ajoute pas de prolongation : la durée reste de deux temps.
+
+[x_ce7ca2438600a54a]
+Souvent, cet WAW est également suivi d'un ALIF. Cet ALIF n'ajoute pas de prolongation : la durée reste de deux temps.
+
+[x_7b676c2262aae319]
+Parfois, un WAW sans voyelle en fin de mot prolonge à lui seul la lettre avec damma à laquelle il est relié, comme dans ( Dhu Dhū ). Souvent, cet WAW est également suivi d'un ALIF. Cet ALIF n'ajoute pas de prolongation : la durée reste de deux temps.
+
+[x_58d5026932499006]
+Petit alif vertical
+
+[x_7316892e1bb30a83]
+10 enregistrements • Prolongation avec le petit alif
+
+[s039_baslik_1]
+PETIT ALIF VERTICAL
+
+[s039_01]
+C'est le nom donné à la fatha écrite verticalement. * Il indique que la lettre portant ce signe se prolonge, qu'il y ait ou non une lettre de prolongation. * S'il y a une lettre de prolongation, peu importe qu'il s'agisse d'alif, de waw ou de ya. Dans tous les cas, elle prolonge la lettre portant ce signe dans la direction du son de la fatha.
+
+[x_beb761c4e84992e1]
+Il indique que la lettre portant ce signe se prolonge, qu'il y ait ou non une lettre de prolongation.
+
+[x_4649df589c14ddee]
+S'il y a une lettre de prolongation, peu importe qu'il s'agisse d'alif, de waw ou de ya. Dans tous les cas, elle prolonge la lettre portant ce signe dans la direction du son de la fatha.
+
+[x_107b461760d1b58a]
+Petit alif vertical () C'est le nom donné à la fatha écrite verticalement. Il indique que la lettre portant ce signe se prolonge, qu'il y ait ou non une lettre de prolongation.
+
+[x_0df408dd666b1c3e]
+Kasra verticale
+
+[x_6d082d7d98a8dbc6]
+8 enregistrements • Prolongation avec kasra verticale
+
+[s039_baslik_2]
+KASRA VERTICALE
+
+[s039_02]
+C'est le nom donné à la kasra écrite verticalement. * Qu'il y ait ou non une autre lettre de prolongation, elle prolonge dans la direction de la kasra la lettre sous laquelle elle est écrite.
+
+[x_7bdc91d8726cd924]
+Qu'il y ait ou non une autre lettre de prolongation, elle prolonge dans la direction de la kasra la lettre sous laquelle elle est écrite.
+
+[x_47fd3f1642a496c6]
+Kasra verticale ( ) C'est le nom donné à la kasra écrite verticalement. Qu'il y ait ou non une autre lettre de prolongation, elle prolonge dans la direction de la kasra la lettre sous laquelle elle est écrite.
+
+[x_5a3214211257a036]
+Tanwin - Double fatha
+
+[x_8e280f3ce388f430]
+88 enregistrements • Lettre + tanwin et lecture de mots
+
+[s040_baslik_1]
+TANWIN
+
+[x_c3b4622fe6885a8c]
+(DOUBLES SIGNES VOCALIQUES)
+
+[s040_01]
+Tanwin : Lorsqu'un même signe vocalique est placé deux fois sur une lettre, on l'appelle tanwin. En poursuivant la lecture, la lettre se termine comme si elle était suivie d'un noun avec soukoun ( Noun ). Il existe trois sortes de tanwin : double fatha, double kasra et double damma.
+
+[x_806899ee6f662f9a]
+Il existe trois sortes de tanwin : double fatha, double kasra et double damma.
+
+[s040_02]
+Ce sont deux petits traits superposés, inclinés vers le bas à gauche et placés au-dessus de la lettre. * En poursuivant la lecture, elle donne le son en aux lettres légères et an aux lettres emphatiques.
+
+[x_64d7457a9ff6dedf]
+En poursuivant la lecture, elle donne le son en aux lettres légères et an aux lettres emphatiques.
+
+[s040_baslik_2]
+LETTRES AVEC DOUBLE FATHA ( ) Fathatayn
+
+[s041_01]
+Un alif est généralement écrit à gauche de la lettre portant une double fatha. * Cet alif ne se prononce pas en poursuivant la lecture, mais sert de lettre de prolongation à l'arrêt. Le son noun du tanwin disparaît et la lettre se prolonge avec la fatha pendant deux temps. Le son est A pour une lettre emphatique et entre E et A pour une lettre légère.
+
+[x_5f67d27fbb01edec]
+Cet alif ne se prononce pas en poursuivant la lecture, mais sert de lettre de prolongation à l'arrêt. Le son noun du tanwin disparaît et la lettre se prolonge avec la fatha pendant deux temps. Le son est A pour une lettre emphatique et entre E et A pour une lettre légère.
+
+[x_71439c414a7220ef]
+Tanwin : Si un même signe vocalique est écrit deux fois sur une lettre, on l'appelle tanwin. En poursuivant la lecture, on ajoute à la fin du mot un son n qui n'est pas écrit comme une lettre.
+
+[x_f803b99672434279]
+Tanwin - Double kasra
+
+[x_14e181db748be447]
+92 enregistrements • Lettre + tanwin et lecture de mots
+
+[s044_baslik_1]
+DOUBLE KASRA LETTRES
+
+[x_e15b2f3a948d74e0]
+Tanwin - Double damma
+
+[x_23ac5515d9e75dc3]
+Article al - Lettres prononcées
+
+[x_9a88e8ede5a0591e]
+16 enregistrements • Prononciation de l’article al avec les lettres lunaires
+
+[s050_baslik_1]
+ALIF - LAM
+
+[s050_01]
+Nous avons vu que, pour écrire d'abord lam (Lam), puis alif (Alif) dans un mot, on utilise la forme lam-alif (Lam Alif).
+
+[s050_02]
+Si un mot commence par alif (Alif), puis lam avec soukoun (Lam), on parle de l'article alif-lam, ou simplement de l'article al (Alif Lam).
+
+[s050_03]
+Ici, l'alif (Alif) placé avant lam (Lam) fonctionne comme une hamza, car il peut porter une voyelle. Rappelons qu'un alif vocalisé qui ne sert pas à prolonger le son est appelé hamza.
+
+[s050_04]
+La lettre suivante détermine comment se prononce lam. Si c'est l'une des lettres (Hamza Ba Jim Ha Kha Ayn Ghayn Fa Qaf Kaf Mim Waw Ha ) de la phrase (Abghi hajjaka wa khaf aqeemahu), lam se prononce avec soukoun. Elles représentent la moitié des 28 lettres du Coran.
+
+[x_038c31203bc9a86c]
+Exemples :
+
+[x_38357289d15cc372]
+Article al - Lettres non prononcées
+
+[x_11921bda749f95f8]
+16 enregistrements • Prononciation de l’article al avec les lettres solaires
+
+[s051_01]
+Si l'une des 14 autres lettres (Dad Sad Chin Sin Zay Ra Dal Dhal Ta Tha Ta emphatique Za emphatique Lam Noun) suit, lam ne se prononce pas. La lettre suivante se prononce toujours avec une chadda.
+
+[x_33d09f4219a08cb7]
+L'article al et la hamza
+
+[x_e4e1700a27e7e1f9]
+9 enregistrements • Lecture de mots avec l’article al et hamza
+
+[x_8d40a624290ca269]
+LA HAMZA DE L'ARTICLE AL
+
+[s052_01]
+Nous avons vu les deux prononciations différentes de lam dans l'article al (Alif Lam). Voyons maintenant la hamza qui précède lam.
+
+[s052_02]
+En poursuivant depuis la lettre ou le mot précédent, la hamza de l'article al (Alif Lam) ne se prononce pas.
+
+[s052_03]
+Si la lecture commence par la hamza de l'article al (Alif Lam), elle se prononce toujours avec une fatha.
+
+[s052_04]
+Puisque sa voyelle n'est pas permanente, il est plus précis d'appeler cette hamza hamzat al-wasl.
+
+[x_916e28d6dfc7e4ca]
+Article al - Hamzat al-wasl
+
+[x_b6f314c196dcf6cf]
+12 enregistrements • Comparaison de hamzat al-wasl isolée et reliée
+
+[s053_baslik_1]
+HAMZA NON PRONONCÉE
+
+[x_dc90b2bbb6c1e2b7]
+(Hamzat al-wasl)
+
+[s053_01]
+Certaines hamzas en début de mot perdent leur voyelle lorsqu'on les lit avec le mot ou la lettre précédente, comme s'il n'y avait pas de hamza. Elles s'écrivent comme un alif sans voyelle (Alif). Un petit signe de liaison (Alif de liaison) peut indiquer qu'elles ne se prononcent pas. On les appelle hamzat al-wasl.
+
+[s053_02]
+Si l'on commence par cette lettre au début du mot, sans la relier à ce qui précède, elle se prononce avec sa voyelle.
+
+[s053_03]
+Dans la leçon précédente, nous avons vu que l'alif de chaque article alif-lam (Alif Lam) fonctionne aussi de cette manière.
+
+[x_86f5b8e231233867]
+Prolongation du pronom ha
+
+[x_29881b4b13fe0c1f]
+30 exemples • Quand le pronom hū/hī se prolonge ou non
+
+[s054_baslik_1]
+DU PRONOM HA ( Ha Ha ) PROLONGATION
+
+[s054_baslik_2]
+Quand prolonge-t-on la lettre ha ?
+
+[s054_01]
+Si la lettre précédant ha porte une voyelle, ha se prolonge. La lettre qui suit ha détermine la durée :
+
+[s054_02]
+Si une hamza suit le ha prolongé, il se prolonge pendant quatre temps.
+
+[x_6d1cb525ce29efc0]
+«Exemples :»
+
+[s054_03]
+Si une lettre autre qu'une hamza suit le ha prolongé, il se prolonge pendant deux temps.
+
+[s054_baslik_3]
+Quand ne prolonge-t-on pas la lettre ha ?
+
+[s054_04]
+Si une lettre de prolongation précède ha, celui-ci se lit sans prolongation. La lettre qui suit ha ne change pas cette règle.
+
+[x_94ed5dc0231585ae]
+La lettre qui suit ha ne change pas cette règle.
+
+[s055_01]
+Si une lettre avec soukoun précède ha, celui-ci se lit également sans prolongation. La lettre qui suit ha ne change pas cette règle.
+
+[x_a6eb86d55ff2c4aa]
+La lettre qui suit ha ne change pas cette règle.
+
+[s055_02]
+Si ha est relié à une lettre avec soukoun ou chadda du mot suivant, il ne se prolonge pas, même si la lettre précédente porte une voyelle.
+
+[x_1d1faaa83fcf957e]
+DU PRONOM HA
+
+[x_ee8e1cbd3c2079b9]
+Quand prolonge-t-on la lettre ha ? Si la lettre précédant ha porte une voyelle, ha se prolonge. La lettre qui suit ha détermine la durée : Si une hamza suit le ha prolongé, il se prolonge pendant quatre temps.
+
+[x_96c5d379513d8b1e]
+Si une lettre autre qu'une hamza suit le ha prolongé, il se prolonge pendant deux temps.
+
+[x_28754253bf2b3bf0]
+Quand ne prolonge-t-on pas la lettre ha ? Si une lettre de prolongation précède ha, celui-ci se lit sans prolongation. La lettre qui suit ha ne change pas cette règle.
+
+[x_61aadc3dfcac8192]
+Si une lettre avec soukoun précède ha, celui-ci se lit également sans prolongation. La lettre qui suit ha ne change pas cette règle.
+
+[x_1bfb1f81a526bd8d]
+Si ha est relié à une lettre avec soukoun ou chadda du mot suivant, il ne se prolonge pas, même si la lettre précédente porte une voyelle.
+
+[x_27786241ecd048a1]
+Signe de prolongation longue
+
+[x_77f7e81c04b47d5c]
+6 enregistrements • Prolongation avec le signe madd
+
+[s055_baslik_1]
+SIGNE DE PROLONGATION LONGUE
+
+[s055_03]
+Ce signe apparaît au-dessus de certaines prolongations de plus de deux temps. Les leçons de tajwid en donneront les détails.
+
+[x_4e1d669af6d7c6c3]
+Ta marbouta
+
+[x_e8f29b4a56c0aeae]
+12 enregistrements • Prononciation de ta marbouta à l’arrêt
+
+[s056_baslik_1]
+TA MARBOUTA
+
+[s056_01]
+Parfois, la lettre ta (Ta) s'écrit sous la forme ta marbouta : (Ta marbouta Ta marbouta). Cela n'arrive qu'en fin de mot. Reliée à la lettre précédente, elle s'écrit (Ta marbouta) ; sinon, elle s'écrit (Ta marbouta).
+
+[s056_02]
+À l'arrêt sur un mot terminé par ta marbouta, elle se prononce comme ha avec soukoun (Ha). En poursuivant vers le mot suivant, elle se prononce de nouveau comme ta, avec sa voyelle.
+
+[x_cfe5770979bae97f]
+Voyons l'application avec des exemples :
+
+[x_e5714a57261801f2]
+Arrêts en fin de mot
+
+[x_120b40ec2d1fb2f4]
+28 enregistrements • Prononciation des fins de mots à l’arrêt
+
+[s057_baslik_1]
+À LA FIN DU MOT SUR UNE LETTRE VOCALISÉE
+
+[x_b88ac8cf3bf1fad4]
+COMMENT S'ARRÊTER ?
+
+[x_498f7161c2217090]
+Comment s'arrêter sur une lettre vocalisée en fin de mot ?
+
+[s057_01]
+Lors de la lecture du Coran, nous nous arrêtons généralement à la fin des versets, aux signes d'arrêt ou lorsque nous avons besoin de respirer. Ces arrêts ne se font qu'à la fin des mots.
+
+[s057_02]
+On ne s'arrête pas en prononçant une fatha, une kasra ou une damma. Si la dernière lettre n'est pas déjà sans voyelle —avec soukoun ou comme lettre de prolongation—, sa voyelle est omise et elle se prononce comme si elle portait un soukoun.
+
+[s057_03]
+Pour le tanwin, voici la règle : avec une double fatha accompagnée d'un alif, on retire l'une des fathas. La lettre se lit avec une seule fatha, prolongée pendant deux temps.
+
+[s058_01]
+À l'arrêt sur une hamza avec double fatha écrite sans alif, on prolonge également pendant deux temps, comme s'il y avait un alif à côté.
+
+[s058_02]
+Sur les lettres avec double kasra ou double damma, on s'arrête avec soukoun.
+
+[x_58eb04ec1974a351]
+Quelques autres exemples :
+
+[x_481eab08538f248a]
+Exemples 1
+
+[x_20bddcdfee185870]
+24 enregistrements • Exemples de lecture générale
+
+[x_6aa191334112403e]
+Exemples 1
+
+[x_a2e7e3d43413bac8]
+Exemples de lecture générale réunissant toutes les règles apprises.
+
+[x_c09e400760ae1c4e]
+Exemples 2
+
+[x_e35317198f77e9b8]
+27 enregistrements • Exemples de lecture générale
+
+[x_40652d006998933c]
+Exemples 2
+
+[x_e9f0754f783d9731]
+Exemples 3
+
+[x_81c650f34f9ef7ba]
+18 enregistrements • Exemples de lecture générale
+
+[x_78536bbcb13116f5]
+Exemples 3
+
+[x_fe1c5274c7343aac]
+Exemples 4
+
+[x_1dba50210b528662]
+Exemples 4
+
+[s006_baslik_1]
+LETTRES
+
+[s036_baslik_1]
+WAW
+
+[game_1163b4ee95e9e8b1]
+Écoute le son et fais glisser la lettre au bon endroit.
+
+[game_76383fc2e674b663]
+Écoute le son et choisis la bonne réponse.
+
+[game_6699058eadcc8a1e]
+Retiens les lettres et leur place. Touche une lettre pour l’écouter.
+
+[game_22befd00bdb2fd62]
+Trouve les lettres identiques.
+
+[game_dbe823f3a90768fe]
+Trouve toutes les formes de la même lettre.
+
+[game_80ea5039cfcaba33]
+Retrouve la lettre parmi celles qui lui ressemblent.
+
+[game_31d31c3da808fd12]
+Touche la lettre dans les mots.
+
+[game_48b76d43e605c0cd]
+Trouve les lettres identiques et remplis les wagons !
+
+[game_a2706d5ac68952cd]
+Écoute le son, trouve la bonne lettre et éclate le ballon !
+
+[game_9ebfbc7f7518cbdd]
+Écoute le son et attrape la voiture avec la bonne lettre !
+
+[game_0d44cf633f9e8dea]
+Écoute et observe la lettre. Appuie sur le bouton pour voir comment la tracer.
+
+[game_088fa9be949d3bf9]
+Regardons ensemble : observe comment tracer la lettre.
+
+[game_52e28a03234a1b33]
+Les points de cette lettre sont au-dessus. Regardons ensemble.
+
+[game_9e452fdee48f0527]
+Les points de cette lettre sont au-dessous. Regardons ensemble.
+
+[game_3c3e8f3bf784b2a4]
+Tu te débrouilles très bien !
+
+[game_62340b2635a94601]
+Rejouer
+
+[game_a7869068cb320a7c]
+Retour aux jeux

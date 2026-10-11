@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "language": "tr",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_flash_v2_5",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "tr",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    }
+  },
+  "entries": [
+    {
+      "id": "game_1163b4ee95e9e8b1",
+      "kind": "game",
+      "text": "Sesi dinle, harfi doğru yere sürükle.",
+      "ttsText": "Sesi dinle, harfi doğru yere sürükle.",
+      "file": "assets/audio/tr/game_1163b4ee95e9e8b1.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:1163b4ee95e9e8b119bb05cf80681b92d03a61fd7114b5ab98e67e69de58be01"
+    },
+    {
+      "id": "game_76383fc2e674b663",
+      "kind": "game",
+      "text": "Sesi dinle, doğru olanı seç.",
+      "ttsText": "Sesi dinle, doğru olanı seç.",
+      "file": "assets/audio/tr/game_76383fc2e674b663.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:76383fc2e674b66343544db99a9d8dda6df2914ec2ceff09722c0a012cede1e8"
+    },
+    {
+      "id": "game_6699058eadcc8a1e",
+      "kind": "game",
+      "text": "Harfleri ve yerlerini aklında tut. Dokununca sesini dinlersin.",
+      "ttsText": "Harfleri ve yerlerini aklında tut. Dokununca sesini dinlersin.",
+      "file": "assets/audio/tr/game_6699058eadcc8a1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:6699058eadcc8a1ef77db091f49a3891c1dd2910af001d692a2d0aa4687b2151"
+    },
+    {
+      "id": "game_22befd00bdb2fd62",
+      "kind": "game",
+      "text": "Aynı harfleri bul.",
+      "ttsText": "Aynı harfleri bul.",
+      "file": "assets/audio/tr/game_22befd00bdb2fd62.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:22befd00bdb2fd62a68f2c9fed385e10e650061741feafa71c01ffae150e525f"
+    },
+    {
+      "id": "game_dbe823f3a90768fe",
+      "kind": "game",
+      "text": "Aynı harfin bütün yazılışlarını bul.",
+      "ttsText": "Aynı harfin bütün yazılışlarını bul.",
+      "file": "assets/audio/tr/game_dbe823f3a90768fe.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:dbe823f3a90768fe21074ff9f671c70b786cc4a03c615866d55277ed7a093f02"
+    },
+    {
+      "id": "game_80ea5039cfcaba33",
+      "kind": "game",
+      "text": "Aynı harfi benzerlerinin arasından bul.",
+      "ttsText": "Aynı harfi benzerlerinin arasından bul.",
+      "file": "assets/audio/tr/game_80ea5039cfcaba33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:80ea5039cfcaba33e07f16e5e26b0dea02d0fee926345da5e8fc003ec755de89"
+    },
+    {
+      "id": "game_31d31c3da808fd12",
+      "kind": "game",
+      "text": "Kelimelerin içinde harfe dokun.",
+      "ttsText": "Kelimelerin içinde harfe dokun.",
+      "file": "assets/audio/tr/game_31d31c3da808fd12.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:31d31c3da808fd126c61cf45b70298b402231cb75a841c986bfacc46017bcb2b"
+    },
+    {
+      "id": "game_48b76d43e605c0cd",
+      "kind": "game",
+      "text": "Aynı harfleri bul, vagonları doldur!",
+      "ttsText": "Aynı harfleri bul, vagonları doldur!",
+      "file": "assets/audio/tr/game_48b76d43e605c0cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:48b76d43e605c0cd33ad02d58c8974a5494a333cf43a6b46ca871cca5e7cf5b5"
+    },
+    {
+      "id": "game_a2706d5ac68952cd",
+      "kind": "game",
+      "text": "Sesi dinle, doğru harfi bul ve balonu patlat!",
+      "ttsText": "Sesi dinle, doğru harfi bul ve balonu patlat!",
+      "file": "assets/audio/tr/game_a2706d5ac68952cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:a2706d5ac68952cda0f4acd7867d4053ad34b99610b75afa07b5bcff7c90448e"
+    },
+    {
+      "id": "game_9ebfbc7f7518cbdd",
+      "kind": "game",
+      "text": "Sesi dinle, doğru harfli arabayı yakala!",
+      "ttsText": "Sesi dinle, doğru harfli arabayı yakala!",
+      "file": "assets/audio/tr/game_9ebfbc7f7518cbdd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:9ebfbc7f7518cbdd556cd25929e06bd0a1762338ef332fee97373ec16aa7eb90"
+    },
+    {
+      "id": "game_0d44cf633f9e8dea",
+      "kind": "game",
+      "text": "Harfi dinle ve izle. Nasıl çizildiğini görmek için düğmeye bas.",
+      "ttsText": "Harfi dinle ve izle. Nasıl çizildiğini görmek için düğmeye bas.",
+      "file": "assets/audio/tr/game_0d44cf633f9e8dea.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:0d44cf633f9e8dea007b4b4dee03d3e949e6f180f077b03cd0dc5d040c6d8ecd"
+    },
+    {
+      "id": "game_088fa9be949d3bf9",
+      "kind": "game",
+      "text": "Birlikte bakalım: harf nasıl çiziliyor, izle.",
+      "ttsText": "Birlikte bakalım: harf nasıl çiziliyor, izle.",
+      "file": "assets/audio/tr/game_088fa9be949d3bf9.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:088fa9be949d3bf9afddf6404007522cc97af6ba30b01d5d3a9f843b3e746cff"
+    },
+    {
+      "id": "game_52e28a03234a1b33",
+      "kind": "game",
+      "text": "Bu harfin noktaları üstte olur. Birlikte bakalım.",
+      "ttsText": "Bu harfin noktaları üstte olur. Birlikte bakalım.",
+      "file": "assets/audio/tr/game_52e28a03234a1b33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:52e28a03234a1b336f08cf12ecead195b8b3a9959633007ddc10744232bf0097"
+    },
+    {
+      "id": "game_9e452fdee48f0527",
+      "kind": "game",
+      "text": "Bu harfin noktaları altta olur. Birlikte bakalım.",
+      "ttsText": "Bu harfin noktaları altta olur. Birlikte bakalım.",
+      "file": "assets/audio/tr/game_9e452fdee48f0527.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:9e452fdee48f0527c6ddd0e989596060553fa5dfe43a2a4b87971d4921bf7c2b"
+    },
+    {
+      "id": "game_3c3e8f3bf784b2a4",
+      "kind": "game",
+      "text": "Güzel gidiyorsun!",
+      "ttsText": "Güzel gidiyorsun!",
+      "file": "assets/audio/tr/game_3c3e8f3bf784b2a4.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:3c3e8f3bf784b2a40fcf8edcc395e32025dd926c65e120fdd7cb548cf7d20425"
+    },
+    {
+      "id": "game_62340b2635a94601",
+      "kind": "game",
+      "text": "Tekrar Oyna",
+      "ttsText": "Tekrar Oyna",
+      "file": "assets/audio/tr/game_62340b2635a94601.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:62340b2635a946013ef13dd1e27271b105d84f277c0ddd5b9b37afe839561f81"
+    },
+    {
+      "id": "game_a7869068cb320a7c",
+      "kind": "game",
+      "text": "Oyunlara Dön",
+      "ttsText": "Oyunlara Dön",
+      "file": "assets/audio/tr/game_a7869068cb320a7c.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:a7869068cb320a7c71a9990f0399e53eb397d9f6426115f2d597e897b291a898"
+    }
+  ]
+}

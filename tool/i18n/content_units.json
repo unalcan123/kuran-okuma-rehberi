@@ -1,0 +1,8461 @@
+[
+  {
+    "source": "Giriş",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Harflerin Çıkış Yerleri",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": null,
+        "field": "title"
+      }
+    ],
+    "audioId": "x_6ba6ec2c501e1634"
+  },
+  {
+    "source": "Mahreçler • Derslere başlamadan önce",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_21ef53352eff3237"
+  },
+  {
+    "source": "Bilgi",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "type"
+      },
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "type"
+      },
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 5,
+        "field": "type"
+      }
+    ]
+  },
+  {
+    "source": "HARFLERİN ÇIKIŞ YERLERİ",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "heading",
+        "audio": "s003_baslik_1"
+      }
+    ],
+    "audioId": "s003_baslik_1"
+  },
+  {
+    "source": "Harfin çıkış yeri “Mahreç” kelimesi ile ifade edilir. Beş ana mahreç bölgesi vardır:",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.0",
+        "audio": "s003_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_01"
+  },
+  {
+    "source": "⟪1. CEVF:⟫ Nefes borusu ve ağız boşluğu bölgesidir.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.1",
+        "audio": "s003_02",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s003_02"
+  },
+  {
+    "source": "Nefesin geçtiği bu bölgeden, harekesiz ( «و ا ى» ) harfleri, yani Med (Uzatma) harfleri çıkar. Bu harfler harekesiz oldukları için tek başlarına okunamazlar. Harekeli bir harfe bitişir, onu uzatarak okuturlar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.2"
+      }
+    ],
+    "audioId": "x_99a94ff02f54af92"
+  },
+  {
+    "source": "⟪2. BOĞAZ:⟫",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.3",
+        "audio": "s003_baslik_2",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_baslik_2"
+  },
+  {
+    "source": "( «ء هـ» ) Boğazın göğse bitiştiği yerden çıkar. Hemze ( «ء» ), Elif’in ( «ا» ) harekeli halidir.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.4",
+        "audio": "s003_03",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_03"
+  },
+  {
+    "source": "( «ح ع» ) Boğazın ortasından çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.5",
+        "audio": "s003_04",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_04"
+  },
+  {
+    "source": "( «خ غ» ) Boğazın (ağız boşluğuna bitiştiği) üst kısmından çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.6",
+        "audio": "s003_05",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_05"
+  },
+  {
+    "source": "⟪3. DİL VE AĞIZ İÇİ:⟫",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.7",
+        "audio": "s003_baslik_3",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_baslik_3"
+  },
+  {
+    "source": "( «ق» ) Dil kökü ve tavanından çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.8",
+        "audio": "s003_06",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_06"
+  },
+  {
+    "source": "( «ك» ) Dil ortası ile dil kökü arası, ağız tavanına doğru kaldırılarak çıkarılır.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.9",
+        "audio": "s003_07",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_07"
+  },
+  {
+    "source": "( «ج ش ي» ) Dil ortası ağız tavanına doğru kaldırılarak çıkarılır.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.10",
+        "audio": "s003_08",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_08"
+  },
+  {
+    "source": "( «ض» ) Dilin yan tarafı, üst azı dişlerinin iç kısmına bastırıldıktan sonra yavaşça çekilerek çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.11",
+        "audio": "s003_09",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_09"
+  },
+  {
+    "source": "( «ل» ) Dil ucu sağ veya sol köşesinin, üst ön diş etlerine değdirilmesi ile çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.12",
+        "audio": "s003_10",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_10"
+  },
+  {
+    "source": "( «ن» ) Dil ucu altının, üst ön diş etlerine değdirilmesi ile çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 3,
+        "field": "intro.13",
+        "audio": "s003_11",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s003_11"
+  },
+  {
+    "source": "( «ر» ) Dildeki çıkış noktası, dil üstünün uca yakın kısmıdır. Dil ucu, üst ön damağa doğru kıvrılarak kaldırılır ve bu noktanın titretilmesi ile çıkar. Bu esnada dil; damak, diş gibi yerlere yapışmamalıdır.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.0",
+        "audio": "s004_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_01"
+  },
+  {
+    "source": "( «ط د ت» ) Dil ucu, üst ön iki dişin arkasına değdirilip çekilmesiyle çıkar. ( «ط» ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı da ayrıca üst damağa doğru kaldırılır.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.1",
+        "audio": "s004_02",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_02"
+  },
+  {
+    "source": "( «ص س ز» ) Dil ucu, alt ön iki dişin üst kısmına dokunur. Bu haldeyken, dil üzerinden kayan ses, alt ön dişlerin üstünden çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.2",
+        "audio": "s004_03",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_03"
+  },
+  {
+    "source": "( «ص» ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı da ayrıca üst damağa doğru kaldırılır.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.3",
+        "audio": "s004_04",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_04"
+  },
+  {
+    "source": "( «ظ ذ ث» ) Dil ucu, üst ön dişlerin keskin yerine değdirilerek çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.4",
+        "audio": "s004_05",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_05"
+  },
+  {
+    "source": "( «ظ» ) harfinde kalınlığı sağlamak için, dilin gerideki gövde kısmı da ayrıca üst damağa doğru kaldırılır.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.5",
+        "audio": "s004_06",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_06"
+  },
+  {
+    "source": "⟪4. DUDAK:⟫",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.6",
+        "audio": "s004_baslik_1",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_baslik_1"
+  },
+  {
+    "source": "( «ف» ) Üst ön dişlerin ucu, alt dudağın içine değdirilerek çıkar.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.7",
+        "audio": "s004_07",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_07"
+  },
+  {
+    "source": "( «و م ب» ) Bu harfler iki dudak harfidir. Dudakların kapatılmasıyla ( «م» ), kuvvetli kapatılıp açılmasıyla ( «ب» ), U pozisyonunda ileri uzatılmasıyla ( «و» ) çıkar. Yalnız, üstünlü ve esreli vâv harfinde ( «وِ وَ» ), dudağı uzattıktan sonra geri çekmek gerekirken, ötreli ve sakin vâvlarda ( «وْ وُ» ) sadece uzatmak yeterlidir.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.8",
+        "audio": "s004_08",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s004_08"
+  },
+  {
+    "source": "⟪5. GENİZ:⟫",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.9",
+        "audio": "s004_09",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s004_09"
+  },
+  {
+    "source": "Burun içi bölgesidir. Bu mahreçten harf çıkmaz. Gunne dediğimiz, sesin iki hareke miktarı tutulması işi burada yapılır.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.10"
+      }
+    ],
+    "audioId": "x_7cd2755acddfaebf"
+  },
+  {
+    "source": "⟪Önemli Not:⟫",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.11",
+        "audio": "s004_10",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s004_10"
+  },
+  {
+    "source": "1. Mahreçler için mutlaka seslendirme desteği alınız.",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 4,
+        "field": "intro.12"
+      }
+    ],
+    "audioId": "x_c6ea5ff4ad5e6cd9"
+  },
+  {
+    "source": "Geniz",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 5,
+        "field": "legend.0"
+      }
+    ]
+  },
+  {
+    "source": "Nefes Boşluğu",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 5,
+        "field": "legend.1"
+      }
+    ]
+  },
+  {
+    "source": "Dil",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 5,
+        "field": "legend.2"
+      }
+    ]
+  },
+  {
+    "source": "Dudaklar",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 5,
+        "field": "legend.3"
+      }
+    ]
+  },
+  {
+    "source": "Boğaz",
+    "locations": [
+      {
+        "lesson": "giris-harflerin-cikis-yerleri",
+        "page": 5,
+        "field": "legend.4"
+      }
+    ]
+  },
+  {
+    "source": "Ders 1",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Harfleri Tanıyalım",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "title"
+      }
+    ],
+    "audioId": "x_b82c6976cab96a17"
+  },
+  {
+    "source": "28 harf • Elifba'nın ilk adımı",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_0f4bcb723513e72a"
+  },
+  {
+    "source": "Elif",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.0.name"
+      }
+    ]
+  },
+  {
+    "source": "Be",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.1.name"
+      }
+    ]
+  },
+  {
+    "source": "Te",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.2.name"
+      }
+    ]
+  },
+  {
+    "source": "Se",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.3.name"
+      }
+    ]
+  },
+  {
+    "source": "Cim",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.4.name"
+      }
+    ]
+  },
+  {
+    "source": "Ha",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.3.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.5.name"
+      }
+    ]
+  },
+  {
+    "source": "Hı",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.5.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.6.name"
+      }
+    ]
+  },
+  {
+    "source": "Dal",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.7.name"
+      }
+    ]
+  },
+  {
+    "source": "Zel",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.8.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.8.name"
+      }
+    ]
+  },
+  {
+    "source": "Ra",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.9.name"
+      }
+    ]
+  },
+  {
+    "source": "Ze",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.28.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.29.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.10.name"
+      }
+    ]
+  },
+  {
+    "source": "Sin",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.30.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.31.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.32.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.11.name"
+      }
+    ]
+  },
+  {
+    "source": "Şın",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.9.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.33.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.34.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.35.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.12.name"
+      }
+    ]
+  },
+  {
+    "source": "Sad",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.36.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.37.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.38.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.13.name"
+      }
+    ]
+  },
+  {
+    "source": "Dad",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.11.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.39.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.40.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.41.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.28.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.29.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.14.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.14.name"
+      }
+    ]
+  },
+  {
+    "source": "Tı",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.42.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.43.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.44.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.30.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.31.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.15.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.15.name"
+      }
+    ]
+  },
+  {
+    "source": "Zı",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.45.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.46.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.47.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.32.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.33.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.16.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.16.name"
+      }
+    ]
+  },
+  {
+    "source": "Ayn",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.2.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.48.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.49.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.50.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.34.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.35.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.17.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.17.name"
+      }
+    ]
+  },
+  {
+    "source": "Gayn",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.4.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.51.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.52.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.53.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.36.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.37.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.18.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.18.name"
+      }
+    ]
+  },
+  {
+    "source": "Fe",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.54.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.55.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.56.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.38.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.39.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.19.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.19.name"
+      }
+    ]
+  },
+  {
+    "source": "Kaf",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.6.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.57.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.58.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.59.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.40.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.41.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.20.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.20.name"
+      }
+    ]
+  },
+  {
+    "source": "Kef",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.7.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.60.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.61.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.62.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.42.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.43.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.21.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.21.name"
+      }
+    ]
+  },
+  {
+    "source": "Lam",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.12.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.63.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.64.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.65.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.44.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.45.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.22.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.22.name"
+      }
+    ]
+  },
+  {
+    "source": "Mim",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.66.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.67.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.68.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.46.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.47.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.23.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.23.name"
+      }
+    ]
+  },
+  {
+    "source": "Nun",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.13.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.69.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.70.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.71.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.48.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.49.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.24.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.24.name"
+      }
+    ]
+  },
+  {
+    "source": "Vav",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.72.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.73.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.74.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.50.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.51.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.25.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.25.name"
+      }
+    ]
+  },
+  {
+    "source": "He",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.1.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.75.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.76.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.77.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.52.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.53.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.26.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.26.name"
+      }
+    ]
+  },
+  {
+    "source": "Ye",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.28.name"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "letter.10.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.78.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.79.name"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "letter.80.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.54.name"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.55.name"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "letter.27.name"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "letter.27.name"
+      }
+    ]
+  },
+  {
+    "source": "Konu",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 6,
+        "field": "type"
+      },
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 7,
+        "field": "type"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "type"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 11,
+        "field": "type"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 12,
+        "field": "type"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 13,
+        "field": "type"
+      },
+      {
+        "lesson": "ustun",
+        "page": 14,
+        "field": "type"
+      },
+      {
+        "lesson": "esre",
+        "page": 17,
+        "field": "type"
+      },
+      {
+        "lesson": "otre",
+        "page": 20,
+        "field": "type"
+      },
+      {
+        "lesson": "cezm",
+        "page": 24,
+        "field": "type"
+      },
+      {
+        "lesson": "cezm",
+        "page": 25,
+        "field": "type"
+      },
+      {
+        "lesson": "sedde",
+        "page": 28,
+        "field": "type"
+      },
+      {
+        "lesson": "sedde",
+        "page": 29,
+        "field": "type"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": 32,
+        "field": "type"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": 34,
+        "field": "type"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": 36,
+        "field": "type"
+      },
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": 38,
+        "field": "type"
+      },
+      {
+        "lesson": "ceker-ustun",
+        "page": 39,
+        "field": "type"
+      },
+      {
+        "lesson": "ceker-esre",
+        "page": 39,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 41,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": 44,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": 47,
+        "field": "type"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "type"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 55,
+        "field": "type"
+      }
+    ]
+  },
+  {
+    "source": "HARFLER",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 6,
+        "field": "heading",
+        "audio": "s006_baslik_1"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": 44,
+        "field": "heading",
+        "audio": "s044_baslik_1"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": 47,
+        "field": "heading",
+        "audio": "s047_baslik_1"
+      }
+    ],
+    "audioId": "s047_baslik_1"
+  },
+  {
+    "source": "- Kur’ân-ı Kerîm harfleri «28» tanedir.",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 6,
+        "field": "intro.0",
+        "audio": "s006_01",
+        "audioParas": 3
+      }
+    ],
+    "audioId": "s006_01"
+  },
+  {
+    "source": "- Bunların «7»’si kalın, «21»’i de ince harf olarak kabul edilir.",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 6,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_f40fb061502cb509"
+  },
+  {
+    "source": "- Kalın harfler şunlardır: «﴾ خ ص ض ط ظ غ ق ﴿»",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 6,
+        "field": "intro.2"
+      }
+    ],
+    "audioId": "x_71a9851229f63d6d"
+  },
+  {
+    "source": "HARFLERİN",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 7,
+        "field": "kicker",
+        "audio": "s007_baslik_1"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 11,
+        "field": "kicker",
+        "audio": "s010_baslik_1"
+      }
+    ],
+    "audioId": "s010_baslik_1"
+  },
+  {
+    "source": "YAZILIŞ VE OKUNUŞLARI",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": 7,
+        "field": "heading",
+        "audio": "s007_baslik_1"
+      }
+    ],
+    "audioId": "s007_baslik_1"
+  },
+  {
+    "source": "Kur’ân-ı Kerîm Harfleri",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_6a0d9bbec6326699"
+  },
+  {
+    "source": "Kur’ân-ı Kerîm harfleri 28 tanedir. Bunların 7’si kalın, 21’i ise ince harf olarak kabul edilir.\n\nKalın harfler şunlardır:\n\nخ ص ض ط ظ غ ق",
+    "locations": [
+      {
+        "lesson": "harfleri-taniyalim",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_a485a0a32993e75e"
+  },
+  {
+    "source": "Ders 2",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Harflerin Yazılışları",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_c56cf2512dc306b7"
+  },
+  {
+    "source": "29 harf • Baş, orta, son yazılışları",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_7bc7708c9751a4aa"
+  },
+  {
+    "source": "(elif kelimenin başında bulunmaz, hemze ise bulunur.)",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.0.formNote"
+      }
+    ]
+  },
+  {
+    "source": "Lam Elif",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "letter.27.name"
+      }
+    ]
+  },
+  {
+    "source": "LÂM - ELİF",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "heading",
+        "audio": "s008_baslik_1"
+      }
+    ],
+    "audioId": "s008_baslik_1"
+  },
+  {
+    "source": "* «LÂMELİF» ( «لا» ): Lâm ( «ل» ) harfinin, Elif veya Hemze ( «ا ء» ) ile bitişme durumunu gösteren özel bir şekildir. Harf değildir.",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "intro.0",
+        "audio": "s008_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s008_01"
+  },
+  {
+    "source": "* «LÂMELİF» adından da anlaşılacağı gibi önce Lâm, sonra Elif okunur. Sağ tarafı Lâm’ı, sol tarafı ise Elif’i gösterir.",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_e7f283474e3b8c77"
+  },
+  {
+    "source": "* Lâm’a bitişen harekesiz Elif ise; Lâm’ı uzatarak “Lâ” şeklinde okutur.",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "intro.2",
+        "audio": "s008_02",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s008_02"
+  },
+  {
+    "source": "* Eğer Lâm’a bitişen Hemze ise; her ikisi de kendi harekesi ile okunur.",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "intro.3"
+      }
+    ],
+    "audioId": "x_1cb022bf5738e743"
+  },
+  {
+    "source": "* Lâm-Elif diğer harflere yalnızca sağından birleşir.",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "intro.4",
+        "audio": "s008_03",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s008_03"
+  },
+  {
+    "source": "Yazılış durumları şöyledir:",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "intro.5"
+      }
+    ],
+    "audioId": "x_30a4198490501369"
+  },
+  {
+    "source": "LÂM - ELİF ŞEKİLLERİ",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "s0.title",
+        "audio": "s008_baslik_2"
+      }
+    ],
+    "audioId": "s008_baslik_2"
+  },
+  {
+    "source": "AYRI",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "s0.header.1"
+      }
+    ]
+  },
+  {
+    "source": "BİTİŞİK",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "s0.header.2"
+      }
+    ]
+  },
+  {
+    "source": "Lâm + Elif",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "s0.rowLabel.0"
+      }
+    ]
+  },
+  {
+    "source": "Lâm + Uzatmalı Hemze",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "s0.rowLabel.1"
+      }
+    ]
+  },
+  {
+    "source": "Lâm + Üstünlü veya Ötreli Hemze",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "s0.rowLabel.2"
+      }
+    ]
+  },
+  {
+    "source": "Lâm + Esreli Hemze",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 8,
+        "field": "s0.rowLabel.3"
+      }
+    ]
+  },
+  {
+    "source": "BAŞTA, ORTADA, SONDA YAZILIŞLARINA",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 11,
+        "field": "heading",
+        "audio": "s010_baslik_1"
+      }
+    ],
+    "audioId": "s010_baslik_1"
+  },
+  {
+    "source": "ÖRNEKLER",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": 11,
+        "field": "subheading"
+      },
+      {
+        "lesson": "ustun",
+        "page": 15,
+        "field": "heading"
+      },
+      {
+        "lesson": "esre",
+        "page": 18,
+        "field": "heading"
+      },
+      {
+        "lesson": "otre",
+        "page": 21,
+        "field": "heading"
+      },
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": 26,
+        "field": "heading"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": 30,
+        "field": "heading"
+      },
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": 33,
+        "field": "heading"
+      },
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": 35,
+        "field": "heading"
+      },
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": 37,
+        "field": "heading"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 42,
+        "field": "heading"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": 45,
+        "field": "heading"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": 48,
+        "field": "heading"
+      }
+    ],
+    "audioId": "x_4216f159ff83b111"
+  },
+  {
+    "source": "Kelimeyi oluşturan her harf, kendinden önceki harfe bitişir. Şu harfler ise ذ د ا ز ر و kendilerinden sonra gelen harflere bitişmez.\n\nHarflerin kelimelere nasıl bitiştiğini görelim. Kelimeleri okumaya çalışmayalım — harekeleri henüz öğrenmedik.",
+    "locations": [
+      {
+        "lesson": "harflerin-yazilislari",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_90e33b27649ad0f9"
+  },
+  {
+    "source": "Ders 3",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Üstün",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "title"
+      }
+    ],
+    "audioId": "x_42cf42e6c42fcdf9"
+  },
+  {
+    "source": "92 kayıt • Harf + üstün ve kelime okuma",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_14d9ca57d9049ae3"
+  },
+  {
+    "source": "Harf + Üstün",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.0.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.1.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.2.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.3.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.4.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.5.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.6.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.7.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.8.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.9.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.10.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.11.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.12.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.13.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.14.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.15.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.16.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.17.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.18.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.19.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.20.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.21.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.22.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.23.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.24.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.25.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.26.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.27.group"
+      }
+    ]
+  },
+  {
+    "source": "Kelime Okuma",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.28.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.29.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.30.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.31.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.32.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.33.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.34.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.35.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.36.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.37.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.38.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.39.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.40.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.41.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.42.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.43.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.44.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.45.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.46.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.47.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.48.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.49.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.50.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.51.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.52.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.53.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.54.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.55.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.56.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.57.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.58.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.59.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.60.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.61.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.62.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.63.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.64.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.65.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.66.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.67.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.68.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.69.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.70.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.71.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.72.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.73.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.74.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.75.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.76.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.77.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.78.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.79.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.80.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.81.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.82.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.83.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.84.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.85.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.86.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.87.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.88.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.89.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.90.group"
+      },
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "letter.91.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.28.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.29.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.30.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.31.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.32.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.33.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.34.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.35.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.36.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.37.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.38.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.39.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.40.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.41.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.42.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.43.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.44.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.45.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.46.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.47.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.48.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.49.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.50.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.51.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.52.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.53.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.54.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.55.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.56.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.57.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.58.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.59.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.60.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.61.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.62.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.63.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.64.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.65.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.66.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.67.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.68.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.69.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.70.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.71.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.72.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.73.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.74.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.75.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.76.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.77.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.78.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.79.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.80.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.81.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.82.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.83.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.28.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.29.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.30.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.31.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.32.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.33.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.34.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.35.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.36.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.37.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.38.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.39.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.40.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.41.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.42.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.43.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.44.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.45.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.46.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.47.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.48.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.49.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.50.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.51.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.52.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.53.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.54.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.55.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.56.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.57.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.58.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.59.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.60.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.61.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.62.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.63.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.64.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.65.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.66.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.67.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.68.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.69.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.70.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.71.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.72.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.73.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.74.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.75.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.76.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.77.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.78.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.79.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.80.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.81.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.82.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.83.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.84.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.85.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.86.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.87.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.88.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.89.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.90.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.91.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.0.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.1.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.2.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.3.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.4.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.5.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.6.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.7.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.8.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.9.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.10.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.11.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.12.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.13.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.14.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.15.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.16.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.17.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.18.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.19.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.20.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.21.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.22.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.23.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.24.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.25.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.26.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.27.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.28.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.29.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.30.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.31.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.32.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.33.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.34.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.35.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.36.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.37.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.38.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.39.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.40.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.41.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.42.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.43.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.44.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.45.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.46.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.47.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.48.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.49.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.50.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.51.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.52.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.53.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.54.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.55.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.56.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.57.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.58.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.59.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.60.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.61.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.62.group"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "letter.63.group"
+      }
+    ]
+  },
+  {
+    "source": "HAREKELER",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": 14,
+        "field": "kicker",
+        "audio": "s014_baslik_1"
+      },
+      {
+        "lesson": "esre",
+        "page": 17,
+        "field": "kicker",
+        "audio": "s017_baslik_1"
+      },
+      {
+        "lesson": "otre",
+        "page": 20,
+        "field": "kicker",
+        "audio": "s020_baslik_1"
+      }
+    ],
+    "audioId": "s020_baslik_1"
+  },
+  {
+    "source": "ÜSTÜN",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": 14,
+        "field": "heading",
+        "audio": "s014_baslik_1"
+      }
+    ],
+    "audioId": "s014_baslik_1"
+  },
+  {
+    "source": "- Harekeler, Türkçe’deki sesli harflere benzerler.",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": 14,
+        "field": "intro.0",
+        "audio": "s014_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s014_01"
+  },
+  {
+    "source": "- Fakat hiçbir hareke, bildiğimiz sesli harflerle birebir örtüşmez.",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": 14,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_cebf9ddad8b8dfca"
+  },
+  {
+    "source": "Üstün, harfin üzerine konan ve sol tarafından aşağı doğru eğik küçük bir çizgidir. İnce harflere “E”, kalın harflere ise “A” sesi verir.",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": 14,
+        "field": "intro.2",
+        "audio": "s014_02",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s014_02"
+  },
+  {
+    "source": "Örnekler",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": 15,
+        "field": "type"
+      },
+      {
+        "lesson": "ustun",
+        "page": 16,
+        "field": "type"
+      },
+      {
+        "lesson": "esre",
+        "page": 18,
+        "field": "type"
+      },
+      {
+        "lesson": "esre",
+        "page": 19,
+        "field": "type"
+      },
+      {
+        "lesson": "otre",
+        "page": 21,
+        "field": "type"
+      },
+      {
+        "lesson": "otre",
+        "page": 22,
+        "field": "type"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": 23,
+        "field": "type"
+      },
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": 26,
+        "field": "type"
+      },
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": 27,
+        "field": "type"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": 30,
+        "field": "type"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": 31,
+        "field": "type"
+      },
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": 33,
+        "field": "type"
+      },
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": 35,
+        "field": "type"
+      },
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": 37,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 42,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 43,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": 45,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": 46,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": 48,
+        "field": "type"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": 49,
+        "field": "type"
+      },
+      {
+        "lesson": "alistirmalar-1",
+        "page": 60,
+        "field": "type"
+      },
+      {
+        "lesson": "alistirmalar-2",
+        "page": 61,
+        "field": "type"
+      },
+      {
+        "lesson": "alistirmalar-3",
+        "page": 62,
+        "field": "type"
+      },
+      {
+        "lesson": "alistirmalar-4",
+        "page": 63,
+        "field": "type"
+      }
+    ]
+  },
+  {
+    "source": "Üstün’ün ince harflere “E”, kalın harflere ise “A” sesi verdiğini hatırlayalım.",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": 15,
+        "field": "intro.0",
+        "audio": "s015_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s015_01"
+  },
+  {
+    "source": "Üstün Harekesi",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_22e0507842fcf856"
+  },
+  {
+    "source": "Üstün, harfin üzerine konan ve sol tarafından aşağı doğru eğik küçük bir çizgidir. İnce harflere “E” kalın harflere ise “A” sesi verir.",
+    "locations": [
+      {
+        "lesson": "ustun",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_c62e23b9551c4568"
+  },
+  {
+    "source": "Ders 4",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Esre",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "title"
+      }
+    ],
+    "audioId": "x_81d7939a0d187c0b"
+  },
+  {
+    "source": "84 kayıt • Harf + esre ve kelime okuma",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_7a758e6c92667f99"
+  },
+  {
+    "source": "Harf + Esre",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.0.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.1.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.2.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.3.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.4.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.5.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.6.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.7.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.8.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.9.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.10.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.11.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.12.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.13.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.14.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.15.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.16.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.17.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.18.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.19.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.20.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.21.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.22.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.23.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.24.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.25.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.26.group"
+      },
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "letter.27.group"
+      }
+    ]
+  },
+  {
+    "source": "ESRE",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": 17,
+        "field": "heading",
+        "audio": "s017_baslik_1"
+      }
+    ],
+    "audioId": "s017_baslik_1"
+  },
+  {
+    "source": "Harfin altına konan ve sol taraftan aşağı doğru eğik küçük bir çizgidir. İnce harflere “ i ” , kalın harflere ise “ ı ” dan “ i ” ye doğru yönelen bir ses verir.",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": 17,
+        "field": "intro.0",
+        "audio": "s017_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s017_01"
+  },
+  {
+    "source": "Esre Harekesi",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_98bd13567b37dd3f"
+  },
+  {
+    "source": "Esre, harfin altına konan ve sol taraftan aşağı doğru eğik küçük bir çizgidir. İnce harflere “İ” kalın harflere ise “I” dan “İ”ye doğru yönelen bir ses verir.",
+    "locations": [
+      {
+        "lesson": "esre",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_8de58fb628e2a7f8"
+  },
+  {
+    "source": "Ders 5",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Ötre",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "title"
+      }
+    ],
+    "audioId": "x_8c6bfd229e811845"
+  },
+  {
+    "source": "92 kayıt • Harf + ötre ve kelime okuma",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_3310d4d4e9855cd8"
+  },
+  {
+    "source": "Harf + Ötre",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.0.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.1.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.2.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.3.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.4.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.5.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.6.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.7.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.8.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.9.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.10.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.11.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.12.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.13.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.14.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.15.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.16.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.17.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.18.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.19.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.20.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.21.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.22.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.23.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.24.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.25.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.26.group"
+      },
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "letter.27.group"
+      }
+    ]
+  },
+  {
+    "source": "ÖTRE",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": 20,
+        "field": "heading",
+        "audio": "s020_baslik_1"
+      }
+    ],
+    "audioId": "s020_baslik_1"
+  },
+  {
+    "source": "Harfin üstüne konan ve küçük ⟪“Vâv”⟫ harfine benzer bir şekildir.",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": 20,
+        "field": "intro.0",
+        "audio": "s020_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s020_01"
+  },
+  {
+    "source": "İnce harflere ⟪“U-Ü”⟫ arası bir ses, kalın harflere ise ⟪“U”⟫ sesi verir.",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": 20,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_48432a69ef21d522"
+  },
+  {
+    "source": "Ötre Harekesi",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_935d97c874476276"
+  },
+  {
+    "source": "Ötre, harfin üstüne konan ve küçük “Vâv” harfine benzer bir şekildir.\n\nİnce harflere “U-Ü” arası bir ses, kalın harflere ise “U” sesi verir.",
+    "locations": [
+      {
+        "lesson": "otre",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_3be206abeada3069"
+  },
+  {
+    "source": "Ders 6",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Çıkış Yerleri Sıralı",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_c1e944311da3969a"
+  },
+  {
+    "source": "28 kayıt • Harf + üç hareke, mahreç sırasıyla",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_0ae086cfc717a76f"
+  },
+  {
+    "source": "HAREKELİ HARFLER",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": 23,
+        "field": "heading",
+        "audio": "s023_baslik_1"
+      }
+    ],
+    "audioId": "s023_baslik_1"
+  },
+  {
+    "source": "(Çıkış Yerleri Sırasına Göre)",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": 23,
+        "field": "subheading"
+      }
+    ],
+    "audioId": "x_38db3a3a51a8181e"
+  },
+  {
+    "source": "Boğaz mahreci",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": 23,
+        "field": "s0.frame.0"
+      }
+    ]
+  },
+  {
+    "source": "Dil mahreci",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": 23,
+        "field": "s0.frame.1"
+      }
+    ]
+  },
+  {
+    "source": "Dudak mahreci",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": 23,
+        "field": "s0.frame.2"
+      }
+    ]
+  },
+  {
+    "source": "Bu ders, harfleri alfabetik sırayla değil, ağızdaki çıkış (mahreç) yerlerine göre sıralar — her harf üç harekesiyle (üstün, esre, ötre) birlikte okunur.",
+    "locations": [
+      {
+        "lesson": "cikis-yerleri",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_49e5c7d0e211ff24"
+  },
+  {
+    "source": "Ders 7",
+    "locations": [
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Cezm",
+    "locations": [
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_4932ab9aca1d314d"
+  },
+  {
+    "source": "81 kayıt • Hemze + harf + cezm, üç harekeyle",
+    "locations": [
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_5bf8d8b2bb617cdb"
+  },
+  {
+    "source": "CEZİM",
+    "locations": [
+      {
+        "lesson": "cezm",
+        "page": 24,
+        "field": "heading",
+        "audio": "s024_baslik_1"
+      }
+    ],
+    "audioId": "s024_baslik_1"
+  },
+  {
+    "source": "Harfin üstüne konan, yuvarlak, küçük bir şekildir ve harfi, yönsüz olarak yalın bir şekilde okutur.",
+    "locations": [
+      {
+        "lesson": "cezm",
+        "page": 24,
+        "field": "intro.0",
+        "audio": "s024_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s024_01"
+  },
+  {
+    "source": "Her harfin cezimli durumunu iyice tanıyabilmek için, öncesine sırayla, üstün, esre ve ötreli bir «Hemze» getirerek okuyalım.",
+    "locations": [
+      {
+        "lesson": "cezm",
+        "page": 24,
+        "field": "intro.1",
+        "audio": "s024_02",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s024_02"
+  },
+  {
+    "source": "Cezm, harfin üstüne konan yuvarlak ve küçük bir şekildir.\n\nGörevi, üzerine geldiği harfi bir önceki harfe bağlayarak okutmasıdır.",
+    "locations": [
+      {
+        "lesson": "cezm",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_27e0c2b29bd68924"
+  },
+  {
+    "source": "Ders 8",
+    "locations": [
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Harekeler Örnekleri",
+    "locations": [
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_098cefa838898047"
+  },
+  {
+    "source": "52 kayıt • Üstün, esre, ötre ve cezm ile kelime okuma",
+    "locations": [
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_e146011776dfddbb"
+  },
+  {
+    "source": "Üstün, esre, ötre ve cezmi bir arada kullanan karma kelime okuma pratiği.",
+    "locations": [
+      {
+        "lesson": "harekeler-alistirmalari",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_40775b72173dc32b"
+  },
+  {
+    "source": "Ders 9",
+    "locations": [
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Şedde",
+    "locations": [
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_25c0e6dfb78bd73c"
+  },
+  {
+    "source": "56 kayıt • Harf + şedde çiftleri",
+    "locations": [
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_8fa1feca1dfa2c3d"
+  },
+  {
+    "source": "Harf + Şedde",
+    "locations": [
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.0.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.1.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.2.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.3.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.4.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.5.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.6.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.7.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.8.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.9.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.10.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.11.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.12.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.13.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.14.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.15.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.16.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.17.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.18.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.19.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.20.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.21.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.22.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.23.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.24.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.25.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.26.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.27.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.28.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.29.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.30.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.31.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.32.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.33.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.34.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.35.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.36.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.37.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.38.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.39.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.40.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.41.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.42.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.43.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.44.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.45.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.46.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.47.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.48.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.49.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.50.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.51.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.52.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.53.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.54.group"
+      },
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "letter.55.group"
+      }
+    ]
+  },
+  {
+    "source": "ŞEDDE",
+    "locations": [
+      {
+        "lesson": "sedde",
+        "page": 28,
+        "field": "heading",
+        "audio": "s028_baslik_1"
+      }
+    ],
+    "audioId": "s028_baslik_1"
+  },
+  {
+    "source": "Harfin üstüne konan, ters çevrilmiş “m” harfine benzer bir şekildir, ve harfi iki kere okutur. Şeddeli harf, aynı zamanda harekeli olur.",
+    "locations": [
+      {
+        "lesson": "sedde",
+        "page": 28,
+        "field": "intro.0",
+        "audio": "s028_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s028_01"
+  },
+  {
+    "source": "Şedde, harfi iki kere okutur. Şeddeli harf aynı zamanda harekeli olur.\n\nMesela: cennet, anne, himmet",
+    "locations": [
+      {
+        "lesson": "sedde",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_525749d1702ba4ca"
+  },
+  {
+    "source": "Ders 10",
+    "locations": [
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Şedde Örnekleri",
+    "locations": [
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_afa2f17b321ebdf6"
+  },
+  {
+    "source": "64 kayıt • Şeddeli kelime okuma",
+    "locations": [
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_862db07c5ab1a8a5"
+  },
+  {
+    "source": "Şeddeli harflerle kelime okuma pratiği.",
+    "locations": [
+      {
+        "lesson": "alistirmalar-sedde",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_def4f63df7e7022d"
+  },
+  {
+    "source": "Ders 11",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzatma Harfleri - Elif",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_3ac5fd22fdbdcd3f"
+  },
+  {
+    "source": "28 kayıt • Üstün + elif ile uzatma",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_dd49c94435908c6d"
+  },
+  {
+    "source": "Hemze",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "letter.0.name"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "letter.0.name"
+      }
+    ]
+  },
+  {
+    "source": "UZATMA HARFLERİ",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": 32,
+        "field": "kicker",
+        "audio": "s032_baslik_1"
+      }
+    ],
+    "audioId": "s032_baslik_1"
+  },
+  {
+    "source": "ELİF",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": 32,
+        "field": "heading",
+        "audio": "s032_baslik_1"
+      },
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": 33,
+        "field": "subheading"
+      }
+    ],
+    "audioId": "s032_baslik_1"
+  },
+  {
+    "source": "Üstünlü harfi iki hareke miktarı uzatır. Harf kalın ise “A” sesiyle, ince ise “E - A” arası bir sesle uzatır.",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": 32,
+        "field": "intro.0",
+        "audio": "s032_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s032_01"
+  },
+  {
+    "source": "«Uzatma (MED) Harfleri» ( «ى ا و» ): Kısaca “VÂY” harfleri dediğimiz, harekesiz ( «و» ), ( «ا» ) ve ( «ى» ) harfleridir. Bir önceki harfi uzatarak okutur.",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": 32,
+        "field": "intro.1",
+        "audio": "s032_02",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s032_02"
+  },
+  {
+    "source": "Uzatma (MED) Harfleri (و ا ي): Kısaca “VAY” harfleri dediğimiz (و), (ا) ve (ي) harfleridir. Bir önceki harfi uzatarak okutur.\n\nElif: Üstünlü harfi iki hareke miktarı uzatır. Harf kalın ise “A” sesiyle, ince ise “E-A” arası bir sesle uzatır.",
+    "locations": [
+      {
+        "lesson": "uzatma-elif",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_9656e3ffcf82befc"
+  },
+  {
+    "source": "Ders 12",
+    "locations": [
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzatma Harfleri - Elif Örnekleri",
+    "locations": [
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_6b4efc8093d9600b"
+  },
+  {
+    "source": "28 kayıt • Elif uzatmalı kelime okuma",
+    "locations": [
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_72dc3a39d4a06fe1"
+  },
+  {
+    "source": "Elif uzatmalı (medli) kelimelerle okuma pratiği.",
+    "locations": [
+      {
+        "lesson": "uzatma-elif-alistirmalari",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_a4bcc9ec7b80f61a"
+  },
+  {
+    "source": "Ders 13",
+    "locations": [
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzatma Harfleri - Ya",
+    "locations": [
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_c735235867cdab56"
+  },
+  {
+    "source": "28 kayıt • Esre + ye ile uzatma",
+    "locations": [
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_769c123c25774a2c"
+  },
+  {
+    "source": "YÂ",
+    "locations": [
+      {
+        "lesson": "uzatma-ya",
+        "page": 34,
+        "field": "heading",
+        "audio": "s034_baslik_1"
+      },
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": 35,
+        "field": "subheading"
+      }
+    ],
+    "audioId": "s034_baslik_1"
+  },
+  {
+    "source": "Kendinden önceki esreli harfi iki hareke miktarı uzatır.",
+    "locations": [
+      {
+        "lesson": "uzatma-ya",
+        "page": 34,
+        "field": "intro.0",
+        "audio": "s034_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s034_01"
+  },
+  {
+    "source": "Harf ince ise ⟦“İ”⟧ sesiyle, kalın ise ⟦“I”⟧ dan ⟦“İ”⟧ ye doğru bir sesle uzatır.",
+    "locations": [
+      {
+        "lesson": "uzatma-ya",
+        "page": 34,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_30a7c99b0d09fd6e"
+  },
+  {
+    "source": "Kendinden önceki esreli harfi iki hareke miktarı uzatır. Harf ince ise “İ” sesiyle, kalın ise “I” sesine yakın uzatılır.",
+    "locations": [
+      {
+        "lesson": "uzatma-ya",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_e6a80b77900962d7"
+  },
+  {
+    "source": "Ders 14",
+    "locations": [
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzatma Harfleri - Ya Örnekleri",
+    "locations": [
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_6ceec3c1c26cca34"
+  },
+  {
+    "source": "28 kayıt • Ye uzatmalı kelime okuma",
+    "locations": [
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_080991ab999c73e9"
+  },
+  {
+    "source": "Ye uzatmalı (medli) kelimelerle okuma pratiği.",
+    "locations": [
+      {
+        "lesson": "uzatma-ya-alistirmalari",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_91b3a380f22f9ca7"
+  },
+  {
+    "source": "Ders 15",
+    "locations": [
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzatma Harfleri - Vav",
+    "locations": [
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_6deeb6f1701c7458"
+  },
+  {
+    "source": "28 kayıt • Ötre + vav ile uzatma",
+    "locations": [
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_d4b1924c203c31ea"
+  },
+  {
+    "source": "VÂV",
+    "locations": [
+      {
+        "lesson": "uzatma-vav",
+        "page": 36,
+        "field": "heading",
+        "audio": "s036_baslik_1"
+      },
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": 37,
+        "field": "subheading"
+      },
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": 38,
+        "field": "heading",
+        "audio": "s038_baslik_1"
+      }
+    ],
+    "audioId": "s038_baslik_1"
+  },
+  {
+    "source": "Kendisinden önceki ötreli harfi iki hareke miktarı uzatır.",
+    "locations": [
+      {
+        "lesson": "uzatma-vav",
+        "page": 36,
+        "field": "intro.0",
+        "audio": "s036_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s036_01"
+  },
+  {
+    "source": "Harf kalın ise ⟪“U”⟫ sesiyle, ince ise ⟪“U-Ü”⟫ arası bir sesle uzatır.",
+    "locations": [
+      {
+        "lesson": "uzatma-vav",
+        "page": 36,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_e63df5af43637e14"
+  },
+  {
+    "source": "Kendinden önceki ötreli harfi iki hareke miktarı uzatır. Harf kalın ise “U” sesiyle, ince ise “U-Ü” arasında bir sesle uzatır.",
+    "locations": [
+      {
+        "lesson": "uzatma-vav",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_0e483c448c80cdce"
+  },
+  {
+    "source": "Ders 16",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzatma Harfleri - Vav Örnekleri",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_67ba269dfa1e5038"
+  },
+  {
+    "source": "28 kayıt • Vav uzatmalı kelime okuma",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_ae7ee980fbd46713"
+  },
+  {
+    "source": "Vav uzatmalı (medli) kelimelerle okuma pratiği.",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-alistirmalari",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_729d66cdf58d7089"
+  },
+  {
+    "source": "Ders 17",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzatma Harfleri - Vav Kelime Sonunda",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_74e73f18eccdfabf"
+  },
+  {
+    "source": "9 kayıt • Kelime sonunda vav uzatması",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_eb1bb22d80a3312c"
+  },
+  {
+    "source": "Kelime sonunda uzatan",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": 38,
+        "field": "kicker",
+        "audio": "s038_baslik_1"
+      }
+    ],
+    "audioId": "s038_baslik_1"
+  },
+  {
+    "source": "* Bazen kelime sonunda gelen harekesiz ⟪VÂV⟫, bitiştiği ötreli harfi tek başına uzatır. ⟪( ذُو  Zû )⟫ gibi.",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": 38,
+        "field": "intro.0",
+        "audio": "s038_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s038_01"
+  },
+  {
+    "source": "* Çoğu kez de bu ⟪VÂV⟫’dan sonra ELİF de bulunur. Bu durumda ELİF ilave bir uzatma görevi yapmaz. Uzatma miktarı yine iki hareke olur.",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": 38,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_ce7ca2438600a54a"
+  },
+  {
+    "source": "Bazen kelime sonunda gelen harekesiz Vâv, bittiği ötreli harfi tek başına uzatır. (ذُو “Zû”) gibi.\n\nÇoğu kez bu Vâv’dan sonra Elif bulunur. Bu durumda Elif ilave bir uzatma görevi yapmaz — uzatma miktarı yine iki hareke olur.",
+    "locations": [
+      {
+        "lesson": "uzatma-vav-kelime-sonunda",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_7b676c2262aae319"
+  },
+  {
+    "source": "Ders 18",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Çeker Üstün",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "ceker-ustun",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_58d5026932499006"
+  },
+  {
+    "source": "10 kayıt • Hançer elif ile uzatma",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_7316892e1bb30a83"
+  },
+  {
+    "source": "ÇEKER ÜSTÜN",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": 39,
+        "field": "heading",
+        "audio": "s039_baslik_1"
+      }
+    ],
+    "audioId": "s039_baslik_1"
+  },
+  {
+    "source": "* Dik yazılan Üstün’e verilen addır.",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": 39,
+        "field": "intro.0",
+        "audio": "s039_01",
+        "audioParas": 3
+      }
+    ],
+    "audioId": "s039_01"
+  },
+  {
+    "source": "* Uzatma harfi olsun veya olmasın, üstünde bulunduğu harfin uzatılacağını gösterir.",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": 39,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_beb761c4e84992e1"
+  },
+  {
+    "source": "* Eğer bir uzatma harfi varsa bunun, “Elif”, “Vâv” veya “Ye” olması fark etmez. Her durumda, üstünde bulunduğu harfi yukarı doğru, üstün sesi yönünde uzatır.",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": 39,
+        "field": "intro.2"
+      }
+    ],
+    "audioId": "x_4649df589c14ddee"
+  },
+  {
+    "source": "Çeker Üstün (ـٰـ)\n\nDik yazılan üstüne verilen addır. Uzatma harfi olsun veya olmasın, üstünde bulunduğu harfin uzatılacağını gösterir.",
+    "locations": [
+      {
+        "lesson": "ceker-ustun",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_107b461760d1b58a"
+  },
+  {
+    "source": "Ders 19",
+    "locations": [
+      {
+        "lesson": "ceker-esre",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Çeker Esre",
+    "locations": [
+      {
+        "lesson": "ceker-esre",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "ceker-esre",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_0df408dd666b1c3e"
+  },
+  {
+    "source": "8 kayıt • Alt hançer ile uzatma",
+    "locations": [
+      {
+        "lesson": "ceker-esre",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_6d082d7d98a8dbc6"
+  },
+  {
+    "source": "ÇEKER ESRE",
+    "locations": [
+      {
+        "lesson": "ceker-esre",
+        "page": 39,
+        "field": "heading",
+        "audio": "s039_baslik_2"
+      }
+    ],
+    "audioId": "s039_baslik_2"
+  },
+  {
+    "source": "* Dik yazılan Esre’ye verilen addır.",
+    "locations": [
+      {
+        "lesson": "ceker-esre",
+        "page": 39,
+        "field": "intro.0",
+        "audio": "s039_02",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s039_02"
+  },
+  {
+    "source": "* Ayrıca uzatma harfi olsun veya olmasın, altına yazıldığı harfi esre yönünde uzatarak okutur.",
+    "locations": [
+      {
+        "lesson": "ceker-esre",
+        "page": 39,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_7bdc91d8726cd924"
+  },
+  {
+    "source": "Çeker Esre ( ِ )\n\nDik yazılan esreye verilen addır. Altına yazıldığı harfi esre yönünde uzatarak okutur.",
+    "locations": [
+      {
+        "lesson": "ceker-esre",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_47fd3f1642a496c6"
+  },
+  {
+    "source": "Ders 20",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Tenvin - İki Üstün",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_5a3214211257a036"
+  },
+  {
+    "source": "88 kayıt • Harf + tenvin ve kelime okuma",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "subtitle"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_8e280f3ce388f430"
+  },
+  {
+    "source": "TENVİNLER",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "heading",
+        "audio": "s040_baslik_1"
+      }
+    ],
+    "audioId": "s040_baslik_1"
+  },
+  {
+    "source": "(ÇİFT HAREKELER)",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "subheading"
+      }
+    ],
+    "audioId": "x_c3b4622fe6885a8c"
+  },
+  {
+    "source": "«Tenvin:» Bir harfe, aynı hareke, iki kere konursa buna “Tenvin” denir ve geçerek okuyuşta harfin sonunu “Cezimli Nûn” ( «نْ» ) varmış gibi okutur.",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "intro.0",
+        "audio": "s040_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s040_01"
+  },
+  {
+    "source": "Üç çeşit Tenvin vardır: “İki Üstün”, “İki Esre” ve “İki Ötre”.",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_806899ee6f662f9a"
+  },
+  {
+    "source": "* Harfin üzerine konan, sol taraftan aşağı doğru eğik, üst üste, küçük çift çizgidir.",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "intro.2",
+        "audio": "s040_02",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s040_02"
+  },
+  {
+    "source": "* Geçişte, ince harflere “En”, kalın harflere ise “An” sesi verir.",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "intro.3"
+      }
+    ],
+    "audioId": "x_64d7457a9ff6dedf"
+  },
+  {
+    "source": "İKİ ÜSTÜNLÜ HARFLER ( ـً ) فَتْحَتَيْنِ",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 40,
+        "field": "s0.title",
+        "audio": "s040_baslik_2"
+      }
+    ],
+    "audioId": "s040_baslik_2"
+  },
+  {
+    "source": "* “İki Üstün” alan harfin soluna, genellikle “Elif” harfi de yazılır.",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 41,
+        "field": "intro.0",
+        "audio": "s041_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s041_01"
+  },
+  {
+    "source": "* Geçişte okunmayan bu Elif, durulduğunda uzatma harfi görevi yapar. İki üstündeki Nûn sesi kalkar ve harf, üstün yönünde iki hareke miktarı uzatılarak okunur. Harf kalın ise “A” sesiyle, ince ise “E-A” arası bir sesle uzatır.",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 41,
+        "field": "intro.1"
+      }
+    ],
+    "audioId": "x_5f67d27fbb01edec"
+  },
+  {
+    "source": "Geçildiğinde",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 41,
+        "field": "s0.header.0"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 41,
+        "field": "s0.header.2"
+      }
+    ]
+  },
+  {
+    "source": "Durulduğunda",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 41,
+        "field": "s0.header.1"
+      },
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": 41,
+        "field": "s0.header.3"
+      }
+    ]
+  },
+  {
+    "source": "Tenvin: Bir harfe aynı hareke iki kere konursa buna “tenvin” denir ve geçerek okunuş yapılır — kelime sonunda yazıya geçmeyen bir “n” sesi eklenir.",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-ustun",
+        "page": null,
+        "field": "info.seg.0"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "info.seg.0"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_71439c414a7220ef"
+  },
+  {
+    "source": "Ders 21",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Tenvin - İki Esre",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_f803b99672434279"
+  },
+  {
+    "source": "92 kayıt • Harf + tenvin ve kelime okuma",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_14e181db748be447"
+  },
+  {
+    "source": "İKİ ESRELİ",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-esre",
+        "page": 44,
+        "field": "kicker",
+        "audio": "s044_baslik_1"
+      }
+    ],
+    "audioId": "s044_baslik_1"
+  },
+  {
+    "source": "Ders 22",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Tenvin - İki Ötre",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_e15b2f3a948d74e0"
+  },
+  {
+    "source": "İKİ ÖTRELİ",
+    "locations": [
+      {
+        "lesson": "tenvin-iki-otre",
+        "page": 47,
+        "field": "kicker",
+        "audio": "s047_baslik_1"
+      }
+    ],
+    "audioId": "s047_baslik_1"
+  },
+  {
+    "source": "Ders 23",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "El Takısı - Okunan Harfler",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_23ac5515d9e75dc3"
+  },
+  {
+    "source": "16 kayıt • Kameri harflerde el takısının okunuşu",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_9a88e8ede5a0591e"
+  },
+  {
+    "source": "ELİF - LÂM",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "bookHeading.main",
+        "audio": "s050_baslik_1"
+      },
+      {
+        "lesson": "el-takisi-okunmayan",
+        "page": null,
+        "field": "bookHeading.main"
+      }
+    ],
+    "audioId": "s050_baslik_1"
+  },
+  {
+    "source": "Bir kelimede önce Lâm (ل), sonra Elif (ا) yazılması gerektiğinde, bunun için Lâmelif’in (لا) kullanıldığını görmüştük.",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "info.seg.1",
+        "audio": "s050_01"
+      }
+    ],
+    "audioId": "s050_01"
+  },
+  {
+    "source": "Eğer önce Elif (ا), sonra cezimli Lâm (لْ) kelimenin başında bulunursa; buna Elif-Lâm takısı veya kısaca El takısı (اَلْ) denir.",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "info.seg.3",
+        "audio": "s050_02"
+      }
+    ],
+    "audioId": "s050_02"
+  },
+  {
+    "source": "Lâm (ل)’dan önceki Elif (ا), burada Hemze pozisyonundadır. Çünkü harekeli okunabilecek bir konumdadır. Uzatma görevi olmayan, harekeli Elif’lere Hemze dendiğini unutmayalım.",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "info.seg.5",
+        "audio": "s050_03"
+      }
+    ],
+    "audioId": "s050_03"
+  },
+  {
+    "source": "Kendisinden sonra gelen harf, Lâm’ın nasıl okunacağını belirler.\n\nBuna göre:\n(أَبْغِ حَجَّكَ وَخَفْ عَقِيمَهُ)\ncümlesini oluşturan\n(ء ب ج ح خ ع غ ف ق ك م و هـ ى)\nHarflerinden biri gelirse; Lâm cezimli olarak okunur.\nBu harfler, tamamı 28 olan Kur’an harflerinin yarısıdır.",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "info.seg.7",
+        "audio": "s050_04"
+      }
+    ],
+    "audioId": "s050_04"
+  },
+  {
+    "source": "Örnekler:",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunan",
+        "page": null,
+        "field": "info.seg.8"
+      },
+      {
+        "lesson": "el-takisi-okunmayan",
+        "page": null,
+        "field": "info.seg.2"
+      },
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.4"
+      },
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.8"
+      },
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.12"
+      },
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.16"
+      }
+    ],
+    "audioId": "x_038c31203bc9a86c"
+  },
+  {
+    "source": "Ders 24",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunmayan",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "El Takısı - Okunmayan Harfler",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunmayan",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "el-takisi-okunmayan",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_38357289d15cc372"
+  },
+  {
+    "source": "16 kayıt • Şemsi harflerde el takısının okunuşu",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunmayan",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_11921bda749f95f8"
+  },
+  {
+    "source": "Geriye kalan 14 harften\n(ض ص ش س ز ر د ذ ت ث ط ظ ل ن)\nbiri geldiğinde ise; Lâm okunmaz. Sonraki harf mutlaka şeddeli okunur.",
+    "locations": [
+      {
+        "lesson": "el-takisi-okunmayan",
+        "page": null,
+        "field": "info.seg.1",
+        "audio": "s051_01"
+      }
+    ],
+    "audioId": "s051_01"
+  },
+  {
+    "source": "Ders 25",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "El Takısı ve Hemze",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_33d09f4219a08cb7"
+  },
+  {
+    "source": "9 kayıt • El takısı ve hemzeli kelime okuma",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_e4e1700a27e7e1f9"
+  },
+  {
+    "source": "EL TAKISI’NDAKİ HEMZE",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "bookHeading.main"
+      }
+    ],
+    "audioId": "x_8d40a624290ca269"
+  },
+  {
+    "source": "El takısı (اَلْ)’ndaki Lâm’ın, iki şekildeki farklı okunuşunu görmüş olduk.\n\nLâm’dan önceki Hemze’ye gelince;",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "info.seg.1",
+        "audio": "s052_01"
+      }
+    ],
+    "audioId": "s052_01"
+  },
+  {
+    "source": "• Bir önceki harften veya kelimeden geçiş yaparken, El takısı (اَلْ)’ndaki Hemze okunmaz. Örnekler:",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "info.seg.3",
+        "audio": "s052_02"
+      }
+    ],
+    "audioId": "s052_02"
+  },
+  {
+    "source": "• Eğer okumaya El takısı (اَلْ)’nın Hemze’siyle başlanırsa, bu durumda Hemze her zaman üstünlü olarak okunur. Örnekler:",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "info.seg.7",
+        "audio": "s052_03"
+      }
+    ],
+    "audioId": "s052_03"
+  },
+  {
+    "source": "• Harekesi kalıcı olmadığından dolayı bu Hemze’yi Vasıl Hemze’si olarak tanımlamak daha doğrudur.",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze",
+        "page": null,
+        "field": "info.seg.11",
+        "audio": "s052_04"
+      }
+    ],
+    "audioId": "s052_04"
+  },
+  {
+    "source": "Ders 26",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "El Takısı - Hemze-i Vasıl",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_916e28d6dfc7e4ca"
+  },
+  {
+    "source": "12 kayıt • Yalın ve bitişik hemze-i vasıl karşılaştırması",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_b6f314c196dcf6cf"
+  },
+  {
+    "source": "OKUNMAYAN HEMZE",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "bookHeading.main",
+        "audio": "s053_baslik_1"
+      }
+    ],
+    "audioId": "s053_baslik_1"
+  },
+  {
+    "source": "(Vasıl Hemzesi)",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "bookHeading.bottom"
+      }
+    ],
+    "audioId": "x_dc90b2bbb6c1e2b7"
+  },
+  {
+    "source": "Kelime başında bulunan bazı Hemze’ler, önceki kelime veya harfle beraber okunurken harekesi düşer, orada sanki bir hemze yokmuş gibi okunur.\n\nHarekesiz Elif (ا) şeklinde yazılır. Bazen üzerine, okunmadığını gösteren küçük bir “vasıl işareti” (ٱ) konur.\nBu durumdaki hemzelere Vasıl Hemzesi denir. Örnekler:",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "info.seg.1",
+        "audio": "s053_01"
+      }
+    ],
+    "audioId": "s053_01"
+  },
+  {
+    "source": "Eğer öncesiyle beraber değil de, kelime başında ilk harf olarak okunursa; harekesi verilerek okunur. Örnekler:",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "info.seg.5",
+        "audio": "s053_02"
+      }
+    ],
+    "audioId": "s053_02"
+  },
+  {
+    "source": "Her Elif-Lâm takısı (اَلْ)’nın Elif’inin de böyle olduğunu bir önceki derste görmüştük.",
+    "locations": [
+      {
+        "lesson": "el-takisi-hemze-vasil",
+        "page": null,
+        "field": "info.seg.9",
+        "audio": "s053_03"
+      }
+    ],
+    "audioId": "s053_03"
+  },
+  {
+    "source": "Ders 27",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Zamir (He) Uzatılması",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_86f5b8e231233867"
+  },
+  {
+    "source": "30 örnek • Hû/hî zamirinin uzatıldığı ve uzatılmadığı hâller",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_29881b4b13fe0c1f"
+  },
+  {
+    "source": "ZAMİR \"HE\" ( ه ـه )’NİN",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "kicker",
+        "audio": "s054_baslik_1"
+      }
+    ],
+    "audioId": "s054_baslik_1"
+  },
+  {
+    "source": "UZATILMASI",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "heading",
+        "audio": "s054_baslik_1"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "bookHeading.main"
+      }
+    ],
+    "audioId": "s054_baslik_1"
+  },
+  {
+    "source": "«He» Harfi Hangi Durumlarda Uzatılır?",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s0.intro.0",
+        "audio": "s054_baslik_2",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s054_baslik_2"
+  },
+  {
+    "source": "* «He»’den önceki harf harekeli ise uzatılarak okunur. Ne kadar uzatılacağını ise, «He»’den sonra gelen harf belirler. Şöyle ki:",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s0.intro.1",
+        "audio": "s054_01",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s054_01"
+  },
+  {
+    "source": "- Uzatılan «He»’den sonra Hemze gelirse 4 hareke miktarı uzatılır.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s0.intro.2",
+        "audio": "s054_02",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s054_02"
+  },
+  {
+    "source": "«Örnekler:»",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s0.intro.3"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s1.intro.1"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s2.intro.3"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 55,
+        "field": "s0.intro.2"
+      },
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 55,
+        "field": "s1.intro.1"
+      }
+    ],
+    "audioId": "x_6d1cb525ce29efc0"
+  },
+  {
+    "source": "Uzatılan «He»’den sonra Hemze’nin dışında herhangi bir harf gelirse 2 hareke miktarı uzatılır.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s1.intro.0",
+        "audio": "s054_03",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s054_03"
+  },
+  {
+    "source": "«He» Harfi Hangi Durumlarda Uzatılmaz?",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s2.intro.0",
+        "audio": "s054_baslik_3",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s054_baslik_3"
+  },
+  {
+    "source": "* «He»’den önce uzatma harflerinden biri gelirse He uzatılmadan okunur.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s2.intro.1",
+        "audio": "s054_04",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s054_04"
+  },
+  {
+    "source": "«He»’den sonra ise, hangi harf gelirse gelsin, durumu etkilemez.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 54,
+        "field": "s2.intro.2"
+      }
+    ],
+    "audioId": "x_94ed5dc0231585ae"
+  },
+  {
+    "source": "* He’den önce cezimli herhangi bir harf gelirse, yine uzatılmadan okunur.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 55,
+        "field": "s0.intro.0",
+        "audio": "s055_01",
+        "audioParas": 2
+      }
+    ],
+    "audioId": "s055_01"
+  },
+  {
+    "source": "He’den sonra ise, hangi harf gelirse gelsin durumu etkilemez.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 55,
+        "field": "s0.intro.1"
+      }
+    ],
+    "audioId": "x_a6eb86d55ff2c4aa"
+  },
+  {
+    "source": "* He harfinden (önce harekeli bir harf olsa bile) önündeki kelimeye cezimli veya şeddeli bir harfe bağlanarak geçiş yapılırsa yine \"He\" uzatılmadan okunur.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": 55,
+        "field": "s1.intro.0",
+        "audio": "s055_02",
+        "audioParas": 1
+      }
+    ],
+    "audioId": "s055_02"
+  },
+  {
+    "source": "ZAMİR “HE”’NİN",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "bookHeading.top"
+      }
+    ],
+    "audioId": "x_1d1faaa83fcf957e"
+  },
+  {
+    "source": "He Harfi Hangi Durumlarda Uzatılır?\n\nHe’den önceki harf harekeli ise uzatılarak okunur. Ne kadar uzatılacağını ise, He’den sonra gelen harf belirler. Şöyle ki:\n\n• Uzatılan He’den sonra Hemze gelirse 4 hareke miktarı uzatılır. Örnekler:",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_ee8e1cbd3c2079b9"
+  },
+  {
+    "source": "• Uzatılan He’den sonra Hemze’nin dışında herhangi bir harf gelirse 2 hareke miktarı uzatılır. Örnekler:",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "info.seg.2"
+      }
+    ],
+    "audioId": "x_96c5d379513d8b1e"
+  },
+  {
+    "source": "He Harfi Hangi Durumlarda Uzatılmaz?\n\n• He’den önce uzatma harflerinden biri gelirse He uzatılmadan okunur. He’den sonra ise, hangi harf gelirse gelsin, durumu etkilemez. Örnekler:",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "info.seg.4"
+      }
+    ],
+    "audioId": "x_28754253bf2b3bf0"
+  },
+  {
+    "source": "• He’den önce cezimli herhangi bir harf gelirse, yine uzatılmadan okunur. He’den sonra ise, hangi harf gelirse gelsin durumu etkilemez. Örnekler:",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "info.seg.6"
+      }
+    ],
+    "audioId": "x_61aadc3dfcac8192"
+  },
+  {
+    "source": "• He harfinden (önce harekeli bir harf olsa bile) önündeki kelimeye cezimli veya şeddeli bir harfe bağlanarak geçiş yapılırsa yine \"He\" uzatılmadan okunur. Örnekler:",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatilmasi",
+        "page": null,
+        "field": "info.seg.8"
+      }
+    ],
+    "audioId": "x_1bfb1f81a526bd8d"
+  },
+  {
+    "source": "Ders 28",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatma-med",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Uzun Med İşareti",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatma-med",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "zamir-he-uzatma-med",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_27786241ecd048a1"
+  },
+  {
+    "source": "6 kayıt • Med işaretiyle uzatma",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatma-med",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_77f7e81c04b47d5c"
+  },
+  {
+    "source": "UZUN MED İŞARETİ",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatma-med",
+        "page": null,
+        "field": "bookHeading.main",
+        "audio": "s055_baslik_1"
+      }
+    ],
+    "audioId": "s055_baslik_1"
+  },
+  {
+    "source": "Uzatma miktarı 2 harekenin üzerinde olan bazı Med çeşitlerinin üzerinde bulunur. Tecvid derslerinde ayrıntılı bilgi verilecektir.",
+    "locations": [
+      {
+        "lesson": "zamir-he-uzatma-med",
+        "page": null,
+        "field": "info.seg.1",
+        "audio": "s055_03"
+      }
+    ],
+    "audioId": "s055_03"
+  },
+  {
+    "source": "Ders 29",
+    "locations": [
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Kapalı Te",
+    "locations": [
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_4e1d669af6d7c6c3"
+  },
+  {
+    "source": "12 kayıt • Durak hâlinde kapalı tenin okunuşu",
+    "locations": [
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_e8f29b4a56c0aeae"
+  },
+  {
+    "source": "KAPALI “TE”",
+    "locations": [
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "bookHeading.main",
+        "audio": "s056_baslik_1"
+      }
+    ],
+    "audioId": "s056_baslik_1"
+  },
+  {
+    "source": "Bazen “Te (ت)” harfi, “Kapalı Te” denilen şekilde yazılır: (ة ، ـة). Bu sadece kelime sonunda olur.\n\nÖnceki harfe bitişirse (ـة) şeklinde, bitişmediği durumlarda ise (ة) şeklinde yazılır.",
+    "locations": [
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "info.seg.1",
+        "audio": "s056_01"
+      }
+    ],
+    "audioId": "s056_01"
+  },
+  {
+    "source": "Sonunda “Kapalı Te” olan kelimede durulduğunda cezimli He (ـهْ) gibi okunur. Sonraki kelimeye geçildiğinde ise yine “Te” olarak, harekesiyle okunur.",
+    "locations": [
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "info.seg.3",
+        "audio": "s056_02"
+      }
+    ],
+    "audioId": "s056_02"
+  },
+  {
+    "source": "Örneklerle uygulamayı görelim:",
+    "locations": [
+      {
+        "lesson": "kapali-te",
+        "page": null,
+        "field": "info.seg.4"
+      }
+    ],
+    "audioId": "x_cfe5770979bae97f"
+  },
+  {
+    "source": "Ders 30",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Kelime Sonu Durakları (Duruş)",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_e5714a57261801f2"
+  },
+  {
+    "source": "28 kayıt • Durak hâlinde kelime sonlarının okunuşu",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_120b40ec2d1fb2f4"
+  },
+  {
+    "source": "KELİME SONUNDAKİ",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "bookHeading.top",
+        "audio": "s057_baslik_1"
+      }
+    ],
+    "audioId": "s057_baslik_1"
+  },
+  {
+    "source": "HAREKELİ HARFTE",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "bookHeading.main",
+        "audio": "s057_baslik_1"
+      }
+    ],
+    "audioId": "s057_baslik_1"
+  },
+  {
+    "source": "NASIL DURULUR?",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "bookHeading.bottom"
+      }
+    ],
+    "audioId": "x_b88ac8cf3bf1fad4"
+  },
+  {
+    "source": "Kelime sonundaki harekeli harfte nasıl durulur?",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_498f7161c2217090"
+  },
+  {
+    "source": "Kur’an okurken, genellikle:\n• ayet sonlarında,\n• durak işâretlerinde\n• veya nefes almamız gerektiğinde dururuz. (Bu duruş da, sadece kelime sonlarında olabilir.)",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.1",
+        "audio": "s057_01"
+      }
+    ],
+    "audioId": "s057_01"
+  },
+  {
+    "source": "Üstün, Esre veya Ötre harekeleri ile duruş yapılmaz. Kelime sonundaki harf sakin değilse (yani cezimli bir harf veya uzatma harfi değilse); harekesi okunmaz ve harf, sanki üzerinde cezim varmış gibi okunur.",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.3",
+        "audio": "s057_02"
+      }
+    ],
+    "audioId": "s057_02"
+  },
+  {
+    "source": "Tenvinlilerde ise uygulama şöyledir;\n\n• Elif ile birlikte yazılan “İki Üstün”lü de; Üstün’ün biri kaldırılır. Harf, tek üstün ile, iki hareke miktarı uzatılarak okunur.",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.7",
+        "audio": "s057_03"
+      }
+    ],
+    "audioId": "s057_03"
+  },
+  {
+    "source": "• Elifsiz yazılan “İki Üstün”lü bir Hemzede durulduğunda da yanında elif varmış gibi, iki hareke miktarı uzatılarak okunur.",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.11",
+        "audio": "s058_01"
+      }
+    ],
+    "audioId": "s058_01"
+  },
+  {
+    "source": "• İki Esre veya İki Ötreli harflerde ise, Cezim’le durulur.",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.15",
+        "audio": "s058_02"
+      }
+    ],
+    "audioId": "s058_02"
+  },
+  {
+    "source": "Diğer bazı örnekler:",
+    "locations": [
+      {
+        "lesson": "kelime-sonu-duraklar",
+        "page": null,
+        "field": "info.seg.18"
+      }
+    ],
+    "audioId": "x_58eb04ec1974a351"
+  },
+  {
+    "source": "Ders 31",
+    "locations": [
+      {
+        "lesson": "alistirmalar-1",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Örnekler 1",
+    "locations": [
+      {
+        "lesson": "alistirmalar-1",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "alistirmalar-1",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_481eab08538f248a"
+  },
+  {
+    "source": "24 kayıt • Genel okuma örnekleri",
+    "locations": [
+      {
+        "lesson": "alistirmalar-1",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_20bddcdfee185870"
+  },
+  {
+    "source": "ÖRNEKLER - 1",
+    "locations": [
+      {
+        "lesson": "alistirmalar-1",
+        "page": 60,
+        "field": "heading"
+      }
+    ],
+    "audioId": "x_6aa191334112403e"
+  },
+  {
+    "source": "Öğrenilen kuralların hepsini bir araya getiren genel okuma örnekleri.",
+    "locations": [
+      {
+        "lesson": "alistirmalar-1",
+        "page": null,
+        "field": "info.seg.0"
+      },
+      {
+        "lesson": "alistirmalar-2",
+        "page": null,
+        "field": "info.seg.0"
+      },
+      {
+        "lesson": "alistirmalar-3",
+        "page": null,
+        "field": "info.seg.0"
+      },
+      {
+        "lesson": "alistirmalar-4",
+        "page": null,
+        "field": "info.seg.0"
+      }
+    ],
+    "audioId": "x_a2e7e3d43413bac8"
+  },
+  {
+    "source": "Ders 32",
+    "locations": [
+      {
+        "lesson": "alistirmalar-2",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Örnekler 2",
+    "locations": [
+      {
+        "lesson": "alistirmalar-2",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "alistirmalar-2",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_c09e400760ae1c4e"
+  },
+  {
+    "source": "27 kayıt • Genel okuma örnekleri",
+    "locations": [
+      {
+        "lesson": "alistirmalar-2",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_e35317198f77e9b8"
+  },
+  {
+    "source": "ÖRNEKLER - 2",
+    "locations": [
+      {
+        "lesson": "alistirmalar-2",
+        "page": 61,
+        "field": "heading"
+      }
+    ],
+    "audioId": "x_40652d006998933c"
+  },
+  {
+    "source": "Ders 33",
+    "locations": [
+      {
+        "lesson": "alistirmalar-3",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Örnekler 3",
+    "locations": [
+      {
+        "lesson": "alistirmalar-3",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "alistirmalar-3",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_e9f0754f783d9731"
+  },
+  {
+    "source": "18 kayıt • Genel okuma örnekleri",
+    "locations": [
+      {
+        "lesson": "alistirmalar-3",
+        "page": null,
+        "field": "subtitle"
+      },
+      {
+        "lesson": "alistirmalar-4",
+        "page": null,
+        "field": "subtitle"
+      }
+    ],
+    "audioId": "x_81c650f34f9ef7ba"
+  },
+  {
+    "source": "ÖRNEKLER - 3",
+    "locations": [
+      {
+        "lesson": "alistirmalar-3",
+        "page": 62,
+        "field": "heading"
+      }
+    ],
+    "audioId": "x_78536bbcb13116f5"
+  },
+  {
+    "source": "Ders 34",
+    "locations": [
+      {
+        "lesson": "alistirmalar-4",
+        "page": null,
+        "field": "label"
+      }
+    ]
+  },
+  {
+    "source": "Örnekler 4",
+    "locations": [
+      {
+        "lesson": "alistirmalar-4",
+        "page": null,
+        "field": "title"
+      },
+      {
+        "lesson": "alistirmalar-4",
+        "page": null,
+        "field": "info.title"
+      }
+    ],
+    "audioId": "x_fe1c5274c7343aac"
+  },
+  {
+    "source": "ÖRNEKLER - 4",
+    "locations": [
+      {
+        "lesson": "alistirmalar-4",
+        "page": 63,
+        "field": "heading"
+      }
+    ],
+    "audioId": "x_1dba50210b528662"
+  }
+]

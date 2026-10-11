@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app.dart';
+import 'l10n/l10n.dart';
 import 'firebase_options.dart';
 import 'screens/oyunlar/harf_oyunlari/profil/player_models.dart';
 import 'screens/oyunlar/harf_oyunlari/profil/player_repository.dart';
@@ -16,7 +17,7 @@ import 'services/leaderboard/leaderboard_backend.dart';
 import 'services/leaderboard/leaderboard_service.dart';
 import 'services/reading_settings.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Çevrimiçi sıralama: Firebase arka planda başlar; uygulama onu beklemez,
   // başlatılamazsa (internet yok vb.) oyunlar yine oynanır.
@@ -28,6 +29,9 @@ void main() {
   // Sure/dua okuma ayarları (yazı boyutu, hız, meal, tekrar…) cihazdan.
   unawaited(ReadingSettings.instance.ensureLoaded());
 
+  final language = LanguageController();
+  await language.load();
+
   runApp(
     MultiProvider(
       providers: [
@@ -38,7 +42,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => PlayerRepository()..load()),
         Provider<LeaderboardService>.value(value: leaderboard),
       ],
-      child: const KuranOkumaRehberiApp(),
+      child: AppLanguageScope(controller: language, child: const KuranOkumaRehberiApp()),
     ),
   );
 }

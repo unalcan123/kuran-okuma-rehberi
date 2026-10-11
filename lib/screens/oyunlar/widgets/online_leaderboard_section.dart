@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../services/leaderboard/leaderboard_models.dart';
@@ -148,8 +149,7 @@ class _OnlineLeaderboardSectionState extends State<OnlineLeaderboardSection> {
               ),
               const SizedBox(width: 6),
               Flexible(
-                child: Text(
-                  l.onTitle,
+                child: Text(context.t(l.onTitle),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -196,8 +196,7 @@ class _Message extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Flexible(
-              child: Text(
-                text,
+              child: Text(context.t(text),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
@@ -213,7 +212,7 @@ class _Message extends StatelessWidget {
             key: const Key('online-retry'),
             onPressed: onRetry,
             icon: const Icon(Icons.refresh_rounded, size: 18),
-            label: Text(l.onRetry),
+            label: Text(context.t(l.onRetry)),
             style: TextButton.styleFrom(foregroundColor: kGameAccent),
           ),
       ],
@@ -236,8 +235,7 @@ class _Ranking extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (snapshot.top.isEmpty)
-          Text(
-            l.onEmpty,
+          Text(context.t(l.onEmpty),
             textAlign: TextAlign.center,
             style: TextStyle(color: kGameInk.withValues(alpha: 0.7)),
           ),
@@ -310,8 +308,7 @@ class _RankRow extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Text(
-              row.nickname,
+            child: Text(context.t(row.nickname),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -329,8 +326,7 @@ class _RankRow extends StatelessWidget {
                 color: kGameAccent,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Text(
-                l.onYou,
+              child: Text(context.t(l.onYou),
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 10,

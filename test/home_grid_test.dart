@@ -1,3 +1,4 @@
+import 'package:kuran_okuma_rehberi/l10n/l10n.dart';
 // Ana sayfa: 4 kart; telefonda (< 600 px) tek sütun, 600 px'ten 2 x 2;
 // kartlar 4:3 (görsellerin kendi oranı, bozulmaz).
 // İlk kart yalnız "Kur'an Okuma Rehberi" görseli (ayrıca başlık yazılmaz) ve
@@ -127,6 +128,23 @@ void main() {
     });
     for (final f in files) {
       expect(f.lengthSync(), lessThan(200 * 1024), reason: f.path);
+    }
+  });
+
+  testWidgets('language changes retain all four original illustrated cards', (tester) async {
+    setSize(tester, const Size(1280, 900));
+    final controller = LanguageController(initial: AppLanguage.tr);
+    await tester.pumpWidget(AppLanguageScope(controller: controller, child: _home()));
+    await tester.pumpAndSettle();
+    for (final language in AppLanguage.active) {
+      await tester.runAsync(() => controller.setLanguage(language));
+      await tester.pumpAndSettle();
+      expect(find.byType(HomeGridCard), findsNWidgets(4));
+      for (final title in _titles) {
+        final image = tester.widget<Image>(find.byKey(ValueKey('home-card-image-$title')));
+        expect((image.image as AssetImage).assetName, startsWith('assets/images/home/'));
+        expect((image.image as AssetImage).assetName, endsWith('.webp'));
+      }
     }
   });
 

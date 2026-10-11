@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/game_score.dart';
@@ -24,7 +25,7 @@ class GameResultSummary extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          '${result.points} Puan',
+          context.t('{n} Puan', {'n': result.points}),
           textAlign: TextAlign.center,
           style: textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.w800,
@@ -33,7 +34,10 @@ class GameResultSummary extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         Text(
-          '${result.firstTry} / ${result.total} İlk Denemede Doğru',
+          context.t('{correct} / {total} İlk Denemede Doğru', {
+            'correct': result.firstTry,
+            'total': result.total,
+          }),
           textAlign: TextAlign.center,
           style: textTheme.titleMedium?.copyWith(
             color: AppColors.textSecondary,
@@ -41,7 +45,7 @@ class GameResultSummary extends StatelessWidget {
         ),
         const SizedBox(height: 14),
         Semantics(
-          label: '${result.stars} yıldız',
+          label: context.t("{n} yıldız", {"n": result.stars}),
           child: ExcludeSemantics(
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -87,7 +91,7 @@ class GameResultSummary extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  'Yeni rekor!',
+                  context.t('Yeni rekor!'),
                   style: textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                     color: AppColors.gold,
@@ -97,7 +101,7 @@ class GameResultSummary extends StatelessWidget {
             )
           else if (submission.best.bestScore != null)
             Text(
-              'En İyi: ${submission.best.bestScore}',
+              context.t('En İyi: {n}', {'n': submission.best.bestScore}),
               style: textTheme.titleMedium?.copyWith(
                 color: AppColors.textSecondary,
               ),

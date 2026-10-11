@@ -33,7 +33,8 @@ class WordGridTable extends StatelessWidget {
     final line = BorderSide(color: AppColors.gold.withValues(alpha: 0.45));
     return LayoutBuilder(
       builder: (context, constraints) {
-        final width = constraints.hasBoundedWidth ? constraints.maxWidth : 600.0;
+        final width =
+            constraints.hasBoundedWidth ? constraints.maxWidth : 600.0;
         final count = (width / minCellWidth).floor().clamp(1, columns);
         final rows = (words.length / count).ceil();
         return ClipRRect(
@@ -49,7 +50,8 @@ class WordGridTable extends StatelessWidget {
               textDirection: TextDirection.rtl,
               border: TableBorder(horizontalInside: line, verticalInside: line),
               // NOT `fill`: rows with only `fill` cells collapse to no height.
-              defaultVerticalAlignment: TableCellVerticalAlignment.intrinsicHeight,
+              defaultVerticalAlignment:
+                  TableCellVerticalAlignment.intrinsicHeight,
               children: [
                 for (var r = 0; r < rows; r++)
                   TableRow(
@@ -70,7 +72,10 @@ class WordGridTable extends StatelessWidget {
   }
 
   Widget _cell(ArabicLetter letter) {
-    final (before, red, after) = splitForHighlight(letter.isolatedForm, highlight);
+    final (before, red, after) = splitForHighlight(
+      letter.isolatedForm,
+      highlight,
+    );
     return WordCell(
       letter: letter,
       before: before,

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -169,8 +170,7 @@ mixin _WritingScreen<T extends StatefulWidget> on State<T> {
                     ),
                     const SizedBox(width: 6),
                     Expanded(
-                      child: Text(
-                        notice!,
+                      child: Text(context.t(notice!),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -194,7 +194,7 @@ mixin _WritingScreen<T extends StatefulWidget> on State<T> {
   );
 
   PreferredSizeWidget appBar(String title) => AppBar(
-    title: Text(title),
+    title: Text(context.t(title)),
     actions: [
       IconButton(
         key: const ValueKey('mute-button'),
@@ -237,8 +237,7 @@ Widget _header(BuildContext context, String text, List<Widget> buttons) =>
           ],
         );
 
-Widget _instruction(BuildContext context, String text) => Text(
-  text,
+Widget _instruction(BuildContext context, String text) => Text(context.t(text),
   style: Theme.of(context).textTheme.titleMedium?.copyWith(
     fontWeight: FontWeight.w700,
     color: AppColors.textSecondary,
@@ -340,14 +339,14 @@ class _NameModeScreenState extends State<NameModeScreen> with _WritingScreen {
           OutlinedButton(
             key: const ValueKey('clear-button'),
             onPressed: clearWithUndo,
-            child: const Text('Temizle'),
+            child: Text(context.t('Temizle')),
           ),
           const SizedBox(width: 8),
           FilledButton.icon(
             key: const ValueKey('done-button'),
             onPressed: _finish,
             icon: const Icon(Icons.check_rounded),
-            label: const Text('Bitirdim'),
+            label: Text(context.t('Bitirdim')),
             style: FilledButton.styleFrom(backgroundColor: AppColors.turquoise),
           ),
         ]),
@@ -380,7 +379,7 @@ class _NameModeScreenState extends State<NameModeScreen> with _WritingScreen {
               Semantics(
                 button: true,
                 selected: i == _palette,
-                label: 'Renk ${i + 1}',
+                label: context.t("Renk {n}", {"n": i + 1}),
                 child: InkWell(
                   key: ValueKey('palette-$i'),
                   onTap: () => setState(() => _palette = i),
@@ -415,7 +414,7 @@ class _NameModeScreenState extends State<NameModeScreen> with _WritingScreen {
             for (final f in CardFrame.values)
               ChoiceChip(
                 key: ValueKey('frame-${f.name}'),
-                label: Text(f.label),
+                label: Text(context.t(f.label)),
                 selected: f == _frame,
                 onSelected: (_) => setState(() => _frame = f),
               ),
@@ -431,7 +430,7 @@ class _NameModeScreenState extends State<NameModeScreen> with _WritingScreen {
               key: const ValueKey('save-card-button'),
               onPressed: _saving ? null : _save,
               icon: const Icon(Icons.download_rounded),
-              label: const Text('Görsel olarak kaydet'),
+              label: Text(context.t('Görsel olarak kaydet')),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.turquoise,
               ),
@@ -440,7 +439,7 @@ class _NameModeScreenState extends State<NameModeScreen> with _WritingScreen {
               key: const ValueKey('edit-button'),
               onPressed: () => setState(() => _showCard = false),
               icon: const Icon(Icons.edit_rounded),
-              label: const Text('Düzenle'),
+              label: Text(context.t('Düzenle')),
             ),
           ],
         ),
@@ -634,14 +633,13 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    Text(_task.stage.label, style: textTheme.bodySmall),
+                    Text(context.t(_task.stage.label), style: textTheme.bodySmall),
                   ],
                 ),
                 Expanded(
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: Text(
-                      _task.text,
+                    child: Text(context.t(_task.text),
                       key: const ValueKey('example-text'),
                       textDirection: TextDirection.rtl,
                       textScaler: TextScaler.noScaling,
@@ -677,8 +675,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                         ),
                         const SizedBox(width: 6),
                         Expanded(
-                          child: Text(
-                            _message!,
+                          child: Text(context.t(_message!),
                             key: const ValueKey('copy-message'),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -701,7 +698,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                     key: const ValueKey('hint-button'),
                     onPressed: _hint,
                     icon: const Icon(Icons.lightbulb_outline_rounded),
-                    label: const FittedBox(child: Text('İpucu')),
+                    label: FittedBox(child: Text(context.t('İpucu'))),
                   ),
                 ),
                 const SizedBox(width: 6),
@@ -710,7 +707,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                   child: TextButton(
                     key: const ValueKey('skip-button'),
                     onPressed: () => _next(skip: true),
-                    child: const FittedBox(child: Text('Atla')),
+                    child: FittedBox(child: Text(context.t('Atla'))),
                   ),
                 ),
                 const SizedBox(width: 6),
@@ -720,7 +717,9 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                     key: const ValueKey('check-button'),
                     onPressed: _checkAnswer,
                     icon: const Icon(Icons.check_rounded),
-                    label: const FittedBox(child: Text('Kontrol Et')),
+                    label: FittedBox(
+                      child: Text(context.t('Kontrol Et')),
+                    ),
                     style: FilledButton.styleFrom(
                       backgroundColor: AppColors.turquoise,
                     ),
@@ -774,8 +773,15 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
               ),
               const SizedBox(height: 8),
               Text(
-                '$done / ${_tasks.length} örneği yazdın.\n'
-                'Kendi başına: $_independent · İpucuyla: $_withHint',
+                context.t(
+                  "{done} / {total} örneği yazdın.\nKendi başına: {independent} · İpucuyla: {hint}",
+                  {
+                    "done": done,
+                    "total": _tasks.length,
+                    "independent": _independent,
+                    "hint": _withHint,
+                  },
+                ),
                 key: const ValueKey('copy-summary'),
                 textAlign: TextAlign.center,
                 style: textTheme.titleMedium?.copyWith(
@@ -786,7 +792,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                 Padding(
                   padding: const EdgeInsets.only(top: 6),
                   child: Text(
-                    'Yeni rekor!',
+                    context.t('Yeni rekor!'),
                     textAlign: TextAlign.center,
                     style: textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800,
@@ -798,7 +804,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                 Padding(
                   padding: const EdgeInsets.only(top: 6),
                   child: Text(
-                    '${_result!.points} Puan',
+                    context.t("{n} Puan", {"n": _result!.points}),
                     textAlign: TextAlign.center,
                     style: textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w800,
@@ -811,7 +817,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                 key: const ValueKey('restart-button'),
                 onPressed: _restart,
                 icon: const Icon(Icons.replay_rounded),
-                label: const Text('Yeni örnekler'),
+                label: Text(context.t('Yeni örnekler')),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.turquoise,
                   minimumSize: const Size.fromHeight(52),
@@ -824,7 +830,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size.fromHeight(52),
                 ),
-                child: const Text('Geri dön'),
+                child: Text(context.t('Geri dön')),
               ),
             ],
           ),
@@ -900,13 +906,13 @@ class _FreeModeScreenState extends State<FreeModeScreen> with _WritingScreen {
                 key: const ValueKey('copy-button'),
                 onPressed: _copy,
                 icon: const Icon(Icons.copy_rounded),
-                label: const Text('Kopyala'),
+                label: Text(context.t('Kopyala')),
               ),
               const SizedBox(width: 8),
               OutlinedButton(
                 key: const ValueKey('clear-button'),
                 onPressed: clearWithUndo,
-                child: const Text('Temizle'),
+                child: Text(context.t('Temizle')),
               ),
             ]),
             const SizedBox(height: 4),

@@ -1,0 +1,674 @@
+{
+  "about": "Açıklama çevirilerinin ortak terim sözlüğü (tecvid terimleri, harf adları). Her dilde aynı Türkçe terim hep aynı karşılıkla çevrilir. 'tts' = seslendirme metninde (ttsText) harfin/işaretin okunuşu: Arapça harf/işaret ASLA ElevenLabs'e gönderilmez, yerine bu ad yazılır. Kitaptaki Türkçe ses tarifleri (“E”, “A”, “U-Ü”…) aynen korunur; gerekirse kısa açıklama eklenir.",
+  "languages": {
+    "tr": {
+      "name": "Türkçe",
+      "examplesLabel": "Örnekler:"
+    },
+    "es": {
+      "name": "Español",
+      "examplesLabel": "Ejemplos:"
+    },
+    "fr": {
+      "name": "Français",
+      "examplesLabel": "Exemples :"
+    },
+    "de": {
+      "name": "Deutsch",
+      "examplesLabel": "Beispiele:"
+    },
+    "en": {
+      "name": "English",
+      "examplesLabel": "Examples:"
+    },
+    "bs": {
+      "name": "Bosanski",
+      "examplesLabel": "Primjeri:"
+    }
+  },
+  "terms": [
+    {
+      "tr": "hareke",
+      "es": "signo vocálico (haraka)",
+      "fr": "signe vocalique (haraka)",
+      "de": "Vokalzeichen (Haraka)",
+      "en": "vowel mark (haraka)",
+      "bs": "harekat (vokalni znak)",
+      "note": "çoğul: harekeler → es signos vocálicos, fr signes vocaliques, de Vokalzeichen, en vowel marks, bs harekati"
+    },
+    {
+      "tr": "üstün",
+      "es": "fatha",
+      "fr": "fatha",
+      "de": "Fatha",
+      "en": "fatha",
+      "bs": "fetha"
+    },
+    {
+      "tr": "esre",
+      "es": "kasra",
+      "fr": "kasra",
+      "de": "Kasra",
+      "en": "kasra",
+      "bs": "kesra"
+    },
+    {
+      "tr": "ötre",
+      "es": "damma",
+      "fr": "damma",
+      "de": "Damma",
+      "en": "damma",
+      "bs": "damma"
+    },
+    {
+      "tr": "cezm / cezim",
+      "es": "sukún",
+      "fr": "soukoun",
+      "de": "Sukun",
+      "en": "sukun",
+      "bs": "sukun (džezm)",
+      "note": "cezimli = con sukún / avec soukoun / mit Sukun / with sukun / sa sukunom"
+    },
+    {
+      "tr": "şedde",
+      "es": "shadda",
+      "fr": "chadda",
+      "de": "Schadda",
+      "en": "shadda",
+      "bs": "šedda",
+      "note": "şeddeli = con shadda / avec chadda / mit Schadda / with shadda / sa šeddom"
+    },
+    {
+      "tr": "tenvin",
+      "es": "tanwín",
+      "fr": "tanwine",
+      "de": "Tanwin",
+      "en": "tanwin",
+      "bs": "tenvin"
+    },
+    {
+      "tr": "iki üstün",
+      "es": "doble fatha",
+      "fr": "double fatha",
+      "de": "doppelte Fatha",
+      "en": "double fatha",
+      "bs": "dvije fethe"
+    },
+    {
+      "tr": "iki esre",
+      "es": "doble kasra",
+      "fr": "double kasra",
+      "de": "doppelte Kasra",
+      "en": "double kasra",
+      "bs": "dvije kesre"
+    },
+    {
+      "tr": "iki ötre",
+      "es": "doble damma",
+      "fr": "double damma",
+      "de": "doppelte Damma",
+      "en": "double damma",
+      "bs": "dvije damme"
+    },
+    {
+      "tr": "çift harekeler",
+      "es": "signos vocálicos dobles",
+      "fr": "signes vocaliques doubles",
+      "de": "doppelte Vokalzeichen",
+      "en": "double vowel marks",
+      "bs": "dvostruki harekati"
+    },
+    {
+      "tr": "uzatma harfi / med harfi",
+      "es": "letra de prolongación (madd)",
+      "fr": "lettre de prolongation (madd)",
+      "de": "Dehnungsbuchstabe (Madd)",
+      "en": "letter of prolongation (madd)",
+      "bs": "harf duženja (medd)"
+    },
+    {
+      "tr": "uzatmak / uzatma",
+      "es": "prolongar / prolongación",
+      "fr": "prolonger / prolongation",
+      "de": "dehnen / Dehnung",
+      "en": "lengthen / lengthening",
+      "bs": "dužiti / duženje"
+    },
+    {
+      "tr": "iki hareke miktarı",
+      "es": "la duración de dos harakas",
+      "fr": "la durée de deux harakas",
+      "de": "die Länge von zwei Harakas",
+      "en": "the length of two harakas (counts)",
+      "bs": "dužina dva hareketa"
+    },
+    {
+      "tr": "VÂY harfleri",
+      "es": "letras “WAY”",
+      "fr": "lettres “WAY”",
+      "de": "„WAY“-Buchstaben (in Anführungszeichen “WAY”)",
+      "en": "“WAY” letters",
+      "bs": "“VEJ” harfovi",
+      "note": "vâv-elif-yâ; Türkçede “VÂY”. Kırmızı “…” işaretini koru."
+    },
+    {
+      "tr": "çeker üstün",
+      "es": "fatha vertical (alif superíndice)",
+      "fr": "fatha verticale (alif suscrit)",
+      "de": "senkrechte Fatha (hochgestelltes Alif)",
+      "en": "vertical fatha (dagger alif)",
+      "bs": "uspravna fetha"
+    },
+    {
+      "tr": "çeker esre",
+      "es": "kasra vertical",
+      "fr": "kasra verticale",
+      "de": "senkrechte Kasra",
+      "en": "vertical kasra",
+      "bs": "uspravna kesra"
+    },
+    {
+      "tr": "kalın harf",
+      "es": "letra gruesa (enfática)",
+      "fr": "lettre épaisse (emphatique)",
+      "de": "dicker (emphatischer) Buchstabe",
+      "en": "heavy letter",
+      "bs": "debeli harf"
+    },
+    {
+      "tr": "ince harf",
+      "es": "letra fina",
+      "fr": "lettre fine",
+      "de": "dünner Buchstabe",
+      "en": "light letter",
+      "bs": "tanki harf"
+    },
+    {
+      "tr": "mahreç / çıkış yeri",
+      "es": "punto de articulación (majrach)",
+      "fr": "point d’articulation (makhraj)",
+      "de": "Artikulationsstelle (Machradsch)",
+      "en": "point of articulation (makhraj)",
+      "bs": "mjesto izgovora (mahredž)"
+    },
+    {
+      "tr": "cevf",
+      "es": "yawf (cavidad)",
+      "fr": "jawf (cavité)",
+      "de": "Dschauf (Hohlraum)",
+      "en": "jawf (the empty space)",
+      "bs": "džewf (šupljina)"
+    },
+    {
+      "tr": "boğaz",
+      "es": "garganta",
+      "fr": "gorge",
+      "de": "Kehle",
+      "en": "throat",
+      "bs": "grlo"
+    },
+    {
+      "tr": "dil ve ağız içi",
+      "es": "lengua e interior de la boca",
+      "fr": "langue et intérieur de la bouche",
+      "de": "Zunge und Mundinneres",
+      "en": "tongue and inside of the mouth",
+      "bs": "jezik i unutrašnjost usta"
+    },
+    {
+      "tr": "dudak",
+      "es": "labios",
+      "fr": "lèvres",
+      "de": "Lippen",
+      "en": "lips",
+      "bs": "usne"
+    },
+    {
+      "tr": "geniz",
+      "es": "cavidad nasal",
+      "fr": "cavité nasale",
+      "de": "Nasenraum",
+      "en": "nasal cavity",
+      "bs": "nosna šupljina"
+    },
+    {
+      "tr": "gunne",
+      "es": "ghunna (nasalización)",
+      "fr": "ghounna (nasalisation)",
+      "de": "Ghunna (Nasalierung)",
+      "en": "ghunnah (nasal sound)",
+      "bs": "gunna (unosni glas)"
+    },
+    {
+      "tr": "hemze",
+      "es": "hamza",
+      "fr": "hamza",
+      "de": "Hamza",
+      "en": "hamza",
+      "bs": "hemze"
+    },
+    {
+      "tr": "vasıl hemzesi",
+      "es": "hamza de unión (hamzat al-wasl)",
+      "fr": "hamza de liaison (hamzat al-wasl)",
+      "de": "Verbindungs-Hamza (Hamzat al-Wasl)",
+      "en": "connecting hamza (hamzat al-wasl)",
+      "bs": "vezno hemze (hemzetu-l-vasl)"
+    },
+    {
+      "tr": "El takısı / Elif-Lâm takısı",
+      "es": "artículo “al” (alif-lam)",
+      "fr": "article « al » (alif-lam) — en markup: article “al”",
+      "de": "Artikel „al“ (Alif-Lam) — im Markup: Artikel “al”",
+      "en": "the article “al” (alif-lam)",
+      "bs": "član “el” (elif-lam)"
+    },
+    {
+      "tr": "kapalı te",
+      "es": "ta marbuta",
+      "fr": "ta marbouta",
+      "de": "Ta marbuta",
+      "en": "ta marbuta (closed ta)",
+      "bs": "zatvoreno te (ta merbuta)"
+    },
+    {
+      "tr": "zamir he",
+      "es": "ha pronominal",
+      "fr": "ha pronominal",
+      "de": "Pronomen-Ha",
+      "en": "pronoun ha",
+      "bs": "zamjenično he"
+    },
+    {
+      "tr": "uzun med işareti",
+      "es": "signo de madd largo",
+      "fr": "signe de madd long",
+      "de": "Zeichen für langes Madd",
+      "en": "long madd sign",
+      "bs": "znak dugog medda"
+    },
+    {
+      "tr": "durmak / durulduğunda (vakf)",
+      "es": "detenerse / al detenerse (waqf)",
+      "fr": "s’arrêter / à l’arrêt (waqf)",
+      "de": "anhalten / beim Anhalten (Waqf)",
+      "en": "stop / when stopping (waqf)",
+      "bs": "stati / kod zastajanja (vakf)"
+    },
+    {
+      "tr": "geçmek / geçildiğinde (vasl)",
+      "es": "continuar / al continuar (wasl)",
+      "fr": "enchaîner / en enchaînant (wasl)",
+      "de": "weiterlesen / beim Weiterlesen (Wasl)",
+      "en": "continue / when continuing (wasl)",
+      "bs": "nastaviti / kod nastavljanja (vasl)"
+    },
+    {
+      "tr": "durak işaretleri",
+      "es": "signos de pausa",
+      "fr": "signes de pause",
+      "de": "Pausenzeichen",
+      "en": "stop signs (pause marks)",
+      "bs": "znakovi zastajanja"
+    },
+    {
+      "tr": "sakin",
+      "es": "sin vocal (sakin)",
+      "fr": "sans voyelle (sâkin)",
+      "de": "vokallos (sakin)",
+      "en": "vowelless (sakin)",
+      "bs": "bez harekata (sakin)"
+    },
+    {
+      "tr": "Lâmelif",
+      "es": "lam-alif",
+      "fr": "lam-alif",
+      "de": "Lam-Alif",
+      "en": "lam-alif",
+      "bs": "lam-elif"
+    },
+    {
+      "tr": "Kur’ân-ı Kerîm",
+      "es": "el Sagrado Corán",
+      "fr": "le Noble Coran",
+      "de": "der edle Koran",
+      "en": "the Holy Qur’an",
+      "bs": "Plemeniti Kur’an"
+    },
+    {
+      "tr": "ayet",
+      "es": "aleya (ayah)",
+      "fr": "verset (âya)",
+      "de": "Vers (Aya)",
+      "en": "verse (ayah)",
+      "bs": "ajet"
+    },
+    {
+      "tr": "tecvid",
+      "es": "tayuid",
+      "fr": "tajwid",
+      "de": "Tadschwid",
+      "en": "tajweed",
+      "bs": "tedžvid"
+    },
+    {
+      "tr": "Örnekler (genel başlık)",
+      "es": "EJEMPLOS",
+      "fr": "EXEMPLES",
+      "de": "BEISPIELE",
+      "en": "EXAMPLES",
+      "bs": "PRIMJERI"
+    },
+    {
+      "tr": "harf",
+      "es": "letra",
+      "fr": "lettre",
+      "de": "Buchstabe",
+      "en": "letter",
+      "bs": "harf"
+    }
+  ],
+  "letters": [
+    {
+      "ar": "ا",
+      "tr": "Elif",
+      "es": "Alif",
+      "fr": "Alif",
+      "de": "Alif",
+      "en": "Alif",
+      "bs": "Elif"
+    },
+    {
+      "ar": "ب",
+      "tr": "Be",
+      "es": "Ba",
+      "fr": "Ba",
+      "de": "Ba",
+      "en": "Ba",
+      "bs": "Be"
+    },
+    {
+      "ar": "ت",
+      "tr": "Te",
+      "es": "Ta",
+      "fr": "Ta",
+      "de": "Ta",
+      "en": "Ta",
+      "bs": "Te"
+    },
+    {
+      "ar": "ث",
+      "tr": "Se",
+      "es": "Tha",
+      "fr": "Tha",
+      "de": "Tha",
+      "en": "Tha",
+      "bs": "Se"
+    },
+    {
+      "ar": "ج",
+      "tr": "Cim",
+      "es": "Yim",
+      "fr": "Jim",
+      "de": "Dschim",
+      "en": "Jim",
+      "bs": "Džim"
+    },
+    {
+      "ar": "ح",
+      "tr": "Ha",
+      "es": "Ḥa",
+      "fr": "Ḥa",
+      "de": "Ḥa",
+      "en": "Ḥa",
+      "bs": "Ha",
+      "tts": {
+        "es": "Ha",
+        "fr": "Ha",
+        "de": "Ha",
+        "en": "Haa"
+      }
+    },
+    {
+      "ar": "خ",
+      "tr": "Hı",
+      "es": "Ja",
+      "fr": "Kha",
+      "de": "Cha",
+      "en": "Kha",
+      "bs": "Hi"
+    },
+    {
+      "ar": "د",
+      "tr": "Dal",
+      "es": "Dal",
+      "fr": "Dal",
+      "de": "Dal",
+      "en": "Dal",
+      "bs": "Dal"
+    },
+    {
+      "ar": "ذ",
+      "tr": "Zel",
+      "es": "Dhal",
+      "fr": "Dhal",
+      "de": "Dhal",
+      "en": "Dhal",
+      "bs": "Zal"
+    },
+    {
+      "ar": "ر",
+      "tr": "Ra",
+      "es": "Ra",
+      "fr": "Ra",
+      "de": "Ra",
+      "en": "Ra",
+      "bs": "Ra"
+    },
+    {
+      "ar": "ز",
+      "tr": "Ze",
+      "es": "Zay",
+      "fr": "Zay",
+      "de": "Zay",
+      "en": "Zay",
+      "bs": "Ze"
+    },
+    {
+      "ar": "س",
+      "tr": "Sin",
+      "es": "Sin",
+      "fr": "Sin",
+      "de": "Sin",
+      "en": "Seen",
+      "bs": "Sin"
+    },
+    {
+      "ar": "ش",
+      "tr": "Şın",
+      "es": "Shin",
+      "fr": "Chin",
+      "de": "Schin",
+      "en": "Sheen",
+      "bs": "Šin"
+    },
+    {
+      "ar": "ص",
+      "tr": "Sad",
+      "es": "Sad",
+      "fr": "Sad",
+      "de": "Sad",
+      "en": "Saad",
+      "bs": "Sad"
+    },
+    {
+      "ar": "ض",
+      "tr": "Dad",
+      "es": "Dad",
+      "fr": "Dad",
+      "de": "Dad",
+      "en": "Daad",
+      "bs": "Dad"
+    },
+    {
+      "ar": "ط",
+      "tr": "Tı",
+      "es": "Ṭa",
+      "fr": "Ṭa",
+      "de": "Ṭa",
+      "en": "Ṭa",
+      "bs": "Ta",
+      "tts": {
+        "es": "Ta enfática",
+        "fr": "Ta emphatique",
+        "de": "dickes Ta",
+        "en": "heavy Ta"
+      }
+    },
+    {
+      "ar": "ظ",
+      "tr": "Zı",
+      "es": "Ẓa",
+      "fr": "Ẓa",
+      "de": "Ẓa",
+      "en": "Ẓa",
+      "bs": "Za",
+      "tts": {
+        "es": "Za enfática",
+        "fr": "Za emphatique",
+        "de": "dickes Za",
+        "en": "heavy Za"
+      }
+    },
+    {
+      "ar": "ع",
+      "tr": "Ayn",
+      "es": "Ayn",
+      "fr": "Ayn",
+      "de": "Ain",
+      "en": "Ayn",
+      "bs": "Ajn"
+    },
+    {
+      "ar": "غ",
+      "tr": "Gayn",
+      "es": "Ghayn",
+      "fr": "Ghayn",
+      "de": "Ghain",
+      "en": "Ghayn",
+      "bs": "Gajn"
+    },
+    {
+      "ar": "ف",
+      "tr": "Fe",
+      "es": "Fa",
+      "fr": "Fa",
+      "de": "Fa",
+      "en": "Fa",
+      "bs": "Fe"
+    },
+    {
+      "ar": "ق",
+      "tr": "Kaf",
+      "es": "Qaf",
+      "fr": "Qaf",
+      "de": "Qaf",
+      "en": "Qaf",
+      "bs": "Kaf"
+    },
+    {
+      "ar": "ك",
+      "tr": "Kef",
+      "es": "Kaf",
+      "fr": "Kaf",
+      "de": "Kaf",
+      "en": "Kaf",
+      "bs": "Kef"
+    },
+    {
+      "ar": "ل",
+      "tr": "Lam",
+      "es": "Lam",
+      "fr": "Lam",
+      "de": "Lam",
+      "en": "Lam",
+      "bs": "Lam"
+    },
+    {
+      "ar": "م",
+      "tr": "Mim",
+      "es": "Mim",
+      "fr": "Mim",
+      "de": "Mim",
+      "en": "Meem",
+      "bs": "Mim"
+    },
+    {
+      "ar": "ن",
+      "tr": "Nun",
+      "es": "Nun",
+      "fr": "Noun",
+      "de": "Nun",
+      "en": "Noon",
+      "bs": "Nun"
+    },
+    {
+      "ar": "و",
+      "tr": "Vav",
+      "es": "Waw",
+      "fr": "Waw",
+      "de": "Waw",
+      "en": "Waw",
+      "bs": "Vav"
+    },
+    {
+      "ar": "ه",
+      "tr": "He",
+      "es": "Hā",
+      "fr": "Hâ",
+      "de": "Hā",
+      "en": "Hā",
+      "bs": "He",
+      "tts": {
+        "es": "Ha suave",
+        "fr": "Ha léger",
+        "de": "leichtes Ha",
+        "en": "light Ha"
+      }
+    },
+    {
+      "ar": "ي / ى",
+      "tr": "Ye",
+      "es": "Ya",
+      "fr": "Ya",
+      "de": "Ya",
+      "en": "Ya",
+      "bs": "Je"
+    },
+    {
+      "ar": "ء",
+      "tr": "Hemze",
+      "es": "Hamza",
+      "fr": "Hamza",
+      "de": "Hamza",
+      "en": "Hamza",
+      "bs": "Hemze"
+    },
+    {
+      "ar": "لا",
+      "tr": "Lam Elif",
+      "es": "Lam-Alif",
+      "fr": "Lam-Alif",
+      "de": "Lam-Alif",
+      "en": "Lam-Alif",
+      "bs": "Lam-Elif"
+    }
+  ],
+  "rules": [
+    "Ekrandaki çeviri metni Türkçe kaynağın işaretlerini AYNEN korur: «…» (kırmızı), ⟪…⟫ (yeşil), ⟦…⟧ (mavi), “…” (kırmızı, tırnaklı), paragraf başı '- ' ve '* ' maddeleri. Fransızca/Almanca dahil başka tırnak (« », „ “) kullanılmaz; « ve » YALNIZ renk işaretidir.",
+    "Arapça harf, kelime, ayet ve işaretler (ـً gibi) ekranda aynen kalır; sayıları ve dizilişleri Türkçe kaynakla aynı olur.",
+    "ttsText: ekrandaki anlamın tamamını taşır; Arapça yazı yerine harf adı/işaret adı yazılır (ör. ( و ا ى ) → 'Waw, Alif and Ya'). Tenvin: Nûn sesi, iki üstün/iki esre/iki ötre kavramları atlanmaz.",
+    "Kur’an metni çevrilmez, 'tercüme edilmiş tilavet' gibi sunulmaz; Arapça örneklerin sesi orijinal kayıttır.",
+    "Çocuklara yönelik sade, sakin dil; anlam eklenmez/çıkarılmaz."
+  ]
+}

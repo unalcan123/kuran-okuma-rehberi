@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -176,8 +177,7 @@ class _ListenPickScreenState extends State<ListenPickScreen> {
     _scheduleAutoPlay();
   }
 
-  double get _progress =>
-      (_index + (_solved ? 1 : 0)) / _questions.length;
+  double get _progress => (_index + (_solved ? 1 : 0)) / _questions.length;
 
   OptionState _stateOf(ArabicLetter option) {
     final id = listenPickId(option);
@@ -204,7 +204,7 @@ class _ListenPickScreenState extends State<ListenPickScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Dinle ve Seç',
+              context.t('Dinle ve Seç'),
               style: textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppColors.textPrimary,
@@ -234,7 +234,7 @@ class _ListenPickScreenState extends State<ListenPickScreen> {
                 _finished
                     ? GameFinishView(
                       title: 'Tebrikler!',
-                      message: 'Soruları tamamladın.',
+                      message: context.t("Soruları tamamladın."),
                       summary:
                           _result == null
                               ? null
@@ -310,7 +310,7 @@ class _ListenPickScreenState extends State<ListenPickScreen> {
                 ),
           ),
           Text(
-            'Dinle',
+            context.t('Dinle'),
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w800,
               color: AppColors.turquoise,
@@ -324,10 +324,11 @@ class _ListenPickScreenState extends State<ListenPickScreen> {
               decoration: BoxDecoration(
                 color: AppColors.goldSoft,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: 0.5),
+                ),
               ),
-              child: Text(
-                position.label,
+              child: Text(context.t(position.label),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w800,
                   color: AppColors.navy,

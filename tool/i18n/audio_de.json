@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "language": "de",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "de",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    }
+  },
+  "entries": [
+    {
+      "id": "s040_baslik_1",
+      "kind": "explanation",
+      "text": "TANWIN",
+      "file": "assets/audio/de/s040_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_c3b4622fe6885a8c",
+      "kind": "explanation",
+      "text": "(DOPPELTE VOKALZEICHEN)",
+      "file": "assets/audio/de/x_c3b4622fe6885a8c.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s040_01",
+      "kind": "explanation",
+      "text": "«Tanwin:» Wird dasselbe Vokalzeichen zweimal an einem Buchstaben gesetzt, heißt das Tanwin. Beim Weiterlesen endet der Buchstabe so, als folgte ein Nun mit Sukun ( «نْ» ).",
+      "file": "assets/audio/de/s040_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_806899ee6f662f9a",
+      "kind": "explanation",
+      "text": "Es gibt drei Arten von Tanwin: doppelte Fatha, doppelte Kasra und doppelte Damma.",
+      "file": "assets/audio/de/x_806899ee6f662f9a.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s040_02",
+      "kind": "explanation",
+      "text": "* Es sind zwei kleine übereinanderliegende Striche über dem Buchstaben, die nach links unten geneigt sind.",
+      "file": "assets/audio/de/s040_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_64d7457a9ff6dedf",
+      "kind": "explanation",
+      "text": "* Beim Weiterlesen ergibt sich bei leichten Buchstaben der Laut „En“, bei emphatischen Buchstaben „An“.",
+      "file": "assets/audio/de/x_64d7457a9ff6dedf.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s040_baslik_2",
+      "kind": "explanation",
+      "text": "BUCHSTABEN MIT DOPPELTER FATHA ( ـً ) فَتْحَتَيْنِ",
+      "file": "assets/audio/de/s040_baslik_2.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s041_01",
+      "kind": "explanation",
+      "text": "* Links neben einem Buchstaben mit doppelter Fatha wird meist auch ein Alif geschrieben.",
+      "file": "assets/audio/de/s041_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_5f67d27fbb01edec",
+      "kind": "explanation",
+      "text": "* Dieses Alif wird beim Weiterlesen nicht ausgesprochen, dient beim Anhalten aber als Dehnungsbuchstabe. Der Nun-Laut des Tanwin entfällt; der Buchstabe wird mit Fatha zwei Zeiteinheiten gedehnt. Bei emphatischen Buchstaben klingt er wie „A“, bei leichten zwischen „E“ und „A“.",
+      "file": "assets/audio/de/x_5f67d27fbb01edec.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_71439c414a7220ef",
+      "kind": "explanation",
+      "text": "Tanwin: Wird dasselbe Vokalzeichen zweimal an einem Buchstaben geschrieben, heißt das Tanwin. Beim Weiterlesen wird am Wortende ein „n“-Laut ergänzt, der nicht als Buchstabe geschrieben ist.",
+      "file": "assets/audio/de/x_71439c414a7220ef.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s044_baslik_1",
+      "kind": "explanation",
+      "text": "DOPPELTE KASRA",
+      "file": "assets/audio/de/s044_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s047_baslik_1",
+      "kind": "explanation",
+      "text": "DOPPELTE DAMMA",
+      "file": "assets/audio/de/s047_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s050_baslik_1",
+      "kind": "explanation",
+      "text": "ALIF - LAM",
+      "file": "assets/audio/de/s050_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s050_01",
+      "kind": "explanation",
+      "text": "Wir haben gesehen, dass die Form Lam-Alif (لا) verwendet wird, wenn in einem Wort zuerst Lam (ل), dann Alif (ا) geschrieben werden soll.",
+      "file": "assets/audio/de/s050_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s050_02",
+      "kind": "explanation",
+      "text": "Steht am Wortanfang zuerst Alif (ا), dann Lam mit Sukun (لْ), heißt dies Alif-Lam-Artikel oder kurz „al“-Artikel (اَلْ).",
+      "file": "assets/audio/de/s050_02.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s050_03",
+      "kind": "explanation",
+      "text": "Das Alif (ا) vor Lam (ل) hat hier die Funktion einer Hamza, da es mit einem Vokal gesprochen werden kann. Vokalisierte Alifs ohne Dehnungsfunktion heißen Hamza.",
+      "file": "assets/audio/de/s050_03.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s050_04",
+      "kind": "explanation",
+      "text": "Der folgende Buchstabe bestimmt die Aussprache von Lam. Folgt einer der Buchstaben (ء ب ج ح خ ع غ ف ق ك م و هـ ى) aus dem Merksatz (أَبْغِ حَجَّكَ وَخَفْ عَقِيمَهُ), wird Lam mit Sukun gesprochen. Diese Buchstaben bilden die Hälfte der 28 Koranbuchstaben.",
+      "file": "assets/audio/de/s050_04.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_038c31203bc9a86c",
+      "kind": "explanation",
+      "text": "Beispiele:",
+      "file": "assets/audio/de/x_038c31203bc9a86c.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s051_01",
+      "kind": "explanation",
+      "text": "Folgt einer der übrigen 14 Buchstaben (ض ص ش س ز ر د ذ ت ث ط ظ ل ن), wird Lam nicht ausgesprochen. Der folgende Buchstabe wird immer mit Schadda gesprochen.",
+      "file": "assets/audio/de/s051_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_8d40a624290ca269",
+      "kind": "explanation",
+      "text": "DIE HAMZA IM „AL“-ARTIKEL",
+      "file": "assets/audio/de/x_8d40a624290ca269.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s052_01",
+      "kind": "explanation",
+      "text": "Wir haben die beiden unterschiedlichen Aussprachen von Lam im „al“-Artikel (اَلْ) kennengelernt. Nun betrachten wir die Hamza vor Lam.",
+      "file": "assets/audio/de/s052_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s052_02",
+      "kind": "explanation",
+      "text": "• Beim Weiterlesen vom vorherigen Buchstaben oder Wort wird die Hamza im „al“-Artikel (اَلْ) nicht ausgesprochen. Beispiele:",
+      "file": "assets/audio/de/s052_02.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s052_03",
+      "kind": "explanation",
+      "text": "• Beginnt die Lesung mit der Hamza des „al“-Artikels (اَلْ), wird sie immer mit Fatha gesprochen. Beispiele:",
+      "file": "assets/audio/de/s052_03.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s052_04",
+      "kind": "explanation",
+      "text": "• Da ihr Vokal nicht dauerhaft ist, wird diese Hamza genauer als Hamzat al-Wasl bezeichnet.",
+      "file": "assets/audio/de/s052_04.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s053_baslik_1",
+      "kind": "explanation",
+      "text": "NICHT AUSGESPROCHENE HAMZA",
+      "file": "assets/audio/de/s053_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_dc90b2bbb6c1e2b7",
+      "kind": "explanation",
+      "text": "(Hamzat al-Wasl)",
+      "file": "assets/audio/de/x_dc90b2bbb6c1e2b7.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s053_01",
+      "kind": "explanation",
+      "text": "Manche Hamzas am Wortanfang verlieren beim Weiterlesen vom vorherigen Wort oder Buchstaben ihren Vokal und werden ausgelassen. Sie werden als Alif ohne Vokalzeichen (ا) geschrieben. Manchmal zeigt ein kleines Verbindungszeichen (ٱ), dass sie nicht ausgesprochen werden. Diese Hamzas heißen Hamzat al-Wasl. Beispiele:",
+      "file": "assets/audio/de/s053_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s053_02",
+      "kind": "explanation",
+      "text": "Wird sie am Wortanfang als erster Buchstabe ohne Verbindung zum Vorhergehenden gelesen, spricht man sie mit ihrem Vokal aus. Beispiele:",
+      "file": "assets/audio/de/s053_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s053_03",
+      "kind": "explanation",
+      "text": "In der vorherigen Lektion haben wir gesehen, dass auch das Alif jedes Alif-Lam-Artikels (اَلْ) so funktioniert.",
+      "file": "assets/audio/de/s053_03.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s054_baslik_1",
+      "kind": "explanation",
+      "text": "DES PRONOMENS „HA“ ( ه ـه )",
+      "file": "assets/audio/de/s054_baslik_1.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s054_baslik_2",
+      "kind": "explanation",
+      "text": "Wann wird der Buchstabe „Ha“ gedehnt?",
+      "file": "assets/audio/de/s054_baslik_2.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_01",
+      "kind": "explanation",
+      "text": "* Trägt der Buchstabe vor „Ha“ einen Vokal, wird „Ha“ gedehnt. Die Dauer bestimmt der folgende Buchstabe:",
+      "file": "assets/audio/de/s054_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_02",
+      "kind": "explanation",
+      "text": "- Folgt auf das gedehnte „Ha“ eine Hamza, wird es vier Zeiteinheiten gedehnt.",
+      "file": "assets/audio/de/s054_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_6d1cb525ce29efc0",
+      "kind": "explanation",
+      "text": "„Beispiele:“",
+      "file": "assets/audio/de/x_6d1cb525ce29efc0.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_03",
+      "kind": "explanation",
+      "text": "Folgt auf das gedehnte „Ha“ ein anderer Buchstabe als Hamza, wird es zwei Zeiteinheiten gedehnt.",
+      "file": "assets/audio/de/s054_03.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_baslik_3",
+      "kind": "explanation",
+      "text": "Wann wird der Buchstabe „Ha“ nicht gedehnt?",
+      "file": "assets/audio/de/s054_baslik_3.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_04",
+      "kind": "explanation",
+      "text": "* Steht vor „Ha“ ein Dehnungsbuchstabe, wird „Ha“ ohne Dehnung gelesen.",
+      "file": "assets/audio/de/s054_04.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_94ed5dc0231585ae",
+      "kind": "explanation",
+      "text": "Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht.",
+      "file": "assets/audio/de/x_94ed5dc0231585ae.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s055_01",
+      "kind": "explanation",
+      "text": "* Steht vor „Ha“ ein Buchstabe mit Sukun, wird es ebenfalls ohne Dehnung gelesen.",
+      "file": "assets/audio/de/s055_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_a6eb86d55ff2c4aa",
+      "kind": "explanation",
+      "text": "Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht.",
+      "file": "assets/audio/de/x_a6eb86d55ff2c4aa.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s055_02",
+      "kind": "explanation",
+      "text": "* Wird „Ha“ mit einem Buchstaben mit Sukun oder Schadda im folgenden Wort verbunden, wird es nicht gedehnt, auch wenn der vorherige Buchstabe einen Vokal trägt.",
+      "file": "assets/audio/de/s055_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_1d1faaa83fcf957e",
+      "kind": "explanation",
+      "text": "DES PRONOMENS „HA“",
+      "file": "assets/audio/de/x_1d1faaa83fcf957e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_ee8e1cbd3c2079b9",
+      "kind": "explanation",
+      "text": "Wann wird der Buchstabe „Ha“ gedehnt?\n\nTrägt der Buchstabe vor „Ha“ einen Vokal, wird „Ha“ gedehnt. Die Dauer bestimmt der folgende Buchstabe:\n\nFolgt auf das gedehnte „Ha“ eine Hamza, wird es vier Zeiteinheiten gedehnt. Beispiele:",
+      "file": "assets/audio/de/x_ee8e1cbd3c2079b9.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_96c5d379513d8b1e",
+      "kind": "explanation",
+      "text": "Folgt auf das gedehnte „Ha“ ein anderer Buchstabe als Hamza, wird es zwei Zeiteinheiten gedehnt. Beispiele:",
+      "file": "assets/audio/de/x_96c5d379513d8b1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_28754253bf2b3bf0",
+      "kind": "explanation",
+      "text": "Wann wird der Buchstabe „Ha“ nicht gedehnt?\n\nSteht vor „Ha“ ein Dehnungsbuchstabe, wird „Ha“ ohne Dehnung gelesen. Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht. Beispiele:",
+      "file": "assets/audio/de/x_28754253bf2b3bf0.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_61aadc3dfcac8192",
+      "kind": "explanation",
+      "text": "Steht vor „Ha“ ein Buchstabe mit Sukun, wird es ebenfalls ohne Dehnung gelesen. Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht. Beispiele:",
+      "file": "assets/audio/de/x_61aadc3dfcac8192.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_1bfb1f81a526bd8d",
+      "kind": "explanation",
+      "text": "Wird „Ha“ mit einem Buchstaben mit Sukun oder Schadda im folgenden Wort verbunden, wird es nicht gedehnt, auch wenn der vorherige Buchstabe einen Vokal trägt. Beispiele:",
+      "file": "assets/audio/de/x_1bfb1f81a526bd8d.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s055_03",
+      "kind": "explanation",
+      "text": "Dieses Zeichen steht über manchen Dehnungen von mehr als zwei Zeiteinheiten. Weitere Einzelheiten werden in den Tadschwidlektionen erklärt.",
+      "file": "assets/audio/de/s055_03.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s056_baslik_1",
+      "kind": "explanation",
+      "text": "TA MARBUTA",
+      "file": "assets/audio/de/s056_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s056_01",
+      "kind": "explanation",
+      "text": "Manchmal wird Ta (ت) als „Ta Marbuta“ geschrieben: (ة ، ـة). Dies kommt nur am Wortende vor. Mit dem vorherigen Buchstaben verbunden schreibt man (ـة), ohne Verbindung (ة).",
+      "file": "assets/audio/de/s056_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s056_02",
+      "kind": "explanation",
+      "text": "Beim Anhalten an einem Wort mit Ta Marbuta wird es wie Ha mit Sukun (ـهْ) gesprochen. Beim Weiterlesen zum nächsten Wort wird es als Ta mit seinem Vokal gesprochen.",
+      "file": "assets/audio/de/s056_02.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_cfe5770979bae97f",
+      "kind": "explanation",
+      "text": "Sehen wir uns die Anwendung anhand von Beispielen an:",
+      "file": "assets/audio/de/x_cfe5770979bae97f.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_baslik_1",
+      "kind": "explanation",
+      "text": "AM WORTENDE",
+      "file": "assets/audio/de/s057_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_b88ac8cf3bf1fad4",
+      "kind": "explanation",
+      "text": "WIE HÄLT MAN AN?",
+      "file": "assets/audio/de/x_b88ac8cf3bf1fad4.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_498f7161c2217090",
+      "kind": "explanation",
+      "text": "Wie hält man an einem vokalisierten Buchstaben am Wortende an?",
+      "file": "assets/audio/de/x_498f7161c2217090.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_01",
+      "kind": "explanation",
+      "text": "Beim Koranlesen halten wir gewöhnlich am Versende, an den Haltezeichen oder zum Atemholen an. Dabei darf nur am Wortende angehalten werden.",
+      "file": "assets/audio/de/s057_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_02",
+      "kind": "explanation",
+      "text": "Beim Anhalten wird keine Fatha, Kasra oder Damma ausgesprochen. Ist der letzte Buchstabe nicht bereits vokallos —mit Sukun oder als Dehnungsbuchstabe—, entfällt sein Vokal und er wird so gesprochen, als trüge er Sukun.",
+      "file": "assets/audio/de/s057_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_03",
+      "kind": "explanation",
+      "text": "Bei Tanwin gilt Folgendes: Bei doppelter Fatha mit Alif entfällt eine Fatha. Der Buchstabe wird mit einer einzelnen Fatha zwei Zeiteinheiten gedehnt gelesen.",
+      "file": "assets/audio/de/s057_03.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s058_01",
+      "kind": "explanation",
+      "text": "• Beim Anhalten an einer Hamza mit doppelter Fatha ohne geschriebenes Alif wird ebenfalls zwei Zeiteinheiten gedehnt, als stünde daneben ein Alif.",
+      "file": "assets/audio/de/s058_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s058_02",
+      "kind": "explanation",
+      "text": "• Bei Buchstaben mit doppelter Kasra oder doppelter Damma hält man mit Sukun an.",
+      "file": "assets/audio/de/s058_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_58eb04ec1974a351",
+      "kind": "explanation",
+      "text": "Weitere Beispiele:",
+      "file": "assets/audio/de/x_58eb04ec1974a351.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_481eab08538f248a",
+      "kind": "explanation",
+      "text": "Beispiele 1",
+      "file": "assets/audio/de/x_481eab08538f248a.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_6aa191334112403e",
+      "kind": "explanation",
+      "text": "Beispiele 1",
+      "file": "assets/audio/de/x_6aa191334112403e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_a2e7e3d43413bac8",
+      "kind": "explanation",
+      "text": "Allgemeine Leseübungen, die alle erlernten Regeln verbinden.",
+      "file": "assets/audio/de/x_a2e7e3d43413bac8.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_c09e400760ae1c4e",
+      "kind": "explanation",
+      "text": "Beispiele 2",
+      "file": "assets/audio/de/x_c09e400760ae1c4e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_40652d006998933c",
+      "kind": "explanation",
+      "text": "Beispiele 2",
+      "file": "assets/audio/de/x_40652d006998933c.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_e9f0754f783d9731",
+      "kind": "explanation",
+      "text": "Beispiele 3",
+      "file": "assets/audio/de/x_e9f0754f783d9731.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_78536bbcb13116f5",
+      "kind": "explanation",
+      "text": "Beispiele 3",
+      "file": "assets/audio/de/x_78536bbcb13116f5.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_fe1c5274c7343aac",
+      "kind": "explanation",
+      "text": "Beispiele 4",
+      "file": "assets/audio/de/x_fe1c5274c7343aac.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_1dba50210b528662",
+      "kind": "explanation",
+      "text": "Beispiele 4",
+      "file": "assets/audio/de/x_1dba50210b528662.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../theme/app_colors.dart';
@@ -56,7 +57,7 @@ class _PlaySoundButtonState extends State<PlaySoundButton>
     final size = widget.size;
     return Semantics(
       button: true,
-      label: 'Sesi dinle',
+      label: context.t("Sesi dinle"),
       child: SizedBox(
         width: size * 1.5,
         height: size * 1.5,

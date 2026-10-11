@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -77,7 +78,7 @@ class _HarfTreniScreenState extends State<HarfTreniScreen> {
     final maxWidth = Responsive.isDesktop(context) ? 760.0 : 640.0;
     final practice = _practice;
     return Scaffold(
-      appBar: AppBar(title: const Text('Harf Treni')),
+      appBar: AppBar(title: Text(context.t('Harf Treni'))),
       body: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: maxWidth),
@@ -105,14 +106,14 @@ class _HarfTreniScreenState extends State<HarfTreniScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Harf Treni',
+                          context.t('Harf Treni'),
                           style: textTheme.headlineSmall?.copyWith(
                             fontWeight: FontWeight.w800,
                             color: AppColors.navy,
                           ),
                         ),
                         Text(
-                          'Aynı harfleri bul, vagonları doldur!',
+                          context.t('Aynı harfleri bul, vagonları doldur!'),
                           style: textTheme.titleSmall?.copyWith(
                             color: AppColors.textSecondary,
                           ),
@@ -124,7 +125,7 @@ class _HarfTreniScreenState extends State<HarfTreniScreen> {
               ),
               const SizedBox(height: 18),
               Text(
-                'Seviye',
+                context.t('Seviye'),
                 style: textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w800,
                   color: AppColors.navy,
@@ -156,7 +157,9 @@ class _HarfTreniScreenState extends State<HarfTreniScreen> {
                     const SizedBox(width: 6),
                     Expanded(
                       child: Text(
-                        'Yazı tipleri yüklenemedi; Seviye 4 şimdilik kapalı.',
+                        context.t(
+                          'Yazı tipleri yüklenemedi; Seviye 4 şimdilik kapalı.',
+                        ),
                         style: textTheme.bodyMedium?.copyWith(
                           color: AppColors.textSecondary,
                         ),
@@ -176,7 +179,7 @@ class _HarfTreniScreenState extends State<HarfTreniScreen> {
                   const SizedBox(width: 6),
                   Flexible(
                     child: Text(
-                      '$kTrainCount tren · süre yok',
+                      context.t("{n} tren · süre yok", {"n": kTrainCount}),
                       style: textTheme.titleSmall?.copyWith(
                         color: AppColors.textSecondary,
                         fontWeight: FontWeight.w700,
@@ -190,7 +193,7 @@ class _HarfTreniScreenState extends State<HarfTreniScreen> {
                 key: const ValueKey('train-start'),
                 onPressed: _start,
                 icon: const Icon(Icons.train_rounded),
-                label: const Text('Başla'),
+                label: Text(context.t('Başla')),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.turquoise,
                   minimumSize: const Size.fromHeight(56),
@@ -287,7 +290,7 @@ class _LevelTile extends StatelessWidget {
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           Text(
-                            level.title,
+                            context.t(level.title),
                             style: textTheme.titleMedium?.copyWith(
                               fontWeight: FontWeight.w800,
                               color: AppColors.navy,
@@ -304,7 +307,7 @@ class _LevelTile extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Text(
-                                'Önerilen',
+                                context.t('Önerilen'),
                                 style: textTheme.labelMedium?.copyWith(
                                   fontWeight: FontWeight.w800,
                                   color: AppColors.navy,
@@ -314,7 +317,11 @@ class _LevelTile extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        '${level.subtitle} · ${level.wagons} vagon, ${level.cards} kart',
+                        context.t("{title} · {wagons} vagon, {cards} kart", {
+                          "title": context.t(level.subtitle),
+                          "wagons": level.wagons,
+                          "cards": level.cards,
+                        }),
                         style: textTheme.bodyMedium?.copyWith(
                           color: AppColors.textSecondary,
                         ),

@@ -21,6 +21,10 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FakeAudio extends ChangeNotifier implements AudioService {
+  @override
+  String? get currentAsset => null;
+  @override
+  bool get isPlaying => false;
   final played = <List<String>>[];
   final preloaded = <List<String?>>[];
 
@@ -67,7 +71,10 @@ Finder slotOf(ArabicLetter letter) => find.byWidgetPredicate(
 /// The letters this game deals (read from the screen — the random game
 /// picks its own).
 List<ArabicLetter> dealt(WidgetTester tester) =>
-    tester.widgetList<SoundSlot>(find.byType(SoundSlot)).map((s) => s.letter).toList();
+    tester
+        .widgetList<SoundSlot>(find.byType(SoundSlot))
+        .map((s) => s.letter)
+        .toList();
 
 Future<void> dragTo(WidgetTester tester, Finder from, Finder to) async {
   final gesture = await tester.startGesture(tester.getCenter(from));
@@ -106,7 +113,10 @@ void main() {
     for (final group in kDragDropGroups) {
       expect(group.length, inInclusiveRange(3, 5));
       for (final letter in group) {
-        expect(File('assets/${letter.audioAsset}').lengthSync(), greaterThan(0));
+        expect(
+          File('assets/${letter.audioAsset}').lengthSync(),
+          greaterThan(0),
+        );
       }
     }
     expect(File('assets/$kGameCorrectSound').lengthSync(), greaterThan(0));
@@ -285,35 +295,38 @@ void main() {
     expect(tester.widget<SoundSlot>(slotOf(letter)).placed, isTrue);
   });
 
-  testWidgets('Dropping in empty space or on a filled slot returns the letter', (
+  testWidgets(
+    'Dropping in empty space or on a filled slot returns the letter',
+    (tester) async {
+      setSize(tester, const Size(360, 800));
+      final audio = FakeAudio();
+      addTearDown(audio.dispose);
+      await tester.pumpWidget(
+        harness(DragDropGameScreen(level: level(1)), audio),
+      );
+      final a = kDragDropGroups[0][0];
+      final b = kDragDropGroups[0][1];
+      await dragTo(tester, tileOf(a), slotOf(a));
+      audio.played.clear();
+      final home = tester.getCenter(tileOf(b));
+      final gesture = await tester.startGesture(home);
+      await gesture.moveBy(const Offset(0, 24));
+      await tester.pump();
+      await gesture.moveTo(const Offset(180, 30));
+      await tester.pump();
+      await gesture.up();
+      await tester.pumpAndSettle();
+      expect(tester.getCenter(tileOf(b)), home);
+      await dragTo(tester, tileOf(b), slotOf(a));
+      expect(tester.getCenter(tileOf(b)), home);
+      expect(audio.played, isEmpty);
+      expect(tester.widget<SoundSlot>(slotOf(b)).placed, isFalse);
+    },
+  );
+
+  testWidgets('The whole cell around a letter is a drag handle', (
     tester,
   ) async {
-    setSize(tester, const Size(360, 800));
-    final audio = FakeAudio();
-    addTearDown(audio.dispose);
-    await tester.pumpWidget(
-      harness(DragDropGameScreen(level: level(1)), audio),
-    );
-    final a = kDragDropGroups[0][0];
-    final b = kDragDropGroups[0][1];
-    await dragTo(tester, tileOf(a), slotOf(a));
-    audio.played.clear();
-    final home = tester.getCenter(tileOf(b));
-    final gesture = await tester.startGesture(home);
-    await gesture.moveBy(const Offset(0, 24));
-    await tester.pump();
-    await gesture.moveTo(const Offset(180, 30));
-    await tester.pump();
-    await gesture.up();
-    await tester.pumpAndSettle();
-    expect(tester.getCenter(tileOf(b)), home);
-    await dragTo(tester, tileOf(b), slotOf(a));
-    expect(tester.getCenter(tileOf(b)), home);
-    expect(audio.played, isEmpty);
-    expect(tester.widget<SoundSlot>(slotOf(b)).placed, isFalse);
-  });
-
-  testWidgets('The whole cell around a letter is a drag handle', (tester) async {
     setSize(tester, const Size(360, 800));
     final audio = FakeAudio();
     addTearDown(audio.dispose);
@@ -324,7 +337,9 @@ void main() {
     final cell = tester.getRect(tileOf(letter));
     expect(cell.shortestSide, greaterThanOrEqualTo(96));
     // Corner of the cell: outside the drawn circle, inside the touch area.
-    final gesture = await tester.startGesture(cell.topLeft + const Offset(3, 3));
+    final gesture = await tester.startGesture(
+      cell.topLeft + const Offset(3, 3),
+    );
     await gesture.moveBy(const Offset(0, 24));
     await tester.pump();
     await gesture.moveTo(tester.getCenter(slotOf(letter)));
@@ -334,41 +349,43 @@ void main() {
     expect(tester.widget<SoundSlot>(slotOf(letter)).placed, isTrue);
   });
 
-  testWidgets("Fetches the game's sounds as soon as it opens, new ones on replay", (
-    tester,
-  ) async {
-    setSize(tester, const Size(800, 1400));
-    final audio = FakeAudio();
-    addTearDown(audio.dispose);
-    await tester.pumpWidget(
-      harness(DragDropGameScreen(level: level(3)), audio),
-    );
-    expect(audio.preloaded, isNotEmpty);
-    expect(audio.preloaded.first, [
-      kGameCorrectSound,
-      for (final letter in kDragDropGroups[2]) letter.audioAsset,
-    ]);
+  testWidgets(
+    "Fetches the game's sounds as soon as it opens, new ones on replay",
+    (tester) async {
+      setSize(tester, const Size(800, 1400));
+      final audio = FakeAudio();
+      addTearDown(audio.dispose);
+      await tester.pumpWidget(
+        harness(DragDropGameScreen(level: level(3)), audio),
+      );
+      expect(audio.preloaded, isNotEmpty);
+      expect(audio.preloaded.first, [
+        kGameCorrectSound,
+        for (final letter in kDragDropGroups[2]) letter.audioAsset,
+      ]);
 
-    // The random game deals new letters on replay - those are fetched too.
-    await tester.pumpWidget(
-      harness(
-        DragDropGameScreen(key: UniqueKey(), level: kDragDropLevels.last),
-        audio,
-      ),
-    );
-    await solve(tester);
-    audio.preloaded.clear();
-    await tester.tap(find.text('Tekrar Oyna'));
-    await tester.pumpAndSettle();
-    expect(audio.preloaded.length, 1);
-    final asked = audio.preloaded.single.whereType<String>().toSet();
-    expect(asked, contains(kGameCorrectSound));
-    expect(
-      dealt(tester).every((l) => asked.contains(l.audioAsset)),
-      isTrue,
-      reason: 'every letter now on screen was requested',
-    );
-  });
+      // The random game deals new letters on replay - those are fetched too.
+      await tester.pumpWidget(
+        harness(
+          DragDropGameScreen(key: UniqueKey(), level: kDragDropLevels.last),
+          audio,
+        ),
+      );
+      await solve(tester);
+      audio.preloaded.clear();
+      await tester.tap(find.text('Tekrar Oyna'));
+      await tester.pumpAndSettle();
+      final letterRequests = audio.preloaded.where((assets) => assets.contains(kGameCorrectSound));
+      expect(letterRequests.length, 1);
+      final asked = letterRequests.single.whereType<String>().toSet();
+      expect(asked, contains(kGameCorrectSound));
+      expect(
+        dealt(tester).every((l) => asked.contains(l.audioAsset)),
+        isTrue,
+        reason: 'every letter now on screen was requested',
+      );
+    },
+  );
 
   testWidgets('Tapping a slot plays that letter', (tester) async {
     setSize(tester, const Size(360, 800));
@@ -385,143 +402,158 @@ void main() {
     ]);
   });
 
-  testWidgets('Points: first try 15; a miss keeps the score and the retry earns 10', (
-    tester,
-  ) async {
-    setSize(tester, const Size(360, 800));
-    final audio = FakeAudio();
-    addTearDown(audio.dispose);
-    await tester.pumpWidget(
-      harness(DragDropGameScreen(level: level(1)), audio),
-    );
-    final r = kDragDropGroups[0];
-    expect(find.text('Puan'), findsOneWidget);
-    expect(find.text('0'), findsOneWidget);
+  testWidgets(
+    'Points: first try 15; a miss keeps the score and the retry earns 10',
+    (tester) async {
+      setSize(tester, const Size(360, 800));
+      final audio = FakeAudio();
+      addTearDown(audio.dispose);
+      await tester.pumpWidget(
+        harness(DragDropGameScreen(level: level(1)), audio),
+      );
+      final r = kDragDropGroups[0];
+      expect(find.text('Puan'), findsOneWidget);
+      expect(find.text('0'), findsOneWidget);
 
-    await dragTo(tester, tileOf(r[0]), slotOf(r[0]));
-    expect(find.text('15'), findsOneWidget);
-    // r[1] dropped on the wrong sound: nothing is taken away...
-    await dragTo(tester, tileOf(r[1]), slotOf(r[2]));
-    expect(find.text('15'), findsOneWidget);
-    // ...and once placed it earns the base 10 only.
-    await dragTo(tester, tileOf(r[1]), slotOf(r[1]));
-    expect(find.text('25'), findsOneWidget);
-    await dragTo(tester, tileOf(r[2]), slotOf(r[2]));
-    expect(find.text('40'), findsOneWidget);
-    await dragTo(tester, tileOf(r[3]), slotOf(r[3]));
-    await tester.pump(const Duration(seconds: 1));
-    await tester.pumpAndSettle();
-    // 15 + 10 + 15 + 15: the miss broke the streak, so no bonus.
-    expect(find.text('55 Puan'), findsOneWidget);
-    expect(find.text('3 / 4 İlk Denemede Doğru'), findsOneWidget);
-    expect(find.byIcon(Icons.star_rounded), findsNWidgets(2));
-  });
+      await dragTo(tester, tileOf(r[0]), slotOf(r[0]));
+      expect(find.text('15'), findsOneWidget);
+      // r[1] dropped on the wrong sound: nothing is taken away...
+      await dragTo(tester, tileOf(r[1]), slotOf(r[2]));
+      expect(find.text('15'), findsOneWidget);
+      // ...and once placed it earns the base 10 only.
+      await dragTo(tester, tileOf(r[1]), slotOf(r[1]));
+      expect(find.text('25'), findsOneWidget);
+      await dragTo(tester, tileOf(r[2]), slotOf(r[2]));
+      expect(find.text('40'), findsOneWidget);
+      await dragTo(tester, tileOf(r[3]), slotOf(r[3]));
+      await tester.pump(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
+      // 15 + 10 + 15 + 15: the miss broke the streak, so no bonus.
+      expect(find.text('55 Puan'), findsOneWidget);
+      expect(find.text('3 / 4 İlk Denemede Doğru'), findsOneWidget);
+      expect(find.byIcon(Icons.star_rounded), findsNWidgets(2));
+    },
+  );
 
-  testWidgets('Third first-try answer in a row is announced quietly and fades', (
-    tester,
-  ) async {
-    setSize(tester, const Size(360, 800));
-    final audio = FakeAudio();
-    addTearDown(audio.dispose);
-    await tester.pumpWidget(
-      harness(DragDropGameScreen(level: level(1)), audio),
-    );
-    final r = kDragDropGroups[0];
-    await dragTo(tester, tileOf(r[0]), slotOf(r[0]));
-    await dragTo(tester, tileOf(r[1]), slotOf(r[1]));
-    final gesture = await tester.startGesture(tester.getCenter(tileOf(r[2])));
-    await gesture.moveBy(const Offset(0, 24));
-    await tester.pump();
-    await gesture.moveTo(tester.getCenter(slotOf(r[2])));
-    await tester.pump();
-    await gesture.up();
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 400));
-    expect(find.text('+15'), findsOneWidget);
-    expect(find.textContaining('Güzel gidiyorsun!'), findsOneWidget);
-    expect(find.text('50'), findsOneWidget);
-    await tester.pump(const Duration(seconds: 2));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('Güzel gidiyorsun!'), findsNothing);
-    expect(find.text('Sesi dinle, harfi doğru yere sürükle.'), findsOneWidget);
-  });
+  testWidgets(
+    'Third first-try answer in a row is announced quietly and fades',
+    (tester) async {
+      setSize(tester, const Size(360, 800));
+      final audio = FakeAudio();
+      addTearDown(audio.dispose);
+      await tester.pumpWidget(
+        harness(DragDropGameScreen(level: level(1)), audio),
+      );
+      final r = kDragDropGroups[0];
+      await dragTo(tester, tileOf(r[0]), slotOf(r[0]));
+      await dragTo(tester, tileOf(r[1]), slotOf(r[1]));
+      final gesture = await tester.startGesture(tester.getCenter(tileOf(r[2])));
+      await gesture.moveBy(const Offset(0, 24));
+      await tester.pump();
+      await gesture.moveTo(tester.getCenter(slotOf(r[2])));
+      await tester.pump();
+      await gesture.up();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.text('+15'), findsOneWidget);
+      expect(find.textContaining('Güzel gidiyorsun!'), findsOneWidget);
+      expect(find.text('50'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Güzel gidiyorsun!'), findsNothing);
+      expect(
+        find.text('Sesi dinle, harfi doğru yere sürükle.'),
+        findsOneWidget,
+      );
+    },
+  );
 
-  testWidgets('Ends a beat after the last letter; result stays until the child chooses', (
-    tester,
-  ) async {
-    setSize(tester, const Size(360, 800));
-    final audio = FakeAudio();
-    addTearDown(audio.dispose);
-    await tester.pumpWidget(
-      harness(DragDropGameScreen(level: level(1)), audio),
-    );
-    final r = kDragDropGroups[0];
-    for (var i = 0; i < 3; i++) {
-      await dragTo(tester, tileOf(r[i]), slotOf(r[i]));
-    }
-    final gesture = await tester.startGesture(tester.getCenter(tileOf(r[3])));
-    await gesture.moveBy(const Offset(0, 24));
-    await tester.pump();
-    await gesture.moveTo(tester.getCenter(slotOf(r[3])));
-    await tester.pump();
-    await gesture.up();
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
-    expect(find.text('4 / 4'), findsOneWidget, reason: 'last letter settling');
-    expect(find.text('Tebrikler!'), findsNothing);
-    await tester.pump(const Duration(milliseconds: 700));
-    await tester.pumpAndSettle();
-    expect(find.text('Tebrikler!'), findsOneWidget);
-    // 4 x 15 + one streak bonus at the third first-try letter
-    expect(find.text('65 Puan'), findsOneWidget);
-    expect(find.text('4 / 4 İlk Denemede Doğru'), findsOneWidget);
-    expect(find.byIcon(Icons.star_rounded), findsNWidgets(3));
-    expect(find.text('En İyi: 65'), findsOneWidget);
-    expect(find.text('Tekrar Oyna'), findsOneWidget);
-    expect(find.text('Oyun Seç'), findsOneWidget);
-    await tester.pump(const Duration(seconds: 10));
-    expect(find.text('Tebrikler!'), findsOneWidget, reason: 'never leaves by itself');
+  testWidgets(
+    'Ends a beat after the last letter; result stays until the child chooses',
+    (tester) async {
+      setSize(tester, const Size(360, 800));
+      final audio = FakeAudio();
+      addTearDown(audio.dispose);
+      await tester.pumpWidget(
+        harness(DragDropGameScreen(level: level(1)), audio),
+      );
+      final r = kDragDropGroups[0];
+      for (var i = 0; i < 3; i++) {
+        await dragTo(tester, tileOf(r[i]), slotOf(r[i]));
+      }
+      final gesture = await tester.startGesture(tester.getCenter(tileOf(r[3])));
+      await gesture.moveBy(const Offset(0, 24));
+      await tester.pump();
+      await gesture.moveTo(tester.getCenter(slotOf(r[3])));
+      await tester.pump();
+      await gesture.up();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(
+        find.text('4 / 4'),
+        findsOneWidget,
+        reason: 'last letter settling',
+      );
+      expect(find.text('Tebrikler!'), findsNothing);
+      await tester.pump(const Duration(milliseconds: 700));
+      await tester.pumpAndSettle();
+      expect(find.text('Tebrikler!'), findsOneWidget);
+      // 4 x 15 + one streak bonus at the third first-try letter
+      expect(find.text('65 Puan'), findsOneWidget);
+      expect(find.text('4 / 4 İlk Denemede Doğru'), findsOneWidget);
+      expect(find.byIcon(Icons.star_rounded), findsNWidgets(3));
+      expect(find.text('En İyi: 65'), findsOneWidget);
+      expect(find.text('Tekrar Oyna'), findsOneWidget);
+      expect(find.text('Oyun Seç'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 10));
+      expect(
+        find.text('Tebrikler!'),
+        findsOneWidget,
+        reason: 'never leaves by itself',
+      );
 
-    final store = GameScoreStore();
-    expect((await store.recordOf('drag_drop.1')).bestScore, 65);
-    expect((await store.recordOf('drag_drop.2')).hasPlayed, isFalse);
-    final history = await store.historyOf('drag_drop.1');
-    expect(history.plays, 1);
-    expect(history.recent, [65]);
-    expect((await store.historyOf('drag_drop.2')).plays, 0);
-  });
+      final store = GameScoreStore();
+      expect((await store.recordOf('drag_drop.1')).bestScore, 65);
+      expect((await store.recordOf('drag_drop.2')).hasPlayed, isFalse);
+      final history = await store.historyOf('drag_drop.1');
+      expect(history.plays, 1);
+      expect(history.recent, [65]);
+      expect((await store.historyOf('drag_drop.2')).plays, 0);
+    },
+  );
 
-  testWidgets('Replay starts the same game again; Oyun Seç returns to the list', (
-    tester,
-  ) async {
-    setSize(tester, const Size(800, 1400));
-    final audio = FakeAudio();
-    addTearDown(audio.dispose);
-    await tester.pumpWidget(harness(const DragDropLevelsScreen(), audio));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Oyun 6'));
-    await tester.pumpAndSettle();
-    expect(find.text('0 / 5'), findsOneWidget);
-    await solve(tester);
-    expect(find.text('Tebrikler!'), findsOneWidget);
-    // 5 x 15 + one streak bonus (third first-try letter)
-    expect(find.text('80 Puan'), findsOneWidget);
+  testWidgets(
+    'Replay starts the same game again; Oyun Seç returns to the list',
+    (tester) async {
+      setSize(tester, const Size(800, 1400));
+      final audio = FakeAudio();
+      addTearDown(audio.dispose);
+      await tester.pumpWidget(harness(const DragDropLevelsScreen(), audio));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Oyun 6'));
+      await tester.pumpAndSettle();
+      expect(find.text('0 / 5'), findsOneWidget);
+      await solve(tester);
+      expect(find.text('Tebrikler!'), findsOneWidget);
+      // 5 x 15 + one streak bonus (third first-try letter)
+      expect(find.text('80 Puan'), findsOneWidget);
 
-    await tester.tap(find.text('Tekrar Oyna'));
-    await tester.pumpAndSettle();
-    expect(find.text('0 / 5'), findsOneWidget);
-    expect(find.text('Tebrikler!'), findsNothing);
-    expect(find.byIcon(Icons.check_circle_rounded), findsNothing);
-    await solve(tester);
-    expect(find.text('Tebrikler!'), findsOneWidget);
-    expect((await GameScoreStore().historyOf('drag_drop.6')).plays, 2);
+      await tester.tap(find.text('Tekrar Oyna'));
+      await tester.pumpAndSettle();
+      expect(find.text('0 / 5'), findsOneWidget);
+      expect(find.text('Tebrikler!'), findsNothing);
+      expect(find.byIcon(Icons.check_circle_rounded), findsNothing);
+      await solve(tester);
+      expect(find.text('Tebrikler!'), findsOneWidget);
+      expect((await GameScoreStore().historyOf('drag_drop.6')).plays, 2);
 
-    await tester.tap(find.text('Oyun Seç'));
-    await tester.pumpAndSettle();
-    expect(find.byType(DragDropLevelsScreen), findsOneWidget);
-    // The card now carries the earned stars.
-    expect(find.byIcon(Icons.star_rounded), findsNWidgets(3));
-  });
+      await tester.tap(find.text('Oyun Seç'));
+      await tester.pumpAndSettle();
+      expect(find.byType(DragDropLevelsScreen), findsOneWidget);
+      // The card now carries the earned stars.
+      expect(find.byIcon(Icons.star_rounded), findsNWidgets(3));
+    },
+  );
 
   testWidgets('The random game deals five letters, and new ones on replay', (
     tester,
@@ -604,7 +636,11 @@ void main() {
           expect(rect.right, lessThanOrEqualTo(size.width));
         }
         await solve(tester);
-        expect(find.text('Tebrikler!'), findsOneWidget, reason: '$size ${game.title}');
+        expect(
+          find.text('Tebrikler!'),
+          findsOneWidget,
+          reason: '$size ${game.title}',
+        );
         expect(tester.takeException(), isNull, reason: '$size ${game.title}');
       }
     });

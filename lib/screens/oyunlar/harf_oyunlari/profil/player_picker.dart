@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class PlayerChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const l = GameTexts();
+    final l = GameTexts.of(context);
     return Consumer<PlayerRepository>(
       builder: (context, repo, _) {
         final player = repo.activePlayer;
@@ -66,7 +67,7 @@ class PlayerChip extends StatelessWidget {
                   child: Text(
                     player == null
                         ? l.plEnterName
-                        : '${l.plLabel}: ${player.displayName}',
+                        : l.playerLine(player.displayName),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -136,7 +137,7 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
 
   @override
   Widget build(BuildContext context) {
-    const l = GameTexts();
+    final l = GameTexts.of(context);
     final hasName = context.watch<PlayerRepository>().activePlayer != null;
     return SafeArea(
       child: Padding(
@@ -149,8 +150,7 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                l.plNameLabel,
+              Text(context.t(l.plNameLabel),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 22,
@@ -159,8 +159,7 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
                 ),
               ),
               const SizedBox(height: 6),
-              Text(
-                l.plNameIntro,
+              Text(context.t(l.plNameIntro),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,

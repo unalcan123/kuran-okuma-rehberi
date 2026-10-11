@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../services/reading_settings.dart';
@@ -44,7 +45,7 @@ class ReadingSettingsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => IconButton(
     key: const ValueKey('reading-settings-button'),
-    tooltip: 'Okuma ayarları',
+    tooltip: context.t("Okuma ayarları"),
     iconSize: 28,
     icon: const Icon(Icons.settings_rounded),
     onPressed: () => open(context, nouns: nouns, settings: settings),
@@ -89,7 +90,7 @@ class ReadingSettingsSheet extends StatelessWidget {
                     const SizedBox(width: 10),
                     Expanded(
                       child: Text(
-                        'Ayarlar',
+                        context.t("Ayarlar"),
                         style: theme.titleLarge?.copyWith(
                           color: AppColors.navy,
                           fontWeight: FontWeight.w800,
@@ -97,7 +98,7 @@ class ReadingSettingsSheet extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      tooltip: 'Kapat',
+                      tooltip: context.t("Kapat"),
                       onPressed: () => Navigator.of(context).maybePop(),
                       constraints: const BoxConstraints(
                         minWidth: 48,
@@ -126,7 +127,7 @@ class ReadingSettingsSheet extends StatelessWidget {
           _RoundButton(
             key: const ValueKey('arabic-size-down'),
             icon: Icons.remove_rounded,
-            tooltip: 'Arapça yazıyı küçült',
+            tooltip: context.t("Arapça yazıyı küçült"),
             onPressed:
                 settings.arabicScale > ReadingSettings.arabicScales.first
                     ? () => settings.stepArabicScale(-1)
@@ -151,7 +152,7 @@ class ReadingSettingsSheet extends StatelessWidget {
           _RoundButton(
             key: const ValueKey('arabic-size-up'),
             icon: Icons.add_rounded,
-            tooltip: 'Arapça yazıyı büyüt',
+            tooltip: context.t("Arapça yazıyı büyüt"),
             onPressed:
                 settings.arabicScale < ReadingSettings.arabicScales.last
                     ? () => settings.stepArabicScale(1)
@@ -202,9 +203,10 @@ class ReadingSettingsSheet extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: Text(
-                'Aşağıdaki "Ezberle" düğmesine bas: her '
-                '${nouns.one.toLowerCase()} ${settings.repeatCount} kez '
-                'okunur, sonra bir sonrakine geçilir.',
+                context.t(
+                  "Aşağıdaki \"Ezberle\" düğmesine bas: her {part} {n} kez okunur, sonra bir sonrakine geçilir.",
+                  {"part": nouns.one.toLowerCase(), "n": settings.repeatCount},
+                ),
                 key: const ValueKey('memorize-tip'),
                 style: theme.bodyMedium?.copyWith(color: AppColors.textPrimary),
               ),
@@ -219,7 +221,7 @@ class ReadingSettingsSheet extends StatelessWidget {
           _RoundButton(
             key: const ValueKey('repeat-down'),
             icon: Icons.remove_rounded,
-            tooltip: 'Tekrarı azalt',
+            tooltip: context.t("Tekrarı azalt"),
             onPressed:
                 settings.repeatCount > ReadingSettings.minRepeat
                     ? () => settings.repeatCount--
@@ -240,7 +242,7 @@ class ReadingSettingsSheet extends StatelessWidget {
           _RoundButton(
             key: const ValueKey('repeat-up'),
             icon: Icons.add_rounded,
-            tooltip: 'Tekrarı artır',
+            tooltip: context.t("Tekrarı artır"),
             onPressed:
                 settings.repeatCount < ReadingSettings.maxRepeat
                     ? () => settings.repeatCount++
@@ -297,8 +299,7 @@ class _SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.only(top: 18, bottom: 8),
-    child: Text(
-      text,
+    child: Text(context.t(text),
       style: Theme.of(context).textTheme.labelLarge?.copyWith(
         color: AppColors.turquoise,
         fontWeight: FontWeight.w800,
@@ -322,8 +323,7 @@ class _Label extends StatelessWidget {
         Icon(icon, size: 22, color: AppColors.navySoft),
         const SizedBox(width: 10),
         Flexible(
-          child: Text(
-            text,
+          child: Text(context.t(text),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: AppColors.textPrimary,
               fontWeight: FontWeight.w700,
@@ -349,7 +349,7 @@ class _Choice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ChoiceChip(
-    label: Text(label),
+    label: Text(context.t(label)),
     selected: selected,
     onSelected: (_) => onTap(),
     showCheckmark: false,
@@ -404,8 +404,8 @@ class _Switch extends StatelessWidget {
   Widget build(BuildContext context) => SwitchListTile(
     contentPadding: EdgeInsets.zero,
     secondary: Icon(icon, color: AppColors.navySoft),
-    title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-    subtitle: subtitle == null ? null : Text(subtitle!),
+    title: Text(context.t(title), style: const TextStyle(fontWeight: FontWeight.w700)),
+    subtitle: subtitle == null ? null : Text(context.t(subtitle!)),
     value: value,
     onChanged: onChanged,
     activeColor: Colors.white,

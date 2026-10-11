@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -235,14 +236,14 @@ class _MemoryGameScreenState extends State<MemoryGameScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Hafıza',
+              context.t('Hafıza'),
               style: textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppColors.textPrimary,
               ),
             ),
             Text(
-              widget.level.title,
+              context.t(widget.level.title),
               style: textTheme.bodySmall?.copyWith(
                 color: AppColors.textSecondary,
               ),
@@ -263,7 +264,7 @@ class _MemoryGameScreenState extends State<MemoryGameScreen> {
                 _phase == _Phase.finished
                     ? GameFinishView(
                       title: 'Tebrikler!',
-                      message: 'Bütün çiftleri buldun.',
+                      message: context.t("Bütün çiftleri buldun."),
                       summary:
                           _result == null
                               ? null
@@ -335,7 +336,7 @@ class _MemoryGameScreenState extends State<MemoryGameScreen> {
                         key: const ValueKey('ready'),
                         onPressed: _startPlaying,
                         icon: const Icon(Icons.check_rounded),
-                        label: const Text('Hazırım'),
+                        label: Text(context.t('Hazırım')),
                         style: FilledButton.styleFrom(
                           backgroundColor: AppColors.turquoise,
                           minimumSize: const Size(160, 48),
@@ -344,7 +345,7 @@ class _MemoryGameScreenState extends State<MemoryGameScreen> {
                         ),
                       )
                       : Text(
-                        'Deneme: $_tries',
+                        context.t('Deneme: {n}', {'n': _tries}),
                         key: const ValueKey('tries'),
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.w700,

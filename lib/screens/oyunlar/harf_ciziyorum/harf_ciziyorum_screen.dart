@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -71,7 +72,7 @@ class _HarfCiziyorumScreenState extends State<HarfCiziyorumScreen> {
     final practice = practiceLetters(_progress);
     final stars = _progress.values.fold(0, (a, p) => a + p.stars);
     return Scaffold(
-      appBar: AppBar(title: const Text('Harf Çiziyorum')),
+      appBar: AppBar(title: Text(context.t('Harf Çiziyorum'))),
       body: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: maxWidth),
@@ -99,14 +100,16 @@ class _HarfCiziyorumScreenState extends State<HarfCiziyorumScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Harf Çiziyorum',
+                          context.t('Harf Çiziyorum'),
                           style: textTheme.headlineSmall?.copyWith(
                             fontWeight: FontWeight.w800,
                             color: AppColors.navy,
                           ),
                         ),
                         Text(
-                          'İzini takip et, noktalarını koy, harfi öğren!',
+                          context.t(
+                            'İzini takip et, noktalarını koy, harfi öğren!',
+                          ),
                           style: textTheme.titleSmall?.copyWith(
                             color: AppColors.textSecondary,
                           ),
@@ -121,7 +124,7 @@ class _HarfCiziyorumScreenState extends State<HarfCiziyorumScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Harfini seç',
+                      context.t('Harfini seç'),
                       style: textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w800,
                         color: AppColors.navy,
@@ -169,8 +172,7 @@ class _HarfCiziyorumScreenState extends State<HarfCiziyorumScreen> {
               ),
               const SizedBox(height: 12),
               Text(
-                'Bu bölümde harflerin tek başına yazılışını çalışıyoruz. '
-                'Her oturum 5 harf.',
+                '${context.t("Bu bölümde harflerin tek başına yazılışını çalışıyoruz. ")}${context.t("Her oturum 5 harf.")}',
                 style: textTheme.bodyMedium?.copyWith(
                   color: AppColors.textSecondary,
                 ),
@@ -181,7 +183,9 @@ class _HarfCiziyorumScreenState extends State<HarfCiziyorumScreen> {
                 onPressed: () => _start(lettersFrom(selected)),
                 icon: const Icon(Icons.play_arrow_rounded),
                 label: Text(
-                  'Sırayla Öğren (${letterById(selected).name} harfinden)',
+                  context.t('Sırayla Öğren ({name} harfinden)', {
+                    'name': letterById(selected).name,
+                  }),
                 ),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.turquoise,
@@ -198,8 +202,10 @@ class _HarfCiziyorumScreenState extends State<HarfCiziyorumScreen> {
                 icon: const Icon(Icons.refresh_rounded),
                 label: Text(
                   practice.isEmpty
-                      ? 'Zorlandıklarımı Çalış (henüz yok)'
-                      : 'Zorlandıklarımı Çalış (${practice.length} harf)',
+                      ? context.t('Zorlandıklarımı Çalış (henüz yok)')
+                      : context.t('Zorlandıklarımı Çalış ({n} harf)', {
+                        'n': practice.length,
+                      }),
                 ),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.goldSoft,
@@ -238,7 +244,7 @@ class _LetterTile extends StatelessWidget {
   Widget build(BuildContext context) => Semantics(
     button: true,
     selected: selected,
-    label: '${letter.name}, $stars yıldız',
+    label: context.t("{name}, {n} yıldız", {"name": letter.name, "n": stars}),
     child: ExcludeSemantics(
       child: SizedBox(
         width: size,
@@ -264,8 +270,7 @@ class _LetterTile extends StatelessWidget {
                     child: FittedBox(
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(6, 4, 6, 0),
-                        child: Text(
-                          letter.char,
+                        child: Text(context.t(letter.char),
                           textScaler: TextScaler.noScaling,
                           style: singleGlyphStyle(34),
                         ),

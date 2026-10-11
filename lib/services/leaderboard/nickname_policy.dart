@@ -49,6 +49,13 @@ class NicknamePolicy {
           .replaceAll(RegExp(r'\s+'), ' ')
           .trim();
 
+  /// Aynı oyuncu adı için ortak karşılaştırma anahtarı.
+  static String uniqueKey(String raw) => normalize(raw)
+      .replaceAll('İ', 'i')
+      .replaceAll('ı', 'i')
+      .toLowerCase()
+      .replaceAll('i\u0307', 'i');
+
   /// Geçerliyse `null`, değilse hata nedeni. [raw] önce [normalize] edilir.
   static NicknameError? validate(String raw) {
     final name = normalize(raw);

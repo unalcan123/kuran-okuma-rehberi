@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/responsive.dart';
+import '../../../l10n/l10n.dart';
 import '../../../theme/app_colors.dart';
 import 'yazi_mode_screens.dart';
 
@@ -41,7 +42,7 @@ class ArapcaYaziyorumScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      appBar: AppBar(title: const Text('Arapça Yazıyorum')),
+      appBar: AppBar(title: Text(context.t('Arapça Yazıyorum'))),
       body: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(
@@ -51,7 +52,9 @@ class ArapcaYaziyorumScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             children: [
               Text(
-                'Ekrandaki Arapça klavyeyle yaz; harfler kendiliğinden birleşir.',
+                context.t(
+                  'Ekrandaki Arapça klavyeyle yaz; harfler kendiliğinden birleşir.',
+                ),
                 style: textTheme.titleMedium?.copyWith(
                   color: AppColors.textSecondary,
                 ),
@@ -92,14 +95,14 @@ class ArapcaYaziyorumScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  title,
+                                  context.t(title),
                                   style: textTheme.titleLarge?.copyWith(
                                     fontWeight: FontWeight.w800,
                                     color: AppColors.navy,
                                   ),
                                 ),
                                 Text(
-                                  subtitle,
+                                  context.t(subtitle),
                                   style: textTheme.bodyMedium?.copyWith(
                                     color: AppColors.textSecondary,
                                   ),

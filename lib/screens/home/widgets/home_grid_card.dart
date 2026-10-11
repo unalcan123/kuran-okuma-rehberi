@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_colors.dart';
+import '../../../l10n/l10n.dart';
 import '../home_menu_item.dart';
 
 /// A cell of the home screen's 2 x 2 grid (4:3). ([HomeMenuCard] is the
@@ -22,7 +23,7 @@ class HomeGridCard extends StatelessWidget {
     return Semantics(
       button: true,
       // The picture's title is part of the image: say it for it.
-      label: image != null ? item.title : null,
+      label: image != null ? context.t(item.title) : null,
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(radius),
@@ -52,6 +53,8 @@ class HomeGridCard extends StatelessWidget {
                 )
               else
                 _Placeholder(item: item),
+              if (image != null && context.language != AppLanguage.tr)
+                _LocalizedSign(image: image, title: context.t(item.title)),
               // Ink ripple over the picture; the whole card is the button.
               Material(
                 type: MaterialType.transparency,
@@ -115,7 +118,7 @@ class _Placeholder extends StatelessWidget {
                     ),
                     SizedBox(height: roomy ? 12 : 8),
                     Text(
-                      item.title,
+                      context.t(item.title),
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
@@ -128,7 +131,7 @@ class _Placeholder extends StatelessWidget {
                     if (roomy) ...[
                       const SizedBox(height: 4),
                       Text(
-                        item.subtitle,
+                        context.t(item.subtitle),
                         maxLines: 2,
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
@@ -146,4 +149,102 @@ class _Placeholder extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Only the original sign's lettering area is covered. All illustration pixels
+/// outside that area continue to come from the original asset in every language.
+class _LocalizedSign extends StatelessWidget {
+  const _LocalizedSign({required this.image, required this.title});
+  final String image;
+  final String title;
+  static const _areas = {
+    'kuran_okuma_rehberi': Rect.fromLTWH(.28, .715, .55, .20),
+    'namaz_dualari': Rect.fromLTWH(.24, .725, .52, .205),
+    'namaz_sureleri': Rect.fromLTWH(.25, .69, .53, .20),
+    'oyunlar': Rect.fromLTWH(.25, .745, .50, .13),
+  };
+  String _lines() {
+    final words = title.toUpperCase().split(' ');
+    final lines = <String>[];
+    var line = '';
+    for (final word in words) {
+      if (line.isNotEmpty && line.length + word.length + 1 > 19) {
+        lines.add(line);
+        line = word;
+      } else {
+        line = line.isEmpty ? word : '$line $word';
+      }
+    }
+    if (line.isNotEmpty) lines.add(line);
+    return lines.join('\n');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final name = image.split('/').last.replaceFirst('.webp', '');
+    final area = _areas[name];
+    if (area == null) return const SizedBox.shrink();
+    return ExcludeSemantics(
+      child: IgnorePointer(
+        child: LayoutBuilder(
+          builder:
+              (context, size) => Stack(
+                fit: StackFit.expand,
+                children: [
+                  ClipPath(
+                    clipper: _SignClipper(area),
+                    child: Image.asset(
+                      'assets/images/home/localized/${name}_blank.webp',
+                      fit: BoxFit.cover,
+                      filterQuality: FilterQuality.medium,
+                    ),
+                  ),
+                  Positioned(
+                    left: size.maxWidth * area.left,
+                    top: size.maxHeight * area.top,
+                    width: size.maxWidth * area.width,
+                    height: size.maxHeight * area.height,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 3,
+                        vertical: 2,
+                      ),
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          _lines(),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 32,
+                            height: 1.05,
+                            fontWeight: FontWeight.w900,
+                            color: Color(0xFF3C1603),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SignClipper extends CustomClipper<Path> {
+  const _SignClipper(this.area);
+  final Rect area;
+  @override
+  Path getClip(Size size) =>
+      Path()..addRect(
+        Rect.fromLTWH(
+          area.left * size.width,
+          area.top * size.height,
+          area.width * size.width,
+          area.height * size.height,
+        ),
+      );
+  @override
+  bool shouldReclip(_SignClipper oldClipper) => area != oldClipper.area;
 }

@@ -1,3 +1,5 @@
+import '../../../l10n/l10n.dart';
+import '../../../widgets/game_narrated_text.dart';
 import 'game_texts.dart';
 import 'package:flutter/material.dart';
 
@@ -55,13 +57,13 @@ class GameIntroPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l = const GameTexts();
+    final l = GameTexts.of(context);
     return GamePanel(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            title,
+            context.t(title),
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 26,
@@ -70,8 +72,7 @@ class GameIntroPanel extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          Text(
-            description,
+          GameNarratedText(description,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 17,
@@ -86,8 +87,7 @@ class GameIntroPanel extends StatelessWidget {
           FilledButton.icon(
             onPressed: onStart,
             icon: const Icon(Icons.play_arrow_rounded),
-            label: Text(
-              l.bpStart,
+            label: Text(context.t(l.bpStart),
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
             ),
             style: FilledButton.styleFrom(
@@ -142,7 +142,7 @@ class GameResultPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l = const GameTexts();
+    final l = GameTexts.of(context);
     Widget stat((String, String) s) => SizedBox(
       width: 118,
       child: Column(
@@ -173,7 +173,7 @@ class GameResultPanel extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            title,
+            context.t(title),
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 22,
@@ -183,8 +183,7 @@ class GameResultPanel extends StatelessWidget {
           ),
           if (playerName != null) ...[
             const SizedBox(height: 2),
-            Text(
-              playerName!,
+            Text(context.t(playerName!),
               style: TextStyle(
                 fontSize: 14,
                 color: kGameInk.withValues(alpha: 0.65),
@@ -211,8 +210,7 @@ class GameResultPanel extends StatelessWidget {
             children: [for (final s in stats) stat(s)],
           ),
           const SizedBox(height: 6),
-          Text(
-            footer,
+          Text(context.t(footer),
             textAlign: TextAlign.center,
             style: TextStyle(
               color: kGameInk.withValues(alpha: 0.55),
@@ -225,7 +223,7 @@ class GameResultPanel extends StatelessWidget {
           FilledButton.icon(
             onPressed: onReplay,
             icon: const Icon(Icons.refresh_rounded),
-            label: Text(l.playAgain),
+            label: Text(context.t(l.playAgain)),
             style: FilledButton.styleFrom(
               backgroundColor: kGameAccent,
               foregroundColor: Colors.white,
@@ -239,13 +237,12 @@ class GameResultPanel extends StatelessWidget {
             TextButton.icon(
               onPressed: onLeaderboard,
               icon: const Icon(Icons.emoji_events_outlined, size: 20),
-              label: Text(l.lbTitle),
+              label: Text(context.t(l.lbTitle)),
               style: TextButton.styleFrom(foregroundColor: kGameInk),
             ),
           TextButton(
             onPressed: onBack,
-            child: Text(
-              l.bpBackToGames,
+            child: Text(context.t(l.bpBackToGames),
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 color: kGameInk,

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/arabic_letter.dart';
@@ -67,7 +68,9 @@ class _LessonGridPagerState extends State<LessonGridPager> {
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Text(
-            'Bu sayfada okunacak harf yok.\nAçıklamayı 📖 Sayfa görünümünde oku.',
+            context.t(
+              "Bu sayfada okunacak harf yok.\nAçıklamayı 📖 Sayfa görünümünde oku.",
+            ),
             textAlign: TextAlign.center,
             style: Theme.of(
               context,

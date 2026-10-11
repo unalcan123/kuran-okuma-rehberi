@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/app_colors.dart';
@@ -22,7 +23,7 @@ class ComingSoonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(title: Text(context.t(title))),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(32),
@@ -40,19 +41,21 @@ class ComingSoonScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                'Yakında',
+                context.t("Yakında"),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.textPrimary,
-                    ),
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.textPrimary,
+                ),
               ),
               const SizedBox(height: 8),
               Text(
-                '$title bölümü üzerinde çalışıyoruz.',
+                context.t("{title} bölümü üzerinde çalışıyoruz.", {
+                  "title": context.t(title),
+                }),
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: AppColors.textSecondary,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyLarge?.copyWith(color: AppColors.textSecondary),
               ),
             ],
           ),

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_colors.dart';
@@ -69,7 +70,7 @@ class GameFinishView extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                title,
+                context.t(title),
                 textAlign: TextAlign.center,
                 style: textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.w800,
@@ -78,21 +79,18 @@ class GameFinishView extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                message,
+                context.t(message),
                 textAlign: TextAlign.center,
                 style: textTheme.titleMedium?.copyWith(
                   color: AppColors.textSecondary,
                 ),
               ),
-              if (summary != null) ...[
-                const SizedBox(height: 20),
-                summary!,
-              ],
+              if (summary != null) ...[const SizedBox(height: 20), summary!],
               const SizedBox(height: 32),
               FilledButton.icon(
                 onPressed: onReplay,
                 icon: const Icon(Icons.replay_rounded),
-                label: const Text('Tekrar Oyna'),
+                label: Text(context.t('Tekrar Oyna')),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.turquoise,
                   minimumSize: const Size.fromHeight(56),
@@ -112,7 +110,7 @@ class GameFinishView extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                child: Text(exitLabel),
+                child: Text(context.t(exitLabel)),
               ),
             ],
           ),

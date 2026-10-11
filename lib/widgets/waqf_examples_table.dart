@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../models/arabic_letter.dart';
@@ -12,7 +13,11 @@ class WaqfExamplesTable extends StatelessWidget {
   final List<WaqfExample> examples;
   final double fontSize;
 
-  const WaqfExamplesTable({super.key, required this.examples, this.fontSize = 36});
+  const WaqfExamplesTable({
+    super.key,
+    required this.examples,
+    this.fontSize = 36,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +31,17 @@ class WaqfExamplesTable extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Table(
-          border: TableBorder(
-            horizontalInside: border,
-            verticalInside: border,
-          ),
+          border: TableBorder(horizontalInside: border, verticalInside: border),
           // NOT `fill`: if every cell fills, the row has no height of its own
           // and the whole table collapses to nothing.
           defaultVerticalAlignment: TableCellVerticalAlignment.intrinsicHeight,
           children: [
             TableRow(
               decoration: const BoxDecoration(color: AppColors.goldSoft),
-              children: const [_HeaderCell('Durulduğunda'), _HeaderCell('Geçildiğinde')],
+              children: const [
+                _HeaderCell('Durulduğunda'),
+                _HeaderCell('Geçildiğinde'),
+              ],
             ),
             for (final e in examples)
               TableRow(
@@ -53,7 +58,12 @@ class WaqfExamplesTable extends StatelessWidget {
 
   Widget _cell(ArabicLetter letter, String word, int redLetters) {
     final (head, tail) = splitLastLetters(word, redLetters);
-    return WordCell(letter: letter, before: head, red: tail, fontSize: fontSize);
+    return WordCell(
+      letter: letter,
+      before: head,
+      red: tail,
+      fontSize: fontSize,
+    );
   }
 }
 
@@ -66,8 +76,7 @@ class _HeaderCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-      child: Text(
-        text,
+      child: Text(context.t(text),
         textAlign: TextAlign.center,
         style: const TextStyle(
           color: AppColors.red,

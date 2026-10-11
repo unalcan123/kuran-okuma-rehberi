@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../core/responsive.dart';
+import '../../l10n/l10n.dart';
+import '../../l10n/language_picker.dart';
 import '../../theme/app_colors.dart';
 import '../elifba/elifba_lessons_screen.dart';
 import '../dualar/dualar_list_screen.dart';
@@ -85,8 +87,12 @@ class HomeScreen extends StatelessWidget {
                 vertical: phone ? 20 : 32,
               ),
               children: [
+                const Align(
+                  alignment: Alignment.centerRight,
+                  child: LanguagePickerButton(),
+                ),
                 Text(
-                  "Kur'an Okuma Rehberi",
+                  context.t("Kur'an Okuma Rehberi"),
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                     color: AppColors.navy,
@@ -94,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  'Bugün ne öğrenmek istersin?',
+                  context.t('Bugün ne öğrenmek istersin?'),
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: AppColors.textSecondary,
                   ),

@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/arabic_letter.dart';
@@ -143,7 +144,7 @@ class _CounterControls extends StatelessWidget {
               key: const ValueKey('single-next'),
               onPressed: onNext,
               icon: const Icon(Icons.chevron_left_rounded),
-              label: const Text('Sonraki'),
+              label: Text(context.t("Sonraki")),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -156,8 +157,7 @@ class _CounterControls extends StatelessWidget {
                     style: countStyle,
                   ),
                   if (pageLabel != null)
-                    Text(
-                      pageLabel!,
+                    Text(context.t(pageLabel!),
                       key: const ValueKey('single-page-label'),
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: AppColors.navy,
@@ -170,10 +170,10 @@ class _CounterControls extends StatelessWidget {
             TextButton(
               key: const ValueKey('single-previous'),
               onPressed: onPrevious,
-              child: const Row(
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Önceki'),
+                  Text(context.t("Önceki")),
                   SizedBox(width: 8),
                   Icon(Icons.chevron_right_rounded),
                 ],

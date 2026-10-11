@@ -26,8 +26,7 @@ class ArabicGlyph extends StatelessWidget {
       fontSize: fontSize,
     ).copyWith(color: baseColor);
 
-    return ColoredArabicText(
-      letter.isolatedForm,
+    return ColoredArabicText(letter.isolatedForm,
       style: style,
       textDirection: TextDirection.rtl,
       profile: LessonColorScope.profileOf(context, letter),

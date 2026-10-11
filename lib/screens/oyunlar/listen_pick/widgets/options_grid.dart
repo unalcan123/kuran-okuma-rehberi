@@ -26,7 +26,11 @@ class OptionsGrid extends StatelessWidget {
   final double maxFontSize;
   final double maxCellHeight;
   final double gap;
-  final Widget Function(BuildContext context, ArabicLetter item, double fontSize)
+  final Widget Function(
+    BuildContext context,
+    ArabicLetter item,
+    double fontSize,
+  )
   itemBuilder;
 
   static const _padX = 12.0;
@@ -38,10 +42,7 @@ class OptionsGrid extends StatelessWidget {
     var height = 0.0;
     for (final item in options) {
       final painter = TextPainter(
-        text: TextSpan(
-          text: textOf(item),
-          style: optionTextStyle(_reference),
-        ),
+        text: TextSpan(text: textOf(item), style: optionTextStyle(_reference)),
         textDirection: TextDirection.rtl,
       )..layout();
       width = math.max(width, painter.width);
@@ -63,15 +64,18 @@ class OptionsGrid extends StatelessWidget {
         for (final columns in const [2, 1, 4, 3]) {
           if (columns > count || count % columns != 0) continue;
           final rows = count ~/ columns;
-          final cellWidth = (constraints.maxWidth - gap * (columns - 1)) / columns;
+          final cellWidth =
+              (constraints.maxWidth - gap * (columns - 1)) / columns;
           final cellHeight = math.min(
             (constraints.maxHeight - gap * (rows - 1)) / rows,
             maxCellHeight,
           );
-          final font = math.min(
-            (cellWidth - 2 * _padX) / widest.width,
-            (cellHeight - 2 * _padY) / widest.height,
-          ) * _reference;
+          final font =
+              math.min(
+                (cellWidth - 2 * _padX) / widest.width,
+                (cellHeight - 2 * _padY) / widest.height,
+              ) *
+              _reference;
           if (font > bestFont) {
             bestFont = font;
             bestColumns = columns;

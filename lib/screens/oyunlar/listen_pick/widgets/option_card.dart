@@ -97,8 +97,7 @@ class OptionCard extends StatelessWidget {
                               ),
                               child: FittedBox(
                                 fit: BoxFit.scaleDown,
-                                child: ColoredArabicText(
-                                  text,
+                                child: ColoredArabicText(text,
                                   textDirection: TextDirection.rtl,
                                   style: optionTextStyle(fontSize),
                                 ),

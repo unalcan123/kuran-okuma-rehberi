@@ -1,3 +1,5 @@
+import '../../../l10n/l10n.dart';
+import '../../../widgets/game_narrated_text.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -531,7 +533,7 @@ class _HarfCiziyorumGameScreenState extends State<HarfCiziyorumGameScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Harf Çiziyorum',
+              context.t('Harf Çiziyorum'),
               style: textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppColors.textPrimary,
@@ -539,7 +541,10 @@ class _HarfCiziyorumGameScreenState extends State<HarfCiziyorumGameScreen>
             ),
             if (!_finished)
               Text(
-                '${_index + 1}. harf / ${_letters.length}',
+                context.t("{n}. harf / {total}", {
+                  "n": _index + 1,
+                  "total": _letters.length,
+                }),
                 style: textTheme.bodySmall?.copyWith(
                   color: AppColors.textSecondary,
                 ),
@@ -907,7 +912,7 @@ class _HarfCiziyorumGameScreenState extends State<HarfCiziyorumGameScreen>
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Tebrikler!',
+                  context.t('Tebrikler!'),
                   textAlign: TextAlign.center,
                   style: textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w800,
@@ -944,7 +949,7 @@ class _HarfCiziyorumGameScreenState extends State<HarfCiziyorumGameScreen>
                   key: const ValueKey('more-button'),
                   onPressed: () => _continueWith(nextLetters),
                   icon: const Icon(Icons.arrow_forward_rounded),
-                  label: const Text('5 harf daha'),
+                  label: Text(context.t('5 harf daha')),
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColors.turquoise,
                     minimumSize: const Size.fromHeight(54),
@@ -956,7 +961,7 @@ class _HarfCiziyorumGameScreenState extends State<HarfCiziyorumGameScreen>
                     key: const ValueKey('practice-button'),
                     onPressed: () => _continueWith(practice),
                     icon: const Icon(Icons.refresh_rounded),
-                    label: const Text('Zorlandıklarımı Çalış'),
+                    label: Text(context.t('Zorlandıklarımı Çalış')),
                     style: FilledButton.styleFrom(
                       backgroundColor: AppColors.goldSoft,
                       foregroundColor: AppColors.navy,
@@ -972,7 +977,7 @@ class _HarfCiziyorumGameScreenState extends State<HarfCiziyorumGameScreen>
                     foregroundColor: AppColors.navy,
                     minimumSize: const Size.fromHeight(54),
                   ),
-                  child: const Text('Oyunlara Dön'),
+                  child: Text(context.t('Oyunlara Dön')),
                 ),
               ],
             ),
@@ -1041,8 +1046,7 @@ class _MessageBar extends StatelessWidget {
                       Icon(icon, color: color, size: 24),
                       const SizedBox(width: 8),
                       Expanded(
-                        child: Text(
-                          m.text,
+                        child: GameNarratedText(m.text,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(
@@ -1120,8 +1124,7 @@ class _LetterHeader extends StatelessWidget {
           child: FittedBox(
             child: Padding(
               padding: const EdgeInsets.all(6),
-              child: Text(
-                letter.char,
+              child: Text(context.t(letter.char),
                 textScaler: TextScaler.noScaling,
                 style: singleGlyphStyle(glyph * 0.95),
               ),
@@ -1137,8 +1140,7 @@ class _LetterHeader extends StatelessWidget {
               Row(
                 children: [
                   Flexible(
-                    child: Text(
-                      letter.name,
+                    child: Text(context.t(letter.name),
                       overflow: TextOverflow.ellipsis,
                       style: textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
@@ -1169,8 +1171,7 @@ class _LetterHeader extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: AppColors.divider),
                       ),
-                      child: Text(
-                        label,
+                      child: Text(context.t(label),
                         style: textTheme.labelSmall?.copyWith(
                           fontWeight: FontWeight.w700,
                           color:
@@ -1198,7 +1199,7 @@ class _Stars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Semantics(
-    label: '$stars yıldız',
+    label: context.t("{n} yıldız", {"n": stars}),
     child: ExcludeSemantics(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -1256,7 +1257,10 @@ class _DotCompare extends StatelessWidget {
                     const SizedBox(width: 4),
                     Expanded(
                       child: Text(
-                        '${letterById(id).name}: ${dotPhrase(id) ?? ''}',
+                        context.t("{name}: {dots}", {
+                          "name": letterById(id).name,
+                          "dots": context.t(dotPhrase(id) ?? ''),
+                        }),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: textTheme.labelSmall?.copyWith(
@@ -1286,8 +1290,7 @@ class _Captioned extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(
     children: [
-      Text(
-        caption,
+      Text(context.t(caption),
         style: Theme.of(context).textTheme.titleSmall?.copyWith(
           fontWeight: FontWeight.w800,
           color: AppColors.textSecondary,
@@ -1322,7 +1325,7 @@ class _Btn extends StatelessWidget {
       fit: BoxFit.scaleDown,
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [Icon(icon), const SizedBox(width: 6), Text(label)],
+        children: [Icon(icon), const SizedBox(width: 6), Text(context.t(label))],
       ),
     );
     return primary
@@ -1375,13 +1378,11 @@ class _StudiedChip extends StatelessWidget {
     ),
     child: Column(
       children: [
-        Text(
-          letter.char,
+        Text(context.t(letter.char),
           textScaler: TextScaler.noScaling,
           style: singleGlyphStyle(40),
         ),
-        Text(
-          letter.name,
+        Text(context.t(letter.name),
           style: Theme.of(context).textTheme.labelLarge?.copyWith(
             fontWeight: FontWeight.w700,
             color: AppColors.navy,

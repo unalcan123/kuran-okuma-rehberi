@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "language": "bs",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_v3",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "bos",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    }
+  },
+  "entries": [
+    {
+      "id": "s040_baslik_1",
+      "kind": "explanation",
+      "text": "TENVIN",
+      "file": "assets/audio/bs/s040_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_c3b4622fe6885a8c",
+      "kind": "explanation",
+      "text": "(DVOSTRUKI VOKALSKI ZNAKOVI)",
+      "file": "assets/audio/bs/x_c3b4622fe6885a8c.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s040_01",
+      "kind": "explanation",
+      "text": "«Tenvin:» Kada se isti vokalski znak stavi dva puta na slovo, to se zove tenvin. Pri nastavku učenja slovo se završava kao da iza njega stoji nun sa sukunom ( «نْ» ).",
+      "file": "assets/audio/bs/s040_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_806899ee6f662f9a",
+      "kind": "explanation",
+      "text": "Postoje tri vrste tenvina: dvostruka fetha, dvostruka kesra i dvostruka damma.",
+      "file": "assets/audio/bs/x_806899ee6f662f9a.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s040_02",
+      "kind": "explanation",
+      "text": "* To su dvije male linije jedna iznad druge, iznad slova, nagnute ulijevo prema dolje.",
+      "file": "assets/audio/bs/s040_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_64d7457a9ff6dedf",
+      "kind": "explanation",
+      "text": "* Pri nastavku učenja daje tankim slovima glas „En“, a krupnim slovima „An“.",
+      "file": "assets/audio/bs/x_64d7457a9ff6dedf.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s040_baslik_2",
+      "kind": "explanation",
+      "text": "SLOVA S DVOSTRUKOM FETHOM ( ـً ) فَتْحَتَيْنِ",
+      "file": "assets/audio/bs/s040_baslik_2.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s041_01",
+      "kind": "explanation",
+      "text": "* Lijevo od slova s dvostrukom fethom obično se piše i elif.",
+      "file": "assets/audio/bs/s041_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_5f67d27fbb01edec",
+      "kind": "explanation",
+      "text": "* Ovaj elif se ne izgovara pri nastavku, ali pri zaustavljanju služi kao slovo za duženje. Glas nuna iz tenvina nestaje, a slovo se produžava u smjeru fethe dva vremena. Krupno slovo daje glas „A“, a tanko glas između „E“ i „A“.",
+      "file": "assets/audio/bs/x_5f67d27fbb01edec.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_71439c414a7220ef",
+      "kind": "explanation",
+      "text": "Tenvin: Kada se isti vokalski znak napiše dva puta na slovo, to se zove tenvin. Pri nastavku učenja na kraju riječi dodaje se glas „n“ koji nije zapisan kao slovo.",
+      "file": "assets/audio/bs/x_71439c414a7220ef.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s044_baslik_1",
+      "kind": "explanation",
+      "text": "DVOSTRUKA KESRA",
+      "file": "assets/audio/bs/s044_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s047_baslik_1",
+      "kind": "explanation",
+      "text": "DVOSTRUKA DAMMA",
+      "file": "assets/audio/bs/s047_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s050_baslik_1",
+      "kind": "explanation",
+      "text": "ELIF - LAM",
+      "file": "assets/audio/bs/s050_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s050_01",
+      "kind": "explanation",
+      "text": "Vidjeli smo da se oblik lam-elif (لا) koristi kada u riječi treba prvo napisati lam (ل), a zatim elif (ا).",
+      "file": "assets/audio/bs/s050_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s050_02",
+      "kind": "explanation",
+      "text": "Ako na početku riječi stoji prvo elif (ا), a zatim lam sa sukunom (لْ), to se naziva član elif-lam, ili kraće član „el“ (اَلْ).",
+      "file": "assets/audio/bs/s050_02.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s050_03",
+      "kind": "explanation",
+      "text": "Elif (ا) ispred lama (ل) ovdje ima ulogu hemzeta jer može nositi vokal. Zapamtimo da se elif s vokalom koji ne služi za duženje naziva hemze.",
+      "file": "assets/audio/bs/s050_03.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s050_04",
+      "kind": "explanation",
+      "text": "Slovo koje slijedi određuje kako se lam izgovara. Ako je to jedno od slova (ء ب ج ح خ ع غ ف ق ك م و هـ ى) iz rečenice (أَبْغِ حَجَّكَ وَخَفْ عَقِيمَهُ), lam se izgovara sa sukunom. Ova slova čine polovinu od 28 kur'anskih slova.",
+      "file": "assets/audio/bs/s050_04.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_038c31203bc9a86c",
+      "kind": "explanation",
+      "text": "Primjeri:",
+      "file": "assets/audio/bs/x_038c31203bc9a86c.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s051_01",
+      "kind": "explanation",
+      "text": "Ako slijedi jedno od preostalih 14 slova (ض ص ش س ز ر د ذ ت ث ط ظ ل ن), lam se ne izgovara. Naredno slovo obavezno se izgovara s tešdidom.",
+      "file": "assets/audio/bs/s051_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_8d40a624290ca269",
+      "kind": "explanation",
+      "text": "HEMZE U ČLANU „EL“",
+      "file": "assets/audio/bs/x_8d40a624290ca269.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s052_01",
+      "kind": "explanation",
+      "text": "Vidjeli smo dva različita načina izgovora lama u članu „el“ (اَلْ). Sada pogledajmo hemze ispred lama.",
+      "file": "assets/audio/bs/s052_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s052_02",
+      "kind": "explanation",
+      "text": "• Pri nastavku učenja s prethodnog slova ili riječi hemze u članu „el“ (اَلْ) se ne izgovara. Primjeri:",
+      "file": "assets/audio/bs/s052_02.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s052_03",
+      "kind": "explanation",
+      "text": "• Ako učenje počinje hemzetom člana „el“ (اَلْ), ono se uvijek izgovara s fethom. Primjeri:",
+      "file": "assets/audio/bs/s052_03.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s052_04",
+      "kind": "explanation",
+      "text": "• Pošto njen vokal nije stalan, ovo hemze je preciznije nazvati hemzetul-vasl.",
+      "file": "assets/audio/bs/s052_04.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s053_baslik_1",
+      "kind": "explanation",
+      "text": "HEMZE KOJE SE NE IZGOVARA",
+      "file": "assets/audio/bs/s053_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_dc90b2bbb6c1e2b7",
+      "kind": "explanation",
+      "text": "(Hemzetul-vasl)",
+      "file": "assets/audio/bs/x_dc90b2bbb6c1e2b7.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s053_01",
+      "kind": "explanation",
+      "text": "Neka hemzeta na početku riječi gube vokal kada se uče zajedno s prethodnom riječju ili slovom, kao da hemzeta nema. Pišu se kao elif bez vokala (ا). Ponekad mali znak spajanja (ٱ) pokazuje da se ne izgovaraju. Takva hemzeta nazivaju se hemzetul-vasl. Primjeri:",
+      "file": "assets/audio/bs/s053_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s053_02",
+      "kind": "explanation",
+      "text": "Ako se uči kao prvo slovo na početku riječi, bez spajanja s prethodnim, izgovara se sa svojim vokalom. Primjeri:",
+      "file": "assets/audio/bs/s053_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s053_03",
+      "kind": "explanation",
+      "text": "U prethodnoj lekciji vidjeli smo da i elif u svakom članu elif-lam (اَلْ) ima ovu ulogu.",
+      "file": "assets/audio/bs/s053_03.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s054_baslik_1",
+      "kind": "explanation",
+      "text": "ZAMJENICE „HE“ ( ه ـه )",
+      "file": "assets/audio/bs/s054_baslik_1.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s054_baslik_2",
+      "kind": "explanation",
+      "text": "Kada se slovo „He“ produžava?",
+      "file": "assets/audio/bs/s054_baslik_2.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_01",
+      "kind": "explanation",
+      "text": "* Ako slovo prije „He“ ima vokal, „He“ se produžava. Slovo poslije „He“ određuje dužinu:",
+      "file": "assets/audio/bs/s054_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_02",
+      "kind": "explanation",
+      "text": "- Ako poslije produženog „He“ dolazi hemze, produžava se četiri vremena.",
+      "file": "assets/audio/bs/s054_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_6d1cb525ce29efc0",
+      "kind": "explanation",
+      "text": "„Primjeri:“",
+      "file": "assets/audio/bs/x_6d1cb525ce29efc0.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_03",
+      "kind": "explanation",
+      "text": "Ako poslije produženog „He“ dolazi bilo koje slovo osim hemzeta, produžava se dva vremena.",
+      "file": "assets/audio/bs/s054_03.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_baslik_3",
+      "kind": "explanation",
+      "text": "Kada se slovo „He“ ne produžava?",
+      "file": "assets/audio/bs/s054_baslik_3.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s054_04",
+      "kind": "explanation",
+      "text": "* Ako prije „He“ dolazi slovo za duženje, „He“ se uči bez duženja.",
+      "file": "assets/audio/bs/s054_04.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_94ed5dc0231585ae",
+      "kind": "explanation",
+      "text": "Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo.",
+      "file": "assets/audio/bs/x_94ed5dc0231585ae.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s055_01",
+      "kind": "explanation",
+      "text": "* Ako prije „He“ dolazi bilo koje slovo sa sukunom, također se uči bez duženja.",
+      "file": "assets/audio/bs/s055_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_a6eb86d55ff2c4aa",
+      "kind": "explanation",
+      "text": "Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo.",
+      "file": "assets/audio/bs/x_a6eb86d55ff2c4aa.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s055_02",
+      "kind": "explanation",
+      "text": "* Ako se „He“ spaja sa slovom sa sukunom ili tešdidom u narednoj riječi, ne produžava se čak ni ako prethodno slovo ima vokal.",
+      "file": "assets/audio/bs/s055_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_1d1faaa83fcf957e",
+      "kind": "explanation",
+      "text": "ZAMJENICE „HE“",
+      "file": "assets/audio/bs/x_1d1faaa83fcf957e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_ee8e1cbd3c2079b9",
+      "kind": "explanation",
+      "text": "Kada se slovo „He“ produžava?\n\nAko slovo prije „He“ ima vokal, „He“ se produžava. Slovo poslije „He“ određuje dužinu:\n\nAko poslije produženog „He“ dolazi hemze, produžava se četiri vremena. Primjeri:",
+      "file": "assets/audio/bs/x_ee8e1cbd3c2079b9.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_96c5d379513d8b1e",
+      "kind": "explanation",
+      "text": "Ako poslije produženog „He“ dolazi bilo koje slovo osim hemzeta, produžava se dva vremena. Primjeri:",
+      "file": "assets/audio/bs/x_96c5d379513d8b1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_28754253bf2b3bf0",
+      "kind": "explanation",
+      "text": "Kada se slovo „He“ ne produžava?\n\nAko prije „He“ dolazi slovo za duženje, „He“ se uči bez duženja. Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo. Primjeri:",
+      "file": "assets/audio/bs/x_28754253bf2b3bf0.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_61aadc3dfcac8192",
+      "kind": "explanation",
+      "text": "Ako prije „He“ dolazi bilo koje slovo sa sukunom, također se uči bez duženja. Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo. Primjeri:",
+      "file": "assets/audio/bs/x_61aadc3dfcac8192.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_1bfb1f81a526bd8d",
+      "kind": "explanation",
+      "text": "Ako se „He“ spaja sa slovom sa sukunom ili tešdidom u narednoj riječi, ne produžava se čak ni ako prethodno slovo ima vokal. Primjeri:",
+      "file": "assets/audio/bs/x_1bfb1f81a526bd8d.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s055_03",
+      "kind": "explanation",
+      "text": "Ovaj znak stoji iznad nekih vrsta medda koje traju duže od dva vremena. Više detalja bit će objašnjeno u lekcijama tedžvida.",
+      "file": "assets/audio/bs/s055_03.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s056_baslik_1",
+      "kind": "explanation",
+      "text": "ZATVORENO „TE“",
+      "file": "assets/audio/bs/s056_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s056_01",
+      "kind": "explanation",
+      "text": "Ponekad se slovo te (ت) piše kao „zatvoreno te“: (ة ، ـة). To se događa samo na kraju riječi. Ako se spaja s prethodnim slovom, piše se (ـة), a ako se ne spaja, piše se (ة).",
+      "file": "assets/audio/bs/s056_01.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "s056_02",
+      "kind": "explanation",
+      "text": "Pri zaustavljanju na riječi koja završava zatvorenim te izgovara se kao he sa sukunom (ـهْ). Pri nastavku na sljedeću riječ ponovo se izgovara kao te, sa svojim vokalom.",
+      "file": "assets/audio/bs/s056_02.mp3",
+      "needsPronunciationReview": true,
+      "status": "pendingReview"
+    },
+    {
+      "id": "x_cfe5770979bae97f",
+      "kind": "explanation",
+      "text": "Pogledajmo primjenu na primjerima:",
+      "file": "assets/audio/bs/x_cfe5770979bae97f.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_baslik_1",
+      "kind": "explanation",
+      "text": "NA KRAJU RIJEČI",
+      "file": "assets/audio/bs/s057_baslik_1.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_b88ac8cf3bf1fad4",
+      "kind": "explanation",
+      "text": "KAKO SE ZAUSTAVITI?",
+      "file": "assets/audio/bs/x_b88ac8cf3bf1fad4.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_498f7161c2217090",
+      "kind": "explanation",
+      "text": "Kako se zaustaviti na slovu s vokalom na kraju riječi?",
+      "file": "assets/audio/bs/x_498f7161c2217090.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_01",
+      "kind": "explanation",
+      "text": "Pri učenju Kur'ana obično se zaustavljamo na kraju ajeta, kod znakova za stajanje ili kada trebamo udahnuti. Zaustavljanje može biti samo na kraju riječi.",
+      "file": "assets/audio/bs/s057_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_02",
+      "kind": "explanation",
+      "text": "Pri zaustavljanju se ne izgovaraju fetha, kesra ni damma. Ako završno slovo nije već bez vokala —sa sukunom ili kao slovo za duženje—, njegov vokal se izostavlja i izgovara se kao da ima sukun.",
+      "file": "assets/audio/bs/s057_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s057_03",
+      "kind": "explanation",
+      "text": "Kod tenvina vrijedi sljedeće: Pri dvostrukoj fethi napisanoj uz elif, jedna fetha se izostavlja. Slovo se uči s jednom fethom, produženo dva vremena.",
+      "file": "assets/audio/bs/s057_03.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s058_01",
+      "kind": "explanation",
+      "text": "• Pri zaustavljanju na hemzetu s dvostrukom fethom bez napisanog elifa također se produžava dva vremena, kao da je elif pored njega.",
+      "file": "assets/audio/bs/s058_01.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "s058_02",
+      "kind": "explanation",
+      "text": "• Na slovima s dvostrukom kesrom ili dvostrukom dammom zaustavlja se sa sukunom.",
+      "file": "assets/audio/bs/s058_02.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_58eb04ec1974a351",
+      "kind": "explanation",
+      "text": "Još neki primjeri:",
+      "file": "assets/audio/bs/x_58eb04ec1974a351.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_481eab08538f248a",
+      "kind": "explanation",
+      "text": "Primjeri 1",
+      "file": "assets/audio/bs/x_481eab08538f248a.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_6aa191334112403e",
+      "kind": "explanation",
+      "text": "Primjeri 1",
+      "file": "assets/audio/bs/x_6aa191334112403e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_a2e7e3d43413bac8",
+      "kind": "explanation",
+      "text": "Opći primjeri učenja koji povezuju sva naučena pravila.",
+      "file": "assets/audio/bs/x_a2e7e3d43413bac8.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_c09e400760ae1c4e",
+      "kind": "explanation",
+      "text": "Primjeri 2",
+      "file": "assets/audio/bs/x_c09e400760ae1c4e.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_40652d006998933c",
+      "kind": "explanation",
+      "text": "Primjeri 2",
+      "file": "assets/audio/bs/x_40652d006998933c.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_e9f0754f783d9731",
+      "kind": "explanation",
+      "text": "Primjeri 3",
+      "file": "assets/audio/bs/x_e9f0754f783d9731.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_78536bbcb13116f5",
+      "kind": "explanation",
+      "text": "Primjeri 3",
+      "file": "assets/audio/bs/x_78536bbcb13116f5.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_fe1c5274c7343aac",
+      "kind": "explanation",
+      "text": "Primjeri 4",
+      "file": "assets/audio/bs/x_fe1c5274c7343aac.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    },
+    {
+      "id": "x_1dba50210b528662",
+      "kind": "explanation",
+      "text": "Primjeri 4",
+      "file": "assets/audio/bs/x_1dba50210b528662.mp3",
+      "needsPronunciationReview": false,
+      "status": "pending"
+    }
+  ]
+}

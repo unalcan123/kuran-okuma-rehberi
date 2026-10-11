@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 final _showMeaning = ValueNotifier<bool>(true);
@@ -73,7 +74,7 @@ class ReadingTextSettingsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => IconButton(
-    tooltip: 'Okuma ayarları',
+    tooltip: context.t('Okuma ayarları'),
     icon: const Icon(Icons.settings_outlined),
     onPressed:
         () => showModalBottomSheet<void>(
@@ -90,7 +91,7 @@ class ReadingTextSettingsButton extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Yazı boyutu',
+                              context.t("Yazı boyutu"),
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                             const SizedBox(height: 12),
@@ -98,7 +99,7 @@ class ReadingTextSettingsButton extends StatelessWidget {
                             Row(
                               children: [
                                 IconButton(
-                                  tooltip: 'Harfleri küçült',
+                                  tooltip: context.t('Harfleri küçült'),
                                   onPressed:
                                       scale <= 0.8
                                           ? null
@@ -116,7 +117,7 @@ class ReadingTextSettingsButton extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  tooltip: 'Harfleri büyüt',
+                                  tooltip: context.t('Harfleri büyüt'),
                                   onPressed:
                                       scale >= 1.8
                                           ? null
@@ -127,7 +128,7 @@ class ReadingTextSettingsButton extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () => _setScale(1),
-                              child: const Text('Varsayılan boyut'),
+                              child: Text(context.t('Varsayılan boyut')),
                             ),
                             if (showMeaningToggle) const Divider(),
                             if (showMeaningToggle)
@@ -136,7 +137,7 @@ class ReadingTextSettingsButton extends StatelessWidget {
                                 builder:
                                     (context, visible, _) => SwitchListTile(
                                       contentPadding: EdgeInsets.zero,
-                                      title: const Text('Meali göster'),
+                                      title: Text(context.t('Meali göster')),
                                       value: visible,
                                       onChanged:
                                           (value) => _showMeaning.value = value,

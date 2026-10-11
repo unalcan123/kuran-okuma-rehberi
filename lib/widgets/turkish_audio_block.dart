@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/turkish_audio.dart';
+import '../l10n/l10n.dart';
 import '../services/audio_service.dart';
 import '../services/turkish_audio_catalog.dart';
 import '../theme/app_colors.dart';
@@ -30,7 +30,7 @@ class TurkishAudioTap extends StatelessWidget {
     final id = audioId;
     if (id == null) return builder(context, false, false);
     TurkishAudioCatalog.ensureLoaded();
-    final asset = turkishAudioAsset(id);
+    final asset = 'audio/${context.language.code}/$id.mp3';
     return ValueListenableBuilder<Set<String>>(
       valueListenable: TurkishAudioCatalog.available,
       builder: (context, available, _) {
@@ -42,7 +42,7 @@ class TurkishAudioTap extends StatelessWidget {
         );
         return Semantics(
           button: true,
-          label: 'Açıklamayı dinle',
+          label: context.t('Açıklamayı dinle'),
           child: MouseRegion(
             cursor: SystemMouseCursors.click,
             child: GestureDetector(

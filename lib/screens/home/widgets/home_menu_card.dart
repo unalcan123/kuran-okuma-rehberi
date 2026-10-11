@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_colors.dart';
+import '../../../l10n/l10n.dart';
 import '../home_menu_item.dart';
 
 class HomeMenuCard extends StatelessWidget {
@@ -17,9 +18,9 @@ class HomeMenuCard extends StatelessWidget {
       elevation: 0,
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: item.screenBuilder),
-          );
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: item.screenBuilder));
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: 96),
@@ -46,28 +47,30 @@ class HomeMenuCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      item.title,
+                      context.t(item.title),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.textPrimary,
-                          ),
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.textPrimary,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      item.subtitle,
+                      context.t(item.subtitle),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
-                          ),
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
               ),
-              const Icon(Icons.chevron_right_rounded,
-                  color: AppColors.textSecondary),
+              const Icon(
+                Icons.chevron_right_rounded,
+                color: AppColors.textSecondary,
+              ),
             ],
           ),
         ),

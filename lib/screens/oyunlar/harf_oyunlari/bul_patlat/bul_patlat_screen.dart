@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:math' as math;
 
 import '../game_texts.dart';
@@ -218,7 +219,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
 
   @override
   Widget build(BuildContext context) {
-    final l = const GameTexts();
+    final l = GameTexts.of(context);
     final compact = MediaQuery.sizeOf(context).height < 480;
 
     return Scaffold(
@@ -320,7 +321,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
     final listen = TextButton.icon(
       onPressed: gameRunning ? replayTarget : null,
       icon: const Icon(Icons.volume_up_rounded, size: 20),
-      label: Text(l.bpListenAgain),
+      label: Text(context.t(l.bpListenAgain)),
       style: TextButton.styleFrom(
         foregroundColor: _ink,
         minimumSize: const Size(48, 40),
@@ -333,8 +334,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
       icon: const Icon(Icons.arrow_back_rounded, color: _ink),
       onPressed: () => Navigator.of(context).maybePop(),
     );
-    final title = Text(
-      l.bpGame,
+    final title = Text(context.t(l.bpGame),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(
@@ -378,8 +378,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
             children: [
               listen,
               Flexible(
-                child: Text(
-                  l.bpListenAndFind,
+                child: Text(context.t(l.bpListenAndFind),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -491,8 +490,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
                             width: b.size * 0.72,
                             child: FittedBox(
                               fit: BoxFit.scaleDown,
-                              child: ColoredArabicText(
-                                b.letter.char,
+                              child: ColoredArabicText(b.letter.char,
                                 textDirection: TextDirection.rtl,
                                 style: lessonArabicStyle(
                                   b.size * 0.95,
@@ -543,7 +541,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
         (l.score, '${e.score}'),
         (l.bpCorrect, '${e.correct}'),
         (l.bpMissed, '${e.missedTargets}'),
-        (l.bpAccuracy, '%${e.accuracyPercent}'),
+        (l.bpAccuracy, l.percent(e.accuracyPercent)),
         (l.bpBest, '$best'),
       ],
       footer:

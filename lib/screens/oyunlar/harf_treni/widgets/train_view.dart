@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -165,7 +166,7 @@ class _Locomotive extends StatelessWidget {
             width: size * 0.58,
             height: h * 0.62,
             child: Semantics(
-              label: 'Hedef harf: $name',
+              label: context.t("Hedef harf: {name}", {"name": name}),
               child: Container(
                 key: const ValueKey('target-glyph'),
                 decoration: BoxDecoration(
@@ -177,8 +178,7 @@ class _Locomotive extends StatelessWidget {
                 child: FittedBox(
                   child: Padding(
                     padding: const EdgeInsets.all(2),
-                    child: Text(
-                      char,
+                    child: Text(context.t(char),
                       textScaler: TextScaler.noScaling,
                       style: singleGlyphStyle(size * 0.5),
                     ),
@@ -327,8 +327,7 @@ class _Wagon extends StatelessWidget {
                             child: FittedBox(
                               child: Padding(
                                 padding: const EdgeInsets.all(3),
-                                child: Text(
-                                  card.text,
+                                child: Text(context.t(card.text),
                                   textDirection: TextDirection.rtl,
                                   textScaler: TextScaler.noScaling,
                                   style: singleGlyphStyle(
@@ -405,7 +404,7 @@ class _Station extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              'İstasyon',
+              context.t('İstasyon'),
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w800,
                 color: AppColors.navy,

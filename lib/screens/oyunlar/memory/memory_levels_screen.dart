@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +47,7 @@ class _MemoryLevelsScreenState extends State<MemoryLevelsScreen> {
     final maxWidth = Responsive.isDesktop(context) ? 800.0 : 640.0;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('Hafıza')),
+      appBar: AppBar(title: Text(context.t('Hafıza'))),
       body: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: maxWidth),
@@ -58,7 +59,7 @@ class _MemoryLevelsScreenState extends State<MemoryLevelsScreen> {
                 padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
                 children: [
                   Text(
-                    'Aynı harfleri bul. Hangisinden başlayalım?',
+                    context.t('Aynı harfleri bul. Hangisinden başlayalım?'),
                     style: textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w700,
                       color: AppColors.textSecondary,
@@ -67,7 +68,7 @@ class _MemoryLevelsScreenState extends State<MemoryLevelsScreen> {
                   for (final tier in MemoryTier.values) ...[
                     const SizedBox(height: 22),
                     Text(
-                      tier.label,
+                      context.t(tier.label),
                       style: textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
                         color: AppColors.navy,
@@ -150,7 +151,10 @@ class _LevelCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${level.title} · ${level.pairCount} çift',
+                      [
+                        context.t(level.title),
+                        context.t('{n} çift', {'n': level.pairCount}),
+                      ].join(' · '),
                       style: textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w700,
                         color: AppColors.textPrimary,
@@ -179,7 +183,7 @@ class _LevelCard extends StatelessWidget {
               const SizedBox(width: 8),
               if (stars != null)
                 Semantics(
-                  label: '$stars yıldız',
+                  label: context.t("{n} yıldız", {"n": stars}),
                   child: ExcludeSemantics(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,

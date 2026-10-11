@@ -1,3 +1,4 @@
+import '../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -32,13 +33,12 @@ class WordCell extends StatelessWidget {
   Widget build(BuildContext context) {
     final audio = context.watch<AudioService>();
     final playing = audio.isPlaying && audio.currentAsset == letter.audioAsset;
-    final style = AppTextTheme.arabicSmall(fontSize: fontSize).copyWith(
-      color: AppColors.textPrimary,
-      height: 1.7,
-    );
+    final style = AppTextTheme.arabicSmall(
+      fontSize: fontSize,
+    ).copyWith(color: AppColors.textPrimary, height: 1.7);
     return Semantics(
       button: true,
-      label: 'Dinle',
+      label: context.t("Dinle"),
       child: Material(
         color: playing ? AppColors.turquoiseSoft : Colors.transparent,
         child: InkWell(

@@ -1,3 +1,5 @@
+import '../../../l10n/l10n.dart';
+import '../../../widgets/game_narrated_text.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -99,8 +101,7 @@ class _GameScoreStripState extends State<GameScoreStrip> {
                           ),
                           const SizedBox(width: 4),
                           Flexible(
-                            child: Text(
-                              widget.instruction,
+                            child: GameNarratedText(widget.instruction,
                               textAlign: TextAlign.start,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
@@ -132,7 +133,9 @@ class _GameScoreStripState extends State<GameScoreStrip> {
                                 const SizedBox(width: 8),
                                 _pill(
                                   context,
-                                  'Güzel gidiyorsun! +${award.streakBonus}',
+                                  context.t('Güzel gidiyorsun! +{n}', {
+                                    'n': award.streakBonus,
+                                  }),
                                   AppColors.goldSoft,
                                   AppColors.navy,
                                   icon: Icons.music_note_rounded,
@@ -168,8 +171,7 @@ class _GameScoreStripState extends State<GameScoreStrip> {
           Icon(icon, size: 16, color: AppColors.gold),
           const SizedBox(width: 4),
         ],
-        Text(
-          text,
+        Text(context.t(text),
           maxLines: 1,
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             fontWeight: FontWeight.w800,
@@ -201,7 +203,7 @@ class _PointsBadge extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Puan',
+            context.t('Puan'),
             style: textTheme.labelLarge?.copyWith(
               color: AppColors.textSecondary,
             ),

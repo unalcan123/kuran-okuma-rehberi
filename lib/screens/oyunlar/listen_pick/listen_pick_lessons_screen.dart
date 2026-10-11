@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/letters_data.dart';
@@ -14,7 +15,7 @@ class ListenPickLessonsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Dinle ve Seç')),
+      appBar: AppBar(title: Text(context.t('Dinle ve Seç'))),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(
@@ -36,7 +37,7 @@ class ListenPickLessonsScreen extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 4),
                       child: Text(
-                        'Hangi dersten sorular gelsin?',
+                        context.t('Hangi dersten sorular gelsin?'),
                         style: Theme.of(
                           context,
                         ).textTheme.titleMedium?.copyWith(

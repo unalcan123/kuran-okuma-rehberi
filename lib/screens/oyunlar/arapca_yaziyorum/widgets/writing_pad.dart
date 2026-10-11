@@ -1,3 +1,4 @@
+import '../../../../l10n/l10n.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -192,7 +193,9 @@ class WritingPadState extends State<WritingPad> {
       buildCounter:
           (context, {required currentLength, required isFocused, maxLength}) =>
               Text(
-                'Kalan: ${(maxLength ?? 0) - currentLength}',
+                context.t("Kalan: {n}", {
+                  "n": (maxLength ?? 0) - currentLength,
+                }),
                 key: const ValueKey('remaining'),
                 style: textTheme.labelMedium?.copyWith(
                   color: AppColors.textSecondary,
@@ -243,8 +246,7 @@ class WritingPadState extends State<WritingPad> {
                           ),
                           const SizedBox(width: 4),
                           Flexible(
-                            child: Text(
-                              _tip!,
+                            child: Text(context.t(_tip!),
                               key: const ValueKey('pad-tip'),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,

@@ -3,23 +3,25 @@ import 'package:kuran_okuma_rehberi/screens/oyunlar/harf_oyunlari/profil/player_
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-PlayerGameResult _result(String playerId, int score,
-        {String gameId = GameIds.harfArabalari,
-        int correct = 5,
-        int wrong = 1,
-        int missed = 1,
-        int items = 20,
-        DateTime? at}) =>
-    PlayerGameResult(
-      playerId: playerId,
-      gameId: gameId,
-      score: score,
-      correctAnswers: correct,
-      wrongAnswers: wrong,
-      missedTargets: missed,
-      totalItems: items,
-      playedAt: at ?? DateTime(2026, 1, 1, 12),
-    );
+PlayerGameResult _result(
+  String playerId,
+  int score, {
+  String gameId = GameIds.harfArabalari,
+  int correct = 5,
+  int wrong = 1,
+  int missed = 1,
+  int items = 20,
+  DateTime? at,
+}) => PlayerGameResult(
+  playerId: playerId,
+  gameId: gameId,
+  score: score,
+  correctAnswers: correct,
+  wrongAnswers: wrong,
+  missedTargets: missed,
+  totalItems: items,
+  playedAt: at ?? DateTime(2026, 1, 1, 12),
+);
 
 Future<PlayerRepository> _fresh() async {
   final repo = PlayerRepository();
@@ -48,47 +50,92 @@ void main() {
       expect(reopened.activePlayer!.id, elif!.id);
     });
 
-    test('tek oyuncu: ad verilir, düzeltilir; kimlik ve skorlar korunur', () async {
-      final repo = await _fresh();
-      expect(await repo.setName('A'), PlayerNameError.tooShort);
-      expect(repo.activePlayer, isNull);
-      expect(await repo.setName('  Ahmet  '), isNull);
-      final p = repo.activePlayer!;
-      expect(p.displayName, 'Ahmet');
-      await repo.recordResult(_result(p.id, 120));
+    test(
+      'tek oyuncu: ad verilir, düzeltilir; kimlik ve skorlar korunur',
+      () async {
+        final repo = await _fresh();
+        expect(await repo.setName('A'), PlayerNameError.tooShort);
+        expect(repo.activePlayer, isNull);
+        expect(await repo.setName('  Ahmet  '), isNull);
+        final p = repo.activePlayer!;
+        expect(p.displayName, 'Ahmet');
+        await repo.recordResult(_result(p.id, 120));
 
-      expect(await repo.setName('<b>'), PlayerNameError.invalidChars);
-      expect(await repo.setName('Ahmed'), isNull);
-      expect(repo.profiles, hasLength(1), reason: 'yeni oyuncu açılmaz');
-      final reopened = await _fresh();
-      expect(reopened.activePlayer!.id, p.id);
-      expect(reopened.activePlayer!.displayName, 'Ahmed');
-      expect(reopened.bestScore(p.id, GameIds.harfArabalari), 120);
+        expect(await repo.setName('<b>'), PlayerNameError.invalidChars);
+        expect(await repo.setName('Ahmed'), isNull);
+        expect(repo.profiles, hasLength(1), reason: 'yeni oyuncu açılmaz');
+        final reopened = await _fresh();
+        expect(reopened.activePlayer!.id, p.id);
+        expect(reopened.activePlayer!.displayName, 'Ahmed');
+        expect(reopened.bestScore(p.id, GameIds.harfArabalari), 120);
+      },
+    );
+
+    test(
+      'eski sürümde birden çok profil: aktif olan (yoksa ilk) oyuncu olur',
+      () async {
+        final repo = await _fresh();
+        final a = (await repo.createProfile('Ali', 'star'))!;
+        final b = (await repo.createProfile('Elif', 'note'))!;
+        expect(repo.activePlayer!.id, b.id);
+        SharedPreferences.setMockInitialValues({
+          PlayerRepository.profilesKey:
+              '[${[a, b].map((p) => '{"id":"${p.id}","displayName":"${p.displayName}","avatarId":"star","createdAt":"2026-01-01"}').join(',')}]',
+        });
+        expect((await _fresh()).activePlayer!.id, a.id);
+      },
+    );
+
+    test(
+      'ad doğrulama: boş, çok uzun, aynı ad (büyük/küçük harf fark etmez)',
+      () async {
+        final repo = await _fresh();
+        expect(repo.validateName('   '), PlayerNameError.empty);
+        expect(repo.validateName('a' * 17), PlayerNameError.tooLong);
+        expect(repo.validateName('a' * 16), isNull);
+        await repo.createProfile('Elif', 'star');
+        expect(repo.validateName('elif'), PlayerNameError.taken);
+        expect(
+          repo.validateName('  ELİF  '),
+          PlayerNameError.taken,
+        ); // Türkçe büyük harf de aynı ad
+        expect(repo.validateName('Elif2'), isNull);
+        expect(await repo.createProfile('  ', 'star'), isNull);
+        expect(repo.profiles.length, 1);
+      },
+    );
+
+    test(
+      'Ali tekrar oluşturulamaz; boşluk ve Türkçe büyük harf fark etmez',
+      () async {
+        final repo = await _fresh();
+        await repo.createProfile('Ali', 'star');
+        expect(await repo.createProfile('  ALİ  ', 'moon'), isNull);
+        expect(await repo.createProfile('ali', 'moon'), isNull);
+        expect(repo.profiles, hasLength(1));
+      },
+    );
+
+    test('ad değişikliği başka oyuncunun adını alamaz; skor korunur', () async {
+      final repo = await _fresh();
+      await repo.createProfile('Ali', 'star');
+      final elif = (await repo.createProfile('Elif', 'moon'))!;
+      await repo.recordResult(_result(elif.id, 120));
+      expect(await repo.setName(' ALİ '), PlayerNameError.taken);
+      expect(repo.activePlayer!.displayName, 'Elif');
+      expect(repo.bestScore(elif.id, GameIds.harfArabalari), 120);
+      expect(await repo.setName(' ELİF '), isNull);
+      expect(repo.activePlayer!.id, elif.id);
     });
 
-    test('eski sürümde birden çok profil: aktif olan (yoksa ilk) oyuncu olur', () async {
+    test('aynı anda aynı adla iki yerel profil oluşturulamaz', () async {
       final repo = await _fresh();
-      final a = (await repo.createProfile('Ali', 'star'))!;
-      final b = (await repo.createProfile('Elif', 'note'))!;
-      expect(repo.activePlayer!.id, b.id);
-      SharedPreferences.setMockInitialValues({
-        PlayerRepository.profilesKey:
-            '[${[a, b].map((p) => '{"id":"${p.id}","displayName":"${p.displayName}","avatarId":"star","createdAt":"2026-01-01"}').join(',')}]',
-      });
-      expect((await _fresh()).activePlayer!.id, a.id);
-    });
-
-    test('ad doğrulama: boş, çok uzun, aynı ad (büyük/küçük harf fark etmez)', () async {
-      final repo = await _fresh();
-      expect(repo.validateName('   '), PlayerNameError.empty);
-      expect(repo.validateName('a' * 17), PlayerNameError.tooLong);
-      expect(repo.validateName('a' * 16), isNull);
-      await repo.createProfile('Elif', 'star');
-      expect(repo.validateName('elif'), PlayerNameError.taken);
-      expect(repo.validateName('  ELİF  '), PlayerNameError.taken); // Türkçe büyük harf de aynı ad
-      expect(repo.validateName('Elif2'), isNull);
-      expect(await repo.createProfile('  ', 'star'), isNull);
-      expect(repo.profiles.length, 1);
+      final results = await Future.wait([
+        repo.createProfile('Ali', 'star'),
+        repo.createProfile(' ALİ ', 'moon'),
+      ]);
+      expect(results.whereType<PlayerProfile>(), hasLength(1));
+      expect(repo.profiles, hasLength(1));
     });
 
     test('ad sadeleştirilir; geçersiz avatar varsayılana düşer', () async {
@@ -98,11 +145,19 @@ void main() {
       expect(p.avatarId, kPlayerAvatars.first.id);
     });
 
-    test('yalnızca takma ad + avatar saklanır (kişisel veri alanı yok)', () async {
-      final repo = await _fresh();
-      final p = (await repo.createProfile('Yusuf', 'sun'))!;
-      expect(p.toJson().keys.toSet(), {'id', 'displayName', 'avatarId', 'createdAt'});
-    });
+    test(
+      'yalnızca takma ad + avatar saklanır (kişisel veri alanı yok)',
+      () async {
+        final repo = await _fresh();
+        final p = (await repo.createProfile('Yusuf', 'sun'))!;
+        expect(p.toJson().keys.toSet(), {
+          'id',
+          'displayName',
+          'avatarId',
+          'createdAt',
+        });
+      },
+    );
 
     test('silme: profil, skorları ve aktiflik kalkar', () async {
       final repo = await _fresh();
@@ -131,9 +186,15 @@ void main() {
       final elif = (await repo.createProfile('Elif', 'star'))!;
       final ahmet = (await repo.createProfile('Ahmet', 'note'))!;
 
-      await repo.recordResult(_result(elif.id, 245, correct: 16, wrong: 2, missed: 3));
-      await repo.recordResult(_result(ahmet.id, 195, correct: 12, wrong: 4, missed: 1));
-      await repo.recordResult(_result(elif.id, 100, correct: 8, wrong: 0, missed: 1));
+      await repo.recordResult(
+        _result(elif.id, 245, correct: 16, wrong: 2, missed: 3),
+      );
+      await repo.recordResult(
+        _result(ahmet.id, 195, correct: 12, wrong: 4, missed: 1),
+      );
+      await repo.recordResult(
+        _result(elif.id, 100, correct: 8, wrong: 0, missed: 1),
+      );
 
       final e = repo.statsFor(elif.id, GameIds.harfArabalari);
       expect(e.bestScore, 245); // düşük skor en iyiyi bozmaz
@@ -150,14 +211,19 @@ void main() {
       expect(a.gamesPlayed, 1);
     });
 
-    test('oyunlar ayrı tutulur: Bul & Patlat ile Harf Arabaları karışmaz', () async {
-      final repo = await _fresh();
-      final p = (await repo.createProfile('Elif', 'star'))!;
-      await repo.recordResult(_result(p.id, 90, gameId: GameIds.bulPatlat));
-      await repo.recordResult(_result(p.id, 200, gameId: GameIds.harfArabalari));
-      expect(repo.bestScore(p.id, GameIds.bulPatlat), 90);
-      expect(repo.bestScore(p.id, GameIds.harfArabalari), 200);
-    });
+    test(
+      'oyunlar ayrı tutulur: Bul & Patlat ile Harf Arabaları karışmaz',
+      () async {
+        final repo = await _fresh();
+        final p = (await repo.createProfile('Elif', 'star'))!;
+        await repo.recordResult(_result(p.id, 90, gameId: GameIds.bulPatlat));
+        await repo.recordResult(
+          _result(p.id, 200, gameId: GameIds.harfArabalari),
+        );
+        expect(repo.bestScore(p.id, GameIds.bulPatlat), 90);
+        expect(repo.bestScore(p.id, GameIds.harfArabalari), 200);
+      },
+    );
 
     test('kayıtlar uygulama yeniden açılınca korunur', () async {
       final repo = await _fresh();
@@ -175,8 +241,14 @@ void main() {
     });
 
     test('PlayerGameResult doğruluğu hesaplanır', () {
-      expect(_result('x', 1, correct: 14, wrong: 0, missed: 3).accuracyPercent, 82);
-      expect(_result('x', 1, correct: 0, wrong: 0, missed: 0).accuracyPercent, 0);
+      expect(
+        _result('x', 1, correct: 14, wrong: 0, missed: 3).accuracyPercent,
+        82,
+      );
+      expect(
+        _result('x', 1, correct: 0, wrong: 0, missed: 0).accuracyPercent,
+        0,
+      );
     });
   });
 }

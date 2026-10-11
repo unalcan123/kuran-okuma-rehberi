@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/l10n.dart';
 
 import '../../core/responsive.dart';
 import '../../theme/app_colors.dart';
@@ -63,7 +64,7 @@ class _OyunlarScreenState extends State<OyunlarScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Oyunlar'),
+        title: Text(context.t('Oyunlar')),
         // "Oyuncu: Elif ✎" → adı düzelt.
         actions: const [PlayerChip(), SizedBox(width: 8)],
       ),

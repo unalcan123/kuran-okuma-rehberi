@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -58,9 +59,9 @@ class ContactEntryCard extends StatelessWidget {
       child: InkWell(
         key: const ValueKey('home-contact'),
         onTap:
-            () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ContactScreen()),
-            ),
+            () => Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => const ContactScreen())),
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -76,7 +77,7 @@ class ContactEntryCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Bize Ulaşın',
+                      context.t("Bize Ulaşın"),
                       style: theme.titleMedium?.copyWith(
                         color: AppColors.navy,
                         fontWeight: FontWeight.w800,
@@ -84,7 +85,9 @@ class ContactEntryCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Text(
-                      'Görüşünü, önerini yaz; resim de ekleyebilirsin.',
+                      context.t(
+                        "Görüşünü, önerini yaz; resim de ekleyebilirsin.",
+                      ),
                       style: theme.bodyMedium?.copyWith(
                         color: AppColors.textSecondary,
                       ),
@@ -133,7 +136,7 @@ class _ContactScreenState extends State<ContactScreen> {
     await Clipboard.setData(const ClipboardData(text: kContactEmail));
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('E-posta adresi kopyalandı')),
+      SnackBar(content: Text(context.t("E-posta adresi kopyalandı"))),
     );
   }
 
@@ -152,9 +155,11 @@ class _ContactScreenState extends State<ContactScreen> {
     if (opened || !mounted) return;
     // No e-mail app: the address goes to the clipboard instead.
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
-          'E-posta uygulaması açılamadı. Adres kopyalandı: $kContactEmail',
+          context.t("E-posta uygulaması açılamadı. Adres kopyalandı: {email}", {
+            "email": kContactEmail,
+          }),
         ),
       ),
     );
@@ -165,7 +170,7 @@ class _ContactScreenState extends State<ContactScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(title: const Text('Bize Ulaşın')),
+      appBar: AppBar(title: Text(context.t("Bize Ulaşın"))),
       body: SafeArea(
         top: false,
         child: Center(
@@ -203,7 +208,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  'Bize yazın!',
+                  context.t("Bize yazın!"),
                   style: theme.headlineSmall?.copyWith(
                     color: AppColors.navy,
                     fontWeight: FontWeight.w900,
@@ -211,9 +216,9 @@ class _ContactScreenState extends State<ContactScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Uygulamayla ilgili görüşünü, önerini ya da bulduğun bir '
-                  'hatayı bize e-postayla gönderebilirsin. Mesajına resim veya '
-                  'ekran görüntüsü de ekleyebilirsin.',
+                  context.t(
+                    "Uygulamayla ilgili görüşünü, önerini ya da bulduğun bir hatayı bize e-postayla gönderebilirsin. Mesajına resim veya ekran görüntüsü de ekleyebilirsin.",
+                  ),
                   style: theme.bodyLarge?.copyWith(
                     color: AppColors.textSecondary,
                     height: 1.5,
@@ -223,7 +228,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 _AddressCard(onCopy: _copyAddress),
                 const SizedBox(height: 20),
                 Text(
-                  'Konu',
+                  context.t("Konu"),
                   style: theme.titleMedium?.copyWith(
                     color: AppColors.navy,
                     fontWeight: FontWeight.w800,
@@ -237,7 +242,7 @@ class _ContactScreenState extends State<ContactScreen> {
                     for (final topic in kContactTopics)
                       ChoiceChip(
                         key: ValueKey('contact-topic-$topic'),
-                        label: Text(topic),
+                        label: Text(context.t(topic)),
                         selected: _topic == topic,
                         showCheckmark: false,
                         selectedColor: AppColors.turquoiseSoft,
@@ -250,8 +255,8 @@ class _ContactScreenState extends State<ContactScreen> {
                   key: const ValueKey('contact-name'),
                   controller: _name,
                   textCapitalization: TextCapitalization.words,
-                  decoration: const InputDecoration(
-                    labelText: 'Adın (isteğe bağlı)',
+                  decoration: InputDecoration(
+                    labelText: context.t("Adın (isteğe bağlı)"),
                     prefixIcon: Icon(Icons.person_rounded),
                     border: OutlineInputBorder(),
                   ),
@@ -263,8 +268,8 @@ class _ContactScreenState extends State<ContactScreen> {
                   minLines: 4,
                   maxLines: 8,
                   textCapitalization: TextCapitalization.sentences,
-                  decoration: const InputDecoration(
-                    labelText: 'Mesajın',
+                  decoration: InputDecoration(
+                    labelText: context.t("Mesajın"),
                     alignLabelWithHint: true,
                     border: OutlineInputBorder(),
                   ),
@@ -285,8 +290,9 @@ class _ContactScreenState extends State<ContactScreen> {
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          'Resim eklemek için açılan e-posta uygulamasında '
-                          'ataç simgesine dokun.',
+                          context.t(
+                            "Resim eklemek için açılan e-posta uygulamasında ataç simgesine dokun.",
+                          ),
                           style: theme.bodyMedium?.copyWith(
                             color: AppColors.textPrimary,
                           ),
@@ -309,7 +315,7 @@ class _ContactScreenState extends State<ContactScreen> {
                     ),
                     onPressed: _send,
                     icon: const Icon(Icons.send_rounded),
-                    label: const Text('E-posta ile Gönder'),
+                    label: Text(context.t("E-posta ile Gönder")),
                   ),
                 ),
               ],
@@ -339,8 +345,7 @@ class _AddressCard extends StatelessWidget {
         const Icon(Icons.alternate_email_rounded, color: AppColors.turquoise),
         const SizedBox(width: 10),
         const Expanded(
-          child: SelectableText(
-            kContactEmail,
+          child: SelectableText(kContactEmail,
             key: ValueKey('contact-address'),
             style: TextStyle(
               fontSize: 16,
@@ -351,7 +356,7 @@ class _AddressCard extends StatelessWidget {
         ),
         IconButton(
           key: const ValueKey('contact-copy'),
-          tooltip: 'Adresi kopyala',
+          tooltip: context.t("Adresi kopyala"),
           constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
           onPressed: onCopy,
           icon: const Icon(Icons.copy_rounded),

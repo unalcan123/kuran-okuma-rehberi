@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/recitation_card_images.dart';
@@ -15,7 +16,7 @@ class DuaDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ReadingScreen(
-    title: kDuaDisplayTitles[dua.id] ?? dua.titleTr,
+    title: context.t(kDuaDisplayTitles[dua.id] ?? dua.titleTr),
     segments: ReadingSegment.ofDua(dua),
     nouns: ReadingNouns.dua,
   );

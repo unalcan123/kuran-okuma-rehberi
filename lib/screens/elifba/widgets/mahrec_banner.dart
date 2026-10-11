@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import '../../../models/arabic_letter.dart';
 
@@ -30,8 +31,7 @@ class MahrecBanner extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            mahrec.label,
+          Text(context.t(mahrec.label),
             style: TextStyle(
               color: mahrec.color,
               fontSize: 18,
@@ -39,8 +39,7 @@ class MahrecBanner extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Text(
-            mahrec.description,
+          Text(context.t(mahrec.description),
             style: const TextStyle(
               color: Color(0xFF23324A),
               fontSize: 14,

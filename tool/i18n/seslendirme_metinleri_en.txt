@@ -1,0 +1,676 @@
+# SESLENDIRME METINLERI — EN
+# Her [kayit_kimligi] altindaki metni duzenleyebilirsin.
+# Kimlik satirlarini silme veya degistirme. Bu dosya sesi degistirir; ekrandaki metni degistirmez.
+# Arapca harfler seslendirme metninde Latin harfleriyle yazilmistir.
+
+[x_b82c6976cab96a17]
+Let Us Learn the Letters
+
+[x_0f4bcb723513e72a]
+28 letters • The First Step in the Arabic Alphabet
+
+[s047_baslik_1]
+DOUBLE DAMMAH LETTERS
+
+[s006_01]
+The Quranic alphabet has 28 letters. - 7 are considered heavy and 21 light. - The heavy letters are: Kha Saad Daad heavy Ta heavy Za Ghayn Qaf
+
+[x_f40fb061502cb509]
+7 are considered heavy and 21 light.
+
+[x_71a9851229f63d6d]
+The heavy letters are: Kha Saad Daad heavy Ta heavy Za Ghayn Qaf
+
+[s010_baslik_1]
+OF THE LETTERS OF INITIAL, MIDDLE AND FINAL FORMS
+
+[s007_baslik_1]
+OF THE LETTERS WRITING AND PRONUNCIATION
+
+[x_6a0d9bbec6326699]
+The Letters of the Quran
+
+[x_a485a0a32993e75e]
+The Quranic alphabet has 28 letters. Of these, 7 are considered heavy and 21 light. The heavy letters are: Kha Saad Daad heavy Ta heavy Za Ghayn Qaf
+
+[x_c56cf2512dc306b7]
+How Letters Are Written
+
+[x_7bc7708c9751a4aa]
+29 letters • Initial, Middle and Final Forms
+
+[s008_baslik_1]
+LAM - ALIF
+
+[s008_01]
+LAM-ALIF ( Lam Alif ) is a special shape showing lam ( Lam ) joined to alif or hamzah ( Alif Hamzah ). It is not a separate letter. * As its name suggests, LAM-ALIF is read as lam first, then alif. The right side represents lam and the left side alif.
+
+[x_e7f283474e3b8c77]
+As its name suggests, LAM-ALIF is read as lam first, then alif. The right side represents lam and the left side alif.
+
+[s008_02]
+If an alif without a vowel joins lam, it lengthens lam so that it is read as “lā”. * If hamzah joins lam, both letters are read with their own vowels.
+
+[x_1cb022bf5738e743]
+If hamzah joins lam, both letters are read with their own vowels.
+
+[s008_03]
+Lam-alif joins other letters only on its right side.
+
+[x_30a4198490501369]
+Its Written Forms Are as Follows:
+
+[s008_baslik_2]
+LAM-ALIF FORMS
+
+[x_4216f159ff83b111]
+EXAMPLES
+
+[x_90e33b27649ad0f9]
+Each letter in a word joins the letter before it. However, Dhal Dal Alif Zay Ra Waw do not join the letter after them. Let us see how letters join in words. Let us not try to read the words yet: we have not learned the vowel marks.
+
+[x_42cf42e6c42fcdf9]
+Fathah
+
+[x_14d9ca57d9049ae3]
+92 recordings • Letter + fathah and word reading
+
+[s020_baslik_1]
+VOWEL MARKS DAMMAH
+
+[s014_baslik_1]
+VOWEL MARKS FATHAH
+
+[s014_01]
+The vowel marks resemble Turkish vowel sounds. - However, none of these marks matches the vowel sounds we know exactly.
+
+[x_cebf9ddad8b8dfca]
+However, none of these marks matches the vowel sounds we know exactly.
+
+[s014_02]
+Fathah is a small line above the letter, slanting downward on the left. It gives light letters an “E” sound and heavy letters an “A” sound.
+
+[s015_01]
+Remember that fathah gives light letters an “E” sound and heavy letters an “A” sound.
+
+[x_22e0507842fcf856]
+The Fathah Mark
+
+[x_c62e23b9551c4568]
+Fathah is a small line above the letter, slanting downward on the left. It gives light letters an “E” sound and heavy letters an “A” sound.
+
+[x_81d7939a0d187c0b]
+Kasrah
+
+[x_7a758e6c92667f99]
+84 recordings • Letter + kasrah and word reading
+
+[s017_baslik_1]
+VOWEL MARKS KASRAH
+
+[s017_01]
+It is a small line below the letter, slanting downward on the left. It gives light letters an “i” sound and heavy letters a sound moving from Turkish dotless “ı” toward “i”.
+
+[x_98bd13567b37dd3f]
+The Kasrah Mark
+
+[x_8de58fb628e2a7f8]
+Kasrah is a small line below the letter, slanting downward on the left. It gives light letters an “İ” sound and heavy letters a sound moving from Turkish “I” toward “İ”.
+
+[x_8c6bfd229e811845]
+Dammah
+
+[x_3310d4d4e9855cd8]
+92 recordings • Letter + dammah and word reading
+
+[s020_01]
+It is a mark above the letter resembling a small “waw”. It gives light letters a sound between “U” and “Ü” and heavy letters a “U” sound.
+
+[x_48432a69ef21d522]
+It gives light letters a sound between “U” and “Ü” and heavy letters a “U” sound.
+
+[x_935d97c874476276]
+The Dammah Mark
+
+[x_3be206abeada3069]
+Dammah is a mark above the letter resembling a small “waw”. It gives light letters a sound between “U” and “Ü” and heavy letters a “U” sound.
+
+[x_c1e944311da3969a]
+Ordered by Articulation Point
+
+[x_0ae086cfc717a76f]
+28 recordings • Letter + three vowels, in articulation order
+
+[s023_baslik_1]
+LETTERS WITH VOWEL MARKS
+
+[x_38db3a3a51a8181e]
+(By Articulation Point)
+
+[x_49e5c7d0e211ff24]
+This lesson orders the letters by their articulation points in the mouth rather than alphabetically. Each letter is read with all three vowel marks: fathah, kasrah and dammah.
+
+[x_4932ab9aca1d314d]
+Sukoon
+
+[x_5bf8d8b2bb617cdb]
+81 recordings • Hamzah + letter + sukoon, with three vowels
+
+[s024_baslik_1]
+SUKOON
+
+[s024_01]
+It is a small round mark above the letter. It makes the letter sound on its own without adding a vowel.
+
+[s024_02]
+To recognize each letter with sukoon clearly, let us read it after a “hamzah” bearing fathah, kasrah and dammah in turn.
+
+[x_27e0c2b29bd68924]
+Sukoon is a small round mark above the letter. Its role is to join the letter in reading to the preceding letter without adding a vowel of its own.
+
+[x_098cefa838898047]
+Vowel Mark Examples
+
+[x_e146011776dfddbb]
+52 recordings • Word reading with fathah, kasrah, dammah and sukoon
+
+[x_40775b72173dc32b]
+Practice reading words that combine fathah, kasrah, dammah and sukoon.
+
+[x_25c0e6dfb78bd73c]
+Shaddah
+
+[x_8fa1feca1dfa2c3d]
+56 recordings • Letter + shaddah pairs
+
+[s028_baslik_1]
+SHADDAH
+
+[s028_01]
+It is a mark above the letter resembling an upside-down “m”, which makes the letter be read twice. A letter with shaddah also has a vowel mark.
+
+[x_525749d1702ba4ca]
+Shaddah makes the letter be read twice. A letter with shaddah also has a vowel. Turkish examples: cennet, anne, himmet.
+
+[x_afa2f17b321ebdf6]
+Shaddah Examples
+
+[x_862db07c5ab1a8a5]
+64 recordings • Word reading with shaddah
+
+[x_def4f63df7e7022d]
+Practice reading words with letters bearing shaddah.
+
+[x_3ac5fd22fdbdcd3f]
+Lengthening Letters - Alif
+
+[x_dd49c94435908c6d]
+28 recordings • Lengthening with fathah + alif
+
+[s032_baslik_1]
+LENGTHENING LETTERS ALIF
+
+[s032_01]
+It lengthens a letter with fathah for two counts. A heavy letter has an “A” sound, while a light letter has a sound between “E” and “A”.
+
+[s032_02]
+Lengthening (MADD) Letters ( Alif Waw ): These are the unvowelled letters ( Waw ), ( Alif ) and ( ), called “waw, alif and ya”. They lengthen the preceding letter.
+
+[x_9656e3ffcf82befc]
+Lengthening (MADD) Letters ( Alif Waw ): These are the unvowelled letters ( Waw ), ( Alif ) and ( ), called “waw, alif and ya”. They lengthen the preceding letter. Alif: It lengthens a letter with fathah for two counts. A heavy letter has an “A” sound, while a light letter has a sound between “E” and “A”.
+
+[x_6b4efc8093d9600b]
+Lengthening Letters - Alif - Examples
+
+[x_72dc3a39d4a06fe1]
+28 recordings • Word reading lengthened with alif
+
+[x_a4bcc9ec7b80f61a]
+Practice reading words lengthened with alif (madd).
+
+[x_c735235867cdab56]
+Lengthening Letters - Ya
+
+[x_769c123c25774a2c]
+28 recordings • Lengthening with kasrah + ya
+
+[s034_baslik_1]
+YA
+
+[s034_01]
+It lengthens the preceding letter with kasrah for two counts. A light letter is lengthened with an “İ” sound; a heavy letter with a sound moving from Turkish “I” toward “İ”.
+
+[x_30a7c99b0d09fd6e]
+A light letter is lengthened with an “İ” sound; a heavy letter with a sound moving from Turkish “I” toward “İ”.
+
+[x_e6a80b77900962d7]
+It lengthens the preceding letter with kasrah for two counts. A light letter is lengthened with “İ”, and a heavy letter with a sound close to Turkish “I”.
+
+[x_6ceec3c1c26cca34]
+Lengthening Letters - Ya - Examples
+
+[x_080991ab999c73e9]
+28 recordings • Word reading lengthened with ya
+
+[x_91b3a380f22f9ca7]
+Practice reading words lengthened with ya (madd).
+
+[x_6deeb6f1701c7458]
+Lengthening Letters - Waw
+
+[x_d4b1924c203c31ea]
+28 recordings • Lengthening with dammah + waw
+
+[s038_baslik_1]
+Lengthening at the End of a Word WAW
+
+[s036_01]
+It lengthens the preceding letter with dammah for two counts. A heavy letter is lengthened with “U”, and a light letter with a sound between “U” and “Ü”.
+
+[x_e63df5af43637e14]
+A heavy letter is lengthened with “U”, and a light letter with a sound between “U” and “Ü”.
+
+[x_0e483c448c80cdce]
+It lengthens the preceding letter with dammah for two counts. A heavy letter has a “U” sound, and a light letter a sound between “U” and “Ü”.
+
+[x_67ba269dfa1e5038]
+Lengthening Letters - Waw - Examples
+
+[x_ae7ee980fbd46713]
+28 recordings • Word reading lengthened with waw
+
+[x_729d66cdf58d7089]
+Practice reading words lengthened with waw (madd).
+
+[x_74e73f18eccdfabf]
+Lengthening Letters - Waw - At the End of a Word
+
+[x_eb1bb22d80a3312c]
+9 recordings • Waw lengthening at the end of a word
+
+[s038_01]
+Sometimes an unvowelled WAW at the end of a word lengthens the letter with dammah to which it joins on its own, as in ( Dhu Dhū ). * Often this WAW is also followed by ALIF. This ALIF adds no extra lengthening: the duration remains two counts.
+
+[x_ce7ca2438600a54a]
+Often this WAW is also followed by ALIF. This ALIF adds no extra lengthening: the duration remains two counts.
+
+[x_7b676c2262aae319]
+Sometimes an unvowelled WAW at the end of a word lengthens the letter with dammah to which it joins on its own, as in ( Dhu Dhū ). Often this WAW is also followed by ALIF. This ALIF adds no extra lengthening: the duration remains two counts.
+
+[x_58d5026932499006]
+Dagger Alif
+
+[x_7316892e1bb30a83]
+10 recordings • Lengthening with dagger alif
+
+[s039_baslik_1]
+DAGGER ALIF
+
+[s039_01]
+This is the name given to a vertically written fathah. * It shows that the letter bearing this mark is lengthened, whether or not a lengthening letter is present. * If a lengthening letter is present, it does not matter whether it is alif, waw or ya. In every case, it lengthens the letter bearing the mark in the fathah sound direction.
+
+[x_beb761c4e84992e1]
+It shows that the letter bearing this mark is lengthened, whether or not a lengthening letter is present.
+
+[x_4649df589c14ddee]
+If a lengthening letter is present, it does not matter whether it is alif, waw or ya. In every case, it lengthens the letter bearing the mark in the fathah sound direction.
+
+[x_107b461760d1b58a]
+Dagger Alif () This is the name given to a vertically written fathah. It shows that the letter bearing this mark is lengthened, whether or not a lengthening letter is present.
+
+[x_0df408dd666b1c3e]
+Vertical Kasrah
+
+[x_6d082d7d98a8dbc6]
+8 recordings • Lengthening with vertical kasrah
+
+[s039_baslik_2]
+VERTICAL KASRAH
+
+[s039_02]
+This is the name given to a vertically written kasrah. * Whether or not another lengthening letter is present, it lengthens the letter beneath which it is written in the kasrah direction.
+
+[x_7bdc91d8726cd924]
+Whether or not another lengthening letter is present, it lengthens the letter beneath which it is written in the kasrah direction.
+
+[x_47fd3f1642a496c6]
+Vertical Kasrah ( ) This is the name given to a vertically written kasrah. Whether or not another lengthening letter is present, it lengthens the letter beneath which it is written in the kasrah direction.
+
+[x_5a3214211257a036]
+Tanween - Double Fathah
+
+[x_8e280f3ce388f430]
+88 recordings • Letter + tanween and word reading
+
+[s040_baslik_1]
+TANWEEN
+
+[x_c3b4622fe6885a8c]
+(DOUBLE VOWEL MARKS)
+
+[s040_01]
+Tanween: When the same vowel mark is placed twice on a letter, it is called tanween. When continuing the recitation, the letter ends as though followed by a noon with sukoon ( Noon ). There are three kinds of tanween: double fathah, double kasrah and double dammah.
+
+[x_806899ee6f662f9a]
+There are three kinds of tanween: double fathah, double kasrah and double dammah.
+
+[s040_02]
+These are two small stacked lines above the letter, slanting downward on the left. * When continuing, it gives light letters an “En” sound and heavy letters an “An” sound.
+
+[x_64d7457a9ff6dedf]
+When continuing, it gives light letters an “En” sound and heavy letters an “An” sound.
+
+[s040_baslik_2]
+LETTERS WITH DOUBLE FATHAH ( ) Fathatayn
+
+[s041_01]
+An alif is usually written to the left of a letter with double fathah. * This alif is not pronounced when continuing, but acts as a lengthening letter when stopping. The noon sound of the tanween disappears and the letter is lengthened in the fathah direction for two counts. A heavy letter has an “A” sound; a light letter has a sound between “E” and “A”.
+
+[x_5f67d27fbb01edec]
+This alif is not pronounced when continuing, but acts as a lengthening letter when stopping. The noon sound of the tanween disappears and the letter is lengthened in the fathah direction for two counts. A heavy letter has an “A” sound; a light letter has a sound between “E” and “A”.
+
+[x_71439c414a7220ef]
+Tanween: When the same vowel mark appears twice on a letter, it is called tanween. When continuing, an “n” sound that is not written as a letter is added at the end of the word.
+
+[x_f803b99672434279]
+Tanween - Double Kasrah
+
+[x_14e181db748be447]
+92 recordings • Letter + tanween and word reading
+
+[s044_baslik_1]
+DOUBLE KASRAH LETTERS
+
+[x_e15b2f3a948d74e0]
+Tanween - Double Dammah
+
+[x_23ac5515d9e75dc3]
+The “Al” Article - Pronounced Letters
+
+[x_9a88e8ede5a0591e]
+16 recordings • Pronouncing the al article with moon letters
+
+[s050_baslik_1]
+ALIF - LAM
+
+[s050_01]
+We saw that lam-alif (Lam Alif) is used when a word requires lam (Lam) followed by alif (Alif).
+
+[s050_02]
+If alif (Alif) followed by lam with sukoon (Lam) occurs at the beginning of a word, it is called the alif-lam article, or simply the “al” article (Alif Lam).
+
+[s050_03]
+Here, the alif (Alif) before lam (Lam) functions as a hamzah because it can carry a vowel. Remember that a vowelled alif with no lengthening function is called hamzah.
+
+[s050_04]
+The following letter determines how lam is pronounced. If it is one of the letters (Hamzah Ba Jeem Ha Kha Ayn Ghayn Fa Qaf Kaf Meem Waw Ha ) in the phrase (Abghi hajjaka wa khaf aqeemahu), lam is pronounced with sukoon. These letters are half of the 28 letters of the Quran.
+
+[x_038c31203bc9a86c]
+Examples:
+
+[x_38357289d15cc372]
+The “Al” Article - Unpronounced Letters
+
+[x_11921bda749f95f8]
+16 recordings • Pronouncing the al article with sun letters
+
+[s051_01]
+If one of the remaining 14 letters (Daad Saad Sheen Seen Zay Ra Dal Dhal Ta Tha heavy Ta heavy Za Lam Noon) follows, lam is not pronounced. The next letter is always pronounced with shaddah.
+
+[x_33d09f4219a08cb7]
+The “Al” Article and Hamzah
+
+[x_e4e1700a27e7e1f9]
+9 recordings • Reading words with the al article and hamzah
+
+[x_8d40a624290ca269]
+THE HAMZAH IN THE “AL” ARTICLE
+
+[s052_01]
+We have seen the two different pronunciations of lam in the “al” article (Alif Lam). Now let us look at the hamzah before lam.
+
+[s052_02]
+When continuing from the previous letter or word, the hamzah in the “al” article (Alif Lam) is not pronounced.
+
+[s052_03]
+If the recitation starts with the hamzah of the “al” article (Alif Lam), it is always pronounced with fathah.
+
+[s052_04]
+Since its vowel is not permanent, this hamzah is more precisely called hamzat al-wasl.
+
+[x_916e28d6dfc7e4ca]
+The “Al” Article - Hamzat al-Wasl
+
+[x_b6f314c196dcf6cf]
+12 recordings • Comparing standalone and connected hamzat al-wasl
+
+[s053_baslik_1]
+UNPRONOUNCED HAMZAH
+
+[x_dc90b2bbb6c1e2b7]
+(Hamzat al-Wasl)
+
+[s053_01]
+Some hamzahs at the beginning of a word lose their vowel when read together with the preceding word or letter, as though no hamzah were present. They are written as an alif without a vowel mark (Alif). Sometimes a small connecting mark (connecting Alif) shows that they are not pronounced. These are called hamzat al-wasl.
+
+[s053_02]
+If it is read as the first letter at the beginning of a word, without connecting to what precedes, it is pronounced with its vowel.
+
+[s053_03]
+In the previous lesson, we saw that the alif in every alif-lam article (Alif Lam) also works this way.
+
+[x_86f5b8e231233867]
+Lengthening the Pronoun Ha
+
+[x_29881b4b13fe0c1f]
+30 examples • When the Pronoun Hū/Hī Is Lengthened or Not
+
+[s054_baslik_1]
+OF THE PRONOUN “HA” ( Ha Ha ) LENGTHENING
+
+[s054_baslik_2]
+When Is the Letter “Ha” Lengthened?
+
+[s054_01]
+If the letter before “Ha” has a vowel, “Ha” is lengthened. The following letter determines how long:
+
+[s054_02]
+If hamzah follows the lengthened “Ha”, it is lengthened for four counts.
+
+[x_6d1cb525ce29efc0]
+“Examples:”
+
+[s054_03]
+If any letter other than hamzah follows the lengthened “Ha”, it is lengthened for two counts.
+
+[s054_baslik_3]
+When Is the Letter “Ha” Not Lengthened?
+
+[s054_04]
+If a lengthening letter comes before “Ha”, “Ha” is read without lengthening. Whatever letter follows “Ha” does not affect this rule.
+
+[x_94ed5dc0231585ae]
+Whatever letter follows “Ha” does not affect this rule.
+
+[s055_01]
+If any letter with sukoon comes before “Ha”, it is also read without lengthening. Whatever letter follows “Ha” does not affect this rule.
+
+[x_a6eb86d55ff2c4aa]
+Whatever letter follows “Ha” does not affect this rule.
+
+[s055_02]
+If “Ha” is connected to a letter with sukoon or shaddah in the next word, it is not lengthened, even if the preceding letter has a vowel.
+
+[x_1d1faaa83fcf957e]
+OF THE PRONOUN “HA”
+
+[x_ee8e1cbd3c2079b9]
+When Is the Letter “Ha” Lengthened? If the letter before “Ha” has a vowel, “Ha” is lengthened. The following letter determines how long: If hamzah follows the lengthened “Ha”, it is lengthened for four counts.
+
+[x_96c5d379513d8b1e]
+If any letter other than hamzah follows the lengthened “Ha”, it is lengthened for two counts.
+
+[x_28754253bf2b3bf0]
+When Is the Letter “Ha” Not Lengthened? If a lengthening letter comes before “Ha”, “Ha” is read without lengthening. Whatever letter follows “Ha” does not affect this rule.
+
+[x_61aadc3dfcac8192]
+If any letter with sukoon comes before “Ha”, it is also read without lengthening. Whatever letter follows “Ha” does not affect this rule.
+
+[x_1bfb1f81a526bd8d]
+If “Ha” is connected to a letter with sukoon or shaddah in the next word, it is not lengthened, even if the preceding letter has a vowel.
+
+[x_27786241ecd048a1]
+Long Madd Mark
+
+[x_77f7e81c04b47d5c]
+6 recordings • Lengthening with the madd mark
+
+[s055_baslik_1]
+LONG MADD MARK
+
+[s055_03]
+This mark appears above some types of madd that last more than two counts. More detail will be given in the tajweed lessons.
+
+[x_4e1d669af6d7c6c3]
+Ta Marbutah
+
+[x_e8f29b4a56c0aeae]
+12 recordings • Pronouncing ta marbutah when stopping
+
+[s056_baslik_1]
+TA MARBUTAH
+
+[s056_01]
+Sometimes the letter ta (Ta) is written as “ta marbutah”: (Ta marbutah Ta marbutah). This occurs only at the end of a word. It is written (Ta marbutah) when joined to the previous letter and (Ta marbutah) when unjoined.
+
+[s056_02]
+When stopping on a word ending in ta marbutah, it is pronounced like ha with sukoon (Ha). When continuing to the next word, it is pronounced as ta with its vowel.
+
+[x_cfe5770979bae97f]
+Let Us See How It Works in
+
+[x_e5714a57261801f2]
+Stopping at the End of Words
+
+[x_120b40ec2d1fb2f4]
+28 recordings • Pronouncing word endings when stopping
+
+[s057_baslik_1]
+AT THE END OF A WORD ON A LETTER WITH A VOWEL
+
+[x_b88ac8cf3bf1fad4]
+HOW DO WE STOP?
+
+[x_498f7161c2217090]
+How Do We Stop on a Vowelled Letter at the End of a Word?
+
+[s057_01]
+When reading the Quran, we usually stop at the ends of verses, at stopping marks, or when we need to breathe. These stops can only be at the ends of words.
+
+[s057_02]
+We do not stop by pronouncing fathah, kasrah or dammah. If the final letter is not already vowel-free—with sukoon or as a lengthening letter—its vowel is omitted and it is pronounced as though it had sukoon.
+
+[s057_03]
+For tanween, the rule is as follows: With double fathah written alongside alif, one fathah is removed. The letter is read with a single fathah, lengthened for two counts.
+
+[s058_01]
+When stopping on a hamzah with double fathah written without alif, it is also lengthened for two counts, as though an alif were beside it.
+
+[s058_02]
+On letters with double kasrah or double dammah, we stop with sukoon.
+
+[x_58eb04ec1974a351]
+Some More
+
+[x_481eab08538f248a]
+Examples 1
+
+[x_20bddcdfee185870]
+24 recordings • General reading examples
+
+[x_6aa191334112403e]
+Examples 1
+
+[x_a2e7e3d43413bac8]
+General reading examples that bring together all the rules learned.
+
+[x_c09e400760ae1c4e]
+Examples 2
+
+[x_e35317198f77e9b8]
+27 recordings • General reading examples
+
+[x_40652d006998933c]
+Examples 2
+
+[x_e9f0754f783d9731]
+Examples 3
+
+[x_81c650f34f9ef7ba]
+18 recordings • General reading examples
+
+[x_78536bbcb13116f5]
+Examples 3
+
+[x_fe1c5274c7343aac]
+Examples 4
+
+[x_1dba50210b528662]
+Examples 4
+
+[s006_baslik_1]
+LETTERS
+
+[s036_baslik_1]
+WAW
+
+[game_1163b4ee95e9e8b1]
+Listen to the sound and drag the letter to the right place.
+
+[game_76383fc2e674b663]
+Listen to the sound and choose the correct answer.
+
+[game_6699058eadcc8a1e]
+Remember the letters and their positions. Tap a letter to hear it.
+
+[game_22befd00bdb2fd62]
+Find the matching letters.
+
+[game_dbe823f3a90768fe]
+Find every form of the same letter.
+
+[game_80ea5039cfcaba33]
+Find the letter among similar letters.
+
+[game_31d31c3da808fd12]
+Tap the letter inside the words.
+
+[game_48b76d43e605c0cd]
+Find the matching letters and fill the carriages!
+
+[game_a2706d5ac68952cd]
+Listen to the sound, find the right letter and pop the balloon!
+
+[game_9ebfbc7f7518cbdd]
+Listen to the sound and catch the car with the right letter!
+
+[game_0d44cf633f9e8dea]
+Listen to and watch the letter. Press the button to see how to draw it.
+
+[game_088fa9be949d3bf9]
+Let's look together: watch how the letter is drawn.
+
+[game_52e28a03234a1b33]
+This letter's dots go above it. Let's look together.
+
+[game_9e452fdee48f0527]
+This letter's dots go below it. Let's look together.
+
+[game_3c3e8f3bf784b2a4]
+You're doing well!
+
+[game_62340b2635a94601]
+Play again
+
+[game_a7869068cb320a7c]
+Back to games

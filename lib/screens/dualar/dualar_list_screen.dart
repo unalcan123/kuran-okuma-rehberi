@@ -1,5 +1,7 @@
+import '../../widgets/recitation_title_overlay.dart';
 import '../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
+import '../../l10n/l10n.dart';
 
 import '../../data/dualar_data.dart';
 import '../../data/recitation_card_images.dart';
@@ -39,7 +41,7 @@ class _DualarListScreenState extends State<DualarListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Namaz Duaları'),
+        title: Text(context.t('Namaz Duaları')),
         actions: [
           ReadingTextSettingsButton(
             showMeaningToggle: false,
@@ -47,64 +49,84 @@ class _DualarListScreenState extends State<DualarListScreen> {
           ),
         ],
       ),
-      body: TabletZoom(child: ReadingTextScale(
-        controller: _textScale,
-        child: Stack(
-          children: [
-            // Cute holy places (Kâbe, green dome, mosque), drawn in shapes.
-            const HolyPlacesBackground(contentWidth: _maxContentWidth),
-            Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: _maxContentWidth),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    final readingScale = ReadingTextScale.factorOf(context);
-                    // Bigger text needs wider cards: columns thin out one by one.
-                    final columns = ((constraints.maxWidth - 40 + 16) /
-                            (_minCardWidth * (readingScale > 1 ? readingScale : 1) + 16))
-                        .floor()
-                        .clamp(1, 4);
+      body: TabletZoom(
+        child: ReadingTextScale(
+          controller: _textScale,
+          child: Stack(
+            children: [
+              // Cute holy places (Kâbe, green dome, mosque), drawn in shapes.
+              const HolyPlacesBackground(contentWidth: _maxContentWidth),
+              Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: _maxContentWidth),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final readingScale = ReadingTextScale.factorOf(context);
+                      // Bigger text needs wider cards: columns thin out one by one.
+                      final columns = ((constraints.maxWidth - 40 + 16) /
+                              (_minCardWidth *
+                                      (readingScale > 1 ? readingScale : 1) +
+                                  16))
+                          .floor()
+                          .clamp(1, 4);
 
-                    return GridView.builder(
-                      // At the end, room to see the Kâbe scene.
-                      padding: EdgeInsets.fromLTRB(
-                        20,
-                        20,
-                        20,
-                        20 +
-                            HolyPlacesPainter.sceneHeightFor(
-                              MediaQuery.sizeOf(context),
+                      return GridView.builder(
+                        // At the end, room to see the Kâbe scene.
+                        padding: EdgeInsets.fromLTRB(
+                          20,
+                          20,
+                          20,
+                          20 +
+                              HolyPlacesPainter.sceneHeightFor(
+                                MediaQuery.sizeOf(context),
+                              ),
+                        ),
+                        itemCount: kDualar.length,
+                        // Picture cards (PictureCard): every card has the
+                        // pictures' shape; the whole card opens the prayer.
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: columns,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          childAspectRatio: kDuaCardAspectRatio,
+                        ),
+                        itemBuilder: (context, index) {
+                          final dua = kDualar[index];
+                          return PictureCard(
+                            key: ValueKey('dua-card-${dua.id}'),
+                            image: kDuaCardImages[dua.id],
+                            aspectRatio: kDuaCardAspectRatio,
+                            radiusFactor: kDuaCardRadiusFactor,
+                            label: context.t('Dua {n}', {'n': dua.order}),
+                            title: context.t(
+                              kDuaDisplayTitles[dua.id] ?? dua.titleTr,
                             ),
-                      ),
-                      itemCount: kDualar.length,
-                      // Picture cards (PictureCard): every card has the
-                      // pictures' shape; the whole card opens the prayer.
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: columns,
-                        mainAxisSpacing: 16,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: kDuaCardAspectRatio,
-                      ),
-                      itemBuilder: (context, index) {
-                        final dua = kDualar[index];
-                        return PictureCard(
-                          key: ValueKey('dua-card-${dua.id}'),
-                          image: kDuaCardImages[dua.id],
-                          aspectRatio: kDuaCardAspectRatio,
-                          radiusFactor: kDuaCardRadiusFactor,
-                          label: 'Dua ${dua.order}',
-                          title: kDuaDisplayTitles[dua.id] ?? dua.titleTr,
-                          onTap: () => _openDua(context, dua),
-                        );
-                      },
-                    );
-                  },
+                            imageSize: const Size(490, 320),
+                            overlay:
+                                context.language == AppLanguage.tr
+                                    ? null
+                                    : RecitationTitleOverlay(
+                                      title: context.t(
+                                        kDuaDisplayTitles[dua.id] ??
+                                            dua.titleTr,
+                                      ),
+                                      label: context.t('Dua {n}', {
+                                        'n': dua.order,
+                                      }),
+                                      prayer: true,
+                                    ),
+                            onTap: () => _openDua(context, dua),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 

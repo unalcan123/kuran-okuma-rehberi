@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -194,78 +195,82 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
       // scrolling content, not fixed: scrolling the page up moves them off
       // the screen (more room for the book); they come back only when the
       // page is scrolled back to its top.
-      body: TabletZoom(child: NestedScrollView(
-        key: const ValueKey('lesson-scroll'),
-        headerSliverBuilder:
-            (context, innerBoxIsScrolled) => [
-              SliverAppBar(
-                floating: false,
-                pinned: false,
-                forceElevated: innerBoxIsScrolled,
-                toolbarHeight: 48,
-                leadingWidth: 48,
-                titleSpacing: 4,
-                centerTitle: false,
-                title: Tooltip(
-                  message: '${widget.lesson.label} · ${widget.lesson.title}',
-                  child: Text(
-                    '${widget.lesson.label} · ${widget.lesson.title}',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.textPrimary,
+      body: TabletZoom(
+        child: NestedScrollView(
+          key: const ValueKey('lesson-scroll'),
+          headerSliverBuilder:
+              (context, innerBoxIsScrolled) => [
+                SliverAppBar(
+                  floating: false,
+                  pinned: false,
+                  forceElevated: innerBoxIsScrolled,
+                  toolbarHeight: 48,
+                  leadingWidth: 48,
+                  titleSpacing: 4,
+                  centerTitle: false,
+                  title: Tooltip(
+                    message:
+                        '${context.t(widget.lesson.label)} · ${context.t(widget.lesson.title)}',
+                    child: Text(
+                      '${context.t(widget.lesson.label)} · ${context.t(widget.lesson.title)}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.textPrimary,
+                      ),
                     ),
                   ),
+                  actions: [
+                    ReadingTextSettingsButton(
+                      showMeaningToggle: false,
+                      controller: _textScale,
+                    ),
+                    if (info != null &&
+                        !(_hasBookPage && mode == LessonViewMode.book))
+                      IconButton(
+                        tooltip: context.t('Ders açıklaması'),
+                        onPressed: () => _showLessonInfo(info),
+                        icon: const Icon(Icons.info_outline_rounded),
+                      ),
+                  ],
                 ),
-                actions: [
-                  ReadingTextSettingsButton(
-                    showMeaningToggle: false,
-                    controller: _textScale,
-                  ),
-                  if (info != null &&
-                      !(_hasBookPage && mode == LessonViewMode.book))
-                    IconButton(
-                      tooltip: 'Ders açıklaması',
-                      onPressed: () => _showLessonInfo(info),
-                      icon: const Icon(Icons.info_outline_rounded),
+                if (!pagesOnly)
+                  SliverToBoxAdapter(
+                    key: const ValueKey('lesson-mode-header'),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+                      child: LessonModeToggle(
+                        mode: mode,
+                        onChanged: _changeMode,
+                        segments: {
+                          if (hasPage)
+                            LessonViewMode.book: context.t('📖 Sayfa'),
+                          LessonViewMode.grid: context.t('▦ Grid'),
+                          LessonViewMode.single: context.t('🔎 Tekli / Büyük'),
+                        },
+                      ),
                     ),
-                ],
+                  ),
+              ],
+          body: ReadingTextScale(
+            controller: _textScale,
+            // The lesson's Arabic ~30 % larger on tablets and desktops.
+            child: ArabicScale(
+              factor: ArabicScale.lessonFactorFor(MediaQuery.sizeOf(context)),
+              child: LessonColorScope(
+                lesson: widget.lesson,
+                // Decorative kids in the side margins (desktop/tablet).
+                child: LessonKidsDecoration(
+                  contentMaxWidth: _contentMaxWidth(mode),
+                  lessonIndex: kElifbaLessons.indexOf(widget.lesson),
+                  child: view,
+                ),
               ),
-              if (!pagesOnly)
-                SliverToBoxAdapter(
-                  key: const ValueKey('lesson-mode-header'),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
-                    child: LessonModeToggle(
-                      mode: mode,
-                      onChanged: _changeMode,
-                      segments: {
-                        if (hasPage) LessonViewMode.book: '📖 Sayfa',
-                        LessonViewMode.grid: '▦ Grid',
-                        LessonViewMode.single: '🔎 Tekli / Büyük',
-                      },
-                    ),
-                  ),
-                ),
-            ],
-        body: ReadingTextScale(
-          controller: _textScale,
-          // The lesson's Arabic ~30 % larger on tablets and desktops.
-          child: ArabicScale(
-            factor: ArabicScale.lessonFactorFor(MediaQuery.sizeOf(context)),
-            child: LessonColorScope(
-            lesson: widget.lesson,
-            // Decorative kids in the side margins (desktop/tablet).
-            child: LessonKidsDecoration(
-              contentMaxWidth: _contentMaxWidth(mode),
-              lessonIndex: kElifbaLessons.indexOf(widget.lesson),
-              child: view,
             ),
           ),
-          ),
         ),
-      )),
+      ),
     );
   }
 }
@@ -318,7 +323,7 @@ class _LessonInfoDialog extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        info.title,
+                        context.t(info.title),
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: AppColors.navy,
                           fontWeight: FontWeight.w800,
@@ -341,19 +346,27 @@ class _LessonInfoDialog extends StatelessWidget {
                 // a phone held sideways.
                 Flexible(
                   child: SingleChildScrollView(
-                    child: Text.rich(
-                      TextSpan(children: info.summary),
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyLarge?.copyWith(height: 1.5),
-                    ),
+                    child:
+                        context.language == AppLanguage.tr
+                            ? Text.rich(
+                              TextSpan(children: info.summary),
+                              style: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.copyWith(height: 1.5),
+                            )
+                            : BookPageBody(
+                              body: info.body,
+                              style: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.copyWith(height: 1.5),
+                            ),
                   ),
                 ),
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: const Text('Kapat'),
+                    child: Text(context.t('Kapat')),
                   ),
                 ),
               ],

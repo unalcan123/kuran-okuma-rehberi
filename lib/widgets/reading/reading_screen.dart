@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -172,8 +173,7 @@ class ReadingScreenState extends State<ReadingScreen> {
         title: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              widget.title,
+            Text(context.t(widget.title),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w900,
@@ -181,8 +181,7 @@ class ReadingScreenState extends State<ReadingScreen> {
               ),
             ),
             if (widget.arabicTitle case final arabic?)
-              Text(
-                arabic,
+              Text(context.t(arabic),
                 textDirection: TextDirection.rtl,
                 style: AppTextTheme.arabicSmall(
                   fontSize: 20,
@@ -194,51 +193,53 @@ class ReadingScreenState extends State<ReadingScreen> {
           ReadingSettingsButton(nouns: widget.nouns, settings: _settings),
         ],
       ),
-      body: TabletZoom(child: Stack(
-        children: [
-          // Behind the bottom bar too (the bar is almost opaque).
-          const Positioned.fill(
-            child: ColoredBox(color: HolyPlacesPainter.meadowLight),
-          ),
-          SafeArea(
-            top: false,
-            child: Column(
-              children: [
-                Expanded(
-                  child: Stack(
-                    children: [
-                      // Sky, birds, butterflies and, on the grass at the
-                      // bottom (above the bar), the Kâbe in the middle.
-                      HolyPlacesBackground(contentWidth: maxContentWidth),
-                      NotificationListener<ScrollNotification>(
-                        onNotification: _onScrollNotification,
-                        child: ListenableBuilder(
-                          listenable: Listenable.merge([_settings, _player]),
-                          builder:
-                              (context, _) => _list(maxContentWidth, device),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                ListenableBuilder(
-                  listenable: Listenable.merge([_settings, _player]),
-                  builder:
-                      (context, _) => ReadingPlaybackBar(
-                        player: _player,
-                        maxWidth: maxContentWidth,
-                        repeatCount: _settings.repeatCount,
-                        nouns: widget.nouns,
-                        segments: widget.segments,
-                        onListen: startListening,
-                        onMemorize: startMemorizing,
-                      ),
-                ),
-              ],
+      body: TabletZoom(
+        child: Stack(
+          children: [
+            // Behind the bottom bar too (the bar is almost opaque).
+            const Positioned.fill(
+              child: ColoredBox(color: HolyPlacesPainter.meadowLight),
             ),
-          ),
-        ],
-      )),
+            SafeArea(
+              top: false,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        // Sky, birds, butterflies and, on the grass at the
+                        // bottom (above the bar), the Kâbe in the middle.
+                        HolyPlacesBackground(contentWidth: maxContentWidth),
+                        NotificationListener<ScrollNotification>(
+                          onNotification: _onScrollNotification,
+                          child: ListenableBuilder(
+                            listenable: Listenable.merge([_settings, _player]),
+                            builder:
+                                (context, _) => _list(maxContentWidth, device),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ListenableBuilder(
+                    listenable: Listenable.merge([_settings, _player]),
+                    builder:
+                        (context, _) => ReadingPlaybackBar(
+                          player: _player,
+                          maxWidth: maxContentWidth,
+                          repeatCount: _settings.repeatCount,
+                          nouns: widget.nouns,
+                          segments: widget.segments,
+                          onListen: startListening,
+                          onMemorize: startMemorizing,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -386,7 +387,7 @@ class ReadingPlaybackBar extends StatelessWidget {
             children: [
               Icon(icon, size: 28),
               const SizedBox(width: 8),
-              Text(label),
+              Text(context.t(label)),
               if (badge != null) ...[
                 const SizedBox(width: 8),
                 Container(
@@ -398,7 +399,7 @@ class ReadingPlaybackBar extends StatelessWidget {
                     color: Colors.white.withValues(alpha: 0.25),
                     borderRadius: BorderRadius.circular(99),
                   ),
-                  child: Text(badge),
+                  child: Text(context.t(badge)),
                 ),
               ],
             ],
@@ -452,7 +453,7 @@ class ReadingPlaybackBar extends StatelessWidget {
             height: _height,
             child: IconButton.filledTonal(
               key: const ValueKey('reading-stop'),
-              tooltip: 'Durdur',
+              tooltip: context.t("Durdur"),
               onPressed: player.stop,
               iconSize: 30,
               icon: const Icon(Icons.stop_rounded),
@@ -493,8 +494,7 @@ class ReadingPlaybackBar extends StatelessWidget {
                   if (status != null)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 6),
-                      child: Text(
-                        status,
+                      child: Text(context.t(status),
                         key: const ValueKey('reading-status'),
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           color: AppColors.navy,

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/lesson_info_data.dart';
+import '../../../l10n/l10n.dart';
+import '../../../l10n/content_text.dart';
+import '../../../l10n/explanation_ids.g.dart';
 import '../../../theme/app_colors.dart';
 import '../../../widgets/turkish_audio_block.dart';
 import 'lesson_page_view.dart' show BookFrameHeading;
@@ -141,7 +144,7 @@ class BookPage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 6),
                             child: Text(
-                              'Sayfa $pages',
+                              context.t("Sayfa {n}", {"n": pages}),
                               key: const ValueKey('book-page-number'),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
@@ -176,6 +179,28 @@ class BookPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (context.language != AppLanguage.tr) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (final segment in infoSegments(body))
+            if (segment.widget != null)
+              Text.rich(TextSpan(children: segment.spans), style: style)
+            else if (!segment.isBlank)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: TurkishAudioBlock(
+                  audioId:
+                      segment.audioId ?? kExplanationAudioIds[segment.text],
+                  child: Text(
+                    context.t(segment.text).replaceAll(RegExp('[⟪⟫⟦⟧«»]'), ''),
+                    style: style,
+                  ),
+                ),
+              ),
+        ],
+      );
+    }
     final children = <Widget>[];
     var plain = <InlineSpan>[];
     var pendingBreaks = 0;
@@ -198,7 +223,14 @@ class BookPageBody extends StatelessWidget {
         return;
       }
       if (children.isNotEmpty) addGap(pendingBreaks + leading);
-      children.add(Text.rich(TextSpan(children: trimmed), style: style));
+      for (final segment in infoSegments(trimmed)) {
+        children.add(
+          TurkishAudioBlock(
+            audioId: kExplanationAudioIds[segment.text],
+            child: Text.rich(TextSpan(children: segment.spans), style: style),
+          ),
+        );
+      }
       pendingBreaks = trailing;
     }
 

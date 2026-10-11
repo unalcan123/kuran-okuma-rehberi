@@ -177,7 +177,10 @@ final List<GameEntry> kGames = [
     // Her seviye ayrı oyun: puanlar yalnızca aynı seviyeyle karşılaştırılır.
     variants: [
       for (final level in TrainLevel.values)
-        GameVariant(key: level.gameKey, title: 'Seviye ${level.number} · ${level.title}'),
+        GameVariant(
+          key: level.gameKey,
+          title: 'Seviye ${level.number} · ${level.title}',
+        ),
     ],
   ),
   GameEntry(

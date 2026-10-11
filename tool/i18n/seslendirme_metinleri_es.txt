@@ -1,0 +1,676 @@
+# SESLENDIRME METINLERI — ES
+# Her [kayit_kimligi] altindaki metni duzenleyebilirsin.
+# Kimlik satirlarini silme veya degistirme. Bu dosya sesi degistirir; ekrandaki metni degistirmez.
+# Arapca harfler seslendirme metninde Latin harfleriyle yazilmistir.
+
+[x_b82c6976cab96a17]
+Conozcamos las letras
+
+[x_0f4bcb723513e72a]
+28 letras • El primer paso del alfabeto árabe
+
+[s047_baslik_1]
+DOBLE DAMMA LETRAS
+
+[s006_01]
+El alfabeto del Corán tiene 28 letras. - 7 se consideran enfáticas y 21, ligeras. - Las letras enfáticas son: Ja Sad Dad Ta enfática Za enfática Ghayn Qaf
+
+[x_f40fb061502cb509]
+7 se consideran enfáticas y 21, ligeras.
+
+[x_71a9851229f63d6d]
+Las letras enfáticas son: Ja Sad Dad Ta enfática Za enfática Ghayn Qaf
+
+[s010_baslik_1]
+DE LAS LETRAS DE LAS FORMAS INICIALES, MEDIAS Y FINALES
+
+[s007_baslik_1]
+DE LAS LETRAS ESCRITURA Y PRONUNCIACIÓN
+
+[x_6a0d9bbec6326699]
+Las letras del Corán
+
+[x_a485a0a32993e75e]
+El alfabeto del Corán tiene 28 letras. Se consideran 7 enfáticas y 21 ligeras. Las letras enfáticas son: Ja Sad Dad Ta enfática Za enfática Ghayn Qaf
+
+[x_c56cf2512dc306b7]
+Cómo se escriben las letras
+
+[x_7bc7708c9751a4aa]
+29 letras • Formas iniciales, medias y finales
+
+[s008_baslik_1]
+LAM - ALIF
+
+[s008_01]
+LAM-ALIF ( Lam Alif ) es una forma especial que representa la unión de lam ( Lam ) con alif o hamza ( Alif Hamza ). No es una letra independiente. * Como indica su nombre, en LAM-ALIF se lee primero lam y después alif. El lado derecho representa lam y el izquierdo alif.
+
+[x_e7f283474e3b8c77]
+Como indica su nombre, en LAM-ALIF se lee primero lam y después alif. El lado derecho representa lam y el izquierdo alif.
+
+[s008_02]
+Si lo que se une a lam es un alif sin vocal, prolonga lam y se lee lā. * Si es una hamza la que se une a lam, ambas letras se leen con su propia vocal.
+
+[x_1cb022bf5738e743]
+Si es una hamza la que se une a lam, ambas letras se leen con su propia vocal.
+
+[s008_03]
+Lam-alif solo se une a otras letras por su lado derecho.
+
+[x_30a4198490501369]
+Estas son sus formas de escritura:
+
+[s008_baslik_2]
+FORMAS DE LAM-ALIF
+
+[x_4216f159ff83b111]
+EJEMPLOS
+
+[x_90e33b27649ad0f9]
+Cada letra de una palabra se une a la letra anterior. Sin embargo, las letras Dhal Dal Alif Zay Ra Waw no se unen a la letra que les sigue. Veamos cómo se unen las letras en las palabras. No intentemos leer las palabras todavía: aún no hemos aprendido las marcas vocálicas.
+
+[x_42cf42e6c42fcdf9]
+Fatha
+
+[x_14d9ca57d9049ae3]
+92 grabaciones • Letra + fatha y lectura de palabras
+
+[s020_baslik_1]
+MARCAS VOCÁLICAS DAMMA
+
+[s014_baslik_1]
+MARCAS VOCÁLICAS FATHA
+
+[s014_01]
+Las marcas vocálicas son parecidas a las vocales del turco. - Sin embargo, ninguna coincide exactamente con las vocales que conocemos.
+
+[x_cebf9ddad8b8dfca]
+Sin embargo, ninguna coincide exactamente con las vocales que conocemos.
+
+[s014_02]
+La fatha es una pequeña línea sobre la letra, inclinada hacia abajo a la izquierda. Da a las letras ligeras un sonido E y a las enfáticas un sonido A.
+
+[s015_01]
+Recordemos que la fatha da a las letras ligeras un sonido E y a las enfáticas un sonido A.
+
+[x_22e0507842fcf856]
+La marca fatha
+
+[x_c62e23b9551c4568]
+La fatha es una pequeña línea sobre la letra, inclinada hacia abajo a la izquierda. Da a las letras ligeras un sonido E y a las enfáticas un sonido A.
+
+[x_81d7939a0d187c0b]
+Kasra
+
+[x_7a758e6c92667f99]
+84 grabaciones • Letra + kasra y lectura de palabras
+
+[s017_baslik_1]
+MARCAS VOCÁLICAS KASRA
+
+[s017_01]
+Es una pequeña línea debajo de la letra, inclinada hacia abajo a la izquierda. Da a las letras ligeras un sonido i y a las enfáticas un sonido que va de la ı turca, sin punto, hacia i.
+
+[x_98bd13567b37dd3f]
+La marca kasra
+
+[x_8de58fb628e2a7f8]
+La kasra es una pequeña línea debajo de la letra, inclinada hacia abajo a la izquierda. Da a las letras ligeras un sonido İ y a las enfáticas un sonido que va de la I turca hacia İ.
+
+[x_8c6bfd229e811845]
+Damma
+
+[x_3310d4d4e9855cd8]
+92 grabaciones • Letra + damma y lectura de palabras
+
+[s020_01]
+Es una marca sobre la letra que se parece a una pequeña waw. Da a las letras ligeras un sonido entre U y Ü y a las enfáticas un sonido U.
+
+[x_48432a69ef21d522]
+Da a las letras ligeras un sonido entre U y Ü y a las enfáticas un sonido U.
+
+[x_935d97c874476276]
+La marca damma
+
+[x_3be206abeada3069]
+La damma es una marca sobre la letra que se parece a una pequeña waw. Da a las letras ligeras un sonido entre U y Ü y a las enfáticas un sonido U.
+
+[x_c1e944311da3969a]
+Ordenadas por punto de articulación
+
+[x_0ae086cfc717a76f]
+28 grabaciones • Letra + tres vocales, por articulación
+
+[s023_baslik_1]
+LETRAS CON MARCAS VOCÁLICAS
+
+[x_38db3a3a51a8181e]
+(Según el punto de articulación)
+
+[x_49e5c7d0e211ff24]
+Esta lección ordena las letras por su punto de articulación en la boca, no alfabéticamente. Cada letra se lee con las tres marcas vocálicas: fatha, kasra y damma.
+
+[x_4932ab9aca1d314d]
+Sukun
+
+[x_5bf8d8b2bb617cdb]
+81 grabaciones • Hamza + letra + sukun, con tres vocales
+
+[s024_baslik_1]
+SUKUN
+
+[s024_01]
+Es una pequeña marca redonda sobre la letra. Hace que la letra se pronuncie sin añadir una vocal.
+
+[s024_02]
+Para reconocer bien cada letra con sukun, leamos poniendo delante, por turnos, una hamza con fatha, kasra y damma.
+
+[x_27e0c2b29bd68924]
+El sukun es una pequeña marca redonda sobre la letra. Sirve para leer la letra enlazada con la anterior, sin añadir una vocal propia.
+
+[x_098cefa838898047]
+Ejemplos con marcas vocálicas
+
+[x_e146011776dfddbb]
+52 grabaciones • Lectura de palabras con fatha, kasra, damma y sukun
+
+[x_40775b72173dc32b]
+Práctica de lectura de palabras que combinan fatha, kasra, damma y sukun.
+
+[x_25c0e6dfb78bd73c]
+Shadda
+
+[x_8fa1feca1dfa2c3d]
+56 grabaciones • Pares de letra + shadda
+
+[s028_baslik_1]
+SHADDA
+
+[s028_01]
+Es una marca sobre la letra, parecida a una m invertida, que hace que la letra se lea dos veces. La letra con shadda también lleva una marca vocálica.
+
+[x_525749d1702ba4ca]
+La shadda hace que la letra se lea dos veces. La letra con shadda también lleva una vocal. Ejemplos en turco: cennet, anne, himmet.
+
+[x_afa2f17b321ebdf6]
+Ejemplos con shadda
+
+[x_862db07c5ab1a8a5]
+64 grabaciones • Lectura de palabras con shadda
+
+[x_def4f63df7e7022d]
+Práctica de lectura de palabras con letras que llevan shadda.
+
+[x_3ac5fd22fdbdcd3f]
+Letras de prolongación - Alif
+
+[x_dd49c94435908c6d]
+28 grabaciones • Prolongación con fatha + alif
+
+[s032_baslik_1]
+LETRAS DE PROLONGACIÓN ALIF
+
+[s032_01]
+Prolonga durante dos tiempos la letra que lleva fatha. Si es enfática, suena A; si es ligera, un sonido entre E y A.
+
+[s032_02]
+Letras de prolongación (MADD) ( Alif Waw ): son las letras sin vocal ( Waw ), ( Alif ) y ( ), que llamamos waw, alif y ya. Prolongan la letra anterior.
+
+[x_9656e3ffcf82befc]
+Letras de prolongación (MADD) ( Alif Waw ): son las letras sin vocal ( Waw ), ( Alif ) y ( ), que llamamos waw, alif y ya. Prolongan la letra anterior. Alif: Prolonga durante dos tiempos la letra que lleva fatha. Si es enfática, suena A; si es ligera, un sonido entre E y A.
+
+[x_6b4efc8093d9600b]
+Letras de prolongación - Alif - Ejemplos
+
+[x_72dc3a39d4a06fe1]
+28 grabaciones • Lectura de palabras prolongadas con alif
+
+[x_a4bcc9ec7b80f61a]
+Práctica de lectura de palabras prolongadas con alif (madd).
+
+[x_c735235867cdab56]
+Letras de prolongación - Ya
+
+[x_769c123c25774a2c]
+28 grabaciones • Prolongación con kasra + ya
+
+[s034_baslik_1]
+YA
+
+[s034_01]
+Prolonga durante dos tiempos la letra anterior que lleva kasra. Si la letra es ligera, se prolonga con el sonido İ; si es enfática, con un sonido que va de la I turca hacia İ.
+
+[x_30a7c99b0d09fd6e]
+Si la letra es ligera, se prolonga con el sonido İ; si es enfática, con un sonido que va de la I turca hacia İ.
+
+[x_e6a80b77900962d7]
+Prolonga durante dos tiempos la letra anterior que lleva kasra. Si es ligera, se prolonga con İ; si es enfática, con un sonido parecido a la I turca.
+
+[x_6ceec3c1c26cca34]
+Letras de prolongación - Ya - Ejemplos
+
+[x_080991ab999c73e9]
+28 grabaciones • Lectura de palabras prolongadas con ya
+
+[x_91b3a380f22f9ca7]
+Práctica de lectura de palabras prolongadas con ya (madd).
+
+[x_6deeb6f1701c7458]
+Letras de prolongación - Waw
+
+[x_d4b1924c203c31ea]
+28 grabaciones • Prolongación con damma + waw
+
+[s038_baslik_1]
+Prolongación al final de una palabra WAW
+
+[s036_01]
+Prolonga durante dos tiempos la letra anterior que lleva damma. Si la letra es enfática, se prolonga con U; si es ligera, con un sonido entre U y Ü.
+
+[x_e63df5af43637e14]
+Si la letra es enfática, se prolonga con U; si es ligera, con un sonido entre U y Ü.
+
+[x_0e483c448c80cdce]
+Prolonga durante dos tiempos la letra anterior que lleva damma. Si es enfática, suena U; si es ligera, un sonido entre U y Ü.
+
+[x_67ba269dfa1e5038]
+Letras de prolongación - Waw - Ejemplos
+
+[x_ae7ee980fbd46713]
+28 grabaciones • Lectura de palabras prolongadas con waw
+
+[x_729d66cdf58d7089]
+Práctica de lectura de palabras prolongadas con waw (madd).
+
+[x_74e73f18eccdfabf]
+Letras de prolongación - Waw - Al final de palabra
+
+[x_eb1bb22d80a3312c]
+9 grabaciones • Prolongación con waw al final de palabra
+
+[s038_01]
+A veces, una WAW sin vocal al final de la palabra prolonga por sí sola la letra con damma a la que se une, como en ( Dhu Dhū ). * Muchas veces, después de esta WAW también aparece ALIF. Este ALIF no añade prolongación: la duración sigue siendo de dos tiempos.
+
+[x_ce7ca2438600a54a]
+Muchas veces, después de esta WAW también aparece ALIF. Este ALIF no añade prolongación: la duración sigue siendo de dos tiempos.
+
+[x_7b676c2262aae319]
+A veces, una WAW sin vocal al final de la palabra prolonga por sí sola la letra con damma a la que se une, como en ( Dhu Dhū ). Muchas veces, después de esta WAW también aparece ALIF. Este ALIF no añade prolongación: la duración sigue siendo de dos tiempos.
+
+[x_58d5026932499006]
+Alif pequeña vertical
+
+[x_7316892e1bb30a83]
+10 grabaciones • Prolongación con alif pequeña
+
+[s039_baslik_1]
+ALIF PEQUEÑA VERTICAL
+
+[s039_01]
+Es el nombre de la fatha escrita verticalmente. * Indica que la letra que lleva esta marca se prolonga, haya o no una letra de prolongación. * Si hay una letra de prolongación, no importa si es alif, waw o ya. En todos los casos, prolonga la letra que lleva la marca en la dirección del sonido de fatha.
+
+[x_beb761c4e84992e1]
+Indica que la letra que lleva esta marca se prolonga, haya o no una letra de prolongación.
+
+[x_4649df589c14ddee]
+Si hay una letra de prolongación, no importa si es alif, waw o ya. En todos los casos, prolonga la letra que lleva la marca en la dirección del sonido de fatha.
+
+[x_107b461760d1b58a]
+Alif pequeña vertical () Es el nombre de la fatha escrita verticalmente. Indica que la letra que lleva esta marca se prolonga, haya o no una letra de prolongación.
+
+[x_0df408dd666b1c3e]
+Kasra vertical
+
+[x_6d082d7d98a8dbc6]
+8 grabaciones • Prolongación con kasra vertical
+
+[s039_baslik_2]
+KASRA VERTICAL
+
+[s039_02]
+Es el nombre de la kasra escrita verticalmente. * Haya o no otra letra de prolongación, prolonga en la dirección de kasra la letra debajo de la cual está escrita.
+
+[x_7bdc91d8726cd924]
+Haya o no otra letra de prolongación, prolonga en la dirección de kasra la letra debajo de la cual está escrita.
+
+[x_47fd3f1642a496c6]
+Kasra vertical ( ) Es el nombre de la kasra escrita verticalmente. Haya o no otra letra de prolongación, prolonga en la dirección de kasra la letra debajo de la cual está escrita.
+
+[x_5a3214211257a036]
+Tanwin - Doble fatha
+
+[x_8e280f3ce388f430]
+88 grabaciones • Letra + tanwin y lectura de palabras
+
+[s040_baslik_1]
+TANWIN
+
+[x_c3b4622fe6885a8c]
+(MARCAS VOCÁLICAS DOBLES)
+
+[s040_01]
+Tanwin: Cuando una misma marca vocálica aparece dos veces sobre una letra, se llama tanwin. Al continuar la lectura, se pronuncia el final de la letra como si tuviera un nun con sukun ( Nun ). Hay tres tipos de tanwin: doble fatha, doble kasra y doble damma.
+
+[x_806899ee6f662f9a]
+Hay tres tipos de tanwin: doble fatha, doble kasra y doble damma.
+
+[s040_02]
+Son dos pequeñas líneas superpuestas, inclinadas hacia abajo por el lado izquierdo y colocadas sobre la letra. * Al continuar la lectura, produce en en las letras ligeras y an en las enfáticas.
+
+[x_64d7457a9ff6dedf]
+Al continuar la lectura, produce en en las letras ligeras y an en las enfáticas.
+
+[s040_baslik_2]
+LETRAS CON DOBLE FATHA ( ) Fathatayn
+
+[s041_01]
+A la izquierda de una letra con doble fatha suele escribirse también un alif. * Este alif no se pronuncia al continuar, pero al detenerse funciona como letra de prolongación. El sonido nun del tanwin desaparece y la letra se prolonga con fatha durante dos tiempos. En las letras enfáticas suena A; en las ligeras, un sonido entre E y A.
+
+[x_5f67d27fbb01edec]
+Este alif no se pronuncia al continuar, pero al detenerse funciona como letra de prolongación. El sonido nun del tanwin desaparece y la letra se prolonga con fatha durante dos tiempos. En las letras enfáticas suena A; en las ligeras, un sonido entre E y A.
+
+[x_71439c414a7220ef]
+Tanwin: Si una misma marca vocálica se escribe dos veces en una letra, se llama tanwin. Al continuar, se añade al final de la palabra un sonido n que no está escrito como letra.
+
+[x_f803b99672434279]
+Tanwin - Doble kasra
+
+[x_14e181db748be447]
+92 grabaciones • Letra + tanwin y lectura de palabras
+
+[s044_baslik_1]
+DOBLE KASRA LETRAS
+
+[x_e15b2f3a948d74e0]
+Tanwin - Doble damma
+
+[x_23ac5515d9e75dc3]
+Artículo al - Letras que se pronuncian
+
+[x_9a88e8ede5a0591e]
+16 grabaciones • Pronunciación del artículo al con letras lunares
+
+[s050_baslik_1]
+ALIF - LAM
+
+[s050_01]
+Ya vimos que, cuando se escribe primero lam (Lam) y después alif (Alif) en una palabra, se utiliza la forma lam-alif (Lam Alif).
+
+[s050_02]
+Si al comienzo de una palabra aparece primero alif (Alif), seguido de lam con sukun (Lam), se llama artículo alif-lam, o simplemente artículo al (Alif Lam).
+
+[s050_03]
+Aquí el alif (Alif) que precede a lam (Lam) funciona como hamza, porque puede llevar una vocal. Recuerda que los alif con vocal que no prolongan el sonido se llaman hamza.
+
+[s050_04]
+La letra que sigue determina cómo se pronuncia lam. Si es una de las letras (Hamza Ba Yim Ha Ja Ayn Ghayn Fa Qaf Kaf Mim Waw Ha ) de la frase (Abghi hajjaka wa khaf aqeemahu), lam se pronuncia con sukun. Estas letras son la mitad de las 28 letras del Corán.
+
+[x_038c31203bc9a86c]
+Ejemplos:
+
+[x_38357289d15cc372]
+Artículo al - Letras que no se pronuncian
+
+[x_11921bda749f95f8]
+16 grabaciones • Pronunciación del artículo al con letras solares
+
+[s051_01]
+Si sigue una de las otras 14 letras (Dad Sad Shin Sin Zay Ra Dal Dhal Ta Tha Ta enfática Za enfática Lam Nun), lam no se pronuncia. La siguiente letra siempre se pronuncia con shadda.
+
+[x_33d09f4219a08cb7]
+El artículo al y la hamza
+
+[x_e4e1700a27e7e1f9]
+9 grabaciones • Lectura de palabras con el artículo al y hamza
+
+[x_8d40a624290ca269]
+LA HAMZA DEL ARTÍCULO AL
+
+[s052_01]
+Hemos visto las dos pronunciaciones diferentes de lam en el artículo al (Alif Lam). Veamos ahora la hamza que precede a lam.
+
+[s052_02]
+Al continuar desde la letra o palabra anterior, la hamza del artículo al (Alif Lam) no se pronuncia.
+
+[s052_03]
+Si se comienza a leer por la hamza del artículo al (Alif Lam), siempre se pronuncia con fatha.
+
+[s052_04]
+Como su vocal no es permanente, es más preciso llamar a esta hamza hamzat al-wasl.
+
+[x_916e28d6dfc7e4ca]
+Artículo al - Hamzat al-wasl
+
+[x_b6f314c196dcf6cf]
+12 grabaciones • Comparación de hamzat al-wasl aislada y enlazada
+
+[s053_baslik_1]
+HAMZA QUE NO SE PRONUNCIA
+
+[x_dc90b2bbb6c1e2b7]
+(Hamzat al-wasl)
+
+[s053_01]
+Algunas hamzas al comienzo de una palabra pierden su vocal al leerse junto con la palabra o letra anterior, como si no hubiera hamza. Se escriben como alif sin vocal (Alif). A veces llevan una pequeña marca de enlace (Alif de enlace) que indica que no se pronuncian. Se llaman hamzat al-wasl.
+
+[s053_02]
+Si se comienza por esta letra al principio de la palabra, sin enlazar con lo anterior, se pronuncia con su vocal.
+
+[s053_03]
+En la lección anterior vimos que el alif de cada artículo alif-lam (Alif Lam) también funciona así.
+
+[x_86f5b8e231233867]
+Prolongación del pronombre ha
+
+[x_29881b4b13fe0c1f]
+30 ejemplos • Cuándo se prolonga o no el pronombre hū/hī
+
+[s054_baslik_1]
+DEL PRONOMBRE HA ( Ha Ha ) PROLONGACIÓN
+
+[s054_baslik_2]
+¿Cuándo se prolonga la letra ha?
+
+[s054_01]
+Si la letra que precede a ha lleva una vocal, ha se prolonga. La letra que sigue a ha determina la duración:
+
+[s054_02]
+Si después de ha prolongada viene hamza, se prolonga durante cuatro tiempos.
+
+[x_6d1cb525ce29efc0]
+«Ejemplos:»
+
+[s054_03]
+Si después de ha prolongada viene cualquier letra distinta de hamza, se prolonga durante dos tiempos.
+
+[s054_baslik_3]
+¿Cuándo no se prolonga la letra ha?
+
+[s054_04]
+Si antes de ha aparece una letra de prolongación, ha se lee sin prolongar. La letra que venga después de ha no cambia esta regla.
+
+[x_94ed5dc0231585ae]
+La letra que venga después de ha no cambia esta regla.
+
+[s055_01]
+Si antes de ha aparece cualquier letra con sukun, también se lee sin prolongar. La letra que venga después de ha no cambia esta regla.
+
+[x_a6eb86d55ff2c4aa]
+La letra que venga después de ha no cambia esta regla.
+
+[s055_02]
+Si se enlaza ha con una letra con sukun o shadda de la siguiente palabra, ha no se prolonga, aunque la letra anterior lleve una vocal.
+
+[x_1d1faaa83fcf957e]
+DEL PRONOMBRE HA
+
+[x_ee8e1cbd3c2079b9]
+¿Cuándo se prolonga la letra ha? Si la letra que precede a ha lleva una vocal, ha se prolonga. La letra que sigue a ha determina la duración: Si después de ha prolongada viene hamza, se prolonga durante cuatro tiempos.
+
+[x_96c5d379513d8b1e]
+Si después de ha prolongada viene cualquier letra distinta de hamza, se prolonga durante dos tiempos.
+
+[x_28754253bf2b3bf0]
+¿Cuándo no se prolonga la letra ha? Si antes de ha aparece una letra de prolongación, ha se lee sin prolongar. La letra que venga después de ha no cambia esta regla.
+
+[x_61aadc3dfcac8192]
+Si antes de ha aparece cualquier letra con sukun, también se lee sin prolongar. La letra que venga después de ha no cambia esta regla.
+
+[x_1bfb1f81a526bd8d]
+Si se enlaza ha con una letra con sukun o shadda de la siguiente palabra, ha no se prolonga, aunque la letra anterior lleve una vocal.
+
+[x_27786241ecd048a1]
+Marca de prolongación larga
+
+[x_77f7e81c04b47d5c]
+6 grabaciones • Prolongación con la marca madd
+
+[s055_baslik_1]
+MARCA DE PROLONGACIÓN LARGA
+
+[s055_03]
+Esta marca aparece sobre algunas prolongaciones de más de dos tiempos. Se explicará con más detalle en las lecciones de tajwid.
+
+[x_4e1d669af6d7c6c3]
+Ta marbuta
+
+[x_e8f29b4a56c0aeae]
+12 grabaciones • Pronunciación de ta marbuta al detenerse
+
+[s056_baslik_1]
+TA MARBUTA
+
+[s056_01]
+A veces la letra ta (Ta) se escribe como ta marbuta: (Ta marbuta Ta marbuta). Esto solo sucede al final de una palabra. Si se une a la letra anterior, se escribe (Ta marbuta); si no, se escribe (Ta marbuta).
+
+[s056_02]
+Al detenerse en una palabra que termina en ta marbuta, se pronuncia como ha con sukun (Ha). Al continuar con la siguiente palabra, se vuelve a pronunciar como ta, con su vocal.
+
+[x_cfe5770979bae97f]
+Veamos cómo se aplica con ejemplos:
+
+[x_e5714a57261801f2]
+Pausas al final de palabra
+
+[x_120b40ec2d1fb2f4]
+28 grabaciones • Pronunciación de finales de palabra al detenerse
+
+[s057_baslik_1]
+AL FINAL DE LA PALABRA EN UNA LETRA CON VOCAL
+
+[x_b88ac8cf3bf1fad4]
+¿CÓMO DETENERSE?
+
+[x_498f7161c2217090]
+¿Cómo detenerse en una letra con vocal al final de una palabra?
+
+[s057_01]
+Al leer el Corán, normalmente nos detenemos al final de las aleyas, en las marcas de pausa o cuando necesitamos respirar. Solo podemos detenernos al final de una palabra.
+
+[s057_02]
+No se detiene la lectura pronunciando fatha, kasra o damma. Si la última letra no está ya sin vocal —con sukun o como letra de prolongación—, se omite su vocal y se pronuncia como si tuviera sukun.
+
+[s057_03]
+Con tanwin se hace lo siguiente: En la doble fatha escrita con alif, se elimina una de las fathas. La letra se lee con una sola fatha, prolongada durante dos tiempos.
+
+[s058_01]
+Al detenerse en una hamza con doble fatha escrita sin alif, también se prolonga durante dos tiempos, como si hubiera un alif a su lado.
+
+[s058_02]
+En las letras con doble kasra o doble damma, se detiene con sukun.
+
+[x_58eb04ec1974a351]
+Otros ejemplos:
+
+[x_481eab08538f248a]
+Ejemplos 1
+
+[x_20bddcdfee185870]
+24 grabaciones • Ejemplos generales de lectura
+
+[x_6aa191334112403e]
+Ejemplos 1
+
+[x_a2e7e3d43413bac8]
+Ejemplos generales de lectura que reúnen todas las reglas aprendidas.
+
+[x_c09e400760ae1c4e]
+Ejemplos 2
+
+[x_e35317198f77e9b8]
+27 grabaciones • Ejemplos generales de lectura
+
+[x_40652d006998933c]
+Ejemplos 2
+
+[x_e9f0754f783d9731]
+Ejemplos 3
+
+[x_81c650f34f9ef7ba]
+18 grabaciones • Ejemplos generales de lectura
+
+[x_78536bbcb13116f5]
+Ejemplos 3
+
+[x_fe1c5274c7343aac]
+Ejemplos 4
+
+[x_1dba50210b528662]
+Ejemplos 4
+
+[s006_baslik_1]
+LETRAS
+
+[s036_baslik_1]
+WAW
+
+[game_1163b4ee95e9e8b1]
+Escucha el sonido y arrastra la letra al lugar correcto.
+
+[game_76383fc2e674b663]
+Escucha el sonido y elige la respuesta correcta.
+
+[game_6699058eadcc8a1e]
+Recuerda las letras y dónde están. Toca una letra para escucharla.
+
+[game_22befd00bdb2fd62]
+Encuentra las letras iguales.
+
+[game_dbe823f3a90768fe]
+Encuentra todas las formas de la misma letra.
+
+[game_80ea5039cfcaba33]
+Encuentra la letra entre otras parecidas.
+
+[game_31d31c3da808fd12]
+Toca la letra dentro de las palabras.
+
+[game_48b76d43e605c0cd]
+¡Encuentra las letras iguales y llena los vagones!
+
+[game_a2706d5ac68952cd]
+¡Escucha el sonido, encuentra la letra correcta y explota el globo!
+
+[game_9ebfbc7f7518cbdd]
+¡Escucha el sonido y atrapa el coche con la letra correcta!
+
+[game_0d44cf633f9e8dea]
+Escucha y observa la letra. Pulsa el botón para ver cómo se escribe.
+
+[game_088fa9be949d3bf9]
+Vamos a verlo juntos: observa cómo se escribe la letra.
+
+[game_52e28a03234a1b33]
+Los puntos de esta letra van arriba. Vamos a verlo juntos.
+
+[game_9e452fdee48f0527]
+Los puntos de esta letra van abajo. Vamos a verlo juntos.
+
+[game_3c3e8f3bf784b2a4]
+¡Lo estás haciendo muy bien!
+
+[game_62340b2635a94601]
+Jugar de nuevo
+
+[game_a7869068cb320a7c]
+Volver a los juegos

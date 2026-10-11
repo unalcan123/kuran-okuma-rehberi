@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,9 +34,7 @@ class _DragDropLevelsScreenState extends State<DragDropLevelsScreen> {
 
   Future<void> _play(DragDropLevel level) async {
     await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => DragDropGameScreen(level: level),
-      ),
+      MaterialPageRoute<void>(builder: (_) => DragDropGameScreen(level: level)),
     );
     if (!mounted) return;
     final records = _load();
@@ -48,7 +47,7 @@ class _DragDropLevelsScreenState extends State<DragDropLevelsScreen> {
   Widget build(BuildContext context) {
     final maxWidth = Responsive.isDesktop(context) ? 800.0 : 640.0;
     return Scaffold(
-      appBar: AppBar(title: const Text('Sürükle & Bırak')),
+      appBar: AppBar(title: Text(context.t('Sürükle & Bırak'))),
       body: Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: maxWidth),
@@ -65,12 +64,13 @@ class _DragDropLevelsScreenState extends State<DragDropLevelsScreen> {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 4),
                       child: Text(
-                        'Hangi oyunu oynamak istersin?',
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.textSecondary,
-                            ),
+                        context.t('Hangi oyunu oynamak istersin?'),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.textSecondary,
+                        ),
                       ),
                     );
                   }
@@ -134,8 +134,7 @@ class _LevelCard extends StatelessWidget {
                   child:
                       level.isRandom
                           ? Icon(Icons.shuffle_rounded, color: accent, size: 28)
-                          : Text(
-                            level.id,
+                          : Text(context.t(level.id),
                             style: textTheme.headlineSmall?.copyWith(
                               fontWeight: FontWeight.w800,
                               color: accent,
@@ -149,7 +148,7 @@ class _LevelCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      level.title,
+                      context.t(level.title),
                       style: textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w700,
                         color: AppColors.textPrimary,
@@ -158,7 +157,9 @@ class _LevelCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     if (level.isRandom)
                       Text(
-                        'Her seferinde $kDragDropRandomCount yeni harf',
+                        context.t("Her seferinde {n} yeni harf", {
+                          "n": kDragDropRandomCount,
+                        }),
                         style: textTheme.bodyMedium?.copyWith(
                           color: AppColors.textSecondary,
                         ),
@@ -184,7 +185,7 @@ class _LevelCard extends StatelessWidget {
               const SizedBox(width: 8),
               if (stars != null)
                 Semantics(
-                  label: '$stars yıldız',
+                  label: context.t("{n} yıldız", {"n": stars}),
                   child: ExcludeSemantics(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,

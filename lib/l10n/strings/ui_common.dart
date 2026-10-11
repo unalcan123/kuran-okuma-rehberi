@@ -1,0 +1,36 @@
+// Arayüz metinleri: Türkçe kaynak metin → [es, fr, de, en, bs].
+// Anahtar, kodda yazan Türkçe metnin AYNISI; {ad} yer tutucuları korunur.
+// Kural ve sözlük: docs/DILLER.md, tool/i18n/glossary.json.
+const Map<String, List<String>> kUiCommon = {
+  // Harf adları (tool/i18n/glossary.json "letters"; ekranda gösterilen ad).
+  'Elif': ['Alif', 'Alif', 'Alif', 'Alif', 'Elif'],
+  'Be': ['Ba', 'Ba', 'Ba', 'Ba', 'Be'],
+  'Te': ['Ta', 'Ta', 'Ta', 'Ta', 'Te'],
+  'Se': ['Tha', 'Tha', 'Tha', 'Tha', 'Se'],
+  'Cim': ['Yim', 'Jim', 'Dschim', 'Jim', 'Džim'],
+  'Ha': ['Ḥa', 'Ḥa', 'Ḥa', 'Ḥa', 'Ha'],
+  'Hı': ['Ja', 'Kha', 'Cha', 'Kha', 'Hi'],
+  'Dal': ['Dal', 'Dal', 'Dal', 'Dal', 'Dal'],
+  'Zel': ['Dhal', 'Dhal', 'Dhal', 'Dhal', 'Zal'],
+  'Ra': ['Ra', 'Ra', 'Ra', 'Ra', 'Ra'],
+  'Ze': ['Zay', 'Zay', 'Zay', 'Zay', 'Ze'],
+  'Sin': ['Sin', 'Sin', 'Sin', 'Seen', 'Sin'],
+  'Şın': ['Shin', 'Chin', 'Schin', 'Sheen', 'Šin'],
+  'Sad': ['Sad', 'Sad', 'Sad', 'Saad', 'Sad'],
+  'Dad': ['Dad', 'Dad', 'Dad', 'Daad', 'Dad'],
+  'Tı': ['Ṭa', 'Ṭa', 'Ṭa', 'Ṭa', 'Ta'],
+  'Zı': ['Ẓa', 'Ẓa', 'Ẓa', 'Ẓa', 'Za'],
+  'Ayn': ['Ayn', 'Ayn', 'Ain', 'Ayn', 'Ajn'],
+  'Gayn': ['Ghayn', 'Ghayn', 'Ghain', 'Ghayn', 'Gajn'],
+  'Fe': ['Fa', 'Fa', 'Fa', 'Fa', 'Fe'],
+  'Kaf': ['Qaf', 'Qaf', 'Qaf', 'Qaf', 'Kaf'],
+  'Kef': ['Kaf', 'Kaf', 'Kaf', 'Kaf', 'Kef'],
+  'Lam': ['Lam', 'Lam', 'Lam', 'Lam', 'Lam'],
+  'Mim': ['Mim', 'Mim', 'Mim', 'Meem', 'Mim'],
+  'Nun': ['Nun', 'Noun', 'Nun', 'Noon', 'Nun'],
+  'Vav': ['Waw', 'Waw', 'Waw', 'Waw', 'Vav'],
+  'He': ['Hā', 'Hâ', 'Hā', 'Hā', 'He'],
+  'Ye': ['Ya', 'Ya', 'Ya', 'Ya', 'Je'],
+  'Hemze': ['Hamza', 'Hamza', 'Hamza', 'Hamza', 'Hemze'],
+  'Lam Elif': ['Lam-Alif', 'Lam-Alif', 'Lam-Alif', 'Lam-Alif', 'Lam-Elif'],
+};

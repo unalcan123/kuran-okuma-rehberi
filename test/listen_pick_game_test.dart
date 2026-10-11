@@ -188,8 +188,9 @@ void main() {
     addTearDown(audio.dispose);
     final lesson = kElifbaLessons[2];
     await tester.pumpWidget(harness(ListenPickScreen(lesson: lesson), audio));
-    expect(audio.preloaded.length, 1);
-    expect(audio.preloaded.single, [
+    final letterRequests = audio.preloaded.where((assets) => assets.contains(kGameCorrectSound));
+    expect(letterRequests.length, 1);
+    expect(letterRequests.single, [
       kGameCorrectSound,
       for (final item in listenPickPool(lesson.letters)) item.audioAsset,
     ]);
