@@ -661,7 +661,7 @@ const List<ArabicLetter> kLamElifShapeAudio = [
   kLamElifEsreHemze,
 ];
 
-/// Book pages 8 and 11-13 (in book order): s. 8 "LÂM - ELİF" (its shapes;
+/// Book pages 11-13 then 8 (Elif first, Lâm-Elif last): s. 8 "LÂM - ELİF" (its shapes;
 /// لا is this lesson's item), s. 11-13 "HARFLERİN BAŞTA, ORTADA, SONDA
 /// YAZILIŞLARINA ÖRNEKLER" (the letter red; in the example words the
 /// letters the book prints red). Colors read from the PDF. s. 9 ("Sırasız
@@ -672,6 +672,40 @@ const ArabicColorProfile _formsLetterRed = ArabicColorProfile({
 });
 
 const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
+  LessonBookPage(
+    bookPage: 11,
+    headingAudio: 's010_baslik_1',
+    type: LessonPageType.lesson,
+    kicker: 'HARFLERİN',
+    heading: 'BAŞTA, ORTADA, SONDA YAZILIŞLARINA',
+    subheading: 'ÖRNEKLER',
+    colorProfile: _formsLetterRed,
+    sections: [
+      BookSection(
+        kind: BookSectionKind.forms,
+        refs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      ),
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 12,
+    type: LessonPageType.lesson,
+    colorProfile: _formsLetterRed,
+    sections: [
+      BookSection(
+        kind: BookSectionKind.forms,
+        refs: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+      ),
+    ],
+  ),
+  LessonBookPage(
+    bookPage: 13,
+    type: LessonPageType.lesson,
+    colorProfile: _formsLetterRed,
+    sections: [
+      BookSection(kind: BookSectionKind.forms, refs: [23, 24, 25, 26, 28]),
+    ],
+  ),
   LessonBookPage(
     bookPage: 8,
     headingAudio: 's008_baslik_1',
@@ -721,40 +755,6 @@ const LessonPageLayout kHarflerinYazilislariPageLayout = LessonPageLayout([
         columns: 3,
         headers: ['', 'AYRI', 'BİTİŞİK'],
       ),
-    ],
-  ),
-  LessonBookPage(
-    bookPage: 11,
-    headingAudio: 's010_baslik_1',
-    type: LessonPageType.lesson,
-    kicker: 'HARFLERİN',
-    heading: 'BAŞTA, ORTADA, SONDA YAZILIŞLARINA',
-    subheading: 'ÖRNEKLER',
-    colorProfile: _formsLetterRed,
-    sections: [
-      BookSection(
-        kind: BookSectionKind.forms,
-        refs: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      ),
-    ],
-  ),
-  LessonBookPage(
-    bookPage: 12,
-    type: LessonPageType.lesson,
-    colorProfile: _formsLetterRed,
-    sections: [
-      BookSection(
-        kind: BookSectionKind.forms,
-        refs: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-      ),
-    ],
-  ),
-  LessonBookPage(
-    bookPage: 13,
-    type: LessonPageType.lesson,
-    colorProfile: _formsLetterRed,
-    sections: [
-      BookSection(kind: BookSectionKind.forms, refs: [23, 24, 25, 26, 28]),
     ],
   ),
 ]);

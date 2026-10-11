@@ -359,7 +359,7 @@ void main() {
   });
 
   group('Ders 2 Lâm-Elif sesleri', () {
-    final page8 = kHarflerinYazilislariPageLayout.pages.first;
+    final page8 = kHarflerinYazilislariPageLayout.pages.last;
     final section = page8.sections.single;
 
     test('her şekil kendi okunuşunun kaydına bağlı; eksik yok', () {
@@ -414,6 +414,18 @@ void main() {
       final audio = RecordingAudio();
       await tester.pumpWidget(app(audio, kHarflerinYazilislariLesson));
       await tester.pumpAndSettle();
+      expect(kHarflerinYazilislariPageLayout.pages.map((p) => p.bookPage), [
+        11,
+        12,
+        13,
+        8,
+      ]);
+      expect(kHarflerinYazilislariPageLayout.firstItemOf(0), 0);
+      expect(find.text('Sayfa 11'), findsOneWidget);
+      for (var page = 0; page < 3; page++) {
+        await tester.tap(find.byKey(const ValueKey('page-next')));
+        await tester.pumpAndSettle();
+      }
       expect(find.text('Sayfa 8'), findsOneWidget);
       for (var i = 0; i < 8; i++) {
         final cell = find.byKey(ValueKey('book-text-cell-$i'));
