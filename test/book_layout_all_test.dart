@@ -24,6 +24,11 @@ void main() {
                 int.parse(n),
             ];
       expect(pages, isNotEmpty, reason: lesson.id);
+      if (lesson.id == 'harflerin-yazilislari') {
+        // Ders 2 teaches Elif first and Lâm-Elif on its last page.
+        expect(pages, [11, 12, 13, 8]);
+        pages.sort(); // Check printed-book coverage independently of teaching order.
+      }
       for (final page in pages) {
         // Pages may be shared by neighbouring lessons (s. 39, 54, 55) but
         // never go back.
