@@ -19,6 +19,7 @@ import '../widgets/game_progress.dart';
 import '../widgets/game_result_summary.dart';
 import '../widgets/game_score_strip.dart';
 import 'widgets/memory_card.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 enum _Phase { preview, playing, finished }
 
@@ -229,7 +230,7 @@ class _MemoryGameScreenState extends State<MemoryGameScreen> {
       DeviceClass.tablet => 1100.0,
       DeviceClass.desktop => 1200.0,
     };
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

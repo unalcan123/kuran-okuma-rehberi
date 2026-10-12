@@ -9,6 +9,7 @@ import 'harf_treni_game_screen.dart';
 import 'tren_engine.dart';
 import 'tren_fonts.dart';
 import 'tren_progress_store.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Harf Treni başlangıcı: seviye seçilir (Seviye 1 önerilir), 5 tren.
 class HarfTreniScreen extends StatefulWidget {
@@ -77,7 +78,7 @@ class _HarfTreniScreenState extends State<HarfTreniScreen> {
     final textTheme = Theme.of(context).textTheme;
     final maxWidth = Responsive.isDesktop(context) ? 760.0 : 640.0;
     final practice = _practice;
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(title: Text(context.t('Harf Treni'))),
       body: Center(
         child: ConstrainedBox(

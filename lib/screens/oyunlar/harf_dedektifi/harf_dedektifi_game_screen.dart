@@ -22,6 +22,7 @@ import 'dedektif_engine.dart';
 import 'dedektif_progress_store.dart';
 import 'widgets/detective_card.dart';
 import 'widgets/tappable_word.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Harf Dedektifi'nin oyun ekranı: 5 kısa tur, süre yok.
 ///
@@ -379,7 +380,7 @@ class _HarfDedektifiGameScreenState extends State<HarfDedektifiGameScreen> {
       DeviceClass.tablet => 1100.0,
       DeviceClass.desktop => 1200.0,
     };
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -39,9 +39,10 @@ GameResult _result(int points) =>
 void main() {
   setUp(() => SharedPreferences.setMockInitialValues({}));
 
-  test('Games list every separate game: 8 drag levels, one per lesson', () {
+  test('Games list every separate game: the letter journey (+ old drag levels), one per lesson', () {
     final drag = kGames.firstWhere((g) => g.id == 'drag_drop');
     expect(drag.variants.map((v) => v.title).toList(), [
+      'Harf Yolculuğu',
       for (var i = 1; i <= 7; i++) 'Oyun $i',
       'Karışık',
     ]);

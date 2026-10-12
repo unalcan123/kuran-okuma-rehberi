@@ -12,7 +12,9 @@ import 'screens/oyunlar/harf_oyunlari/profil/player_models.dart';
 import 'screens/oyunlar/harf_oyunlari/profil/player_repository.dart';
 import 'services/audio_service.dart';
 import 'services/game_score_store.dart';
+import 'screens/oyunlar/drag_drop/learning/learning_repository.dart';
 import 'services/leaderboard/firebase_leaderboard_backend.dart';
+import 'services/leaderboard/firestore_learning_cloud.dart';
 import 'services/leaderboard/leaderboard_backend.dart';
 import 'services/leaderboard/leaderboard_service.dart';
 import 'services/reading_settings.dart';
@@ -21,8 +23,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Çevrimiçi sıralama: Firebase arka planda başlar; uygulama onu beklemez,
   // başlatılamazsa (internet yok vb.) oyunlar yine oynanır.
+  final firebase = _initFirebase();
   final leaderboard = LeaderboardService(
-    backend: _initFirebase(),
+    backend: firebase,
     games: kOnlineLeaderboardGames,
   );
   unawaited(leaderboard.init());
@@ -41,6 +44,10 @@ Future<void> main() async {
         // Yerel oyuncu profilleri + oyun başına skor tabloları.
         ChangeNotifierProvider(create: (_) => PlayerRepository()..load()),
         Provider<LeaderboardService>.value(value: leaderboard),
+        // Sürükle & Bırak öğrenme durumunun bulut kopyası.
+        Provider<LearningCloud>.value(
+          value: FirestoreLearningCloud(ready: firebase),
+        ),
       ],
       child: AppLanguageScope(controller: language, child: const KuranOkumaRehberiApp()),
     ),

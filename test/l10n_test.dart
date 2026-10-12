@@ -51,6 +51,13 @@ void main() {
     expect(french, contains('chaque partie'));
     expect(french, isNot(contains('bölüm')));
   });
+  test('Ders 2 tablo başlıkları (HARF/BAŞTA/ORTADA/SONDA) her dilde', () {
+    expect(L10n.text(AppLanguage.en, 'BAŞTA'), 'INITIAL');
+    expect(L10n.text(AppLanguage.fr, 'SONDA'), 'FIN');
+    expect(L10n.text(AppLanguage.es, 'HARF'), 'LETRA');
+    expect(L10n.text(AppLanguage.nl, 'ORTADA'), 'MIDDEN');
+    expect(L10n.text(AppLanguage.tr, 'BAŞTA'), 'BAŞTA');
+  });
   group('çeviri tabloları', () {
     test('aktif dillerde satırlar dolu, yer tutucular aynı', () {
       final problems = <String>[];

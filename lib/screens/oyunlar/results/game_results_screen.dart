@@ -7,6 +7,7 @@ import '../../../models/game_score.dart';
 import '../../../services/game_score_store.dart';
 import '../../../theme/app_colors.dart';
 import '../games.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// "Sonuçlarım": a list of the games the child has played. Each row is
 /// one separate game (say "Oyun 3", or a Dinle ve Seç lesson) with how
@@ -73,7 +74,7 @@ class _GameResultsScreenState extends State<GameResultsScreen> {
   @override
   Widget build(BuildContext context) {
     final maxWidth = Responsive.isDesktop(context) ? 800.0 : 640.0;
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(
         title: Text(context.t('Sonuçlarım')),
         actions: [

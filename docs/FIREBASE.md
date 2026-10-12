@@ -32,6 +32,8 @@ players/{playerId}                        playerId, ownerUid, nickname, createdA
 leaderboard_scores/{gameId}__{playerId}   playerId, ownerUid, nickname, gameId, bestScore,
                                           correctAnswers, wrongAnswers, missedTargets,
                                           totalItems, accuracy, bestAt, updatedAt
+learning_progress/{playerId}              playerId, ownerUid, gameId ('drag_drop'), state (harf ilerlemesi),
+                                          updatedAt (istemci ms), savedAt (sunucu) — yalnızca sahibi okur/yazar
 ```
 - `playerId = <anonim UID>_<yerel profil id>`: aynı adı taşıyan iki kişi ayrı oyuncudur.
 - Oyuncu başına oyun başına **tek** belge: yalnızca en iyi sonuç. Daha düşük skor yazılmaz

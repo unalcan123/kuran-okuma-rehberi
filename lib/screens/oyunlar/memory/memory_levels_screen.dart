@@ -11,6 +11,7 @@ import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
 import '../widgets/game_colors.dart';
 import 'memory_game_screen.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Hafıza is played level by level, from Kolay to Çok Zor. Each card
 /// shows its letters and, once played, the stars of the best play.
@@ -46,7 +47,7 @@ class _MemoryLevelsScreenState extends State<MemoryLevelsScreen> {
   Widget build(BuildContext context) {
     final maxWidth = Responsive.isDesktop(context) ? 800.0 : 640.0;
     final textTheme = Theme.of(context).textTheme;
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(title: Text(context.t('Hafıza'))),
       body: Center(
         child: ConstrainedBox(

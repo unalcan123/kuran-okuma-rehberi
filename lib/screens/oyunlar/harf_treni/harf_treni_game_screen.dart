@@ -22,6 +22,7 @@ import '../widgets/game_score_strip.dart';
 import 'tren_engine.dart';
 import 'tren_progress_store.dart';
 import 'widgets/train_view.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Harf Treni oyun ekranı: 5 tren. Doğru karta dokununca kart sıradaki boş
 /// vagona uçar (dokunarak oynanır; sürükle-bırak yok). Vagonlar dolunca tren
@@ -481,7 +482,7 @@ class _HarfTreniGameScreenState extends State<HarfTreniGameScreen>
       DeviceClass.tablet => 1000.0,
       DeviceClass.desktop => 1100.0,
     };
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

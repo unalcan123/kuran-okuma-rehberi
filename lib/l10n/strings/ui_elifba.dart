@@ -51,4 +51,9 @@ const Map<String, List<String>> kUiElifba = {
     "Show translation",
     "",
   ],
+  // Ders 2 "HARF | BAŞTA | ORTADA | SONDA" tablo başlıkları.
+  "HARF": ["LETRA", "LETTRE", "BUCHSTABE", "LETTER", "HARF"],
+  "BAŞTA": ["INICIO", "DÉBUT", "ANFANG", "INITIAL", "POČETAK"],
+  "ORTADA": ["MEDIO", "MILIEU", "MITTE", "MEDIAL", "SREDINA"],
+  "SONDA": ["FINAL", "FIN", "ENDE", "FINAL", "KRAJ"],
 };

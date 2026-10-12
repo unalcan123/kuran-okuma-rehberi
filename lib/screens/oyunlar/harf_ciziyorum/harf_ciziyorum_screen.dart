@@ -10,6 +10,7 @@ import '../harf_oyunlari/profil/player_repository.dart';
 import 'ciz_progress_store.dart';
 import 'ciz_session.dart';
 import 'harf_ciziyorum_game_screen.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Harf Çiziyorum başlangıcı: harf seçilir (yıldızlarıyla), "Sırayla Öğren"
 /// o harften başlayarak 5 harf; "Zorlandıklarımı Çalış" zorlanılanlar.
@@ -71,7 +72,7 @@ class _HarfCiziyorumScreenState extends State<HarfCiziyorumScreen> {
     final selected = _selected ?? 1;
     final practice = practiceLetters(_progress);
     final stars = _progress.values.fold(0, (a, p) => a + p.stars);
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(title: Text(context.t('Harf Çiziyorum'))),
       body: Center(
         child: ConstrainedBox(

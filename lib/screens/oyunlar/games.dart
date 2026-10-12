@@ -4,7 +4,8 @@ import '../../data/drag_drop_game_data.dart';
 import '../../data/letters_data.dart';
 import '../../data/memory_game_data.dart';
 import '../../theme/app_colors.dart';
-import 'drag_drop/drag_drop_levels_screen.dart';
+import 'drag_drop/drag_drop_game_screen.dart' show kDragDropLearnKey;
+import 'drag_drop/drag_drop_home_screen.dart';
 import 'arapca_yaziyorum/arapca_yaziyorum_screen.dart';
 import 'arapca_yaziyorum/yazi_data.dart';
 import 'harf_ciziyorum/harf_ciziyorum_screen.dart';
@@ -66,8 +67,10 @@ final List<GameEntry> kGames = [
     icon: Icons.touch_app_rounded,
     background: AppColors.goldSoft,
     foreground: AppColors.gold,
-    builder: (_) => const DragDropLevelsScreen(),
+    builder: (_) => const DragDropHomeScreen(),
     variants: [
+      const GameVariant(key: kDragDropLearnKey, title: 'Harf Yolculuğu'),
+      // Eski "Oyun 1-7" sonuçları Sonuçlarım'da kalır.
       for (final level in kDragDropLevels)
         GameVariant(key: level.gameKey, title: level.title),
     ],

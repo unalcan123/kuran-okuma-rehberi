@@ -16,6 +16,7 @@ import 'ciz_models.dart';
 import 'ciz_progress_store.dart';
 import 'ciz_session.dart';
 import 'widgets/trace_pad.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Bir harfin aşamaları.
 enum DrawStep {
@@ -526,7 +527,7 @@ class _HarfCiziyorumGameScreenState extends State<HarfCiziyorumGameScreen>
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -295,6 +295,47 @@ describe('sıralama senaryosu (görevdeki örnek)', () => {
   });
 });
 
+describe('learning_progress (Sürükle & Bırak öğrenme durumu)', () => {
+  const progress = (uid, overrides = {}, profile = 'p1') => ({
+    playerId: pid(uid, profile),
+    ownerUid: uid,
+    gameId: 'drag_drop',
+    state: { v: 1, group: 2, phase: 'learn', letters: [], updatedAt: 1000 },
+    updatedAt: 1000,
+    savedAt: serverTimestamp(),
+    ...overrides,
+  });
+
+  test('sahibi kendi durumunu yazar, okur ve günceller', async () => {
+    const ref = doc(db('uidA'), 'learning_progress', pid('uidA'));
+    await assertSucceeds(setDoc(ref, progress('uidA')));
+    await assertSucceeds(getDoc(ref));
+    await assertSucceeds(setDoc(ref, progress('uidA', { updatedAt: 2000 })));
+  });
+
+  test('başkasının durumu okunamaz, yazılamaz, listelenemez', async () => {
+    const own = doc(db('uidA'), 'learning_progress', pid('uidA'));
+    await assertSucceeds(setDoc(own, progress('uidA')));
+    const other = doc(db('uidB'), 'learning_progress', pid('uidA'));
+    await assertFails(getDoc(other));
+    await assertFails(setDoc(other, progress('uidA')));
+    await assertFails(setDoc(other, progress('uidB', { playerId: pid('uidA') })));
+    await assertFails(getDocs(collection(db('uidA'), 'learning_progress')));
+  });
+
+  test('geçersiz belge reddedilir', async () => {
+    const ref = doc(db('uidA'), 'learning_progress', pid('uidA'));
+    await assertFails(setDoc(ref, progress('uidA', { gameId: 'memory' })));
+    await assertFails(setDoc(ref, progress('uidA', { extra: 1 })));
+    await assertFails(setDoc(ref, progress('uidA', { state: 'x' })));
+    await assertFails(setDoc(ref, progress('uidA', { updatedAt: '1000' })));
+    await assertFails(setDoc(ref, progress('uidA', { savedAt: 5 })));
+    await assertFails(
+      setDoc(doc(env.unauthenticatedContext().firestore(), 'learning_progress', pid('uidA')), progress('uidA')),
+    );
+  });
+});
+
 function assert(actual, expected) {
   const a = JSON.stringify(actual), e = JSON.stringify(expected);
   if (a !== e) throw new Error(`beklenen ${e}, gelen ${a}`);

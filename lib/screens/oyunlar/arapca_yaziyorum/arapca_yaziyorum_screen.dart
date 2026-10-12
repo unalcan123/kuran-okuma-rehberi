@@ -4,6 +4,7 @@ import '../../../core/responsive.dart';
 import '../../../l10n/l10n.dart';
 import '../../../theme/app_colors.dart';
 import 'yazi_mode_screens.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Arapça Yazıyorum: üç mod. İlk görev "Adını yaz!".
 class ArapcaYaziyorumScreen extends StatelessWidget {
@@ -41,7 +42,7 @@ class ArapcaYaziyorumScreen extends StatelessWidget {
         () => const FreeModeScreen(),
       ),
     ];
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(title: Text(context.t('Arapça Yazıyorum'))),
       body: Center(
         child: ConstrainedBox(

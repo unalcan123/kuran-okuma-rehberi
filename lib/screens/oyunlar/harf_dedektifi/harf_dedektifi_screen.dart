@@ -7,6 +7,7 @@ import '../harf_oyunlari/game_letters.dart';
 import 'dedektif_data.dart';
 import 'dedektif_engine.dart';
 import 'harf_dedektifi_game_screen.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Harf Dedektifi başlangıcı: mod ve harf grubu seçilir, 5 kısa tur
 /// başlar (süre yok).
@@ -43,7 +44,7 @@ class _HarfDedektifiScreenState extends State<HarfDedektifiScreen> {
     final fits =
         _choice.letterIds == null ||
         DetectiveRoundFactory.choiceFits(_mode, _choice.ids);
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(title: Text(context.t('Harf Dedektifi'))),
       body: Center(
         child: ConstrainedBox(

@@ -20,6 +20,7 @@ import 'listen_pick_questions.dart';
 import 'widgets/option_card.dart';
 import 'widgets/options_grid.dart';
 import 'widgets/play_sound_button.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// "Dinle ve Seç": a recording plays (again whenever the big button is
 /// tapped) and the child picks the written form that matches it, from
@@ -197,7 +198,7 @@ class _ListenPickScreenState extends State<ListenPickScreen> {
       DeviceClass.tablet => 1100.0,
       DeviceClass.desktop => 1200.0,
     };
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

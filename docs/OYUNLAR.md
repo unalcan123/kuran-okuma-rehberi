@@ -11,7 +11,7 @@ en altta.
 
 | Oyun | Ne yapar | Nerede |
 |---|---|---|
-| **Sürükle & Bırak** | Küçük oyunlar listesi: Oyun 1–7 (eski uygulamanın 7 harf grubu) ve **Karışık** (her oynayışta 29 harften rastgele 5 harf). Ses kartına dokun, dinle, doğru harfi karta sürükle. | `drag_drop/` |
+| **Sürükle & Bırak** | **Harf Yolculuğu** (2026-10-12): 29 harf 3'erli gruplarla kademeli öğrenilir; her grup sonrası eskilerle karışık test (%80), gerekirse pekiştirme; günlük tekrar; Kolay/Orta/Zor. Ses kartına dokun, dinle, harfi sürükle ya da harfe sonra karta dokun. | `drag_drop/` |
 | **Dinle ve Seç** | Önce ders seçilir (34 ders). 5 soru: ses otomatik çalar, 4 şıktan doğrusu seçilir. | `listen_pick/` |
 | **Hafıza** | Aynı harfli kartları bul (eski Elifba'nın 3. oyunu). Kolay / Zor / Çok Zor, 9 seviye. Kartlar çevrilince harfin sesi çalar. | `memory/` |
 | **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 ilk sürümün hızıdır ve "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
@@ -21,19 +21,36 @@ en altta.
 | **Arapça Yazıyorum** | Ekran klavyesiyle Arapça yazma: Adını Yaz (isim kartı), Bak ve Yaz, Serbest Yaz. | `arapca_yaziyorum/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
-### Sürükle & Bırak
-- Bir küçük oyun tek turdur. Son harf yerleşince ~0,8 sn sonra sonuç sayfası açılır
-  (çocuk son harfin oturduğunu görsün diye). Sonuç sayfası kendiliğinden kapanmaz.
-- Doğru yer: harf karta oturur, 3 küçük müzik notası yükselip kaybolur, önce
-  `dogru.mp3` sonra harfin kendi sesi çalar (tek player, üst üste binmez).
-- Yanlış yer: kart hafifçe sallanır, harf başlangıç yerine süzülerek döner. Kırmızı,
-  ceza, ses yok. Boş yere ya da dolu karta bırakma da sadece geri döner.
-- Harfin dokunma alanı = tüm hücre (çizilen daire hücrenin %84'ü); sürüklenen harf
-  hedefi tamamen örtmesin diye.
-- Yerleşim `FitGrid` ile: parçalar mevcut alana sığacak en büyük boyutta, kaydırma yok.
-  Telefon dikeyde ekran altta harfler / üstte kartlar; yatayda yan yana.
-- Seviyeler `lib/data/drag_drop_game_data.dart` → `kDragDropLevels`. Anahtar:
-  `drag_drop.1` … `drag_drop.7`, `drag_drop.random`.
+### Sürükle & Bırak — Harf Yolculuğu (2026-10-12)
+- Sabit "Oyun 1-7 / Karışık" listesi kaldırıldı; giriş `DragDropHomeScreen`: öğrenilen harf / 29,
+  aşama (10 aşama: 9×3 + 2), günlük tekrar durumu, toplam yıldız, 29 harflik harita, zorluk,
+  **Devam Et** (günlük tekrar varsa önce **Günlük Tekrara Başla**). Arka plan `GameScaffold`.
+- Motor (saf Dart, testli): `drag_drop/learning/letter_learning.dart`. Harf sırası
+  `kDragDropAllLetters` (Elifba sırası, Lâm Elif dahil). Aşama: **learn** (yeni harfler, her biri
+  2 kez ilk denemede doğru) → **review** (eskilerle karışık test, ≥6 soru, her yeni harf en az
+  bir kez, ≥%80 ilk denemede doğru) → gerekirse **reinforce** (yalnızca zorlanılan harfler; test
+  geçilemediyse sonra test tekrarlanır; oyun asla baştan başlamaz) → sonraki grup. 29 harf
+  bitince **mastery** (bitmez).
+- Harf başına `LetterProgress`: görülme, doğru, yanlış, art arda doğru, son çalışma, seviye 0-5,
+  tekrar zamanı, zorlanma puanı. Seviye tek doğruyla yükselmez (art arda 2); 2'den sonra
+  yalnızca tekrar zamanı gelince; aralıklar 1, 3, 7, 14 gün. Yanlış: seviye −1 (2'nin altına
+  düşmez), hemen tekrar sırasına, zorlanma +1.
+- Tekrar seçimi %45 zorlanılan / %35 öğrenilmekte / %20 iyi bilinen, yetmeyen pay sıradakine
+  geçer; son turun harfleri başka seçenek varsa sorulmaz. Benzer aileler (ب ت ث, ج ح خ, د ذ, ر ز,
+  س ش, ص ض, ط ظ, ع غ, ف ق): karıştırılınca (yanlış bırakma) kardeşler aynı tura gelir; Zor'da 9+
+  harf açıkken her zaman; Kolay'da ve erken aşamada zorlanmaz.
+- Zorluk: Kolay 3 büyük kart, 1 yanlıştan sonra doğru harf parlar; Orta 6 kart (eski+yeni),
+  ipucu 2 yanlıştan sonra; Zor 6 kart bütün açılmış harflerden, ipucu yok, kartlar tek renk.
+- Dokunarak oynama: harfe dokun (turkuaz parlar), sonra karta dokun. Seçili harf yokken karta
+  dokunmak harfin sesini çalar.
+- Kayıt: `learning_repository.dart` — cihazda `drag_drop_learning_v1.<profil|local>`; bulutta
+  Firestore `learning_progress/{playerId}` (`docs/FIREBASE.md`); açılışta `updatedAt`'i yeni olan
+  seçilir. Kayıt yoksa eski `drag_drop.1..7` sonuçlarından başlangıç (baştan art arda ≥2 yıldızlı
+  oyunların harfleri, tam 3'lü gruplar öğrenilmiş sayılır). Eski skorlar silinmez, Sonuçlarım'da
+  "Oyun 1-7" olarak durur; yeni turlar `drag_drop.learn` ("Harf Yolculuğu").
+- Puan eskisi gibi `GameScorer` (ilk deneme yalnızca bırakılan harfe göre); öğrenme kaydında
+  yanlış bırakılan harf ve hedef kartın harfi birlikte zorlanılmış sayılır.
+- Testler: `test/drag_drop_learning_test.dart` (motor + kayıt), `test/drag_drop_game_test.dart`.
 
 ### Hafıza
 - Seviyeler `lib/data/memory_game_data.dart` → `kMemoryLevels` (eski oyunun harf grupları aynen):

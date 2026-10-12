@@ -9,6 +9,7 @@ import 'games.dart';
 import 'harf_oyunlari/profil/player_picker.dart';
 import 'harf_oyunlari/profil/genel_siralama_sayfasi.dart';
 import 'results/game_results_screen.dart';
+import '../../widgets/game_meadow_background.dart';
 
 /// The games menu: one card per entry of [kGames], then the global
 /// leaderboard and the results page. Add a game to [kGames] and it shows up
@@ -62,7 +63,7 @@ class _OyunlarScreenState extends State<OyunlarScreen> {
         ),
     ];
 
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(
         title: Text(context.t('Oyunlar')),
         // "Oyuncu: Elif ✎" → adı düzelt.

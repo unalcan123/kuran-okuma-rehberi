@@ -6,6 +6,7 @@ import '../../../theme/app_colors.dart';
 import '../../elifba/elifba_lessons_screen.dart';
 import '../../elifba/widgets/lesson_card.dart';
 import 'listen_pick_screen.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 /// Which lesson should the questions come from? Same lessons, same
 /// cards as the Elifba list.
@@ -14,7 +15,7 @@ class ListenPickLessonsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GameScaffold(
       appBar: AppBar(title: Text(context.t('Dinle ve Seç'))),
       body: Center(
         child: ConstrainedBox(

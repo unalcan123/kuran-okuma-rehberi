@@ -1229,7 +1229,7 @@ class _FormsTable extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 4),
                         child: Center(
                           child: Text(
-                            header,
+                            context.t(header),
                             style: const TextStyle(
                               color: arabicRed,
                               fontWeight: FontWeight.w700,

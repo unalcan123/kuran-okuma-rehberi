@@ -116,6 +116,25 @@ service cloud.firestore {
         && scoreId.matches('[a-z0-9_]+__' + request.auth.uid + '_[a-z0-9]{1,40}');
     }
 
+    // Sürükle & Bırak öğrenme durumu (harf başına ilerleme). Yalnızca sahibi
+    // okur/yazar; istemci kodu: lib/services/leaderboard/firestore_learning_cloud.dart
+    match /learning_progress/{playerId} {
+      allow get: if signedIn() && ownPlayerId(playerId);
+      allow list: if false;
+      allow create, update: if signedIn()
+        && ownPlayerId(playerId)
+        && request.resource.data.keys().hasOnly(['playerId', 'ownerUid', 'gameId', 'state', 'updatedAt', 'savedAt'])
+        && request.resource.data.keys().hasAll(['playerId', 'ownerUid', 'gameId', 'state', 'updatedAt', 'savedAt'])
+        && request.resource.data.playerId == playerId
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.gameId == 'drag_drop'
+        && request.resource.data.state is map
+        && request.resource.data.state.size() <= 30
+        && request.resource.data.updatedAt is int
+        && request.resource.data.savedAt == request.time;
+      allow delete: if signedIn() && ownPlayerId(playerId);
+    }
+
     // Diğer her şey kapalı.
     match /{document=**} {
       allow read, write: if false;

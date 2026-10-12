@@ -18,6 +18,7 @@ import 'widgets/writing_pad.dart';
 import 'yazi_data.dart';
 import 'yazi_store.dart';
 import 'yazi_text.dart';
+import '../../../widgets/game_meadow_background.dart';
 
 typedef PngSaver =
     Future<SaveResult> Function(Uint8List bytes, String fileName);
@@ -319,7 +320,7 @@ class _NameModeScreenState extends State<NameModeScreen> with _WritingScreen {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => GameScaffold(
     appBar: appBar('Adını Arapça yaz!'),
     body: _body(_showCard ? _card(context) : _writing(context)),
   );
@@ -586,7 +587,7 @@ class _CopyModeScreenState extends State<CopyModeScreen> with _WritingScreen {
   });
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => GameScaffold(
     appBar: appBar('Bak ve Yaz'),
     body: _body(_finished ? _summary(context) : _game(context)),
   );
@@ -888,7 +889,7 @@ class _FreeModeScreenState extends State<FreeModeScreen> with _WritingScreen {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => GameScaffold(
     appBar: appBar('İstediğini yaz!'),
     body: _body(
       WritingPad(
