@@ -309,14 +309,33 @@ class _RankRow extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Text(context.t(row.nickname),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: isMe ? FontWeight.w800 : FontWeight.w600,
-                color: kGameInk,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(context.t(row.nickname),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: isMe ? FontWeight.w800 : FontWeight.w600,
+                    color: kGameInk,
+                  ),
+                ),
+                // Puanın yapıldığı gün (adın altında: dar ekranda taşmaz).
+                if (row.bestAt != null)
+                  Text(
+                    context.shortDateOf(row.bestAt!),
+                    key: Key('online-date-${row.rank}'),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                      color: kGameInk.withValues(alpha: 0.55),
+                    ),
+                  ),
+              ],
             ),
           ),
           if (isMe)
@@ -332,19 +351,6 @@ class _RankRow extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 10,
                   fontWeight: FontWeight.w900,
-                ),
-              ),
-            ),
-          if (row.bestAt != null)
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: Text(
-                context.shortDateOf(row.bestAt!),
-                key: Key('online-date-${row.rank}'),
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,
-                  color: kGameInk.withValues(alpha: 0.55),
                 ),
               ),
             ),
