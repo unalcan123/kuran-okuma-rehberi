@@ -1,0 +1,676 @@
+# SESLENDIRME METINLERI — BS
+# Her [kayit_kimligi] altindaki metni duzenleyebilirsin.
+# Kimlik satirlarini silme veya degistirme. Bu dosya sesi degistirir; ekrandaki metni degistirmez.
+# Arapca harfler seslendirme metninde Latin harfleriyle yazilmistir.
+
+[x_b82c6976cab96a17]
+Upoznajmo harfove
+
+[x_0f4bcb723513e72a]
+28 harfova • Prvi korak u arapskom pismu
+
+[s047_baslik_1]
+Harfovi s dvije damme.
+
+[s006_01]
+Kur'an ima 28 harfova. Od njih se 7 smatraju debelim, a 21 tankim harfovima. Debeli harfovi su: Hi, Sad, Dad, Ta, Za, Gajn i Kaf.
+
+[x_f40fb061502cb509]
+Od njih se 7 smatraju debelim, a 21 tankim harfovima.
+
+[x_71a9851229f63d6d]
+Debeli harfovi su: Hi, Sad, Dad, Ta, Za, Gajn i Kaf.
+
+[s010_baslik_1]
+Primjeri oblika harfova na početku, u sredini i na kraju.
+
+[s007_baslik_1]
+Pisanje i izgovor harfova.
+
+[x_6a0d9bbec6326699]
+Harfovi Kur’ana
+
+[x_a485a0a32993e75e]
+Kur'an ima 28 harfova. Od njih se 7 smatraju debelim, a 21 tankim harfovima. Debeli harfovi su: Hi, Sad, Dad, Ta, Za, Gajn i Kaf.
+
+[x_c56cf2512dc306b7]
+Kako se harfovi pišu
+
+[x_7bc7708c9751a4aa]
+29 harfova • Početni, srednji i krajnji oblik
+
+[s008_baslik_1]
+LAM - ELIF
+
+[s008_01]
+Lam-elif je poseban oblik koji pokazuje kako se lam spaja s elifom ili hemzom. To nije poseban harf. Kao što kaže samo ime, prvo se čita lam, pa elif. Desna strana je lam, a lijeva elif.
+
+[x_e7f283474e3b8c77]
+Kao što kaže samo ime LAM-ELIF, prvo se čita lam, pa elif. Desna strana je lam, a lijeva elif.
+
+[s008_02]
+Ako je za lam spojen elif bez harekata, on produži lam i čita se laa. Ako je za lam spojeno hemze, oba se čitaju sa svojim harekatom.
+
+[x_1cb022bf5738e743]
+Ako je za lam spojeno hemze, oba se čitaju sa svojim harekatom.
+
+[s008_03]
+Lam-elif se s drugim harfovima spaja samo s desne strane.
+
+[x_30a4198490501369]
+Ovako se piše:
+
+[s008_baslik_2]
+OBLICI LAM-ELIFA
+
+[x_4216f159ff83b111]
+PRIMJERI
+
+[x_90e33b27649ad0f9]
+Svaki harf u riječi spaja se s harfom prije sebe. Ali harfovi Zal, Dal, Elif, Ze, Ra i Vav ne spajaju se s harfom poslije sebe. Pogledajmo kako se harfovi spajaju u riječima. Još ne pokušavamo čitati riječi: harekate još nismo naučili.
+
+[x_42cf42e6c42fcdf9]
+Fetha
+
+[x_14d9ca57d9049ae3]
+92 snimka • Harf + fetha i čitanje riječi
+
+[s020_baslik_1]
+Harekati: damma.
+
+[s014_baslik_1]
+Harekati: fetha.
+
+[s014_01]
+Harekati liče na samoglasnike u turskom jeziku. Ali nijedan harekat ne zvuči potpuno isto kao samoglasnici koje znamo.
+
+[x_cebf9ddad8b8dfca]
+Ali nijedan harekat ne zvuči potpuno isto kao samoglasnici koje znamo.
+
+[s014_02]
+Fetha je mala crtica iznad harfa, nagnuta nadolje prema lijevo. Tankim harfovima daje glas “E”, a debelim glas “A”.
+
+[s015_01]
+Sjećaš li se? Fetha tankim harfovima daje glas “E”, a debelim glas “A”.
+
+[x_22e0507842fcf856]
+Harekat fetha
+
+[x_c62e23b9551c4568]
+Fetha je mala crtica iznad harfa, nagnuta nadolje prema lijevo. Tankim harfovima daje glas “E”, a debelim glas “A”.
+
+[x_81d7939a0d187c0b]
+Kesra
+
+[x_7a758e6c92667f99]
+84 snimka • Harf + kesra i čitanje riječi
+
+[s017_baslik_1]
+Harekati: kesra.
+
+[s017_01]
+To je mala crtica ispod harfa, nagnuta nadolje prema lijevo. Tankim harfovima daje glas “ i ”, a debelim glas koji ide od tupog “ ı ” (kao u turskom) prema “ i ”.
+
+[x_98bd13567b37dd3f]
+Harekat kesra
+
+[x_8de58fb628e2a7f8]
+Kesra je mala crtica ispod harfa, nagnuta nadolje prema lijevo. Tankim harfovima daje glas “i”, a debelim glas koji ide od tupog “ı” (kao u turskom) prema “i”.
+
+[x_8c6bfd229e811845]
+Damma
+
+[x_3310d4d4e9855cd8]
+92 snimka • Harf + damma i čitanje riječi
+
+[s020_01]
+To je znak iznad harfa koji liči na malo vav. Tankim harfovima daje glas između u i turskog ü, a debelim glas u.
+
+[x_48432a69ef21d522]
+Tankim harfovima daje glas između “u” i “ü”, a debelim glas “u”.
+
+[x_935d97c874476276]
+Harekat damma
+
+[x_3be206abeada3069]
+Damma je znak iznad harfa koji liči na malo “vav”. Tankim harfovima daje glas između “u” i “ü”, a debelim glas “u”.
+
+[x_c1e944311da3969a]
+Poredano po mjestu izgovora
+
+[x_0ae086cfc717a76f]
+28 snimaka • Harf + tri harekata, po mjestu izgovora
+
+[s023_baslik_1]
+HARFOVI S HAREKATIMA
+
+[x_38db3a3a51a8181e]
+(Po mjestu izgovora)
+
+[x_49e5c7d0e211ff24]
+U ovoj lekciji harfovi nisu poredani po abecedi, nego po mjestu izgovora (mahredž) u ustima. Svaki harf čitaš sa sva tri harekata: fethom, kesrom i dammom.
+
+[x_4932ab9aca1d314d]
+Sukun
+
+[x_5bf8d8b2bb617cdb]
+81 snimak • Hemze + harf + sukun, s tri harekata
+
+[s024_baslik_1]
+SUKUN
+
+[s024_01]
+To je mali okrugli znak iznad harfa. Harf se tada izgovara čisto, bez samoglasnika.
+
+[s024_02]
+Da dobro upoznamo svaki harf sa sukunom, čitamo ga poslije hemze s fethom, pa s kesrom, pa s dammom.
+
+[x_27e0c2b29bd68924]
+Sukun je mali okrugli znak iznad harfa. Harf sa sukunom čitaš spojeno s harfom prije njega, bez vlastitog samoglasnika.
+
+[x_098cefa838898047]
+Primjeri s harekatima
+
+[x_e146011776dfddbb]
+52 snimka • Čitanje riječi s fethom, kesrom, dammom i sukunom
+
+[x_40775b72173dc32b]
+Vježba s riječima u kojima su zajedno fetha, kesra, damma i sukun.
+
+[x_25c0e6dfb78bd73c]
+Šedda
+
+[x_8fa1feca1dfa2c3d]
+56 snimaka • Harf + šedda u parovima
+
+[s028_baslik_1]
+ŠEDDA
+
+[s028_01]
+To je znak iznad harfa koji liči na obrnuto “m”. Tada harf čitaš dva puta. Harf sa šeddom uvijek ima i harekat.
+
+[x_525749d1702ba4ca]
+Šedda čini da se harf čita dva puta. Harf sa šeddom uvijek ima i harekat. Turski primjeri: cennet, anne, himmet
+
+[x_afa2f17b321ebdf6]
+Primjeri sa šeddom
+
+[x_862db07c5ab1a8a5]
+64 snimka • Čitanje riječi sa šeddom
+
+[x_def4f63df7e7022d]
+Vježba s riječima sa šeddom.
+
+[x_3ac5fd22fdbdcd3f]
+Harfovi duženja - elif
+
+[x_dd49c94435908c6d]
+28 snimaka • Duženje s fethom + elif
+
+[s032_baslik_1]
+Harfovi duženja: elif.
+
+[s032_01]
+Produžava harf s fethom za dva hareketa. Ako je harf debeo, duženje zvuči kao “A”; ako je tanak, zvuči između “E” i “A”.
+
+[s032_02]
+Harfovi duženja, ili medd harfovi: to su harfovi vav, elif i je bez harekata, ukratko vej harfovi. Produžavaju harf prije sebe.
+
+[x_9656e3ffcf82befc]
+Harfovi duženja, ili medd harfovi: to su harfovi vav, elif i je bez harekata, ukratko vej harfovi. Produžavaju harf prije sebe. Elif: produžava harf s fethom za dva hareketa. Ako je harf debeo, duženje zvuči kao dugo a; ako je tanak, između e i a.
+
+[x_6b4efc8093d9600b]
+Harfovi duženja - primjeri s elifom
+
+[x_72dc3a39d4a06fe1]
+28 snimaka • Čitanje riječi s duženjem elifom
+
+[x_a4bcc9ec7b80f61a]
+Vježba s riječima koje se produžavaju elifom (medd).
+
+[x_c735235867cdab56]
+Harfovi duženja - je
+
+[x_769c123c25774a2c]
+28 snimaka • Duženje s kesrom + je
+
+[s034_baslik_1]
+JE
+
+[s034_01]
+Produžava harf s kesrom prije sebe za dva hareketa. Ako je harf tanak, duženje zvuči kao dugo i. Ako je debeo, kao glas koji ide od tupog glasa prema i.
+
+[x_30a7c99b0d09fd6e]
+Ako je harf tanak, duženje zvuči kao “i”; ako je debeo, kao glas koji ide od tupog “ı” prema “i”.
+
+[x_e6a80b77900962d7]
+Produžava harf s kesrom prije sebe za dva hareketa. Ako je harf tanak, duženje zvuči kao “i”; ako je debeo, gotovo kao tupo “ı”.
+
+[x_6ceec3c1c26cca34]
+Harfovi duženja - primjeri s je
+
+[x_080991ab999c73e9]
+28 snimaka • Čitanje riječi s duženjem harfom je
+
+[x_91b3a380f22f9ca7]
+Vježba s riječima koje se produžavaju harfom je (medd).
+
+[x_6deeb6f1701c7458]
+Harfovi duženja - vav
+
+[x_d4b1924c203c31ea]
+28 snimaka • Duženje s dammom + vav
+
+[s038_baslik_1]
+Vav koji produžava na kraju riječi.
+
+[s036_01]
+Produžava harf s dammom prije sebe za dva hareketa. Ako je harf debeo, duženje zvuči kao dugo u. Ako je tanak, između u i turskog ü.
+
+[x_e63df5af43637e14]
+Ako je harf debeo, duženje zvuči kao “u”; ako je tanak, kao glas između “u” i “ü”.
+
+[x_0e483c448c80cdce]
+Produžava harf s dammom prije sebe za dva hareketa. Ako je harf debeo, duženje zvuči kao “u”; ako je tanak, između “u” i “ü”.
+
+[x_67ba269dfa1e5038]
+Harfovi duženja - primjeri s vavom
+
+[x_ae7ee980fbd46713]
+28 snimaka • Čitanje riječi s duženjem vavom
+
+[x_729d66cdf58d7089]
+Vježba s riječima koje se produžavaju vavom (medd).
+
+[x_74e73f18eccdfabf]
+Harfovi duženja - vav na kraju riječi
+
+[x_eb1bb22d80a3312c]
+9 snimaka • Duženje vavom na kraju riječi
+
+[s038_01]
+Ponekad vav bez harekata na kraju riječi sam produži harf s dammom za koji je spojen, kao u Zuu. Često poslije ovog vav dolazi i elif. Taj elif ne produžava dodatno: duženje ostaje dva hareketa.
+
+[x_ce7ca2438600a54a]
+Često poslije ovog VAV dolazi i ELIF. Taj ELIF ne produžava dodatno: duženje ostaje dva hareketa.
+
+[x_7b676c2262aae319]
+Ponekad vav bez harekata na kraju riječi sam produži harf s dammom za koji je spojen, kao u Zuu. Često poslije ovog vav dolazi i elif. Taj elif ne produžava dodatno: duženje ostaje dva hareketa.
+
+[x_58d5026932499006]
+Uspravna fetha
+
+[x_7316892e1bb30a83]
+10 snimaka • Duženje uspravnom fethom (malim elifom)
+
+[s039_baslik_1]
+USPRAVNA FETHA
+
+[s039_01]
+Tako se zove fetha koja je napisana uspravno. Bilo da ima harfa duženja ili ne: ona pokazuje da harf na kojem stoji treba produžiti. Ako ima harfa duženja, svejedno je da li je to elif, vav ili je. Harf uvijek produžiš u smjeru glasa fethe.
+
+[x_beb761c4e84992e1]
+Bilo da ima harfa duženja ili ne: ona pokazuje da harf na kojem stoji treba produžiti.
+
+[x_4649df589c14ddee]
+Ako ima harfa duženja, svejedno je da li je to “elif”, “vav” ili “je”. Harf na kojem stoji uvijek produžiš u smjeru glasa fethe.
+
+[x_107b461760d1b58a]
+Uspravna fetha. Tako se zove fetha koja je napisana uspravno. Bilo da ima harfa duženja ili ne: ona pokazuje da harf na kojem stoji treba produžiti.
+
+[x_0df408dd666b1c3e]
+Uspravna kesra
+
+[x_6d082d7d98a8dbc6]
+8 snimaka • Duženje uspravnom kesrom
+
+[s039_baslik_2]
+USPRAVNA KESRA
+
+[s039_02]
+Tako se zove kesra koja je napisana uspravno. Bilo da ima harfa duženja ili ne: harf ispod kojeg stoji produžiš u smjeru glasa kesre.
+
+[x_7bdc91d8726cd924]
+Bilo da ima harfa duženja ili ne: harf ispod kojeg stoji produžiš u smjeru glasa kesre.
+
+[x_47fd3f1642a496c6]
+Uspravna kesra. Tako se zove kesra koja je napisana uspravno. Harf ispod kojeg stoji produžiš u smjeru glasa kesre.
+
+[x_5a3214211257a036]
+Tenvin - dvije fethe
+
+[x_8e280f3ce388f430]
+88 snimaka • Harf + tenvin i čitanje riječi
+
+[s040_baslik_1]
+TENVIN
+
+[x_c3b4622fe6885a8c]
+(DVOSTRUKI VOKALSKI ZNAKOVI)
+
+[s040_01]
+Tenvin: kada isti harekat stoji dva puta na harfu, to se zove tenvin. Kod nastavljanja čitanja harf tada zvuči kao da iza njega stoji nun sa sukunom. Postoje tri vrste tenvina: dvije fethe, dvije kesre i dvije damme.
+
+[x_806899ee6f662f9a]
+Postoje tri vrste tenvina: dvostruka fetha, dvostruka kesra i dvostruka damma.
+
+[s040_02]
+To su dvije male crtice jedna iznad druge na harfu, nagnute nadolje prema lijevo. Kod nastavljanja čitanja tankim harfovima daju glas en, a debelim glas an.
+
+[x_64d7457a9ff6dedf]
+Pri nastavku učenja daje tankim slovima glas „En“, a krupnim slovima „An“.
+
+[s040_baslik_2]
+Harfovi s dvije fethe.
+
+[s041_01]
+Lijevo od harfa s dvije fethe obično stoji i elif. Kod nastavljanja čitanja taj elif ne čitaš, ali kad zastaneš, on je harf duženja. Glas n nestaje, a harf produžiš za dva hareketa u smjeru fethe. Ako je harf debeo, zvuči kao a; ako je tanak, između e i a.
+
+[x_5f67d27fbb01edec]
+Ovaj elif se ne izgovara pri nastavku, ali pri zaustavljanju služi kao slovo za duženje. Glas nuna iz tenvina nestaje, a slovo se produžava u smjeru fethe dva vremena. Krupno slovo daje glas „A“, a tanko glas između „E“ i „A“.
+
+[x_71439c414a7220ef]
+Tenvin: Kada se isti vokalski znak napiše dva puta na slovo, to se zove tenvin. Pri nastavku učenja na kraju riječi dodaje se glas „n“ koji nije zapisan kao slovo.
+
+[x_f803b99672434279]
+Tenvin - dvije kesre
+
+[x_14e181db748be447]
+92 snimka • Harf + tenvin i čitanje riječi
+
+[s044_baslik_1]
+Harfovi s dvije kesre.
+
+[x_e15b2f3a948d74e0]
+Tenvin - dvije damme
+
+[x_23ac5515d9e75dc3]
+Član “el” - harfovi koji se izgovaraju
+
+[x_9a88e8ede5a0591e]
+16 snimaka • Član el kod mjesečevih harfova
+
+[s050_baslik_1]
+ELIF - LAM
+
+[s050_01]
+Vidjeli smo da se lam-elif koristi kada u riječi prvo treba doći lam, a zatim elif.
+
+[s050_02]
+Ako na početku riječi prvo stoji elif, a zatim lam sa sukunom, to se zove član elif-lam, ili kratko član el.
+
+[s050_03]
+Ispred lama ovdje stoji elif na mjestu hemze, jer se može čitati s harekatom. Sjećaš li se? Elif s harekatom koji ne produžava zove se hemze.
+
+[s050_04]
+Harf poslije njega određuje kako čitaš lam. Dakle: ako dođe jedan od harfova iz rečenice ebgi hadždžeke ve haf akimehu, to jest hemze, be, džim, ha, hi, ajn, gajn, fe, kaf, kef, mim, vav, he i je, lam čitaš sa sukunom. Ovi harfovi su polovina od 28 harfova Kur'ana.
+
+[x_038c31203bc9a86c]
+Primjeri:
+
+[x_38357289d15cc372]
+Član “el” - harfovi koji se ne izgovaraju
+
+[x_11921bda749f95f8]
+16 snimaka • Član el kod sunčevih harfova
+
+[s051_01]
+Ako dođe jedan od preostalih 14 harfova, to jest dad, sad, šin, sin, ze, ra, dal, zal, te, se, ta, za, lam i nun, lam ne čitaš. Harf poslije njega uvijek čitaš sa šeddom.
+
+[x_33d09f4219a08cb7]
+Član “el” i hemze
+
+[x_e4e1700a27e7e1f9]
+9 snimaka • Čitanje riječi s članom el i hemzom
+
+[x_8d40a624290ca269]
+HEMZE U ČLANU „EL“
+
+[s052_01]
+Vidjeli smo da se lam u članu el čita na dva načina. A šta je s hemzom ispred lama?
+
+[s052_02]
+Ako nastavljaš čitati od harfa ili riječi prije, hemze u članu el ne čitaš.
+
+[s052_03]
+Ako počneš čitati od hemze u članu el, to hemze uvijek čitaš s fethom.
+
+[s052_04]
+Pošto njen vokal nije stalan, ovo hemze je preciznije nazvati hemzetul-vasl.
+
+[x_916e28d6dfc7e4ca]
+Član “el” - vezno hemze
+
+[x_b6f314c196dcf6cf]
+12 snimaka • Vezno hemze samo i spojeno, poređenje
+
+[s053_baslik_1]
+HEMZE KOJE SE NE IZGOVARA
+
+[x_dc90b2bbb6c1e2b7]
+(Hemzetul-vasl)
+
+[s053_01]
+Neka hemzeta na početku riječi gube svoj harekat kada se čitaju zajedno s riječju ili harfom prije. Tada se čitaju kao da hemzeta nema. Pišu se kao elif bez harekata. Ponekad na njemu stoji mali znak spajanja koji pokazuje da se ne čita. Takva hemzeta zovu se vezna hemzeta.
+
+[s053_02]
+Ako se uči kao prvo slovo na početku riječi, bez spajanja s prethodnim, izgovara se sa svojim vokalom. Primjeri:
+
+[s053_03]
+U prošloj lekciji vidjeli smo da i elif svakog člana elif-lam radi na isti način.
+
+[x_86f5b8e231233867]
+Duženje zamjeničkog he
+
+[x_29881b4b13fe0c1f]
+30 primjera • Kada se zamjenica hū/hī produžava, a kada ne
+
+[s054_baslik_1]
+Duženje zamjeničkog he.
+
+[s054_baslik_2]
+Kada se slovo „He“ produžava?
+
+[s054_01]
+Ako slovo prije „He“ ima vokal, „He“ se produžava. Slovo poslije „He“ određuje dužinu:
+
+[s054_02]
+Ako poslije produženog „He“ dolazi hemze, produžava se četiri vremena.
+
+[x_6d1cb525ce29efc0]
+„Primjeri:“
+
+[s054_03]
+Ako poslije produženog „He“ dolazi bilo koje slovo osim hemzeta, produžava se dva vremena.
+
+[s054_baslik_3]
+Kada se slovo „He“ ne produžava?
+
+[s054_04]
+Ako ispred he dođe harf duženja, he čitaš bez duženja. Koji harf dolazi poslije he, tada nije važno.
+
+[x_94ed5dc0231585ae]
+Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo.
+
+[s055_01]
+Ako ispred he dođe harf sa sukunom, he također čitaš bez duženja. Koji harf dolazi poslije he, tada nije važno.
+
+[x_a6eb86d55ff2c4aa]
+Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo.
+
+[s055_02]
+Ako se „He“ spaja sa slovom sa sukunom ili tešdidom u narednoj riječi, ne produžava se čak ni ako prethodno slovo ima vokal.
+
+[x_1d1faaa83fcf957e]
+ZAMJENICE „HE“
+
+[x_ee8e1cbd3c2079b9]
+Kada se slovo „He“ produžava? Ako slovo prije „He“ ima vokal, „He“ se produžava. Slovo poslije „He“ određuje dužinu: Ako poslije produženog „He“ dolazi hemze, produžava se četiri vremena. Primjeri:
+
+[x_96c5d379513d8b1e]
+Ako poslije produženog „He“ dolazi bilo koje slovo osim hemzeta, produžava se dva vremena. Primjeri:
+
+[x_28754253bf2b3bf0]
+Kada se slovo „He“ ne produžava? Ako prije „He“ dolazi slovo za duženje, „He“ se uči bez duženja. Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo. Primjeri:
+
+[x_61aadc3dfcac8192]
+Ako prije „He“ dolazi bilo koje slovo sa sukunom, također se uči bez duženja. Koje god slovo dolazi poslije „He“, ne utiče na ovo pravilo. Primjeri:
+
+[x_1bfb1f81a526bd8d]
+Ako se „He“ spaja sa slovom sa sukunom ili tešdidom u narednoj riječi, ne produžava se čak ni ako prethodno slovo ima vokal. Primjeri:
+
+[x_27786241ecd048a1]
+Znak dugog medda
+
+[x_77f7e81c04b47d5c]
+6 snimaka • Duženje znakom medd
+
+[s055_baslik_1]
+ZNAK DUGOG MEDDA
+
+[s055_03]
+Ovaj znak stoji iznad nekih vrsta medda koje traju duže od dva vremena. Više detalja bit će objašnjeno u lekcijama tedžvida.
+
+[x_4e1d669af6d7c6c3]
+Zatvoreno te
+
+[x_e8f29b4a56c0aeae]
+12 snimaka • Izgovor zatvorenog te kod zastajanja
+
+[s056_baslik_1]
+ZATVORENO „TE“
+
+[s056_01]
+Ponekad se harf te piše kao zatvoreno te. To se dešava samo na kraju riječi. Ako je spojeno s harfom prije, piše se spojeni oblik, a ako nije, odvojeni oblik.
+
+[s056_02]
+Kad zastaneš na riječi koja završava zatvorenim te, čitaš ga kao he sa sukunom. Kad nastaviš na sljedeću riječ, čitaš ga obično kao te, s njegovim harekatom.
+
+[x_cfe5770979bae97f]
+Pogledajmo primjenu na primjerima:
+
+[x_e5714a57261801f2]
+Zastajanje na kraju riječi
+
+[x_120b40ec2d1fb2f4]
+28 snimaka • Izgovor krajeva riječi kod zastajanja
+
+[s057_baslik_1]
+Kako zastati na harfu s harekatom na kraju riječi?
+
+[x_b88ac8cf3bf1fad4]
+KAKO SE ZAUSTAVITI?
+
+[x_498f7161c2217090]
+Kako se zaustaviti na slovu s vokalom na kraju riječi?
+
+[s057_01]
+Pri učenju Kur'ana obično se zaustavljamo na kraju ajeta, kod znakova za stajanje ili kada trebamo udahnuti. Zaustavljanje može biti samo na kraju riječi.
+
+[s057_02]
+Pri zaustavljanju se ne izgovaraju fetha, kesra ni damma. Ako završno slovo nije već bez vokala —sa sukunom ili kao slovo za duženje—, njegov vokal se izostavlja i izgovara se kao da ima sukun.
+
+[s057_03]
+Kod tenvina vrijedi sljedeće: Pri dvostrukoj fethi napisanoj uz elif, jedna fetha se izostavlja. Slovo se uči s jednom fethom, produženo dva vremena.
+
+[s058_01]
+Pri zaustavljanju na hemzetu s dvostrukom fethom bez napisanog elifa također se produžava dva vremena, kao da je elif pored njega.
+
+[s058_02]
+Na slovima s dvostrukom kesrom ili dvostrukom dammom zaustavlja se sa sukunom.
+
+[x_58eb04ec1974a351]
+Još neki primjeri:
+
+[x_481eab08538f248a]
+Primjeri 1
+
+[x_20bddcdfee185870]
+24 snimka • Opći primjeri čitanja
+
+[x_6aa191334112403e]
+Primjeri 1
+
+[x_a2e7e3d43413bac8]
+Opći primjeri učenja koji povezuju sva naučena pravila.
+
+[x_c09e400760ae1c4e]
+Primjeri 2
+
+[x_e35317198f77e9b8]
+27 snimaka • Opći primjeri čitanja
+
+[x_40652d006998933c]
+Primjeri 2
+
+[x_e9f0754f783d9731]
+Primjeri 3
+
+[x_81c650f34f9ef7ba]
+18 snimaka • Opći primjeri čitanja
+
+[x_78536bbcb13116f5]
+Primjeri 3
+
+[x_fe1c5274c7343aac]
+Primjeri 4
+
+[x_1dba50210b528662]
+Primjeri 4
+
+[s006_baslik_1]
+HARFOVI
+
+[s036_baslik_1]
+VAV
+
+[game_1163b4ee95e9e8b1]
+Poslušaj glas i prevuci harf na pravo mjesto.
+
+[game_76383fc2e674b663]
+Poslušaj glas i izaberi tačan odgovor.
+
+[game_6699058eadcc8a1e]
+Zapamti harfove i gdje se nalaze. Kad dodirneš harf, čuješ njegov glas.
+
+[game_22befd00bdb2fd62]
+Pronađi iste harfove.
+
+[game_dbe823f3a90768fe]
+Pronađi sve oblike istog harfa.
+
+[game_80ea5039cfcaba33]
+Pronađi isti harf među sličnim harfovima.
+
+[game_31d31c3da808fd12]
+Dodirni harf u riječima.
+
+[game_48b76d43e605c0cd]
+Pronađi iste harfove i napuni vagone!
+
+[game_a2706d5ac68952cd]
+Poslušaj glas, pronađi pravi harf i probuši balon!
+
+[game_9ebfbc7f7518cbdd]
+Poslušaj glas i uhvati auto s pravim harfom!
+
+[game_0d44cf633f9e8dea]
+Poslušaj harf i gledaj. Pritisni dugme da vidiš kako se crta.
+
+[game_088fa9be949d3bf9]
+Pogledajmo zajedno: gledaj kako se harf crta.
+
+[game_52e28a03234a1b33]
+Tačke ovog harfa su gore. Pogledajmo zajedno.
+
+[game_9e452fdee48f0527]
+Tačke ovog harfa su dolje. Pogledajmo zajedno.
+
+[game_3c3e8f3bf784b2a4]
+Dobro ti ide!
+
+[game_62340b2635a94601]
+Igraj ponovo
+
+[game_a7869068cb320a7c]
+Nazad na igre

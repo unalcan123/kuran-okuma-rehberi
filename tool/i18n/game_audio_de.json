@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "language": "de",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_flash_v2_5",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "de",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    }
+  },
+  "entries": [
+    {
+      "id": "game_1163b4ee95e9e8b1",
+      "kind": "game",
+      "text": "Hör dir den Laut an und zieh den Buchstaben an die richtige Stelle.",
+      "ttsText": "Hör dir den Laut an und zieh den Buchstaben an die richtige Stelle.",
+      "file": "assets/audio/de/game_1163b4ee95e9e8b1.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:9f3428bcb1e7a2f09727e31b541bd18a37052c397b0045ae9741581d156e3eb3"
+    },
+    {
+      "id": "game_76383fc2e674b663",
+      "kind": "game",
+      "text": "Hör dir den Laut an und wähle die richtige Antwort.",
+      "ttsText": "Hör dir den Laut an und wähle die richtige Antwort.",
+      "file": "assets/audio/de/game_76383fc2e674b663.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:613a4ac7b8cdabc32fa576cdd814b2d84ac8ef56e7b38bbe2dfeb64b2c618e62"
+    },
+    {
+      "id": "game_6699058eadcc8a1e",
+      "kind": "game",
+      "text": "Merk dir die Buchstaben und wo sie liegen. Tippe darauf, um den Laut zu hören.",
+      "ttsText": "Merk dir die Buchstaben und wo sie liegen. Tippe darauf, um den Laut zu hören.",
+      "file": "assets/audio/de/game_6699058eadcc8a1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:0bad8dd23ce51381dea0f36b0e353f23c5b145a6e01327c8b3b4c4b1ae60d0c5"
+    },
+    {
+      "id": "game_22befd00bdb2fd62",
+      "kind": "game",
+      "text": "Finde die gleichen Buchstaben.",
+      "ttsText": "Finde die gleichen Buchstaben.",
+      "file": "assets/audio/de/game_22befd00bdb2fd62.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:cbb2e18dd0a77a234ddb8ccc0182bd18577e8c657de37708ae3ac9e7533fd8e2"
+    },
+    {
+      "id": "game_dbe823f3a90768fe",
+      "kind": "game",
+      "text": "Finde alle Formen desselben Buchstabens.",
+      "ttsText": "Finde alle Formen desselben Buchstabens.",
+      "file": "assets/audio/de/game_dbe823f3a90768fe.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:3ae6bb994b2254f7e7277f2b562103e88e52adcbd4490442cf3e73db17400b9a"
+    },
+    {
+      "id": "game_80ea5039cfcaba33",
+      "kind": "game",
+      "text": "Finde den Buchstaben unter den ähnlichen Buchstaben.",
+      "ttsText": "Finde den Buchstaben unter den ähnlichen Buchstaben.",
+      "file": "assets/audio/de/game_80ea5039cfcaba33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:d822376f70281afaea97a07eb6b3cf5912a44c75a3f8fb7560016625e3de2e04"
+    },
+    {
+      "id": "game_31d31c3da808fd12",
+      "kind": "game",
+      "text": "Tippe auf den Buchstaben in den Wörtern.",
+      "ttsText": "Tippe auf den Buchstaben in den Wörtern.",
+      "file": "assets/audio/de/game_31d31c3da808fd12.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:9c723a3163f01f33f35c23a9ce31225e47112089bfd91fc6ac906858c979e097"
+    },
+    {
+      "id": "game_48b76d43e605c0cd",
+      "kind": "game",
+      "text": "Finde die gleichen Buchstaben und füll die Waggons!",
+      "ttsText": "Finde die gleichen Buchstaben und füll die Waggons!",
+      "file": "assets/audio/de/game_48b76d43e605c0cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:40c64ef4e3f7d21b317e0d5feaaae622988b3213c488f5c6e9d8fb266b3398f3"
+    },
+    {
+      "id": "game_a2706d5ac68952cd",
+      "kind": "game",
+      "text": "Hör dir den Laut an, finde den richtigen Buchstaben und lass den Ballon platzen!",
+      "ttsText": "Hör dir den Laut an, finde den richtigen Buchstaben und lass den Ballon platzen!",
+      "file": "assets/audio/de/game_a2706d5ac68952cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:e8a1e7f105492d98ed45dd2ae894a087e49a06aa59c8dff535abfba424edeed1"
+    },
+    {
+      "id": "game_9ebfbc7f7518cbdd",
+      "kind": "game",
+      "text": "Hör dir den Laut an und fang das Auto mit dem richtigen Buchstaben!",
+      "ttsText": "Hör dir den Laut an und fang das Auto mit dem richtigen Buchstaben!",
+      "file": "assets/audio/de/game_9ebfbc7f7518cbdd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:98cad1b64447db2e9a132295ef3cea8c9b25c8fbba3e872c3013b53c34ab453a"
+    },
+    {
+      "id": "game_0d44cf633f9e8dea",
+      "kind": "game",
+      "text": "Hör dir den Buchstaben an und schau zu. Drück auf den Knopf, um zu sehen, wie man ihn zeichnet.",
+      "ttsText": "Hör dir den Buchstaben an und schau zu. Drück auf den Knopf, um zu sehen, wie man ihn zeichnet.",
+      "file": "assets/audio/de/game_0d44cf633f9e8dea.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:124040b40b7d3c50edd7ce22c0ef91320dfccd29128c4fe1c3149e7a7e7abf80"
+    },
+    {
+      "id": "game_088fa9be949d3bf9",
+      "kind": "game",
+      "text": "Schauen wir zusammen: So wird der Buchstabe gezeichnet.",
+      "ttsText": "Schauen wir zusammen: So wird der Buchstabe gezeichnet.",
+      "file": "assets/audio/de/game_088fa9be949d3bf9.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:07a384cca19e31be305e02f65e67c7218961e04c88c063a028a02f6c798caff3"
+    },
+    {
+      "id": "game_52e28a03234a1b33",
+      "kind": "game",
+      "text": "Bei diesem Buchstaben stehen die Punkte oben. Schauen wir zusammen.",
+      "ttsText": "Bei diesem Buchstaben stehen die Punkte oben. Schauen wir zusammen.",
+      "file": "assets/audio/de/game_52e28a03234a1b33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:5ae77b5024b3a2ae3f7a2b56503cd65a09fd0967bb870cf6aa01d7ffcc7ddb06"
+    },
+    {
+      "id": "game_9e452fdee48f0527",
+      "kind": "game",
+      "text": "Bei diesem Buchstaben stehen die Punkte unten. Schauen wir zusammen.",
+      "ttsText": "Bei diesem Buchstaben stehen die Punkte unten. Schauen wir zusammen.",
+      "file": "assets/audio/de/game_9e452fdee48f0527.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:6d06cd2652e78cdced2ec6d4d056b87853f8f7b09cdaaca08540445ee9f4a489"
+    },
+    {
+      "id": "game_3c3e8f3bf784b2a4",
+      "kind": "game",
+      "text": "Das machst du gut!",
+      "ttsText": "Das machst du gut!",
+      "file": "assets/audio/de/game_3c3e8f3bf784b2a4.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:0f14c4e732f599132ce413f48b889c6293282cb8c2a617d84bed1fe5814ae62d"
+    },
+    {
+      "id": "game_62340b2635a94601",
+      "kind": "game",
+      "text": "Nochmal spielen",
+      "ttsText": "Nochmal spielen",
+      "file": "assets/audio/de/game_62340b2635a94601.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:10a00075734f39ffde07eb048d8334fcc794f3dbb59f35134cb1e4959d3acf83"
+    },
+    {
+      "id": "game_a7869068cb320a7c",
+      "kind": "game",
+      "text": "Zurück zu den Spielen",
+      "ttsText": "Zurück zu den Spielen",
+      "file": "assets/audio/de/game_a7869068cb320a7c.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:c8ac29acf341d9d68cf883515077b1ba14ea96b7a333f73ffae0324896c9603a"
+    }
+  ]
+}

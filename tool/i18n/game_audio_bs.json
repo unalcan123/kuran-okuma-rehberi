@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "language": "bs",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_flash_v2_5",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "hr",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    },
+    "languageNote": "ElevenLabs flash v2.5 \"bs\" desteklemiyor; Boşnakça (ijekavica) metin Hırvatça okunuşla seslendirilir."
+  },
+  "entries": [
+    {
+      "id": "game_1163b4ee95e9e8b1",
+      "kind": "game",
+      "text": "Poslušaj glas i prevuci harf na pravo mjesto.",
+      "ttsText": "Poslušaj glas i prevuci harf na pravo mjesto.",
+      "file": "assets/audio/bs/game_1163b4ee95e9e8b1.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:96d4796bb2b32d62bcd634e628dd1e1f02a63d97bc7defb82523e647c2acf999"
+    },
+    {
+      "id": "game_76383fc2e674b663",
+      "kind": "game",
+      "text": "Poslušaj glas i izaberi tačan odgovor.",
+      "ttsText": "Poslušaj glas i izaberi tačan odgovor.",
+      "file": "assets/audio/bs/game_76383fc2e674b663.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:2e9d7607890c6bc3cc8b2370f0a7d34bee94c15f17b2c8150538eaf9f4593db7"
+    },
+    {
+      "id": "game_6699058eadcc8a1e",
+      "kind": "game",
+      "text": "Zapamti harfove i gdje se nalaze. Kad dodirneš harf, čuješ njegov glas.",
+      "ttsText": "Zapamti harfove i gdje se nalaze. Kad dodirneš harf, čuješ njegov glas.",
+      "file": "assets/audio/bs/game_6699058eadcc8a1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:fb0a6eb42976e3a6f02dad33049058f5d9be6ec629b734b090ef0cfd47bf4f97"
+    },
+    {
+      "id": "game_22befd00bdb2fd62",
+      "kind": "game",
+      "text": "Pronađi iste harfove.",
+      "ttsText": "Pronađi iste harfove.",
+      "file": "assets/audio/bs/game_22befd00bdb2fd62.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:95e744fe09fad17831f4a72d9c2c5b9d69c8c9fbcdb96bc8d3df5f170fefb763"
+    },
+    {
+      "id": "game_dbe823f3a90768fe",
+      "kind": "game",
+      "text": "Pronađi sve oblike istog harfa.",
+      "ttsText": "Pronađi sve oblike istog harfa.",
+      "file": "assets/audio/bs/game_dbe823f3a90768fe.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:b414c178be8ef28de40e1448b11a1e117ebbb65e943913dc3544511fb2dbc42b"
+    },
+    {
+      "id": "game_80ea5039cfcaba33",
+      "kind": "game",
+      "text": "Pronađi isti harf među sličnim harfovima.",
+      "ttsText": "Pronađi isti harf među sličnim harfovima.",
+      "file": "assets/audio/bs/game_80ea5039cfcaba33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:b3c433d1bb693191933669fef0e243c00914e5e3cf6ceb03a56b3e5f6d4802c7"
+    },
+    {
+      "id": "game_31d31c3da808fd12",
+      "kind": "game",
+      "text": "Dodirni harf u riječima.",
+      "ttsText": "Dodirni harf u riječima.",
+      "file": "assets/audio/bs/game_31d31c3da808fd12.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:dd11352cb8c62caa573e307c63be23ae5b81511155b02fed9437f6431e10a318"
+    },
+    {
+      "id": "game_48b76d43e605c0cd",
+      "kind": "game",
+      "text": "Pronađi iste harfove i napuni vagone!",
+      "ttsText": "Pronađi iste harfove i napuni vagone!",
+      "file": "assets/audio/bs/game_48b76d43e605c0cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:18392c2966071bd596c835e87c0dd01d21ac95c20c450e64bc3ff94f28b71b20"
+    },
+    {
+      "id": "game_a2706d5ac68952cd",
+      "kind": "game",
+      "text": "Poslušaj glas, pronađi pravi harf i probuši balon!",
+      "ttsText": "Poslušaj glas, pronađi pravi harf i probuši balon!",
+      "file": "assets/audio/bs/game_a2706d5ac68952cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:97cca10aa84bf10b62e6313d5384026c2b01153c761f021620821010b2c47378"
+    },
+    {
+      "id": "game_9ebfbc7f7518cbdd",
+      "kind": "game",
+      "text": "Poslušaj glas i uhvati auto s pravim harfom!",
+      "ttsText": "Poslušaj glas i uhvati auto s pravim harfom!",
+      "file": "assets/audio/bs/game_9ebfbc7f7518cbdd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:ca9a3dde1c78975c88bbefe443582bf8dd39295d5b51aa53de33952c491705c5"
+    },
+    {
+      "id": "game_0d44cf633f9e8dea",
+      "kind": "game",
+      "text": "Poslušaj harf i gledaj. Pritisni dugme da vidiš kako se crta.",
+      "ttsText": "Poslušaj harf i gledaj. Pritisni dugme da vidiš kako se crta.",
+      "file": "assets/audio/bs/game_0d44cf633f9e8dea.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:0024a0d083c6345d123451cdc9130c6ddd3b07fb392f1aa4ef7a79680ef1b56e"
+    },
+    {
+      "id": "game_088fa9be949d3bf9",
+      "kind": "game",
+      "text": "Pogledajmo zajedno: gledaj kako se harf crta.",
+      "ttsText": "Pogledajmo zajedno: gledaj kako se harf crta.",
+      "file": "assets/audio/bs/game_088fa9be949d3bf9.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:833865489497812656289a6bb95f031441cb1ce281e79772c694931a81439700"
+    },
+    {
+      "id": "game_52e28a03234a1b33",
+      "kind": "game",
+      "text": "Tačke ovog harfa su gore. Pogledajmo zajedno.",
+      "ttsText": "Tačke ovog harfa su gore. Pogledajmo zajedno.",
+      "file": "assets/audio/bs/game_52e28a03234a1b33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:f70ad656b5a9c5c4c53c4556218e99213f1617eff6e20991c023397702a304a3"
+    },
+    {
+      "id": "game_9e452fdee48f0527",
+      "kind": "game",
+      "text": "Tačke ovog harfa su dolje. Pogledajmo zajedno.",
+      "ttsText": "Tačke ovog harfa su dolje. Pogledajmo zajedno.",
+      "file": "assets/audio/bs/game_9e452fdee48f0527.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:9e1df7a661a14cc2ff9b9516a740712127de795d8280939e14dcf182de4267f0"
+    },
+    {
+      "id": "game_3c3e8f3bf784b2a4",
+      "kind": "game",
+      "text": "Dobro ti ide!",
+      "ttsText": "Dobro ti ide!",
+      "file": "assets/audio/bs/game_3c3e8f3bf784b2a4.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:b50cf25fc5c4c503c7f85c88476ef967541a3c5753a98e554eed478c6e15956f"
+    },
+    {
+      "id": "game_62340b2635a94601",
+      "kind": "game",
+      "text": "Igraj ponovo",
+      "ttsText": "Igraj ponovo",
+      "file": "assets/audio/bs/game_62340b2635a94601.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:a05484692c3c7e356d8bdb1e1f84014f52edcc391c7e7627c0ed6645ac30c60c"
+    },
+    {
+      "id": "game_a7869068cb320a7c",
+      "kind": "game",
+      "text": "Nazad na igre",
+      "ttsText": "Nazad na igre",
+      "file": "assets/audio/bs/game_a7869068cb320a7c.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:8612f885be044e0e04b681b95fbdd50707de97495ac04daac0d0596aa2fd7882"
+    }
+  ]
+}

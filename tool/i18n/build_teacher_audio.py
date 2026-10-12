@@ -22,7 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 LINES = ROOT / "tool/i18n/teacher_lines.json"
-LANGUAGES = ["tr", "es", "fr", "en", "nl"]
+LANGUAGES = ["tr", "es", "fr", "en", "nl", "de", "bs"]
 DEFAULT_VOICE = "J17lijyP1BHYcM7ld0Rg"  # uygulamanın öteki açıklamalarıyla aynı ses
 
 

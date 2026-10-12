@@ -1,0 +1,676 @@
+# SESLENDIRME METINLERI — DE
+# Her [kayit_kimligi] altindaki metni duzenleyebilirsin.
+# Kimlik satirlarini silme veya degistirme. Bu dosya sesi degistirir; ekrandaki metni degistirmez.
+# Arapca harfler seslendirme metninde Latin harfleriyle yazilmistir.
+
+[x_b82c6976cab96a17]
+Lernen wir die Buchstaben kennen
+
+[x_0f4bcb723513e72a]
+28 Buchstaben • Der erste Schritt im arabischen Alphabet
+
+[s047_baslik_1]
+Buchstaben mit doppelter Damma.
+
+[s006_01]
+Der Koran hat 28 Buchstaben. Davon gelten 7 als dicke und 21 als dünne Buchstaben. Die dicken Buchstaben sind: Cha, Sad, Dad, dickes Ta, dickes Za, Ghain und Qaf.
+
+[x_f40fb061502cb509]
+Davon gelten 7 als dicke und 21 als dünne Buchstaben.
+
+[x_71a9851229f63d6d]
+Die dicken Buchstaben sind: Cha, Sad, Dad, dickes Ta, dickes Za, Ghain und Qaf.
+
+[s010_baslik_1]
+Beispiele für die Formen der Buchstaben am Anfang, in der Mitte und am Ende.
+
+[s007_baslik_1]
+Schrift und Aussprache der Buchstaben.
+
+[x_6a0d9bbec6326699]
+Die Buchstaben des Korans
+
+[x_a485a0a32993e75e]
+Der Koran hat 28 Buchstaben. Davon gelten 7 als dicke und 21 als dünne Buchstaben. Die dicken Buchstaben sind: Cha, Sad, Dad, dickes Ta, dickes Za, Ghain und Qaf.
+
+[x_c56cf2512dc306b7]
+Wie die Buchstaben geschrieben werden
+
+[x_7bc7708c9751a4aa]
+29 Buchstaben • Anfangs-, Mittel- und Endform
+
+[s008_baslik_1]
+LAM - ALIF
+
+[s008_01]
+Lam-Alif ist eine besondere Form: Sie zeigt, wie Lam mit Alif oder Hamza verbunden ist. Es ist kein eigener Buchstabe. Wie der Name sagt, liest man zuerst Lam und dann Alif. Die rechte Seite ist das Lam, die linke das Alif.
+
+[x_e7f283474e3b8c77]
+Wie der Name LAM-ALIF sagt, liest man zuerst Lam und dann Alif. Die rechte Seite ist das Lam, die linke das Alif.
+
+[s008_02]
+Ist ein Alif ohne Vokalzeichen mit dem Lam verbunden, dehnt es das Lam: Man liest laa. Ist ein Hamza mit dem Lam verbunden, liest man beide mit ihrem eigenen Vokalzeichen.
+
+[x_1cb022bf5738e743]
+Ist ein Hamza mit dem Lam verbunden, liest man beide mit ihrem eigenen Vokalzeichen.
+
+[s008_03]
+Lam-Alif verbindet sich nur auf der rechten Seite mit anderen Buchstaben.
+
+[x_30a4198490501369]
+So wird es geschrieben:
+
+[s008_baslik_2]
+FORMEN VON LAM-ALIF
+
+[x_4216f159ff83b111]
+BEISPIELE
+
+[x_90e33b27649ad0f9]
+Jeder Buchstabe in einem Wort ist mit dem Buchstaben davor verbunden. Aber die Buchstaben Dhal, Dal, Alif, Zay, Ra und Waw verbinden sich nicht mit dem Buchstaben danach. Schauen wir, wie die Buchstaben in Wörtern verbunden werden. Wir versuchen noch nicht, die Wörter zu lesen: Die Vokalzeichen haben wir noch nicht gelernt.
+
+[x_42cf42e6c42fcdf9]
+Fatha
+
+[x_14d9ca57d9049ae3]
+92 Aufnahmen • Buchstabe + Fatha und Wörter lesen
+
+[s020_baslik_1]
+Vokalzeichen: Damma.
+
+[s014_baslik_1]
+Vokalzeichen: Fatha.
+
+[s014_01]
+Die Vokalzeichen ähneln den Vokalen im Türkischen. Aber kein Vokalzeichen klingt genau wie die Vokale, die wir kennen.
+
+[x_cebf9ddad8b8dfca]
+Aber kein Vokalzeichen klingt genau wie die Vokale, die wir kennen.
+
+[s014_02]
+Die Fatha ist ein kleiner Strich über dem Buchstaben, der nach links schräg abfällt. Dünnen Buchstaben gibt sie einen „E“-Laut, dicken Buchstaben einen „A“-Laut.
+
+[s015_01]
+Erinnerst du dich? Die Fatha gibt dünnen Buchstaben einen „E“-Laut und dicken Buchstaben einen „A“-Laut.
+
+[x_22e0507842fcf856]
+Das Vokalzeichen Fatha
+
+[x_c62e23b9551c4568]
+Die Fatha ist ein kleiner Strich über dem Buchstaben, der nach links schräg abfällt. Dünnen Buchstaben gibt sie einen „E“-Laut, dicken Buchstaben einen „A“-Laut.
+
+[x_81d7939a0d187c0b]
+Kasra
+
+[x_7a758e6c92667f99]
+84 Aufnahmen • Buchstabe + Kasra und Wörter lesen
+
+[s017_baslik_1]
+Vokalzeichen: Kasra.
+
+[s017_01]
+Sie ist ein kleiner Strich unter dem Buchstaben, der nach links schräg abfällt. Dünnen Buchstaben gibt sie einen „ i “-Laut, dicken Buchstaben einen Laut, der von einem dumpfen „ ı “ (wie im Türkischen) zum „ i “ geht.
+
+[x_98bd13567b37dd3f]
+Das Vokalzeichen Kasra
+
+[x_8de58fb628e2a7f8]
+Die Kasra ist ein kleiner Strich unter dem Buchstaben, der nach links schräg abfällt. Dünnen Buchstaben gibt sie einen „i“-Laut, dicken Buchstaben einen Laut, der von einem dumpfen „ı“ (wie im Türkischen) zum „i“ geht.
+
+[x_8c6bfd229e811845]
+Damma
+
+[x_3310d4d4e9855cd8]
+92 Aufnahmen • Buchstabe + Damma und Wörter lesen
+
+[s020_01]
+Sie ist ein Zeichen über dem Buchstaben, das wie ein kleines Waw aussieht. Dünnen Buchstaben gibt sie einen Laut zwischen u und ü, dicken Buchstaben einen u-Laut.
+
+[x_48432a69ef21d522]
+Dünnen Buchstaben gibt sie einen Laut zwischen „u“ und „ü“, dicken Buchstaben einen „u“-Laut.
+
+[x_935d97c874476276]
+Das Vokalzeichen Damma
+
+[x_3be206abeada3069]
+Die Damma ist ein Zeichen über dem Buchstaben, das wie ein kleines „Waw“ aussieht. Dünnen Buchstaben gibt sie einen Laut zwischen „u“ und „ü“, dicken Buchstaben einen „u“-Laut.
+
+[x_c1e944311da3969a]
+Nach Artikulationsstelle geordnet
+
+[x_0ae086cfc717a76f]
+28 Aufnahmen • Buchstabe + drei Vokalzeichen, nach Artikulationsstelle
+
+[s023_baslik_1]
+BUCHSTABEN MIT VOKALZEICHEN
+
+[x_38db3a3a51a8181e]
+(Nach Artikulationsstelle geordnet)
+
+[x_49e5c7d0e211ff24]
+In dieser Lektion stehen die Buchstaben nicht in alphabetischer Reihenfolge, sondern nach ihrer Artikulationsstelle (Machradsch) im Mund. Jeden Buchstaben liest du mit allen drei Vokalzeichen: Fatha, Kasra und Damma.
+
+[x_4932ab9aca1d314d]
+Sukun
+
+[x_5bf8d8b2bb617cdb]
+81 Aufnahmen • Hamza + Buchstabe + Sukun, mit drei Vokalzeichen
+
+[s024_baslik_1]
+SUKUN
+
+[s024_01]
+Es ist ein kleines rundes Zeichen über dem Buchstaben. Der Buchstabe klingt dann ganz schlicht, ohne Vokal.
+
+[s024_02]
+Um jeden Buchstaben mit Sukun gut kennenzulernen, lesen wir ihn nach einem Hamza mit Fatha, dann mit Kasra und dann mit Damma.
+
+[x_27e0c2b29bd68924]
+Das Sukun ist ein kleines rundes Zeichen über dem Buchstaben. Den Buchstaben mit Sukun liest du mit dem Buchstaben davor zusammen, ohne eigenen Vokal.
+
+[x_098cefa838898047]
+Beispiele mit Vokalzeichen
+
+[x_e146011776dfddbb]
+52 Aufnahmen • Wörter lesen mit Fatha, Kasra, Damma und Sukun
+
+[x_40775b72173dc32b]
+Übung mit Wörtern, in denen Fatha, Kasra, Damma und Sukun zusammen vorkommen.
+
+[x_25c0e6dfb78bd73c]
+Schadda
+
+[x_8fa1feca1dfa2c3d]
+56 Aufnahmen • Buchstabe + Schadda in Paaren
+
+[s028_baslik_1]
+SCHADDA
+
+[s028_01]
+Es ist ein Zeichen über dem Buchstaben, das wie ein umgedrehtes „m“ aussieht. Dann liest du den Buchstaben zweimal. Ein Buchstabe mit Schadda hat immer auch ein Vokalzeichen.
+
+[x_525749d1702ba4ca]
+Durch die Schadda liest du den Buchstaben zweimal. Ein Buchstabe mit Schadda hat immer auch ein Vokalzeichen. Türkische Beispiele: cennet, anne, himmet
+
+[x_afa2f17b321ebdf6]
+Beispiele mit Schadda
+
+[x_862db07c5ab1a8a5]
+64 Aufnahmen • Wörter lesen mit Schadda
+
+[x_def4f63df7e7022d]
+Übung mit Wörtern mit Schadda.
+
+[x_3ac5fd22fdbdcd3f]
+Dehnungsbuchstaben - Alif
+
+[x_dd49c94435908c6d]
+28 Aufnahmen • Dehnung mit Fatha + Alif
+
+[s032_baslik_1]
+Dehnungsbuchstaben: Alif.
+
+[s032_01]
+Es dehnt den Buchstaben mit Fatha um zwei Harakas. Ist der Buchstabe dick, klingt die Dehnung wie „A“; ist er dünn, klingt sie zwischen „E“ und „A“.
+
+[s032_02]
+Dehnungsbuchstaben, auch Madd-Buchstaben: Das sind die Buchstaben Waw, Alif und Ya ohne Vokalzeichen, kurz die Way-Buchstaben. Sie dehnen den Buchstaben davor.
+
+[x_9656e3ffcf82befc]
+Dehnungsbuchstaben, auch Madd-Buchstaben: Das sind die Buchstaben Waw, Alif und Ya ohne Vokalzeichen, kurz die Way-Buchstaben. Sie dehnen den Buchstaben davor. Alif: Es dehnt den Buchstaben mit Fatha um zwei Harakas. Ist der Buchstabe dick, klingt die Dehnung wie ein langes a; ist er dünn, zwischen e und a.
+
+[x_6b4efc8093d9600b]
+Dehnungsbuchstaben - Beispiele mit Alif
+
+[x_72dc3a39d4a06fe1]
+28 Aufnahmen • Wörter lesen mit Dehnung durch Alif
+
+[x_a4bcc9ec7b80f61a]
+Übung mit Wörtern, die mit Alif gedehnt werden (Madd).
+
+[x_c735235867cdab56]
+Dehnungsbuchstaben - Ya
+
+[x_769c123c25774a2c]
+28 Aufnahmen • Dehnung mit Kasra + Ya
+
+[s034_baslik_1]
+YA
+
+[s034_01]
+Es dehnt den Buchstaben mit Kasra davor um zwei Harakas. Ist der Buchstabe dünn, klingt die Dehnung wie ein langes i. Ist er dick, wie ein Laut, der von einem dumpfen Laut zum i geht.
+
+[x_30a7c99b0d09fd6e]
+Ist der Buchstabe dünn, klingt die Dehnung wie „i“; ist er dick, wie ein Laut, der von einem dumpfen „ı“ zum „i“ geht.
+
+[x_e6a80b77900962d7]
+Es dehnt den Buchstaben mit Kasra davor um zwei Harakas. Ist der Buchstabe dünn, klingt die Dehnung wie „i“; ist er dick, fast wie ein dumpfes „ı“.
+
+[x_6ceec3c1c26cca34]
+Dehnungsbuchstaben - Beispiele mit Ya
+
+[x_080991ab999c73e9]
+28 Aufnahmen • Wörter lesen mit Dehnung durch Ya
+
+[x_91b3a380f22f9ca7]
+Übung mit Wörtern, die mit Ya gedehnt werden (Madd).
+
+[x_6deeb6f1701c7458]
+Dehnungsbuchstaben - Waw
+
+[x_d4b1924c203c31ea]
+28 Aufnahmen • Dehnung mit Damma + Waw
+
+[s038_baslik_1]
+Waw, das am Wortende dehnt.
+
+[s036_01]
+Es dehnt den Buchstaben mit Damma davor um zwei Harakas. Ist der Buchstabe dick, klingt die Dehnung wie ein langes u. Ist er dünn, zwischen u und ü.
+
+[x_e63df5af43637e14]
+Ist der Buchstabe dick, klingt die Dehnung wie „u“; ist er dünn, wie ein Laut zwischen „u“ und „ü“.
+
+[x_0e483c448c80cdce]
+Es dehnt den Buchstaben mit Damma davor um zwei Harakas. Ist der Buchstabe dick, klingt die Dehnung wie „u“; ist er dünn, zwischen „u“ und „ü“.
+
+[x_67ba269dfa1e5038]
+Dehnungsbuchstaben - Beispiele mit Waw
+
+[x_ae7ee980fbd46713]
+28 Aufnahmen • Wörter lesen mit Dehnung durch Waw
+
+[x_729d66cdf58d7089]
+Übung mit Wörtern, die mit Waw gedehnt werden (Madd).
+
+[x_74e73f18eccdfabf]
+Dehnungsbuchstaben - Waw am Wortende
+
+[x_eb1bb22d80a3312c]
+9 Aufnahmen • Dehnung mit Waw am Wortende
+
+[s038_01]
+Manchmal dehnt ein Waw ohne Vokalzeichen am Wortende ganz allein den Buchstaben mit Damma, an dem es hängt, wie in Dhuu. Oft steht nach diesem Waw auch ein Alif. Dieses Alif dehnt nicht zusätzlich: Die Dehnung bleibt zwei Harakas lang.
+
+[x_ce7ca2438600a54a]
+Oft steht nach diesem WAW auch ein ALIF. Dieses ALIF dehnt nicht zusätzlich: Die Dehnung bleibt zwei Harakas lang.
+
+[x_7b676c2262aae319]
+Manchmal dehnt ein Waw ohne Vokalzeichen am Wortende ganz allein den Buchstaben mit Damma, an dem es hängt, wie in Dhuu. Oft steht nach diesem Waw auch ein Alif. Dieses Alif dehnt nicht zusätzlich: Die Dehnung bleibt zwei Harakas lang.
+
+[x_58d5026932499006]
+Senkrechte Fatha
+
+[x_7316892e1bb30a83]
+10 Aufnahmen • Dehnung mit der senkrechten Fatha (kleines Alif)
+
+[s039_baslik_1]
+SENKRECHTE FATHA
+
+[s039_01]
+So heißt eine Fatha, die senkrecht geschrieben ist. Ob ein Dehnungsbuchstabe da ist oder nicht: Sie zeigt, dass du den Buchstaben, auf dem sie steht, dehnen musst. Steht ein Dehnungsbuchstabe da, ist es egal, ob es Alif, Waw oder Ya ist. Du dehnst den Buchstaben immer in Richtung des Fatha-Lautes.
+
+[x_beb761c4e84992e1]
+Ob ein Dehnungsbuchstabe da ist oder nicht: Sie zeigt, dass du den Buchstaben, auf dem sie steht, dehnen musst.
+
+[x_4649df589c14ddee]
+Steht ein Dehnungsbuchstabe da, ist es egal, ob es „Alif“, „Waw“ oder „Ya“ ist. Du dehnst den Buchstaben, auf dem sie steht, immer in Richtung des Fatha-Lautes.
+
+[x_107b461760d1b58a]
+Senkrechte Fatha. So heißt eine Fatha, die senkrecht geschrieben ist. Ob ein Dehnungsbuchstabe da ist oder nicht: Sie zeigt, dass du den Buchstaben, auf dem sie steht, dehnen musst.
+
+[x_0df408dd666b1c3e]
+Senkrechte Kasra
+
+[x_6d082d7d98a8dbc6]
+8 Aufnahmen • Dehnung mit der senkrechten Kasra
+
+[s039_baslik_2]
+SENKRECHTE KASRA
+
+[s039_02]
+So heißt eine Kasra, die senkrecht geschrieben ist. Ob ein Dehnungsbuchstabe da ist oder nicht: Du dehnst den Buchstaben, unter dem sie steht, in Richtung des Kasra-Lautes.
+
+[x_7bdc91d8726cd924]
+Ob ein Dehnungsbuchstabe da ist oder nicht: Du dehnst den Buchstaben, unter dem sie steht, in Richtung des Kasra-Lautes.
+
+[x_47fd3f1642a496c6]
+Senkrechte Kasra. So heißt eine Kasra, die senkrecht geschrieben ist. Du dehnst den Buchstaben, unter dem sie steht, in Richtung des Kasra-Lautes.
+
+[x_5a3214211257a036]
+Tanwin - Doppelte Fatha
+
+[x_8e280f3ce388f430]
+88 Aufnahmen • Buchstabe + Tanwin und Wörter lesen
+
+[s040_baslik_1]
+TANWIN
+
+[x_c3b4622fe6885a8c]
+(DOPPELTE VOKALZEICHEN)
+
+[s040_01]
+Tanwin: Steht dasselbe Vokalzeichen zweimal auf einem Buchstaben, heißt das Tanwin. Beim Weiterlesen klingt der Buchstabe dann so, als stünde ein Nun mit Sukun dahinter. Es gibt drei Arten von Tanwin: doppelte Fatha, doppelte Kasra und doppelte Damma.
+
+[x_806899ee6f662f9a]
+Es gibt drei Arten von Tanwin: doppelte Fatha, doppelte Kasra und doppelte Damma.
+
+[s040_02]
+Es sind zwei kleine Striche übereinander auf dem Buchstaben, die nach links schräg abfallen. Beim Weiterlesen geben sie dünnen Buchstaben einen en-Laut und dicken Buchstaben einen an-Laut.
+
+[x_64d7457a9ff6dedf]
+Beim Weiterlesen ergibt sich bei leichten Buchstaben der Laut „En“, bei emphatischen Buchstaben „An“.
+
+[s040_baslik_2]
+Buchstaben mit doppelter Fatha.
+
+[s041_01]
+Links von einem Buchstaben mit doppelter Fatha steht meistens auch ein Alif. Beim Weiterlesen liest du dieses Alif nicht, aber wenn du anhältst, wirkt es als Dehnungsbuchstabe. Der n-Laut fällt weg, und du dehnst den Buchstaben um zwei Harakas in Richtung der Fatha. Ist der Buchstabe dick, klingt es wie a; ist er dünn, zwischen e und a.
+
+[x_5f67d27fbb01edec]
+Dieses Alif wird beim Weiterlesen nicht ausgesprochen, dient beim Anhalten aber als Dehnungsbuchstabe. Der Nun-Laut des Tanwin entfällt; der Buchstabe wird mit Fatha zwei Zeiteinheiten gedehnt. Bei emphatischen Buchstaben klingt er wie „A“, bei leichten zwischen „E“ und „A“.
+
+[x_71439c414a7220ef]
+Tanwin: Wird dasselbe Vokalzeichen zweimal an einem Buchstaben geschrieben, heißt das Tanwin. Beim Weiterlesen wird am Wortende ein „n“-Laut ergänzt, der nicht als Buchstabe geschrieben ist.
+
+[x_f803b99672434279]
+Tanwin - Doppelte Kasra
+
+[x_14e181db748be447]
+92 Aufnahmen • Buchstabe + Tanwin und Wörter lesen
+
+[s044_baslik_1]
+Buchstaben mit doppelter Kasra.
+
+[x_e15b2f3a948d74e0]
+Tanwin - Doppelte Damma
+
+[x_23ac5515d9e75dc3]
+Der Artikel “al” - Gesprochene Buchstaben
+
+[x_9a88e8ede5a0591e]
+16 Aufnahmen • Der Artikel al bei den Mondbuchstaben
+
+[s050_baslik_1]
+ALIF - LAM
+
+[s050_01]
+Wir haben gesehen, dass man Lam-Alif benutzt, wenn in einem Wort zuerst ein Lam und dann ein Alif kommen muss.
+
+[s050_02]
+Stehen am Wortanfang zuerst ein Alif und dann ein Lam mit Sukun, heißt das der Artikel Alif-Lam, kurz der Artikel al.
+
+[s050_03]
+Vor dem Lam steht hier ein Alif an der Stelle eines Hamza, denn es kann mit einem Vokalzeichen gelesen werden. Erinnerst du dich? Ein Alif mit Vokalzeichen, das nicht dehnt, heißt Hamza.
+
+[s050_04]
+Der Buchstabe danach bestimmt, wie du das Lam liest. Also: Kommt einer der Buchstaben aus dem Satz abghi hadschdschaka wa chaf aqiimahu, nämlich Hamza, Ba, Dschim, Ha, Cha, Ain, Ghain, Fa, Qaf, Kaf, Mim, Waw, Ha und Ya, dann liest du das Lam mit Sukun. Diese Buchstaben sind die Hälfte der 28 Buchstaben des Korans.
+
+[x_038c31203bc9a86c]
+Beispiele:
+
+[x_38357289d15cc372]
+Der Artikel “al” - Nicht gesprochene Buchstaben
+
+[x_11921bda749f95f8]
+16 Aufnahmen • Der Artikel al bei den Sonnenbuchstaben
+
+[s051_01]
+Kommt einer der anderen 14 Buchstaben, nämlich Dad, Sad, Schin, Sin, Zay, Ra, Dal, Dhal, Ta, Tha, dickes Ta, dickes Za, Lam und Nun, dann liest du das Lam nicht. Den Buchstaben danach liest du immer mit Schadda.
+
+[x_33d09f4219a08cb7]
+Der Artikel “al” und das Hamza
+
+[x_e4e1700a27e7e1f9]
+9 Aufnahmen • Wörter lesen mit dem Artikel al und Hamza
+
+[x_8d40a624290ca269]
+DIE HAMZA IM „AL“-ARTIKEL
+
+[s052_01]
+Wir haben gesehen, dass man das Lam des Artikels al auf zwei Arten liest. Und das Hamza vor dem Lam?
+
+[s052_02]
+Liest du vom Buchstaben oder Wort davor weiter, liest du das Hamza des Artikels al nicht.
+
+[s052_03]
+Beginnst du beim Hamza des Artikels al zu lesen, liest du dieses Hamza immer mit Fatha.
+
+[s052_04]
+Da ihr Vokal nicht dauerhaft ist, wird diese Hamza genauer als Hamzat al-Wasl bezeichnet.
+
+[x_916e28d6dfc7e4ca]
+Der Artikel “al” - Verbindungs-Hamza
+
+[x_b6f314c196dcf6cf]
+12 Aufnahmen • Verbindungs-Hamza allein und verbunden verglichen
+
+[s053_baslik_1]
+NICHT AUSGESPROCHENE HAMZA
+
+[x_dc90b2bbb6c1e2b7]
+(Hamzat al-Wasl)
+
+[s053_01]
+Manche Hamzas am Wortanfang verlieren ihr Vokalzeichen, wenn man sie mit dem Wort oder Buchstaben davor zusammen liest. Man liest sie dann, als wäre kein Hamza da. Sie werden wie ein Alif ohne Vokalzeichen geschrieben. Manchmal steht ein kleines Verbindungszeichen darauf, das zeigt, dass man es nicht liest. Solche Hamzas heißen Verbindungs-Hamzas.
+
+[s053_02]
+Wird sie am Wortanfang als erster Buchstabe ohne Verbindung zum Vorhergehenden gelesen, spricht man sie mit ihrem Vokal aus. Beispiele:
+
+[s053_03]
+In der letzten Lektion haben wir gesehen, dass das Alif jedes Artikels Alif-Lam auch so funktioniert.
+
+[x_86f5b8e231233867]
+Dehnung des Pronomens Ha
+
+[x_29881b4b13fe0c1f]
+30 Beispiele • Wann das Pronomen hū/hī gedehnt wird und wann nicht
+
+[s054_baslik_1]
+Die Dehnung des Pronomens Ha.
+
+[s054_baslik_2]
+Wann wird der Buchstabe „Ha“ gedehnt?
+
+[s054_01]
+Trägt der Buchstabe vor „Ha“ einen Vokal, wird „Ha“ gedehnt. Die Dauer bestimmt der folgende Buchstabe:
+
+[s054_02]
+Folgt auf das gedehnte „Ha“ eine Hamza, wird es vier Zeiteinheiten gedehnt.
+
+[x_6d1cb525ce29efc0]
+„Beispiele:“
+
+[s054_03]
+Folgt auf das gedehnte „Ha“ ein anderer Buchstabe als Hamza, wird es zwei Zeiteinheiten gedehnt.
+
+[s054_baslik_3]
+Wann wird der Buchstabe „Ha“ nicht gedehnt?
+
+[s054_04]
+Kommt vor dem Ha ein Dehnungsbuchstabe, liest du das Ha ohne Dehnung. Welcher Buchstabe nach dem Ha kommt, spielt dann keine Rolle.
+
+[x_94ed5dc0231585ae]
+Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht.
+
+[s055_01]
+Kommt vor dem Ha ein Buchstabe mit Sukun, liest du das Ha auch ohne Dehnung. Welcher Buchstabe nach dem Ha kommt, spielt dann keine Rolle.
+
+[x_a6eb86d55ff2c4aa]
+Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht.
+
+[s055_02]
+Wird „Ha“ mit einem Buchstaben mit Sukun oder Schadda im folgenden Wort verbunden, wird es nicht gedehnt, auch wenn der vorherige Buchstabe einen Vokal trägt.
+
+[x_1d1faaa83fcf957e]
+DES PRONOMENS „HA“
+
+[x_ee8e1cbd3c2079b9]
+Wann wird der Buchstabe „Ha“ gedehnt? Trägt der Buchstabe vor „Ha“ einen Vokal, wird „Ha“ gedehnt. Die Dauer bestimmt der folgende Buchstabe: Folgt auf das gedehnte „Ha“ eine Hamza, wird es vier Zeiteinheiten gedehnt. Beispiele:
+
+[x_96c5d379513d8b1e]
+Folgt auf das gedehnte „Ha“ ein anderer Buchstabe als Hamza, wird es zwei Zeiteinheiten gedehnt. Beispiele:
+
+[x_28754253bf2b3bf0]
+Wann wird der Buchstabe „Ha“ nicht gedehnt? Steht vor „Ha“ ein Dehnungsbuchstabe, wird „Ha“ ohne Dehnung gelesen. Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht. Beispiele:
+
+[x_61aadc3dfcac8192]
+Steht vor „Ha“ ein Buchstabe mit Sukun, wird es ebenfalls ohne Dehnung gelesen. Welcher Buchstabe nach „Ha“ folgt, ändert diese Regel nicht. Beispiele:
+
+[x_1bfb1f81a526bd8d]
+Wird „Ha“ mit einem Buchstaben mit Sukun oder Schadda im folgenden Wort verbunden, wird es nicht gedehnt, auch wenn der vorherige Buchstabe einen Vokal trägt. Beispiele:
+
+[x_27786241ecd048a1]
+Zeichen für langes Madd
+
+[x_77f7e81c04b47d5c]
+6 Aufnahmen • Dehnung mit dem Madd-Zeichen
+
+[s055_baslik_1]
+ZEICHEN FÜR LANGES MADD
+
+[s055_03]
+Dieses Zeichen steht über manchen Dehnungen von mehr als zwei Zeiteinheiten. Weitere Einzelheiten werden in den Tadschwidlektionen erklärt.
+
+[x_4e1d669af6d7c6c3]
+Ta marbuta
+
+[x_e8f29b4a56c0aeae]
+12 Aufnahmen • Ta marbuta beim Anhalten aussprechen
+
+[s056_baslik_1]
+TA MARBUTA
+
+[s056_01]
+Manchmal wird der Buchstabe Ta als Ta marbuta geschrieben, als geschlossenes Ta. Das gibt es nur am Wortende. Hängt es am Buchstaben davor, schreibt man die verbundene Form, sonst die einzelne Form.
+
+[s056_02]
+Hältst du bei einem Wort an, das auf Ta marbuta endet, liest du es wie ein Ha mit Sukun. Liest du zum nächsten Wort weiter, liest du es ganz normal als Ta, mit seinem Vokalzeichen.
+
+[x_cfe5770979bae97f]
+Sehen wir uns die Anwendung anhand von Beispielen an:
+
+[x_e5714a57261801f2]
+Anhalten am Wortende
+
+[x_120b40ec2d1fb2f4]
+28 Aufnahmen • Wortenden beim Anhalten aussprechen
+
+[s057_baslik_1]
+Wie hältst du bei einem Buchstaben mit Vokalzeichen am Wortende an?
+
+[x_b88ac8cf3bf1fad4]
+WIE HÄLT MAN AN?
+
+[x_498f7161c2217090]
+Wie hält man an einem vokalisierten Buchstaben am Wortende an?
+
+[s057_01]
+Beim Koranlesen halten wir gewöhnlich am Versende, an den Haltezeichen oder zum Atemholen an. Dabei darf nur am Wortende angehalten werden.
+
+[s057_02]
+Beim Anhalten wird keine Fatha, Kasra oder Damma ausgesprochen. Ist der letzte Buchstabe nicht bereits vokallos —mit Sukun oder als Dehnungsbuchstabe—, entfällt sein Vokal und er wird so gesprochen, als trüge er Sukun.
+
+[s057_03]
+Bei Tanwin gilt Folgendes: Bei doppelter Fatha mit Alif entfällt eine Fatha. Der Buchstabe wird mit einer einzelnen Fatha zwei Zeiteinheiten gedehnt gelesen.
+
+[s058_01]
+Beim Anhalten an einer Hamza mit doppelter Fatha ohne geschriebenes Alif wird ebenfalls zwei Zeiteinheiten gedehnt, als stünde daneben ein Alif.
+
+[s058_02]
+Bei Buchstaben mit doppelter Kasra oder doppelter Damma hält man mit Sukun an.
+
+[x_58eb04ec1974a351]
+Weitere Beispiele:
+
+[x_481eab08538f248a]
+Beispiele 1
+
+[x_20bddcdfee185870]
+24 Aufnahmen • Allgemeine Lesebeispiele
+
+[x_6aa191334112403e]
+Beispiele 1
+
+[x_a2e7e3d43413bac8]
+Allgemeine Leseübungen, die alle erlernten Regeln verbinden.
+
+[x_c09e400760ae1c4e]
+Beispiele 2
+
+[x_e35317198f77e9b8]
+27 Aufnahmen • Allgemeine Lesebeispiele
+
+[x_40652d006998933c]
+Beispiele 2
+
+[x_e9f0754f783d9731]
+Beispiele 3
+
+[x_81c650f34f9ef7ba]
+18 Aufnahmen • Allgemeine Lesebeispiele
+
+[x_78536bbcb13116f5]
+Beispiele 3
+
+[x_fe1c5274c7343aac]
+Beispiele 4
+
+[x_1dba50210b528662]
+Beispiele 4
+
+[s006_baslik_1]
+BUCHSTABEN
+
+[s036_baslik_1]
+WAW
+
+[game_1163b4ee95e9e8b1]
+Hör dir den Laut an und zieh den Buchstaben an die richtige Stelle.
+
+[game_76383fc2e674b663]
+Hör dir den Laut an und wähle die richtige Antwort.
+
+[game_6699058eadcc8a1e]
+Merk dir die Buchstaben und wo sie liegen. Tippe darauf, um den Laut zu hören.
+
+[game_22befd00bdb2fd62]
+Finde die gleichen Buchstaben.
+
+[game_dbe823f3a90768fe]
+Finde alle Formen desselben Buchstabens.
+
+[game_80ea5039cfcaba33]
+Finde den Buchstaben unter den ähnlichen Buchstaben.
+
+[game_31d31c3da808fd12]
+Tippe auf den Buchstaben in den Wörtern.
+
+[game_48b76d43e605c0cd]
+Finde die gleichen Buchstaben und füll die Waggons!
+
+[game_a2706d5ac68952cd]
+Hör dir den Laut an, finde den richtigen Buchstaben und lass den Ballon platzen!
+
+[game_9ebfbc7f7518cbdd]
+Hör dir den Laut an und fang das Auto mit dem richtigen Buchstaben!
+
+[game_0d44cf633f9e8dea]
+Hör dir den Buchstaben an und schau zu. Drück auf den Knopf, um zu sehen, wie man ihn zeichnet.
+
+[game_088fa9be949d3bf9]
+Schauen wir zusammen: So wird der Buchstabe gezeichnet.
+
+[game_52e28a03234a1b33]
+Bei diesem Buchstaben stehen die Punkte oben. Schauen wir zusammen.
+
+[game_9e452fdee48f0527]
+Bei diesem Buchstaben stehen die Punkte unten. Schauen wir zusammen.
+
+[game_3c3e8f3bf784b2a4]
+Das machst du gut!
+
+[game_62340b2635a94601]
+Nochmal spielen
+
+[game_a7869068cb320a7c]
+Zurück zu den Spielen
