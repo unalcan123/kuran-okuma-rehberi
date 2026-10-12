@@ -674,6 +674,29 @@ const Map<String, String> kNlStrings = {
       "6 kaarten, oude en nieuwe letters door elkaar; minder hulp.",
   "6 kart, bütün öğrendiğin harflerden; benzer harfler yan yana.":
       "6 kaarten uit alle letters die je kent; letters die op elkaar lijken naast elkaar.",
+  "Sesli kartlara dokun ve sesi dinle. Sonra aynı sesi veren harfi tutup karta sürükle. İstersen önce harfe, sonra karta da dokunabilirsin.":
+      "Tik op de geluidskaarten en luister. Pak dan de letter met dezelfde klank en sleep hem naar de kaart. Je kunt ook eerst op de letter en dan op de kaart tikken.",
+  "Önce sesi dinle. Sonra o sesi veren harfe dokun. Sesi tekrar duymak için hoparlöre bas.":
+      "Luister eerst naar de klank. Tik dan op de letter die zo klinkt. Druk op de luidspreker om het nog eens te horen.",
+  "Önce kartlara iyi bak ve harfleri aklında tut. Kartlar kapanınca iki karta dokun. Aynı harfleri bulursan kartlar açık kalır.":
+      "Kijk eerst goed naar de kaarten en onthoud de letters. Als ze omdraaien, tik je op twee kaarten. Vind je twee dezelfde letters, dan blijven ze open.",
+  "Sesi dinle. O harfin yazılı olduğu balonu bul ve dokunarak patlat. Balonlar uçup gitmeden yakala!":
+      "Luister naar de klank. Zoek de ballon met die letter en tik erop om hem te laten knallen. Vang hem voordat hij wegvliegt!",
+  "Sesi dinle. O harfi taşıyan arabayı bul ve dokunarak yakala.":
+      "Luister naar de klank. Zoek de auto met die letter en tik erop om hem te vangen.",
+  "Büyük harfe bak ve sesini dinle. Sonra kartlarda aynı harfi bul ve dokun. Birden fazla olabilir, hepsini bul!":
+      "Kijk naar de grote letter en luister naar de klank. Zoek dan dezelfde letter op de kaarten en tik erop. Er kunnen er meer zijn, zoek ze allemaal!",
+  "Üstteki harfe bak. Aynı harfi gösteren kartlara dokun, vagonlara yerleşsinler. Bütün vagonları doldur!":
+      "Kijk naar de letter bovenaan. Tik op de kaarten met dezelfde letter, dan gaan ze in de wagons. Vul alle wagons!",
+  "Önce harfin nasıl çizildiğini izle. Sonra yeşil noktadan başla ve parmağınla çizginin üstünden git.":
+      "Kijk eerst hoe de letter getekend wordt. Begin dan bij de groene stip en volg de lijn met je vinger.",
+  "Ekrandaki Arapça klavyede harflere dokun. Harfler kendiliğinden birleşir. Önce adını yazmayı dene!":
+      "Tik op de letters van het Arabische toetsenbord op het scherm. De letters verbinden zich vanzelf. Probeer eerst je naam te schrijven!",
+  "Nasıl oynanır?": "Hoe speel je?",
+  "Tekrar dinle": "Nog eens luisteren",
+  "Öğretmeni tekrar dinle": "De juf nog eens horen",
+  "Öğretmen sesini kapat": "Stem van de juf uitzetten",
+  "Öğretmen sesini aç": "Stem van de juf aanzetten",
   "Giriş": "Inleiding",
   "Harflerin Çıkış Yerleri": "Waar de letters vandaan komen",
   "Mahreçler • Derslere başlamadan önce": "Makhraj • Vóór de lessen",

@@ -21,6 +21,7 @@ import 'book_pages_test.dart' show app, lessonOf, setSize;
 import 'support/silent_audio.dart';
 import 'support/turkish_audio_texts.dart';
 import 'support/lesson_scroll.dart';
+import 'package:kuran_okuma_rehberi/widgets/teacher_head.dart';
 
 /// One player, like AudioService: whatever was asked last is the one
 /// sound playing, Turkish or Arabic.
@@ -53,7 +54,11 @@ List<Map<String, dynamic>> _entries() => [
 ];
 
 List<Map<String, dynamic>> _recordingInventory() => [
-  for (final path in ['tool/i18n/audio_tr.json', 'tool/i18n/game_audio_tr.json'])
+  for (final path in [
+    'tool/i18n/audio_tr.json',
+    'tool/i18n/game_audio_tr.json',
+    'tool/i18n/teacher_audio_tr.json',
+  ])
     for (final e in (jsonDecode(File(path).readAsStringSync()) as Map)['entries'] as List)
       e as Map<String, dynamic>,
 ];
@@ -66,7 +71,7 @@ Finder _block(String id) => find.byKey(ValueKey('tr-audio-$id'));
 Finder _icon(String id) => find.byKey(ValueKey('tr-audio-icon-$id'));
 
 bool _isPlayingIcon(WidgetTester tester, String id) =>
-    tester.widget<Icon>(_icon(id)).icon == Icons.volume_up_rounded;
+    tester.widget<TeacherHead>(_icon(id)).speaking;
 
 void main() {
   tearDown(() => TurkishAudioCatalog.debugSetAvailable(const {}));
@@ -244,7 +249,7 @@ void main() {
       await tester.pumpWidget(app(audio, kUstunLesson));
       await tester.pumpAndSettle();
 
-      expect(find.byIcon(Icons.volume_up_outlined), findsNothing);
+      expect(find.byType(TeacherHead), findsNothing);
       expect(_block('s014_02'), findsNothing);
       await tester.tap(
         find.textContaining('Üstün, harfin', findRichText: true),

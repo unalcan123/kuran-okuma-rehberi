@@ -24,6 +24,20 @@ enum AudioPlaybackState { stopped, playing, paused }
 /// file again for every single play. Screens therefore call [preload]
 /// when they open, and every sound is played from memory once loaded
 /// (see [SoundCache]). Native apps have the files locally and skip this.
+/// Orijinal kayıtlar (hocamızın okuduğu harf/ders sesleri) hiç değiştirilmez.
+/// Bir kaydın yalnızca çalma seviyesi düzeltilecekse düzeltilmiş kopyası
+/// `assets/audio/duzeltmeler/` altına konur ve burada eşlenir; uygulama
+/// orijinal yolu ister, kopya çalar. Satırı silmek orijinale döndürür.
+const Map<String, String> kAudioReplacements = {
+  // Ders 1 Lam çok yüksek ve kırpılıyordu ("bağırıyor"): ~4 dB kısık,
+  // tepe sınırlı, kuyruk yumuşak (kullanıcı isteği, 2026-10-12).
+  'audio/elifba/ders_1_harfler/23_lam.mp3': 'audio/duzeltmeler/23_lam_seviye.mp3',
+};
+
+/// [assetPath] yerine çalınacak dosya (çoğu zaman kendisi).
+String playableAsset(String assetPath) =>
+    kAudioReplacements[assetPath] ?? assetPath;
+
 class AudioService extends ChangeNotifier {
   AudioService({SoundCache? cache, AudioEngineFactory? engine})
     : _cache =
@@ -78,7 +92,7 @@ class AudioService extends ChangeNotifier {
     if (!kIsWeb) return;
     final paths = [
       for (final path in assetPaths)
-        if (path != null && path.isNotEmpty) path,
+        if (path != null && path.isNotEmpty) playableAsset(path),
     ];
     unawaited(_cache.preload(paths));
     _engine.preload(paths);
@@ -136,9 +150,10 @@ class AudioService extends ChangeNotifier {
 
   /// Synchronous up to the engine's first wait, so that on the web a sound
   /// already in memory starts within the touch that asked for it.
-  Future<void> _start(String assetPath) async {
+  Future<void> _start(String requested) async {
+    final assetPath = playableAsset(requested);
     final token = ++_playToken;
-    _currentAsset = assetPath;
+    _currentAsset = requested;
     _state = AudioPlaybackState.playing;
     notifyListeners();
     if (token != _playToken) return; // a listener already started another

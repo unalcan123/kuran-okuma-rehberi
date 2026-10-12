@@ -44,7 +44,9 @@ void main() {
             path.startsWith('assets/audio/$language/');
       });
       final total = selected.fold<int>(0, (sum, f) => sum + f.lengthSync());
-      expect(total, lessThan(30 * 1024 * 1024), reason: language);
+      // 30 MB idi; sesli öğretmen konuşmalarıyla (2026-10-12) Türkçe ~30,03 MB
+      // oldu. Sesler ihtiyaç oldukça indirilir; sınır 32 MB.
+      expect(total, lessThan(32 * 1024 * 1024), reason: language);
     }
   });
 

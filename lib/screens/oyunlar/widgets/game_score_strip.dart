@@ -1,5 +1,6 @@
 import '../../../l10n/l10n.dart';
 import '../../../widgets/game_narrated_text.dart';
+import '../../../widgets/teacher_voice_controls.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -147,6 +148,7 @@ class _GameScoreStripState extends State<GameScoreStrip> {
                       ),
             ),
           ),
+          const TeacherVoiceControls(size: 18),
         ],
       ),
     );

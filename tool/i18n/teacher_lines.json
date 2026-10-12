@@ -1,0 +1,194 @@
+{
+  "about": "Sesli öğretmen konuşmaları (oyunlar). Kimlik kalıcı; Dart tarafı lib/services/teacher_voice.dart (TeacherLine). Yapay zekâ öğretmen sesi; hocamızın orijinal kayıtları ayrıdır ve değişmez. Arapça yok. Ses üretimi: python tool/i18n/build_teacher_audio.py, sonra üretici (docs/OGRETMEN_SESI.md).",
+  "lines": {
+    "v_new_letters": {
+      "tr": "Şimdi yeni harfler öğreneceğiz. Harfi dinle ve doğru kutuya sürükle.",
+      "es": "Ahora vamos a aprender letras nuevas. Escucha la letra y arrástrala a la caja correcta.",
+      "fr": "Maintenant, nous allons apprendre de nouvelles lettres. Écoute la lettre et fais-la glisser dans la bonne case.",
+      "en": "Now we will learn some new letters. Listen to the letter and drag it to the right box.",
+      "nl": "Nu gaan we nieuwe letters leren. Luister naar de letter en sleep hem naar het goede vakje."
+    },
+    "v_review_old": {
+      "tr": "Şimdi eski harfleri de tekrar edeceğiz.",
+      "es": "Ahora vamos a repasar también las letras anteriores.",
+      "fr": "Maintenant, nous allons aussi revoir les lettres d’avant.",
+      "en": "Now we will also review the letters you learned before.",
+      "nl": "Nu gaan we ook de letters van eerder herhalen."
+    },
+    "v_reinforce": {
+      "tr": "Zorlandığın harflere birlikte bakalım.",
+      "es": "Veamos juntos las letras que te costaron.",
+      "fr": "Regardons ensemble les lettres qui étaient difficiles.",
+      "en": "Let's look at the tricky letters together.",
+      "nl": "Laten we samen naar de lastige letters kijken."
+    },
+    "v_daily_start": {
+      "tr": "Önce eski harfleri kısaca tekrar edelim.",
+      "es": "Primero, repasemos un poco las letras anteriores.",
+      "fr": "D’abord, revoyons rapidement les lettres d’avant.",
+      "en": "First, let's quickly review the letters from before.",
+      "nl": "Laten we eerst even de letters van eerder herhalen."
+    },
+    "v_mastery": {
+      "tr": "Bütün harflerle karışık oynuyoruz.",
+      "es": "Ahora jugamos con todas las letras mezcladas.",
+      "fr": "Maintenant, on joue avec toutes les lettres mélangées.",
+      "en": "Now we are playing with all the letters mixed together.",
+      "nl": "Nu spelen we met alle letters door elkaar."
+    },
+    "v_try_again": {
+      "tr": "Tekrar deneyelim.",
+      "es": "Intentémoslo otra vez.",
+      "fr": "Essayons encore une fois.",
+      "en": "Let's try again.",
+      "nl": "Laten we het nog eens proberen."
+    },
+    "v_look_dots": {
+      "tr": "Bu harfin noktalarına dikkat et.",
+      "es": "Fíjate bien en los puntos de esta letra.",
+      "fr": "Regarde bien les points de cette lettre.",
+      "en": "Look carefully at the dots of this letter.",
+      "nl": "Let goed op de puntjes van deze letter."
+    },
+    "v_hint": {
+      "tr": "Parlayan harfe bir bak.",
+      "es": "Mira la letra que brilla.",
+      "fr": "Regarde la lettre qui brille.",
+      "en": "Look at the letter that is glowing.",
+      "nl": "Kijk eens naar de letter die oplicht."
+    },
+    "v_correct": {
+      "tr": "Aferin, doğru cevap!",
+      "es": "¡Muy bien, respuesta correcta!",
+      "fr": "Bravo, c’est la bonne réponse !",
+      "en": "Well done, that's right!",
+      "nl": "Goed zo, dat is het goede antwoord!"
+    },
+    "v_perfect": {
+      "tr": "Harika! Hepsini ilk denemede bildin.",
+      "es": "¡Genial! Las acertaste todas a la primera.",
+      "fr": "Super ! Tu les as toutes trouvées du premier coup.",
+      "en": "Great! You got them all right the first time.",
+      "nl": "Geweldig! Je had ze allemaal in één keer goed."
+    },
+    "v_learned": {
+      "tr": "Aferin! Yeni harfleri öğrendin. Şimdi eskilerle karışık tekrar yapalım.",
+      "es": "¡Muy bien! Aprendiste las letras nuevas. Ahora hagamos un repaso mezclado con las anteriores.",
+      "fr": "Bravo ! Tu as appris les nouvelles lettres. Maintenant, faisons une révision avec les anciennes.",
+      "en": "Well done! You learned the new letters. Now let's do a mixed review with the earlier ones.",
+      "nl": "Goed zo! Je hebt de nieuwe letters geleerd. Nu doen we een gemengde herhaling met de oude."
+    },
+    "v_level_up": {
+      "tr": "Tebrikler! Yeni seviyeye geçtin, yeni harfler açıldı.",
+      "es": "¡Felicidades! Pasaste al siguiente nivel y se abrieron letras nuevas.",
+      "fr": "Félicitations ! Tu passes au niveau suivant, de nouvelles lettres sont ouvertes.",
+      "en": "Congratulations! You reached a new level, and new letters are open.",
+      "nl": "Gefeliciteerd! Je bent een niveau verder en er zijn nieuwe letters open."
+    },
+    "v_reinforce_pass": {
+      "tr": "Testi geçtin! Önce zorlandığın harflere kısa bir bakış.",
+      "es": "¡Superaste la prueba! Antes, un repaso corto de las letras difíciles.",
+      "fr": "Tu as réussi le test ! D’abord, un petit retour sur les lettres difficiles.",
+      "en": "You passed the test! First, a quick look at the tricky letters.",
+      "nl": "Je bent geslaagd! Eerst nog even de lastige letters."
+    },
+    "v_keep_practicing": {
+      "tr": "Biraz daha çalışalım. Birlikte yapabiliriz.",
+      "es": "Practiquemos un poco más. ¡Juntos lo conseguiremos!",
+      "fr": "Entraînons-nous encore un peu. Ensemble, on va y arriver.",
+      "en": "Let's practise a little more. We can do it together.",
+      "nl": "Laten we nog wat oefenen. Samen lukt het ons."
+    },
+    "v_retest": {
+      "tr": "Şimdi karışık tekrarı bir daha deneyelim.",
+      "es": "Ahora intentemos otra vez el repaso mezclado.",
+      "fr": "Maintenant, refaisons la révision mélangée.",
+      "en": "Now let's try the mixed review again.",
+      "nl": "Laten we de gemengde herhaling nu nog eens proberen."
+    },
+    "v_all_learned": {
+      "tr": "Harika! Bütün harfleri öğrendin. Ustalık turları seni bekliyor.",
+      "es": "¡Genial! Aprendiste todas las letras. Te esperan las rondas de maestría.",
+      "fr": "Super ! Tu as appris toutes les lettres. Les tours de maîtrise t’attendent.",
+      "en": "Great! You learned all the letters. Mastery rounds are waiting for you.",
+      "nl": "Geweldig! Je hebt alle letters geleerd. De meesterrondes wachten op je."
+    },
+    "v_daily_done": {
+      "tr": "Günlük tekrarı bitirdin, aferin!",
+      "es": "¡Terminaste el repaso diario, muy bien!",
+      "fr": "Tu as fini la révision du jour, bravo !",
+      "en": "You finished the daily review, well done!",
+      "nl": "Je hebt de dagelijkse herhaling af, goed zo!"
+    },
+    "v_game_done": {
+      "tr": "Tebrikler! Oyunu tamamladın.",
+      "es": "¡Felicidades! Terminaste el juego.",
+      "fr": "Félicitations ! Tu as terminé le jeu.",
+      "en": "Congratulations! You finished the game.",
+      "nl": "Gefeliciteerd! Je hebt het spel uitgespeeld."
+    },
+    "v_howto_drag_drop": {
+      "tr": "Sesli kartlara dokun ve sesi dinle. Sonra aynı sesi veren harfi tutup karta sürükle. İstersen önce harfe, sonra karta da dokunabilirsin.",
+      "es": "Toca las tarjetas con sonido y escucha. Luego toma la letra que suena igual y arrástrala a la tarjeta. También puedes tocar primero la letra y luego la tarjeta.",
+      "fr": "Touche les cartes sonores et écoute. Ensuite, prends la lettre qui fait le même son et fais-la glisser sur la carte. Tu peux aussi toucher d’abord la lettre, puis la carte.",
+      "en": "Tap the sound cards and listen. Then take the letter that makes the same sound and drag it onto the card. You can also tap the letter first and then the card.",
+      "nl": "Tik op de geluidskaarten en luister. Pak dan de letter met dezelfde klank en sleep hem naar de kaart. Je kunt ook eerst op de letter en dan op de kaart tikken."
+    },
+    "v_howto_listen_pick": {
+      "tr": "Önce sesi dinle. Sonra o sesi veren harfe dokun. Sesi tekrar duymak için hoparlöre bas.",
+      "es": "Primero escucha el sonido. Luego toca la letra que suena así. Para oírlo otra vez, pulsa el altavoz.",
+      "fr": "Écoute d’abord le son. Ensuite, touche la lettre qui fait ce son. Pour l’entendre encore, appuie sur le haut-parleur.",
+      "en": "First listen to the sound. Then tap the letter that makes that sound. To hear it again, press the speaker.",
+      "nl": "Luister eerst naar de klank. Tik dan op de letter die zo klinkt. Druk op de luidspreker om het nog eens te horen."
+    },
+    "v_howto_memory": {
+      "tr": "Önce kartlara iyi bak ve harfleri aklında tut. Kartlar kapanınca iki karta dokun. Aynı harfleri bulursan kartlar açık kalır.",
+      "es": "Primero mira bien las tarjetas y recuerda las letras. Cuando se den la vuelta, toca dos tarjetas. Si encuentras dos letras iguales, se quedan abiertas.",
+      "fr": "Regarde d’abord bien les cartes et retiens les lettres. Quand elles se retournent, touche deux cartes. Si tu trouves deux lettres pareilles, elles restent ouvertes.",
+      "en": "First look carefully at the cards and remember the letters. When they turn over, tap two cards. If you find two matching letters, they stay open.",
+      "nl": "Kijk eerst goed naar de kaarten en onthoud de letters. Als ze omdraaien, tik je op twee kaarten. Vind je twee dezelfde letters, dan blijven ze open."
+    },
+    "v_howto_bul_patlat": {
+      "tr": "Sesi dinle. O harfin yazılı olduğu balonu bul ve dokunarak patlat. Balonlar uçup gitmeden yakala!",
+      "es": "Escucha el sonido. Busca el globo con esa letra y tócalo para explotarlo. ¡Atrápalo antes de que se vaya volando!",
+      "fr": "Écoute le son. Trouve le ballon avec cette lettre et touche-le pour le faire éclater. Attrape-le avant qu’il s’envole !",
+      "en": "Listen to the sound. Find the balloon with that letter and tap it to pop it. Catch it before it floats away!",
+      "nl": "Luister naar de klank. Zoek de ballon met die letter en tik erop om hem te laten knallen. Vang hem voordat hij wegvliegt!"
+    },
+    "v_howto_harf_arabalari": {
+      "tr": "Sesi dinle. O harfi taşıyan arabayı bul ve dokunarak yakala.",
+      "es": "Escucha el sonido. Busca el coche que lleva esa letra y tócalo para atraparlo.",
+      "fr": "Écoute le son. Trouve la voiture qui porte cette lettre et touche-la pour l’attraper.",
+      "en": "Listen to the sound. Find the car carrying that letter and tap it to catch it.",
+      "nl": "Luister naar de klank. Zoek de auto met die letter en tik erop om hem te vangen."
+    },
+    "v_howto_harf_dedektifi": {
+      "tr": "Büyük harfe bak ve sesini dinle. Sonra kartlarda aynı harfi bul ve dokun. Birden fazla olabilir, hepsini bul!",
+      "es": "Mira la letra grande y escucha su sonido. Luego busca la misma letra en las tarjetas y tócala. Puede haber varias, ¡encuéntralas todas!",
+      "fr": "Regarde la grande lettre et écoute son son. Ensuite, trouve la même lettre sur les cartes et touche-la. Il peut y en avoir plusieurs, trouve-les toutes !",
+      "en": "Look at the big letter and listen to its sound. Then find the same letter on the cards and tap it. There may be more than one, so find them all!",
+      "nl": "Kijk naar de grote letter en luister naar de klank. Zoek dan dezelfde letter op de kaarten en tik erop. Er kunnen er meer zijn, zoek ze allemaal!"
+    },
+    "v_howto_harf_treni": {
+      "tr": "Üstteki harfe bak. Aynı harfi gösteren kartlara dokun, vagonlara yerleşsinler. Bütün vagonları doldur!",
+      "es": "Mira la letra de arriba. Toca las tarjetas con la misma letra para subirlas a los vagones. ¡Llena todos los vagones!",
+      "fr": "Regarde la lettre en haut. Touche les cartes avec la même lettre pour les mettre dans les wagons. Remplis tous les wagons !",
+      "en": "Look at the letter at the top. Tap the cards with the same letter to put them in the carriages. Fill all the carriages!",
+      "nl": "Kijk naar de letter bovenaan. Tik op de kaarten met dezelfde letter, dan gaan ze in de wagons. Vul alle wagons!"
+    },
+    "v_howto_harf_ciziyorum": {
+      "tr": "Önce harfin nasıl çizildiğini izle. Sonra yeşil noktadan başla ve parmağınla çizginin üstünden git.",
+      "es": "Primero mira cómo se dibuja la letra. Luego empieza en el punto verde y sigue la línea con el dedo.",
+      "fr": "Regarde d’abord comment on trace la lettre. Ensuite, commence au point vert et suis la ligne avec ton doigt.",
+      "en": "First watch how the letter is drawn. Then start at the green dot and follow the line with your finger.",
+      "nl": "Kijk eerst hoe de letter getekend wordt. Begin dan bij de groene stip en volg de lijn met je vinger."
+    },
+    "v_howto_arapca_yaziyorum": {
+      "tr": "Ekrandaki Arapça klavyede harflere dokun. Harfler kendiliğinden birleşir. Önce adını yazmayı dene!",
+      "es": "Toca las letras del teclado árabe de la pantalla. Las letras se unen solas. ¡Prueba primero a escribir tu nombre!",
+      "fr": "Touche les lettres du clavier arabe à l’écran. Les lettres se relient toutes seules. Essaie d’abord d’écrire ton prénom !",
+      "en": "Tap the letters on the Arabic keyboard on the screen. The letters join by themselves. Try writing your name first!",
+      "nl": "Tik op de letters van het Arabische toetsenbord op het scherm. De letters verbinden zich vanzelf. Probeer eerst je naam te schrijven!"
+    }
+  }
+}

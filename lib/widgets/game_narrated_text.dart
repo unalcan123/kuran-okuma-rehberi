@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../l10n/l10n.dart';
 import '../l10n/game_narration_ids.g.dart';
+import 'teacher_head.dart';
 import 'turkish_audio_block.dart';
 
 /// Instructions play only when tapped, keeping target letter sounds intact.
@@ -25,11 +26,7 @@ class GameNarratedText extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (available) ...[
-              Icon(
-                playing ? Icons.volume_up : Icons.volume_up_outlined,
-                size: 18,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              TeacherHead(size: 18, speaking: playing),
               const SizedBox(width: 4),
             ],
             Flexible(

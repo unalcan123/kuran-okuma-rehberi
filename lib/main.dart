@@ -18,6 +18,7 @@ import 'services/leaderboard/firestore_learning_cloud.dart';
 import 'services/leaderboard/leaderboard_backend.dart';
 import 'services/leaderboard/leaderboard_service.dart';
 import 'services/reading_settings.dart';
+import 'services/teacher_voice.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +45,8 @@ Future<void> main() async {
         // Yerel oyuncu profilleri + oyun başına skor tabloları.
         ChangeNotifierProvider(create: (_) => PlayerRepository()..load()),
         Provider<LeaderboardService>.value(value: leaderboard),
+        // Oyunlardaki sesli öğretmen (aç/kapa cihazda hatırlanır).
+        ChangeNotifierProvider(create: (_) => TeacherVoice()..load()),
         // Sürükle & Bırak öğrenme durumunun bulut kopyası.
         Provider<LearningCloud>.value(
           value: FirestoreLearningCloud(ready: firebase),

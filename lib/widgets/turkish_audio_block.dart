@@ -5,6 +5,7 @@ import '../l10n/l10n.dart';
 import '../services/audio_service.dart';
 import '../services/turkish_audio_catalog.dart';
 import '../theme/app_colors.dart';
+import 'teacher_head.dart';
 
 /// Makes a Turkish explanation (or heading) listenable: tapping anywhere on
 /// it plays its recording [audioId] on the app's one [AudioService] player,
@@ -58,7 +59,8 @@ class TurkishAudioTap extends StatelessWidget {
   }
 }
 
-/// The small speaker shown before a listenable text; filled while it plays.
+/// The small teacher face shown before a listenable text (the AI teacher's
+/// voice); it talks while it plays. Arabic recordings keep the speaker.
 class TurkishAudioIcon extends StatelessWidget {
   const TurkishAudioIcon({
     super.key,
@@ -72,11 +74,10 @@ class TurkishAudioIcon extends StatelessWidget {
   final double size;
 
   @override
-  Widget build(BuildContext context) => Icon(
-    playing ? Icons.volume_up_rounded : Icons.volume_up_outlined,
+  Widget build(BuildContext context) => TeacherHead(
     key: ValueKey('tr-audio-icon-$audioId'),
     size: size,
-    color: AppColors.turquoise,
+    speaking: playing,
   );
 }
 

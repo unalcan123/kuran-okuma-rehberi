@@ -64,6 +64,6 @@ Oyun açıklamaları kapsamda kalır. Makine tarafından okunabilir tercih:
 ElevenLabs sesi, `languageCode: nl`, `eleven_flash_v2_5`). Üretim:
 `python tool/turkish_audio/generate_turkish_audio.py --manifest tool/i18n/audio_nl.json --all`.
 
-11 Ekim 2026: fr/es/en dil başına 207 ders kaydı ve 17 oyun kaydı; tr 102 mevcut ders kaydı, 130 ek açıklama ve 17 oyun kaydı. Girişe yeni kayıt eklenmedi. Sesler yalnız seçili dil için ihtiyaç oldukça indirilir. Aktif dil başına toplam ortak ve dil sesleri 30 MB sınırını geçmez.
+11 Ekim 2026: fr/es/en dil başına 207 ders kaydı ve 17 oyun kaydı; tr 102 mevcut ders kaydı, 130 ek açıklama ve 17 oyun kaydı. Girişe yeni kayıt eklenmedi. Sesler yalnız seçili dil için ihtiyaç oldukça indirilir. Aktif dil başına toplam ortak ve dil sesleri 32 MB sınırını geçmez (2026-10-12'de sesli öğretmenle 30 → 32 MB).
 
 İlgili 101 ders/ses/platform/oyuncu/ana ekran testi ve aktif çeviri tablosu kontrolü geçti. Oyun adları, zorluklar, puan/deneme/çift bilgileri, okuma ayarları, dua/sure kontrolleri ve iletişim formu aktif dillere bağlıdır. Tam l10n kontrolü geçti. Gerçek Safari cihaz ve insan telaffuz kontrolü ayrıca gerekir. Yerel ön izleme build/ses_deneme_web; Yayın GitHub Pages kontrol hattıyla yapılır.
