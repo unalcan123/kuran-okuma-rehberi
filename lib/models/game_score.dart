@@ -124,6 +124,7 @@ class GameHistory {
     this.totalPoints = 0,
     this.bestPoints = 0,
     this.recent = const [],
+    this.lastPlayedAt,
   });
 
   /// How many results are kept and shown as "the last five".
@@ -135,6 +136,9 @@ class GameHistory {
 
   /// Points of the last [recentCount] games, oldest first.
   final List<int> recent;
+
+  /// When a game was last finished (null: before dates were kept).
+  final DateTime? lastPlayedAt;
 
   bool get hasPlayed => plays > 0;
 

@@ -93,6 +93,7 @@ class FakeBackend implements LeaderboardBackend {
           playerId: rows[i].playerId,
           nickname: rows[i].nickname,
           bestScore: rows[i].best,
+          bestAt: DateTime(2026).add(Duration(seconds: rows[i].at)),
         ),
     ];
   }

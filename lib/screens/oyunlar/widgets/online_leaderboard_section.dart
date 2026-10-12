@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../services/leaderboard/leaderboard_models.dart';
 import '../harf_oyunlari/game_panels.dart';
 import '../harf_oyunlari/game_texts.dart';
+import '../../../l10n/date_format.dart';
 
 /// Oyun sonu panelindeki "Genel Sıralama" bölümü (tüm oyunlar için ortak):
 /// ilk 10, oyuncunun kendi satırı ("SEN"), "N oyuncu arasında K. sıradasın".
@@ -331,6 +332,19 @@ class _RankRow extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 10,
                   fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
+          if (row.bestAt != null)
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Text(
+                context.shortDateOf(row.bestAt!),
+                key: Key('online-date-${row.rank}'),
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                  color: kGameInk.withValues(alpha: 0.55),
                 ),
               ),
             ),

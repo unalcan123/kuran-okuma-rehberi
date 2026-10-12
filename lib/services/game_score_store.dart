@@ -31,6 +31,7 @@ class GameScoreStore {
   static String _totalKey(String key) => 'game_history.$key.total';
   static String _topKey(String key) => 'game_history.$key.top';
   static String _recentKey(String key) => 'game_history.$key.recent';
+  static String _lastKey(String key) => 'game_history.$key.last';
 
   Future<GameRecord> recordOf(String gameKey) async {
     try {
@@ -64,6 +65,13 @@ class GameScoreStore {
       recent: [
         for (final h in [...histories.skip(1), histories.first]) ...h.recent,
       ].takeLast(GameHistory.recentCount),
+      lastPlayedAt: histories
+          .map((h) => h.lastPlayedAt)
+          .whereType<DateTime>()
+          .fold<DateTime?>(
+            null,
+            (latest, t) => latest == null || t.isAfter(latest) ? t : latest,
+          ),
     );
   }
 
@@ -78,6 +86,10 @@ class GameScoreStore {
           for (final value in prefs.getStringList(_recentKey(gameKey)) ?? [])
             if (int.tryParse(value) case final points?) points,
         ],
+        lastPlayedAt: switch (prefs.getInt(_lastKey(gameKey))) {
+          final ms? => DateTime.fromMillisecondsSinceEpoch(ms),
+          null => null,
+        },
       );
     } catch (error) {
       debugPrint('GameScoreStore: "$gameKey" geçmişi okunamadı — $error');
@@ -114,6 +126,10 @@ class GameScoreStore {
       await prefs.setStringList(_recentKey(gameKey), [
         for (final points in recent) '$points',
       ]);
+      await prefs.setInt(
+        _lastKey(gameKey),
+        DateTime.now().millisecondsSinceEpoch,
+      );
     } catch (error) {
       debugPrint('GameScoreStore: "$gameKey" kaydedilemedi — $error');
     }

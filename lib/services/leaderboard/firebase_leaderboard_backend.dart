@@ -146,6 +146,7 @@ class FirebaseLeaderboardBackend implements LeaderboardBackend {
               playerId: '${d['playerId']}',
               nickname: '${d['nickname']}',
               bestScore: d['bestScore'] is int ? d['bestScore'] as int : 0,
+              bestAt: d['bestAt'] is Timestamp ? (d['bestAt'] as Timestamp).toDate() : null,
             ),
           );
         }

@@ -106,12 +106,16 @@ class LeaderboardRow {
     required this.playerId,
     required this.nickname,
     required this.bestScore,
+    this.bestAt,
   });
 
   final int rank;
   final String playerId;
   final String nickname;
   final int bestScore;
+
+  /// Bu puana ulaştığı zaman (sunucu zamanı; bilinmiyorsa null).
+  final DateTime? bestAt;
 }
 
 /// Bir oyuncunun bir oyundaki kayıtlı en iyisi (sıra hesabı için zamanı da).

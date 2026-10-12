@@ -350,6 +350,7 @@ class LeaderboardService {
           playerId: playerId,
           nickname: mine.nickname,
           bestScore: mine.bestScore,
+          bestAt: mine.bestAt,
         );
       }
     }

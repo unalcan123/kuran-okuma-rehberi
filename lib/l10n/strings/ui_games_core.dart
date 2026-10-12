@@ -446,4 +446,12 @@ const Map<String, List<String>> kUiGamesCore = {
     "Suggestions",
     "",
   ],
+  // Oyuncunun ne zaman oynadığı.
+  "Son oynama: {date}": [
+    "Última partida: {date}",
+    "Dernière partie : {date}",
+    "",
+    "Last played: {date}",
+    "",
+  ],
 };

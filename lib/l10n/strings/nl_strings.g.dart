@@ -702,6 +702,7 @@ const Map<String, String> kNlStrings = {
   "“{name}” adını başka bir oyuncu daha önce almış. Lütfen kendine yeni bir ad seç.":
       "Een andere speler had de naam “{name}” al. Kies alsjeblieft een nieuwe naam.",
   "Öneriler": "Suggesties",
+  "Son oynama: {date}": "Laatst gespeeld: {date}",
   "Giriş": "Inleiding",
   "Harflerin Çıkış Yerleri": "Waar de letters vandaan komen",
   "Mahreçler • Derslere başlamadan önce": "Makhraj • Vóór de lessen",

@@ -8,6 +8,7 @@ import '../../../services/game_score_store.dart';
 import '../../../theme/app_colors.dart';
 import '../games.dart';
 import '../../../widgets/game_meadow_background.dart';
+import '../../../l10n/date_format.dart';
 
 /// "Sonuçlarım": a list of the games the child has played. Each row is
 /// one separate game (say "Oyun 3", or a Dinle ve Seç lesson) with how
@@ -226,6 +227,16 @@ class _ResultRow extends StatelessWidget {
             color: AppColors.navy,
           ),
         ),
+        if (history.lastPlayedAt != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 2),
+            child: Text(
+              context.t('Son oynama: {date}', {
+                'date': context.shortDateOf(history.lastPlayedAt!),
+              }),
+              style: muted?.copyWith(fontSize: 13),
+            ),
+          ),
         const SizedBox(height: 8),
         Row(
           children: [
