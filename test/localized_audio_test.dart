@@ -26,7 +26,12 @@ void main() {
     final units =
         jsonDecode(File('tool/i18n/content_units.json').readAsStringSync())
             as List;
-    for (final language in [AppLanguage.es, AppLanguage.fr, AppLanguage.en]) {
+    for (final language in [
+      AppLanguage.es,
+      AppLanguage.fr,
+      AppLanguage.en,
+      AppLanguage.nl,
+    ]) {
       final manifest =
           jsonDecode(
                 File(
@@ -61,7 +66,7 @@ void main() {
       }
     }
   });
-  test('game instructions are recorded in all four active languages', () {
+  test('game instructions are recorded in all active languages', () {
     for (final language in AppLanguage.active) {
       final manifest =
           jsonDecode(
@@ -95,6 +100,46 @@ void main() {
       expect(find.text('Ders 1 · Harfleri Tanıyalım'), findsNothing);
     },
   );
+
+  testWidgets('Dutch lesson title, page controls and recordings', (
+    tester,
+  ) async {
+    setSize(tester, const Size(800, 1000));
+    final controller = LanguageController(initial: AppLanguage.nl);
+    TurkishAudioCatalog.debugSetAvailable({});
+    await tester.pumpWidget(
+      AppLanguageScope(
+        controller: controller,
+        child: app(_RecordingPlayer(), kHarfleriTaniyalimLesson),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Les 1 · Laten we de letters leren kennen'), findsOneWidget);
+    expect(find.text('📖 Pagina'), findsOneWidget);
+    expect(find.text('Volgende pagina'), findsOneWidget);
+
+    final player = _RecordingPlayer();
+    TurkishAudioCatalog.debugSetAvailable({'audio/nl/s040_01.mp3'});
+    await tester.pumpWidget(
+      ChangeNotifierProvider<AudioService>.value(
+        value: player,
+        child: AppLanguageScope(
+          controller: controller,
+          child: MaterialApp(
+            home: Scaffold(
+              body: TurkishAudioTap(
+                audioId: 's040_01',
+                builder: (_, available, playing) =>
+                    Text(available ? 'listen' : 'unavailable'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('listen'));
+    expect(player.last, 'audio/nl/s040_01.mp3');
+  });
 
   testWidgets(
     'switching language plays that language without Turkish fallback',

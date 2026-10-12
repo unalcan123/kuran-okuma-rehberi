@@ -34,7 +34,7 @@ void main() {
   test('all recordings together stay light enough to download', () {
     // Arabic and effects are shared; explanation clips load on demand only
     // in the selected language, never all language folders at once.
-    const languages = ['tr', 'es', 'fr', 'en', 'de', 'bs'];
+    const languages = ['tr', 'es', 'fr', 'en', 'de', 'bs', 'nl'];
     for (final language in languages) {
       final selected = files.where((file) {
         final path = _norm(file.path);

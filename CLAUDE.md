@@ -17,6 +17,8 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - **Çevrimiçi sıralama** (Firebase: anonim giriş + Firestore, Bul & Patlat / Harf Arabaları,
   kurallar, sahte skor sınırları, yeni oyun bağlama): `docs/FIREBASE.md`. Kural değişince
   `firebase deploy --only firestore` ve `tool/firestore_rules_test` (npm test).
+- **Diller** (tr/es/fr/en/nl menüde; nl metinleri `tool/i18n/*_nl.json` → `build_nl_strings.py`, Hollandaca kitap
+  `assets/lazim/ELIF BA 2015_FS2.pdf` Türkçe baskıdan 1 sayfa kaymış): `docs/DILLER.md`.
 - Dualar kaynağı: `docs/dualar_source.md`.
 
 ## Genel kurallar

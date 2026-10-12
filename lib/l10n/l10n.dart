@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import 'app_language.dart';
 import 'language_controller.dart';
+import 'strings/nl_strings.g.dart';
 import 'strings/strings.dart';
 
 export 'app_language.dart';
@@ -31,7 +32,7 @@ class AppLanguageScope extends InheritedNotifier<LanguageController> {
 
 /// Text in the user's language. Every text of the app is written in
 /// Turkish in the code (the book's language); the Turkish text is the key
-/// of its translations ([kStringTables]): one row of five, in the order of
+/// of its translations ([kStringTables]): one row per language, in the order of
 /// [AppLanguage] after Turkish.
 ///
 /// `{name}` placeholders are filled from `args` after translating.
@@ -39,8 +40,20 @@ abstract final class L10n {
   static Map<String, List<String>>? _merged;
   static final Map<(AppLanguage, String), String?> _templateCache = {};
 
+  /// Every table merged; each row gets its Dutch text ([kNlStrings]) as
+  /// the last column ('' when missing; tests make sure none is). A text
+  /// only Dutch has (e.g. the intro) gets a row of its own.
   static Map<String, List<String>> get table =>
-      _merged ??= {for (final table in kStringTables) ...table};
+      _merged ??= () {
+        final rows = {for (final table in kStringTables) ...table};
+        return {
+          for (final MapEntry(:key, :value) in rows.entries)
+            key: [...value, kNlStrings[key] ?? ''],
+          for (final MapEntry(:key, :value) in kNlStrings.entries)
+            if (!rows.containsKey(key))
+              key: [for (var i = 1; i < AppLanguage.nl.index; i++) '', value],
+        };
+      }();
 
   /// The translation of [source], or null when [language] has none
   /// (Turkish is the source itself).

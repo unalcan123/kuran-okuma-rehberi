@@ -83,6 +83,7 @@ const Map<AppLanguage, String> kExamplesLabel = {
   AppLanguage.de: 'Beispiele:',
   AppLanguage.en: 'Examples:',
   AppLanguage.bs: 'Primjeri:',
+  AppLanguage.nl: 'Voorbeelden:',
 };
 
 /// Coloring marks of the book texts (see `BookMarkup`).

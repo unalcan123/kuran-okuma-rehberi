@@ -5,7 +5,8 @@ import 'dart:ui' show Locale;
 /// sure/dua texts and their recitations are the same in every language.
 ///
 /// The order is fixed: translation tables list the texts of [es], [fr],
-/// [de], [en], [bs] in this order after the Turkish source ([translationIndex]).
+/// [de], [en], [bs] in this order after the Turkish source ([translationIndex]);
+/// [nl] comes last, from its own table (`kNlStrings`, see [L10n.table]).
 enum AppLanguage {
   tr('tr', 'Türkçe'),
   es('es', 'Español'),
@@ -13,7 +14,8 @@ enum AppLanguage {
   de('de', 'Deutsch'),
   en('en', 'English'),
   // Bosnian (Latin script), its own code: not Croatian or Serbian.
-  bs('bs', 'Bosanski');
+  bs('bs', 'Bosanski'),
+  nl('nl', 'Nederlands');
 
   const AppLanguage(this.code, this.nativeName);
 
@@ -28,7 +30,7 @@ enum AppLanguage {
   /// Position in a translation table row, or -1 for the Turkish source.
   int get translationIndex => index - 1;
 
-  static const active = [tr, es, fr, en];
+  static const active = [tr, es, fr, en, nl];
 
   static AppLanguage? fromCode(String? code) {
     if (code == null) return null;

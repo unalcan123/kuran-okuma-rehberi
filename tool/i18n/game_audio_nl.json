@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "language": "nl",
+  "defaults": {
+    "voiceId": "J17lijyP1BHYcM7ld0Rg",
+    "model": "eleven_flash_v2_5",
+    "outputFormat": "mp3_44100_128",
+    "languageCode": "nl",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.0,
+      "use_speaker_boost": true
+    },
+    "transcode": {
+      "sampleRate": 24000,
+      "bitrate": "40k"
+    }
+  },
+  "entries": [
+    {
+      "id": "game_1163b4ee95e9e8b1",
+      "kind": "game",
+      "text": "Luister naar de klank en sleep de letter naar de goede plek.",
+      "ttsText": "Luister naar de klank en sleep de letter naar de goede plek.",
+      "file": "assets/audio/nl/game_1163b4ee95e9e8b1.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:18ee3ec2455346dabbb6a052ebdb6b44afd9536dc71c49172db665380b90dbba"
+    },
+    {
+      "id": "game_76383fc2e674b663",
+      "kind": "game",
+      "text": "Luister naar de klank en kies het goede antwoord.",
+      "ttsText": "Luister naar de klank en kies het goede antwoord.",
+      "file": "assets/audio/nl/game_76383fc2e674b663.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:5455a48995978745b313e2dd8d2fbdc67d034eaf8dc332fae446e1246eecc1b7"
+    },
+    {
+      "id": "game_6699058eadcc8a1e",
+      "kind": "game",
+      "text": "Onthoud de letters en waar ze liggen. Tik erop om de klank te horen.",
+      "ttsText": "Onthoud de letters en waar ze liggen. Tik erop om de klank te horen.",
+      "file": "assets/audio/nl/game_6699058eadcc8a1e.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:2bf488c487e7f1fe69e64a4d49ca6ac31df4abcf7e7df83191bf5d218a7e8e12"
+    },
+    {
+      "id": "game_22befd00bdb2fd62",
+      "kind": "game",
+      "text": "Zoek dezelfde letters.",
+      "ttsText": "Zoek dezelfde letters.",
+      "file": "assets/audio/nl/game_22befd00bdb2fd62.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:28b290bfdd5dcbff81728e3b0b5b741bc7a1875ea5afb6edd525c49d8b4a4dfb"
+    },
+    {
+      "id": "game_dbe823f3a90768fe",
+      "kind": "game",
+      "text": "Zoek alle vormen van dezelfde letter.",
+      "ttsText": "Zoek alle vormen van dezelfde letter.",
+      "file": "assets/audio/nl/game_dbe823f3a90768fe.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:5cd329a658de474fe8a507dcea5a7e9c2ce37a5dbfdd1d1c76d2fd28adab709b"
+    },
+    {
+      "id": "game_80ea5039cfcaba33",
+      "kind": "game",
+      "text": "Zoek dezelfde letter tussen de letters die erop lijken.",
+      "ttsText": "Zoek dezelfde letter tussen de letters die erop lijken.",
+      "file": "assets/audio/nl/game_80ea5039cfcaba33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:2dffa004d70013718dfc9bfffdb2ab885a27eb2b1ab65a37c4f3887fda16eda6"
+    },
+    {
+      "id": "game_31d31c3da808fd12",
+      "kind": "game",
+      "text": "Tik op de letter in de woorden.",
+      "ttsText": "Tik op de letter in de woorden.",
+      "file": "assets/audio/nl/game_31d31c3da808fd12.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:da75bf4c8ba0c23dc652b4fdf58807cdd50b876b8d6c9ed9170ddb564c16c23d"
+    },
+    {
+      "id": "game_48b76d43e605c0cd",
+      "kind": "game",
+      "text": "Zoek dezelfde letters en vul de wagons!",
+      "ttsText": "Zoek dezelfde letters en vul de wagons!",
+      "file": "assets/audio/nl/game_48b76d43e605c0cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:c7b8e00b78fc86e690fc1ca79c521521b8cda22db2fe8cece2b65ca50fce6891"
+    },
+    {
+      "id": "game_a2706d5ac68952cd",
+      "kind": "game",
+      "text": "Luister naar de klank, zoek de goede letter en laat de ballon knallen!",
+      "ttsText": "Luister naar de klank, zoek de goede letter en laat de ballon knallen!",
+      "file": "assets/audio/nl/game_a2706d5ac68952cd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:f0051e19ae0c1131cd8a7abb903c23510cc425ef95c37101ecf0142f46d9f11e"
+    },
+    {
+      "id": "game_9ebfbc7f7518cbdd",
+      "kind": "game",
+      "text": "Luister naar de klank en vang de auto met de goede letter!",
+      "ttsText": "Luister naar de klank en vang de auto met de goede letter!",
+      "file": "assets/audio/nl/game_9ebfbc7f7518cbdd.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:44678e58d93ac028cbe449232b0291c7c132ba22e85ca95a0a6e6ed6fe66473f"
+    },
+    {
+      "id": "game_0d44cf633f9e8dea",
+      "kind": "game",
+      "text": "Luister naar de letter en kijk. Druk op de knop om te zien hoe je hem tekent.",
+      "ttsText": "Luister naar de letter en kijk. Druk op de knop om te zien hoe je hem tekent.",
+      "file": "assets/audio/nl/game_0d44cf633f9e8dea.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:096b7ca741687767231140803d72e7ead0b4617e1ec595d9f590e17c933a0a2b"
+    },
+    {
+      "id": "game_088fa9be949d3bf9",
+      "kind": "game",
+      "text": "Laten we samen kijken: zo wordt de letter getekend.",
+      "ttsText": "Laten we samen kijken: zo wordt de letter getekend.",
+      "file": "assets/audio/nl/game_088fa9be949d3bf9.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:aa9147d73628171a6eff49aae5cd5305cec5de5f197a5c5c8cc469e63ec5277a"
+    },
+    {
+      "id": "game_52e28a03234a1b33",
+      "kind": "game",
+      "text": "Bij deze letter staan de puntjes boven. Laten we samen kijken.",
+      "ttsText": "Bij deze letter staan de puntjes boven. Laten we samen kijken.",
+      "file": "assets/audio/nl/game_52e28a03234a1b33.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:dc1518d7076e2e4c9d556d7b9dfb16276dbd8f9adf40dc71ab3a7691553079d3"
+    },
+    {
+      "id": "game_9e452fdee48f0527",
+      "kind": "game",
+      "text": "Bij deze letter staan de puntjes onder. Laten we samen kijken.",
+      "ttsText": "Bij deze letter staan de puntjes onder. Laten we samen kijken.",
+      "file": "assets/audio/nl/game_9e452fdee48f0527.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:744b722bdfd908f6f4df10f149e45c1c7c86584a9a9a42e1f5de53b003e1d782"
+    },
+    {
+      "id": "game_3c3e8f3bf784b2a4",
+      "kind": "game",
+      "text": "Je doet het goed!",
+      "ttsText": "Je doet het goed!",
+      "file": "assets/audio/nl/game_3c3e8f3bf784b2a4.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:266af51da2fb8e58dcc2550648ea7dbd19dac97f5cac1f4e1afdfeed50a4fbd9"
+    },
+    {
+      "id": "game_62340b2635a94601",
+      "kind": "game",
+      "text": "Nog een keer spelen",
+      "ttsText": "Nog een keer spelen.",
+      "file": "assets/audio/nl/game_62340b2635a94601.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:7df4afab8670e05873d93e65926d31658ddf2039ec41b9bd5533bde8941c1b80"
+    },
+    {
+      "id": "game_a7869068cb320a7c",
+      "kind": "game",
+      "text": "Terug naar de spellen",
+      "ttsText": "Terug naar de spellen.",
+      "file": "assets/audio/nl/game_a7869068cb320a7c.mp3",
+      "needsPronunciationReview": false,
+      "status": "generated",
+      "voiceId": "J17lijyP1BHYcM7ld0Rg",
+      "model": "eleven_flash_v2_5",
+      "textHash": "sha256:e26ff152ae4f248ec27e50f9a468ccc3ef99db2a1b30892d50f289dff9bb361a"
+    }
+  ]
+}

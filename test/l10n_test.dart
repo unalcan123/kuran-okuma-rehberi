@@ -1,6 +1,6 @@
-// Altı dil: arayüz metinleri ve dil tercihi. Kodda her metin Türkçe yazılır
+// Yedi dil: arayüz metinleri ve dil tercihi. Kodda her metin Türkçe yazılır
 // ve `context.t('…')` ile çevrilir; çeviriler lib/l10n/strings/*.dart'ta.
-// Bu test: (1) kodda t('…') ile istenen her metnin beş dilde de karşılığı
+// Bu test: (1) kodda t('…') ile istenen her metnin bütün dillerde karşılığı
 // var, yer tutucuları aynı; (2) ekranda çevrilmeden kalan Türkçe metin yok;
 // (3) dil tercihi cihaz dili / elle seçim / kalıcılık.
 import 'dart:io';
@@ -8,6 +8,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kuran_okuma_rehberi/l10n/l10n.dart';
+import 'package:kuran_okuma_rehberi/l10n/strings/strings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// `t('…')`, `context.t("…")`, `L10n.text(x, '…')` with a literal.
@@ -35,6 +36,11 @@ void main() {
   test('composed feedback and reading nouns use the selected language', () {
     expect(L10n.text(AppLanguage.en, 'Deneme: 3'), 'Attempts: 3');
     expect(L10n.text(AppLanguage.fr, 'Seviye 2 · Zor'), 'Niveau 2 · Difficile');
+    expect(L10n.text(AppLanguage.nl, 'Deneme: 3'), 'Pogingen: 3');
+    expect(
+      L10n.text(AppLanguage.nl, 'Buldun! Kalan: 2'),
+      'Gevonden! Nog over: 2',
+    );
     expect(
       L10n.text(AppLanguage.es, 'Buldun! Kalan: 2'),
       '¡Encontrada! Restantes: 2',
@@ -50,12 +56,16 @@ void main() {
       final problems = <String>[];
       L10n.table.forEach((source, row) {
         if (row.length != AppLanguage.values.length - 1) {
-          problems.add('$source: ${row.length} çeviri (5 olmalı)');
+          problems.add('$source: ${row.length} çeviri (6 olmalı)');
           return;
         }
         final want = _placeholder.allMatches(source).map((m) => m[1]).toSet();
+        final nlOnly = !kStringTables.any((t) => t.containsKey(source));
         for (final (i, text) in row.indexed) {
           if (!AppLanguage.active.contains(AppLanguage.values[i + 1])) continue;
+          // Giriş metinleri yalnız Hollandacada çevrili (kitabın nl baskısı);
+          // diğer dillerde Türkçe kalır.
+          if (nlOnly && AppLanguage.values[i + 1] != AppLanguage.nl) continue;
           final lang = AppLanguage.values[i + 1].code;
           if (text.trim().isEmpty) problems.add('$source [$lang]: boş');
           final got = _placeholder.allMatches(text).map((m) => m[1]).toSet();
@@ -117,6 +127,10 @@ void main() {
         AppLanguage.fr,
       );
       expect(
+        AppLanguage.fromDeviceLocales(const [Locale('nl', 'BE')]),
+        AppLanguage.nl,
+      );
+      expect(
         AppLanguage.fromDeviceLocales(const [Locale('ar'), Locale('bs')]),
         AppLanguage.tr,
       );
@@ -141,6 +155,7 @@ void main() {
           'de': 'Deutsch',
           'en': 'English',
           'bs': 'Bosanski',
+          'nl': 'Nederlands',
         },
       );
     });

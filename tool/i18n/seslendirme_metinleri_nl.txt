@@ -1,0 +1,677 @@
+# SESLENDIRME METINLERI — NL
+# Her [kayit_kimligi] altindaki metni duzenleyebilirsin.
+# Kimlik satirlarini silme veya degistirme. Bu dosya sesi degistirir; ekrandaki metni degistirmez.
+# Arapca harfler seslendirme metninde Latin harfleriyle yazilmistir.
+# Terimler Hollandaca okunusa gore yazildi: soekoen (sukun), sjadda (shadda), Laam, Qaaf, Ghain, hamzatoel wasl.
+
+[x_b82c6976cab96a17]
+Laten we de letters leren kennen.
+
+[x_0f4bcb723513e72a]
+28 letters. De eerste stap in het Arabische alfabet.
+
+[s047_baslik_1]
+Letters met dubbele damma.
+
+[s006_01]
+De Koran heeft 28 letters. Daarvan gelden er 7 als dikke en 21 als dunne letters. De dikke letters zijn: Kha, Saad, Daad, dikke Ta, dikke Za, Ghain en Qaaf.
+
+[x_f40fb061502cb509]
+Daarvan gelden er 7 als dikke en 21 als dunne letters.
+
+[x_71a9851229f63d6d]
+De dikke letters zijn: Kha, Saad, Daad, dikke Ta, dikke Za, Ghain en Qaaf.
+
+[s010_baslik_1]
+Voorbeelden van de vormen van de letters aan het begin, in het midden en aan het einde.
+
+[s007_baslik_1]
+Het schrift en de uitspraak van de letters.
+
+[x_6a0d9bbec6326699]
+De letters van de Koran.
+
+[x_a485a0a32993e75e]
+De Koran heeft 28 letters. Daarvan gelden er 7 als dikke en 21 als dunne letters. De dikke letters zijn: Kha, Saad, Daad, dikke Ta, dikke Za, Ghain en Qaaf.
+
+[x_c56cf2512dc306b7]
+Hoe de letters geschreven worden.
+
+[x_7bc7708c9751a4aa]
+29 letters. Hun vorm aan het begin, in het midden en aan het einde.
+
+[s008_baslik_1]
+Laam-Alif.
+
+[s008_01]
+Laam-Alif is een speciale vorm die laat zien hoe de Laam aan een Alif of een Hamza vastzit. Het is geen aparte letter. Zoals de naam al zegt, lees je eerst de Laam en dan de Alif. De rechterkant is de Laam, de linkerkant de Alif.
+
+[x_e7f283474e3b8c77]
+Zoals de naam Laam-Alif al zegt, lees je eerst de Laam en dan de Alif. De rechterkant is de Laam, de linkerkant de Alif.
+
+[s008_02]
+Zit er een Alif zonder klinkerteken aan de Laam vast, dan verlengt die de Laam en lees je laa. Zit er een Hamza aan de Laam vast, dan lees je ze allebei met hun eigen klinkerteken.
+
+[x_1cb022bf5738e743]
+Zit er een Hamza aan de Laam vast, dan lees je ze allebei met hun eigen klinkerteken.
+
+[s008_03]
+Laam-Alif verbindt zich alleen aan de rechterkant met andere letters.
+
+[x_30a4198490501369]
+Zo wordt hij geschreven:
+
+[s008_baslik_2]
+Vormen van Laam-Alif.
+
+[x_4216f159ff83b111]
+Voorbeelden.
+
+[x_90e33b27649ad0f9]
+Elke letter in een woord zit vast aan de letter ervóór. Maar de letters Dhal, Dal, Alif, Zay, Ra en Waw verbinden zich niet met de letter erna. Laten we kijken hoe de letters in woorden aan elkaar vastzitten. We proberen de woorden nog niet te lezen: de klinkertekens hebben we nog niet geleerd.
+
+[x_42cf42e6c42fcdf9]
+Fatha.
+
+[x_14d9ca57d9049ae3]
+92 opnames. Letter met fatha, en woorden lezen.
+
+[s020_baslik_1]
+Klinkertekens: damma.
+
+[s014_baslik_1]
+Klinkertekens: fatha.
+
+[s014_01]
+De klinkertekens, de haraka's, lijken op de klinkers in het Turks. Maar geen enkel klinkerteken klinkt precies hetzelfde als de klinkers die we kennen.
+
+[x_cebf9ddad8b8dfca]
+Maar geen enkel klinkerteken klinkt precies hetzelfde als de klinkers die we kennen.
+
+[s014_02]
+De fatha is een klein streepje boven de letter dat naar links schuin omlaag loopt. Bij dunne letters geeft het een e-klank, zoals in met, en bij dikke letters een a-klank, zoals in pak.
+
+[s015_01]
+Weet je nog? De fatha geeft dunne letters een e-klank en dikke letters een a-klank.
+
+[x_22e0507842fcf856]
+Het klinkerteken fatha.
+
+[x_c62e23b9551c4568]
+De fatha is een klein streepje boven de letter dat naar links schuin omlaag loopt. Bij dunne letters geeft het een e-klank, zoals in met, en bij dikke letters een a-klank, zoals in pak.
+
+[x_81d7939a0d187c0b]
+Kasra.
+
+[x_7a758e6c92667f99]
+84 opnames. Letter met kasra, en woorden lezen.
+
+[s017_baslik_1]
+Klinkertekens: kasra.
+
+[s017_01]
+Het is een klein streepje onder de letter dat naar links schuin omlaag loopt. Bij dunne letters geeft het een i-klank, zoals in piet. Bij dikke letters geeft het een klank die begint als een doffe klank, zoals de e in het woordje de, en naar de i gaat.
+
+[x_98bd13567b37dd3f]
+Het klinkerteken kasra.
+
+[x_8de58fb628e2a7f8]
+De kasra is een klein streepje onder de letter dat naar links schuin omlaag loopt. Bij dunne letters geeft het een i-klank, zoals in piet. Bij dikke letters geeft het een klank die begint als een doffe klank, zoals de e in het woordje de, en naar de i gaat.
+
+[x_8c6bfd229e811845]
+Damma.
+
+[x_3310d4d4e9855cd8]
+92 opnames. Letter met damma, en woorden lezen.
+
+[s020_01]
+Het is een teken boven de letter dat lijkt op een kleine Waw. Bij dunne letters geeft het een klank tussen oe, zoals in boek, en uu, zoals in muur. Bij dikke letters geeft het een oe-klank.
+
+[x_48432a69ef21d522]
+Bij dunne letters geeft het een klank tussen oe, zoals in boek, en uu, zoals in muur. Bij dikke letters geeft het een oe-klank.
+
+[x_935d97c874476276]
+Het klinkerteken damma.
+
+[x_3be206abeada3069]
+De damma is een teken boven de letter dat lijkt op een kleine Waw. Bij dunne letters geeft het een klank tussen oe, zoals in boek, en uu, zoals in muur. Bij dikke letters geeft het een oe-klank.
+
+[x_c1e944311da3969a]
+Op volgorde van uitspraakplaats.
+
+[x_0ae086cfc717a76f]
+28 opnames. Letter met drie klinkertekens, op volgorde van uitspraakplaats.
+
+[s023_baslik_1]
+Letters met klinkertekens, op volgorde van uitspraakplaats.
+
+[x_38db3a3a51a8181e]
+Op volgorde van uitspraakplaats.
+
+[x_49e5c7d0e211ff24]
+In deze les staan de letters niet op alfabetische volgorde, maar op volgorde van hun uitspraakplaats in de mond. Elke letter lees je met alle drie de klinkertekens: fatha, kasra en damma.
+
+[x_4932ab9aca1d314d]
+Soekoen.
+
+[x_5bf8d8b2bb617cdb]
+81 opnames. Hamza, letter en soekoen, met drie klinkertekens.
+
+[s024_baslik_1]
+Soekoen.
+
+[s024_01]
+Het is een klein rond teken boven de letter. De letter klinkt dan kaal, zonder klinker erbij.
+
+[s024_02]
+Om elke letter met soekoen goed te leren kennen, lezen we hem na een Hamza met eerst fatha, dan kasra en dan damma.
+
+[x_27e0c2b29bd68924]
+De soekoen is een klein rond teken boven de letter. De letter met soekoen lees je vast aan de letter ervóór, zonder eigen klinker.
+
+[x_098cefa838898047]
+Voorbeelden met klinkertekens.
+
+[x_e146011776dfddbb]
+52 opnames. Woorden lezen met fatha, kasra, damma en soekoen.
+
+[x_40775b72173dc32b]
+Oefenen met woorden waarin fatha, kasra, damma en soekoen samen voorkomen.
+
+[x_25c0e6dfb78bd73c]
+Sjadda.
+
+[x_8fa1feca1dfa2c3d]
+56 opnames. Letter met sjadda, in paren.
+
+[s028_baslik_1]
+Sjadda.
+
+[s028_01]
+Het is een teken boven de letter dat lijkt op een omgekeerde m. Je leest de letter dan twee keer. Een letter met sjadda heeft ook altijd een klinkerteken.
+
+[x_525749d1702ba4ca]
+Door de sjadda lees je de letter twee keer. Een letter met sjadda heeft ook altijd een klinkerteken. Turkse voorbeelden: cennet, anne, himmet.
+
+[x_afa2f17b321ebdf6]
+Voorbeelden met sjadda.
+
+[x_862db07c5ab1a8a5]
+64 opnames. Woorden lezen met sjadda.
+
+[x_def4f63df7e7022d]
+Oefenen met woorden met een sjadda.
+
+[x_3ac5fd22fdbdcd3f]
+Verlengingsletters: Alif.
+
+[x_dd49c94435908c6d]
+28 opnames. Verlengen met fatha en Alif.
+
+[s032_baslik_1]
+Verlengingsletters: Alif.
+
+[s032_01]
+Hij verlengt de letter met fatha met twee haraka's. Is de letter dik, dan klinkt de verlenging als een lange a. Is hij dun, dan klinkt hij tussen e en a in.
+
+[s032_02]
+Verlengingsletters, ook wel madd-letters: dit zijn de letters Waw, Alif en Ya zonder klinkerteken, kortweg de waj-letters. Ze verlengen de letter ervóór.
+
+[x_9656e3ffcf82befc]
+Verlengingsletters, ook wel madd-letters: dit zijn de letters Waw, Alif en Ya zonder klinkerteken, kortweg de waj-letters. Ze verlengen de letter ervóór. Alif: hij verlengt de letter met fatha met twee haraka's. Is de letter dik, dan klinkt de verlenging als een lange a. Is hij dun, dan klinkt hij tussen e en a in.
+
+[x_6b4efc8093d9600b]
+Verlengingsletters: voorbeelden met Alif.
+
+[x_72dc3a39d4a06fe1]
+28 opnames. Woorden lezen met verlenging door Alif.
+
+[x_a4bcc9ec7b80f61a]
+Oefenen met woorden die met een Alif verlengd worden.
+
+[x_c735235867cdab56]
+Verlengingsletters: Ya.
+
+[x_769c123c25774a2c]
+28 opnames. Verlengen met kasra en Ya.
+
+[s034_baslik_1]
+Ya.
+
+[s034_01]
+Hij verlengt de letter met kasra ervóór met twee haraka's. Is de letter dun, dan klinkt de verlenging als een lange ie. Is hij dik, dan klinkt hij als een klank die van een doffe klank naar ie gaat.
+
+[x_30a7c99b0d09fd6e]
+Is de letter dun, dan klinkt de verlenging als een lange ie. Is hij dik, dan klinkt hij als een klank die van een doffe klank naar ie gaat.
+
+[x_e6a80b77900962d7]
+Hij verlengt de letter met kasra ervóór met twee haraka's. Is de letter dun, dan klinkt de verlenging als een lange ie. Is hij dik, dan klinkt hij bijna als een doffe klank.
+
+[x_6ceec3c1c26cca34]
+Verlengingsletters: voorbeelden met Ya.
+
+[x_080991ab999c73e9]
+28 opnames. Woorden lezen met verlenging door Ya.
+
+[x_91b3a380f22f9ca7]
+Oefenen met woorden die met een Ya verlengd worden.
+
+[x_6deeb6f1701c7458]
+Verlengingsletters: Waw.
+
+[x_d4b1924c203c31ea]
+28 opnames. Verlengen met damma en Waw.
+
+[s038_baslik_1]
+Waw die aan het einde van een woord verlengt.
+
+[s036_01]
+Hij verlengt de letter met damma ervóór met twee haraka's. Is de letter dik, dan klinkt de verlenging als een lange oe. Is hij dun, dan klinkt hij tussen oe en uu in.
+
+[x_e63df5af43637e14]
+Is de letter dik, dan klinkt de verlenging als een lange oe. Is hij dun, dan klinkt hij tussen oe en uu in.
+
+[x_0e483c448c80cdce]
+Hij verlengt de letter met damma ervóór met twee haraka's. Is de letter dik, dan klinkt de verlenging als een lange oe. Is hij dun, dan klinkt hij tussen oe en uu in.
+
+[x_67ba269dfa1e5038]
+Verlengingsletters: voorbeelden met Waw.
+
+[x_ae7ee980fbd46713]
+28 opnames. Woorden lezen met verlenging door Waw.
+
+[x_729d66cdf58d7089]
+Oefenen met woorden die met een Waw verlengd worden.
+
+[x_74e73f18eccdfabf]
+Verlengingsletters: Waw aan het einde van een woord.
+
+[x_eb1bb22d80a3312c]
+9 opnames. Verlenging met Waw aan het einde van een woord.
+
+[s038_01]
+Soms verlengt een Waw zonder klinkerteken aan het einde van een woord in zijn eentje de letter met damma waar hij aan vastzit, zoals in dhoe. Vaak staat er na deze Waw ook een Alif. Die Alif verlengt niet extra: de verlenging blijft twee haraka's lang.
+
+[x_ce7ca2438600a54a]
+Vaak staat er na deze Waw ook een Alif. Die Alif verlengt niet extra: de verlenging blijft twee haraka's lang.
+
+[x_7b676c2262aae319]
+Soms verlengt een Waw zonder klinkerteken aan het einde van een woord in zijn eentje de letter met damma waar hij aan vastzit, zoals in dhoe. Vaak staat er na deze Waw ook een Alif. Die Alif verlengt niet extra: de verlenging blijft twee haraka's lang.
+
+[x_58d5026932499006]
+Staande fatha.
+
+[x_7316892e1bb30a83]
+10 opnames. Verlengen met de staande fatha, de kleine Alif.
+
+[s039_baslik_1]
+Staande fatha.
+
+[s039_01]
+Zo heet een fatha die rechtop geschreven is. Of er nu een verlengingsletter staat of niet: hij laat zien dat je de letter waar hij op staat moet verlengen. Staat er een verlengingsletter, dan maakt het niet uit of dat een Alif, Waw of Ya is. Je verlengt de letter waar hij op staat altijd in de richting van de fatha-klank.
+
+[x_beb761c4e84992e1]
+Of er nu een verlengingsletter staat of niet: hij laat zien dat je de letter waar hij op staat moet verlengen.
+
+[x_4649df589c14ddee]
+Staat er een verlengingsletter, dan maakt het niet uit of dat een Alif, Waw of Ya is. Je verlengt de letter waar hij op staat altijd in de richting van de fatha-klank.
+
+[x_107b461760d1b58a]
+Staande fatha. Zo heet een fatha die rechtop geschreven is. Of er nu een verlengingsletter staat of niet: hij laat zien dat je de letter waar hij op staat moet verlengen.
+
+[x_0df408dd666b1c3e]
+Staande kasra.
+
+[x_6d082d7d98a8dbc6]
+8 opnames. Verlengen met de staande kasra.
+
+[s039_baslik_2]
+Staande kasra.
+
+[s039_02]
+Zo heet een kasra die rechtop geschreven is. Of er nu een verlengingsletter staat of niet: je verlengt de letter waar hij onder staat in de richting van de kasra-klank.
+
+[x_7bdc91d8726cd924]
+Of er nu een verlengingsletter staat of niet: je verlengt de letter waar hij onder staat in de richting van de kasra-klank.
+
+[x_47fd3f1642a496c6]
+Staande kasra. Zo heet een kasra die rechtop geschreven is. Je verlengt de letter waar hij onder staat in de richting van de kasra-klank.
+
+[x_5a3214211257a036]
+Tanwien: dubbele fatha.
+
+[x_8e280f3ce388f430]
+88 opnames. Letter met tanwien, en woorden lezen.
+
+[s040_baslik_1]
+Tanwien. Dubbele klinkertekens.
+
+[x_c3b4622fe6885a8c]
+Dubbele klinkertekens.
+
+[s040_01]
+Tanwien: staat hetzelfde klinkerteken twee keer op een letter, dan heet dat tanwien. Bij doorlezen klinkt de letter dan alsof er een Noen met soekoen achter staat. Er zijn drie soorten tanwien: dubbele fatha, dubbele kasra en dubbele damma.
+
+[x_806899ee6f662f9a]
+Er zijn drie soorten tanwien: dubbele fatha, dubbele kasra en dubbele damma.
+
+[s040_02]
+Het zijn twee kleine streepjes boven elkaar op de letter, die naar links schuin omlaag lopen. Bij doorlezen geeft het dunne letters een en-klank en dikke letters een an-klank.
+
+[x_64d7457a9ff6dedf]
+Bij doorlezen geeft het dunne letters een en-klank en dikke letters een an-klank.
+
+[s040_baslik_2]
+Letters met dubbele fatha.
+
+[s041_01]
+Links van een letter met dubbele fatha staat meestal ook een Alif. Bij doorlezen lees je deze Alif niet, maar als je stopt, werkt hij als verlengingsletter. De n-klank verdwijnt en je verlengt de letter met twee haraka's in de richting van de fatha. Is de letter dik, dan klinkt het als a; is hij dun, dan tussen e en a in.
+
+[x_5f67d27fbb01edec]
+Bij doorlezen lees je deze Alif niet, maar als je stopt, werkt hij als verlengingsletter. De n-klank verdwijnt en je verlengt de letter met twee haraka's in de richting van de fatha. Is de letter dik, dan klinkt het als a; is hij dun, dan tussen e en a in.
+
+[x_71439c414a7220ef]
+Tanwien: staat hetzelfde klinkerteken twee keer op een letter, dan heet dat tanwien. Bij doorlezen komt er aan het einde van het woord een n-klank bij die niet als letter geschreven is.
+
+[x_f803b99672434279]
+Tanwien: dubbele kasra.
+
+[x_14e181db748be447]
+92 opnames. Letter met tanwien, en woorden lezen.
+
+[s044_baslik_1]
+Letters met dubbele kasra.
+
+[x_e15b2f3a948d74e0]
+Tanwien: dubbele damma.
+
+[x_23ac5515d9e75dc3]
+Het lidwoord al: uitgesproken letters.
+
+[x_9a88e8ede5a0591e]
+16 opnames. Het lidwoord al bij de maanletters.
+
+[s050_baslik_1]
+Alif-Laam.
+
+[s050_01]
+We hebben gezien dat je Laam-Alif gebruikt als er in een woord eerst een Laam en dan een Alif moet komen.
+
+[s050_02]
+Staat er aan het begin van een woord eerst een Alif en dan een Laam met soekoen, dan heet dat het lidwoord Alif-Laam, of kortweg het lidwoord al.
+
+[s050_03]
+Vóór de Laam staat hier een Alif op de plaats van een Hamza, want hij kan met een klinkerteken gelezen worden. Weet je nog? Een Alif met een klinkerteken die niet verlengt, heet Hamza.
+
+[s050_04]
+De letter erna bepaalt hoe je de Laam leest. Dus: komt er een van de letters uit de zin abghi hajjaka wa khaf aqiemahoe, namelijk Hamza, Ba, Djiem, Ha, Kha, Ajn, Ghain, Fa, Qaaf, Kaaf, Miem, Waw, Ha en Ya, dan lees je de Laam met soekoen. Deze letters zijn de helft van de 28 letters van de Koran.
+
+[x_038c31203bc9a86c]
+Voorbeelden:
+
+[x_38357289d15cc372]
+Het lidwoord al: niet uitgesproken letters.
+
+[x_11921bda749f95f8]
+16 opnames. Het lidwoord al bij de zonneletters.
+
+[s051_01]
+Komt er een van de andere 14 letters, namelijk Daad, Saad, Sjien, Sien, Zay, Ra, Dal, Dhal, Ta, Tha, dikke Ta, dikke Za, Laam en Noen, dan lees je de Laam niet. De letter erna lees je altijd met sjadda.
+
+[x_33d09f4219a08cb7]
+Het lidwoord al en de Hamza.
+
+[x_e4e1700a27e7e1f9]
+9 opnames. Woorden lezen met het lidwoord al en Hamza.
+
+[x_8d40a624290ca269]
+De Hamza van het lidwoord al.
+
+[s052_01]
+We hebben gezien dat je de Laam van het lidwoord al op twee manieren leest. En de Hamza vóór de Laam?
+
+[s052_02]
+Lees je door vanaf de letter of het woord ervóór, dan lees je de Hamza van het lidwoord al niet.
+
+[s052_03]
+Begin je te lezen bij de Hamza van het lidwoord al, dan lees je die Hamza altijd met fatha.
+
+[s052_04]
+Omdat het klinkerteken van deze Hamza niet vast is, kun je hem beter een verbindingshamza noemen, in het Arabisch hamzatoel wasl.
+
+[x_916e28d6dfc7e4ca]
+Het lidwoord al: verbindingshamza.
+
+[x_b6f314c196dcf6cf]
+12 opnames. Verbindingshamza los en verbonden vergeleken.
+
+[s053_baslik_1]
+Niet uitgesproken Hamza: de verbindingshamza.
+
+[x_dc90b2bbb6c1e2b7]
+Verbindingshamza.
+
+[s053_01]
+Sommige Hamza's aan het begin van een woord verliezen hun klinkerteken als je ze samen met het woord of de letter ervóór leest. Je leest ze dan alsof er geen Hamza staat. Ze worden geschreven als een Alif zonder klinkerteken. Soms staat er een klein verbindingsteken op dat laat zien dat je hem niet leest. Zulke Hamza's heten verbindingshamza's.
+
+[s053_02]
+Lees je hem niet samen met wat ervóór staat, maar als eerste letter aan het begin van het woord, dan lees je hem met zijn klinkerteken.
+
+[s053_03]
+In de vorige les zagen we dat de Alif van elk lidwoord Alif-Laam ook zo werkt.
+
+[x_86f5b8e231233867]
+Verlenging van het voornaamwoord Ha.
+
+[x_29881b4b13fe0c1f]
+30 voorbeelden. Wanneer het voornaamwoord hoe of hie wel of niet verlengd wordt.
+
+[s054_baslik_1]
+De verlenging van het voornaamwoord Ha.
+
+[s054_baslik_2]
+Wanneer verleng je de letter Ha?
+
+[s054_01]
+Heeft de letter vóór de Ha een klinkerteken, dan verleng je de Ha. Hoe lang, dat bepaalt de letter na de Ha. Namelijk zo:
+
+[s054_02]
+Komt er na de verlengde Ha een Hamza, dan verleng je vier haraka's lang.
+
+[x_6d1cb525ce29efc0]
+Voorbeelden:
+
+[s054_03]
+Komt er na de verlengde Ha een andere letter dan Hamza, dan verleng je twee haraka's lang.
+
+[s054_baslik_3]
+Wanneer verleng je de letter Ha niet?
+
+[s054_04]
+Komt er vóór de Ha een verlengingsletter, dan lees je de Ha zonder verlenging. Welke letter er na de Ha komt, maakt dan niet uit.
+
+[x_94ed5dc0231585ae]
+Welke letter er na de Ha komt, maakt dan niet uit.
+
+[s055_01]
+Komt er vóór de Ha een letter met soekoen, dan lees je de Ha ook zonder verlenging. Welke letter er na de Ha komt, maakt dan niet uit.
+
+[x_a6eb86d55ff2c4aa]
+Welke letter er na de Ha komt, maakt dan niet uit.
+
+[s055_02]
+Lees je vanaf de Ha door naar een letter met soekoen of sjadda in het volgende woord, dan lees je de Ha ook zonder verlenging, zelfs als de letter ervóór een klinkerteken heeft.
+
+[x_1d1faaa83fcf957e]
+Het voornaamwoord Ha.
+
+[x_ee8e1cbd3c2079b9]
+Wanneer verleng je de letter Ha? Heeft de letter vóór de Ha een klinkerteken, dan verleng je de Ha. Hoe lang, dat bepaalt de letter na de Ha. Komt er na de verlengde Ha een Hamza, dan verleng je vier haraka's lang. Voorbeelden:
+
+[x_96c5d379513d8b1e]
+Komt er na de verlengde Ha een andere letter dan Hamza, dan verleng je twee haraka's lang. Voorbeelden:
+
+[x_28754253bf2b3bf0]
+Wanneer verleng je de letter Ha niet? Komt er vóór de Ha een verlengingsletter, dan lees je de Ha zonder verlenging. Welke letter er na de Ha komt, maakt dan niet uit. Voorbeelden:
+
+[x_61aadc3dfcac8192]
+Komt er vóór de Ha een letter met soekoen, dan lees je hem ook zonder verlenging. Welke letter er na de Ha komt, maakt dan niet uit. Voorbeelden:
+
+[x_1bfb1f81a526bd8d]
+Lees je vanaf de Ha door naar een letter met soekoen of sjadda in het volgende woord, dan lees je de Ha ook zonder verlenging, zelfs als de letter ervóór een klinkerteken heeft. Voorbeelden:
+
+[x_27786241ecd048a1]
+Teken voor lange madd.
+
+[x_77f7e81c04b47d5c]
+6 opnames. Verlengen met het madd-teken.
+
+[s055_baslik_1]
+Teken voor lange madd.
+
+[s055_03]
+Dit teken staat boven sommige soorten madd die langer dan twee haraka's duren. In de tajwiedlessen leer je daar meer over.
+
+[x_4e1d669af6d7c6c3]
+Ta marboeta.
+
+[x_e8f29b4a56c0aeae]
+12 opnames. Ta marboeta uitspreken als je stopt.
+
+[s056_baslik_1]
+Ta marboeta, de gesloten Ta.
+
+[s056_01]
+Soms wordt de letter Ta geschreven als ta marboeta, de gesloten Ta. Dat gebeurt alleen aan het einde van een woord. Zit hij aan de letter ervóór vast, dan schrijf je de verbonden vorm; anders schrijf je de losse vorm.
+
+[s056_02]
+Stop je bij een woord dat eindigt op een ta marboeta, dan lees je hem als een Ha met soekoen. Lees je door naar het volgende woord, dan lees je hem gewoon als Ta, met zijn klinkerteken.
+
+[x_cfe5770979bae97f]
+Laten we het met voorbeelden bekijken:
+
+[x_e5714a57261801f2]
+Stoppen aan het einde van een woord.
+
+[x_120b40ec2d1fb2f4]
+28 opnames. Woordeinden uitspreken als je stopt.
+
+[s057_baslik_1]
+Hoe stop je bij een letter met klinkerteken aan het einde van een woord?
+
+[x_b88ac8cf3bf1fad4]
+Hoe stop je?
+
+[x_498f7161c2217090]
+Hoe stop je bij een letter met klinkerteken aan het einde van een woord?
+
+[s057_01]
+Als we de Koran lezen, stoppen we meestal aan het einde van een vers, bij pauzetekens, of als we adem moeten halen. Stoppen kan alleen aan het einde van een woord.
+
+[s057_02]
+Je stopt niet op een fatha, kasra of damma. Is de laatste letter van het woord niet al zonder klinker, dus geen letter met soekoen en geen verlengingsletter, dan lees je het klinkerteken niet en lees je de letter alsof er een soekoen op staat.
+
+[s057_03]
+Bij tanwien gaat het zo. Bij een dubbele fatha die met een Alif geschreven is, valt één fatha weg. Je leest de letter met één fatha en verlengt hem twee haraka's lang.
+
+[s058_01]
+Stop je bij een Hamza met dubbele fatha zonder Alif, dan verleng je ook twee haraka's lang, alsof er een Alif naast staat.
+
+[s058_02]
+Bij letters met dubbele kasra of dubbele damma stop je met soekoen.
+
+[x_58eb04ec1974a351]
+Nog meer voorbeelden:
+
+[x_481eab08538f248a]
+Voorbeelden 1.
+
+[x_20bddcdfee185870]
+24 opnames. Algemene leesvoorbeelden.
+
+[x_6aa191334112403e]
+Voorbeelden 1.
+
+[x_a2e7e3d43413bac8]
+Algemene leesvoorbeelden waarin alle geleerde regels samenkomen.
+
+[x_c09e400760ae1c4e]
+Voorbeelden 2.
+
+[x_e35317198f77e9b8]
+27 opnames. Algemene leesvoorbeelden.
+
+[x_40652d006998933c]
+Voorbeelden 2.
+
+[x_e9f0754f783d9731]
+Voorbeelden 3.
+
+[x_81c650f34f9ef7ba]
+18 opnames. Algemene leesvoorbeelden.
+
+[x_78536bbcb13116f5]
+Voorbeelden 3.
+
+[x_fe1c5274c7343aac]
+Voorbeelden 4.
+
+[x_1dba50210b528662]
+Voorbeelden 4.
+
+[s006_baslik_1]
+Letters.
+
+[s036_baslik_1]
+Waw.
+
+[game_1163b4ee95e9e8b1]
+Luister naar de klank en sleep de letter naar de goede plek.
+
+[game_76383fc2e674b663]
+Luister naar de klank en kies het goede antwoord.
+
+[game_6699058eadcc8a1e]
+Onthoud de letters en waar ze liggen. Tik erop om de klank te horen.
+
+[game_22befd00bdb2fd62]
+Zoek dezelfde letters.
+
+[game_dbe823f3a90768fe]
+Zoek alle vormen van dezelfde letter.
+
+[game_80ea5039cfcaba33]
+Zoek dezelfde letter tussen de letters die erop lijken.
+
+[game_31d31c3da808fd12]
+Tik op de letter in de woorden.
+
+[game_48b76d43e605c0cd]
+Zoek dezelfde letters en vul de wagons!
+
+[game_a2706d5ac68952cd]
+Luister naar de klank, zoek de goede letter en laat de ballon knallen!
+
+[game_9ebfbc7f7518cbdd]
+Luister naar de klank en vang de auto met de goede letter!
+
+[game_0d44cf633f9e8dea]
+Luister naar de letter en kijk. Druk op de knop om te zien hoe je hem tekent.
+
+[game_088fa9be949d3bf9]
+Laten we samen kijken: zo wordt de letter getekend.
+
+[game_52e28a03234a1b33]
+Bij deze letter staan de puntjes boven. Laten we samen kijken.
+
+[game_9e452fdee48f0527]
+Bij deze letter staan de puntjes onder. Laten we samen kijken.
+
+[game_3c3e8f3bf784b2a4]
+Je doet het goed!
+
+[game_62340b2635a94601]
+Nog een keer spelen.
+
+[game_a7869068cb320a7c]
+Terug naar de spellen.
