@@ -50,6 +50,25 @@ abstract class LeaderboardBackend {
 
   /// Oyuncunun profilini ve [gameIds] skorlarını siler.
   Future<void> deletePlayer(String playerId, Iterable<String> gameIds);
+
+  /// Adı ([key] = `NicknamePolicy.claimKey`) bu oyuncuya ayırır: boşsa ya da
+  /// zaten onunsa `true`, başka oyuncunundsa `false`. İlk alan korur
+  /// (kurallar başkasının ayırdığı adı değiştirmeyi yasaklar).
+  Future<bool> claimNickname({
+    required String key,
+    required String nickname,
+    required String playerId,
+    required String ownerUid,
+  });
+
+  /// Oyuncunun eski adını bırakır (yalnızca kendisininse).
+  Future<void> releaseNickname({required String key, required String playerId});
+
+  /// [keys] içinden başka bir oyuncuya ayrılmış olanlar (öneriler için).
+  Future<Set<String>> takenNicknameKeys(
+    Iterable<String> keys, {
+    required String playerId,
+  });
 }
 
 /// Kurallar isteği reddetti (sahte/tutarsız veri ya da yetki yok): tekrar

@@ -336,6 +336,42 @@ describe('learning_progress (Sürükle & Bırak öğrenme durumu)', () => {
   });
 });
 
+describe('nicknames (tekil oyuncu adı)', () => {
+  const nick = (uid, key, nickname, profile = 'p1') => ({
+    key,
+    nickname,
+    playerId: pid(uid, profile),
+    ownerUid: uid,
+    createdAt: serverTimestamp(),
+  });
+
+  test('boş ad alınır; ilk alan korur, başkası alamaz ve değiştiremez', async () => {
+    const a = doc(db('uidA'), 'nicknames', 'ali123');
+    await assertSucceeds(setDoc(a, nick('uidA', 'ali123', 'Ali 123')));
+    const b = doc(db('uidB'), 'nicknames', 'ali123');
+    await assertSucceeds(getDoc(b));
+    await assertFails(setDoc(b, nick('uidB', 'ali123', 'ali123')));
+    await assertFails(updateDoc(b, { nickname: 'Ali123' }));
+    await assertFails(deleteDoc(b));
+    await assertFails(getDocs(collection(db('uidB'), 'nicknames')));
+  });
+
+  test('sahibi adını bırakabilir, sonra başkası alabilir', async () => {
+    await assertSucceeds(setDoc(doc(db('uidA'), 'nicknames', 'elif'), nick('uidA', 'elif', 'Elif')));
+    await assertSucceeds(deleteDoc(doc(db('uidA'), 'nicknames', 'elif')));
+    await assertSucceeds(setDoc(doc(db('uidB'), 'nicknames', 'elif'), nick('uidB', 'elif', 'Elif')));
+  });
+
+  test('geçersiz ad belgesi reddedilir', async () => {
+    const ref = (k) => doc(db('uidA'), 'nicknames', k);
+    await assertFails(setDoc(ref('ali'), nick('uidA', 'veli', 'Ali')));
+    await assertFails(setDoc(ref('ali'), nick('uidA', 'ali', '<b>')));
+    await assertFails(setDoc(ref('ali'), { ...nick('uidA', 'ali', 'Ali'), playerId: pid('uidB') }));
+    await assertFails(setDoc(ref('a'), nick('uidA', 'a', 'A')));
+    await assertFails(setDoc(ref('ali'), { ...nick('uidA', 'ali', 'Ali'), extra: 1 }));
+  });
+});
+
 function assert(actual, expected) {
   const a = JSON.stringify(actual), e = JSON.stringify(expected);
   if (a !== e) throw new Error(`beklenen ${e}, gelen ${a}`);

@@ -8,12 +8,19 @@ import 'package:kuran_okuma_rehberi/services/leaderboard/leaderboard_service.dar
 /// Bellek içi arka uç: Firestore kurallarının ve sorgularının anlamını taklit
 /// eder (en iyi düşmez, puan azalan + önce ulaşan önde, sahiplik öneki).
 class FakeBackend implements LeaderboardBackend {
-  FakeBackend({this.uid = 'deviceA', Map<String, FakeDoc>? shared})
-    : docs = shared ?? {};
+  FakeBackend({
+    this.uid = 'deviceA',
+    Map<String, FakeDoc>? shared,
+    Map<String, String>? sharedNames,
+  }) : docs = shared ?? {},
+       names = sharedNames ?? {};
 
   String uid;
   final Map<String, FakeDoc> docs; // "<gameId>__<playerId>"
   final Map<String, String> players = {};
+
+  /// Ayrılmış adlar: anahtar → playerId (cihazlar arasında paylaşılabilir).
+  final Map<String, String> names;
   bool online = true;
   int writes = 0;
   static int _clock = 0;
@@ -137,6 +144,41 @@ class FakeBackend implements LeaderboardBackend {
       docs.remove('${g}__$playerId');
     }
     players.remove(playerId);
+  }
+
+  @override
+  Future<bool> claimNickname({
+    required String key,
+    required String nickname,
+    required String playerId,
+    required String ownerUid,
+  }) async {
+    _net();
+    final owner = names[key];
+    if (owner != null) return owner == playerId;
+    names[key] = playerId;
+    return true;
+  }
+
+  @override
+  Future<void> releaseNickname({
+    required String key,
+    required String playerId,
+  }) async {
+    _net();
+    if (names[key] == playerId) names.remove(key);
+  }
+
+  @override
+  Future<Set<String>> takenNicknameKeys(
+    Iterable<String> keys, {
+    required String playerId,
+  }) async {
+    _net();
+    return {
+      for (final k in keys)
+        if (names[k] != null && names[k] != playerId) k,
+    };
   }
 }
 

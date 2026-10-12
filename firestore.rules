@@ -116,6 +116,25 @@ service cloud.firestore {
         && scoreId.matches('[a-z0-9_]+__' + request.auth.uid + '_[a-z0-9]{1,40}');
     }
 
+    // Tekil oyuncu adları: belge kimliği = NicknamePolicy.claimKey (küçük harf,
+    // boşluk ve . - _ yok). İlk alan korur: güncelleme yok; yalnızca sahibi
+    // bırakabilir (ad değiştirince). Herkes "bu ad dolu mu" diye bakabilir.
+    match /nicknames/{key} {
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn()
+        && key.matches('[\\p{L}\\p{M}\\p{N}]{2,16}')
+        && request.resource.data.keys().hasOnly(['key', 'nickname', 'playerId', 'ownerUid', 'createdAt'])
+        && request.resource.data.keys().hasAll(['key', 'nickname', 'playerId', 'ownerUid', 'createdAt'])
+        && request.resource.data.key == key
+        && validNickname(request.resource.data.nickname)
+        && request.resource.data.ownerUid == request.auth.uid
+        && ownPlayerId(request.resource.data.playerId)
+        && request.resource.data.createdAt == request.time;
+      allow update: if false;
+      allow delete: if signedIn() && resource.data.ownerUid == request.auth.uid;
+    }
+
     // Sürükle & Bırak öğrenme durumu (harf başına ilerleme). Yalnızca sahibi
     // okur/yazar; istemci kodu: lib/services/leaderboard/firestore_learning_cloud.dart
     match /learning_progress/{playerId} {

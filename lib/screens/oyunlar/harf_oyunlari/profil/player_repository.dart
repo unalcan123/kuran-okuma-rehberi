@@ -147,6 +147,12 @@ class PlayerRepository extends ChangeNotifier {
     return null;
   }
 
+  String? _pendingNewId;
+
+  /// Adın çevrimiçi ayrılacağı profil kimliği: oyuncu varsa onunki, yoksa
+  /// birazdan oluşturulacak profilin kimliği (createProfile aynısını kullanır).
+  String get claimId => activePlayer?.id ?? (_pendingNewId ??= _newId());
+
   static String _newId() =>
       'p${DateTime.now().microsecondsSinceEpoch.toRadixString(36)}'
       '${math.Random().nextInt(1 << 20).toRadixString(36)}';
@@ -155,7 +161,7 @@ class PlayerRepository extends ChangeNotifier {
   Future<PlayerProfile?> createProfile(String rawName, String avatarId) async {
     if (validateName(rawName) != null) return null;
     final profile = PlayerProfile(
-      id: _newId(),
+      id: _pendingNewId ?? _newId(),
       displayName: normalizeName(rawName),
       avatarId:
           kPlayerAvatars.any((a) => a.id == avatarId)
@@ -163,6 +169,7 @@ class PlayerRepository extends ChangeNotifier {
               : kPlayerAvatars.first.id,
       createdAt: DateTime.now(),
     );
+    _pendingNewId = null;
     _profiles.add(profile);
     _activeId = profile.id;
     notifyListeners();

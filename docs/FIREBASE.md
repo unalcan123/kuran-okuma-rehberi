@@ -32,10 +32,20 @@ players/{playerId}                        playerId, ownerUid, nickname, createdA
 leaderboard_scores/{gameId}__{playerId}   playerId, ownerUid, nickname, gameId, bestScore,
                                           correctAnswers, wrongAnswers, missedTargets,
                                           totalItems, accuracy, bestAt, updatedAt
+nicknames/{claimKey}                      key, nickname, playerId, ownerUid, createdAt — tekil ad; ilk alan korur
 learning_progress/{playerId}              playerId, ownerUid, gameId ('drag_drop'), state (harf ilerlemesi),
                                           updatedAt (istemci ms), savedAt (sunucu) — yalnızca sahibi okur/yazar
 ```
-- `playerId = <anonim UID>_<yerel profil id>`: aynı adı taşıyan iki kişi ayrı oyuncudur.
+- `playerId = <anonim UID>_<yerel profil id>`.
+- **Tekil oyuncu adı (2026-10-12):** ad bütün oyuncular arasında tektir. `claimKey` =
+  küçük harf, boşluk ve `. - _` atılmış ad ("Ali 123" = "ali123"). Ad sayfası kaydetmeden önce
+  `LeaderboardService.claimName` ile ayırır; alınmışsa `NicknamePolicy.suggestions` içinden
+  boş olanları öneri balonu olarak gösterir ("Ali 123" → "Ali 1234", "Ali 27"…). Ad değişince
+  eski ad bırakılır. İnternet yoksa ad geçici kabul edilir (`leaderboard_name_claim_v1`
+  kuyruğu); sonra başkasında çıkarsa `leaderboard_name_conflict_v1` → Oyunlar açılınca
+  "bu adı başka biri almış" notuyla yeni ad istenir. Eski oyuncuların adı ilk girişte arka
+  planda ayrılır (aynı adlı eskilerden ilk ayıran korur). Testler:
+  `test/player_unique_name_test.dart`, kurallar `tool/firestore_rules_test`.
 - Oyuncu başına oyun başına **tek** belge: yalnızca en iyi sonuç. Daha düşük skor yazılmaz
   (istemci işlemi + kural).
 - Sıra: `gameId ==`, `bestScore` azalan, `bestAt` artan (eşit puanda önce ulaşan önde;

@@ -697,6 +697,11 @@ const Map<String, String> kNlStrings = {
   "Öğretmeni tekrar dinle": "De juf nog eens horen",
   "Öğretmen sesini kapat": "Stem van de juf uitzetten",
   "Öğretmen sesini aç": "Stem van de juf aanzetten",
+  "Bu ad başka bir oyuncuda. Aşağıdakilerden birini seçebilir ya da yeni bir ad yazabilirsin.":
+      "Een andere speler heeft deze naam al. Kies er een hieronder of typ een nieuwe naam.",
+  "“{name}” adını başka bir oyuncu daha önce almış. Lütfen kendine yeni bir ad seç.":
+      "Een andere speler had de naam “{name}” al. Kies alsjeblieft een nieuwe naam.",
+  "Öneriler": "Suggesties",
   "Giriş": "Inleiding",
   "Harflerin Çıkış Yerleri": "Waar de letters vandaan komen",
   "Mahreçler • Derslere başlamadan önce": "Makhraj • Vóór de lessen",

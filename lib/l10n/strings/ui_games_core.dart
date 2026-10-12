@@ -424,4 +424,26 @@ const Map<String, List<String>> kUiGamesCore = {
     "Turn on the teacher voice",
     "",
   ],
+  // Tekil oyuncu adı.
+  "Bu ad başka bir oyuncuda. Aşağıdakilerden birini seçebilir ya da yeni bir ad yazabilirsin.": [
+    "Este nombre ya lo tiene otro jugador. Puedes elegir uno de abajo o escribir otro nombre.",
+    "Ce nom est déjà pris par un autre joueur. Tu peux en choisir un ci-dessous ou écrire un autre nom.",
+    "",
+    "Another player already has this name. You can pick one below or type a new name.",
+    "",
+  ],
+  "“{name}” adını başka bir oyuncu daha önce almış. Lütfen kendine yeni bir ad seç.": [
+    "Otro jugador ya eligió el nombre “{name}”. Por favor, elige un nombre nuevo.",
+    "Un autre joueur a déjà pris le nom “{name}”. Choisis un nouveau nom, s’il te plaît.",
+    "",
+    "Another player already took the name “{name}”. Please choose a new name.",
+    "",
+  ],
+  "Öneriler": [
+    "Sugerencias",
+    "Suggestions",
+    "",
+    "Suggestions",
+    "",
+  ],
 };

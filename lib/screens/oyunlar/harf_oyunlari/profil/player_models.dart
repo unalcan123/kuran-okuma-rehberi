@@ -220,4 +220,7 @@ enum PlayerNameError {
   invalidChars,
   notAllowed,
   taken,
+
+  /// Ad bütün oyuncular arasında başka birinde (çevrimiçi denetim).
+  takenOnline,
 }

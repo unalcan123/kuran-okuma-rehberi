@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 /// Oyuncu takma adı kuralları. Hem yerel profil oluştururken hem çevrimiçi
 /// sıralamaya yazmadan önce kullanılır; aynı kurallar `firestore.rules`
 /// içinde de denetlenir (orada değişirse burada da değiştir).
@@ -55,6 +57,56 @@ class NicknamePolicy {
       .replaceAll('ı', 'i')
       .toLowerCase()
       .replaceAll('i\u0307', 'i');
+
+  /// Çevrimiçi ad ayırma anahtarı: büyük/küçük harf, boşluk ve `. - _`
+  /// farkı sayılmaz ("Ali 123" = "ali123" = "ALİ_123").
+  static String claimKey(String raw) =>
+      uniqueKey(raw).replaceAll(RegExp(r'[\s._-]'), '');
+
+  /// [raw] alınmışsa önerilecek adlar (geçerli, [raw]'dan farklı, en çok
+  /// [count]). Sonu rakamla bitiyorsa önce bir rakam eklenir ("Ali 123" →
+  /// "Ali 1234"), sonra kısa sayılar ("Ali 27", "Ali27").
+  static List<String> suggestions(
+    String raw, {
+    int count = 8,
+    math.Random? random,
+  }) {
+    final rng = random ?? math.Random();
+    final name = normalize(raw);
+    final match = RegExp(r'^(.*?)\s*(\d*)$').firstMatch(name)!;
+    var base = match[1]!.trim();
+    final digits = match[2]!;
+    if (base.isEmpty) base = name;
+    final out = <String>[];
+    final ownKey = claimKey(name);
+    void add(String candidate) {
+      final c = normalize(candidate);
+      if (out.length >= count || validate(c) != null) return;
+      if (claimKey(c) == ownKey || out.any((o) => claimKey(o) == claimKey(c))) {
+        return;
+      }
+      out.add(c);
+    }
+
+    String fit(String b, String tail) {
+      final room = maxLength - tail.runes.length;
+      final runes = b.runes.toList();
+      return runes.length <= room
+          ? '$b$tail'
+          : '${String.fromCharCodes(runes.take(room)).trim()}$tail';
+    }
+
+    if (digits.isNotEmpty) {
+      for (final d in [1 + rng.nextInt(9), rng.nextInt(10)]) {
+        add(fit(base, ' $digits$d'));
+      }
+    }
+    for (var tries = 0; out.length < count && tries < 60; tries++) {
+      final n = tries < 20 ? 10 + rng.nextInt(90) : 100 + rng.nextInt(900);
+      add(fit(base, tries.isEven ? ' $n' : '$n'));
+    }
+    return out;
+  }
 
   /// Geçerliyse `null`, değilse hata nedeni. [raw] önce [normalize] edilir.
   static NicknameError? validate(String raw) {

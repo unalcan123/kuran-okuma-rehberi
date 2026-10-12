@@ -50,6 +50,15 @@ class LeaderboardService {
   /// Gönderilmeyi bekleyen ad değişiklikleri: { profileId: nickname }.
   static const String renameKey = 'leaderboard_rename_v1';
 
+  /// Çevrimdışıyken verilen, henüz ayrılamamış adlar: { profileId: ad }.
+  static const String claimQueueKey = 'leaderboard_name_claim_v1';
+
+  /// Sonradan başka oyuncuda olduğu anlaşılan adlar: { profileId: ad }.
+  static const String conflictKey = 'leaderboard_name_conflict_v1';
+
+  /// Ayrılmış adlar: { profileId: claimKey } (yeniden sormamak için).
+  static const String claimedKey = 'leaderboard_name_claimed_v1';
+
   final Future<LeaderboardBackend?> _backendFuture;
   final Map<String, OnlineGameLimits> games;
   final Duration timeout;
@@ -162,6 +171,10 @@ class LeaderboardService {
   Future<void> _doFlush() async {
     final pending = await _readPending();
     final renames = await _readPending(renameKey);
+    final claims = await _readPending(claimQueueKey);
+    if (claims.isNotEmpty) {
+      await _flushClaims(claims);
+    }
     if (pending.isEmpty && renames.isEmpty) return;
     if (!await _ready()) return;
     final uid = await _ensureUid();
@@ -377,6 +390,155 @@ class LeaderboardService {
     }
   }
 
+  // ---- tekil oyuncu adı ------------------------------------------------------
+
+  /// Adı bütün oyuncular arasında bu oyuncuya ayırır. Alınmışsa boş
+  /// öneriler döner; internet yoksa ad kuyruğa alınır (sonra denenir; o
+  /// zaman alınmışsa [nameConflictFor] ile yeni ad istenir).
+  /// [remember]: alınmışsa çakışma olarak sakla (arka plan denetimi; çocuğa
+  /// bir sonraki girişte yeni ad sorulur).
+  Future<NameClaim> claimName(
+    String profileId,
+    String nickname, {
+    String? previous,
+    bool remember = false,
+  }) async {
+    final name = NicknamePolicy.normalize(nickname);
+    if (!await _configured()) {
+      return const NameClaim(NameClaimStatus.unavailable);
+    }
+    final key = NicknamePolicy.claimKey(name);
+    try {
+      if (!await _ready()) return const NameClaim(NameClaimStatus.unavailable);
+      final uid = await _ensureUid();
+      final playerId = playerIdFor(uid, profileId);
+      final ok = await _backend
+          .claimNickname(
+            key: key,
+            nickname: name,
+            playerId: playerId,
+            ownerUid: uid,
+          )
+          .timeout(timeout);
+      if (!ok) {
+        if (remember) {
+          final conflicts = await _readPending(conflictKey);
+          conflicts[profileId] = name;
+          await _writePending(conflicts, conflictKey);
+        }
+        return NameClaim(
+          NameClaimStatus.taken,
+          suggestions: await _freeSuggestions(name, playerId),
+        );
+      }
+      await _markClaimed(profileId, key);
+      final old = previous == null ? null : NicknamePolicy.claimKey(previous);
+      if (old != null && old != key) {
+        unawaited(
+          _backend
+              .releaseNickname(key: old, playerId: playerId)
+              .timeout(timeout)
+              .catchError((Object e) {
+                debugPrint('LeaderboardService: eski ad bırakılamadı — $e');
+              }),
+        );
+      }
+      return const NameClaim(NameClaimStatus.ok);
+    } catch (e) {
+      debugPrint('LeaderboardService: ad şimdi denetlenemedi — $e');
+      final queue = await _readPending(claimQueueKey);
+      queue[profileId] = name;
+      await _writePending(queue, claimQueueKey);
+      return const NameClaim(NameClaimStatus.offline);
+    }
+  }
+
+  /// [profileId]'nin adı bu oyuncuya ayrılmış mı (cihazdaki kayda göre).
+  Future<bool> isClaimed(String profileId, String nickname) async {
+    final claimed = await _readPending(claimedKey);
+    return claimed[profileId] == NicknamePolicy.claimKey(nickname);
+  }
+
+  /// Ad sonradan başka oyuncuda çıktıysa o ad (yoksa `null`).
+  Future<String?> nameConflictFor(String profileId) async {
+    final value = (await _readPending(conflictKey))[profileId];
+    return value is String ? value : null;
+  }
+
+  /// [name] yerine önerilecek, alınmamış adlar (çevrimdışıysa denetlenmemiş).
+  Future<List<String>> suggestionsFor(String profileId, String name) async {
+    try {
+      if (!await _ready()) return NicknamePolicy.suggestions(name, count: 4);
+      final uid = await _ensureUid();
+      return await _freeSuggestions(name, playerIdFor(uid, profileId));
+    } catch (_) {
+      return NicknamePolicy.suggestions(name, count: 4);
+    }
+  }
+
+  Future<List<String>> _freeSuggestions(String name, String playerId) async {
+    final candidates = NicknamePolicy.suggestions(name, count: 10);
+    try {
+      final taken = await _backend
+          .takenNicknameKeys(
+            candidates.map(NicknamePolicy.claimKey),
+            playerId: playerId,
+          )
+          .timeout(timeout);
+      return candidates
+          .where((c) => !taken.contains(NicknamePolicy.claimKey(c)))
+          .take(4)
+          .toList();
+    } catch (_) {
+      return candidates.take(4).toList();
+    }
+  }
+
+  Future<void> _markClaimed(String profileId, String key) async {
+    final claimed = await _readPending(claimedKey);
+    claimed[profileId] = key;
+    await _writePending(claimed, claimedKey);
+    final conflicts = await _readPending(conflictKey);
+    if (conflicts.remove(profileId) != null) {
+      await _writePending(conflicts, conflictKey);
+    }
+  }
+
+  /// Kuyruktaki adları ayırmayı dener; alınmış çıkanlar çakışma olur.
+  Future<void> _flushClaims(Map<String, dynamic> claims) async {
+    if (!await _ready()) return;
+    final uid = await _ensureUid();
+    final conflicts = await _readPending(conflictKey);
+    for (final profileId in claims.keys.toList()) {
+      final name = claims[profileId];
+      if (name is! String) {
+        claims.remove(profileId);
+        continue;
+      }
+      try {
+        final key = NicknamePolicy.claimKey(name);
+        final ok = await _backend
+            .claimNickname(
+              key: key,
+              nickname: name,
+              playerId: playerIdFor(uid, profileId),
+              ownerUid: uid,
+            )
+            .timeout(timeout);
+        claims.remove(profileId);
+        if (ok) {
+          await _markClaimed(profileId, key);
+        } else {
+          conflicts[profileId] = name;
+        }
+      } catch (e) {
+        break; // bağlantı yok: sonra
+      }
+    }
+    await _writePending(claims, claimQueueKey);
+    await _writePending(conflicts, conflictKey);
+  }
+
   // ---- silme ------------------------------------------------------------------
 
   /// Yerel profil silinince çevrimiçi kaydını da siler (en iyi çaba; internet
@@ -395,4 +557,24 @@ class LeaderboardService {
       debugPrint('LeaderboardService: çevrimiçi kayıt silinemedi — $e');
     }
   }
+}
+
+enum NameClaimStatus {
+  /// Ad bu oyuncuya ayrıldı.
+  ok,
+
+  /// Ad başka bir oyuncuda: [NameClaim.suggestions].
+  taken,
+
+  /// İnternet yok: ad geçici kabul, sonra denetlenecek.
+  offline,
+
+  /// Bu derlemede çevrimiçi sıralama yok.
+  unavailable,
+}
+
+class NameClaim {
+  const NameClaim(this.status, {this.suggestions = const []});
+  final NameClaimStatus status;
+  final List<String> suggestions;
 }

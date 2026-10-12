@@ -23,6 +23,7 @@ class FirebaseLeaderboardBackend implements LeaderboardBackend {
 
   static const String playersCollection = 'players';
   static const String scoresCollection = 'leaderboard_scores';
+  static const String nicknamesCollection = 'nicknames';
 
   static String scoreDocId(String gameId, String playerId) =>
       '${gameId}__$playerId';
@@ -34,6 +35,8 @@ class FirebaseLeaderboardBackend implements LeaderboardBackend {
       _db.collection(playersCollection);
   CollectionReference<Map<String, dynamic>> get _scores =>
       _db.collection(scoresCollection);
+  CollectionReference<Map<String, dynamic>> get _nicknames =>
+      _db.collection(nicknamesCollection);
 
   Future<T> _guard<T>(Future<T> Function() body) async {
     try {
@@ -203,4 +206,57 @@ class FirebaseLeaderboardBackend implements LeaderboardBackend {
         batch.delete(_players.doc(playerId));
         await batch.commit();
       });
+
+  @override
+  Future<bool> claimNickname({
+    required String key,
+    required String nickname,
+    required String playerId,
+    required String ownerUid,
+  }) async {
+    final ref = _nicknames.doc(key);
+    final snap = await ref.get();
+    if (snap.exists) return snap.data()?['playerId'] == playerId;
+    try {
+      await ref.set({
+        'key': key,
+        'nickname': nickname,
+        'playerId': playerId,
+        'ownerUid': ownerUid,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+      return true;
+    } on FirebaseException catch (e) {
+      // Aynı anda başkası aldıysa kurallar yazmayı reddeder.
+      if (e.code != 'permission-denied') rethrow;
+      final again = await ref.get();
+      return again.data()?['playerId'] == playerId;
+    }
+  }
+
+  @override
+  Future<void> releaseNickname({
+    required String key,
+    required String playerId,
+  }) => _guard(() async {
+    final ref = _nicknames.doc(key);
+    final snap = await ref.get();
+    if (snap.exists && snap.data()?['playerId'] == playerId) {
+      await ref.delete();
+    }
+  });
+
+  @override
+  Future<Set<String>> takenNicknameKeys(
+    Iterable<String> keys, {
+    required String playerId,
+  }) => _guard(() async {
+    final snaps = await Future.wait([
+      for (final k in keys) _nicknames.doc(k).get(),
+    ]);
+    return {
+      for (final snap in snaps)
+        if (snap.exists && snap.data()?['playerId'] != playerId) snap.id,
+    };
+  });
 }

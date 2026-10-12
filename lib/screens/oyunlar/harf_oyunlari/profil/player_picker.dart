@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../services/leaderboard/leaderboard_service.dart';
+import '../../../../services/leaderboard/nickname_policy.dart';
 import '../game_texts.dart';
 import 'player_models.dart';
 import 'player_repository.dart';
@@ -13,14 +14,17 @@ const Color _ink = Color(0xFF0B2452);
 
 /// "Oyuncu Adın" alt sayfası: cihaz başına tek oyuncu. İlk kez ad verilir,
 /// sonra yalnızca düzeltilir (skorlar ve sıralamadaki yer korunur).
-Future<void> showPlayerNameSheet(BuildContext context) {
+Future<void> showPlayerNameSheet(
+  BuildContext context, {
+  String? conflictName,
+}) {
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
     backgroundColor: const Color(0xFFFFFBF2),
     constraints: const BoxConstraints(maxWidth: 520),
-    builder: (_) => const PlayerNameSheet(),
+    builder: (_) => PlayerNameSheet(conflictName: conflictName),
   );
 }
 
@@ -30,7 +34,27 @@ Future<void> ensureActivePlayer(BuildContext context) async {
   final repo = context.read<PlayerRepository>();
   if (!repo.loaded) await repo.load();
   if (!context.mounted) return;
-  if (repo.activePlayer != null || repo.promptedThisSession) return;
+  final player = repo.activePlayer;
+  final online = maybeLeaderboardService(context);
+  if (player != null) {
+    if (online == null) return;
+    final conflict = await online.nameConflictFor(player.id);
+    if (!context.mounted) return;
+    if (conflict != null &&
+        conflict == player.displayName &&
+        !repo.promptedThisSession) {
+      repo.promptedThisSession = true;
+      await showPlayerNameSheet(context, conflictName: conflict);
+      return;
+    }
+    if (!await online.isClaimed(player.id, player.displayName)) {
+      unawaited(
+        online.claimName(player.id, player.displayName, remember: true),
+      );
+    }
+    return;
+  }
+  if (repo.promptedThisSession) return;
   repo.promptedThisSession = true;
   await showPlayerNameSheet(context);
 }
@@ -89,7 +113,10 @@ class PlayerChip extends StatelessWidget {
 }
 
 class PlayerNameSheet extends StatefulWidget {
-  const PlayerNameSheet({super.key});
+  const PlayerNameSheet({super.key, this.conflictName});
+
+  /// Ad başka bir oyuncuda çıktıysa o ad (nazik not + öneriler).
+  final String? conflictName;
 
   @override
   State<PlayerNameSheet> createState() => _PlayerNameSheetState();
@@ -100,6 +127,21 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
     text: context.read<PlayerRepository>().activePlayer?.displayName ?? '',
   );
   PlayerNameError? _error;
+  List<String> _suggestions = const [];
+  bool _checking = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final conflict = widget.conflictName;
+    final online = maybeLeaderboardService(context);
+    if (conflict != null && online != null) {
+      final id = context.read<PlayerRepository>().claimId;
+      online.suggestionsFor(id, conflict).then((list) {
+        if (mounted) setState(() => _suggestions = list);
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -114,13 +156,48 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
     PlayerNameError.invalidChars => l.plErrChars,
     PlayerNameError.notAllowed => l.plErrNotAllowed,
     PlayerNameError.taken => l.plErrTaken,
+    PlayerNameError.takenOnline => context.t(
+      'Bu ad başka bir oyuncuda. Aşağıdakilerden birini seçebilir ya da yeni bir ad yazabilirsin.',
+    ),
   };
 
   Future<void> _save() async {
+    if (_checking) return;
     final repo = context.read<PlayerRepository>();
     final online = maybeLeaderboardService(context);
     final before = repo.activePlayer;
-    final error = await repo.setName(_name.text);
+    final localError = repo.validateName(_name.text, forRename: true);
+    if (localError != null) {
+      setState(() {
+        _error = localError;
+        _suggestions = const [];
+      });
+      return;
+    }
+    final name = PlayerRepository.normalizeName(_name.text);
+    final sameKey =
+        before != null &&
+        NicknamePolicy.claimKey(before.displayName) ==
+            NicknamePolicy.claimKey(name);
+    // Ad bütün oyuncular arasında tek olmalı: alınmışsa öneri göster.
+    if (online != null && (!sameKey || widget.conflictName != null)) {
+      setState(() => _checking = true);
+      final claim = await online.claimName(
+        repo.claimId,
+        name,
+        previous: before?.displayName,
+      );
+      if (!mounted) return;
+      setState(() => _checking = false);
+      if (claim.status == NameClaimStatus.taken) {
+        setState(() {
+          _error = PlayerNameError.takenOnline;
+          _suggestions = claim.suggestions;
+        });
+        return;
+      }
+    }
+    final error = await repo.setName(name);
     if (error != null) {
       if (mounted) setState(() => _error = error);
       return;
@@ -133,6 +210,12 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
       unawaited(online.renamePlayer(after.id, after.displayName));
     }
     if (mounted) Navigator.of(context).pop();
+  }
+
+  void _pick(String suggestion) {
+    _name.text = suggestion;
+    _name.selection = TextSelection.collapsed(offset: suggestion.length);
+    setState(() => _error = null);
   }
 
   @override
@@ -167,6 +250,24 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
                   color: _ink.withValues(alpha: 0.75),
                 ),
               ),
+              if (widget.conflictName != null) ...[
+                const SizedBox(height: 10),
+                Container(
+                  key: const Key('player-name-conflict'),
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFF1D6),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Text(
+                    context.t(
+                      '“{name}” adını başka bir oyuncu daha önce almış. Lütfen kendine yeni bir ad seç.',
+                      {'name': widget.conflictName},
+                    ),
+                    style: const TextStyle(color: _ink, height: 1.3),
+                  ),
+                ),
+              ],
               const SizedBox(height: 14),
               TextField(
                 key: const Key('player-name-field'),
@@ -190,10 +291,34 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
                   fillColor: Colors.white,
                 ),
               ),
+              if (_suggestions.isNotEmpty) ...[
+                const SizedBox(height: 4),
+                Text(
+                  context.t('Öneriler'),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w800,
+                    color: _ink,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    for (final suggestion in _suggestions)
+                      ActionChip(
+                        key: Key('name-suggestion-$suggestion'),
+                        label: Text(suggestion), // l10n-ignore
+                        avatar: const Icon(Icons.auto_awesome_rounded, size: 18),
+                        onPressed: () => _pick(suggestion),
+                      ),
+                  ],
+                ),
+              ],
               const SizedBox(height: 12),
               FilledButton(
                 key: const Key('save-player-name'),
-                onPressed: _save,
+                onPressed: _checking ? null : _save,
                 style: FilledButton.styleFrom(
                   backgroundColor: const Color(0xFF3F9C8F),
                   minimumSize: const Size.fromHeight(48),
