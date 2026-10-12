@@ -87,6 +87,8 @@ flutter:
     - assets/audio/en/
     - assets/audio/duzeltmeler/
     - assets/audio/nl/
+    - assets/audio/de/
+    - assets/audio/bs/
     - assets/audio/sureler/01_fatiha/
     - assets/audio/sureler/02_fil/
     - assets/audio/sureler/03_kureys/

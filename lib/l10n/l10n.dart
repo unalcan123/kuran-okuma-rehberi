@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import 'app_language.dart';
 import 'language_controller.dart';
+import 'strings/debs_strings.g.dart';
 import 'strings/nl_strings.g.dart';
 import 'strings/strings.dart';
 
@@ -48,7 +49,15 @@ abstract final class L10n {
         final rows = {for (final table in kStringTables) ...table};
         return {
           for (final MapEntry(:key, :value) in rows.entries)
-            key: [...value, kNlStrings[key] ?? ''],
+            key: [
+              value[0],
+              value[1],
+              // Almanca / Boşnakça: tabloda boşsa kDeStrings / kBsStrings.
+              value[2].isNotEmpty ? value[2] : kDeStrings[key] ?? '',
+              value[3],
+              value[4].isNotEmpty ? value[4] : kBsStrings[key] ?? '',
+              kNlStrings[key] ?? '',
+            ],
           for (final MapEntry(:key, :value) in kNlStrings.entries)
             if (!rows.containsKey(key))
               key: [for (var i = 1; i < AppLanguage.nl.index; i++) '', value],

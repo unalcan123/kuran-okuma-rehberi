@@ -139,7 +139,11 @@ void main() {
       );
       expect(
         AppLanguage.fromDeviceLocales(const [Locale('ar'), Locale('bs')]),
-        AppLanguage.tr,
+        AppLanguage.bs,
+      );
+      expect(
+        AppLanguage.fromDeviceLocales(const [Locale('de', 'AT')]),
+        AppLanguage.de,
       );
       expect(
         AppLanguage.fromDeviceLocales(const [Locale('ar')]),

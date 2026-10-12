@@ -31,6 +31,8 @@ void main() {
       AppLanguage.fr,
       AppLanguage.en,
       AppLanguage.nl,
+      AppLanguage.de,
+      AppLanguage.bs,
     ]) {
       final manifest =
           jsonDecode(

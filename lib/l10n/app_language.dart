@@ -30,7 +30,7 @@ enum AppLanguage {
   /// Position in a translation table row, or -1 for the Turkish source.
   int get translationIndex => index - 1;
 
-  static const active = [tr, es, fr, en, nl];
+  static const active = [tr, es, fr, de, en, bs, nl];
 
   static AppLanguage? fromCode(String? code) {
     if (code == null) return null;
