@@ -118,6 +118,7 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                               title: context.t(surah.titleTr),
                               label: context.t('Sure {n}', {'n': surah.order}),
                               prayer: false,
+                              showTitle: context.language != AppLanguage.tr,
                             ),
                             arabic: surah.arabicName,
                             onTap: () => _openSurah(context, surah),

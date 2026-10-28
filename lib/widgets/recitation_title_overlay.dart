@@ -8,10 +8,12 @@ class RecitationTitleOverlay extends StatelessWidget {
     required this.title,
     required this.label,
     required this.prayer,
+    this.showTitle = true,
   });
   final String title;
   final String label;
   final bool prayer;
+  final bool showTitle;
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) {
@@ -33,39 +35,42 @@ class RecitationTitleOverlay extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(3),
                   child: FittedBox(
-                    child: Text(context.t(label),
+                    child: Text(
+                      context.t(label),
                       style: const TextStyle(color: Color(0xff061b32)),
                     ),
                   ),
                 ),
               ),
             ),
-            Positioned(
-              left: w * .045,
-              top: h * .165,
-              width: w * .55,
-              height: h * (prayer ? .25 : .20),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: const Color(0xfffffbf0),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: Alignment.centerLeft,
-                    child: Text(context.t(title),
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w800,
-                        color: Color(0xff071653),
+            if (showTitle)
+              Positioned(
+                left: w * .045,
+                top: h * .165,
+                width: w * .55,
+                height: h * (prayer ? .25 : .20),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: const Color(0xfffffbf0),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        context.t(title),
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w800,
+                          color: Color(0xff071653),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
           ],
         ),
       );
