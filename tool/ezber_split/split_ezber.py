@@ -59,6 +59,7 @@ MIN_SEG_S = 0.8
 EDGE_DB = 12.0  # speech this close to its peak at a cut edge = suspicious
 GROUP_DTW = 0.55  # relative DTW distance below which two parts are repeats
 PEEL_PAUSE_S = 0.5  # pause that may separate besmele from verse 1
+GAIN_DB = -3  # the recordings are ~3 dB louder than the app's surah clips
 
 # File → (surah no., app id). Surahs 12+ of the app (1-11 already have
 # per-verse audio). Âyetel Kürsî and Nebe have no repeat recording.
@@ -313,7 +314,7 @@ def encode(src: Path, start: float, end: float, out: Path) -> None:
     subprocess.run(
         [ffmpeg(), "-v", "error", "-y", "-ss", f"{start:.3f}", "-to", f"{end:.3f}",
          "-i", str(src), "-af",
-         "pan=mono|c0=0.5*c0+0.5*c1,afade=t=in:d=0.02,"
+         f"pan=mono|c0=0.5*c0+0.5*c1,volume={GAIN_DB}dB,afade=t=in:d=0.02,"
          f"afade=t=out:st={max(0, end - start - 0.03):.3f}:d=0.03",
          "-ar", "32000", "-c:a", "libmp3lame", "-b:a", "48k", "-map_metadata", "-1",
          str(out)],
@@ -426,15 +427,25 @@ def process(src: Path, surah: int, name: str, use_asr: bool = True) -> dict:
         old.unlink()
     for p in parts:
         encode(src, p.start, p.end, out / f"parca_{p.index + 1:02d}.mp3")
-    chosen = {}
+    # The cleanest repeat of each label: fewest clipped samples (the
+    # recordings are loud), then the widest silence margin, then the first.
+    def cleanliness(p: Part):
+        seg = x[int(p.start * SR): int(p.end * SR)]
+        margin = min(p.speech_start - p.start, p.end - p.speech_end)
+        return (int((np.abs(seg) > 0.98).sum()), -round(margin, 2), p.index)
+
+    best: dict[str, Part] = {}
     for p in parts:
-        if not p.label or p.flags or p.label in chosen:
-            continue
+        if p.label and not p.flags and (
+                p.label not in best or cleanliness(p) < cleanliness(best[p.label])):
+            best[p.label] = p
+    chosen = {}
+    for label, p in best.items():
         fname = {"besmele": "00_besmele.mp3", "istiaze": "00_istiaze.mp3",
-                 "tam okuma": "tam_okuma.mp3"}.get(p.label)
-        fname = fname or f"{int(p.label.split()[1]):02d}_ayet.mp3"
+                 "tam okuma": "tam_okuma.mp3"}.get(label)
+        fname = fname or f"{int(label.split()[1]):02d}_ayet.mp3"
         encode(src, p.start, p.end, out / fname)
-        chosen[p.label] = p.index + 1
+        chosen[label] = p.index + 1
 
     report = {
         "kaynak": str(src),

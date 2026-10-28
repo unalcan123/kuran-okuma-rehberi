@@ -40,6 +40,6 @@ void main() {
   audio.complete();expect(controller.isActive,isFalse);
   controller.dispose();await Future<void>.delayed(Duration.zero);audio.dispose();
   for(final path in kFullReadingAudio.values) {expect(File('assets/$path').existsSync(),isTrue);}
-  expect(kFullReadingAudio,hasLength(13));
+  expect(kFullReadingAudio,hasLength(12));
  });
 }

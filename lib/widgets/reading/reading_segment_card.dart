@@ -16,6 +16,9 @@ const List<(Color, Color)> _badgeColors = [
   (Color(0xFFFCE1E4), Color(0xFF9F3044)),
 ];
 
+/// Soft green of the verse being read (border, glow, tint).
+const Color _activeGlow = Color(0xFF4CB782);
+
 /// Soft card tints, in turn (fill, border): mint, sky, peach, lilac.
 const List<(Color, Color)> _cardTints = [
   (Color(0xFFF2FAF3), Color(0xFFCDEAD4)),
@@ -44,6 +47,7 @@ class ReadingSegmentCard extends StatelessWidget {
     required this.isTextHidden,
     required this.onPlay,
     required this.onReveal,
+    this.onTap,
     this.unit = 'Ayet',
   });
 
@@ -56,6 +60,10 @@ class ReadingSegmentCard extends StatelessWidget {
   final bool isPlaying;
   final bool isTextHidden;
   final VoidCallback? onPlay;
+
+  /// A tap anywhere on the card (outside its buttons): the segment from its
+  /// start. Null when the segment has no recording.
+  final VoidCallback? onTap;
   final String unit;
   final VoidCallback onReveal;
 
@@ -98,26 +106,34 @@ class ReadingSegmentCard extends StatelessWidget {
             ? Icon(Icons.auto_awesome_rounded, color: accent, size: 26)
             : _Badge(number: segment.number ?? index + 1);
 
-    return AnimatedContainer(
+    final card = AnimatedContainer(
       key: ValueKey('reading-segment-$index'),
       duration: const Duration(milliseconds: 250),
       curve: Curves.easeOut,
+      // The verse being read glows soft green all around (fades in with the
+      // container), so a child memorizing sees which one is sounding.
       decoration: BoxDecoration(
         color:
             isActive
                 ? Color.alphaBlend(
-                  accent.withValues(alpha: 0.08),
+                  _activeGlow.withValues(alpha: 0.08),
                   AppColors.surface,
                 )
                 : (opening ? const Color(0xFFFFFCF4) : tint),
         borderRadius: BorderRadius.circular(26),
         border: Border.all(
-          color: isActive ? accent.withValues(alpha: 0.75) : tintBorder,
-          width: isActive ? 2.2 : 1.5,
+          color: isActive ? _activeGlow.withValues(alpha: 0.85) : tintBorder,
+          width: isActive ? 2.4 : 1.5,
         ),
         boxShadow: [
+          if (isActive)
+            BoxShadow(
+              color: _activeGlow.withValues(alpha: 0.45),
+              blurRadius: 22,
+              spreadRadius: 2,
+            ),
           BoxShadow(
-            color: AppColors.navy.withValues(alpha: isActive ? 0.10 : 0.05),
+            color: AppColors.navy.withValues(alpha: isActive ? 0.08 : 0.05),
             blurRadius: isActive ? 16 : 10,
             offset: const Offset(0, 4),
           ),
@@ -170,7 +186,8 @@ class ReadingSegmentCard extends StatelessWidget {
                       ? Icons.pause_circle_filled_rounded
                       : (isActive
                           ? Icons.play_circle_fill_rounded
-                          : Icons.play_circle_outline_rounded),
+                          // A speaker: tapping the card reads this verse.
+                          : Icons.volume_up_rounded),
                 ),
               ),
             ],
@@ -178,6 +195,19 @@ class ReadingSegmentCard extends StatelessWidget {
           Padding(padding: const EdgeInsets.only(right: 6), child: arabic),
           ...meaningParts,
         ],
+      ),
+    );
+    final onTap = this.onTap;
+    if (onTap == null) return card;
+    // The whole card is the play target (the buttons inside keep their own
+    // taps); a child just taps the verse it wants to hear.
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        key: ValueKey('reading-card-tap-$index'),
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: card,
       ),
     );
   }

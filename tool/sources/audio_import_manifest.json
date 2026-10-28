@@ -64,14 +64,6 @@
     "bytes": 3068778
   },
   {
-    "id": "asr",
-    "source": "H:\\Music\\sureler\\3\\3-ASIR.mp3",
-    "asset": "audio/full_readings/asr.mp3",
-    "seconds": 239.595102,
-    "sourceBytes": 3833650,
-    "bytes": 1438110
-  },
-  {
     "id": "humeze",
     "source": "H:\\Music\\sureler\\3\\4-HUMEZE.mp3",
     "asset": "audio/full_readings/humeze.mp3",

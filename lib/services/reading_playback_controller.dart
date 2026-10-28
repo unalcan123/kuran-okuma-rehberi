@@ -107,7 +107,8 @@ enum ReadingPlaybackStatus {
 /// - "Ezberle" ([startMemorizing]): each segment [ReadingSettings.repeatCount]
 ///   times (or in a random order with "Karışık sıra"), with the chosen pause
 ///   between segments and, with "Metni gizle", "Şimdi sen oku";
-/// - a segment's own play button ([playSingle]).
+/// - a segment's own play button ([playSingle]) or a tap on its card
+///   ([playFromStart]).
 ///
 /// The speed comes from [ReadingSettings] in all three.
 ///
@@ -240,6 +241,13 @@ class ReadingPlaybackController extends ChangeNotifier {
       if (_status == ReadingPlaybackStatus.playing) return pause();
       if (_status == ReadingPlaybackStatus.paused) return resume();
     }
+    await playFromStart(index);
+  }
+
+  /// Tapping a segment's card: only that segment, once, from its start —
+  /// tapped again, from the start again; whatever played before stops.
+  Future<void> playFromStart(int index) async {
+    if (segments[index].audioAsset.isEmpty) return;
     _cancelTimer();
     _single = true;
     _fullRecording = false;

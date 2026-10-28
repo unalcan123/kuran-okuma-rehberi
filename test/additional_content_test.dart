@@ -70,14 +70,21 @@ void main() {
         final reading = tester.widget<ReadingScreen>(
           find.byType(ReadingScreen),
         );
-        expect(button.onPressed != null, reading.fullAudioAsset.isNotEmpty);
+        // Verse clips (e.g. Asr) enable both; otherwise only a complete
+        // recording enables Dinle and Ezberle stays off.
+        final everyClip = reading.segments.every((s) => s.audioAsset.isNotEmpty);
+        expect(
+          button.onPressed != null,
+          reading.fullAudioAsset.isNotEmpty || everyClip,
+        );
         expect(
           tester
-              .widget<FilledButton>(
-                find.byKey(const ValueKey('reading-memorize')),
-              )
-              .onPressed,
-          isNull,
+                  .widget<FilledButton>(
+                    find.byKey(const ValueKey('reading-memorize')),
+                  )
+                  .onPressed !=
+              null,
+          everyClip,
         );
         expect(
           tester.takeException(),

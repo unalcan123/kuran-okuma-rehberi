@@ -612,19 +612,19 @@ const kSupplementAsr = Surah(
   titleTr: "Asr Suresi",
   arabicName: "الْعَصْر",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/22_asr/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "وَالْعَصْرِۙ",
       meaningTr: "Yemin ederim zamana:",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/22_asr/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "اِنَّ الْاِنْسَانَ لَفٖي خُسْرٍۙ",
       meaningTr: "İnsanlar hüsranda.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/22_asr/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
@@ -632,7 +632,7 @@ const kSupplementAsr = Surah(
           "اِلَّا الَّذٖينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
       meaningTr:
           "Ancak şunlar müstesna:İman edip makbul ve güzel işler yapanlar,Bir de birbirlerine hakkı ve sabrı tavsiye edenler.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/22_asr/03_ayet.mp3',
     ),
   ],
 );

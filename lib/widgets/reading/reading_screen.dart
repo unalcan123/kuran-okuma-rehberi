@@ -310,6 +310,10 @@ class ReadingScreenState extends State<ReadingScreen> {
                         widget.segments[i].audioAsset.isEmpty
                             ? null
                             : () => _player.playSingle(i),
+                    onTap:
+                        widget.segments[i].audioAsset.isEmpty
+                            ? null
+                            : () => _player.playFromStart(i),
                     onReveal: _player.reveal,
                   ),
                 ),

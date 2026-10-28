@@ -8,7 +8,6 @@ const kFullReadingAudio = <String, String>{
   'adiyat': 'audio/full_readings/adiyat.mp3',
   'karia': 'audio/full_readings/karia.mp3',
   'tekasur': 'audio/full_readings/tekasur.mp3',
-  'asr': 'audio/full_readings/asr.mp3',
   'humeze': 'audio/full_readings/humeze.mp3',
   'ayetel-kursi': 'audio/full_readings/ayetel-kursi.mp3',
   '10_ezan_duasi': 'audio/full_readings/10_ezan_duasi.mp3',

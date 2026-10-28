@@ -114,6 +114,10 @@ Kayıt yapısı (Asr'da doğrulandı): besmele (zilsiz, duraklamayla ayrılır) 
 Çıktı `tmp/ezber_split/<sure>/`: `parca_NN.mp3` (her tekrar), `00_besmele.mp3`, `NN_ayet.mp3`,
 `tam_okuma.mp3`, `rapor.md/json` (şüpheliler: kenarda yüksek ses, zil kalıntısı, grup ≠ 3, sıra dışı).
 Mono 32 kHz 48 kbps. Uygulamaya kendiliğinden girmez; dinlenip onaylanınca kopyalanır.
+**Uygulamada: yalnız Asr** (`assets/audio/sureler/22_asr/`: besmele + 3 ayet, her ayetin en temiz tekrarı —
+en az kırpma, en geniş sessizlik payı; −3 dB ile diğer surelerin seviyesine; parmak izleri
+`tool/original_audio_fingerprints.json`'da; Asr'ın uzun tam kaydı kaldırıldı, Dinle ayet ayet çalar).
+Test: `test/asr_ayet_audio_test.dart`. Diğer sureler kullanıcı Asr'ı onaylayınca.
 `python tool/ezber_split/split_ezber.py "<dosya>"` veya `--batch` (gerekenler: numpy, scipy, torch, transformers).
 
 ## Bilinen sınırlar

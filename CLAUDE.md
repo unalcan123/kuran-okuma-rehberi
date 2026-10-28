@@ -48,7 +48,9 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   ayetler, veri sırasıyla; dua: bölümler), motor `ReadingPlaybackController` (tek `AudioService`, klip klip).
   Çocuklar için sade: altta iki düğme — **Dinle** (hep baştan sona bir kez, kısa ara) ve **Ezberle Nx**
   (her bölüm N kez, varsayılan 3; ayarlarda tekrar 1-10, bekleme, "Metni gizle", "Karışık sıra"; mod
-  seçimi yok). Ayarlar `ReadingSettings`
+  seçimi yok). **Karta dokunmak** = yalnız o bölüm baştan (`playFromStart`; başka kart öncekini durdurur,
+  aynı kart baştan çalar); köşedeki 🔊 düğmesi duraklat/devam. Okunan kart yumuşak yeşil ışıkla çevrili
+  (`_activeGlow`, yanıp sönmez). Ayarlar `ReadingSettings`
   (SharedPreferences `reading.*`; Arapça varsayılan %130 = eski 30/42/46 × 1.3, meal varsayılan kapalı,
   hız 0.75-1.25 `AudioService.setPlaybackRate`, ekrandan çıkınca 1.0). Sahne görseli `assets/images/reading/`
   (tasarım taslağından kırpıldı, `tool/crop_lesson_cards.py`). Test: `test/reading_screen_test.dart`.

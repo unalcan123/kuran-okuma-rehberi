@@ -54,7 +54,8 @@ void main() {
 
   test('Complete teaching recordings have a separate duration-based budget', () {
     final rows = jsonDecode(File('tool/sources/audio_import_manifest.json').readAsStringSync()) as List;
-    expect(rows, hasLength(13));
+    // Asr: verse clips from the repeat recording instead (sureler/22_asr).
+    expect(rows, hasLength(12));
     var total = 0;
     for (final row in rows) {
       final file = File('assets/${row['asset']}');
