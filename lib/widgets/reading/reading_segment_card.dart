@@ -90,7 +90,7 @@ class ReadingSegmentCard extends StatelessWidget {
 
     final (tint, tintBorder) = _cardTints[index % _cardTints.length];
     final badge =
-        opening
+        opening && segment.number == null
             ? Icon(Icons.auto_awesome_rounded, color: accent, size: 26)
             : _Badge(number: segment.number ?? index + 1);
 

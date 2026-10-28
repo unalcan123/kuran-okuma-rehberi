@@ -22,8 +22,8 @@ class ReadingSegment {
   final String arabic;
   final String audioAsset;
 
-  /// The number in the badge (ayet number, prayer part), null for the
-  /// besmele.
+  /// The displayed ayet / prayer part number. Only Fatiha has a numbered
+  /// besmele; its last ayet spans two cards, both numbered 7.
   final int? number;
 
   /// Turkish meaning ("meal"); empty when there is none.
@@ -40,6 +40,7 @@ class ReadingSegment {
   static List<ReadingSegment> ofSurah(Surah surah) => [
     ReadingSegment(
       id: 'besmele',
+      number: surah.id == 'fatiha' ? 1 : null,
       arabic: surah.besmele,
       audioAsset: surah.besmeleAudioAsset,
       isOpening: true,
@@ -47,7 +48,10 @@ class ReadingSegment {
     for (final ayet in surah.ayetler)
       ReadingSegment(
         id: 'ayet-${ayet.number}',
-        number: ayet.number,
+        number:
+            surah.id == 'fatiha'
+                ? (ayet.number < 7 ? ayet.number + 1 : 7)
+                : ayet.number,
         arabic: ayet.arabic,
         meaning: ayet.meaningTr,
         audioAsset: ayet.audioAsset,

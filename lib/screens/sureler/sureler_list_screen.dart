@@ -34,6 +34,21 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
     super.dispose();
   }
 
+  // Actual image dimensions keep the new numbers over the baked badges.
+  static const _cardImageSizes = {
+    'fatiha': Size(491, 254),
+    'fil': Size(480, 255),
+    'kureysh': Size(491, 256),
+    'maun': Size(491, 240),
+    'ihlas': Size(479, 242),
+    'kevser': Size(490, 243),
+    'nas': Size(491, 230),
+    'felak': Size(479, 229),
+    'nasr': Size(490, 231),
+    'tebbet': Size(590, 227),
+    'kafirun': Size(590, 227),
+  };
+
   static const double _maxContentWidth = 1100;
   static const double _minCardWidth = 240;
 
@@ -98,17 +113,12 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                             radiusFactor: kSurahCardRadiusFactor,
                             label: context.t('Sure {n}', {'n': surah.order}),
                             title: context.t(surah.titleTr),
-                            imageSize: const Size(490, 250),
-                            overlay:
-                                context.language == AppLanguage.tr
-                                    ? null
-                                    : RecitationTitleOverlay(
-                                      title: context.t(surah.titleTr),
-                                      label: context.t('Sure {n}', {
-                                        'n': surah.order,
-                                      }),
-                                      prayer: false,
-                                    ),
+                            imageSize: _cardImageSizes[surah.id],
+                            overlay: RecitationTitleOverlay(
+                              title: context.t(surah.titleTr),
+                              label: context.t('Sure {n}', {'n': surah.order}),
+                              prayer: false,
+                            ),
                             arabic: surah.arabicName,
                             onTap: () => _openSurah(context, surah),
                           );

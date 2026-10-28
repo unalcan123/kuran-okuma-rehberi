@@ -1,7 +1,7 @@
 // Sure ve dua listeleri: master görsellerden kırpılmış kartlar
 // (tool/crop_lesson_cards.py), Elifba ders kartlarıyla aynı PictureCard.
-// "Sure 1" … "Sure 11" = kSureler sırası (Fatiha … Kafirun), kart kart
-// kontrol edildi.
+// Sureler Kur’an sırasındadır; kart numaraları 1–11 olarak gösterilir.
+// Görsel dosyaları eski kimlik eşleşmelerini korur.
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -29,7 +29,10 @@ void main() {
     expect(kDualar, hasLength(9));
     for (final dua in kDualar) {
       final image = kDuaCardImages[dua.id]!;
-      expect(image, endsWith('dua_${dua.order.toString().padLeft(2, '0')}.png'));
+      expect(
+        image,
+        endsWith('dua_${dua.order.toString().padLeft(2, '0')}.png'),
+      );
       expect(File(image).existsSync(), isTrue, reason: image);
       expect(kDuaDisplayTitles[dua.id], isNotNull, reason: dua.id);
     }
@@ -49,23 +52,48 @@ void main() {
 
   test('sureler: 11 kart, uygulamanın sırasıyla, dosyalar var', () {
     expect(kSureler.map((s) => s.id), [
-      'fatiha', 'fil', 'kureysh', 'maun', 'ihlas', 'kevser', //
-      'nas', 'felak', 'nasr', 'tebbet', 'kafirun',
+      'fatiha',
+      'fil',
+      'kureysh',
+      'maun',
+      'kevser',
+      'kafirun',
+      'nasr',
+      'tebbet',
+      'ihlas',
+      'felak',
+      'nas',
     ]);
+    expect(kSureler.map((s) => s.order), List.generate(11, (i) => i + 1));
+    const originalImages = {
+      'fatiha': 1,
+      'fil': 2,
+      'kureysh': 3,
+      'maun': 4,
+      'ihlas': 5,
+      'kevser': 6,
+      'nas': 7,
+      'felak': 8,
+      'nasr': 9,
+      'tebbet': 10,
+      'kafirun': 11,
+    };
     for (final surah in kSureler) {
       final image = kSurahCardImages[surah.id]!;
       expect(
         image,
-        endsWith('sure_${surah.order.toString().padLeft(2, '0')}.png'),
+        endsWith(
+          'sure_${originalImages[surah.id].toString().padLeft(2, '0')}.png',
+        ),
       );
       expect(File(image).existsSync(), isTrue, reason: image);
     }
     expect(kSurahCardImages.values.toSet(), hasLength(11));
-    final files = Directory('assets/images/lessons/sureler')
-        .listSync()
-        .map((f) => f.uri.pathSegments.last)
-        .toList()
-      ..sort();
+    final files =
+        Directory(
+            'assets/images/lessons/sureler',
+          ).listSync().map((f) => f.uri.pathSegments.last).toList()
+          ..sort();
     expect(files, [
       for (var n = 1; n <= 11; n++) 'sure_${n.toString().padLeft(2, '0')}.png',
     ]);
@@ -85,7 +113,10 @@ void main() {
     final card = find.byKey(ValueKey('dua-card-${kDualar[6].id}'));
     await tester.scrollUntilVisible(card, 200);
     await tester.pumpAndSettle();
-    expect(find.descendant(of: card, matching: find.byType(Text)), findsNothing);
+    expect(
+      find.descendant(of: card, matching: find.byType(Text)),
+      findsNothing,
+    );
     final size = tester.getSize(card);
     expect(size.width / size.height, closeTo(kDuaCardAspectRatio, 0.01));
     await tester.tap(card);
@@ -96,7 +127,7 @@ void main() {
     );
   });
 
-  testWidgets('sure kartları görselli, başlık yazılmaz; dokununca o sure '
+  testWidgets('sure kartları görselli, numara güncel; dokununca o sure '
       'açılır', (tester) async {
     setSize(tester, const Size(1280, 800));
     final audio = TestAudioService();
@@ -105,11 +136,23 @@ void main() {
     await tester.pumpAndSettle();
     final fatiha = find.byKey(const ValueKey('surah-card-fatiha'));
     expect(
-      find.descendant(of: fatiha, matching: find.byType(Text)),
-      findsNothing,
+      find.descendant(of: fatiha, matching: find.text('Sure 1')),
+      findsOneWidget,
     );
     final fil = find.byKey(const ValueKey('surah-card-fil'));
-    expect(find.descendant(of: fil, matching: find.byType(Text)), findsNothing);
+    expect(
+      find.descendant(of: fil, matching: find.text('Sure 2')),
+      findsOneWidget,
+    );
+    for (var i = 0; i < kSureler.length; i++) {
+      final card = find.byKey(ValueKey('surah-card-${kSureler[i].id}'));
+      await tester.scrollUntilVisible(card, 150);
+      expect(
+        find.descendant(of: card, matching: find.text('Sure ${i + 1}')),
+        findsOneWidget,
+      );
+    }
+    await tester.scrollUntilVisible(fatiha, -150);
     expect(tester.getSize(fatiha), tester.getSize(fil)); // aynı şekil
     final size = tester.getSize(fatiha);
     expect(size.width / size.height, closeTo(kSurahCardAspectRatio, 0.01));

@@ -426,7 +426,7 @@ void main() {
       final besmele = kSureler.first.besmeleAudioAsset;
       final ayet1 = kSureler.first.ayetler.first.audioAsset;
       expect(audio.played, [besmele, besmele, besmele, ayet1]);
-      expect(find.text('Ezber · 1. Ayet · 1/3'), findsOneWidget);
+      expect(find.text('Ezber · 2. Ayet · 1/3'), findsOneWidget);
     });
 
     testWidgets('Dinle ezber ayarlarını kullanmaz: baştan sona bir kez', (

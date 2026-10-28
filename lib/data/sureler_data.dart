@@ -2,7 +2,8 @@ import '../models/surah.dart';
 
 /// Source: the old Elifbe2025 project's `assets/jsondatalar/sureler/`
 /// json files, transcribed as-is — Arabic text, Turkish meanings,
-/// surah order and audio filenames all come from there. The Arabic
+/// audio filenames come from there. Surahs follow Qur'an order with
+/// sequential card numbers. The Arabic
 /// surah names are the standard Qur'an surah names (not present in
 /// the old project's data, added as commonly-known facts).
 
@@ -74,7 +75,7 @@ const Surah kMaun = Surah(
 );
 
 const Surah kIhlas = Surah(
-  order: 5,
+  order: 9,
   id: 'ihlas',
   titleTr: 'İhlas Suresi',
   arabicName: 'الإخلاص',
@@ -89,7 +90,7 @@ const Surah kIhlas = Surah(
 );
 
 const Surah kKevser = Surah(
-  order: 6,
+  order: 5,
   id: 'kevser',
   titleTr: 'Kevser Suresi',
   arabicName: 'الكوثر',
@@ -103,7 +104,7 @@ const Surah kKevser = Surah(
 );
 
 const Surah kNas = Surah(
-  order: 7,
+  order: 11,
   id: 'nas',
   titleTr: 'Nas Suresi',
   arabicName: 'الناس',
@@ -120,7 +121,7 @@ const Surah kNas = Surah(
 );
 
 const Surah kFelak = Surah(
-  order: 8,
+  order: 10,
   id: 'felak',
   titleTr: 'Felak Suresi',
   arabicName: 'الفلق',
@@ -136,7 +137,7 @@ const Surah kFelak = Surah(
 );
 
 const Surah kNasr = Surah(
-  order: 9,
+  order: 7,
   id: 'nasr',
   titleTr: 'Nasr Suresi',
   arabicName: 'النصر',
@@ -151,7 +152,7 @@ const Surah kNasr = Surah(
 );
 
 const Surah kTebbet = Surah(
-  order: 10,
+  order: 8,
   id: 'tebbet',
   titleTr: 'Tebbet Suresi',
   arabicName: 'المسد',
@@ -167,7 +168,7 @@ const Surah kTebbet = Surah(
 );
 
 const Surah kKafirun = Surah(
-  order: 11,
+  order: 6,
   id: 'kafirun',
   titleTr: 'Kâfirun Suresi',
   arabicName: 'الكافرون',
@@ -188,11 +189,11 @@ const List<Surah> kSureler = [
   kFil,
   kKureysh,
   kMaun,
-  kIhlas,
   kKevser,
-  kNas,
-  kFelak,
+  kKafirun,
   kNasr,
   kTebbet,
-  kKafirun,
+  kIhlas,
+  kFelak,
+  kNas,
 ];
