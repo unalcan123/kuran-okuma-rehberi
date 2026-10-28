@@ -1,0 +1,81 @@
+{
+  "url": "https://quranenc.com/en/browse/french_rashid/109",
+  "data": [
+    {
+      "id": "6208",
+      "sura": "109",
+      "aya": "1",
+      "arabic_text": "قُلۡ يَٰٓأَيُّهَا ٱلۡكَٰفِرُونَ",
+      "translation": "Dis : « Vous mécréants qui avez rejeté la foi !",
+      "footnotes": ""
+    },
+    {
+      "id": "6209",
+      "sura": "109",
+      "aya": "2",
+      "arabic_text": "لَآ أَعۡبُدُ مَا تَعۡبُدُونَ",
+      "translation": "Je n’adore pas les dieux que vous adorez,",
+      "footnotes": ""
+    },
+    {
+      "id": "6210",
+      "sura": "109",
+      "aya": "3",
+      "arabic_text": "وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ",
+      "translation": "et vous n’adorez pas le Dieu que j’adore.",
+      "footnotes": ""
+    },
+    {
+      "id": "6211",
+      "sura": "109",
+      "aya": "4",
+      "arabic_text": "وَلَآ أَنَا۠ عَابِدٞ مَّا عَبَدتُّمۡ",
+      "translation": "Je ne vénérerai jamais vos fausses divinités,",
+      "footnotes": ""
+    },
+    {
+      "id": "6212",
+      "sura": "109",
+      "aya": "5",
+      "arabic_text": "وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ",
+      "translation": "et vous ne vénérerez jamais mon Seigneur.",
+      "footnotes": ""
+    },
+    {
+      "id": "6213",
+      "sura": "109",
+      "aya": "6",
+      "arabic_text": "لَكُمۡ دِينُكُمۡ وَلِيَ دِينِ",
+      "translation": "Vous suivez votre culte et moi le mien. »",
+      "footnotes": ""
+    }
+  ],
+  "language": "fr",
+  "surah": {
+    "number": 109,
+    "id": "kafirun"
+  },
+  "metadata": {
+    "key": "french_rashid",
+    "direction": "ltr",
+    "language_iso_code": "fr",
+    "version": "1.0.3",
+    "last_update": 1782043143,
+    "title": "French Translation - Rachid Maach",
+    "description": "Translated by Rashid Ma’ash",
+    "file": "french_rashid",
+    "database_url": "https://quranenc.com/downloads/sqlite/french_rashid.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/french_rashid.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/french_rashid.pdf",
+    "pdf_size": 17991055,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/french_rashid.pure.pdf",
+    "pdf_pure_size": 9323774,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/french_rashid.mobile.pdf",
+    "pdf_mobile_size": 8288227,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/french_rashid.epub",
+    "epub_size": 1779216
+  }
+}

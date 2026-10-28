@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 ///    [thickArabicLetters]), uzatma (med) elifi
 ///  * MAVİ:    esre, iki esre, şedde (ve şeddeli harfin harekesi), uzatma yâ'sı
 ///  * YEŞİL:   ötre, iki ötre, uzatma vâv'ı
-const Color arabicRed = Color(0xFFED1C24);
+const Color arabicRed = Color(0xFFB71C24);
 const Color arabicBlue = Color(0xFF00AEEF);
 const Color arabicGreen = Color(0xFF00A650);
 

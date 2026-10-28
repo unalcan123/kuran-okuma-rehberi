@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -158,26 +159,39 @@ class BookPageBar extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: AppColors.background.withValues(alpha: 0.96),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Row(
+  Widget build(BuildContext context) => Material(
+    color: AppColors.background.withValues(alpha: 0.96),
+    child: SafeArea(
+      top: false,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final compact =
+                constraints.maxWidth < 580 ||
+                MediaQuery.textScalerOf(context).scale(1) > 1.1;
+            return Row(
               textDirection: TextDirection.ltr,
               children: [
-                TextButton.icon(
-                  key: const ValueKey('page-next'),
-                  onPressed: onNext,
-                  icon: const Icon(Icons.chevron_left_rounded),
-                  label: Text(context.t('Sonraki Sayfa')),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                if (compact)
+                  IconButton(
+                    key: const ValueKey('page-next'),
+                    onPressed: onNext,
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
+                    ),
+                    tooltip: context.t('Sonraki Sayfa'),
+                    icon: const Icon(Icons.chevron_left_rounded),
+                  )
+                else
+                  TextButton.icon(
+                    key: const ValueKey('page-next'),
+                    onPressed: onNext,
+                    icon: const Icon(Icons.chevron_left_rounded),
+                    label: Text(context.t('Sonraki Sayfa')),
+                  ),
+                Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -193,6 +207,7 @@ class BookPageBar extends StatelessWidget {
                       ),
                       Text(
                         '${context.t(page.type.label)} · ${index + 1} / $count',
+                        textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: AppColors.textSecondary,
                           fontWeight: FontWeight.w600,
@@ -201,25 +216,31 @@ class BookPageBar extends StatelessWidget {
                     ],
                   ),
                 ),
-                TextButton(
-                  key: const ValueKey('page-previous'),
-                  onPressed: onPrevious,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(context.t('Önceki Sayfa')),
-                      const SizedBox(width: 8),
-                      const Icon(Icons.chevron_right_rounded),
-                    ],
+                if (compact)
+                  IconButton(
+                    key: const ValueKey('page-previous'),
+                    onPressed: onPrevious,
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
+                    ),
+                    tooltip: context.t('Önceki Sayfa'),
+                    icon: const Icon(Icons.chevron_right_rounded),
+                  )
+                else
+                  TextButton.icon(
+                    key: const ValueKey('page-previous'),
+                    onPressed: onPrevious,
+                    label: Text(context.t('Önceki Sayfa')),
+                    icon: const Icon(Icons.chevron_right_rounded),
                   ),
-                ),
               ],
-            ),
-          ),
+            );
+          },
         ),
       ),
-    );
-  }
+    ),
+  );
 }
 
 /// Dark red of the book's headings (read from the PDF).
@@ -570,11 +591,21 @@ class _IntroText extends StatelessWidget {
     for (final match in _arabic.allMatches(text)) {
       spans.add(TextSpan(text: text.substring(last, match.start)));
       spans.add(
-        TextSpan(
-          text: match[0],
-          style: AppTextTheme.arabicSmall(
-            fontSize: (style?.fontSize ?? 16) * 1.6,
-          ).copyWith(color: style?.color ?? arabicRed, height: 1.2),
+        WidgetSpan(
+          alignment: PlaceholderAlignment.middle,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 320),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                match[0]!,
+                textDirection: TextDirection.rtl,
+                style: AppTextTheme.arabicSmall(
+                  fontSize: (style?.fontSize ?? 16) * 1.6,
+                ).copyWith(color: style?.color ?? arabicRed, height: 1.2),
+              ),
+            ),
+          ),
         ),
       );
       last = match.end;
@@ -1368,9 +1399,11 @@ class _BookCell extends StatelessWidget {
     return _Dashed(
       solid: spec.frame,
       child: Semantics(
+        sortKey:
+            spec.index == null ? null : OrdinalSortKey(spec.index!.toDouble()),
         button: true,
         label: context.t("{name}. Dinle", {
-          "name": letter.turkishName ?? 'Kelime',
+          "name": context.t(letter.turkishName ?? 'Kelime'),
         }),
         child: Material(
           color: playing ? AppColors.turquoiseSoft : Colors.transparent,

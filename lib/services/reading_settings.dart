@@ -26,8 +26,17 @@ class ReadingSettings extends ChangeNotifier {
   static final ReadingSettings instance = ReadingSettings._();
 
   /// Arabic size, as a share of the base size of the reading screens'
-  /// Arabic ([arabicBaseFontSize]): 100 % … 160 %. Default 130 %.
-  static const List<double> arabicScales = [1.0, 1.15, 1.3, 1.45, 1.6];
+  /// Arabic ([arabicBaseFontSize]): 100 % … 190 %. Default 130 %.
+  static const List<double> arabicScales = [
+    1.0,
+    1.15,
+    1.3,
+    1.45,
+    1.6,
+    1.7,
+    1.8,
+    1.9,
+  ];
   static const double defaultArabicScale = 1.3;
 
   static const List<double> speeds = [0.75, 0.85, 1.0, 1.15, 1.25];
@@ -60,6 +69,7 @@ class ReadingSettings extends ChangeNotifier {
   bool get showMeaning => _showMeaning;
   int get repeatCount => _repeatCount;
   int get pauseSeconds => _pauseSeconds;
+
   /// "Karışık sıra": "Ezberle" takes the parts in a random order.
   bool get memorizeShuffled => _memorizeShuffled;
 
@@ -92,12 +102,8 @@ class ReadingSettings extends ChangeNotifier {
       _speed = _pick(prefs.getDouble('${_prefix}speed'), speeds, defaultSpeed);
       _showArabic = prefs.getBool('${_prefix}showArabic') ?? true;
       _showMeaning = prefs.getBool('${_prefix}showMeaning') ?? false;
-      _repeatCount = (prefs.getInt('${_prefix}repeatCount') ??
-              defaultRepeat)
-          .clamp(
-        minRepeat,
-        maxRepeat,
-      );
+      _repeatCount = (prefs.getInt('${_prefix}repeatCount') ?? defaultRepeat)
+          .clamp(minRepeat, maxRepeat);
       final pause = prefs.getInt('${_prefix}pauseSeconds');
       _pauseSeconds = pauses.contains(pause) ? pause! : defaultPause;
       _memorizeShuffled =

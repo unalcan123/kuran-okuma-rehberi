@@ -1,0 +1,81 @@
+{
+  "url": "https://quranenc.com/en/browse/spanish_garcia/109",
+  "data": [
+    {
+      "id": "6208",
+      "sura": "109",
+      "aya": "1",
+      "arabic_text": "قُلۡ يَٰٓأَيُّهَا ٱلۡكَٰفِرُونَ",
+      "translation": "1. Di: “¡Oh, incrédulos!",
+      "footnotes": ""
+    },
+    {
+      "id": "6209",
+      "sura": "109",
+      "aya": "2",
+      "arabic_text": "لَآ أَعۡبُدُ مَا تَعۡبُدُونَ",
+      "translation": "2. No adoro lo que adoran.",
+      "footnotes": ""
+    },
+    {
+      "id": "6210",
+      "sura": "109",
+      "aya": "3",
+      "arabic_text": "وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ",
+      "translation": "3. Ni adoran ustedes a Quien yo adoro.",
+      "footnotes": ""
+    },
+    {
+      "id": "6211",
+      "sura": "109",
+      "aya": "4",
+      "arabic_text": "وَلَآ أَنَا۠ عَابِدٞ مَّا عَبَدتُّمۡ",
+      "translation": "4. Y jamás adoraré lo que adoran.",
+      "footnotes": ""
+    },
+    {
+      "id": "6212",
+      "sura": "109",
+      "aya": "5",
+      "arabic_text": "وَلَآ أَنتُمۡ عَٰبِدُونَ مَآ أَعۡبُدُ",
+      "translation": "5. Ni adorarán ustedes a Quien yo adoro.",
+      "footnotes": ""
+    },
+    {
+      "id": "6213",
+      "sura": "109",
+      "aya": "6",
+      "arabic_text": "لَكُمۡ دِينُكُمۡ وَلِيَ دِينِ",
+      "translation": "6. Ustedes tienen su religión y yo la mía”.",
+      "footnotes": ""
+    }
+  ],
+  "language": "es",
+  "surah": {
+    "number": 109,
+    "id": "kafirun"
+  },
+  "metadata": {
+    "key": "spanish_garcia",
+    "direction": "ltr",
+    "language_iso_code": "es",
+    "version": "1.0.2",
+    "last_update": 1772054067,
+    "title": "Spanish Translation - Isa Garcia",
+    "description": "Translated by Muhammad Isa Garcia",
+    "file": "spanish_garcia",
+    "database_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pdf",
+    "pdf_size": 21384097,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pure.pdf",
+    "pdf_pure_size": 52519323,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.pure.png",
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

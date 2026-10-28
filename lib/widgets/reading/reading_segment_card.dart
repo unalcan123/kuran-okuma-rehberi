@@ -9,11 +9,11 @@ import '../reading_arabic_text.dart';
 
 /// Soft pastel colors of the number badges, in turn (like the design).
 const List<(Color, Color)> _badgeColors = [
-  (Color(0xFFFFF1C9), Color(0xFFB7862B)),
-  (Color(0xFFDDF3E0), Color(0xFF3F8F55)),
-  (Color(0xFFDCEEFB), Color(0xFF3F7DB5)),
-  (Color(0xFFEDE3FA), Color(0xFF7A55B5)),
-  (Color(0xFFFCE1E4), Color(0xFFC0485A)),
+  (Color(0xFFFFF1C9), Color(0xFF795814)),
+  (Color(0xFFDDF3E0), Color(0xFF27683B)),
+  (Color(0xFFDCEEFB), Color(0xFF285B87)),
+  (Color(0xFFEDE3FA), Color(0xFF684397)),
+  (Color(0xFFFCE1E4), Color(0xFF9F3044)),
 ];
 
 /// Soft card tints, in turn (fill, border): mint, sky, peach, lilac.
@@ -44,6 +44,7 @@ class ReadingSegmentCard extends StatelessWidget {
     required this.isTextHidden,
     required this.onPlay,
     required this.onReveal,
+    this.unit = 'Ayet',
   });
 
   final int index;
@@ -54,7 +55,8 @@ class ReadingSegmentCard extends StatelessWidget {
   final bool isActive;
   final bool isPlaying;
   final bool isTextHidden;
-  final VoidCallback onPlay;
+  final VoidCallback? onPlay;
+  final String unit;
   final VoidCallback onReveal;
 
   @override
@@ -63,7 +65,7 @@ class ReadingSegmentCard extends StatelessWidget {
     final accent = opening ? AppColors.gold : AppColors.turquoise;
     final arabicStyle = AppTextTheme.arabicSmall(
       fontSize: fontSize,
-    ).copyWith(color: opening ? AppColors.gold : AppColors.navy, height: 1.9);
+    ).copyWith(color: AppColors.navy, height: 1.9);
 
     Widget arabic;
     if (isTextHidden) {
@@ -83,8 +85,10 @@ class ReadingSegmentCard extends StatelessWidget {
       if (showMeaning && segment.meaning.isNotEmpty)
         _Note(
           key: ValueKey('reading-meaning-$index'),
-          title: 'Türkçe Anlam',
+          title: _meaningTitles[context.language.code] ?? 'Anlam',
           text: segment.meaning,
+          publishedText: segment.meaningSource.isNotEmpty,
+          footnotes: segment.meaningFootnotes,
         ),
     ];
 
@@ -128,6 +132,15 @@ class ReadingSegmentCard extends StatelessWidget {
           Row(
             children: [
               badge,
+              if (segment.instruction.isNotEmpty) ...[
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    context.t(segment.instruction),
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                ),
+              ],
               if (isActive) ...[
                 const SizedBox(width: 8),
                 Icon(
@@ -137,13 +150,17 @@ class ReadingSegmentCard extends StatelessWidget {
                   size: 22,
                 ),
               ],
-              const Spacer(),
+              if (segment.instruction.isEmpty) const Spacer(),
               IconButton(
                 key: ValueKey('reading-play-$index'),
                 tooltip:
-                    isActive && isPlaying
+                    segment.audioAsset.isEmpty
+                        ? context.t('Ses kaydı henüz eklenmedi')
+                        : isActive && isPlaying
                         ? context.t('Duraklat')
-                        : context.t(opening ? 'Besmeleyi dinle' : 'Bunu dinle'),
+                        : (opening
+                            ? context.t('Besmeleyi dinle')
+                            : '${segment.number ?? index + 1}. ${context.t(unit)} · ${context.t('Dinle')}'),
                 onPressed: onPlay,
                 constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
                 iconSize: 34,
@@ -187,11 +204,38 @@ class _Badge extends StatelessWidget {
   }
 }
 
+const _meaningTitles = {
+  'tr': 'Türkçe Anlam',
+  'es': 'Significado',
+  'fr': 'Sens',
+  'de': 'Bedeutung',
+  'en': 'Meaning',
+  'bs': 'Značenje',
+  'nl': 'Betekenis',
+};
+const _noteTitles = {
+  'tr': 'Notlar',
+  'es': 'Notas',
+  'fr': 'Notes',
+  'de': 'Anmerkungen',
+  'en': 'Notes',
+  'bs': 'Napomene',
+  'nl': 'Noten',
+};
+
 class _Note extends StatelessWidget {
-  const _Note({super.key, required this.title, required this.text});
+  const _Note({
+    super.key,
+    required this.title,
+    required this.text,
+    this.publishedText = false,
+    this.footnotes = '',
+  });
 
   final String title;
   final String text;
+  final bool publishedText;
+  final String footnotes;
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -209,12 +253,20 @@ class _Note extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          context.t(text),
+          publishedText ? text : context.t(text),
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
             color: AppColors.textSecondary,
             height: 1.5,
           ),
         ),
+        if (footnotes.isNotEmpty)
+          ExpansionTile(
+            tilePadding: EdgeInsets.zero,
+            title: Text(_noteTitles[context.language.code] ?? 'Notes'),
+            children: [
+              Text(footnotes, style: Theme.of(context).textTheme.bodyMedium),
+            ],
+          ),
       ],
     ),
   );

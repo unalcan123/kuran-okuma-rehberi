@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/german_bubenheim/111",
+  "data": [
+    {
+      "id": "6217",
+      "sura": "111",
+      "aya": "1",
+      "arabic_text": "تَبَّتۡ يَدَآ أَبِي لَهَبٖ وَتَبَّ",
+      "translation": "Zugrunde gehen sollen die Hände Abu Lahabs, und zugrunde gehen soll er (selbst)!",
+      "footnotes": null
+    },
+    {
+      "id": "6218",
+      "sura": "111",
+      "aya": "2",
+      "arabic_text": "مَآ أَغۡنَىٰ عَنۡهُ مَالُهُۥ وَمَا كَسَبَ",
+      "translation": "Was nützt ihm sein Besitz und das, was er erworben hat?",
+      "footnotes": null
+    },
+    {
+      "id": "6219",
+      "sura": "111",
+      "aya": "3",
+      "arabic_text": "سَيَصۡلَىٰ نَارٗا ذَاتَ لَهَبٖ",
+      "translation": "Er wird einem Feuer voller Flammen ausgesetzt sein",
+      "footnotes": null
+    },
+    {
+      "id": "6220",
+      "sura": "111",
+      "aya": "4",
+      "arabic_text": "وَٱمۡرَأَتُهُۥ حَمَّالَةَ ٱلۡحَطَبِ",
+      "translation": "und (auch) seine Frau, die Brennholzträgerin.",
+      "footnotes": null
+    },
+    {
+      "id": "6221",
+      "sura": "111",
+      "aya": "5",
+      "arabic_text": "فِي جِيدِهَا حَبۡلٞ مِّن مَّسَدِۭ",
+      "translation": "Um ihrem Hals ist ein Strick aus Palmfasern.",
+      "footnotes": null
+    }
+  ],
+  "language": "de",
+  "surah": {
+    "number": 111,
+    "id": "tebbet"
+  },
+  "metadata": {
+    "key": "german_bubenheim",
+    "direction": "ltr",
+    "language_iso_code": "de",
+    "version": "1.1.4",
+    "last_update": 1738581834,
+    "title": "German Translation - Frank Bubenheim",
+    "description": "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    "file": "german_bubenheim",
+    "database_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

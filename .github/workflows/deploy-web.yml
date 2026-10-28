@@ -33,7 +33,7 @@ jobs:
       # Site özel alan adından (https://elifbe.nl/) kökten yayınlanır; base href "/".
       # Eski github.io/kuran-okuma-rehberi/ adresi GitHub tarafından elifbe.nl'ye yönlendirilir.
       - name: Web derle
-        run: flutter build web --release --base-href /
+        run: flutter build web --release --base-href / --no-web-resources-cdn
 
       - uses: actions/upload-pages-artifact@v3
         with:

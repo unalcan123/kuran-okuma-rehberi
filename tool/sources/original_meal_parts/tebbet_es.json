@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/spanish_garcia/111",
+  "data": [
+    {
+      "id": "6217",
+      "sura": "111",
+      "aya": "1",
+      "arabic_text": "تَبَّتۡ يَدَآ أَبِي لَهَبٖ وَتَبَّ",
+      "translation": "1. ¡Maldito sea Abu Lahab[1] y que perezca!",
+      "footnotes": "[1] Tío del Profeta Mujámmad y acérrimo enemigo del Islam."
+    },
+    {
+      "id": "6218",
+      "sura": "111",
+      "aya": "2",
+      "arabic_text": "مَآ أَغۡنَىٰ عَنۡهُ مَالُهُۥ وَمَا كَسَبَ",
+      "translation": "2. No le servirán de nada su poder ni sus bienes materiales.",
+      "footnotes": ""
+    },
+    {
+      "id": "6219",
+      "sura": "111",
+      "aya": "3",
+      "arabic_text": "سَيَصۡلَىٰ نَارٗا ذَاتَ لَهَبٖ",
+      "translation": "3. Será arrojado en el fuego llameante",
+      "footnotes": ""
+    },
+    {
+      "id": "6220",
+      "sura": "111",
+      "aya": "4",
+      "arabic_text": "وَٱمۡرَأَتُهُۥ حَمَّالَةَ ٱلۡحَطَبِ",
+      "translation": "4. junto con su mujer, la que acarreaba espinas[1],",
+      "footnotes": "[1] Porque minaba el camino del Profeta r con espinas."
+    },
+    {
+      "id": "6221",
+      "sura": "111",
+      "aya": "5",
+      "arabic_text": "فِي جِيدِهَا حَبۡلٞ مِّن مَّسَدِۭ",
+      "translation": "5. que llevará en su cuello una cuerda de fibras de palmera.",
+      "footnotes": ""
+    }
+  ],
+  "language": "es",
+  "surah": {
+    "number": 111,
+    "id": "tebbet"
+  },
+  "metadata": {
+    "key": "spanish_garcia",
+    "direction": "ltr",
+    "language_iso_code": "es",
+    "version": "1.0.2",
+    "last_update": 1772054067,
+    "title": "Spanish Translation - Isa Garcia",
+    "description": "Translated by Muhammad Isa Garcia",
+    "file": "spanish_garcia",
+    "database_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pdf",
+    "pdf_size": 21384097,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pure.pdf",
+    "pdf_pure_size": 52519323,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.pure.png",
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

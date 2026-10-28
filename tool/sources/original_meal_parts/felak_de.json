@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/german_bubenheim/113",
+  "data": [
+    {
+      "id": "6226",
+      "sura": "113",
+      "aya": "1",
+      "arabic_text": "قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ",
+      "translation": "Sag: Ich nehme Zuflucht beim Herrn des Tagesanbruchs",
+      "footnotes": null
+    },
+    {
+      "id": "6227",
+      "sura": "113",
+      "aya": "2",
+      "arabic_text": "مِن شَرِّ مَا خَلَقَ",
+      "translation": "vor dem Übel dessen, was Er erschaffen hat,",
+      "footnotes": null
+    },
+    {
+      "id": "6228",
+      "sura": "113",
+      "aya": "3",
+      "arabic_text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+      "translation": "und vor dem Übel der Dunkelheit, wenn sie zunimmt,",
+      "footnotes": null
+    },
+    {
+      "id": "6229",
+      "sura": "113",
+      "aya": "4",
+      "arabic_text": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلۡعُقَدِ",
+      "translation": "und vor dem Übel der Knotenanbläserinnen",
+      "footnotes": null
+    },
+    {
+      "id": "6230",
+      "sura": "113",
+      "aya": "5",
+      "arabic_text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+      "translation": "und vor dem Übel eines (jeden) Neidenden, wenn er neidet.",
+      "footnotes": null
+    }
+  ],
+  "language": "de",
+  "surah": {
+    "number": 113,
+    "id": "felak"
+  },
+  "metadata": {
+    "key": "german_bubenheim",
+    "direction": "ltr",
+    "language_iso_code": "de",
+    "version": "1.1.4",
+    "last_update": 1738581834,
+    "title": "German Translation - Frank Bubenheim",
+    "description": "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    "file": "german_bubenheim",
+    "database_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

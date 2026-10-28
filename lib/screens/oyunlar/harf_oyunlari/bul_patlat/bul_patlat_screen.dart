@@ -324,7 +324,7 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
       label: Text(context.t(l.bpListenAgain)),
       style: TextButton.styleFrom(
         foregroundColor: _ink,
-        minimumSize: const Size(48, 40),
+        minimumSize: const Size(48, 48),
         padding: const EdgeInsets.symmetric(horizontal: 10),
       ),
     );
@@ -334,7 +334,8 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
       icon: const Icon(Icons.arrow_back_rounded, color: _ink),
       onPressed: () => Navigator.of(context).maybePop(),
     );
-    final title = Text(context.t(l.bpGame),
+    final title = Text(
+      context.t(l.bpGame),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(
@@ -378,7 +379,8 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
             children: [
               listen,
               Flexible(
-                child: Text(context.t(l.bpListenAndFind),
+                child: Text(
+                  context.t(l.bpListenAndFind),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -490,7 +492,8 @@ class BulPatlatOyunuState extends State<BulPatlatOyunu>
                             width: b.size * 0.72,
                             child: FittedBox(
                               fit: BoxFit.scaleDown,
-                              child: ColoredArabicText(b.letter.char,
+                              child: ColoredArabicText(
+                                b.letter.char,
                                 textDirection: TextDirection.rtl,
                                 style: lessonArabicStyle(
                                   b.size * 0.95,

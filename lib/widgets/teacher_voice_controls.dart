@@ -36,8 +36,8 @@ class TeacherVoiceControls extends StatelessWidget {
           visualDensity: VisualDensity.compact,
           padding: EdgeInsets.zero,
           constraints: BoxConstraints.tightFor(
-            width: size * 1.3 + 20,
-            height: size + 20,
+            width: (size * 1.3 + 20).clamp(48.0, double.infinity),
+            height: (size + 20).clamp(48.0, double.infinity),
           ),
         );
         return Row(

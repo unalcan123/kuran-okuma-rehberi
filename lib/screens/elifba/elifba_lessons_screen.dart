@@ -89,6 +89,10 @@ class ElifbaLessonsScreen extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
+            settings: RouteSettings(
+              name:
+                  '/ders/${kElifbaLessons.contains(lesson) ? kElifbaLessons.indexOf(lesson) + 1 : lesson.id}',
+            ),
             builder: (_) => LessonLettersScreen(lesson: lesson),
           ),
         );

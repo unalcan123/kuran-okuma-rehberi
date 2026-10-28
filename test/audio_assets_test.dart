@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -22,7 +23,7 @@ void main() {
 
   test('there are recordings, and every one is small', () {
     expect(files.length, greaterThan(1000));
-    for (final file in files) {
+    for (final file in files.where((f) => !_norm(f.path).contains('/full_readings/'))) {
       expect(
         file.lengthSync(),
         lessThan(250 * 1024),
@@ -38,6 +39,7 @@ void main() {
     for (final language in languages) {
       final selected = files.where((file) {
         final path = _norm(file.path);
+        if (path.contains('/full_readings/')) return false;
         return !languages.any(
               (code) => path.startsWith('assets/audio/$code/'),
             ) ||
@@ -48,6 +50,20 @@ void main() {
       // oldu. Sesler ihtiyaç oldukça indirilir; sınır 32 MB.
       expect(total, lessThan(32 * 1024 * 1024), reason: language);
     }
+  });
+
+  test('Complete teaching recordings have a separate duration-based budget', () {
+    final rows = jsonDecode(File('tool/sources/audio_import_manifest.json').readAsStringSync()) as List;
+    expect(rows, hasLength(13));
+    var total = 0;
+    for (final row in rows) {
+      final file = File('assets/${row['asset']}');
+      final bytes = file.lengthSync(); total += bytes;
+      // 48 kbps mono plus MP3 frame/header overhead. Long tracks load on play.
+      expect(bytes, lessThan((row['seconds'] as num) * 6100 + 2048));
+      expect(bytes, lessThan(row['sourceBytes'] as int));
+    }
+    expect(total, lessThan(40 * 1024 * 1024));
   });
 
   test('Elifba letter clips are tiny (one tap = a few KB)', () {

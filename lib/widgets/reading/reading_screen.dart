@@ -35,10 +35,12 @@ class ReadingScreen extends StatefulWidget {
     required this.segments,
     required this.nouns,
     this.arabicTitle,
+    this.fullAudioAsset = '',
     this.settings,
   });
 
   final String title;
+  final String fullAudioAsset;
   final String? arabicTitle;
   final List<ReadingSegment> segments;
   final ReadingNouns nouns;
@@ -74,9 +76,14 @@ class ReadingScreenState extends State<ReadingScreen> {
   void initState() {
     super.initState();
     final audio = context.read<AudioService>();
-    audio.preload([for (final s in widget.segments) s.audioAsset]);
+    audio.preload([
+
+      for (final s in widget.segments)
+        if (s.audioAsset.isNotEmpty) s.audioAsset,
+    ]);
     _player = ReadingPlaybackController(
       segments: widget.segments,
+      fullAudioAsset: widget.fullAudioAsset,
       audio: audio,
       settings: _settings,
     )..addListener(_onPlayer);
@@ -173,7 +180,8 @@ class ReadingScreenState extends State<ReadingScreen> {
         title: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(context.t(widget.title),
+            Text(
+              context.t(widget.title),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w900,
@@ -181,7 +189,8 @@ class ReadingScreenState extends State<ReadingScreen> {
               ),
             ),
             if (widget.arabicTitle case final arabic?)
-              Text(context.t(arabic),
+              Text(
+                context.t(arabic),
                 textDirection: TextDirection.rtl,
                 style: AppTextTheme.arabicSmall(
                   fontSize: 20,
@@ -267,12 +276,25 @@ class ReadingScreenState extends State<ReadingScreen> {
             children: [
               const _Scene(),
               const SizedBox(height: 16),
+              if (widget.segments.every((s) => s.audioAsset.isEmpty))
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    context.t(
+                      widget.fullAudioAsset.isEmpty
+                          ? 'Ses kaydı henüz eklenmedi'
+                          : 'Bu kayıt metnin tamamını dinletir',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               for (var i = 0; i < widget.segments.length; i++)
                 Padding(
                   key: _keys[i],
                   padding: const EdgeInsets.only(bottom: 14),
                   child: ReadingSegmentCard(
                     index: i,
+                    unit: widget.nouns.one,
                     segment: widget.segments[i],
                     // The besmele heading is set a little smaller.
                     fontSize:
@@ -284,7 +306,10 @@ class ReadingScreenState extends State<ReadingScreen> {
                     isActive: _player.activeIndex == i,
                     isPlaying: _player.activeIndex == i && _player.isPlaying,
                     isTextHidden: _player.isTextHidden(i),
-                    onPlay: () => _player.playSingle(i),
+                    onPlay:
+                        widget.segments[i].audioAsset.isEmpty
+                            ? null
+                            : () => _player.playSingle(i),
                     onReveal: _player.reveal,
                   ),
                 ),
@@ -303,7 +328,11 @@ class _Scene extends StatelessWidget {
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) {
-      final height = (constraints.maxWidth * 368 / 572).clamp(120.0, 260.0);
+      final shortScreen = MediaQuery.sizeOf(context).height < 600;
+      final height =
+          shortScreen
+              ? 88.0
+              : (constraints.maxWidth * 368 / 572).clamp(120.0, 260.0);
       return ClipRRect(
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
         child: SizedBox(
@@ -365,7 +394,7 @@ class ReadingPlaybackBar extends StatelessWidget {
       required IconData icon,
       required String label,
       required Color color,
-      required VoidCallback onPressed,
+      required VoidCallback? onPressed,
       String? badge,
     }) => SizedBox(
       height: _height,
@@ -418,7 +447,11 @@ class ReadingPlaybackBar extends StatelessWidget {
               icon: Icons.volume_up_rounded,
               label: 'Dinle',
               color: AppColors.turquoise,
-              onPressed: onListen,
+              onPressed:
+                  (player.fullAudioAsset.isNotEmpty ||
+                          segments.every((s) => s.audioAsset.isNotEmpty))
+                      ? onListen
+                      : null,
             ),
           ),
           const SizedBox(width: 10),
@@ -429,7 +462,10 @@ class ReadingPlaybackBar extends StatelessWidget {
               label: 'Ezberle',
               badge: '${repeatCount}x',
               color: AppColors.skyBlue,
-              onPressed: onMemorize,
+              onPressed:
+                  segments.every((s) => s.audioAsset.isNotEmpty)
+                      ? onMemorize
+                      : null,
             ),
           ),
         ],
@@ -494,7 +530,8 @@ class ReadingPlaybackBar extends StatelessWidget {
                   if (status != null)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 6),
-                      child: Text(context.t(status),
+                      child: Text(
+                        context.t(status),
                         key: const ValueKey('reading-status'),
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           color: AppColors.navy,
@@ -512,3 +549,4 @@ class ReadingPlaybackBar extends StatelessWidget {
     );
   }
 }
+

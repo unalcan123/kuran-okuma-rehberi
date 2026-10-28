@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     const cover = Image(
-      image: AssetImage('assets/images/splash/kapak_splash.png'),
+      image: AssetImage('assets/images/splash/kapak_splash.webp'),
       fit: BoxFit.contain,
     );
 

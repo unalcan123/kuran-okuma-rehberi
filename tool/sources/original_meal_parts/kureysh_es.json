@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/spanish_garcia/106",
+  "data": [
+    {
+      "id": "6194",
+      "sura": "106",
+      "aya": "1",
+      "arabic_text": "لِإِيلَٰفِ قُرَيۡشٍ",
+      "translation": "1. Le proporcioné seguridad a [la tribu de] Quraish,",
+      "footnotes": ""
+    },
+    {
+      "id": "6195",
+      "sura": "106",
+      "aya": "2",
+      "arabic_text": "إِۦلَٰفِهِمۡ رِحۡلَةَ ٱلشِّتَآءِ وَٱلصَّيۡفِ",
+      "translation": "2. e hice que sus caravanas en invierno [al Yemen] y en verano [a Siria] fueran respetadas.",
+      "footnotes": ""
+    },
+    {
+      "id": "6196",
+      "sura": "106",
+      "aya": "3",
+      "arabic_text": "فَلۡيَعۡبُدُواْ رَبَّ هَٰذَا ٱلۡبَيۡتِ",
+      "translation": "3. Que adoren y agradezcan, en consecuencia, al Señor de esta Casa [la Ka‘bah],",
+      "footnotes": ""
+    },
+    {
+      "id": "6197",
+      "sura": "106",
+      "aya": "4",
+      "arabic_text": "ٱلَّذِيٓ أَطۡعَمَهُم مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۭ",
+      "translation": "4. Quien les concedió el sustento para que no sufrieran hambre y les dio seguridad para protegerlos del peligro.",
+      "footnotes": ""
+    }
+  ],
+  "language": "es",
+  "surah": {
+    "number": 106,
+    "id": "kureysh"
+  },
+  "metadata": {
+    "key": "spanish_garcia",
+    "direction": "ltr",
+    "language_iso_code": "es",
+    "version": "1.0.2",
+    "last_update": 1772054067,
+    "title": "Spanish Translation - Isa Garcia",
+    "description": "Translated by Muhammad Isa Garcia",
+    "file": "spanish_garcia",
+    "database_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pdf",
+    "pdf_size": 21384097,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pure.pdf",
+    "pdf_pure_size": 52519323,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.pure.png",
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

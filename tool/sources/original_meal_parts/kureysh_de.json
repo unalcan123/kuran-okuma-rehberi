@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/german_bubenheim/106",
+  "data": [
+    {
+      "id": "6194",
+      "sura": "106",
+      "aya": "1",
+      "arabic_text": "لِإِيلَٰفِ قُرَيۡشٍ",
+      "translation": "Für die Vereinigung der Qurais",
+      "footnotes": null
+    },
+    {
+      "id": "6195",
+      "sura": "106",
+      "aya": "2",
+      "arabic_text": "إِۦلَٰفِهِمۡ رِحۡلَةَ ٱلشِّتَآءِ وَٱلصَّيۡفِ",
+      "translation": "ihre Vereinigung während der Reise des Winters und des Sommers.",
+      "footnotes": null
+    },
+    {
+      "id": "6196",
+      "sura": "106",
+      "aya": "3",
+      "arabic_text": "فَلۡيَعۡبُدُواْ رَبَّ هَٰذَا ٱلۡبَيۡتِ",
+      "translation": "So sollen sie dem Herrn dieses Hauses dienen,",
+      "footnotes": null
+    },
+    {
+      "id": "6197",
+      "sura": "106",
+      "aya": "4",
+      "arabic_text": "ٱلَّذِيٓ أَطۡعَمَهُم مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۭ",
+      "translation": "Der ihnen Speise nach ihrem Hunger gegeben und ihnen Sicherheit nach ihrer Furcht gewährt hat.",
+      "footnotes": null
+    }
+  ],
+  "language": "de",
+  "surah": {
+    "number": 106,
+    "id": "kureysh"
+  },
+  "metadata": {
+    "key": "german_bubenheim",
+    "direction": "ltr",
+    "language_iso_code": "de",
+    "version": "1.1.4",
+    "last_update": 1738581834,
+    "title": "German Translation - Frank Bubenheim",
+    "description": "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    "file": "german_bubenheim",
+    "database_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

@@ -186,7 +186,16 @@ class ReadingSettingsSheet extends StatelessWidget {
       _Switch(
         key: const ValueKey('show-meaning'),
         icon: Icons.translate_rounded,
-        title: 'Türkçe Meali Göster',
+        title:
+            const {
+              'tr': 'Türkçe Meali Göster',
+              'es': 'Mostrar traducción al español',
+              'fr': 'Afficher la traduction française',
+              'de': 'Deutsche Übersetzung anzeigen',
+              'en': 'Show English translation',
+              'bs': 'Prikaži bosanski prijevod',
+              'nl': 'Nederlandse vertaling tonen',
+            }[context.language.code]!,
         value: settings.showMeaning,
         onChanged: (v) => settings.showMeaning = v,
       ),
@@ -299,7 +308,8 @@ class _SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.only(top: 18, bottom: 8),
-    child: Text(context.t(text),
+    child: Text(
+      context.t(text),
       style: Theme.of(context).textTheme.labelLarge?.copyWith(
         color: AppColors.turquoise,
         fontWeight: FontWeight.w800,
@@ -323,7 +333,8 @@ class _Label extends StatelessWidget {
         Icon(icon, size: 22, color: AppColors.navySoft),
         const SizedBox(width: 10),
         Flexible(
-          child: Text(context.t(text),
+          child: Text(
+            context.t(text),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: AppColors.textPrimary,
               fontWeight: FontWeight.w700,
@@ -404,7 +415,10 @@ class _Switch extends StatelessWidget {
   Widget build(BuildContext context) => SwitchListTile(
     contentPadding: EdgeInsets.zero,
     secondary: Icon(icon, color: AppColors.navySoft),
-    title: Text(context.t(title), style: const TextStyle(fontWeight: FontWeight.w700)),
+    title: Text(
+      context.t(title),
+      style: const TextStyle(fontWeight: FontWeight.w700),
+    ),
     subtitle: subtitle == null ? null : Text(context.t(subtitle!)),
     value: value,
     onChanged: onChanged,

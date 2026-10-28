@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/bosnian_mihanovich/113",
+  "data": [
+    {
+      "id": "6226",
+      "sura": "113",
+      "aya": "1",
+      "arabic_text": "قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ",
+      "translation": "Reci: \"Utječem se Gospodaru svitanja, ",
+      "footnotes": ""
+    },
+    {
+      "id": "6227",
+      "sura": "113",
+      "aya": "2",
+      "arabic_text": "مِن شَرِّ مَا خَلَقَ",
+      "translation": "od zla onoga što On stvara.\" ",
+      "footnotes": ""
+    },
+    {
+      "id": "6228",
+      "sura": "113",
+      "aya": "3",
+      "arabic_text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+      "translation": "i od zla mrkle noći kad razastre tmine, ",
+      "footnotes": ""
+    },
+    {
+      "id": "6229",
+      "sura": "113",
+      "aya": "4",
+      "arabic_text": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلۡعُقَدِ",
+      "translation": "i od zla onih koje u čvorove pušu ",
+      "footnotes": ""
+    },
+    {
+      "id": "6230",
+      "sura": "113",
+      "aya": "5",
+      "arabic_text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+      "translation": "i od zla zavidnika kad zavidi.\" ",
+      "footnotes": ""
+    }
+  ],
+  "language": "bs",
+  "surah": {
+    "number": 113,
+    "id": "felak"
+  },
+  "metadata": {
+    "key": "bosnian_mihanovich",
+    "direction": "ltr",
+    "language_iso_code": "bs",
+    "version": "1.1.0",
+    "last_update": 1576875600,
+    "title": "Bosnian Translation - Muhammad Mahanovic",
+    "description": "Translated by Muhammad Mahanovic, developed under the supervision of Rowwad Translation Center. The original translation is available for the purpose of expressing opinion, evaluation, and continuous development.",
+    "file": "bosnian_mihanovich",
+    "database_url": "https://quranenc.com/downloads/sqlite/bosnian_mihanovich.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/bosnian_mihanovich.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

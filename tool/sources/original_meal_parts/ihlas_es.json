@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/spanish_garcia/112",
+  "data": [
+    {
+      "id": "6222",
+      "sura": "112",
+      "aya": "1",
+      "arabic_text": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
+      "translation": "1. Di: “Él es Al-lah[1], Uno.",
+      "footnotes": "[1] Ver Corán 1:1 para la aclaración sobre el nombre de Dios."
+    },
+    {
+      "id": "6223",
+      "sura": "112",
+      "aya": "2",
+      "arabic_text": "ٱللَّهُ ٱلصَّمَدُ",
+      "translation": "2. Al-lah es el Absoluto[1].",
+      "footnotes": "[1] De Quien todos necesitan, mientras que Él no necesita de nadie."
+    },
+    {
+      "id": "6224",
+      "sura": "112",
+      "aya": "3",
+      "arabic_text": "لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ",
+      "translation": "3. No engendró ni fue engendrado.",
+      "footnotes": ""
+    },
+    {
+      "id": "6225",
+      "sura": "112",
+      "aya": "4",
+      "arabic_text": "وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ",
+      "translation": "4. Y no hay nada ni nadie que sea semejante a Él”.",
+      "footnotes": ""
+    }
+  ],
+  "language": "es",
+  "surah": {
+    "number": 112,
+    "id": "ihlas"
+  },
+  "metadata": {
+    "key": "spanish_garcia",
+    "direction": "ltr",
+    "language_iso_code": "es",
+    "version": "1.0.2",
+    "last_update": 1772054067,
+    "title": "Spanish Translation - Isa Garcia",
+    "description": "Translated by Muhammad Isa Garcia",
+    "file": "spanish_garcia",
+    "database_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pdf",
+    "pdf_size": 21384097,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pure.pdf",
+    "pdf_pure_size": 52519323,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.pure.png",
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

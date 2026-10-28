@@ -305,7 +305,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
       label: Text(context.t(l.bpListenAgain)),
       style: TextButton.styleFrom(
         foregroundColor: _ink,
-        minimumSize: const Size(48, 40),
+        minimumSize: const Size(48, 48),
         padding: const EdgeInsets.symmetric(horizontal: 10),
       ),
     );
@@ -315,7 +315,8 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
       icon: const Icon(Icons.arrow_back_rounded, color: _ink),
       onPressed: () => Navigator.of(context).maybePop(),
     );
-    final title = Text(context.t(l.haGame),
+    final title = Text(
+      context.t(l.haGame),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(
@@ -358,7 +359,8 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
             children: [
               listen,
               Flexible(
-                child: Text(context.t(l.bpListenAndFind),
+                child: Text(
+                  context.t(l.bpListenAndFind),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -468,7 +470,8 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       // Harf tek Text: birleşim ve harekeler bozulmaz.
-                      child: ColoredArabicText(c.letter.char,
+                      child: ColoredArabicText(
+                        c.letter.char,
                         textDirection: TextDirection.rtl,
                         style: lessonArabicStyle(
                           c.height * 0.62,

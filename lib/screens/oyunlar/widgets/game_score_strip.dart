@@ -70,7 +70,7 @@ class _GameScoreStripState extends State<GameScoreStrip> {
     // Fixed height: the play area below must never shift when an award
     // appears or fades.
     return SizedBox(
-      height: 38,
+      height: 48,
       child: Row(
         children: [
           _PointsBadge(points: widget.points),
@@ -102,7 +102,8 @@ class _GameScoreStripState extends State<GameScoreStrip> {
                           ),
                           const SizedBox(width: 4),
                           Flexible(
-                            child: GameNarratedText(widget.instruction,
+                            child: GameNarratedText(
+                              widget.instruction,
                               textAlign: TextAlign.start,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
@@ -173,7 +174,8 @@ class _GameScoreStripState extends State<GameScoreStrip> {
           Icon(icon, size: 16, color: AppColors.gold),
           const SizedBox(width: 4),
         ],
-        Text(context.t(text),
+        Text(
+          context.t(text),
           maxLines: 1,
           style: Theme.of(context).textTheme.titleSmall?.copyWith(
             fontWeight: FontWeight.w800,

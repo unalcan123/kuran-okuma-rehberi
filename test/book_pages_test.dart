@@ -48,20 +48,37 @@ Future<void> scrollToEnd(WidgetTester tester, Finder scroll) async {
 /// word grids.
 const _pages = <(String, String, String, int, int)>[
   ('el-takisi-okunan', 'ELİF - LÂM', 'Hemze dendiğini unutmayalım', 0, 1),
-  ('el-takisi-okunmayan', 'ELİF - LÂM', 'Sonraki harf mutlaka şeddeli okunur', 0, 1),
-  ('el-takisi-hemze', 'EL TAKISI’NDAKİ HEMZE', 'olarak tanımlamak daha doğrudur', 0, 2),
+  (
+    'el-takisi-okunmayan',
+    'ELİF - LÂM',
+    'Sonraki harf mutlaka şeddeli okunur',
+    0,
+    1,
+  ),
+  (
+    'el-takisi-hemze',
+    'EL TAKISI’NDAKİ HEMZE',
+    'olarak tanımlamak daha doğrudur',
+    0,
+    2,
+  ),
   ('el-takisi-hemze-vasil', 'OKUNMAYAN HEMZE', 'vasıl işareti', 0, 2),
   ('zamir-he-uzatma-med', 'UZUN MED İŞARETİ', 'Tecvid derslerinde', 0, 1),
   ('kapali-te', 'KAPALI “TE”', 'Örneklerle uygulamayı görelim', 1, 0),
-  ('kelime-sonu-duraklar', 'HAREKELİ HARFTE', 'Tenvinlilerde ise uygulama şöyledir', 5, 0),
+  (
+    'kelime-sonu-duraklar',
+    'HAREKELİ HARFTE',
+    'Tenvinlilerde ise uygulama şöyledir',
+    5,
+    0,
+  ),
 ];
 
 Lesson lessonOf(String id) => kElifbaLessons.firstWhere((l) => l.id == id);
 
 /// All the tables on the page, in order.
-Finder get allTables => find.byWidgetPredicate(
-  (w) => w is WaqfExamplesTable || w is WordGridTable,
-);
+Finder get allTables =>
+    find.byWidgetPredicate((w) => w is WaqfExamplesTable || w is WordGridTable);
 
 void main() {
   const sizes = [
@@ -96,14 +113,33 @@ void main() {
         // table whose rows collapse to zero height still "exists").
         for (var i = 0; i < tables; i++) {
           final table = allTables.at(i);
-          expect(tester.getSize(table).height, greaterThan(50), reason: 'table $i');
-          expect(tester.getSize(table).width, greaterThan(150), reason: 'table $i');
-          final cells = find.descendant(of: table, matching: find.byType(InkWell));
+          expect(
+            tester.getSize(table).height,
+            greaterThan(50),
+            reason: 'table $i',
+          );
+          expect(
+            tester.getSize(table).width,
+            greaterThan(150),
+            reason: 'table $i',
+          );
+          final cells = find.descendant(
+            of: table,
+            matching: find.byType(InkWell),
+          );
           expect(cells, findsWidgets);
           for (final cell in cells.evaluate()) {
             final box = cell.renderObject! as RenderBox;
-            expect(box.size.height, greaterThan(30), reason: 'word cell in table $i');
-            expect(box.size.width, greaterThan(40), reason: 'word cell in table $i');
+            expect(
+              box.size.height,
+              greaterThan(30),
+              reason: 'word cell in table $i',
+            );
+            expect(
+              box.size.width,
+              greaterThan(40),
+              reason: 'word cell in table $i',
+            );
           }
         }
 
@@ -122,105 +158,129 @@ void main() {
       });
     }
 
-    for (final size in const [Size(360, 800), Size(852, 393), Size(1280, 800)]) {
-      testWidgets('${lesson.label}: the ⓘ dialog (other view) scrolls and fits at $size', (
-        tester,
-      ) async {
-        setSize(tester, size);
-        await tester.pumpWidget(app(SilentAudio(), lesson));
-        await tester.pumpAndSettle();
-        await tester.tap(find.text('▦ Grid'));
-        await tester.pumpAndSettle();
-        expect(find.byType(BookPage), findsNothing);
+    for (final size in const [
+      Size(360, 800),
+      Size(852, 393),
+      Size(1280, 800),
+    ]) {
+      testWidgets(
+        '${lesson.label}: the ⓘ dialog (other view) scrolls and fits at $size',
+        (tester) async {
+          setSize(tester, size);
+          await tester.pumpWidget(app(SilentAudio(), lesson));
+          await tester.pumpAndSettle();
+          await tester.tap(find.text('▦ Izgara'));
+          await tester.pumpAndSettle();
+          expect(find.byType(BookPage), findsNothing);
 
-        await tester.tap(find.byIcon(Icons.info_outline_rounded));
-        await tester.pumpAndSettle();
-        // ⓘ yalnız açıklama: örnek tabloları / ızgaraları dersin sayfasında
-        // kalır, pencereye alınmaz.
-        expect(allTables, findsNothing);
-        if (!phrase.startsWith('Örnek')) {
-          expect(
-            find.descendant(
-              of: find.byType(Dialog),
-              matching: find.textContaining(phrase, findRichText: true),
-            ),
-            findsOneWidget,
-          );
-        }
-
-        final dialog = tester.getRect(find.byType(Dialog));
-        expect(dialog.top, greaterThanOrEqualTo(0));
-        expect(dialog.bottom, lessThanOrEqualTo(size.height));
-        expect(find.text('Kapat').hitTestable(), findsOneWidget);
-        await scrollToEnd(
-          tester,
-          find.descendant(
-            of: find.byType(Dialog),
-            matching: find.byType(SingleChildScrollView),
-          ),
-        );
-        expect(
-          tester.getRect(find.text('Kapat')).bottom,
-          lessThanOrEqualTo(dialog.bottom + 1),
-        );
-        expect(tester.takeException(), isNull);
-
-        await tester.tap(find.text('Kapat'));
-        await tester.pumpAndSettle();
-        expect(find.byType(Dialog), findsNothing);
-
-        // Back to the book page.
-        await tester.tap(find.text('📖 Sayfa'));
-        await tester.pumpAndSettle();
-        expect(find.byType(BookPage), findsOneWidget);
-      });
-    }
-
-    testWidgets('${lesson.label}: tapping a word plays exactly that recording', (
-      tester,
-    ) async {
-      setSize(tester, const Size(852, 393));
-      final audio = RecordingAudio();
-      await tester.pumpWidget(app(audio, lesson));
-      await tester.pumpAndSettle();
-
-      final first = allTables.first;
-      final cells = find.descendant(of: first, matching: find.byType(InkWell));
-      await tester.ensureVisible(cells.at(0));
-      await tester.pumpAndSettle();
-      await tester.tap(cells.at(0));
-      await tester.pump();
-
-      final table = tester.widget(first);
-      final expected = table is WaqfExamplesTable
-          ? table.examples.first.stopLetter // left column = stopping
-          : (table as WordGridTable).words.first; // first word at the right
-      expect(audio.played, [expected]);
-      expect(expected.audioAsset, isNotEmpty);
-    });
-
-    if (gridTables > 0) {
-      testWidgets('${lesson.label}: the grids show every word of the lesson exactly once, '
-          'each with a red part', (tester) async {
-        setSize(tester, const Size(1280, 800));
-        await tester.pumpWidget(app(SilentAudio(), lesson));
-        await tester.pumpAndSettle();
-
-        final shown = <ArabicLetter>[];
-        for (final grid in tester.widgetList<WordGridTable>(find.byType(WordGridTable))) {
-          shown.addAll(grid.words);
-          for (final w in grid.words) {
-            if (grid.highlight == WordHighlight.none) continue;
+          await tester.tap(find.byIcon(Icons.info_outline_rounded));
+          await tester.pumpAndSettle();
+          // ⓘ yalnız açıklama: örnek tabloları / ızgaraları dersin sayfasında
+          // kalır, pencereye alınmaz.
+          expect(allTables, findsNothing);
+          if (!phrase.startsWith('Örnek')) {
             expect(
-              splitForHighlight(w.isolatedForm, grid.highlight).$2,
-              isNotEmpty,
-              reason: '${lesson.label}: ${w.isolatedForm} has nothing to mark red',
+              find.descendant(
+                of: find.byType(Dialog),
+                matching: find.textContaining(phrase, findRichText: true),
+              ),
+              findsOneWidget,
             );
           }
-        }
-        expect(shown.length, lesson.letters.length);
-        expect({for (final w in shown) w.audioAsset}, {for (final w in lesson.letters) w.audioAsset});
-      });
+
+          final dialog = tester.getRect(find.byType(Dialog));
+          expect(dialog.top, greaterThanOrEqualTo(0));
+          expect(dialog.bottom, lessThanOrEqualTo(size.height));
+          expect(find.text('Kapat').hitTestable(), findsOneWidget);
+          await scrollToEnd(
+            tester,
+            find.descendant(
+              of: find.byType(Dialog),
+              matching: find.byType(SingleChildScrollView),
+            ),
+          );
+          expect(
+            tester.getRect(find.text('Kapat')).bottom,
+            lessThanOrEqualTo(dialog.bottom + 1),
+          );
+          expect(tester.takeException(), isNull);
+
+          await tester.tap(find.text('Kapat'));
+          await tester.pumpAndSettle();
+          expect(find.byType(Dialog), findsNothing);
+
+          // Back to the book page.
+          await tester.tap(find.text('📖 Sayfa'));
+          await tester.pumpAndSettle();
+          expect(find.byType(BookPage), findsOneWidget);
+        },
+      );
+    }
+
+    testWidgets(
+      '${lesson.label}: tapping a word plays exactly that recording',
+      (tester) async {
+        setSize(tester, const Size(852, 393));
+        final audio = RecordingAudio();
+        await tester.pumpWidget(app(audio, lesson));
+        await tester.pumpAndSettle();
+
+        final first = allTables.first;
+        final cells = find.descendant(
+          of: first,
+          matching: find.byType(InkWell),
+        );
+        await tester.ensureVisible(cells.at(0));
+        await tester.pumpAndSettle();
+        await tester.tap(cells.at(0));
+        await tester.pump();
+
+        final table = tester.widget(first);
+        final expected =
+            table is WaqfExamplesTable
+                ? table
+                    .examples
+                    .first
+                    .stopLetter // left column = stopping
+                : (table as WordGridTable)
+                    .words
+                    .first; // first word at the right
+        expect(audio.played, [expected]);
+        expect(expected.audioAsset, isNotEmpty);
+      },
+    );
+
+    if (gridTables > 0) {
+      testWidgets(
+        '${lesson.label}: the grids show every word of the lesson exactly once, '
+        'each with a red part',
+        (tester) async {
+          setSize(tester, const Size(1280, 800));
+          await tester.pumpWidget(app(SilentAudio(), lesson));
+          await tester.pumpAndSettle();
+
+          final shown = <ArabicLetter>[];
+          for (final grid in tester.widgetList<WordGridTable>(
+            find.byType(WordGridTable),
+          )) {
+            shown.addAll(grid.words);
+            for (final w in grid.words) {
+              if (grid.highlight == WordHighlight.none) continue;
+              expect(
+                splitForHighlight(w.isolatedForm, grid.highlight).$2,
+                isNotEmpty,
+                reason:
+                    '${lesson.label}: ${w.isolatedForm} has nothing to mark red',
+              );
+            }
+          }
+          expect(shown.length, lesson.letters.length);
+          expect(
+            {for (final w in shown) w.audioAsset},
+            {for (final w in lesson.letters) w.audioAsset},
+          );
+        },
+      );
     }
 
     test('${lesson.label}: the info entry and the heading are registered', () {
@@ -236,7 +296,9 @@ void main() {
       (info.body.first as TextSpan).text,
       startsWith('Kelime sonundaki harekeli harfte nasıl durulur?'),
     );
-    for (final (id, _, _, _, _) in _pages.where((p) => p.$1 != 'kelime-sonu-duraklar')) {
+    for (final (id, _, _, _, _) in _pages.where(
+      (p) => p.$1 != 'kelime-sonu-duraklar',
+    )) {
       expect(kLessonInfo[id]!.firstSpanIsBookHeading, isFalse, reason: id);
     }
   });
@@ -244,16 +306,27 @@ void main() {
   group('letters of a word', () {
     test('marks stay with their letter', () {
       expect(letterClusters('اَلْبَيْتُ'), ['اَ', 'لْ', 'بَ', 'يْ', 'تُ']);
-      expect(letterClusters('مَا لُهُ').length, 5, reason: 'a space is a letter of its own');
+      expect(
+        letterClusters('مَا لُهُ').length,
+        5,
+        reason: 'a space is a letter of its own',
+      );
     });
 
     test('the rules pick the letter the book prints red', () {
       String red(String w, WordHighlight h) => splitForHighlight(w, h).$2;
       expect(red('اَلْبَيْتُ', WordHighlight.elLam), 'لْ');
       expect(red('مَا الْقَارِعَةُ', WordHighlight.elAlif), 'ا');
-      expect(splitForHighlight('مَا الْقَارِعَةُ', WordHighlight.elAlif).$1, 'مَا ');
+      expect(
+        splitForHighlight('مَا الْقَارِعَةُ', WordHighlight.elAlif).$1,
+        'مَا ',
+      );
       expect(red('وَٱللّٰهُ', WordHighlight.vasl), 'ٱ');
-      expect(red('عَهْدَهُٓ أَمْ', WordHighlight.he), 'هُٓ', reason: 'the He before the space, not the one in عَهْد');
+      expect(
+        red('عَهْدَهُٓ أَمْ', WordHighlight.he),
+        'هُٓ',
+        reason: 'the He before the space, not the one in عَهْد',
+      );
       expect(red('يٰسٓ', WordHighlight.med), 'سٓ');
       expect(red('كتاب', WordHighlight.he), '');
       // before + red + after is always the whole word.
@@ -264,32 +337,37 @@ void main() {
     });
   });
 
-  testWidgets('a grid uses fewer columns on a narrow screen so words stay big', (
-    tester,
-  ) async {
-    final words = lessonOf('el-takisi-okunan').letters;
-    Future<int> columnsAt(double width) async {
-      await tester.pumpWidget(
-        ChangeNotifierProvider<AudioService>.value(
-          value: SilentAudio(),
-          child: MaterialApp(
-            home: Scaffold(
-              body: Center(
-                child: SizedBox(
-                  width: width,
-                  child: WordGridTable(words: words, columns: 4, minCellWidth: 90),
+  testWidgets(
+    'a grid uses fewer columns on a narrow screen so words stay big',
+    (tester) async {
+      final words = lessonOf('el-takisi-okunan').letters;
+      Future<int> columnsAt(double width) async {
+        await tester.pumpWidget(
+          ChangeNotifierProvider<AudioService>.value(
+            value: SilentAudio(),
+            child: MaterialApp(
+              home: Scaffold(
+                body: Center(
+                  child: SizedBox(
+                    width: width,
+                    child: WordGridTable(
+                      words: words,
+                      columns: 4,
+                      minCellWidth: 90,
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      );
-      final table = tester.widget<Table>(find.byType(Table));
-      return table.children.first.children.length;
-    }
+        );
+        final table = tester.widget<Table>(find.byType(Table));
+        return table.children.first.children.length;
+      }
 
-    expect(await columnsAt(700), 4);
-    expect(await columnsAt(300), 3);
-    expect(await columnsAt(170), 1);
-  });
+      expect(await columnsAt(700), 4);
+      expect(await columnsAt(300), 3);
+      expect(await columnsAt(170), 1);
+    },
+  );
 }

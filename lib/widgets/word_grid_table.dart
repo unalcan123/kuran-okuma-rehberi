@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'package:flutter/material.dart';
 
 import '../models/arabic_letter.dart';
@@ -58,7 +59,10 @@ class WordGridTable extends StatelessWidget {
                     children: [
                       for (var c = 0; c < count; c++)
                         if (r * count + c < words.length)
-                          _cell(words[r * count + c])
+                          Semantics(
+                            sortKey: OrdinalSortKey((r * count + c).toDouble()),
+                            child: _cell(words[r * count + c]),
+                          )
                         else
                           const SizedBox.shrink(),
                     ],

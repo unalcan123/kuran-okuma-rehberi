@@ -151,10 +151,13 @@ void main() {
       }
       expect(audio.played, lesson.letters);
       expect(find.text('UZUN MED İŞARETİ'), findsNothing);
-      final next = tester.widget<TextButton>(
+      final next = tester.widget<Widget>(
         find.byKey(const ValueKey('page-next')),
       );
-      expect(next.onPressed, isNull);
+      expect(
+        next is IconButton ? next.onPressed : (next as TextButton).onPressed,
+        isNull,
+      );
       await tester.longPress(find.byKey(const ValueKey('book-cell-29')));
       await tester.pumpAndSettle();
       expect(find.byType(SingleLetterPager), findsOneWidget);
@@ -168,7 +171,7 @@ void main() {
       setSize(tester, const Size(1280, 1000));
       await tester.pumpWidget(app(RecordingAudio(), lesson));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('▦ Grid'));
+      await tester.tap(find.text('▦ Izgara'));
       await tester.pumpAndSettle();
       // Grid by book page: s. 54 has items 0-17, s. 55 items 18-29 — the
       // lesson's own items, nothing copied.

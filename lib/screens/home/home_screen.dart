@@ -1,3 +1,5 @@
+import '../privacy/privacy_screen.dart';
+import '../sources/sources_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/responsive.dart';
@@ -154,6 +156,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: phone ? 20 : 28),
                 const ContactEntryCard(),
+                const SizedBox(height: 8),
+                const SourcesEntry(),
+                const PrivacyEntry(),
               ],
             ),
           ),

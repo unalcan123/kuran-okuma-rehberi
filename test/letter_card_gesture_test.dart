@@ -68,39 +68,40 @@ void main() {
     expect((taps, opens), (0, 1));
   });
 
-  testWidgets('in a lesson: double tap stays on the grid, long press opens Tek Harf', (
-    tester,
-  ) async {
-    tester.view.physicalSize = const Size(800, 1280);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    final audio = _PlayableSilentAudio();
-    await tester.pumpWidget(
-      ChangeNotifierProvider<AudioService>.value(
-        value: audio,
-        child: MaterialApp(
-          home: LessonLettersScreen(lesson: kElifbaLessons.first),
+  testWidgets(
+    'in a lesson: double tap stays on the grid, long press opens Tek Harf',
+    (tester) async {
+      tester.view.physicalSize = const Size(800, 1280);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final audio = _PlayableSilentAudio();
+      await tester.pumpWidget(
+        ChangeNotifierProvider<AudioService>.value(
+          value: audio,
+          child: MaterialApp(
+            home: LessonLettersScreen(lesson: kElifbaLessons.first),
+          ),
         ),
-      ),
-    );
-    await tester.pumpAndSettle();
-    // Lessons open on their book page; the cards are the "Grid" view.
-    await tester.tap(find.text('▦ Grid'));
-    await tester.pumpAndSettle();
-    expect(find.byType(AllLettersGrid), findsOneWidget);
+      );
+      await tester.pumpAndSettle();
+      // Lessons open on their book page; the cards are the "Grid" view.
+      await tester.tap(find.text('▦ Izgara'));
+      await tester.pumpAndSettle();
+      expect(find.byType(AllLettersGrid), findsOneWidget);
 
-    await tester.tap(find.byType(LetterCard).first);
-    await tester.pump(const Duration(milliseconds: 60));
-    await tester.tap(find.byType(LetterCard).first);
-    await tester.pumpAndSettle();
-    expect(find.byType(AllLettersGrid), findsOneWidget);
-    expect(find.byType(SingleLetterPager), findsNothing);
-    expect(audio.plays, 2);
+      await tester.tap(find.byType(LetterCard).first);
+      await tester.pump(const Duration(milliseconds: 60));
+      await tester.tap(find.byType(LetterCard).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(AllLettersGrid), findsOneWidget);
+      expect(find.byType(SingleLetterPager), findsNothing);
+      expect(audio.plays, 2);
 
-    await tester.longPress(find.byType(LetterCard).first);
-    await tester.pumpAndSettle();
-    expect(find.byType(SingleLetterPager), findsOneWidget);
-    expect(find.byType(AllLettersGrid), findsNothing);
-  });
+      await tester.longPress(find.byType(LetterCard).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(SingleLetterPager), findsOneWidget);
+      expect(find.byType(AllLettersGrid), findsNothing);
+    },
+  );
 }

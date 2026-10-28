@@ -4,6 +4,9 @@ class DuaSegment {
   final String arabic;
   final String? pronunciationTr;
   final String meaningTr;
+  final Map<String, String> meanings;
+  final String instruction;
+  final String meaningSource;
   final String audioAsset;
 
   const DuaSegment({
@@ -11,6 +14,9 @@ class DuaSegment {
     required this.arabic,
     this.pronunciationTr,
     required this.meaningTr,
+    this.meanings = const {},
+    this.instruction = '',
+    this.meaningSource = '',
     required this.audioAsset,
   });
 }
@@ -28,5 +34,8 @@ class Dua {
     required this.segments,
   });
 
-  List<String> get playlist => [for (final part in segments) part.audioAsset];
+  List<String> get playlist => [
+    for (final part in segments)
+      if (part.audioAsset.isNotEmpty) part.audioAsset,
+  ];
 }

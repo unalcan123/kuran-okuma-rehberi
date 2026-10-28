@@ -1,0 +1,106 @@
+[
+  {
+    "id": "duha",
+    "source": "H:\\Music\\sureler\\2\\1-DUHA.mp3",
+    "asset": "audio/full_readings/duha.mp3",
+    "seconds": 636.081633,
+    "sourceBytes": 10177434,
+    "bytes": 3817029
+  },
+  {
+    "id": "insirah",
+    "source": "H:\\Music\\sureler\\2\\2-INSIRAH.mp3",
+    "asset": "audio/full_readings/insirah.mp3",
+    "seconds": 391.183673,
+    "sourceBytes": 6259067,
+    "bytes": 2347641
+  },
+  {
+    "id": "tin",
+    "source": "H:\\Music\\sureler\\2\\3-TIN.mp3",
+    "asset": "audio/full_readings/tin.mp3",
+    "seconds": 530.442449,
+    "sourceBytes": 8487207,
+    "bytes": 3183194
+  },
+  {
+    "id": "kadir",
+    "source": "H:\\Music\\sureler\\2\\4-KADIR.mp3",
+    "asset": "audio/full_readings/kadir.mp3",
+    "seconds": 441.469388,
+    "sourceBytes": 7063638,
+    "bytes": 2649356
+  },
+  {
+    "id": "zilzal",
+    "source": "H:\\Music\\sureler\\2\\5-ZILZAL.mp3",
+    "asset": "audio/full_readings/zilzal.mp3",
+    "seconds": 503.719184,
+    "sourceBytes": 8059635,
+    "bytes": 3022854
+  },
+  {
+    "id": "adiyat",
+    "source": "H:\\Music\\sureler\\2\\6-ADIYAT.mp3",
+    "asset": "audio/full_readings/adiyat.mp3",
+    "seconds": 680.986122,
+    "sourceBytes": 10895906,
+    "bytes": 4086456
+  },
+  {
+    "id": "karia",
+    "source": "H:\\Music\\sureler\\3\\1-KARIA.mp3",
+    "asset": "audio/full_readings/karia.mp3",
+    "seconds": 619.598367,
+    "sourceBytes": 9913702,
+    "bytes": 3718129
+  },
+  {
+    "id": "tekasur",
+    "source": "H:\\Music\\sureler\\3\\2-TEKASUR.mp3",
+    "asset": "audio/full_readings/tekasur.mp3",
+    "seconds": 511.373061,
+    "sourceBytes": 8182097,
+    "bytes": 3068778
+  },
+  {
+    "id": "asr",
+    "source": "H:\\Music\\sureler\\3\\3-ASIR.mp3",
+    "asset": "audio/full_readings/asr.mp3",
+    "seconds": 239.595102,
+    "sourceBytes": 3833650,
+    "bytes": 1438110
+  },
+  {
+    "id": "humeze",
+    "source": "H:\\Music\\sureler\\3\\4-HUMEZE.mp3",
+    "asset": "audio/full_readings/humeze.mp3",
+    "seconds": 524.146939,
+    "sourceBytes": 8386479,
+    "bytes": 3145421
+  },
+  {
+    "id": "ayetel-kursi",
+    "source": "H:\\Music\\sureler\\4\\1-AYETUL KURSI.mp3",
+    "asset": "audio/full_readings/ayetel-kursi.mp3",
+    "seconds": 625.293061,
+    "sourceBytes": 10004817,
+    "bytes": 3752298
+  },
+  {
+    "id": "10_ezan_duasi",
+    "source": "H:\\Music\\sureler\\5.dualar\\10-EZAN DUASI.mp3",
+    "asset": "audio/full_readings/10_ezan_duasi.mp3",
+    "seconds": 106.615964,
+    "sourceBytes": 1524070,
+    "bytes": 640330
+  },
+  {
+    "id": "13_yemek_duasi",
+    "source": "H:\\Music\\sureler\\5.dualar\\9-YEMEK DUASI 1.mp3",
+    "asset": "audio/full_readings/13_yemek_duasi.mp3",
+    "seconds": 32.456327,
+    "sourceBytes": 496479,
+    "bytes": 195360
+  }
+]

@@ -1,3 +1,4 @@
+import 'package:kuran_okuma_rehberi/data/supplementary_sureler_data.dart';
 // Sure ve dua listeleri: master görsellerden kırpılmış kartlar
 // (tool/crop_lesson_cards.py), Elifba ders kartlarıyla aynı PictureCard.
 // Sureler Kur’an sırasındadır; kart numaraları 1–11 olarak gösterilir.
@@ -88,14 +89,21 @@ void main() {
       );
       expect(File(image).existsSync(), isTrue, reason: image);
     }
-    expect(kSurahCardImages.values.toSet(), hasLength(11));
+    // Kartlar 12-23: kAllNamazTexts'in kSureler'den sonrası, sırayla.
+    for (var i = kSureler.length; i < kAllNamazTexts.length; i++) {
+      final image = kSurahCardImages[kAllNamazTexts[i].id]!;
+      expect(image, endsWith('sure_${i + 1}.png'), reason: image);
+      expect(File(image).existsSync(), isTrue, reason: image);
+    }
+    expect(kAllNamazTexts, hasLength(23));
+    expect(kSurahCardImages.values.toSet(), hasLength(23));
     final files =
         Directory(
             'assets/images/lessons/sureler',
           ).listSync().map((f) => f.uri.pathSegments.last).toList()
           ..sort();
     expect(files, [
-      for (var n = 1; n <= 11; n++) 'sure_${n.toString().padLeft(2, '0')}.png',
+      for (var n = 1; n <= 23; n++) 'sure_${n.toString().padLeft(2, '0')}.png',
     ]);
     final pubspec = File('pubspec.yaml').readAsStringSync();
     expect(pubspec, contains('assets/images/lessons/sureler/'));
@@ -140,6 +148,7 @@ void main() {
       findsOneWidget,
     );
     final fil = find.byKey(const ValueKey('surah-card-fil'));
+    await tester.scrollUntilVisible(fil, 150);
     expect(
       find.descendant(of: fil, matching: find.text('Sure 2')),
       findsOneWidget,
@@ -148,15 +157,22 @@ void main() {
       final card = find.byKey(ValueKey('surah-card-${kSureler[i].id}'));
       await tester.scrollUntilVisible(card, 150);
       expect(
-        find.descendant(of: card, matching: find.text('Sure ${i + 1}')),
+        find.descendant(
+          of: card,
+          matching: find.text(
+            'Sure ${kAllNamazTexts.indexOf(kSureler[i]) + 1}',
+          ),
+        ),
         findsOneWidget,
       );
     }
     await tester.scrollUntilVisible(fatiha, -150);
-    expect(tester.getSize(fatiha), tester.getSize(fil)); // aynı şekil
+    // Each original image retains the same aspect ratio.
     final size = tester.getSize(fatiha);
     expect(size.width / size.height, closeTo(kSurahCardAspectRatio, 0.01));
 
+    await tester.ensureVisible(fatiha);
+    await tester.pumpAndSettle();
     await tester.tap(fatiha);
     await tester.pumpAndSettle();
     expect(
@@ -164,6 +180,9 @@ void main() {
       same(kSureler.first),
     );
     await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(fil, 150);
+    await tester.ensureVisible(fil);
     await tester.pumpAndSettle();
     await tester.tap(fil);
     await tester.pumpAndSettle();
@@ -202,3 +221,4 @@ void main() {
     });
   }
 }
+

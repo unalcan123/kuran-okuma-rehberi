@@ -105,7 +105,7 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.byType(LessonPageView), findsOneWidget);
         expect(find.text('Sayfa 3'), findsOneWidget);
-        expect(find.text('▦ Grid'), findsNothing);
+        expect(find.text('▦ Izgara'), findsNothing);
         expect(find.text('🔎 Tekli / Büyük'), findsNothing);
         await tester.fling(find.byType(PageView), const Offset(300, 0), 1500);
         await tester.pumpAndSettle();
@@ -177,7 +177,7 @@ void main() {
       setSize(tester, const Size(800, 1280));
       await tester.pumpWidget(app(RecordingAudio(), kUstunLesson));
       await tester.pumpAndSettle();
-      for (final label in ['📖 Sayfa', '▦ Grid', '🔎 Tekli / Büyük']) {
+      for (final label in ['📖 Sayfa', '▦ Izgara', '🔎 Tekli / Büyük']) {
         await _mode(tester, label);
         expect(find.byType(BookPager), findsOneWidget, reason: label);
         expect(tester.widget<PageView>(find.byType(PageView)).reverse, isTrue);
@@ -212,7 +212,7 @@ void main() {
           reason: 'Sayfa s. ${page.bookPage}',
         );
 
-        await _mode(tester, '▦ Grid');
+        await _mode(tester, '▦ Izgara');
         expect(find.text('Sayfa ${page.bookPage}'), findsOneWidget);
         final grid = tester.widget<AllLettersGrid>(find.byType(AllLettersGrid));
         expect(grid.letters, hasLength(expected.length));
@@ -289,7 +289,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('Sayfa 15'), findsOneWidget);
 
-      await _mode(tester, '▦ Grid');
+      await _mode(tester, '▦ Izgara');
       expect(find.byType(LessonGridPager), findsOneWidget);
       expect(find.text('Sayfa 15'), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('page-next')));
@@ -309,7 +309,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('single-previous')));
       await tester.pumpAndSettle();
       expect(find.text('Sayfa 15'), findsOneWidget);
-      await _mode(tester, '▦ Grid');
+      await _mode(tester, '▦ Izgara');
       expect(find.text('Sayfa 15'), findsOneWidget);
     });
   });
@@ -329,7 +329,7 @@ void main() {
       bool onScreen(Finder f) =>
           f.evaluate().isNotEmpty && tester.getRect(f).bottom > 0;
 
-      for (final label in ['📖 Sayfa', '▦ Grid']) {
+      for (final label in ['📖 Sayfa', '▦ Izgara']) {
         if (label != '📖 Sayfa') await _mode(tester, label);
         expect(onScreen(selector), isTrue, reason: label);
         expect(onScreen(title), isTrue, reason: label);
@@ -460,7 +460,7 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        await _mode(tester, '▦ Grid');
+        await _mode(tester, '▦ Izgara');
         for (var p = 0; p < lesson.pageLayout!.pages.length; p++) {
           expect(
             tester.takeException(),

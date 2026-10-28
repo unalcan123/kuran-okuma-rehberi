@@ -1,0 +1,57 @@
+{
+  "url": "https://quranenc.com/en/browse/spanish_garcia/108",
+  "data": [
+    {
+      "id": "6205",
+      "sura": "108",
+      "aya": "1",
+      "arabic_text": "إِنَّآ أَعۡطَيۡنَٰكَ ٱلۡكَوۡثَرَ",
+      "translation": "1. [¡Oh, Mujámmad!] te he agraciado con la abundancia[1].",
+      "footnotes": "[1] La abundancia, Al-Kauzar الكوثر es también el nombre de un río en el Paraíso que le fue concedido al Profeta Mujámmad r."
+    },
+    {
+      "id": "6206",
+      "sura": "108",
+      "aya": "2",
+      "arabic_text": "فَصَلِّ لِرَبِّكَ وَٱنۡحَرۡ",
+      "translation": "2. Reza a tu Señor y sacrifica [los animales en Su nombre].",
+      "footnotes": ""
+    },
+    {
+      "id": "6207",
+      "sura": "108",
+      "aya": "3",
+      "arabic_text": "إِنَّ شَانِئَكَ هُوَ ٱلۡأَبۡتَرُ",
+      "translation": "3. Porque a quien te desdeñe y odie le privaré de todo bien.",
+      "footnotes": ""
+    }
+  ],
+  "language": "es",
+  "surah": {
+    "number": 108,
+    "id": "kevser"
+  },
+  "metadata": {
+    "key": "spanish_garcia",
+    "direction": "ltr",
+    "language_iso_code": "es",
+    "version": "1.0.2",
+    "last_update": 1772054067,
+    "title": "Spanish Translation - Isa Garcia",
+    "description": "Translated by Muhammad Isa Garcia",
+    "file": "spanish_garcia",
+    "database_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pdf",
+    "pdf_size": 21384097,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pure.pdf",
+    "pdf_pure_size": 52519323,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.pure.png",
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

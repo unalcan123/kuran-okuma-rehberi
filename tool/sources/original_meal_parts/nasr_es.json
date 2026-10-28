@@ -1,0 +1,57 @@
+{
+  "url": "https://quranenc.com/en/browse/spanish_garcia/110",
+  "data": [
+    {
+      "id": "6214",
+      "sura": "110",
+      "aya": "1",
+      "arabic_text": "إِذَا جَآءَ نَصۡرُ ٱللَّهِ وَٱلۡفَتۡحُ",
+      "translation": "1. [¡Oh, Mujámmad!] Cuando llegue el socorro de Dios y la victoria[1],",
+      "footnotes": "[1] La reconquista de la ciudad de La Meca."
+    },
+    {
+      "id": "6215",
+      "sura": "110",
+      "aya": "2",
+      "arabic_text": "وَرَأَيۡتَ ٱلنَّاسَ يَدۡخُلُونَ فِي دِينِ ٱللَّهِ أَفۡوَاجٗا",
+      "translation": "2. y veas a la gente ingresar en masa a la religión de Dios,",
+      "footnotes": ""
+    },
+    {
+      "id": "6216",
+      "sura": "110",
+      "aya": "3",
+      "arabic_text": "فَسَبِّحۡ بِحَمۡدِ رَبِّكَ وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ كَانَ تَوَّابَۢا",
+      "translation": "3. glorifica alabando a tu Señor y pide Su perdón; Él es Indulgente.",
+      "footnotes": ""
+    }
+  ],
+  "language": "es",
+  "surah": {
+    "number": 110,
+    "id": "nasr"
+  },
+  "metadata": {
+    "key": "spanish_garcia",
+    "direction": "ltr",
+    "language_iso_code": "es",
+    "version": "1.0.2",
+    "last_update": 1772054067,
+    "title": "Spanish Translation - Isa Garcia",
+    "description": "Translated by Muhammad Isa Garcia",
+    "file": "spanish_garcia",
+    "database_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pdf",
+    "pdf_size": 21384097,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pure.pdf",
+    "pdf_pure_size": 52519323,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.pure.png",
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

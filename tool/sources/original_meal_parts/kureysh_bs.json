@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/bosnian_mihanovich/106",
+  "data": [
+    {
+      "id": "6194",
+      "sura": "106",
+      "aya": "1",
+      "arabic_text": "لِإِيلَٰفِ قُرَيۡشٍ",
+      "translation": "Zbog udruživanja: Kurejšija, ",
+      "footnotes": ""
+    },
+    {
+      "id": "6195",
+      "sura": "106",
+      "aya": "2",
+      "arabic_text": "إِۦلَٰفِهِمۡ رِحۡلَةَ ٱلشِّتَآءِ وَٱلصَّيۡفِ",
+      "translation": "udruživanja njihova da zimi i ljeti putuju, ",
+      "footnotes": ""
+    },
+    {
+      "id": "6196",
+      "sura": "106",
+      "aya": "3",
+      "arabic_text": "فَلۡيَعۡبُدُواْ رَبَّ هَٰذَا ٱلۡبَيۡتِ",
+      "translation": "neka oni Gospodaru ove Kuće ibadet čine, ",
+      "footnotes": ""
+    },
+    {
+      "id": "6197",
+      "sura": "106",
+      "aya": "4",
+      "arabic_text": "ٱلَّذِيٓ أَطۡعَمَهُم مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۭ",
+      "translation": "Koji ih gladne hrani i od straha brani. ",
+      "footnotes": ""
+    }
+  ],
+  "language": "bs",
+  "surah": {
+    "number": 106,
+    "id": "kureysh"
+  },
+  "metadata": {
+    "key": "bosnian_mihanovich",
+    "direction": "ltr",
+    "language_iso_code": "bs",
+    "version": "1.1.0",
+    "last_update": 1576875600,
+    "title": "Bosnian Translation - Muhammad Mahanovic",
+    "description": "Translated by Muhammad Mahanovic, developed under the supervision of Rowwad Translation Center. The original translation is available for the purpose of expressing opinion, evaluation, and continuous development.",
+    "file": "bosnian_mihanovich",
+    "database_url": "https://quranenc.com/downloads/sqlite/bosnian_mihanovich.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/bosnian_mihanovich.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

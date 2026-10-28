@@ -1,3 +1,4 @@
+import 'strings/ux_strings.dart';
 import 'package:flutter/widgets.dart';
 
 import 'app_language.dart';
@@ -61,6 +62,7 @@ abstract final class L10n {
           for (final MapEntry(:key, :value) in kNlStrings.entries)
             if (!rows.containsKey(key))
               key: [for (var i = 1; i < AppLanguage.nl.index; i++) '', value],
+          ...kUxStrings,
         };
       }();
 

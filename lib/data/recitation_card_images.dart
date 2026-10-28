@@ -22,6 +22,20 @@ const Map<String, String> kSurahCardImages = {
   'nasr': '$_sureler/sure_09.png',
   'tebbet': '$_sureler/sure_10.png',
   'kafirun': '$_sureler/sure_11.png',
+  // Cards 12-23 (`assets_src/lessons/sure_kartlari_12_23.jpeg`) =
+  // kAllNamazTexts after kSureler, in order.
+  'ayetel-kursi': '$_sureler/sure_12.png',
+  'nebe-son': '$_sureler/sure_13.png',
+  'duha': '$_sureler/sure_14.png',
+  'insirah': '$_sureler/sure_15.png',
+  'tin': '$_sureler/sure_16.png',
+  'kadir': '$_sureler/sure_17.png',
+  'zilzal': '$_sureler/sure_18.png',
+  'adiyat': '$_sureler/sure_19.png',
+  'karia': '$_sureler/sure_20.png',
+  'tekasur': '$_sureler/sure_21.png',
+  'asr': '$_sureler/sure_22.png',
+  'humeze': '$_sureler/sure_23.png',
 };
 
 /// Prayer id ([Dua.id]) → card picture ("Dua 1" … "Dua 9").

@@ -77,3 +77,7 @@ __pycache__/
 
 # Kart/tasarım master görselleri (yalnız kırpma kaynağı, pakete girmez; tool/crop_lesson_cards.py)
 /assets/images/lessons/*.png
+
+# Yerel çalışma günlükleri ve kitap fotoğrafları (telifli kaynak; depoya girmez)
+/tmp/
+/ref/

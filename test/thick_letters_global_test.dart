@@ -188,7 +188,7 @@ void main() {
     }
 
     expect(checkVisible('Sayfa'), greaterThan(0));
-    await tester.tap(find.text('▦ Grid'));
+    await tester.tap(find.text('▦ Izgara'));
     await tester.pumpAndSettle();
     expect(checkVisible('Grid'), greaterThan(0));
     // Grid sayfa sayfa: s. 15'e geç.

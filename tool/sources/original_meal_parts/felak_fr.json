@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/french_rashid/113",
+  "data": [
+    {
+      "id": "6226",
+      "sura": "113",
+      "aya": "1",
+      "arabic_text": "قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ",
+      "translation": "Dis : « J’implore la protection du Seigneur de l’aube,",
+      "footnotes": ""
+    },
+    {
+      "id": "6227",
+      "sura": "113",
+      "aya": "2",
+      "arabic_text": "مِن شَرِّ مَا خَلَقَ",
+      "translation": "contre le mal qui se trouve dans ce qu’Il a créé,",
+      "footnotes": ""
+    },
+    {
+      "id": "6228",
+      "sura": "113",
+      "aya": "3",
+      "arabic_text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+      "translation": "contre le mal de la nuit qui étend son obscurité,",
+      "footnotes": ""
+    },
+    {
+      "id": "6229",
+      "sura": "113",
+      "aya": "4",
+      "arabic_text": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلۡعُقَدِ",
+      "translation": "contre le charme maléfique de tous les sorciers[1],",
+      "footnotes": "[1] Littéralement : contre le mal des sorcières qui soufflent dans les nœuds."
+    },
+    {
+      "id": "6230",
+      "sura": "113",
+      "aya": "5",
+      "arabic_text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+      "translation": "contre l’envieux qui donne libre cours à sa méchanceté. »",
+      "footnotes": ""
+    }
+  ],
+  "language": "fr",
+  "surah": {
+    "number": 113,
+    "id": "felak"
+  },
+  "metadata": {
+    "key": "french_rashid",
+    "direction": "ltr",
+    "language_iso_code": "fr",
+    "version": "1.0.3",
+    "last_update": 1782043143,
+    "title": "French Translation - Rachid Maach",
+    "description": "Translated by Rashid Ma’ash",
+    "file": "french_rashid",
+    "database_url": "https://quranenc.com/downloads/sqlite/french_rashid.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/french_rashid.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/french_rashid.pdf",
+    "pdf_size": 17991055,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/french_rashid.pure.pdf",
+    "pdf_pure_size": 9323774,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/french_rashid.mobile.pdf",
+    "pdf_mobile_size": 8288227,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/french_rashid.epub",
+    "epub_size": 1779216
+  }
+}

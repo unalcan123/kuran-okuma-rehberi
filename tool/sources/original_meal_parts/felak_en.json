@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/english_saheeh/113",
+  "data": [
+    {
+      "id": "6226",
+      "sura": "113",
+      "aya": "1",
+      "arabic_text": "قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ",
+      "translation": "Say, \"I seek refuge in the Lord of daybreak",
+      "footnotes": ""
+    },
+    {
+      "id": "6227",
+      "sura": "113",
+      "aya": "2",
+      "arabic_text": "مِن شَرِّ مَا خَلَقَ",
+      "translation": "From the evil of that which He created",
+      "footnotes": ""
+    },
+    {
+      "id": "6228",
+      "sura": "113",
+      "aya": "3",
+      "arabic_text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+      "translation": "And from the evil of darkness when it settles",
+      "footnotes": ""
+    },
+    {
+      "id": "6229",
+      "sura": "113",
+      "aya": "4",
+      "arabic_text": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلۡعُقَدِ",
+      "translation": "And from the evil of the blowers in knots[2014]",
+      "footnotes": "[2014] i.e., those who practice magic."
+    },
+    {
+      "id": "6230",
+      "sura": "113",
+      "aya": "5",
+      "arabic_text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+      "translation": "And from the evil of an envier when he envies.\"",
+      "footnotes": ""
+    }
+  ],
+  "language": "en",
+  "surah": {
+    "number": 113,
+    "id": "felak"
+  },
+  "metadata": {
+    "key": "english_saheeh",
+    "direction": "ltr",
+    "language_iso_code": "en",
+    "version": "1.1.2",
+    "last_update": 1750772247,
+    "title": "English Translation - Noor International Center",
+    "description": "Issued by Noor International Center.",
+    "file": "english_saheeh",
+    "database_url": "https://quranenc.com/downloads/sqlite/english_saheeh.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/english_saheeh.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

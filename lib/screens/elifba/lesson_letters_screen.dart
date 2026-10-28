@@ -246,7 +246,7 @@ class _LessonLettersScreenState extends State<LessonLettersScreen> {
                         segments: {
                           if (hasPage)
                             LessonViewMode.book: context.t('📖 Sayfa'),
-                          LessonViewMode.grid: context.t('▦ Grid'),
+                          LessonViewMode.grid: context.t('▦ Izgara'),
                           LessonViewMode.single: context.t('🔎 Tekli / Büyük'),
                         },
                       ),

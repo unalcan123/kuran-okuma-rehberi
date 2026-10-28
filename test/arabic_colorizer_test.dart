@@ -156,14 +156,17 @@ void main() {
         final text = letter.isolatedForm;
         final plan = ArabicColorizer.plan(text);
         final covered = plan.map((c) => text.substring(c.start, c.end)).join();
-        expect(covered, text.replaceFirst(RegExp(r'^[ً-ٟ]+'), ''),
-            reason: '${lesson.label}: $text');
+        expect(
+          covered,
+          text.replaceFirst(RegExp(r'^[ً-ٟ]+'), ''),
+          reason: '${lesson.label}: $text',
+        );
       }
     }
   });
 
   test('renk sabitleri kitaptaki tonlar', () {
-    expect(arabicRed, const Color(0xFFED1C24));
+    expect(arabicRed, const Color(0xFFB71C24));
     expect(arabicBlue, const Color(0xFF00AEEF));
     expect(arabicGreen, const Color(0xFF00A650));
   });

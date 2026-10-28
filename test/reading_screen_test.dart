@@ -593,11 +593,11 @@ void main() {
     Size(1280, 800),
     Size(800, 360),
   ]) {
-    testWidgets('$size: %160 yazıda ve meal açıkken bütün sure/dualar sığar', (
+    testWidgets('$size: %190 yazıda ve meal açıkken bütün sure/dualar sığar', (
       tester,
     ) async {
       setSize(tester, size);
-      settings.arabicScale = 1.6;
+      settings.arabicScale = 1.9;
       settings.showMeaning = true;
       final audio = TestAudioService();
       addTearDown(audio.dispose);

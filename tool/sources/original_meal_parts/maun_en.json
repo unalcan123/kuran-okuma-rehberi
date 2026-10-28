@@ -1,0 +1,89 @@
+{
+  "url": "https://quranenc.com/en/browse/english_saheeh/107",
+  "data": [
+    {
+      "id": "6198",
+      "sura": "107",
+      "aya": "1",
+      "arabic_text": "أَرَءَيۡتَ ٱلَّذِي يُكَذِّبُ بِٱلدِّينِ",
+      "translation": "Have you seen the one who denies the Recompense?",
+      "footnotes": ""
+    },
+    {
+      "id": "6199",
+      "sura": "107",
+      "aya": "2",
+      "arabic_text": "فَذَٰلِكَ ٱلَّذِي يَدُعُّ ٱلۡيَتِيمَ",
+      "translation": "For that is the one who drives away the orphan",
+      "footnotes": ""
+    },
+    {
+      "id": "6200",
+      "sura": "107",
+      "aya": "3",
+      "arabic_text": "وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلۡمِسۡكِينِ",
+      "translation": "And does not encourage the feeding of the poor.",
+      "footnotes": ""
+    },
+    {
+      "id": "6201",
+      "sura": "107",
+      "aya": "4",
+      "arabic_text": "فَوَيۡلٞ لِّلۡمُصَلِّينَ",
+      "translation": "So woe to those who pray",
+      "footnotes": ""
+    },
+    {
+      "id": "6202",
+      "sura": "107",
+      "aya": "5",
+      "arabic_text": "ٱلَّذِينَ هُمۡ عَن صَلَاتِهِمۡ سَاهُونَ",
+      "translation": "[But] who are heedless of their prayer[2000] -",
+      "footnotes": "[2000] i.e., the hypocrites who are unconcerned if they miss prayers when no one sees them."
+    },
+    {
+      "id": "6203",
+      "sura": "107",
+      "aya": "6",
+      "arabic_text": "ٱلَّذِينَ هُمۡ يُرَآءُونَ",
+      "translation": "Those who make show [of their deeds]",
+      "footnotes": ""
+    },
+    {
+      "id": "6204",
+      "sura": "107",
+      "aya": "7",
+      "arabic_text": "وَيَمۡنَعُونَ ٱلۡمَاعُونَ",
+      "translation": "And withhold [simple] assistance.",
+      "footnotes": ""
+    }
+  ],
+  "language": "en",
+  "surah": {
+    "number": 107,
+    "id": "maun"
+  },
+  "metadata": {
+    "key": "english_saheeh",
+    "direction": "ltr",
+    "language_iso_code": "en",
+    "version": "1.1.2",
+    "last_update": 1750772247,
+    "title": "English Translation - Noor International Center",
+    "description": "Issued by Noor International Center.",
+    "file": "english_saheeh",
+    "database_url": "https://quranenc.com/downloads/sqlite/english_saheeh.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/english_saheeh.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

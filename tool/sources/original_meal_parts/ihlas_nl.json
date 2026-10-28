@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/dutch_center/112",
+  "data": [
+    {
+      "id": "6222",
+      "sura": "112",
+      "aya": "1",
+      "arabic_text": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
+      "translation": "Zeg: “Hij is Allah, de Enige (zo zou Allah de Enige moeten zijn in onze harten).\"",
+      "footnotes": ""
+    },
+    {
+      "id": "6223",
+      "sura": "112",
+      "aya": "2",
+      "arabic_text": "ٱللَّهُ ٱلصَّمَدُ",
+      "translation": "Allah de Eeuwige, de Onafhankelijke (waarvan alles en iedereen afhankelijk is).",
+      "footnotes": ""
+    },
+    {
+      "id": "6224",
+      "sura": "112",
+      "aya": "3",
+      "arabic_text": "لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ",
+      "translation": "Hij heeft niet verwerkt, noch is Hij verwekt.",
+      "footnotes": ""
+    },
+    {
+      "id": "6225",
+      "sura": "112",
+      "aya": "4",
+      "arabic_text": "وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ",
+      "translation": "En er is niets of niemand die met Hem te vergelijken is, (in welk opzicht dan ook).” [1]",
+      "footnotes": "[1] Als het gaat om de loyaliteit aan Allah, dan is er een duidelijk verschil tussen de waarheid en onwetendheid, en tussen de Islam en onwetendheid."
+    }
+  ],
+  "language": "nl",
+  "surah": {
+    "number": 112,
+    "id": "ihlas"
+  },
+  "metadata": {
+    "key": "dutch_center",
+    "direction": "ltr",
+    "language_iso_code": "nl",
+    "version": "2.0.10",
+    "last_update": 1763559803,
+    "title": "Dutch Translation - Rowwad Translation Center",
+    "description": "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+    "file": "dutch_center",
+    "database_url": "https://quranenc.com/downloads/sqlite/dutch_center.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/dutch_center.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/dutch_center.pure.pdf",
+    "pdf_pure_size": 31788044,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/dutch_center.mobile.pdf",
+    "pdf_mobile_size": 17459044,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/dutch_center.epub",
+    "epub_size": 1489655
+  }
+}

@@ -1,3 +1,4 @@
+import 'package:kuran_okuma_rehberi/data/additional_dualar_data.dart';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -141,10 +142,16 @@ void main() {
       await tester.pumpWidget(harness(const DualarListScreen(), audio));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
-      await tester.drag(find.byType(GridView), const Offset(0, -2500));
+      await tester.scrollUntilVisible(
+        find.byKey(ValueKey('dua-card-${kAllDualar.last.id}')),
+        300,
+      );
       await tester.pumpAndSettle();
       // Picture cards: the title is in the picture, not written again.
-      expect(find.byKey(ValueKey('dua-card-${kDualar.last.id}')), findsOneWidget);
+      expect(
+        find.byKey(ValueKey('dua-card-${kAllDualar.last.id}')),
+        findsOneWidget,
+      );
       for (final dua in kDualar) {
         await tester.pumpWidget(
           harness(DuaDetailScreen(key: ValueKey(dua.id), dua: dua), audio),
@@ -200,7 +207,9 @@ void main() {
     final audio = TestAudioService();
     addTearDown(audio.dispose);
     await tester.pumpWidget(harness(const HomeScreen(), audio));
-    await tester.tap(find.byKey(const ValueKey('home-card-image-Namaz Duaları')));
+    await tester.tap(
+      find.byKey(const ValueKey('home-card-image-Namaz Duaları')),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(DualarListScreen), findsOneWidget);
     await tester.tap(find.byKey(ValueKey('dua-card-${kDualar.first.id}')));

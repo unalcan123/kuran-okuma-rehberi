@@ -31,11 +31,14 @@ void main() {
       if (layout == null) continue;
       // Items taken in order never run past the lesson; every item is on
       // some page (in order or by reference).
-      expect(layout.itemCount, lessThanOrEqualTo(lesson.letters.length),
-          reason: lesson.id);
-      expect(layout.shownItems,
-          {for (var i = 0; i < lesson.letters.length; i++) i},
-          reason: lesson.id);
+      expect(
+        layout.itemCount,
+        lessThanOrEqualTo(lesson.letters.length),
+        reason: lesson.id,
+      );
+      expect(layout.shownItems, {
+        for (var i = 0; i < lesson.letters.length; i++) i,
+      }, reason: lesson.id);
     }
     final pages = kUstunPageLayout.pages;
     expect(pages.map((p) => p.bookPage), [14, 15, 16]);
@@ -62,7 +65,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(LessonPageView), findsOneWidget);
-    for (final label in ['📖 Sayfa', '▦ Grid', '🔎 Tekli / Büyük']) {
+    for (final label in ['📖 Sayfa', '▦ Izgara', '🔎 Tekli / Büyük']) {
       expect(find.text(label), findsOneWidget);
     }
     expect(find.text('Sayfa 14'), findsOneWidget);
@@ -90,7 +93,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Başka görünüme geçip dersi yeniden açınca yine Sayfa.
-    await _mode(tester, '▦ Grid');
+    await _mode(tester, '▦ Izgara');
     expect(find.byType(AllLettersGrid), findsOneWidget);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpWidget(app(audio, kUstunLesson));
@@ -136,7 +139,9 @@ void main() {
     // "Sonraki Sayfa" solda, "Önceki Sayfa" sağda.
     expect(
       tester.getCenter(find.byKey(const ValueKey('page-next'))).dx,
-      lessThan(tester.getCenter(find.byKey(const ValueKey('page-previous'))).dx),
+      lessThan(
+        tester.getCenter(find.byKey(const ValueKey('page-previous'))).dx,
+      ),
     );
 
     await tester.tap(find.byKey(const ValueKey('page-previous')));
@@ -164,7 +169,7 @@ void main() {
         tester.widget<ColoredArabicText>(_arabic(text).first);
 
     expect(widgetOf('خَ').profile, p14); // Sayfa
-    await _mode(tester, '▦ Grid');
+    await _mode(tester, '▦ Izgara');
     expect(widgetOf('خَ').profile, p14);
     await tester.tap(find.byKey(const ValueKey('page-next')));
     await tester.pumpAndSettle();
@@ -249,7 +254,7 @@ void main() {
       final last = tester.getRect(find.byKey(const ValueKey('book-cell-56')));
       expect(last.width, greaterThanOrEqualTo(90));
 
-      await _mode(tester, '▦ Grid');
+      await _mode(tester, '▦ Izgara');
       expect(tester.takeException(), isNull);
       await _mode(tester, '🔎 Tekli / Büyük');
       expect(tester.takeException(), isNull);

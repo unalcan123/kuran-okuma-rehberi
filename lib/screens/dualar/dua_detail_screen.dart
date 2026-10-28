@@ -1,3 +1,4 @@
+import '../../data/full_reading_audio.dart';
 import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,10 @@ class DuaDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ReadingScreen(
+    key: ValueKey('dua-${dua.id}-${context.language.code}'),
     title: context.t(kDuaDisplayTitles[dua.id] ?? dua.titleTr),
-    segments: ReadingSegment.ofDua(dua),
+    segments: ReadingSegment.ofDua(dua, languageCode: context.language.code),
+    fullAudioAsset: kFullReadingAudio[dua.id] ?? '',
     nouns: ReadingNouns.dua,
   );
 }

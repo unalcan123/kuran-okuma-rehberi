@@ -1,0 +1,57 @@
+{
+  "url": "https://quranenc.com/en/browse/bosnian_mihanovich/110",
+  "data": [
+    {
+      "id": "6214",
+      "sura": "110",
+      "aya": "1",
+      "arabic_text": "إِذَا جَآءَ نَصۡرُ ٱللَّهِ وَٱلۡفَتۡحُ",
+      "translation": "Kada Allahova pomoć i pobjeda dođu, ",
+      "footnotes": ""
+    },
+    {
+      "id": "6215",
+      "sura": "110",
+      "aya": "2",
+      "arabic_text": "وَرَأَيۡتَ ٱلنَّاسَ يَدۡخُلُونَ فِي دِينِ ٱللَّهِ أَفۡوَاجٗا",
+      "translation": "i vidiš ljude kako u skupinama u Allahovu vjeru ulaze, ",
+      "footnotes": ""
+    },
+    {
+      "id": "6216",
+      "sura": "110",
+      "aya": "3",
+      "arabic_text": "فَسَبِّحۡ بِحَمۡدِ رَبِّكَ وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ كَانَ تَوَّابَۢا",
+      "translation": "ti slavi i veličaj Gospodara svoga hvaleći Ga i moli Ga da ti oprosti, On zaista pokajanje stalno prima.",
+      "footnotes": ""
+    }
+  ],
+  "language": "bs",
+  "surah": {
+    "number": 110,
+    "id": "nasr"
+  },
+  "metadata": {
+    "key": "bosnian_mihanovich",
+    "direction": "ltr",
+    "language_iso_code": "bs",
+    "version": "1.1.0",
+    "last_update": 1576875600,
+    "title": "Bosnian Translation - Muhammad Mahanovic",
+    "description": "Translated by Muhammad Mahanovic, developed under the supervision of Rowwad Translation Center. The original translation is available for the purpose of expressing opinion, evaluation, and continuous development.",
+    "file": "bosnian_mihanovich",
+    "database_url": "https://quranenc.com/downloads/sqlite/bosnian_mihanovich.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/bosnian_mihanovich.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

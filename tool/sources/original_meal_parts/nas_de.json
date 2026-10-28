@@ -1,0 +1,81 @@
+{
+  "url": "https://quranenc.com/en/browse/german_bubenheim/114",
+  "data": [
+    {
+      "id": "6231",
+      "sura": "114",
+      "aya": "1",
+      "arabic_text": "قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ",
+      "translation": "Sag: Ich nehme Zuflucht beim Herrn der Menschen,",
+      "footnotes": null
+    },
+    {
+      "id": "6232",
+      "sura": "114",
+      "aya": "2",
+      "arabic_text": "مَلِكِ ٱلنَّاسِ",
+      "translation": "dem König der Menschen,",
+      "footnotes": null
+    },
+    {
+      "id": "6233",
+      "sura": "114",
+      "aya": "3",
+      "arabic_text": "إِلَٰهِ ٱلنَّاسِ",
+      "translation": "dem Gott der Menschen,",
+      "footnotes": null
+    },
+    {
+      "id": "6234",
+      "sura": "114",
+      "aya": "4",
+      "arabic_text": "مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ",
+      "translation": "vor dem Übel des Einflüsterers, des Davonschleichers,",
+      "footnotes": null
+    },
+    {
+      "id": "6235",
+      "sura": "114",
+      "aya": "5",
+      "arabic_text": "ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ",
+      "translation": "der in die Brüste der Menschen einflüstert,",
+      "footnotes": null
+    },
+    {
+      "id": "6236",
+      "sura": "114",
+      "aya": "6",
+      "arabic_text": "مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ",
+      "translation": "von den Ginn und den Menschen.",
+      "footnotes": null
+    }
+  ],
+  "language": "de",
+  "surah": {
+    "number": 114,
+    "id": "nas"
+  },
+  "metadata": {
+    "key": "german_bubenheim",
+    "direction": "ltr",
+    "language_iso_code": "de",
+    "version": "1.1.4",
+    "last_update": 1738581834,
+    "title": "German Translation - Frank Bubenheim",
+    "description": "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    "file": "german_bubenheim",
+    "database_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

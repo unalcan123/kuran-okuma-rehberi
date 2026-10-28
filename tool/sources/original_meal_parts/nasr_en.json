@@ -1,0 +1,57 @@
+{
+  "url": "https://quranenc.com/en/browse/english_saheeh/110",
+  "data": [
+    {
+      "id": "6214",
+      "sura": "110",
+      "aya": "1",
+      "arabic_text": "إِذَا جَآءَ نَصۡرُ ٱللَّهِ وَٱلۡفَتۡحُ",
+      "translation": "When the victory of Allāh has come and the conquest,[2005]",
+      "footnotes": "[2005] The conquest of Makkah."
+    },
+    {
+      "id": "6215",
+      "sura": "110",
+      "aya": "2",
+      "arabic_text": "وَرَأَيۡتَ ٱلنَّاسَ يَدۡخُلُونَ فِي دِينِ ٱللَّهِ أَفۡوَاجٗا",
+      "translation": "And you see the people entering into the religion of Allāh in multitudes,",
+      "footnotes": ""
+    },
+    {
+      "id": "6216",
+      "sura": "110",
+      "aya": "3",
+      "arabic_text": "فَسَبِّحۡ بِحَمۡدِ رَبِّكَ وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ كَانَ تَوَّابَۢا",
+      "translation": "Then exalt [Him] with praise of your Lord and ask forgiveness of Him. Indeed, He is ever Accepting of Repentance.[2006]",
+      "footnotes": "[2006] Refer to footnote of 2:37."
+    }
+  ],
+  "language": "en",
+  "surah": {
+    "number": 110,
+    "id": "nasr"
+  },
+  "metadata": {
+    "key": "english_saheeh",
+    "direction": "ltr",
+    "language_iso_code": "en",
+    "version": "1.1.2",
+    "last_update": 1750772247,
+    "title": "English Translation - Noor International Center",
+    "description": "Issued by Noor International Center.",
+    "file": "english_saheeh",
+    "database_url": "https://quranenc.com/downloads/sqlite/english_saheeh.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/english_saheeh.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

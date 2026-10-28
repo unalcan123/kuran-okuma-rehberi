@@ -1,0 +1,57 @@
+{
+  "url": "https://quranenc.com/en/browse/french_rashid/110",
+  "data": [
+    {
+      "id": "6214",
+      "sura": "110",
+      "aya": "1",
+      "arabic_text": "إِذَا جَآءَ نَصۡرُ ٱللَّهِ وَٱلۡفَتۡحُ",
+      "translation": "Lorsque, t’apportant Son secours, Allah te fera triompher[1]",
+      "footnotes": "[1] De tes ennemis, par la conquête de la Mecque."
+    },
+    {
+      "id": "6215",
+      "sura": "110",
+      "aya": "2",
+      "arabic_text": "وَرَأَيۡتَ ٱلنَّاسَ يَدۡخُلُونَ فِي دِينِ ٱللَّهِ أَفۡوَاجٗا",
+      "translation": "et que tu verras les hommes embrasser la religion d’Allah par groupes entiers,",
+      "footnotes": ""
+    },
+    {
+      "id": "6216",
+      "sura": "110",
+      "aya": "3",
+      "arabic_text": "فَسَبِّحۡ بِحَمۡدِ رَبِّكَ وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ كَانَ تَوَّابَۢا",
+      "translation": "célèbre, par les louanges, la gloire de ton Seigneur et implore Son pardon. Il accepte toujours le repentir de Ses serviteurs dévoués.",
+      "footnotes": ""
+    }
+  ],
+  "language": "fr",
+  "surah": {
+    "number": 110,
+    "id": "nasr"
+  },
+  "metadata": {
+    "key": "french_rashid",
+    "direction": "ltr",
+    "language_iso_code": "fr",
+    "version": "1.0.3",
+    "last_update": 1782043143,
+    "title": "French Translation - Rachid Maach",
+    "description": "Translated by Rashid Ma’ash",
+    "file": "french_rashid",
+    "database_url": "https://quranenc.com/downloads/sqlite/french_rashid.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/french_rashid.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/french_rashid.pdf",
+    "pdf_size": 17991055,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/french_rashid.pure.pdf",
+    "pdf_pure_size": 9323774,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/french_rashid.mobile.pdf",
+    "pdf_mobile_size": 8288227,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/french_rashid.epub",
+    "epub_size": 1779216
+  }
+}

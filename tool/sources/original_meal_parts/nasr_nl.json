@@ -1,0 +1,57 @@
+{
+  "url": "https://quranenc.com/en/browse/dutch_center/110",
+  "data": [
+    {
+      "id": "6214",
+      "sura": "110",
+      "aya": "1",
+      "arabic_text": "إِذَا جَآءَ نَصۡرُ ٱللَّهِ وَٱلۡفَتۡحُ",
+      "translation": "(O Mohammed), als de hulp van Allah (in elke vijandelijk confrontatie) tot je komt en de herovering (van Mekka een beklonken zaak is).",
+      "footnotes": ""
+    },
+    {
+      "id": "6215",
+      "sura": "110",
+      "aya": "2",
+      "arabic_text": "وَرَأَيۡتَ ٱلنَّاسَ يَدۡخُلُونَ فِي دِينِ ٱللَّهِ أَفۡوَاجٗا",
+      "translation": "En je ziet dat de mensen in grote groepen Allah Zijn godsdienst betreden (door zich te bekeren tot de Islam).",
+      "footnotes": ""
+    },
+    {
+      "id": "6216",
+      "sura": "110",
+      "aya": "3",
+      "arabic_text": "فَسَبِّحۡ بِحَمۡدِ رَبِّكَ وَٱسۡتَغۡفِرۡهُۚ إِنَّهُۥ كَانَ تَوَّابَۢا",
+      "translation": "Verheerlijk en prijs dan je Heer (vanwege Zijn gunsten en hulp bij de herovering), en vraag (voortdurend) om Zijn vergiffenis. Waarlijk, Hij is Degene Die het berouw (van Zijn gelovige dienaren) aanvaardt en (uit Barmhartigheid hun begane zonden) vergeeft.",
+      "footnotes": ""
+    }
+  ],
+  "language": "nl",
+  "surah": {
+    "number": 110,
+    "id": "nasr"
+  },
+  "metadata": {
+    "key": "dutch_center",
+    "direction": "ltr",
+    "language_iso_code": "nl",
+    "version": "2.0.10",
+    "last_update": 1763559803,
+    "title": "Dutch Translation - Rowwad Translation Center",
+    "description": "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+    "file": "dutch_center",
+    "database_url": "https://quranenc.com/downloads/sqlite/dutch_center.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/dutch_center.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/dutch_center.pure.pdf",
+    "pdf_pure_size": 31788044,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/dutch_center.mobile.pdf",
+    "pdf_mobile_size": 17459044,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/dutch_center.epub",
+    "epub_size": 1489655
+  }
+}

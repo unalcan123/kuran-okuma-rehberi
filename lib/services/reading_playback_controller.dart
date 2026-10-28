@@ -60,7 +60,8 @@ List<PlaybackStep> buildPlaybackPlan(
     case MemorizationMode.stepByStep:
       return [
         for (var i = 0; i < segments.length; i++)
-          for (var r = 1; r <= count; r++) PlaybackStep(i, repeat: r, of: count),
+          for (var r = 1; r <= count; r++)
+            PlaybackStep(i, repeat: r, of: count),
       ];
     case MemorizationMode.shuffled:
       final rng = random ?? math.Random();
@@ -117,6 +118,7 @@ class ReadingPlaybackController extends ChangeNotifier {
   ReadingPlaybackController({
     required this.segments,
     required this.audio,
+    this.fullAudioAsset = '',
     ReadingSettings? settings,
     math.Random? random,
     this.repeatGap = const Duration(milliseconds: 700),
@@ -131,6 +133,8 @@ class ReadingPlaybackController extends ChangeNotifier {
 
   final List<ReadingSegment> segments;
   final AudioService audio;
+  final String fullAudioAsset;
+  bool _fullRecording = false;
   final ReadingSettings settings;
   final math.Random? _random;
 
@@ -180,7 +184,7 @@ class ReadingPlaybackController extends ChangeNotifier {
 
   /// Index in [segments] of the segment being read (or about to be read
   /// again / next after a pause); null when nothing plays.
-  int? get activeIndex => currentStep?.segment;
+  int? get activeIndex => _fullRecording ? null : currentStep?.segment;
 
   /// "Metni gizle" while memorizing: once the student has heard the active
   /// segment, its text makes room for "Şimdi sen oku" (its next repeats and
@@ -217,6 +221,12 @@ class ReadingPlaybackController extends ChangeNotifier {
       repeatCount: memorize ? settings.repeatCount : 1,
       random: _random,
     );
+    _plan =
+        _plan
+            .where((step) => segments[step.segment].audioAsset.isNotEmpty)
+            .toList();
+    _fullRecording = !memorize && fullAudioAsset.isNotEmpty;
+    if (_fullRecording) _plan = [const PlaybackStep(0)];
     _step = 0;
     if (_plan.isEmpty) return;
     await _playStep();
@@ -225,12 +235,14 @@ class ReadingPlaybackController extends ChangeNotifier {
   /// A segment's own play button: that segment once; pressed again while it
   /// is the active one, pause / resume.
   Future<void> playSingle(int index) async {
+    if (segments[index].audioAsset.isEmpty) return;
     if (_single && activeIndex == index) {
       if (_status == ReadingPlaybackStatus.playing) return pause();
       if (_status == ReadingPlaybackStatus.paused) return resume();
     }
     _cancelTimer();
     _single = true;
+    _fullRecording = false;
     _memorizing = false;
     _plan = [PlaybackStep(index)];
     _step = 0;
@@ -275,7 +287,8 @@ class ReadingPlaybackController extends ChangeNotifier {
   Future<void> _playStep() async {
     final step = _plan[_step];
     final previous = _expected;
-    _expected = segments[step.segment].audioAsset;
+    _expected =
+        _fullRecording ? fullAudioAsset : segments[step.segment].audioAsset;
     _clipStarted = false;
     if (previous == null ||
         _step == 0 ||
@@ -351,6 +364,7 @@ class ReadingPlaybackController extends ChangeNotifier {
   void _reset() {
     _cancelTimer();
     _status = ReadingPlaybackStatus.idle;
+    _fullRecording = false;
     _plan = const [];
     _step = 0;
     _single = false;

@@ -1,0 +1,146 @@
+// Published QuranEnc Fatiha translations, stored verbatim with footnotes.
+// Source snapshots and versions: tool/sources/fatiha_published.json
+class PublishedFatihaMeaning {
+  const PublishedFatihaMeaning(
+    this.title,
+    this.version,
+    this.url,
+    this.description,
+    this.verses,
+    this.footnotes,
+  );
+  final String title, version, url, description;
+  final List<String> verses, footnotes;
+  String get attribution => '$title · v$version · QuranEnc.com\n$url';
+}
+
+const kPublishedFatihaMeanings = <String, PublishedFatihaMeaning>{
+  "es": PublishedFatihaMeaning(
+    "Spanish Translation - Isa Garcia",
+    "1.0.2",
+    "https://quranenc.com/en/browse/spanish_garcia/1",
+    "Translated by Muhammad Isa Garcia",
+    [
+      "1. En el nombre de Dios[1], el Compasivo con toda la creación, el Misericordioso con los creyentes[2].",
+      "2. Todas las alabanzas son para Dios, Señor[1] de todo cuanto existe,",
+      "3. el Compasivo, el Misericordioso.",
+      "4. Soberano absoluto del Día del Juicio Final,",
+      "5. solo a Ti te adoramos y solo de Ti imploramos ayuda.",
+      "6. ¡Guíanos por el camino recto!",
+      "7. El camino de los que has colmado con Tus favores, no el de los que han caído en Tu ira, ni el de los que se extraviaron.",
+    ],
+    [
+      "[1] Al-lah الله : Es un nombre propio exclusivo de Dios, el Único y Todopoderoso, Creador y Sustentador de los cielos y la Tierra y de todo lo que hay en ellos, el Eterno y Absoluto, el merecedor de toda forma de adoración. La forma de pronunciarlo es la siguiente: “Al-laj”, con la “jota andaluza” suave y aspirada, o la hache inglesa, enfatizando en la pronunciación de la “L”. Es sabido que cada idioma tiene uno o varios términos para referirse a Dios y, en ocasiones, para otras deidades. Éste no es el caso de “Al-lah”. “Al-lah” (del árabe al-ilah: el Dios) es el único nombre de Dios, no tiene género ni plural; por tanto, es un término que señala la unidad de lo designado. Cuando los contemporáneos del Profeta le preguntaron acerca de Dios, él recibió como revelación del capítulo 112, que resume la esencia del monoteísmo y unicidad de Dios: no ha engendrado, no ha sido engendrado, nada ni nadie es semejante a Él. El Islam rechaza cualquier intento de caracterizar a Dios, y menos aun tomando rasgos humanos que hagan prevalecer a una raza sobre las demás.\n[2] Ar-Rahman الرحمن y Ar-Rahim الرحيم son dos palabras derivadas del árabe rahma رحمة que significa misericordia. En la lengua árabe ambos tienen el significado superlativo de “Misericordiosísimo”. Mediante la cita de ambos nombres se intenta dar un significado más completo. Ar-Rahman, traducido como el Compasivo, implica un significado más amplio, que es misericordioso hacia toda la creación. La justicia es parte de esta compasión. Ar-Rahim, traducido como Misericordioso, incluye el concepto de especificidad, es decir, una forma especial de misericordia concedida solamente a los creyentes. El perdón es parte de esta misericordia.",
+      "[1] Cuando se refiere a Dios, el término árabe Rabb – رب , traducido como “Señor”, incluye los significados de poseedor, amo, gobernante, controlador, sustentador, proveedor, guardián y cuidador.",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ],
+  ),
+  "fr": PublishedFatihaMeaning(
+    "French Translation - Rachid Maach",
+    "1.0.3",
+    "https://quranenc.com/en/browse/french_rashid/1",
+    "Translated by Rashid Ma’ash",
+    [
+      "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux[1].",
+      "Louange à Allah, Seigneur de la Création[2],",
+      "le Tout Miséricordieux, le Très Miséricordieux,",
+      "Maître souverain du Jour de la rétribution.",
+      "C’est Toi seul que nous adorons et de Toi seul que nous implorons aide.",
+      "Guide-nous dans le droit chemin,",
+      "chemin de ceux que Tu as comblés de Tes grâces, non celui des réprouvés[3], ni celui des égarés[4].",
+    ],
+    [
+      "[1] Nombreux sont les exégètes qui expliquent la différence entre le nom divin « Ar-Rahmân » (traduit ici par « le Tout Miséricordieux ») et le nom « Ar-Rahîm » (traduit par « le Très Miséricordieux »), tous deux tirés de l’attribut divin « Ar-Rahmah » (la miséricorde), de cette manière : Allah est Tout Miséricordieux dans Son Essence, Très Miséricordieux envers Ses créatures.",
+      "[2] Littéralement : des mondes, c’est-à-dire, expliquent les exégètes, le Seigneur de tout ce qui existe en dehors du Créateur, d’où notre traduction.",
+      "",
+      "",
+      "",
+      "",
+      "[3] Littéralement : ceux qui ont attiré sur eux la colère d’Allah. Et ce, pour avoir sciemment tourné le dos à la vérité.\n[4] Ceux qui, par ignorance, se sont détournés du droit chemin.",
+    ],
+  ),
+  "de": PublishedFatihaMeaning(
+    "German Translation - Frank Bubenheim",
+    "1.1.4",
+    "https://quranenc.com/en/browse/german_bubenheim/1",
+    "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    [
+      "Im Namen Allahs, des Allerbarmers, des Barmherzigen.",
+      "(Alles) Lob gehört Allah, dem Herrn der Welten,",
+      "dem Allerbarmer, dem Barmherzigen,",
+      "dem Herrscher am Tag des Gerichts.",
+      "Dir allein dienen wir, und zu Dir allein flehen wir um Hilfe.",
+      "Leite uns den geraden Weg,",
+      "den Weg derjenigen, denen Du Gunst erwiesen hast, nicht derjenigen, die (Deinen) Zorn erregt haben, und nicht der Irregehenden!",
+    ],
+    ["", "", "", "", "", "", ""],
+  ),
+  "en": PublishedFatihaMeaning(
+    "English Translation - Noor International Center",
+    "1.1.2",
+    "https://quranenc.com/en/browse/english_saheeh/1",
+    "Issued by Noor International Center.",
+    [
+      "In the name of Allāh,[2] the Entirely Merciful, the Especially Merciful.[3]",
+      "[All] praise is [due] to Allāh, Lord[4] of the worlds -",
+      "The Entirely Merciful, the Especially Merciful,",
+      "Sovereign of the Day of Recompense.[5]",
+      "It is You we worship and You we ask for help.",
+      "Guide us to the straight path -",
+      "The path of those upon whom You have bestowed favor, not of those who have earned [Your] anger or of those who are astray.",
+    ],
+    [
+      "[2] Allāh is a proper name belonging only to the one Almighty God, Creator and Sustainer of the heavens and the earth and all that is within them, the Eternal and Absolute, to whom alone all worship is due.\n[3] Ar-Raḥmān and ar-Raḥeem are two names of Allāh derived from the word \"raḥmah\" (mercy) . In Arabic grammar both are intensive forms of \"merciful\" (i.e., extremely merciful) . A complimentary and comprehensive meaning is intended by using both together. Raḥmān is used only to describe Allāh, while raḥeem might be used to describe a person as well. The Prophet (ﷺ) was described in the Qur’ān as raḥeem. Raḥmān is above the human level (i.e., intensely merciful) . Since one usually understands intensity to be something of short duration, Allāh describes Himself also as raḥeem (i.e., continually merciful) . Raḥmān also carries a wider meaning - merciful to all creation. Justice is a part of this mercy. Raḥeem includes the concept of speciality - especially and specifically merciful to the believers. Forgiveness is a part of this mercy. In addition, Raḥmān is adjectival, referring to an attribute of Allāh and is part of His essence. Raḥeem is verbal, indicating what He does: i.e., bestowing and implementing mercy.",
+      "[4] When referring to Allāh (subḥānahu wa taʿālā) , the Arabic term \"rabb\" (translated as \"Lord\") includes all of the following meanings: \"owner, master, ruler, controller, sustainer, provider, guardian and caretaker.\"",
+      "",
+      "[5] i.e., repayment and compensation for whatever was earned of good or evil during life on this earth.",
+      "",
+      "",
+      "",
+    ],
+  ),
+  "bs": PublishedFatihaMeaning(
+    "Bosnian Translation - Muhammad Mahanovic",
+    "1.1.0",
+    "https://quranenc.com/en/browse/bosnian_mihanovich/1",
+    "Translated by Muhammad Mahanovic, developed under the supervision of Rowwad Translation Center. The original translation is available for the purpose of expressing opinion, evaluation, and continuous development.",
+    [
+      "S imenom Allaha, Svemilosnog, Milostivog!",
+      "Svaka hvala neka je Allahu, Gospodaru svjetova.",
+      "Svemilosnom, Milostivom. ",
+      "Vladaru Dana sudnjeg.",
+      "Samo Tebi ibadet činimo i samo od Tebe pomoć molimo.",
+      "Uputi nas na Pravi put.",
+      "Na put onih kojima si blagodati podario. A ne na put onih na koje se srdžba izlila, niti na put onih koji su zalutali. ",
+    ],
+    ["", "", "", "", "", "", ""],
+  ),
+  "nl": PublishedFatihaMeaning(
+    "Dutch Translation - Rowwad Translation Center",
+    "2.0.10",
+    "https://quranenc.com/en/browse/dutch_center/1",
+    "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+    [
+      "In de naam van Allah, de meest Barmhartige, de meest Genadevolle.",
+      "Alle lof en dank komt (alléén) Allah toe, de Bezitter van (alle) wereldwezens[1].",
+      "De meest Barmhartige [1], de meest Genadevolle [2].",
+      "De enige Eigenaar (van het tijdstip) van de Dag der Opstanding.",
+      "U (alléén) aanbidden wij, en U (alléén) vragen wij (voor alles en tegen iedereen) om hulp.",
+      "Leid ons naar het rechte pad.",
+      "Het pad van degenen die Uw gunsten hebben verworven [1] en niet (naar het pad) van degenen die Uw woede hebben opgewekt [2], noch (naar het pad) van de dwalenden [3].",
+    ],
+    [
+      "",
+      "[1] zowel de mensen, als de djinn, als de engelen, alsook de rest van Zijn volledige schepping.",
+      "[1]voor elk wezen.\n[2] specifiek voor de gelovigen.",
+      "",
+      "",
+      "",
+      "[1]verwijzend naar degene die kennis vergaren van de Islam en daarna handelen, een plicht die veel moslims vergeten.\n[2]verwijzend naar kennis zonder ernaar te handelen en het misbruiken voor eigen belang mogen Allah sht ons hiervoor beschermen.\n[3]verwijzend naar mensen die Allah aanbidden zonder kennis.",
+    ],
+  ),
+};

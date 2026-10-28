@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/german_bubenheim/112",
+  "data": [
+    {
+      "id": "6222",
+      "sura": "112",
+      "aya": "1",
+      "arabic_text": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
+      "translation": "Sag: Er ist Allah, Einer,",
+      "footnotes": null
+    },
+    {
+      "id": "6223",
+      "sura": "112",
+      "aya": "2",
+      "arabic_text": "ٱللَّهُ ٱلصَّمَدُ",
+      "translation": "Allah, der Überlegene.",
+      "footnotes": null
+    },
+    {
+      "id": "6224",
+      "sura": "112",
+      "aya": "3",
+      "arabic_text": "لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ",
+      "translation": "Er hat nicht gezeugt und ist nicht gezeugt worden,",
+      "footnotes": null
+    },
+    {
+      "id": "6225",
+      "sura": "112",
+      "aya": "4",
+      "arabic_text": "وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ",
+      "translation": "und niemand ist Ihm jemals gleich.",
+      "footnotes": null
+    }
+  ],
+  "language": "de",
+  "surah": {
+    "number": 112,
+    "id": "ihlas"
+  },
+  "metadata": {
+    "key": "german_bubenheim",
+    "direction": "ltr",
+    "language_iso_code": "de",
+    "version": "1.1.4",
+    "last_update": 1738581834,
+    "title": "German Translation - Frank Bubenheim",
+    "description": "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    "file": "german_bubenheim",
+    "database_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

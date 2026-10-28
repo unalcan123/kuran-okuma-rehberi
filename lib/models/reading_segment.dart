@@ -1,3 +1,4 @@
+import '../data/surah_meanings.dart';
 import 'dua.dart';
 import 'surah.dart';
 
@@ -13,6 +14,9 @@ class ReadingSegment {
     required this.audioAsset,
     this.number,
     this.meaning = '',
+    this.meaningSource = '',
+    this.meaningFootnotes = '',
+    this.instruction = '',
     this.pronunciation,
     this.isOpening = false,
   });
@@ -28,6 +32,9 @@ class ReadingSegment {
 
   /// Turkish meaning ("meal"); empty when there is none.
   final String meaning;
+  final String meaningSource;
+  final String meaningFootnotes;
+  final String instruction;
 
   /// Turkish reading of the Arabic (prayers may have one).
   final String? pronunciation;
@@ -37,35 +44,62 @@ class ReadingSegment {
 
   /// A surah as the dataset gives it: its besmele (own recording) first,
   /// then its ayetler — the same order its "Dinle" always played.
-  static List<ReadingSegment> ofSurah(Surah surah) => [
-    ReadingSegment(
-      id: 'besmele',
-      number: surah.id == 'fatiha' ? 1 : null,
-      arabic: surah.besmele,
-      audioAsset: surah.besmeleAudioAsset,
-      isOpening: true,
-    ),
-    for (final ayet in surah.ayetler)
+  static List<ReadingSegment> ofSurah(
+    Surah surah, {
+    String languageCode = 'tr',
+  }) {
+    final published = kSurahMeanings[surah.id]?[languageCode];
+    return [
       ReadingSegment(
-        id: 'ayet-${ayet.number}',
-        number:
-            surah.id == 'fatiha'
-                ? (ayet.number < 7 ? ayet.number + 1 : 7)
-                : ayet.number,
-        arabic: ayet.arabic,
-        meaning: ayet.meaningTr,
-        audioAsset: ayet.audioAsset,
+        id: 'besmele',
+        number: surah.id == 'fatiha' ? 1 : null,
+        meaning: surah.id == 'fatiha' ? published?.verses[1] ?? '' : '',
+        meaningSource: surah.id == 'fatiha' ? published?.attribution ?? '' : '',
+        meaningFootnotes:
+            surah.id == 'fatiha' ? published?.footnotes[1] ?? '' : '',
+        arabic: surah.besmele,
+        audioAsset: surah.besmeleAudioAsset,
+        isOpening: true,
       ),
-  ];
+      for (final ayet in surah.ayetler)
+        ReadingSegment(
+          id: 'ayet-${ayet.number}',
+          number:
+              surah.id == 'fatiha'
+                  ? (ayet.number < 7 ? ayet.number + 1 : 7)
+                  : (surah.id == 'nasr' && ayet.number > 3 ? 3 : ayet.number),
+          arabic: ayet.arabic,
+          meaning:
+              published?.verses[surah.id == 'fatiha'
+                  ? (ayet.number < 7 ? ayet.number + 1 : 7)
+                  : (surah.id == 'nasr' && ayet.number > 3
+                      ? 3
+                      : ayet.number)] ??
+              ayet.meaningTr,
+          meaningSource: published?.attribution ?? '',
+          meaningFootnotes:
+              published?.footnotes[surah.id == 'fatiha'
+                  ? (ayet.number < 7 ? ayet.number + 1 : 7)
+                  : (surah.id == 'nasr' && ayet.number > 3
+                      ? 3
+                      : ayet.number)] ??
+              '',
+          audioAsset: ayet.audioAsset,
+        ),
+    ];
+  }
 
   /// A prayer's parts in order.
-  static List<ReadingSegment> ofDua(Dua dua) => [
+  static List<ReadingSegment> ofDua(Dua dua, {String languageCode = 'tr'}) => [
     for (var i = 0; i < dua.segments.length; i++)
       ReadingSegment(
         id: 'part-${dua.segments[i].id}',
         number: i + 1,
         arabic: dua.segments[i].arabic,
-        meaning: dua.segments[i].meaningTr,
+        meaning:
+            dua.segments[i].meanings[languageCode] ?? dua.segments[i].meaningTr,
+        meaningSource: dua.segments[i].meaningSource,
+        instruction: dua.segments[i].instruction,
         pronunciation: dua.segments[i].pronunciationTr,
         audioAsset: dua.segments[i].audioAsset,
       ),

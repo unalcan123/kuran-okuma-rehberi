@@ -8,6 +8,8 @@ environment:
   sdk: ^3.7.0
 
 dependencies:
+  flutter_localizations:
+    sdk: flutter
   flutter:
     sdk: flutter
 
@@ -33,6 +35,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/audio/full_readings/
     - assets/audio/dualar/01_subhaneke/
     - assets/audio/dualar/02_ettahiyatu/
     - assets/audio/dualar/03_salli/

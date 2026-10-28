@@ -1,3 +1,4 @@
+import '../../data/full_reading_audio.dart';
 import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +17,14 @@ class SurahDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ReadingScreen(
+    key: ValueKey('surah-${surah.id}-${context.language.code}'),
     title: context.t(surah.titleTr),
     arabicTitle: surah.arabicName,
-    segments: ReadingSegment.ofSurah(surah),
+    segments: ReadingSegment.ofSurah(
+      surah,
+      languageCode: context.language.code,
+    ),
+    fullAudioAsset: kFullReadingAudio[surah.id] ?? '',
     nouns: ReadingNouns.surah,
   );
 }

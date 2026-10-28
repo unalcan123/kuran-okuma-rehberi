@@ -1,3 +1,4 @@
+import 'package:flutter/semantics.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -149,11 +150,16 @@ class AllLettersGrid extends StatelessWidget {
                                 ),
                             delegate: SliverChildBuilderDelegate((context, i) {
                               final letter = group.items[i];
-                              return LetterCard(
-                                letter: letter,
-                                onTap: () => onTapLetter(letter),
-                                onOpenDetail:
-                                    () => onOpenLetter(group.startIndex + i),
+                              return Semantics(
+                                sortKey: OrdinalSortKey(
+                                  (group.startIndex + i).toDouble(),
+                                ),
+                                child: LetterCard(
+                                  letter: letter,
+                                  onTap: () => onTapLetter(letter),
+                                  onOpenDetail:
+                                      () => onOpenLetter(group.startIndex + i),
+                                ),
                               );
                             }, childCount: group.items.length),
                           ),

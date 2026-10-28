@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/french_rashid/112",
+  "data": [
+    {
+      "id": "6222",
+      "sura": "112",
+      "aya": "1",
+      "arabic_text": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
+      "translation": "Dis : « Allah est la seule et unique divinité.",
+      "footnotes": ""
+    },
+    {
+      "id": "6223",
+      "sura": "112",
+      "aya": "2",
+      "arabic_text": "ٱللَّهُ ٱلصَّمَدُ",
+      "translation": "Allah est le Maître dont nul ne peut se passer[1].",
+      "footnotes": "[1] Celui vers lequel se tournent toutes les créatures afin qu’Il réponde à leurs besoins."
+    },
+    {
+      "id": "6224",
+      "sura": "112",
+      "aya": "3",
+      "arabic_text": "لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ",
+      "translation": "Il n’a pas engendré, ni été Lui-même engendré.",
+      "footnotes": ""
+    },
+    {
+      "id": "6225",
+      "sura": "112",
+      "aya": "4",
+      "arabic_text": "وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ",
+      "translation": "Et nul dans Sa création n’est à même de L’égaler. »",
+      "footnotes": ""
+    }
+  ],
+  "language": "fr",
+  "surah": {
+    "number": 112,
+    "id": "ihlas"
+  },
+  "metadata": {
+    "key": "french_rashid",
+    "direction": "ltr",
+    "language_iso_code": "fr",
+    "version": "1.0.3",
+    "last_update": 1782043143,
+    "title": "French Translation - Rachid Maach",
+    "description": "Translated by Rashid Ma’ash",
+    "file": "french_rashid",
+    "database_url": "https://quranenc.com/downloads/sqlite/french_rashid.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/french_rashid.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/french_rashid.pdf",
+    "pdf_size": 17991055,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/french_rashid.pure.pdf",
+    "pdf_pure_size": 9323774,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/french_rashid.mobile.pdf",
+    "pdf_mobile_size": 8288227,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/french_rashid.epub",
+    "epub_size": 1779216
+  }
+}

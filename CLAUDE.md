@@ -72,6 +72,8 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   **Sure/Dua listeleri de aynı sistem**: ortak `PictureCard` (`lib/widgets/picture_card.dart`), kırpma aynı
   betikte (`MASTERS`: `duakartlari.png` → `dualar/dua_NN.png`, `sure kartlari.png` → `sureler/sure_NN.png`),
   eşleşme kimlikle `lib/data/recitation_card_images.dart` (dua görünen başlıkları `kDuaDisplayTitles`).
+  Kart 12-23 (Âyetel Kürsî … Hümeze, `kAllNamazTexts` sırası) ikinci master'dan: `assets_src/lessons/sure_kartlari_12_23.jpeg`
+  (açık zemin, kutular ölçülü: `Master.boxes`, 491 px genişliğe küçültülür; boyutlar `_cardImageSizes`).
   11 sure kartı `kSureler` sırasıyla bağlı (sure master'ının son satırı ortalanmış 2 geniş kart:
   `row_col_edges`; Tebbet/Kafirun daha geniş, `contain` ile sığar). Test: `test/recitation_cards_test.dart`. Test: `test/lesson_cards_test.dart`.
 - **Sayfa gezinmesi Arapça kitap gibi (RTL)**: parmak soldan sağa = sonraki sayfa; ← sonraki, → önceki;

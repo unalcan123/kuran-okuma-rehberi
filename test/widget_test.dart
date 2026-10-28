@@ -23,7 +23,7 @@ void main() {
             widget is Image &&
             widget.image is AssetImage &&
             (widget.image as AssetImage).assetName ==
-                'assets/images/splash/kapak_splash.png',
+                'assets/images/splash/kapak_splash.webp',
       ),
       findsOneWidget,
     );

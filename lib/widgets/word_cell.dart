@@ -38,7 +38,7 @@ class WordCell extends StatelessWidget {
     ).copyWith(color: AppColors.textPrimary, height: 1.7);
     return Semantics(
       button: true,
-      label: context.t("Dinle"),
+      label: context.t("{name}. Dinle", {"name": letter.isolatedForm}),
       child: Material(
         color: playing ? AppColors.turquoiseSoft : Colors.transparent,
         child: InkWell(

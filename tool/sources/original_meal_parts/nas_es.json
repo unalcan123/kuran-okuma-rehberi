@@ -1,0 +1,81 @@
+{
+  "url": "https://quranenc.com/en/browse/spanish_garcia/114",
+  "data": [
+    {
+      "id": "6231",
+      "sura": "114",
+      "aya": "1",
+      "arabic_text": "قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ",
+      "translation": "1. Di: “Me refugio en el Señor de los seres humanos,",
+      "footnotes": ""
+    },
+    {
+      "id": "6232",
+      "sura": "114",
+      "aya": "2",
+      "arabic_text": "مَلِكِ ٱلنَّاسِ",
+      "translation": "2. en el Rey Soberano de los seres humanos,",
+      "footnotes": ""
+    },
+    {
+      "id": "6233",
+      "sura": "114",
+      "aya": "3",
+      "arabic_text": "إِلَٰهِ ٱلنَّاسِ",
+      "translation": "3. en el [único] Dios de los seres humanos,",
+      "footnotes": ""
+    },
+    {
+      "id": "6234",
+      "sura": "114",
+      "aya": "4",
+      "arabic_text": "مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ",
+      "translation": "4. de la maldad del [demonio] susurrador que huye [cuando el nombre de Dios es mencionado],",
+      "footnotes": ""
+    },
+    {
+      "id": "6235",
+      "sura": "114",
+      "aya": "5",
+      "arabic_text": "ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ",
+      "translation": "5. que susurra en los corazones de los seres humanos,",
+      "footnotes": ""
+    },
+    {
+      "id": "6236",
+      "sura": "114",
+      "aya": "6",
+      "arabic_text": "مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ",
+      "translation": "6. y existe entre los yinn y entre los seres humanos”.",
+      "footnotes": ""
+    }
+  ],
+  "language": "es",
+  "surah": {
+    "number": 114,
+    "id": "nas"
+  },
+  "metadata": {
+    "key": "spanish_garcia",
+    "direction": "ltr",
+    "language_iso_code": "es",
+    "version": "1.0.2",
+    "last_update": 1772054067,
+    "title": "Spanish Translation - Isa Garcia",
+    "description": "Translated by Muhammad Isa Garcia",
+    "file": "spanish_garcia",
+    "database_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/spanish_garcia.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pdf",
+    "pdf_size": 21384097,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/spanish_garcia.pure.pdf",
+    "pdf_pure_size": 52519323,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/spanish_garcia.pure.png",
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

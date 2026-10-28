@@ -131,18 +131,27 @@ void main() {
     }
   });
 
-  testWidgets('language changes retain all four original illustrated cards', (tester) async {
+  testWidgets('language changes retain all four original illustrated cards', (
+    tester,
+  ) async {
     setSize(tester, const Size(1280, 900));
     final controller = LanguageController(initial: AppLanguage.tr);
-    await tester.pumpWidget(AppLanguageScope(controller: controller, child: _home()));
+    await tester.pumpWidget(
+      AppLanguageScope(controller: controller, child: _home()),
+    );
     await tester.pumpAndSettle();
     for (final language in AppLanguage.active) {
       await tester.runAsync(() => controller.setLanguage(language));
       await tester.pumpAndSettle();
       expect(find.byType(HomeGridCard), findsNWidgets(4));
       for (final title in _titles) {
-        final image = tester.widget<Image>(find.byKey(ValueKey('home-card-image-$title')));
-        expect((image.image as AssetImage).assetName, startsWith('assets/images/home/'));
+        final image = tester.widget<Image>(
+          find.byKey(ValueKey('home-card-image-$title')),
+        );
+        expect(
+          (image.image as AssetImage).assetName,
+          startsWith('assets/images/home/'),
+        );
         expect((image.image as AssetImage).assetName, endsWith('.webp'));
       }
     }
@@ -186,7 +195,7 @@ void main() {
     expect(find.byType(LessonPageView), findsOneWidget);
     expect(find.byType(LessonGridBackground), findsNothing);
 
-    await tester.tap(find.text('▦ Grid'));
+    await tester.tap(find.text('▦ Izgara'));
     await tester.pumpAndSettle();
     expect(find.byType(AllLettersGrid), findsOneWidget);
     expect(find.byType(LessonGridBackground), findsOneWidget);

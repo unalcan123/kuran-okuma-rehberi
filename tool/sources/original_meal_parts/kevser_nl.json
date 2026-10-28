@@ -1,0 +1,57 @@
+{
+  "url": "https://quranenc.com/en/browse/dutch_center/108",
+  "data": [
+    {
+      "id": "6205",
+      "sura": "108",
+      "aya": "1",
+      "arabic_text": "إِنَّآ أَعۡطَيۡنَٰكَ ٱلۡكَوۡثَرَ",
+      "translation": "Waarlijk, Wij hebben jou (o Mohammed vrede zij met hem) Al-Kawther geschonken.",
+      "footnotes": ""
+    },
+    {
+      "id": "6206",
+      "sura": "108",
+      "aya": "2",
+      "arabic_text": "فَصَلِّ لِرَبِّكَ وَٱنۡحَرۡ",
+      "translation": "Bid daarom tot jouw Heer en offer (voor Hem alleen).",
+      "footnotes": ""
+    },
+    {
+      "id": "6207",
+      "sura": "108",
+      "aya": "3",
+      "arabic_text": "إِنَّ شَانِئَكَ هُوَ ٱلۡأَبۡتَرُ",
+      "translation": "Want jouw vijand, degene die jou bespot, zal afgesneden worden.",
+      "footnotes": ""
+    }
+  ],
+  "language": "nl",
+  "surah": {
+    "number": 108,
+    "id": "kevser"
+  },
+  "metadata": {
+    "key": "dutch_center",
+    "direction": "ltr",
+    "language_iso_code": "nl",
+    "version": "2.0.10",
+    "last_update": 1763559803,
+    "title": "Dutch Translation - Rowwad Translation Center",
+    "description": "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+    "file": "dutch_center",
+    "database_url": "https://quranenc.com/downloads/sqlite/dutch_center.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/dutch_center.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/dutch_center.pure.pdf",
+    "pdf_pure_size": 31788044,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/dutch_center.mobile.pdf",
+    "pdf_mobile_size": 17459044,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/dutch_center.epub",
+    "epub_size": 1489655
+  }
+}

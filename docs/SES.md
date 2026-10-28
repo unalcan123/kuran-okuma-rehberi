@@ -104,6 +104,18 @@ ffmpeg -i girdi.mp3 -af "pan=mono|c0=0.5*c0+0.5*c1" -ar 32000 -c:a libmp3lame -b
 (sure/dua için `-ar 44100 -b:a 80k`). **`pan` filtresini kullan**: `-ac 1` tek başına kanalları
 toplayıp sesi ~3 dB yükseltir ve kırpar.
 
+## Üç tekrarlı ezber kayıtlarını ayetlere ayırma (`tool/ezber_split/split_ezber.py`)
+Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Kayıtta okumalar arasında aynı zil örneği var
+(~789 Hz, ~0,92 sn, çevresi dijital sessizlik); zil bandı oranı + şablon korelasyonu (≥0,9) ile bulunur,
+kesim zilin çevresindeki sessizlikte, konuşmadan 0,25 sn dışarıda. Ayet numarası zil sayısından değil:
+her parça Kur'an tilavetiyle eğitilmiş `tarteel-ai/whisper-base-ar-quran` ile tanınıp
+`tool/sources/diyanet_arabic_extract.json` metnine benzetilir; tekrarlar ayrıca DTW ile karşılaştırılır.
+Kayıt yapısı (Asr'da doğrulandı): besmele (zilsiz, duraklamayla ayrılır) → her ayet 3 kez → sonda tam okuma.
+Çıktı `tmp/ezber_split/<sure>/`: `parca_NN.mp3` (her tekrar), `00_besmele.mp3`, `NN_ayet.mp3`,
+`tam_okuma.mp3`, `rapor.md/json` (şüpheliler: kenarda yüksek ses, zil kalıntısı, grup ≠ 3, sıra dışı).
+Mono 32 kHz 48 kbps. Uygulamaya kendiliğinden girmez; dinlenip onaylanınca kopyalanır.
+`python tool/ezber_split/split_ezber.py "<dosya>"` veya `--batch` (gerekenler: numpy, scipy, torch, transformers).
+
 ## Bilinen sınırlar
 - Tarayıcılar, kullanıcı ekrana dokunmadan sesi başlatmayı engeller (özellikle iOS Safari).
   Dinle ve Seç'te ilk soru sesi kendiliğinden çalmazsa çocuk Dinle butonuna dokunur.

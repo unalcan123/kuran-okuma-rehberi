@@ -80,13 +80,13 @@ void main() {
   testWidgets('masaüstü Grid: kenar yoksa (1280) çocuk yok, 1920\'de iki', (
     tester,
   ) async {
-    await _open(tester, const Size(1280, 800), mode: '▦ Grid');
+    await _open(tester, const Size(1280, 800), mode: '▦ Izgara');
     expect(find.byType(AllLettersGrid), findsOneWidget);
     expect(find.byKey(_left), findsNothing);
     expect(find.byKey(_right), findsNothing);
 
     const wide = Size(1920, 1080);
-    await _open(tester, wide, mode: '▦ Grid');
+    await _open(tester, wide, mode: '▦ Izgara');
     expect(find.byKey(_left), findsOneWidget);
     expect(find.byKey(_right), findsOneWidget);
     _expectInMargins(tester, wide, AllLettersGrid.maxContentWidth);

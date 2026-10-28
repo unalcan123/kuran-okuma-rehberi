@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/german_bubenheim/105",
+  "data": [
+    {
+      "id": "6189",
+      "sura": "105",
+      "aya": "1",
+      "arabic_text": "أَلَمۡ تَرَ كَيۡفَ فَعَلَ رَبُّكَ بِأَصۡحَٰبِ ٱلۡفِيلِ",
+      "translation": "Siehst du nicht, wie dein Herr mit den Leuten des Elefanten verfuhr?",
+      "footnotes": null
+    },
+    {
+      "id": "6190",
+      "sura": "105",
+      "aya": "2",
+      "arabic_text": "أَلَمۡ يَجۡعَلۡ كَيۡدَهُمۡ فِي تَضۡلِيلٖ",
+      "translation": "Ließ Er nicht ihre List verlorengehen",
+      "footnotes": null
+    },
+    {
+      "id": "6191",
+      "sura": "105",
+      "aya": "3",
+      "arabic_text": "وَأَرۡسَلَ عَلَيۡهِمۡ طَيۡرًا أَبَابِيلَ",
+      "translation": "und sandte gegen sie Vögel in aufeinanderfolgenden Schwärmen,",
+      "footnotes": null
+    },
+    {
+      "id": "6192",
+      "sura": "105",
+      "aya": "4",
+      "arabic_text": "تَرۡمِيهِم بِحِجَارَةٖ مِّن سِجِّيلٖ",
+      "translation": "die sie mit Steinen aus gebranntem Lehm bewarfen,",
+      "footnotes": null
+    },
+    {
+      "id": "6193",
+      "sura": "105",
+      "aya": "5",
+      "arabic_text": "فَجَعَلَهُمۡ كَعَصۡفٖ مَّأۡكُولِۭ",
+      "translation": "und sie so wie abgefressene Halme machte?",
+      "footnotes": null
+    }
+  ],
+  "language": "de",
+  "surah": {
+    "number": 105,
+    "id": "fil"
+  },
+  "metadata": {
+    "key": "german_bubenheim",
+    "direction": "ltr",
+    "language_iso_code": "de",
+    "version": "1.1.4",
+    "last_update": 1738581834,
+    "title": "German Translation - Frank Bubenheim",
+    "description": "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    "file": "german_bubenheim",
+    "database_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

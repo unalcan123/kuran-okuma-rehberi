@@ -35,9 +35,13 @@ class RecitationTitleOverlay extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(3),
                   child: FittedBox(
+                    fit: BoxFit.scaleDown,
                     child: Text(
                       context.t(label),
-                      style: const TextStyle(color: Color(0xff061b32)),
+                      style: TextStyle(
+                        fontSize: w * .043,
+                        color: const Color(0xff061b32),
+                      ),
                     ),
                   ),
                 ),
@@ -47,7 +51,7 @@ class RecitationTitleOverlay extends StatelessWidget {
               Positioned(
                 left: w * .045,
                 top: h * .165,
-                width: w * .55,
+                width: w * .64,
                 height: h * (prayer ? .25 : .20),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
@@ -61,8 +65,8 @@ class RecitationTitleOverlay extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         context.t(title),
-                        style: const TextStyle(
-                          fontSize: 24,
+                        style: TextStyle(
+                          fontSize: w * .052,
                           fontWeight: FontWeight.w800,
                           color: Color(0xff071653),
                         ),

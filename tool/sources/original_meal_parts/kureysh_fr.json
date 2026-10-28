@@ -1,0 +1,65 @@
+{
+  "url": "https://quranenc.com/en/browse/french_rashid/106",
+  "data": [
+    {
+      "id": "6194",
+      "sura": "106",
+      "aya": "1",
+      "arabic_text": "لِإِيلَٰفِ قُرَيۡشٍ",
+      "translation": "Que les Qouraych manifestent leur gratitude pour leur unité",
+      "footnotes": ""
+    },
+    {
+      "id": "6195",
+      "sura": "106",
+      "aya": "2",
+      "arabic_text": "إِۦلَٰفِهِمۡ رِحۡلَةَ ٱلشِّتَآءِ وَٱلصَّيۡفِ",
+      "translation": "et leur habitude d’effectuer des voyages en hiver et en été[1],",
+      "footnotes": "[1] Des voyages commerciaux effectués l’hiver vers le Yémen et l’été vers la Grande Syrie. Rappelons que la tribu mecquoise de Qouraych vivait essentiellement du négoce qui constituait donc pour elle une immense grâce."
+    },
+    {
+      "id": "6196",
+      "sura": "106",
+      "aya": "3",
+      "arabic_text": "فَلۡيَعۡبُدُواْ رَبَّ هَٰذَا ٱلۡبَيۡتِ",
+      "translation": "en vouant un culte exclusif au Seigneur de cette Demeure",
+      "footnotes": ""
+    },
+    {
+      "id": "6197",
+      "sura": "106",
+      "aya": "4",
+      "arabic_text": "ٱلَّذِيٓ أَطۡعَمَهُم مِّن جُوعٖ وَءَامَنَهُم مِّنۡ خَوۡفِۭ",
+      "translation": "par la grâce duquel ils ne connaissent ni la faim, ni la peur[2].",
+      "footnotes": "[2] Le négoce mettait les Qouraychites à l’abri de la faim et leur unité à l’abri de la peur de l’ennemi."
+    }
+  ],
+  "language": "fr",
+  "surah": {
+    "number": 106,
+    "id": "kureysh"
+  },
+  "metadata": {
+    "key": "french_rashid",
+    "direction": "ltr",
+    "language_iso_code": "fr",
+    "version": "1.0.3",
+    "last_update": 1782043143,
+    "title": "French Translation - Rachid Maach",
+    "description": "Translated by Rashid Ma’ash",
+    "file": "french_rashid",
+    "database_url": "https://quranenc.com/downloads/sqlite/french_rashid.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/french_rashid.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/french_rashid.pdf",
+    "pdf_size": 17991055,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/french_rashid.pure.pdf",
+    "pdf_pure_size": 9323774,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/french_rashid.mobile.pdf",
+    "pdf_mobile_size": 8288227,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/french_rashid.epub",
+    "epub_size": 1779216
+  }
+}

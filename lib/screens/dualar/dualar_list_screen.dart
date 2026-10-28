@@ -3,7 +3,7 @@ import '../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 import '../../l10n/l10n.dart';
 
-import '../../data/dualar_data.dart';
+import '../../data/additional_dualar_data.dart';
 import '../../data/recitation_card_images.dart';
 import '../../models/dua.dart';
 import '../../widgets/holy_places_background.dart';
@@ -81,7 +81,7 @@ class _DualarListScreenState extends State<DualarListScreen> {
                                 MediaQuery.sizeOf(context),
                               ),
                         ),
-                        itemCount: kDualar.length,
+                        itemCount: kAllDualar.length,
                         // Picture cards (PictureCard): every card has the
                         // pictures' shape; the whole card opens the prayer.
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -91,7 +91,7 @@ class _DualarListScreenState extends State<DualarListScreen> {
                           childAspectRatio: kDuaCardAspectRatio,
                         ),
                         itemBuilder: (context, index) {
-                          final dua = kDualar[index];
+                          final dua = kAllDualar[index];
                           return PictureCard(
                             key: ValueKey('dua-card-${dua.id}'),
                             image: kDuaCardImages[dua.id],
@@ -131,8 +131,11 @@ class _DualarListScreenState extends State<DualarListScreen> {
   }
 
   void _openDua(BuildContext context, Dua dua) {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (_) => DuaDetailScreen(dua: dua)));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        settings: RouteSettings(name: '/dua/${dua.id}'),
+        builder: (_) => DuaDetailScreen(dua: dua),
+      ),
+    );
   }
 }

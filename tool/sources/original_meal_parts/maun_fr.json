@@ -1,0 +1,89 @@
+{
+  "url": "https://quranenc.com/en/browse/french_rashid/107",
+  "data": [
+    {
+      "id": "6198",
+      "sura": "107",
+      "aya": "1",
+      "arabic_text": "أَرَءَيۡتَ ٱلَّذِي يُكَذِّبُ بِٱلدِّينِ",
+      "translation": "As-tu vu celui qui traite le Jugement dernier de mensonge ?",
+      "footnotes": ""
+    },
+    {
+      "id": "6199",
+      "sura": "107",
+      "aya": "2",
+      "arabic_text": "فَذَٰلِكَ ٱلَّذِي يَدُعُّ ٱلۡيَتِيمَ",
+      "translation": "C’est celui-là même qui repousse sans ménagement l’orphelin",
+      "footnotes": ""
+    },
+    {
+      "id": "6200",
+      "sura": "107",
+      "aya": "3",
+      "arabic_text": "وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلۡمِسۡكِينِ",
+      "translation": "et n’incite pas les autres à nourrir celui qui est dans le besoin.",
+      "footnotes": ""
+    },
+    {
+      "id": "6201",
+      "sura": "107",
+      "aya": "4",
+      "arabic_text": "فَوَيۡلٞ لِّلۡمُصَلِّينَ",
+      "translation": "Malheur donc à ceux qui accomplissent la prière",
+      "footnotes": ""
+    },
+    {
+      "id": "6202",
+      "sura": "107",
+      "aya": "5",
+      "arabic_text": "ٱلَّذِينَ هُمۡ عَن صَلَاتِهِمۡ سَاهُونَ",
+      "translation": "sans accorder aucune importance à cette dernière,",
+      "footnotes": ""
+    },
+    {
+      "id": "6203",
+      "sura": "107",
+      "aya": "6",
+      "arabic_text": "ٱلَّذِينَ هُمۡ يُرَآءُونَ",
+      "translation": "agissant par pure ostentation, sans être sincères,",
+      "footnotes": ""
+    },
+    {
+      "id": "6204",
+      "sura": "107",
+      "aya": "7",
+      "arabic_text": "وَيَمۡنَعُونَ ٱلۡمَاعُونَ",
+      "translation": "et refusent le moindre soutien à leur prochain[1] !",
+      "footnotes": "[1] Ou : et refusent de s’acquitter de l’aumône."
+    }
+  ],
+  "language": "fr",
+  "surah": {
+    "number": 107,
+    "id": "maun"
+  },
+  "metadata": {
+    "key": "french_rashid",
+    "direction": "ltr",
+    "language_iso_code": "fr",
+    "version": "1.0.3",
+    "last_update": 1782043143,
+    "title": "French Translation - Rachid Maach",
+    "description": "Translated by Rashid Ma’ash",
+    "file": "french_rashid",
+    "database_url": "https://quranenc.com/downloads/sqlite/french_rashid.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/french_rashid.sqlite",
+    "pdf_url": "https://quranenc.com/downloads/pdf/french_rashid.pdf",
+    "pdf_size": 17991055,
+    "pdf_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.png",
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/french_rashid.pure.pdf",
+    "pdf_pure_size": 9323774,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/french_rashid.mobile.pdf",
+    "pdf_mobile_size": 8288227,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/french_rashid.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/french_rashid.epub",
+    "epub_size": 1779216
+  }
+}

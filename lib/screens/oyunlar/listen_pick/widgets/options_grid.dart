@@ -70,6 +70,7 @@ class OptionsGrid extends StatelessWidget {
             (constraints.maxHeight - gap * (rows - 1)) / rows,
             maxCellHeight,
           );
+          if (cellWidth < 48 || cellHeight < 48) continue;
           final font =
               math.min(
                 (cellWidth - 2 * _padX) / widest.width,

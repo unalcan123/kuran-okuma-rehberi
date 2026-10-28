@@ -1,0 +1,89 @@
+{
+  "url": "https://quranenc.com/en/browse/german_bubenheim/107",
+  "data": [
+    {
+      "id": "6198",
+      "sura": "107",
+      "aya": "1",
+      "arabic_text": "أَرَءَيۡتَ ٱلَّذِي يُكَذِّبُ بِٱلدِّينِ",
+      "translation": "Siehst du (nicht) denjenigen, der das Gericht für Lüge erklärt?",
+      "footnotes": null
+    },
+    {
+      "id": "6199",
+      "sura": "107",
+      "aya": "2",
+      "arabic_text": "فَذَٰلِكَ ٱلَّذِي يَدُعُّ ٱلۡيَتِيمَ",
+      "translation": "Das ist derjenige, der die Waise zurückstößt",
+      "footnotes": null
+    },
+    {
+      "id": "6200",
+      "sura": "107",
+      "aya": "3",
+      "arabic_text": "وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلۡمِسۡكِينِ",
+      "translation": "und nicht zur Speisung des Armen anhält.",
+      "footnotes": null
+    },
+    {
+      "id": "6201",
+      "sura": "107",
+      "aya": "4",
+      "arabic_text": "فَوَيۡلٞ لِّلۡمُصَلِّينَ",
+      "translation": "Wehe nun den Betenden,",
+      "footnotes": null
+    },
+    {
+      "id": "6202",
+      "sura": "107",
+      "aya": "5",
+      "arabic_text": "ٱلَّذِينَ هُمۡ عَن صَلَاتِهِمۡ سَاهُونَ",
+      "translation": "denjenigen, die auf ihre Gebete nicht achten,",
+      "footnotes": null
+    },
+    {
+      "id": "6203",
+      "sura": "107",
+      "aya": "6",
+      "arabic_text": "ٱلَّذِينَ هُمۡ يُرَآءُونَ",
+      "translation": "denjenigen, die dabei (nur) gesehen werden wollen;",
+      "footnotes": null
+    },
+    {
+      "id": "6204",
+      "sura": "107",
+      "aya": "7",
+      "arabic_text": "وَيَمۡنَعُونَ ٱلۡمَاعُونَ",
+      "translation": "und die Hilfeleistung verweigern!",
+      "footnotes": null
+    }
+  ],
+  "language": "de",
+  "surah": {
+    "number": 107,
+    "id": "maun"
+  },
+  "metadata": {
+    "key": "german_bubenheim",
+    "direction": "ltr",
+    "language_iso_code": "de",
+    "version": "1.1.4",
+    "last_update": 1738581834,
+    "title": "German Translation - Frank Bubenheim",
+    "description": "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+    "file": "german_bubenheim",
+    "database_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/german_bubenheim.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": null,
+    "pdf_pure_size": null,
+    "pdf_pure_cover": null,
+    "pdf_mobile_url": null,
+    "pdf_mobile_size": null,
+    "pdf_mobile_cover": null,
+    "epub_url": null,
+    "epub_size": null
+  }
+}

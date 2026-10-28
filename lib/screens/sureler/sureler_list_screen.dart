@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/l10n.dart';
 
 import '../../data/recitation_card_images.dart';
-import '../../data/sureler_data.dart';
+import '../../data/supplementary_sureler_data.dart';
 import '../../models/surah.dart';
 import '../../widgets/holy_places_background.dart';
 import '../../widgets/picture_card.dart';
@@ -47,6 +47,18 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
     'nasr': Size(490, 231),
     'tebbet': Size(590, 227),
     'kafirun': Size(590, 227),
+    'ayetel-kursi': Size(491, 266),
+    'nebe-son': Size(491, 266),
+    'duha': Size(491, 266),
+    'insirah': Size(491, 267),
+    'tin': Size(491, 279),
+    'kadir': Size(491, 278),
+    'zilzal': Size(491, 279),
+    'adiyat': Size(491, 279),
+    'karia': Size(491, 283),
+    'tekasur': Size(491, 282),
+    'asr': Size(491, 283),
+    'humeze': Size(491, 283),
   };
 
   static const double _maxContentWidth = 1100;
@@ -95,7 +107,7 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                                 MediaQuery.sizeOf(context),
                               ),
                         ),
-                        itemCount: kSureler.length,
+                        itemCount: kAllNamazTexts.length,
                         // Picture cards (PictureCard): every card has the
                         // pictures' shape; the whole card opens the surah.
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -105,18 +117,21 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                           childAspectRatio: kSurahCardAspectRatio,
                         ),
                         itemBuilder: (context, index) {
-                          final surah = kSureler[index];
+                          final surah = kAllNamazTexts[index];
                           return PictureCard(
                             key: ValueKey('surah-card-${surah.id}'),
                             image: kSurahCardImages[surah.id],
                             aspectRatio: kSurahCardAspectRatio,
                             radiusFactor: kSurahCardRadiusFactor,
-                            label: context.t('Sure {n}', {'n': surah.order}),
+                            label:
+                                surah.id == 'ayetel-kursi'
+                                    ? '${index + 1} · Bakara 2:255'
+                                    : context.t('Sure {n}', {'n': index + 1}),
                             title: context.t(surah.titleTr),
                             imageSize: _cardImageSizes[surah.id],
                             overlay: RecitationTitleOverlay(
                               title: context.t(surah.titleTr),
-                              label: context.t('Sure {n}', {'n': surah.order}),
+                              label: context.t('Sure {n}', {'n': index + 1}),
                               prayer: false,
                               showTitle: context.language != AppLanguage.tr,
                             ),
@@ -137,8 +152,11 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
   }
 
   void _openSurah(BuildContext context, Surah surah) {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (_) => SurahDetailScreen(surah: surah)));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        settings: RouteSettings(name: '/sure/${surah.id}'),
+        builder: (_) => SurahDetailScreen(surah: surah),
+      ),
+    );
   }
 }

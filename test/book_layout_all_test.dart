@@ -17,17 +17,19 @@ void main() {
     var last = 0;
     for (final lesson in kElifbaAllLessons) {
       final layout = lesson.pageLayout;
-      final pages = layout != null
-          ? layout.pages.map((p) => p.bookPage).toList()
-          : [
-              for (final n in kBookPageNumbers[lesson.id]!.split('-'))
-                int.parse(n),
-            ];
+      final pages =
+          layout != null
+              ? layout.pages.map((p) => p.bookPage).toList()
+              : [
+                for (final n in kBookPageNumbers[lesson.id]!.split('-'))
+                  int.parse(n),
+              ];
       expect(pages, isNotEmpty, reason: lesson.id);
       if (lesson.id == 'harflerin-yazilislari') {
         // Ders 2 teaches Elif first and Lâm-Elif on its last page.
         expect(pages, [11, 12, 13, 8]);
-        pages.sort(); // Check printed-book coverage independently of teaching order.
+        pages
+            .sort(); // Check printed-book coverage independently of teaching order.
       }
       for (final page in pages) {
         // Pages may be shared by neighbouring lessons (s. 39, 54, 55) but
@@ -36,11 +38,9 @@ void main() {
         last = page;
       }
       if (layout != null) {
-        expect(
-          layout.shownItems,
-          {for (var i = 0; i < lesson.letters.length; i++) i},
-          reason: '${lesson.id}: every item on some page',
-        );
+        expect(layout.shownItems, {
+          for (var i = 0; i < lesson.letters.length; i++) i,
+        }, reason: '${lesson.id}: every item on some page');
       }
     }
     expect(last, 63);
@@ -61,7 +61,10 @@ void main() {
         }
       }
     }
-    expect(pages, {for (var p = 3; p <= 63; p++) if (p != 9 && p != 10) p});
+    expect(pages, {
+      for (var p = 3; p <= 63; p++)
+        if (p != 9 && p != 10) p,
+    });
   });
 
   for (final size in const [Size(360, 800), Size(800, 360), Size(1280, 800)]) {
@@ -74,7 +77,10 @@ void main() {
         final pages = lesson.pageLayout?.pages;
         if (pages == null) {
           expect(find.byType(BookPage), findsOneWidget, reason: lesson.id);
-          expect(find.byKey(const ValueKey('book-page-number')), findsOneWidget);
+          expect(
+            find.byKey(const ValueKey('book-page-number')),
+            findsOneWidget,
+          );
         } else {
           expect(find.byType(LessonPageView), findsOneWidget);
           for (var p = 0; p < pages.length; p++) {
@@ -83,8 +89,11 @@ void main() {
               findsOneWidget,
               reason: '${lesson.id} page ${p + 1}',
             );
-            expect(tester.takeException(), isNull,
-                reason: '${lesson.id} s. ${pages[p].bookPage}');
+            expect(
+              tester.takeException(),
+              isNull,
+              reason: '${lesson.id} s. ${pages[p].bookPage}',
+            );
             if (p < pages.length - 1) {
               await tester.tap(find.byKey(const ValueKey('page-next')));
               await tester.pumpAndSettle();
@@ -93,10 +102,10 @@ void main() {
         }
         // The Giriş has pages only: no Grid / Tekli.
         if (lesson.letters.isEmpty) {
-          expect(find.text('▦ Grid'), findsNothing);
+          expect(find.text('▦ Izgara'), findsNothing);
           continue;
         }
-        await tester.tap(find.text('▦ Grid'));
+        await tester.tap(find.text('▦ Izgara'));
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull, reason: '${lesson.id} grid');
         await tester.tap(find.text('🔎 Tekli / Büyük'));

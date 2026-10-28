@@ -27,6 +27,19 @@ class AppTheme {
         elevation: 0,
         centerTitle: false,
       ),
+      materialTapTargetSize: MaterialTapTargetSize.padded,
+      iconButtonTheme: IconButtonThemeData(
+        style: IconButton.styleFrom(minimumSize: const Size(48, 48)),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+      ),
       splashFactory: InkRipple.splashFactory,
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {

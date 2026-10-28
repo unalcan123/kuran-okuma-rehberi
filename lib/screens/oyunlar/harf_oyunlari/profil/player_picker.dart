@@ -14,10 +14,7 @@ const Color _ink = Color(0xFF0B2452);
 
 /// "Oyuncu Adın" alt sayfası: cihaz başına tek oyuncu. İlk kez ad verilir,
 /// sonra yalnızca düzeltilir (skorlar ve sıralamadaki yer korunur).
-Future<void> showPlayerNameSheet(
-  BuildContext context, {
-  String? conflictName,
-}) {
+Future<void> showPlayerNameSheet(BuildContext context, {String? conflictName}) {
   return showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
@@ -77,7 +74,7 @@ class PlayerChip extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           onTap: () => showPlayerNameSheet(context),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -233,7 +230,8 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(context.t(l.plNameLabel),
+              Text(
+                context.t(l.plNameLabel),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 22,
@@ -242,7 +240,8 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
                 ),
               ),
               const SizedBox(height: 6),
-              Text(context.t(l.plNameIntro),
+              Text(
+                context.t(l.plNameIntro),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
@@ -309,7 +308,10 @@ class _PlayerNameSheetState extends State<PlayerNameSheet> {
                       ActionChip(
                         key: Key('name-suggestion-$suggestion'),
                         label: Text(suggestion), // l10n-ignore
-                        avatar: const Icon(Icons.auto_awesome_rounded, size: 18),
+                        avatar: const Icon(
+                          Icons.auto_awesome_rounded,
+                          size: 18,
+                        ),
                         onPressed: () => _pick(suggestion),
                       ),
                   ],

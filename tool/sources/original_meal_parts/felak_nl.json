@@ -1,0 +1,73 @@
+{
+  "url": "https://quranenc.com/en/browse/dutch_center/113",
+  "data": [
+    {
+      "id": "6226",
+      "sura": "113",
+      "aya": "1",
+      "arabic_text": "قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ",
+      "translation": "Zeg: “Ik neem mijn toevlucht tot de Heer van de dageraad.\"",
+      "footnotes": ""
+    },
+    {
+      "id": "6227",
+      "sura": "113",
+      "aya": "2",
+      "arabic_text": "مِن شَرِّ مَا خَلَقَ",
+      "translation": "Tegen het kwaad wat Hij heeft geschapen.",
+      "footnotes": ""
+    },
+    {
+      "id": "6228",
+      "sura": "113",
+      "aya": "3",
+      "arabic_text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+      "translation": "Tegen het kwaad van de duisternis en wat zich daarin bevindt.",
+      "footnotes": ""
+    },
+    {
+      "id": "6229",
+      "sura": "113",
+      "aya": "4",
+      "arabic_text": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلۡعُقَدِ",
+      "translation": "Tegen het kwaad van degenen die op knopen blazen (de magiërs).",
+      "footnotes": ""
+    },
+    {
+      "id": "6230",
+      "sura": "113",
+      "aya": "5",
+      "arabic_text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+      "translation": "En tegen het boze (oog) van de jaloerse wanneer hij benijdt.”",
+      "footnotes": ""
+    }
+  ],
+  "language": "nl",
+  "surah": {
+    "number": 113,
+    "id": "felak"
+  },
+  "metadata": {
+    "key": "dutch_center",
+    "direction": "ltr",
+    "language_iso_code": "nl",
+    "version": "2.0.10",
+    "last_update": 1763559803,
+    "title": "Dutch Translation - Rowwad Translation Center",
+    "description": "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+    "file": "dutch_center",
+    "database_url": "https://quranenc.com/downloads/sqlite/dutch_center.zip",
+    "database_uncompressed_url": "https://quranenc.com/downloads/sqlite/dutch_center.sqlite",
+    "pdf_url": null,
+    "pdf_size": null,
+    "pdf_cover": null,
+    "pdf_pure_url": "https://quranenc.com/downloads/pdf/dutch_center.pure.pdf",
+    "pdf_pure_size": 31788044,
+    "pdf_pure_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.pure.png",
+    "pdf_mobile_url": "https://quranenc.com/downloads/pdf/dutch_center.mobile.pdf",
+    "pdf_mobile_size": 17459044,
+    "pdf_mobile_cover": "https://quranenc.com/downloads/pdf_covers/dutch_center.mobile.png",
+    "epub_url": "https://quranenc.com/downloads/epub/dutch_center.epub",
+    "epub_size": 1489655
+  }
+}

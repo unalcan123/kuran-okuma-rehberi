@@ -49,6 +49,11 @@ class Master:
     # Rows laid out differently (row index → its own col_edges), e.g. a
     # centred last row of wider cards.
     row_col_edges: dict[int, list[int]] = field(default_factory=dict)
+    # Measured card boxes (x0, y0, x1, y1) per cell, for masters whose
+    # background cannot be told from the cards' white title band.
+    boxes: list[tuple[int, int, int, int]] = field(default_factory=list)
+    # Width to save the cards at (None = as cropped).
+    width: int | None = None
 
 
 MASTERS = [
@@ -95,6 +100,28 @@ MASTERS = [
         radius=20,
         white=248,
     ),
+    # 2912x1440 JPEG, 3 x 4, file names printed between the rows (some wrong
+    # in the sheet; the cards' own titles count). Near-white gradient
+    # background, so the boxes are measured: columns 18-700, 745-1429,
+    # 1476-2158, 2205-2886; rows 55-425, 504-891, 971-1364. Cards 12-23 =
+    # kAllNamazTexts after kSureler (Âyetel Kürsî, Nebe 31-40, Duhâ, İnşirâh,
+    # Tîn, Kadir, Zilzâl, Âdiyât, Kâria, Tekâsür, Asr, Hümeze), checked card
+    # by card. Not packaged (assets_src/); saved at the old cards' width.
+    Master(
+        source=Path("assets_src/lessons/sure_kartlari_12_23.jpeg"),
+        out=LESSONS / "sureler",
+        bg=(250, 254, 255),
+        col_edges=[0, 722, 1452, 2181, 2912],
+        row_edges=[0, 465, 930, 1440],
+        names=[f"sure_{n:02d}" for n in range(12, 24)],
+        radius=18,
+        boxes=[
+            (x0, y0, x1, y1)
+            for y0, y1 in [(55, 425), (504, 891), (971, 1364)]
+            for x0, x1 in [(18, 700), (745, 1429), (1476, 2158), (2205, 2886)]
+        ],
+        width=491,
+    ),
 ]
 
 
@@ -126,6 +153,9 @@ def clear_corners(rgba: np.ndarray, radius: float) -> None:
 
 
 def crop_master(master: Master) -> None:
+    if not master.source.exists():
+        print(f"{master.source}: kaynak yok, atlandı")
+        return
     image = Image.open(master.source).convert("RGB")
     print(f"{master.source.name}: {image.size[0]}x{image.size[1]}")
     im = np.asarray(image).astype(int)
@@ -137,20 +167,28 @@ def crop_master(master: Master) -> None:
         for edges in [master.row_col_edges.get(r, master.col_edges)]
         for c in range(len(edges) - 1)
     ]
-    for (r, c, edges), name in zip(cells, master.names):
+    for i, ((r, c, edges), name) in enumerate(zip(cells, master.names)):
         if name is None:
             print(f"  hücre {r + 1}.{c + 1}: uygulamayla uyuşmuyor, kırpılmadı")
             continue
-        x0 = edges[c]
-        x1 = master.window_right.get(name, edges[c + 1])
-        box = card_box(
-            master, im, x0, master.row_edges[r], x1, master.row_edges[r + 1]
-        )
+        if master.boxes:
+            box = master.boxes[i]
+        else:
+            x0 = edges[c]
+            x1 = master.window_right.get(name, edges[c + 1])
+            box = card_box(
+                master, im, x0, master.row_edges[r], x1, master.row_edges[r + 1]
+            )
         crop = np.asarray(image.crop(box).convert("RGBA")).copy()
         clear_corners(crop, master.radius)
-        Image.fromarray(crop).save(master.out / f"{name}.png", optimize=True)
+        card = Image.fromarray(crop)
+        if master.width:
+            height = round(card.height * master.width / card.width)
+            card = card.resize((master.width, height), Image.LANCZOS)
+        card.save(master.out / f"{name}.png", optimize=True)
         w, h = box[2] - box[0], box[3] - box[1]
-        print(f"  {name}.png  {w}x{h}  ({w / h:.3f})  box={box}")
+        print(f"  {name}.png  {card.width}x{card.height}  ({w / h:.3f})  "
+              f"box={box}")
 
 
 # Cards supplied as their own picture (not in the master): source (outside the
