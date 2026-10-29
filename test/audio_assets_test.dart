@@ -21,12 +21,19 @@ void main() {
         ..sort((a, b) => _norm(a.path).compareTo(_norm(b.path)));
   final files = all.where((f) => f.path.endsWith('.mp3')).toList();
 
+  // Âyetel Kürsî is one verse, read very slowly in the teaching recording
+  // (~139 s): its single card clip has its own, duration-based budget
+  // (48 kbps mono = ~6 KB/s); it loads only when that card is played.
+  const longVerses = {
+    'assets/audio/sureler/12_ayetel-kursi/255_ayet.mp3': 900 * 1024,
+  };
+
   test('there are recordings, and every one is small', () {
     expect(files.length, greaterThan(1000));
     for (final file in files.where((f) => !_norm(f.path).contains('/full_readings/'))) {
       expect(
         file.lengthSync(),
-        lessThan(250 * 1024),
+        lessThan(longVerses[_norm(file.path)] ?? 250 * 1024),
         reason: '${file.path} is too big for a web download',
       );
     }
@@ -40,6 +47,7 @@ void main() {
       final selected = files.where((file) {
         final path = _norm(file.path);
         if (path.contains('/full_readings/')) return false;
+        if (longVerses.containsKey(path)) return false; // loads on play
         return !languages.any(
               (code) => path.startsWith('assets/audio/$code/'),
             ) ||
@@ -47,15 +55,19 @@ void main() {
       });
       final total = selected.fold<int>(0, (sum, f) => sum + f.lengthSync());
       // 30 MB idi; sesli öğretmen konuşmalarıyla (2026-10-12) Türkçe ~30,03 MB
-      // oldu. Sesler ihtiyaç oldukça indirilir; sınır 32 MB.
-      expect(total, lessThan(32 * 1024 * 1024), reason: language);
+      // oldu. Sesler ihtiyaç oldukça indirilir; sınır 32 MB idi. 2026-10-29:
+      // ek surelerin ayet klipleri (+~2,9 MB) geldi, karşılığında bu
+      // hesaba hiç girmeyen ~28 MB'lık uzun zilli kayıtlar silindi; sınır 36 MB.
+      expect(total, lessThan(36 * 1024 * 1024), reason: language);
     }
   });
 
   test('Complete teaching recordings have a separate duration-based budget', () {
     final rows = jsonDecode(File('tool/sources/audio_import_manifest.json').readAsStringSync()) as List;
-    // Asr: verse clips from the repeat recording instead (sureler/22_asr).
-    expect(rows, hasLength(12));
+    // Surahs with verse clips from the repeat recordings (tool/ezber_split)
+    // no longer need one; Kadir (verse 4/5 boundary shifted in the
+    // recording) and the two prayers keep theirs.
+    expect(rows, hasLength(3));
     var total = 0;
     for (final row in rows) {
       final file = File('assets/${row['asset']}');

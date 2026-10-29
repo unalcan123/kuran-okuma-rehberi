@@ -103,7 +103,16 @@ flutter:
     - assets/audio/sureler/09_nasr/
     - assets/audio/sureler/10_tebbet/
     - assets/audio/sureler/11_kafirun/
+    - assets/audio/sureler/12_ayetel-kursi/
+    - assets/audio/sureler/14_duha/
+    - assets/audio/sureler/15_insirah/
+    - assets/audio/sureler/16_tin/
+    - assets/audio/sureler/18_zilzal/
+    - assets/audio/sureler/19_adiyat/
+    - assets/audio/sureler/20_karia/
+    - assets/audio/sureler/21_tekasur/
     - assets/audio/sureler/22_asr/
+    - assets/audio/sureler/23_humeze/
     - assets/images/splash/
     - assets/images/branding/
     - assets/images/backgrounds/

@@ -104,21 +104,33 @@ ffmpeg -i girdi.mp3 -af "pan=mono|c0=0.5*c0+0.5*c1" -ar 32000 -c:a libmp3lame -b
 (sure/dua için `-ar 44100 -b:a 80k`). **`pan` filtresini kullan**: `-ac 1` tek başına kanalları
 toplayıp sesi ~3 dB yükseltir ve kırpar.
 
-## Üç tekrarlı ezber kayıtlarını ayetlere ayırma (`tool/ezber_split/split_ezber.py`)
-Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Kayıtta okumalar arasında aynı zil örneği var
-(~789 Hz, ~0,92 sn, çevresi dijital sessizlik); zil bandı oranı + şablon korelasyonu (≥0,9) ile bulunur,
-kesim zilin çevresindeki sessizlikte, konuşmadan 0,25 sn dışarıda. Ayet numarası zil sayısından değil:
-her parça Kur'an tilavetiyle eğitilmiş `tarteel-ai/whisper-base-ar-quran` ile tanınıp
-`tool/sources/diyanet_arabic_extract.json` metnine benzetilir; tekrarlar ayrıca DTW ile karşılaştırılır.
-Kayıt yapısı (Asr'da doğrulandı): besmele (zilsiz, duraklamayla ayrılır) → her ayet 3 kez → sonda tam okuma.
-Çıktı `tmp/ezber_split/<sure>/`: `parca_NN.mp3` (her tekrar), `00_besmele.mp3`, `NN_ayet.mp3`,
-`tam_okuma.mp3`, `rapor.md/json` (şüpheliler: kenarda yüksek ses, zil kalıntısı, grup ≠ 3, sıra dışı).
-Mono 32 kHz 48 kbps. Uygulamaya kendiliğinden girmez; dinlenip onaylanınca kopyalanır.
-**Uygulamada: yalnız Asr** (`assets/audio/sureler/22_asr/`: besmele + 3 ayet, her ayetin en temiz tekrarı —
-en az kırpma, en geniş sessizlik payı; −3 dB ile diğer surelerin seviyesine; parmak izleri
-`tool/original_audio_fingerprints.json`'da; Asr'ın uzun tam kaydı kaldırıldı, Dinle ayet ayet çalar).
-Test: `test/asr_ayet_audio_test.dart`. Diğer sureler kullanıcı Asr'ı onaylayınca.
-`python tool/ezber_split/split_ezber.py "<dosya>"` veya `--batch` (gerekenler: numpy, scipy, torch, transformers).
+## Üç tekrarlı ezber kayıtlarını ayetlere ayırma (`tool/ezber_split/`)
+Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Okumalar arasında aynı zil örneği
+(~789 Hz, ~0,92 sn; çevresi dijital sessizlik, dönüşte 30 ms'lik "tık"). Kayıt yapısı: besmele
+(zilsiz, kısa duraklamayla) → her ayet 3 kez (Zilzâl 2. ayet 5 kez) → sonda tam okuma. Üç tekrar
+çoğu kayıtta birebir aynı ses (kopyalanmış).
+- `split_ezber.py`: zil = bant oranı + şablon korelasyonu; konuşma 150–5000 Hz bandında, taban +14 dB,
+  yumuşak baş/son taban +6 dB'ye kadar uzatılır (zil çınlaması ve zilden sonraki 0,6 sn hariç);
+  kesim konuşmadan 0,25 sn dışarıda. Ayet numarası zil sayısından değil: her parça
+  `tarteel-ai/whisper-base-ar-quran` ile tanınıp uygulamanın ayetleriyle sınırlı Diyanet metnine
+  benzetilir (`diyanet_arabic_extract.json`'da surelerin sonunda başka surelere ait yanlış satırlar var).
+  Besmele, ilk parçadaki duraklamalardan en iyi okunanından ayrılır. Grubun süre ortancasından %35 sapan
+  tekrar kullanılmaz. Her ayetin en temiz tekrarı (en az kırpma, en geniş sessizlik) −3 dB, mono 32 kHz 48 kbps.
+  `--single`: Âyetel Kürsî gibi tek kartlık öğede sondaki tam okuma (besmele ayrılır).
+- **Tuzaklar:** analiz 22 000 Hz (22 050'de 220 örneklik kare 9,977 ms → zaman %0,23 kayıyordu: 156. sn'de
+  0,35 sn, ayet başları kesiliyordu); Whisper sıcaklık geri dönüşü kapalı + jeton sınırı (yoksa parça başına
+  dakikalar); iki tanıma işini aynı anda çalıştırma (CPU boğulur).
+- `verify_clips.py`: kurulan her klibi bağımsız doğrular (doğru ayet, zil yok, kenar sessiz) →
+  `tmp/ezber_split/dogrulama.md`. `install_clips.py`: klasör, veri yolları, pubspec, parmak izi; bütün
+  bölümlerin sesi varsa uzun zilli tam kayıt (`full_readings/`) silinir, Dinle ayet ayet çalar.
+- **Uygulamada (2026-10-29):** Âyetel Kürsî (besmele + 139 sn'lik tek ayet; boyut testinde süreye göre
+  istisna), Duhâ, İnşirâh, Tîn, Zilzâl, Âdiyât, Kâria, Tekâsür, Asr, Hümeze — 88 klip, hepsi doğrulandı.
+  **Kurulmadı:** Kadir (kayıtta "selâm" 4. ayetin sonunda okunuyor, 5. ayet "hiye" ile başlıyor; uzun kaydı
+  kalır), Nebe 31–40 ve Namaz Tesbihleri/Tesbihatı/Salâten Tüncînâ (kayıt yok), Ezan Duası (tam okuma
+  uygulama metniyle güvenilir örtüşmüyor, 0,65) ve Yemek Duası (kayıt metnin yalnız bir kısmı); bu üçünün
+  uzun kaydı kalır. Test: `test/verse_audio_all_test.dart`, `test/asr_ayet_audio_test.dart`.
+- Çalıştırma: `python tool/ezber_split/split_ezber.py --batch` ve `--single`, ardından
+  `install_clips.py <id...>`, `verify_clips.py <id...>` (gerekenler: numpy, scipy, torch, transformers).
 
 ## Bilinen sınırlar
 - Tarayıcılar, kullanıcı ekrana dokunmadan sesi başlatmayı engeller (özellikle iOS Safari).

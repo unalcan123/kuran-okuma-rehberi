@@ -78,7 +78,7 @@ const kAyatelKursi = Surah(
   titleTr: 'Âyetel Kürsî',
   arabicName: 'آية الكرسي',
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحٖيمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/12_ayetel-kursi/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 255,
@@ -86,7 +86,7 @@ const kAyatelKursi = Surah(
           "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞۚ لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِۗ مَن ذَا ٱلَّذِي يَشۡفَعُ عِندَهُۥٓ إِلَّا بِإِذۡنِهِۦۚ يَعۡلَمُ مَا بَيۡنَ أَيۡدِيهِمۡ وَمَا خَلۡفَهُمۡۖ وَلَا يُحِيطُونَ بِشَيۡءٖ مِّنۡ عِلۡمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرۡسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَۖ وَلَا يَـُٔودُهُۥ حِفۡظُهُمَاۚ وَهُوَ ٱلۡعَلِيُّ ٱلۡعَظِيمُ",
       meaningTr:
           "Allah o İlâhtır ki Kendisinden başka ilâh yoktur. Haydır, kayyûmdur kendisini ne bir uyuklama, ne uyku tutamaz. Göklerde ve yerde ne varsa O'nundur. İzni olmadan huzurunda şefaat etmek kimin haddine? Yarattığı mahlûkların önünde ardında ne var, hepsini bilir. Mahlûklar ise O’nun dilediğinden başka, ilminden hiçbir şey kavrayamazlar. O’nun kürsüsü gökleri ve yeri kaplamıştır. Gökleri ve yeri koruyup gözetmek O’na ağır gelmez, O öyle ulu, öyle büyüktür. [19,93-95; 53,26; 21,28; 20,110] [KM, Tesniye 5,26; Tekvin 21,33; Çıkış 3,15]",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/12_ayetel-kursi/255_ayet.mp3',
     ),
   ],
 );

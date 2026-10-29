@@ -11,6 +11,8 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   Ses dosyası ekleyince/değiştirince `kSoundCacheVersion`'ı güncelle (test söyler); kaynağı küçült.
   Web kendi ses motorunu kullanır (`WebAudioEngine`: harf/efekt çözülmüş buffer, sure/dua/Türkçe köprüsüz
   `<audio>`); uygulamalar audioplayers. Deneme bayrakları `?ses=eski`, `?sesTani=1`; cihaz sayfası `web/ses-tani.html`.
+  Ek surelerin (12+) ayet sesleri üç tekrarlı zilli ezber kayıtlarından `tool/ezber_split` ile ayrılır
+  (tanıma + doğrulama; Kadir, Nebe, yeni dualar kurulmadı — nedenleri `docs/SES.md`).
 - **Türkçe açıklama sesleri** (🔊, kalıcı `sPPP_KK` kimlikleri, manifest, ElevenLabs
   üreticisi — uygulama API çağırmaz, anahtar asla depoya/koda girmez): `docs/TURKCE_SES.md`.
 - **Web/telefon görünümü** (tarayıcı sayfayı geniş yerleştirince her şey küçülüyordu; `PhoneZoomFix`): `docs/WEB.md`.

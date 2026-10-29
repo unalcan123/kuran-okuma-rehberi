@@ -29,10 +29,10 @@ void main() {
  });
  test('Full recording plays once without false verse highlighting and supports pause', () async {
   final audio = TestAudioService();
-  final segments = ReadingSegment.ofSurah(kSupplementDuha);
-  final controller = ReadingPlaybackController(segments:segments, audio:audio, fullAudioAsset:kFullReadingAudio['duha']!);
+  final segments = ReadingSegment.ofSurah(kSupplementKadir);
+  final controller = ReadingPlaybackController(segments:segments, audio:audio, fullAudioAsset:kFullReadingAudio['kadir']!);
   await controller.start();
-  expect(audio.currentAsset, kFullReadingAudio['duha']);
+  expect(audio.currentAsset, kFullReadingAudio['kadir']);
   expect(controller.plan, hasLength(1));
   expect(controller.activeIndex, isNull);
   await controller.pause();expect(controller.isPaused,isTrue);
@@ -40,6 +40,6 @@ void main() {
   audio.complete();expect(controller.isActive,isFalse);
   controller.dispose();await Future<void>.delayed(Duration.zero);audio.dispose();
   for(final path in kFullReadingAudio.values) {expect(File('assets/$path').existsSync(),isTrue);}
-  expect(kFullReadingAudio,hasLength(12));
+  expect(kFullReadingAudio,hasLength(3));
  });
 }

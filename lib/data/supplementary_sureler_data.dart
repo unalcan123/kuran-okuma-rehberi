@@ -91,78 +91,78 @@ const kSupplementDuha = Surah(
   titleTr: "Duhâ Suresi",
   arabicName: "الضُّحَى",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/14_duha/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "وَالضُّحٰىۙ",
       meaningTr:
           "Güneşin yükselip en parlak halini aldığı kuşluk vakti hakkı için!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "وَالَّيْلِ اِذَا سَجٰىۙ",
       meaningTr: "Sükûnete erdiği dem gece hakkı için ki: [92,1-2; 6,96]",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلٰىؕ",
       meaningTr: "Ey Resulüm! Rabbin seni terk etmedi, sana darılmadı da.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "وَلَلْاٰخِرَةُ خَيْرٌ لَكَ مِنَ الْاُو۫لٰىؕ",
       meaningTr:
           "Elbette senin için her zaman, işin sonu, başından daha hayırlıdır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "وَلَسَوْفَ يُعْطٖيكَ رَبُّكَ فَتَـرْضٰىؕ",
       meaningTr:
           "Elbette Rabbin sana ileride öyle ihsan edecek, ta ki sen de O'ndan ve verdiğinden razı olacaksın.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
       arabic: "اَلَمْ يَجِدْكَ يَتٖيمًا فَاٰوٰىۖ",
       meaningTr: "Seni yetim bulup barındırmadı mı?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "وَوَجَدَكَ ضَٓالًّا فَهَدٰىۖ",
       meaningTr:
           "Seni dinin hükümlerinden habersiz bulup seçerek dosdoğru yola koymadı mı?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "وَوَجَدَكَ عَٓائِلًا فَاَغْنٰىۜ",
       meaningTr: "Seni muhtaç bulup ihtiyacını gidermedi mi?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/08_ayet.mp3',
     ),
     Ayet(
       number: 9,
       arabic: "فَاَمَّا الْيَتٖيمَ فَلَا تَقْهَرْؕ",
       meaningTr:
           "Öyle ise, sakın yetimi güçsüz bulup hakkını yeme, sakın onu küçümseyip üzme!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/09_ayet.mp3',
     ),
     Ayet(
       number: 10,
       arabic: "وَاَمَّا السَّٓائِلَ فَلَا تَنْهَرْؕ",
       meaningTr: "İsteyene de kaba davranma, onu azarlama!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/10_ayet.mp3',
     ),
     Ayet(
       number: 11,
       arabic: "وَاَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ",
       meaningTr: "Rabbinin nimetlerini ise durmayıp söyle!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/14_duha/11_ayet.mp3',
     ),
   ],
 );
@@ -172,56 +172,56 @@ const kSupplementInsirah = Surah(
   titleTr: "İnşirâh Suresi",
   arabicName: "الانْشِرَاح",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/15_insirah/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "اَلَمْ نَشْرَحْ لَكَ صَدْرَكَۙ",
       meaningTr: "Biz senin göğsünü açıp genişletmedik mi?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "وَوَضَعْنَا عَنْكَ وِزْرَكَۙ",
       meaningTr: "Senin belini çatırdatan o ağır yükünü indirmedik mi?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "اَلَّـذٖٓي اَنْقَضَ ظَهْرَكَۙ",
       meaningTr: "Senin belini çatırdatan o ağır yükünü indirmedik mi?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "وَرَفَعْنَا لَكَ ذِكْرَكَؕ",
       meaningTr: "Hem senin şanını yüceltmedik mi?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "فَاِنَّ مَعَ الْعُسْرِ يُسْرًاۙ",
       meaningTr: "Demek ki güçlükle beraber kolaylık vardır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
       arabic: "اِنَّ مَعَ الْعُسْرِ يُسْرًاۜ",
       meaningTr: "Evet, güçlükle beraber kolaylık vardır!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "فَاِذَا فَرَغْتَ فَانْصَبْۙ",
       meaningTr:
           "O halde bir işi bitirince, hemen başka işe giriş, onunla uğraş.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "وَاِلٰى رَبِّكَ فَارْغَبْ",
       meaningTr: "Hep Rabbine yönel, O'na yaklaş!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/15_insirah/08_ayet.mp3',
     ),
   ],
 );
@@ -231,37 +231,37 @@ const kSupplementTin = Surah(
   titleTr: "Tîn Suresi",
   arabicName: "التِّين",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/16_tin/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "وَالتّٖينِ وَالزَّيْتُونِۙ",
       meaningTr: "İncir ve zeytin hakkı için!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "وَطُورِ سٖينٖينَۙ",
       meaningTr: "Sina dağı, hakkı için!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "وَهٰذَا الْبَلَدِ الْاَمٖينِۙ",
       meaningTr: "Bu emin belde hakkı için ki:",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "لَقَدْ خَلَقْنَا الْاِنْسَانَ فٖٓي اَحْسَنِ تَقْوٖيمٍؗ",
       meaningTr: "Biz insanı en mükemmel sûrette yarattık. [30,30]",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "ثُمَّ رَدَدْنَاهُ اَسْفَلَ سَافِلٖينَۙ",
       meaningTr: "Sonra da onu en aşağı derekeye düşürdük.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
@@ -269,20 +269,20 @@ const kSupplementTin = Surah(
           "اِلَّا الَّذٖينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ فَلَهُمْ اَجْرٌ غَيْرُ مَمْنُونٍؕ",
       meaningTr:
           "Ancak iman edip güzel ve makbul işler yapanlar müstesnadır. Onlara ise hiç eksilmeyen bir mükâfat vardır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "فَمَا يُكَذِّبُكَ بَعْدُ بِالدّٖينِؕ",
       meaningTr:
           "Bütün bunlardan sonra ey insan, senin mahşere ve hesaba inanmana hangi engel kalabilir?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "اَلَيْسَ اللّٰهُ بِاَحْكَمِ الْحَاكِمٖينَ",
       meaningTr: "Allah hakimlerin hâkimi değil midir?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/16_tin/08_ayet.mp3',
     ),
   ],
 );
@@ -334,37 +334,37 @@ const kSupplementZilzal = Surah(
   titleTr: "Zilzâl Suresi",
   arabicName: "الزِّلْزَال",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/18_zilzal/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "اِذَا زُلْزِلَتِ الْاَرْضُ زِلْزَالَهَاۙ",
       meaningTr: "Yer o müthiş depremiyle sarsıldığı zaman...",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "وَاَخْرَجَتِ الْاَرْضُ اَثْقَالَهَاۙ",
       meaningTr: "Ve yer bağrındaki ağırlıkları çıkardığı zaman...",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "وَقَالَ الْاِنْسَانُ مَا لَهَاۚ",
       meaningTr: "İnsan şaşkın şaşkın: “Ne oluyor buna!” dediği zaman...",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "يَوْمَئِذٍ تُحَدِّثُ اَخْبَارَهَاۙ",
       meaningTr: "İşte o gün yer, üstünde olan biten her şeyi anlatır:",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "بِاَنَّ رَبَّكَ اَوْحٰى لَهَاؕ",
       meaningTr: "Çünkü Rabbin ona bunları vahyeder.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
@@ -372,19 +372,19 @@ const kSupplementZilzal = Surah(
           "يَوْمَئِذٍ يَصْدُرُ النَّاسُ اَشْتَاتًا لِيُرَوْا اَعْمَالَهُمْۜ",
       meaningTr:
           "İşte o gün bölükler halinde insanlar,kabirlerinden çıkıp yüce divana dururlar,ta ki yaptıklarının karşılığını görüp alırlar.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُۜ",
       meaningTr: "Zerre ağırlığınca hayır yapan onu bulur,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ",
       meaningTr: "Zerre ağırlığınca şer yapan da onu bulur.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/18_zilzal/08_ayet.mp3',
     ),
   ],
 );
@@ -394,77 +394,77 @@ const kSupplementAdiyat = Surah(
   titleTr: "Âdiyât Suresi",
   arabicName: "الْعَادِيَات",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/19_adiyat/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "وَالْعَادِيَاتِ ضَبْحًاۙ",
       meaningTr: "Gazilerin nefes nefese koşan,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "فَالْمُورِيَاتِ قَدْحًاۙ",
       meaningTr: "Koşarken tırnaklarıyla kıvılcımlar saçan,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "فَالْمُغٖيرَاتِ صُبْحًاۙ",
       meaningTr: "Sabah erkenden baskın basan,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "فَاَثَرْنَ بِهٖ نَقْعًاۙ",
       meaningTr: "O esnada tozu dumana katan,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "فَوَسَطْنَ بِهٖ جَمْعًاۙ",
       meaningTr:
           "Derken düşman kuvvetinin ortasına dalan atların hakkı için ki:",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
       arabic: "اِنَّ الْاِنْسَانَ لِرَبِّهٖ لَكَنُودٌۚ",
       meaningTr: "Gerçekten insan, Rabbine karşı çok nankördür!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "وَاِنَّهُ عَلٰى ذٰلِكَ لَشَهٖيدٌۚ",
       meaningTr: "Kendisi de buna şahittir.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "وَاِنَّهُ لِحُبِّ الْخَيْرِ لَشَدٖيدٌؕ",
       meaningTr: "Ondaki mal hırsı pek şiddetlidir.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/08_ayet.mp3',
     ),
     Ayet(
       number: 9,
       arabic: "اَفَلَا يَعْلَمُ اِذَا بُعْثِرَ مَا فِي الْقُبُورِۙ",
       meaningTr:
           "Peki o insan, kendisinin ve malının âkıbetini hâlâ bilip anlamayacak mı?Kabirlerde olanlar diriltilip dışarı atıldığı zaman, sinelerin içinde bulunan her şey derlenip ortaya konulduğu zaman,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/09_ayet.mp3',
     ),
     Ayet(
       number: 10,
       arabic: "وَحُصِّلَ مَا فِي الصُّدُورِۙ",
       meaningTr:
           "Peki o insan, kendisinin ve malının âkıbetini hâlâ bilip anlamayacak mı?Kabirlerde olanlar diriltilip dışarı atıldığı zaman, sinelerin içinde bulunan her şey derlenip ortaya konulduğu zaman,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/10_ayet.mp3',
     ),
     Ayet(
       number: 11,
       arabic: "اِنَّ رَبَّهُمْ بِهِمْ يَوْمَئِذٍ لَخَبٖيرٌ",
       meaningTr:
           "İşte bilhassa o gün, Rab'leri, onların bütün yaptıklarından haberdardır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/19_adiyat/11_ayet.mp3',
     ),
   ],
 );
@@ -474,75 +474,75 @@ const kSupplementKaria = Surah(
   titleTr: "Kâria Suresi",
   arabicName: "الْقَارِعَة",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/20_karia/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "اَلْقَارِعَةُۙ",
       meaningTr: "Kari'a,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "مَا الْقَارِعَةُۚ",
       meaningTr: "Nedir o kari'a?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "وَمَٓا اَدْرٰيكَ مَا الْقَارِعَةُۜ",
       meaningTr:
           "Kari'ayı, o kapıları döven ve dehşetiyle kalplere çarpan o kıyamet felaketini sen nereden bileceksin ki!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "يَوْمَ يَكُونُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوثِۙ",
       meaningTr:
           "O gün insanlar uçuşan kelebekler gibi şuraya buraya fırlatılır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "وَتَكُونُ الْجِبَالُ كَالْعِهْنِ الْمَنْفُوشِۜ",
       meaningTr: "Dağlar atılmış yüne döner,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
       arabic: "فَاَمَّا مَنْ ثَقُلَتْ مَوَازٖينُهُۙ",
       meaningTr: "Artık kimin tartıları ağır basarsa,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "فَهُوَ فٖي عٖيشَةٍ رَاضِيَةٍؕ",
       meaningTr: "Memnun kalacağı bir hayata girer.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "وَاَمَّا مَنْ خَفَّتْ مَوَازٖينُهُۙ",
       meaningTr: "Kimin tartıları da hafif gelirse,",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/08_ayet.mp3',
     ),
     Ayet(
       number: 9,
       arabic: "فَاُمُّهُ هَاوِيَةٌؕ",
       meaningTr: "Onun barınağı da Haviye olur.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/09_ayet.mp3',
     ),
     Ayet(
       number: 10,
       arabic: "وَمَٓا اَدْرٰيكَ مَا هِيَهْؕ",
       meaningTr: "Onun ne olduğunu bilir misin?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/10_ayet.mp3',
     ),
     Ayet(
       number: 11,
       arabic: "نَارٌ حَامِيَةٌ",
       meaningTr: "Haviye bir ateştir: kızgın mı kızgın!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/20_karia/11_ayet.mp3',
     ),
   ],
 );
@@ -552,57 +552,57 @@ const kSupplementTekasur = Surah(
   titleTr: "Tekâsür Suresi",
   arabicName: "التَّكَاثُر",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/21_tekasur/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "اَلْهٰيكُمُ التَّكَاثُرُۙ",
       meaningTr: "Dünyalıklarla böbürlenmek, oyaladı sizleri.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "حَتّٰى زُرْتُمُ الْمَقَابِرَؕ",
       meaningTr: "Tâ boylayıncaya kadar kabirleri!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "كَلَّا سَوْفَ تَعْلَمُونَۙ",
       meaningTr:
           "Hayır (geçici dünya zevklerine bağlanmak doğru değil, sakının bundan) ileride bileceksiniz!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَؕ",
       meaningTr: "Evet, evet! İleride bileceksiniz!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "كَلَّا لَوْ تَعْلَمُونَ عِلْمَ الْيَقٖينِؕ",
       meaningTr:
           "Sakının bundan! Eğer kesin bir tarzda (ilmelyakin) bilseydiniz böyle yapmazdınız.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
       arabic: "لَتَرَوُنَّ الْجَحٖيمَۙ",
       meaningTr: "Siz cehennemi göreceksiniz.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "ثُمَّ لَتَرَوُنَّهَا عَيْنَ الْيَقٖينِۙ",
       meaningTr: "Evet, evet onu mutlaka gözlerinizle göreceksiniz!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "ثُمَّ لَتُسْـَٔلُنَّ يَوْمَئِذٍ عَنِ النَّعٖيمِ",
       meaningTr: "Sonra o gün nimetlerden hesaba çekileceksiniz!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/21_tekasur/08_ayet.mp3',
     ),
   ],
 );
@@ -642,66 +642,66 @@ const kSupplementHumeze = Surah(
   titleTr: "Hümeze Suresi",
   arabicName: "الْهُمَزَة",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/23_humeze/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "وَيْلٌ لِكُلِّ هُمَزَةٍ لُمَزَةٍۙ",
       meaningTr: "Vay haline her hümeze ve lümeze'nin!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "اَلَّذٖى جَمَعَ مَالًا وَعَدَّدَهُۙ",
       meaningTr: "Böylesi mal yığar ve onu sayar durur.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "يَحْسَبُ اَنَّ مَالَـهُٓ اَخْلَدَهُۚ",
       meaningTr: "Malının kendisini ebedî yaşatacağını sanır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
       arabic: "كَلَّا لَيُنْبَذَنَّ فِي الْحُطَمَةِؗ",
       meaningTr:
           "Hayır! (Vazgeçsin bu hülyadan, malı kendisini kurtaramaz) Mutlaka o Hutame'ye fırlatılır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "وَمَٓا اَدْرٰيكَ مَا الْحُطَمَةُؕ",
       meaningTr: "Bilir misin Hutame nedir?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/05_ayet.mp3',
     ),
     Ayet(
       number: 6,
       arabic: "نَارُ اللّٰهِ الْمُوقَدَةُۙ",
       meaningTr:
           "Allah'ın tutuşturulmuş bir ateşidir. Bir ateş ki ta kalplere kadar işleyip yakar.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/06_ayet.mp3',
     ),
     Ayet(
       number: 7,
       arabic: "اَلَّتٖي تَطَّلِعُ عَلَى الْاَفْـِٔدَةِؕ",
       meaningTr:
           "Allah'ın tutuşturulmuş bir ateşidir. Bir ateş ki ta kalplere kadar işleyip yakar.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/07_ayet.mp3',
     ),
     Ayet(
       number: 8,
       arabic: "اِنَّهَا عَلَيْهِمْ مُؤْصَدَةٌۙ",
       meaningTr:
           "Bu ateş mahzeninin kapıları üzerlerine kapatılacaktır.Kendileri de uzun sütunlara bağlı bırakılacaklardır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/08_ayet.mp3',
     ),
     Ayet(
       number: 9,
       arabic: "فٖي عَمَدٍ مُمَدَّدَةٍ",
       meaningTr:
           "Bu ateş mahzeninin kapıları üzerlerine kapatılacaktır.Kendileri de uzun sütunlara bağlı bırakılacaklardır.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/23_humeze/09_ayet.mp3',
     ),
   ],
 );

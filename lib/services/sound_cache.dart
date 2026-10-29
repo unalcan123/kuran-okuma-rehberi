@@ -9,7 +9,7 @@ import 'sound_store.dart';
 /// Names the stored copy of the recordings. **Change it whenever a file in
 /// `assets/audio/` changes** (`test/audio_assets_test.dart` fails and shows
 /// the new value); otherwise visitors keep hearing the old recording.
-const String kSoundCacheVersion = '50862e11';
+const String kSoundCacheVersion = '841e40dd';
 
 /// Keeps sound files in memory so a tap never waits on the network.
 ///
