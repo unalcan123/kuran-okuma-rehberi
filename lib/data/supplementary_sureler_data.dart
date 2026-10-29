@@ -292,25 +292,25 @@ const kSupplementKadir = Surah(
   titleTr: "Kadir Suresi",
   arabicName: "الْقَدْر",
   besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  besmeleAudioAsset: 'audio/sureler/17_kadir/00_besmele.mp3',
   ayetler: [
     Ayet(
       number: 1,
       arabic: "اِنَّٓا اَنْزَلْنَاهُ فٖي لَيْلَةِ الْقَدْرِۚ",
       meaningTr: "Biz Kur'ân’ı indirdik kadir gecesi. [44,3; 2,185]",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/17_kadir/01_ayet.mp3',
     ),
     Ayet(
       number: 2,
       arabic: "وَمَٓا اَدْرٰيكَ مَا لَيْلَةُ الْقَدْرِؕ",
       meaningTr: "Bilir misin nedir kadir gecesi?",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/17_kadir/02_ayet.mp3',
     ),
     Ayet(
       number: 3,
       arabic: "لَيْلَةُ الْقَدْرِ خَيْرٌ مِنْ اَلْفِ شَهْرٍؕ",
       meaningTr: "Bin aydan daha hayırlıdır kadir gecesi!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/17_kadir/03_ayet.mp3',
     ),
     Ayet(
       number: 4,
@@ -318,13 +318,13 @@ const kSupplementKadir = Surah(
           "تَنَزَّلُ الْمَلٰٓئِكَةُ وَالرُّوحُ فٖيهَا بِاِذْنِ رَبِّهِمْۚ مِنْ كُلِّ اَمْرٍۙۛ",
       meaningTr:
           "O gece Rab'lerinin izniyle Ruh ve melekler, her türlü iş için iner de iner...",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/17_kadir/04_ayet.mp3',
     ),
     Ayet(
       number: 5,
       arabic: "سَلَامٌࣞۛ هِيَ حَتّٰى مَطْلَعِ الْفَجْرِ",
       meaningTr: "Artık o gece bir esenliktir gider...Tâ tan ağarana kadar...",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/17_kadir/05_ayet.mp3',
     ),
   ],
 );
@@ -722,4 +722,5 @@ const kAllNamazTexts = <Surah>[
   ...kSureler,
   kAyatelKursi,
   ...kSupplementarySureler,
+  kAmenerrasulu,
 ];

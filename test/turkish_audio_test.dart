@@ -59,7 +59,9 @@ List<Map<String, dynamic>> _recordingInventory() => [
     'tool/i18n/game_audio_tr.json',
     'tool/i18n/teacher_audio_tr.json',
   ])
-    for (final e in (jsonDecode(File(path).readAsStringSync()) as Map)['entries'] as List)
+    for (final e
+        in (jsonDecode(File(path).readAsStringSync()) as Map)['entries']
+            as List)
       e as Map<String, dynamic>,
 ];
 
@@ -212,7 +214,11 @@ void main() {
           if (e['status'] == 'generated') {
             // Explicitly opted-in recordings use prepared Turkish letter names.
             expect(e['pronunciationPreparation'], isNotNull, reason: name);
-            expect(hasArabicLetter(e['ttsText'] as String), isFalse, reason: name);
+            expect(
+              hasArabicLetter(e['ttsText'] as String),
+              isFalse,
+              reason: name,
+            );
           } else {
             expect(files.containsKey(name), isFalse, reason: name);
           }
@@ -409,7 +415,13 @@ void main() {
           }
         }
       }
-      expect(seen, {for (final e in _entries()) e['id']});
+      // The Giriş is silent for now (LessonBookPage.silent): its recordings
+      // stay in the manifest but show no 🔊.
+      expect(seen, {
+        for (final e in _entries())
+          if (e['lessonId'] != kCikisYerleriGirisLesson.id) e['id'],
+      });
+      expect(seen.where((id) => id.startsWith('s003_')), isEmpty);
     });
   }
 }

@@ -43,6 +43,19 @@ class SourcesScreen extends StatelessWidget {
             const SelectableText(
               'Arapça / العربية: Diyanet İşleri Başkanlığı\nhttps://kuran.diyanet.gov.tr/kuran\nYeni sureler: resmî Diyanet mushaf sayfaları.',
             ),
+            const SizedBox(height: 12),
+            // Arabic scripts used on screen (fonts named by their makers).
+            const SelectableText(
+              'Yazı tipleri / Fonts:\n'
+              '• Kur\'an metinleri (sureler, Âyetel Kürsî, Âmenerrasûlü): '
+              'Shaikh Hamdullah Mushaf — © 2011 Muhammet Abay '
+              '(muhabay@gmail.com).\n'
+              '• Elif-Bâ ve dualar: Hasenat.\n'
+              '• Harf Treni: Noto Naskh Arabic, Noto Sans Arabic '
+              '(SIL Open Font License 1.1).\n'
+              'Âyetel Kürsî ve Âmenerrasûlü Arapçası: Türkiye mushaf yazımı '
+              '(Diyanet).',
+            ),
             const SizedBox(height: 20),
             for (final entry in kSurahMeanings['fatiha']!.entries)
               Card(

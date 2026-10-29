@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/reading_segment.dart';
 import '../../models/surah.dart';
+import '../../theme/app_text_theme.dart';
 import '../../widgets/reading/reading_screen.dart';
 import '../../widgets/reading/reading_settings_sheet.dart';
 
@@ -26,5 +27,6 @@ class SurahDetailScreen extends StatelessWidget {
     ),
     fullAudioAsset: kFullReadingAudio[surah.id] ?? '',
     nouns: ReadingNouns.surah,
+    arabicFontFamily: AppTextTheme.quranFontFamily,
   );
 }

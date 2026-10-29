@@ -125,10 +125,37 @@ Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Okumalar arasında aynı zi
   bölümlerin sesi varsa uzun zilli tam kayıt (`full_readings/`) silinir, Dinle ayet ayet çalar.
 - **Uygulamada (2026-10-29):** Âyetel Kürsî (besmele + 139 sn'lik tek ayet; boyut testinde süreye göre
   istisna), Duhâ, İnşirâh, Tîn, Zilzâl, Âdiyât, Kâria, Tekâsür, Asr, Hümeze — 88 klip, hepsi doğrulandı.
-  **Kurulmadı:** Kadir (kayıtta "selâm" 4. ayetin sonunda okunuyor, 5. ayet "hiye" ile başlıyor; uzun kaydı
-  kalır), Nebe 31–40 ve Namaz Tesbihleri/Tesbihatı/Salâten Tüncînâ (kayıt yok), Ezan Duası (tam okuma
-  uygulama metniyle güvenilir örtüşmüyor, 0,65) ve Yemek Duası (kayıt metnin yalnız bir kısmı); bu üçünün
-  uzun kaydı kalır. Test: `test/verse_audio_all_test.dart`, `test/asr_ayet_audio_test.dart`.
+  **Kadir (sonradan kuruldu):** kayıtta "selâm" 4. ayetin klibinin sonunda okunuyordu; 13,08 sn'den kesilip kısa bir
+  duraklamayla 5. ayetin başına eklendi (tanıma: "…min kulli emr" / "selâmun hiye hattâ…"), uzun zilli kayıt silindi.
+  **Kurulmadı:** Nebe 31–40 (kayıt yok). Tesbihat, Tüncînâ, Ezan ve Yemek Duası sonradan kullanıcının bölüm bölüm
+  kayıtlarıyla kuruldu (aşağıda); artık uzun/zilli kayıt yok. Test: `test/verse_audio_all_test.dart`,
+  `test/asr_ayet_audio_test.dart`.
+- **Bölüm bölüm hazır gelen dua kayıtları** (kullanıcı Audacity'de ayırır, `ref/<dua>/NN-*.mp3`): her parça
+  Whisper ile tanınıp kartla eşleştirilir, mono 44,1 kHz 80 kbps + 8 ms / 40 ms yumuşatma, `register()` ile
+  pubspec/parmak izi. **Tefriciye** (2026-10-29, 15. dua, kitapta yok): 8 parça; 8. parça "fî külli lemhatin
+  ve nefes" ile başladığı için 7. parça 2,62 sn'de kesildi (okuyucu ifadeyi iki kez okumuş; ikinci, boşluklu kayıtta da aynı); baştan 0,15 sn, sondan 0,3 sn sessizlik bırakılır. **Ezan Duası**
+  4 parça geldi ama "ve'd-derecete'r-refî'a" ve "inneke lâ tuhlifu'l-mîâd" okunmuyor → kullanıcı yeniden
+  kaydedecek, kurulmadı. **Yemek Duası** `ref/yemekduasi`: üç parça da aynı ilk cümle (tekrarlı kayıt) →
+  duanın tamamı kaydedilince 3 karta bölünecek.
+- **Bölüm bölüm kayıtlar (2026-10-29, kullanıcı Audacity'de kesti):** hepsi Whisper ile tanınıp bölüme eşlendi,
+  mono 32 kHz 48 kbps (36 MB toplam bütçesi için). **Namazla ilgili lafızlar** (`ref/NAMAZLA ILGILI LAFIZLAR`, 29 klip
+  → `dualar/namaz_lafizlari/lafiz_NN.mp3`): Dua 11 (tekbirler, iki selam), 12 (tesbihat; istiğfar ve 33'lükler kayıtsız,
+  "Allâhu ekber 33" lafiz_01'i paylaşır), 14 (Salâten Tüncînâ 9 bölüm). Kullanıcı kararıyla metin kayda uyduruldu
+  ("kayda göre" işaretli): "Rabbenâ **ve** leke'l-hamd", "Elhamdülillâhi **hamden** kesîrâ", Tüncînâ sonu "âmîn yâ
+  mucîbe'd-de'avât, ve'l-hamdü lillâhi…", uzun tevhid (yuhyî ve yümît … ve ileyhi'l-masîr). Belirsiz kelimede iki metni
+  modele puanlat (`score`: kayıp düşük olan okunuyor). Kaydı olmayan bölüm sessiz: Dinle/Ezberle en az bir klip varsa açık,
+  oynatıcı sessiz bölümü atlar. **Âyetel Kürsî** 9 bölüm (`Ayet.verse` = 255, dosya 01-09_ayet) + yeni besmele; eski 139 sn'lik
+  `255_ayet.mp3` silindi. **Âmenerrasûlü** (Bakara 285-286) yeni, 24. öğe (`kAmenerrasulu`, sona; numaralar/klasörler
+  kaymasın), 15 bölüm; 05 ve 10'un sonundaki tekrar ("gufrâneke rabbenâ", "kemâ hameltehû") kesildi. Âyetel Kürsî ve
+  Âmenerrasûlü Arapçası kullanıcının `kuran.docx`'inden (Türkiye mushaf yazımı; `tool/sources/kuran_docx_*.json`), mealler
+  Suat Yıldırım + QuranEnc (`amenerrasulu_published.json`).
+- **Ezan ve Yemek Duası (2026-10-29):** cümle cümle kartlar; zilli uzun kayıtlar silindi (`kFullReadingAudio` artık boş,
+  `full_readings/` klasörü yok). Ezan: 4 cümle kullanıcının zilsiz parçalarından (`dualar/10_ezan_duasi/`), "ve'd-derecete'r-refî'a"
+  ve "inneke lâ tuhlifu'l-mîâd" kayıtsız/sessiz. Yemek: yalnız "Elhamdülillâhillezî et'amenâ…" sesli (`dualar/13_yemek_duasi/`),
+  diğer cümleler kayıt gelene kadar sessiz. **Sonra:** kullanıcı 3 yeni kayıt verdi (`ref/9|10|11-YEMEK DUASI N.wav`); Yemek
+  Duası kayda göre yeniden yazıldı (Eûzü-Besmele sessiz + "…ve cealenâ müslimîn" (puanlamayla, "mine'l-" yok), "Allâhümme et'im men
+  et'amenâ…", "Eftara indekümü's-sâimûn…"; kitabın kayıtta olmayan kısımları çıkarıldı). 2. ve 3. kayıt duraklamalarından
+  (enerji < tepe−28 dB) 4 + 3 ifadeye kesildi, her parça tanıtıldı → 10 kart, `yemek-01..08.mp3`.
 - Çalıştırma: `python tool/ezber_split/split_ezber.py --batch` ve `--single`, ardından
   `install_clips.py <id...>`, `verify_clips.py <id...>` (gerekenler: numpy, scipy, torch, transformers).
 

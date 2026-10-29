@@ -386,6 +386,12 @@ class LessonBookPage {
   /// Recordings of [intro] (see [BookSection.introAudio]).
   final Map<int, TrAudio> introAudio;
 
+  /// No 🔊 on this page at all (neither [headingAudio] / [introAudio] nor
+  /// recordings found by the paragraph's text): the students read it
+  /// themselves. The Giriş (Harflerin Çıkış Yerleri) until its recordings
+  /// are redone; the recording ids stay in the data for then.
+  final bool silent;
+
   /// A picture from the book (e.g. s. 5 mahreç drawing) and its legend.
   final String? figure;
   final List<FrameRun> figureLegend;
@@ -414,6 +420,7 @@ class LessonBookPage {
     this.headingAudio,
     this.intro = const [],
     this.introAudio = const {},
+    this.silent = false,
     this.figure,
     this.figureLegend = const [],
     this.itemCount = 0,

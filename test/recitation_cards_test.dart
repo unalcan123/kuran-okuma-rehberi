@@ -4,17 +4,21 @@ import 'package:kuran_okuma_rehberi/data/supplementary_sureler_data.dart';
 // Sureler Kur’an sırasındadır; kart numaraları 1–11 olarak gösterilir.
 // Görsel dosyaları eski kimlik eşleşmelerini korur.
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:kuran_okuma_rehberi/data/additional_dualar_data.dart';
 import 'package:kuran_okuma_rehberi/data/dualar_data.dart';
 import 'package:kuran_okuma_rehberi/data/recitation_card_images.dart';
 import 'package:kuran_okuma_rehberi/data/sureler_data.dart';
+import 'package:kuran_okuma_rehberi/l10n/l10n.dart';
 import 'package:kuran_okuma_rehberi/screens/dualar/dua_detail_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/dualar/dualar_list_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/sureler/surah_detail_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/sureler/sureler_list_screen.dart';
 import 'package:kuran_okuma_rehberi/widgets/picture_card.dart';
+import 'package:kuran_okuma_rehberi/widgets/recitation_title_overlay.dart';
 
 import 'dualar_test.dart' show TestAudioService, harness;
 
@@ -37,7 +41,7 @@ void main() {
       expect(File(image).existsSync(), isTrue, reason: image);
       expect(kDuaDisplayTitles[dua.id], isNotNull, reason: dua.id);
     }
-    expect(kDuaCardImages.values.toSet(), hasLength(9));
+    expect(kDuaCardImages.values.toSet(), hasLength(15));
     expect(kDuaDisplayTitles['7_kunut1_duasi'], contains('Kunut 1'));
     expect(kDuaDisplayTitles['8_kunut2_duasi'], contains('Kunut 2'));
     // Kunut 1 / 2 metinle uyumlu (görseldeki başlıklar).
@@ -49,6 +53,173 @@ void main() {
       kDualar.firstWhere((d) => d.id == '8_kunut2_duasi').segments.first.arabic,
       contains('اِيَّاكَ نَعْبُدُ'),
     );
+  });
+
+  test(
+    'yazısız dua resimleri: 15 resim sırayla, hepsi aynı dikey biçimde',
+    () async {
+      for (final dua in kAllDualar) {
+        final path = kDuaTextFreeImages[dua.id]!;
+        expect(duaCardImage(dua.id), path);
+        expect(
+          path,
+          endsWith('dua_${dua.order.toString().padLeft(2, '0')}.png'),
+        );
+        final codec = await ui.instantiateImageCodec(
+          File(path).readAsBytesSync(),
+        );
+        final image = (await codec.getNextFrame()).image;
+        expect(
+          Size(image.width * 1.0, image.height * 1.0),
+          kDuaCardImageSize,
+          reason: path,
+        );
+      }
+    },
+  );
+
+  testWidgets('başka dilde resim aynen kalır, çeviri kartın altında (dua)', (
+    tester,
+  ) async {
+    setSize(tester, const Size(800, 1280));
+    final audio = TestAudioService();
+    addTearDown(audio.dispose);
+    final controller = LanguageController(initial: AppLanguage.nl);
+    await tester.pumpWidget(
+      AppLanguageScope(
+        controller: controller,
+        child: harness(const DualarListScreen(), audio),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final card = find.byKey(const ValueKey('dua-card-15_tefriciye'));
+    final caption = find.byKey(const ValueKey('dua-caption-15_tefriciye'));
+    await tester.scrollUntilVisible(caption, 300);
+    await tester.pumpAndSettle();
+    // The same picture as in Turkish; over it only the number.
+    expect(
+      tester.widget<PictureCard>(card).image,
+      duaCardImage('15_tefriciye'),
+    );
+    expect(tester.widget<PictureCard>(card).overlay, isNull);
+    expect(
+      find.descendant(of: caption, matching: find.text('Gebed 15')),
+      findsOneWidget,
+    );
+    // Caption right under the picture, inside its own cell.
+    final pic = tester.getRect(card), cap = tester.getRect(caption);
+    expect(cap.top, closeTo(pic.bottom, 1));
+    expect(cap.width, closeTo(pic.width, 1));
+    expect(
+      find.descendant(
+        of: caption,
+        matching: find.textContaining(
+          'Salat Tafrijiyya gebed',
+          findRichText: true,
+        ),
+      ),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+    // Tapping the caption opens the prayer too.
+    await tester.tap(caption);
+    await tester.pumpAndSettle();
+    expect(find.byType(DuaDetailScreen), findsOneWidget);
+  });
+
+  testWidgets('Türkçede de başlık kartların altında (dua ve sure)', (
+    tester,
+  ) async {
+    setSize(tester, const Size(800, 1280));
+    final audio = TestAudioService();
+    addTearDown(audio.dispose);
+    for (final (screen, card, caption, text) in [
+      (
+        const DualarListScreen() as Widget,
+        'dua-card-1_subhaneke_duasi',
+        'dua-caption-1_subhaneke_duasi',
+        'Sübhâneke Duası',
+      ),
+      (
+        const SurelerListScreen(),
+        'surah-card-fatiha',
+        'surah-caption-fatiha',
+        kSureler.first.titleTr,
+      ),
+    ]) {
+      await tester.pumpWidget(harness(screen, audio));
+      await tester.pumpAndSettle();
+      final pic = tester.getRect(find.byKey(ValueKey(card)));
+      final cap = find.byKey(ValueKey(caption));
+      expect(tester.getRect(cap).top, closeTo(pic.bottom, 1));
+      expect(
+        find.descendant(of: cap, matching: find.text(text)),
+        findsOneWidget,
+      );
+      // Nothing written over the surah picture but its number.
+      final overlay =
+          tester.widget<PictureCard>(find.byKey(ValueKey(card))).overlay;
+      if (overlay is RecitationTitleOverlay) expect(overlay.showTitle, isFalse);
+      expect(tester.takeException(), isNull);
+    }
+  });
+
+  for (final (size, min, max) in [
+    (const Size(360, 800), 1, 1),
+    (const Size(390, 844), 1, 1),
+    (const Size(800, 1280), 2, 3),
+    (const Size(1280, 800), 3, 4),
+    (const Size(1920, 1080), 3, 4),
+  ]) {
+    testWidgets('dua ve sure kartları $size: $min-$max sütun, yazı taşmaz', (
+      tester,
+    ) async {
+      setSize(tester, size);
+      final audio = TestAudioService();
+      addTearDown(audio.dispose);
+      for (final (screen, prefix) in [
+        (const DualarListScreen() as Widget, 'dua-card-'),
+        (const SurelerListScreen(), 'surah-card-'),
+      ]) {
+        await tester.pumpWidget(harness(screen, audio));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull, reason: '$prefix $size');
+        final cards = find.byWidgetPredicate(
+          (w) =>
+              w.key is ValueKey<String> &&
+              (w.key! as ValueKey<String>).value.startsWith(prefix),
+        );
+        final firstTop = tester.getRect(cards.first).top;
+        final columns =
+            [
+              for (final e in cards.evaluate())
+                if ((tester.getRect(find.byWidget(e.widget)).top - firstTop)
+                        .abs() <
+                    1)
+                  e,
+            ].length;
+        expect(columns, inInclusiveRange(min, max), reason: '$prefix $size');
+      }
+    });
+  }
+
+  test('yazısız sure resimleri: 24 öğe, hepsi aynı kare biçimde', () async {
+    final pictured = kAllNamazTexts;
+    expect(kSurahTextFreeImages.keys, pictured.map((s) => s.id));
+    expect(kSurahTextFreeImages.values.toSet(), hasLength(24));
+    for (final surah in pictured) {
+      final path = kSurahTextFreeImages[surah.id]!;
+      expect(surahCardImage(surah.id), path);
+      final codec = await ui.instantiateImageCodec(
+        File(path).readAsBytesSync(),
+      );
+      final image = (await codec.getNextFrame()).image;
+      expect(
+        Size(image.width * 1.0, image.height * 1.0),
+        kSurahCardImageSize,
+        reason: path,
+      );
+    }
   });
 
   test('sureler: 11 kart, uygulamanın sırasıyla, dosyalar var', () {
@@ -89,13 +260,14 @@ void main() {
       );
       expect(File(image).existsSync(), isTrue, reason: image);
     }
-    // Kartlar 12-23: kAllNamazTexts'in kSureler'den sonrası, sırayla.
-    for (var i = kSureler.length; i < kAllNamazTexts.length; i++) {
+    // Kartlar 12-23: kAllNamazTexts'in kSureler'den sonrası, sırayla
+    // (24 Âmenerrasûlü'nün eski kartı yok).
+    for (var i = kSureler.length; i < 23; i++) {
       final image = kSurahCardImages[kAllNamazTexts[i].id]!;
       expect(image, endsWith('sure_${i + 1}.png'), reason: image);
       expect(File(image).existsSync(), isTrue, reason: image);
     }
-    expect(kAllNamazTexts, hasLength(23));
+    expect(kAllNamazTexts, hasLength(24));
     expect(kSurahCardImages.values.toSet(), hasLength(23));
     final files =
         Directory(
@@ -110,7 +282,7 @@ void main() {
     expect(pubspec, contains('assets/images/lessons/dualar/'));
   });
 
-  testWidgets('dua kartı: başlık yazılmaz, dokununca o dua açılır', (
+  testWidgets('dua kartı: resmin üstünde yazı yok, dokununca o dua açılır', (
     tester,
   ) async {
     setSize(tester, const Size(1280, 800));
@@ -121,9 +293,15 @@ void main() {
     final card = find.byKey(ValueKey('dua-card-${kDualar[6].id}'));
     await tester.scrollUntilVisible(card, 200);
     await tester.pumpAndSettle();
+    // Nothing written over the picture; number and name under it.
     expect(
       find.descendant(of: card, matching: find.byType(Text)),
       findsNothing,
+    );
+    final caption = find.byKey(ValueKey('dua-caption-${kDualar[6].id}'));
+    expect(
+      find.descendant(of: caption, matching: find.text('Dua 7')),
+      findsOneWidget,
     );
     final size = tester.getSize(card);
     expect(size.width / size.height, closeTo(kDuaCardAspectRatio, 0.01));
@@ -142,19 +320,17 @@ void main() {
     addTearDown(audio.dispose);
     await tester.pumpWidget(harness(const SurelerListScreen(), audio));
     await tester.pumpAndSettle();
+    // The number is written under the picture (its title area).
     final fatiha = find.byKey(const ValueKey('surah-card-fatiha'));
     expect(
-      find.descendant(of: fatiha, matching: find.text('Sure 1')),
-      findsOneWidget,
-    );
-    final fil = find.byKey(const ValueKey('surah-card-fil'));
-    await tester.scrollUntilVisible(fil, 150);
-    expect(
-      find.descendant(of: fil, matching: find.text('Sure 2')),
+      find.descendant(
+        of: find.byKey(const ValueKey('surah-caption-fatiha')),
+        matching: find.text('Sure 1'),
+      ),
       findsOneWidget,
     );
     for (var i = 0; i < kSureler.length; i++) {
-      final card = find.byKey(ValueKey('surah-card-${kSureler[i].id}'));
+      final card = find.byKey(ValueKey('surah-caption-${kSureler[i].id}'));
       await tester.scrollUntilVisible(card, 150);
       expect(
         find.descendant(
@@ -167,7 +343,7 @@ void main() {
       );
     }
     await tester.scrollUntilVisible(fatiha, -150);
-    // Each original image retains the same aspect ratio.
+    // Every picture area has the cards' shape.
     final size = tester.getSize(fatiha);
     expect(size.width / size.height, closeTo(kSurahCardAspectRatio, 0.01));
 
@@ -181,6 +357,7 @@ void main() {
     );
     await tester.pageBack();
     await tester.pumpAndSettle();
+    final fil = find.byKey(const ValueKey('surah-card-fil'));
     await tester.scrollUntilVisible(fil, 150);
     await tester.ensureVisible(fil);
     await tester.pumpAndSettle();
@@ -221,4 +398,3 @@ void main() {
     });
   }
 }
-

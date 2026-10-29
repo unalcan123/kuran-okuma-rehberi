@@ -3148,4 +3148,87 @@ const kSurahMeanings = <String, Map<String, PublishedSurahMeaning>>{
       {255: ""},
     ),
   },
+  "amenerrasulu": {
+    "tr": PublishedSurahMeaning(
+      "Suat Yıldırım",
+      "2010-09-14",
+      "https://tanzil.net/#trans/tr.yildirim/2:285",
+      "Suat Yıldırım · Tanzil.net · non-commercial use",
+      {
+        285: "Peygamber, Rabbi tarafından kendisine ne indirildi ise ona iman etti, müminler de! Onlardan her biri Allah'a, meleklerine, kitaplarına ve peygamberlerine iman etti. “O’nun resullerinden hiç birini diğerinden ayırt etmeyiz.” dediler ve eklediler: “İşittik ve itaat ettik ya Rabbenâ, affını dileriz, dönüşümüz Sanadır.”",
+        286: "Allah hiçbir kimseyi güç yetiremeyeceği bir şekilde yükümlü tutmaz. Herkesin kazandığı iyilik kendi lehine, işlediği fenalık da kendi aleyhinedir. Ya Rabbenâ! Eğer unuttuk veya kasıtsız olarak yanlış yaptıysak bundan dolayı bizi sorumlu tutma! Ya Rabbenâ! Bizden öncekilere yüklediğin gibi ağır yük yükleme! Ya Rabbenâ! Takat getiremeyeceğimiz şeylerle bizi yükümlü tutma! Affet bizi, lütfen bağışla kusurlarımızı, merhamet buyur bize! Sensin Mevlâmız, yardımcımız! Kâfir topluluklara karşı Sen yardım eyle bize! [6,152; 7,42; 23,62]",
+      },
+      {},
+    ),
+    "es": PublishedSurahMeaning(
+      "Spanish Translation - Isa Garcia",
+      "1.0.2",
+      "https://quranenc.com/en/browse/spanish_garcia/2#285",
+      "Translated by Muhammad Isa Garcia",
+      {
+        285: "285. El Mensajero y sus seguidores creen en lo que le fue revelado por su Señor [al Mensajero]. Todos creen en Dios, en Sus ángeles, en Sus Libros y en Sus Mensajeros [diciendo:] “No hacemos diferencia entre ninguno de Sus Mensajeros”. Y dicen: “Oímos y obedecemos. Perdónanos Señor nuestro, que ante Ti retornaremos [para ser juzgados]”.",
+        286: "286. Dios no exige a nadie por encima de sus posibilidades, a su favor tendrá el bien que haga, y en su contra tendrá el mal que haga. “¡Señor nuestro! No nos castigues si olvidamos o cometemos un error. ¡Señor nuestro! No nos impongas una carga como la que impusiste a quienes nos precedieron. ¡Señor nuestro! No nos impongas algo superior a lo que podamos soportar. Perdónanos, absuélvenos y ten misericordia de nosotros. Tú eres nuestro Protector, concédenos el triunfo sobre los que niegan la verdad”.",
+      },
+      {},
+    ),
+    "fr": PublishedSurahMeaning(
+      "French Translation - Rachid Maach",
+      "1.0.3",
+      "https://quranenc.com/en/browse/french_rashid/2#285",
+      "Translated by Rashid Ma’ash",
+      {
+        285: "Le Messager a cru en ce qui lui a été révélé de la part de son Seigneur, de même que les croyants, tous ont cru en Allah, en Ses anges, Ses Ecritures et Ses Messagers, affirmant : « Nous ne faisons aucune différence entre Ses Messagers. » Disant encore : « Nous avons entendu Tes paroles et nous obéissons à Tes ordres. Nous implorons, Seigneur, Ton pardon. C’est à Toi que nous retournerons. »",
+        286: "Allah n’impose à une âme que ce qu’elle peut supporter[175]. Elle sera récompensée pour ses bonnes œuvres, châtiée pour ses péchés[176]. « Seigneur ! Ne nous tiens pas rigueur de nos oublis ou de nos erreurs ! Ne nous accable pas, Seigneur, d’un fardeau semblable à celui imposé aux nations qui nous ont précédés[177]. Ne nous impose pas, Seigneur, ce que nous ne pouvons supporter. Veuille effacer nos fautes, pardonner nos péchés et nous faire miséricorde. Tu es notre Maître et Protecteur, accorde-nous donc la victoire sur les mécréants. »",
+      },
+      {
+        286: "[175] Nul ne devra rendre compte de ses mauvaises pensées. Ce verset abroge en effet, selon nombre d’exégètes, le verset 284 de cette même sourate.\n[176] L’homme devra donc répondre uniquement de ses paroles et de ses actes, non de ses pensées.\n[177] Les obligations religieuses imposées notamment aux juifs, selon certains commentateurs.",
+      },
+    ),
+    "de": PublishedSurahMeaning(
+      "German Translation - Frank Bubenheim",
+      "1.1.4",
+      "https://quranenc.com/en/browse/german_bubenheim/2#285",
+      "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+      {
+        285: "Der Gesandte (Allahs) glaubt an das, was zu ihm von seinem Herrn (als Offenbarung) herabgesandt worden ist, und ebenso die Gläubigen; alle glauben an Allah, Seine Engel, Seine Bücher und Seine Gesandten - Wir machen keinen Unterschied bei jemandem von Seinen Gesandten. Und sie sagen: „Wir hören und gehorchen. (Gewähre uns) Deine Vergebung, unser Herr! Und zu Dir ist der Ausgang.",
+        286: "Allah erlegt keiner Seele mehr auf, als sie zu leisten vermag. Ihr kommt (nur) zu, was sie verdient hat, und angelastet wird ihr (nur), was sie verdient hat. „Unser Herr, belange uns nicht, wenn wir (etwas) vergessen oder einen Fehler begehen. Unser Herr, lege uns keine Bürde auf, wie Du sie denjenigen vor uns auferlegt hast. Unser Herr, bürde uns nichts auf, wozu wir keine Kraft haben. Verzeihe uns, vergib uns und erbarme Dich unser! Du bist unser Schutzherr. So verhilf uns zum Sieg über das ungläubige Volk!",
+      },
+      {},
+    ),
+    "en": PublishedSurahMeaning(
+      "English Translation - Noor International Center",
+      "1.1.2",
+      "https://quranenc.com/en/browse/english_saheeh/2#285",
+      "Issued by Noor International Center.",
+      {
+        285: "The Messenger has believed in what was revealed to him from his Lord, and [so have] the believers. All of them have believed in Allāh and His angels and His books and His messengers, [saying], \"We make no distinction between any of His messengers.\" And they say, \"We hear and we obey. [We seek] Your forgiveness, our Lord, and to You is the [final] destination.\"",
+        286: "Allāh does not charge a soul except [with that within] its capacity. It will have [the consequence of] what [good] it has gained, and it will bear [the consequence of] what [evil] it has earned. \"Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people.\"[111]",
+      },
+      {
+        286: "[111] Allāh (subḥānahu wa taʿālā) concludes this sūrah by directing His servants how to supplicate Him, just as He taught them in Sūrah al-Fātiḥah how to praise Him and ask for guidance.",
+      },
+    ),
+    "bs": PublishedSurahMeaning(
+      "Bosnian Translation - Muhammad Mahanovic",
+      "1.1.0",
+      "https://quranenc.com/en/browse/bosnian_mihanovich/2#285",
+      "Translated by Muhammad Mahanovic, developed under the supervision of Rowwad Translation Center. The original translation is available for the purpose of expressing opinion, evaluation, and continuous development.",
+      {
+        285: "Poslanik vjeruje u ono što mu se objavljuje od Gospodara njegova, a i vjernici, svaki od njih vjeruje u Allaha, i meleke Njegove, i Knjige Njegove, i poslanike Njegove: \n\"Mi među poslanicima Njegovim ne pravimo razliku!\" I govore: \"Čujemo i pokoravamo se! Molimo Te za oprost, Gospodaru naš, a kod Tebe je konačno odredište!\"",
+        286: "Allah svaku osobu obavezuje samo onoliko kolike su njene mogućnosti; njoj u korist je ono dobro koje zaradi, a na njenu štetu je ono zlo koje sebi privrijedi. Gospodaru naš, nemoj nas kazniti ako zaboravimo ili nehotice pogriješimo! Gospodaru naš, ne tovari na nas breme kao što si ga natovario na one prije nas! Gospodaru naš, ne opterećuj nas onim za što nemamo snage! Preko grijeha naših prijeđi, oprosti nam i smiluj nam se! Ti si Gospodar naš, pa nas pomozi protiv naroda koji ne vjeruje!",
+      },
+      {},
+    ),
+    "nl": PublishedSurahMeaning(
+      "Dutch Translation - Rowwad Translation Center",
+      "2.0.10",
+      "https://quranenc.com/en/browse/dutch_center/2#285",
+      "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+      {
+        285: "De boodschapper Mohammed (bevestigt) en gelooft in (de Koran) die naar hem werd gezonden door zijn Heer. En dit doen de gelovigen ook. Ieder van hen gelooft in Allah, Zijn engelen, Zijn boeken en Zijn boodschappers. Zij zeggen: “Wij maken geen onderscheid tussen Zijn boodschappers (i.t.t. de joden en de christenen).” En zij zeggen: “Wij geven gehoor (aan hun bevelen) en aanvaarden het gehoorzaam. Wij vragen om Uw vergeving, onze Heer. En tot U zullen (allen) terugkeren (nl. na de Wederopstanding).”",
+        286: "Allah belast niemand boven zijn vermogen. Hij ontvangt beloning voor het (goede) wat hij verricht heeft en (alléén) hij wordt belast met de zonden die hijzelf heeft begaan. “Onze Heer! Straf ons niet voor wat wij (onopzettelijk) vergaten of wat wij fout hebben gedaan. Onze Heer! Leg ons geen last op zoals U wel hebt gedaan bij diegenen die ons zijn voorgegaan. Onze Heer! Leg ons geen lasten (en beproevingen) op groter dan de kracht die wij hebben om het te (ver)dragen. Wis onze zonden uit en schenk ons vergiffenis op basis van Uw barmhartigheid. U bent onze Beschermer en Behoeder. Laat ons (daarom) de overwinning behalen op de ongelovigen, (in woord en daad).”",
+      },
+      {},
+    ),
+  },
 };

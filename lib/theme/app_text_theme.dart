@@ -12,11 +12,14 @@ class AppTextTheme {
 
   static const String arabicFontFamily = 'Hasenat';
 
-  static TextTheme get uiTextTheme =>
-      GoogleFonts.nunitoTextTheme().apply(
-        bodyColor: AppColors.textPrimary,
-        displayColor: AppColors.textPrimary,
-      );
+  /// Quran text (surahs, Âyetel Kürsî, Âmenerrasûlü): the Turkish mushaf
+  /// script, Shaikh Hamdullah Mushaf by Muhammet Abay (see Kaynaklar).
+  static const String quranFontFamily = 'Hamdullah';
+
+  static TextTheme get uiTextTheme => GoogleFonts.nunitoTextTheme().apply(
+    bodyColor: AppColors.textPrimary,
+    displayColor: AppColors.textPrimary,
+  );
 
   /// Style for a large, isolated-form Arabic letter shown as the hero
   /// of a learning screen.

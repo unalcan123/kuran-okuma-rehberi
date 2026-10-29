@@ -25,7 +25,6 @@ void main() {
   // (~139 s): its single card clip has its own, duration-based budget
   // (48 kbps mono = ~6 KB/s); it loads only when that card is played.
   const longVerses = {
-    'assets/audio/sureler/12_ayetel-kursi/255_ayet.mp3': 900 * 1024,
   };
 
   test('there are recordings, and every one is small', () {
@@ -65,9 +64,10 @@ void main() {
   test('Complete teaching recordings have a separate duration-based budget', () {
     final rows = jsonDecode(File('tool/sources/audio_import_manifest.json').readAsStringSync()) as List;
     // Surahs with verse clips from the repeat recordings (tool/ezber_split)
-    // no longer need one; Kadir (verse 4/5 boundary shifted in the
-    // recording) and the two prayers keep theirs.
-    expect(rows, hasLength(3));
+    // no longer need one (Kadir too: "selâm", read at the end of verse 4's
+    // clip, was moved to the start of verse 5) nor the Ezan and Yemek
+    // Duası (sentence clips): no long recording ships now.
+    expect(rows, isEmpty);
     var total = 0;
     for (final row in rows) {
       final file = File('assets/${row['asset']}');

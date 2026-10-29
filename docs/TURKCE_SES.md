@@ -119,3 +119,7 @@ yeniden üretilecek/düzeltilecek olanlar) → Kopyala.
 - Veri `lib/debug/turkish_audio_qc_data.dart`, manifest'ten üretilir:
   `python tool/turkish_audio/export_qc_data.py` (ses üretildikten/metin değiştikten
   sonra). `test/turkish_audio_qc_test.dart` manifest'le aynılığını denetler.
+
+
+## Giriş sessiz (2026-10-29)
+Kullanıcı isteğiyle Giriş (Harflerin Çıkış Yerleri, s. 3-5) sayfalarında Türkçe sesler kapalı (`LessonBookPage.silent`): ElevenLabs metindeki Arapça harfleri iyi okuyamadı. `s003_*`, `s004_*` kayıtları ve manifest satırları duruyor; yeniden üretilince `silent: true` kaldırılır. Arapça harf sesi gerekirse derslerin kendi harf kayıtları kullanılabilir (kullanıcı onayı var).

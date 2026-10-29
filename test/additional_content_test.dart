@@ -16,23 +16,27 @@ void main() {
   setUp(() => ReadingSettings.instance.resetForTest());
   test('Existing prayers and surah numbers are preserved', () {
     expect(kAllDualar.take(9), orderedEquals(kDualar));
-    expect(kAllDualar, hasLength(14));
-    expect(kAllDualar.map((d) => d.id).toSet(), hasLength(14));
-    expect(kAllNamazTexts, hasLength(23));
+    expect(kAllDualar, hasLength(15));
+    expect(kAllDualar.map((d) => d.id).toSet(), hasLength(15));
+    expect(kAllNamazTexts, hasLength(24));
     expect(kAllNamazTexts.take(11), orderedEquals(kSureler));
     expect(kAllNamazTexts[11], same(kAyatelKursi));
-    expect(kAllNamazTexts.map((s) => s.order), List.generate(23, (i) => i + 1));
+    expect(kAllNamazTexts.map((s) => s.order), List.generate(24, (i) => i + 1));
+    expect(kAllNamazTexts.last, same(kAmenerrasulu));
     expect(
       kAllNamazTexts.where((s) => kSureler.contains(s)),
       orderedEquals(kSureler),
     );
-    expect(kAyatelKursi.ayetler.single.number, 255);
+    // Bakara 255 in the recording's nine phrases.
+    expect(
+      kAyatelKursi.ayetler.map((a) => a.number),
+      List.generate(9, (i) => i + 1),
+    );
     expect(
       kAyatelKursiMeanings.keys,
       containsAll(['tr', 'es', 'fr', 'de', 'en', 'bs', 'nl']),
     );
     for (final prayer in kAdditionalDualar) {
-      expect(prayer.playlist, isEmpty);
       expect(prayer.segments.every((p) => p.arabic.isNotEmpty), isTrue);
       final tr = ReadingSegment.ofDua(prayer);
       final nl = ReadingSegment.ofDua(prayer, languageCode: 'nl');
@@ -57,7 +61,8 @@ void main() {
       ReadingSettings.instance.arabicScale = 1.9;
       final screens = <Widget>[
         for (final prayer in kAdditionalDualar) DuaDetailScreen(dua: prayer),
-        for (final surah in kSupplementarySureler) SurahDetailScreen(surah: surah),
+        for (final surah in kSupplementarySureler)
+          SurahDetailScreen(surah: surah),
         const SurahDetailScreen(surah: kAyatelKursi),
       ];
       for (final screen in screens) {
@@ -72,10 +77,11 @@ void main() {
         );
         // Verse clips (e.g. Asr) enable both; otherwise only a complete
         // recording enables Dinle and Ezberle stays off.
-        final everyClip = reading.segments.every((s) => s.audioAsset.isNotEmpty);
+        // Parts without a clip are skipped; one clip is enough.
+        final anyClip = reading.segments.any((s) => s.audioAsset.isNotEmpty);
         expect(
           button.onPressed != null,
-          reading.fullAudioAsset.isNotEmpty || everyClip,
+          reading.fullAudioAsset.isNotEmpty || anyClip,
         );
         expect(
           tester
@@ -84,7 +90,7 @@ void main() {
                   )
                   .onPressed !=
               null,
-          everyClip,
+          anyClip,
         );
         expect(
           tester.takeException(),
@@ -95,4 +101,3 @@ void main() {
     });
   }
 }
-

@@ -179,6 +179,14 @@ const kUxStrings = <String, List<String>>{
     "Salat Tundžina",
     "Salatan Tunjina gebed",
   ],
+  "Tefriciye Duası": [
+    "Salat Tafriyiyya",
+    "Salat Tafrijiyya",
+    "Salat Tafrijiyya",
+    "Salat Tafrijiyya",
+    "Salavat Tefrijija",
+    "Salat Tafrijiyya gebed",
+  ],
   "Âyetel Kürsî": [
     "Ayat al-Kursi",
     "Ayat al-Kursi",

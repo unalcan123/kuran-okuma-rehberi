@@ -40,6 +40,7 @@ class ReadingSegmentCard extends StatelessWidget {
     required this.index,
     required this.segment,
     required this.fontSize,
+    this.arabicFontFamily,
     required this.showArabic,
     required this.showMeaning,
     required this.isActive,
@@ -54,6 +55,9 @@ class ReadingSegmentCard extends StatelessWidget {
   final int index;
   final ReadingSegment segment;
   final double fontSize;
+
+  /// Null: the prayers' Arabic font.
+  final String? arabicFontFamily;
   final bool showArabic;
   final bool showMeaning;
   final bool isActive;
@@ -71,9 +75,11 @@ class ReadingSegmentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final opening = segment.isOpening;
     final accent = opening ? AppColors.gold : AppColors.turquoise;
-    final arabicStyle = AppTextTheme.arabicSmall(
-      fontSize: fontSize,
-    ).copyWith(color: AppColors.navy, height: 1.9);
+    final arabicStyle = AppTextTheme.arabicSmall(fontSize: fontSize).copyWith(
+      color: AppColors.navy,
+      height: 1.9,
+      fontFamily: arabicFontFamily,
+    );
 
     Widget arabic;
     if (isTextHidden) {

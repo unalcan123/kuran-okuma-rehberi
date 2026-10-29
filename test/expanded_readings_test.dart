@@ -20,6 +20,21 @@ void main() {
    expect(kSurahMeanings[surah.id]!.keys.toSet(), {'tr','es','fr','de','en','bs','nl'});
    expect(kSurahMeanings[surah.id]!['tr']!.title, 'Suat Yıldırım');
    for(final code in kSurahMeanings[surah.id]!.keys) {
+    if (surah.ayetler.any((a)=>a.verse != null)) {
+     // Verses read in phrases: Turkish meal split with them; other
+     // languages: the whole verse on its first phrase, the rest empty.
+     final parts = ReadingSegment.ofSurah(surah, languageCode:code).where((p)=>!p.isOpening).toList();
+     expect(parts.map((p)=>p.number).toSet(), surah.ayetler.map((a)=>a.verse).toSet());
+     for (var i = 0; i < parts.length; i++) {
+      final first = i == 0 || parts[i-1].number != parts[i].number;
+      if (code == 'tr') {
+       expect(parts[i].meaning, isNotEmpty);
+      } else {
+       expect(parts[i].meaning, first ? kSurahMeanings[surah.id]![code]!.verses[parts[i].number] : '');
+      }
+     }
+     continue;
+    }
     for(final part in ReadingSegment.ofSurah(surah, languageCode:code).where((p)=>!p.isOpening)) {
      expect(part.meaning, kSurahMeanings[surah.id]![code]!.verses[part.number]);
     }
@@ -30,9 +45,11 @@ void main() {
  test('Full recording plays once without false verse highlighting and supports pause', () async {
   final audio = TestAudioService();
   final segments = ReadingSegment.ofSurah(kSupplementKadir);
-  final controller = ReadingPlaybackController(segments:segments, audio:audio, fullAudioAsset:kFullReadingAudio['kadir']!);
+  // A complete recording (none ships now; the engine still supports one).
+  const full = 'audio/full_readings/test.mp3';
+  final controller = ReadingPlaybackController(segments:segments, audio:audio, fullAudioAsset:full);
   await controller.start();
-  expect(audio.currentAsset, kFullReadingAudio['kadir']);
+  expect(audio.currentAsset, full);
   expect(controller.plan, hasLength(1));
   expect(controller.activeIndex, isNull);
   await controller.pause();expect(controller.isPaused,isTrue);
@@ -40,6 +57,17 @@ void main() {
   audio.complete();expect(controller.isActive,isFalse);
   controller.dispose();await Future<void>.delayed(Duration.zero);audio.dispose();
   for(final path in kFullReadingAudio.values) {expect(File('assets/$path').existsSync(),isTrue);}
-  expect(kFullReadingAudio,hasLength(3));
+  expect(kFullReadingAudio, isEmpty);
  });
+  test('waqf signs without a glyph in Hasenat are not drawn', () {
+    // Kadir 5 (qif), Tîn 4 and Hümeze 4 (small high zain): the data keeps
+    // them, the screen leaves them out.
+    for (final surah in kAllNamazTexts) {
+      for (final part in ReadingSegment.ofSurah(surah)) {
+        expect(part.arabic, isNot(contains('ࣞ')), reason: surah.id);
+        expect(part.arabic, isNot(contains('ؗ')), reason: surah.id);
+      }
+    }
+    expect(kSupplementKadir.ayetler.last.arabic, contains('ࣞ'));
+  });
 }

@@ -51,8 +51,12 @@ Finder get list => find.descendant(
   matching: find.byType(SingleChildScrollView),
 );
 
+// Surah Arabic as the screen draws it (Quran font spelling).
 double fontOf(WidgetTester tester, String arabic) =>
-    tester.widget<Text>(find.text(arabic)).style!.fontSize!;
+    tester
+        .widget<Text>(find.text(ReadingSegment.displayArabic(arabic)))
+        .style!
+        .fontSize!;
 
 Future<void> openSettings(WidgetTester tester) async {
   await tester.tap(find.byKey(const ValueKey('reading-settings-button')));
@@ -471,7 +475,7 @@ void main() {
       settings.repeatCount = 2;
       settings.hideTextWhileMemorizing = true;
       final audio = await openSurah(tester);
-      final besmele = kSureler.first.besmele;
+      final besmele = ReadingSegment.displayArabic(kSureler.first.besmele);
       await tester.tap(find.byKey(const ValueKey('reading-memorize')));
       await tester.pumpAndSettle();
       // First time: seen and heard.

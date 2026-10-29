@@ -57,37 +57,75 @@ class ReadingSegment {
         meaningSource: surah.id == 'fatiha' ? published?.attribution ?? '' : '',
         meaningFootnotes:
             surah.id == 'fatiha' ? published?.footnotes[1] ?? '' : '',
-        arabic: surah.besmele,
+        arabic: displayArabic(surah.besmele),
         audioAsset: surah.besmeleAudioAsset,
         isOpening: true,
       ),
-      for (final ayet in surah.ayetler)
-        ReadingSegment(
-          id: 'ayet-${ayet.number}',
-          number:
-              surah.id == 'fatiha'
-                  ? (ayet.number < 7 ? ayet.number + 1 : 7)
-                  : (surah.id == 'nasr' && ayet.number > 3 ? 3 : ayet.number),
-          arabic: ayet.arabic,
-          meaning:
-              published?.verses[surah.id == 'fatiha'
-                  ? (ayet.number < 7 ? ayet.number + 1 : 7)
-                  : (surah.id == 'nasr' && ayet.number > 3
-                      ? 3
-                      : ayet.number)] ??
-              ayet.meaningTr,
-          meaningSource: published?.attribution ?? '',
-          meaningFootnotes:
-              published?.footnotes[surah.id == 'fatiha'
-                  ? (ayet.number < 7 ? ayet.number + 1 : 7)
-                  : (surah.id == 'nasr' && ayet.number > 3
-                      ? 3
-                      : ayet.number)] ??
-              '',
-          audioAsset: ayet.audioAsset,
-        ),
+      if (surah.ayetler.any((a) => a.verse != null))
+        // Ayets read in phrases (Âyetel Kürsî, Âmenerrasûlü), each with its
+        // own recording: every card shows its verse; the Turkish meal is
+        // split with them, other languages give the whole verse once, on
+        // its first phrase.
+        for (final (i, ayet) in surah.ayetler.indexed)
+          ReadingSegment(
+            id: 'ayet-${ayet.number}',
+            number: ayet.verse ?? ayet.number,
+            arabic: displayArabic(ayet.arabic),
+            meaning:
+                languageCode == 'tr'
+                    ? ayet.meaningTr
+                    : _firstOfVerse(surah, i)
+                    ? published?.verses[ayet.verse] ?? ''
+                    : '',
+            meaningSource: published?.attribution ?? '',
+            meaningFootnotes:
+                languageCode != 'tr' && _firstOfVerse(surah, i)
+                    ? published?.footnotes[ayet.verse] ?? ''
+                    : '',
+            audioAsset: ayet.audioAsset,
+          )
+      else
+        for (final ayet in surah.ayetler)
+          ReadingSegment(
+            id: 'ayet-${ayet.number}',
+            number:
+                surah.id == 'fatiha'
+                    ? (ayet.number < 7 ? ayet.number + 1 : 7)
+                    : (surah.id == 'nasr' && ayet.number > 3 ? 3 : ayet.number),
+            arabic: displayArabic(ayet.arabic),
+            meaning:
+                published?.verses[surah.id == 'fatiha'
+                    ? (ayet.number < 7 ? ayet.number + 1 : 7)
+                    : (surah.id == 'nasr' && ayet.number > 3
+                        ? 3
+                        : ayet.number)] ??
+                ayet.meaningTr,
+            meaningSource: published?.attribution ?? '',
+            meaningFootnotes:
+                published?.footnotes[surah.id == 'fatiha'
+                    ? (ayet.number < 7 ? ayet.number + 1 : 7)
+                    : (surah.id == 'nasr' && ayet.number > 3
+                        ? 3
+                        : ayet.number)] ??
+                '',
+            audioAsset: ayet.audioAsset,
+          ),
     ];
   }
+
+  /// Quran text as the Quran font (Shaikh Hamdullah Mushaf) draws it: the
+  /// subscript alef (long î) is written ۪ as in the Turkish mushaf; waqf
+  /// signs it has no glyph for — small high tah, zain "câiz" (Tîn 4,
+  /// Hümeze 4), "qif" (Kadir 5) — are left out (another font drew them big
+  /// and broken over the word). The data keeps the source text.
+  static const _noGlyphMarks = ['ؕ', 'ؗ', 'ࣞ'];
+
+  static String displayArabic(String text) => _noGlyphMarks
+      .fold(text, (t, mark) => t.replaceAll(mark, ''))
+      .replaceAll('ٖ', '۪');
+
+  static bool _firstOfVerse(Surah surah, int i) =>
+      i == 0 || surah.ayetler[i - 1].verse != surah.ayetler[i].verse;
 
   /// A prayer's parts in order.
   static List<ReadingSegment> ofDua(Dua dua, {String languageCode = 'tr'}) => [

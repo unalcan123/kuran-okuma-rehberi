@@ -35,7 +35,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/audio/full_readings/
     - assets/audio/dualar/01_subhaneke/
     - assets/audio/dualar/02_ettahiyatu/
     - assets/audio/dualar/03_salli/
@@ -45,6 +44,10 @@ flutter:
     - assets/audio/dualar/07_kunut1/
     - assets/audio/dualar/08_kunut2/
     - assets/audio/dualar/09_amentu/
+    - assets/audio/dualar/10_ezan_duasi/
+    - assets/audio/dualar/13_yemek_duasi/
+    - assets/audio/dualar/namaz_lafizlari/
+    - assets/audio/dualar/15_tefriciye/
     - assets/audio/elifba/ders_1_harfler/
     - assets/audio/elifba/ders_2_harfler/
     - assets/audio/elifba/ders_3_ustun/
@@ -107,12 +110,14 @@ flutter:
     - assets/audio/sureler/14_duha/
     - assets/audio/sureler/15_insirah/
     - assets/audio/sureler/16_tin/
+    - assets/audio/sureler/17_kadir/
     - assets/audio/sureler/18_zilzal/
     - assets/audio/sureler/19_adiyat/
     - assets/audio/sureler/20_karia/
     - assets/audio/sureler/21_tekasur/
     - assets/audio/sureler/22_asr/
     - assets/audio/sureler/23_humeze/
+    - assets/audio/sureler/24_amenerrasulu/
     - assets/images/splash/
     - assets/images/branding/
     - assets/images/backgrounds/
@@ -122,6 +127,8 @@ flutter:
     - assets/images/lessons/cards/
     - assets/images/lessons/sureler/
     - assets/images/lessons/dualar/
+    - assets/images/lessons/yazisiz/dualar/
+    - assets/images/lessons/yazisiz/sureler/
     - assets/images/reading/
     - assets/lazim/ders2icinsayfa_alti.png
     - assets/lazim/ders1.png
@@ -131,6 +138,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Hasenat.ttf
     # Harf Treni Seviye 4 (farklı yazılar). SIL OFL 1.1, bkz. assets/fonts/OFL-NotoArabic.txt
+    # Kur'an metinleri: Shaikh Hamdullah Mushaf, © Muhammet Abay (assets/fonts/KAYNAK-Hamdullah.txt)
+    - family: Hamdullah
+      fonts:
+        - asset: assets/fonts/ShaikhHamdullahMushaf.ttf
     - family: NotoNaskhArabic
       fonts:
         - asset: assets/fonts/NotoNaskhArabic-Arapca.ttf

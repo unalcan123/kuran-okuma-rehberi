@@ -37,6 +37,7 @@ class ReadingScreen extends StatefulWidget {
     this.arabicTitle,
     this.fullAudioAsset = '',
     this.settings,
+    this.arabicFontFamily,
   });
 
   final String title;
@@ -47,6 +48,10 @@ class ReadingScreen extends StatefulWidget {
 
   /// Defaults to [ReadingSettings.instance].
   final ReadingSettings? settings;
+
+  /// The Arabic's font; null = [AppTextTheme.arabicFontFamily] (prayers).
+  /// Surahs use [AppTextTheme.quranFontFamily].
+  final String? arabicFontFamily;
 
   /// Header picture (cut from the design sheet by `tool/crop_lesson_cards.py`).
   static const String sceneAsset = 'assets/images/reading/reading_scene.webp';
@@ -77,7 +82,6 @@ class ReadingScreenState extends State<ReadingScreen> {
     super.initState();
     final audio = context.read<AudioService>();
     audio.preload([
-
       for (final s in widget.segments)
         if (s.audioAsset.isNotEmpty) s.audioAsset,
     ]);
@@ -301,6 +305,7 @@ class ReadingScreenState extends State<ReadingScreen> {
                         widget.segments[i].isOpening
                             ? fontSize * 0.87
                             : fontSize,
+                    arabicFontFamily: widget.arabicFontFamily,
                     showArabic: _settings.showArabic,
                     showMeaning: _settings.showMeaning,
                     isActive: _player.activeIndex == i,
@@ -451,9 +456,10 @@ class ReadingPlaybackBar extends StatelessWidget {
               icon: Icons.volume_up_rounded,
               label: 'Dinle',
               color: AppColors.turquoise,
+              // Parts without a recording (e.g. "33 defa") are skipped.
               onPressed:
                   (player.fullAudioAsset.isNotEmpty ||
-                          segments.every((s) => s.audioAsset.isNotEmpty))
+                          segments.any((s) => s.audioAsset.isNotEmpty))
                       ? onListen
                       : null,
             ),
@@ -467,7 +473,7 @@ class ReadingPlaybackBar extends StatelessWidget {
               badge: '${repeatCount}x',
               color: AppColors.skyBlue,
               onPressed:
-                  segments.every((s) => s.audioAsset.isNotEmpty)
+                  segments.any((s) => s.audioAsset.isNotEmpty)
                       ? onMemorize
                       : null,
             ),
@@ -553,4 +559,3 @@ class ReadingPlaybackBar extends StatelessWidget {
     );
   }
 }
-

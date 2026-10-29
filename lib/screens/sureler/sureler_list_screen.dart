@@ -7,7 +7,7 @@ import '../../data/recitation_card_images.dart';
 import '../../data/supplementary_sureler_data.dart';
 import '../../models/surah.dart';
 import '../../widgets/holy_places_background.dart';
-import '../../widgets/picture_card.dart';
+import '../../widgets/recitation_card.dart';
 import 'surah_detail_screen.dart';
 import '../../widgets/tablet_zoom.dart';
 
@@ -96,6 +96,10 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                           .floor()
                           .clamp(1, 4);
 
+                      final cardWidth =
+                          (constraints.maxWidth - 40 - 16 * (columns - 1)) /
+                          columns;
+
                       return GridView.builder(
                         // At the end, room to see the Kâbe scene.
                         padding: EdgeInsets.fromLTRB(
@@ -114,28 +118,46 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                           crossAxisCount: columns,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 16,
-                          childAspectRatio: kSurahCardAspectRatio,
+                          mainAxisExtent: RecitationCard.extentOf(
+                            context,
+                            width: cardWidth,
+                            aspectRatio: kSurahCardAspectRatio,
+                          ),
                         ),
                         itemBuilder: (context, index) {
                           final surah = kAllNamazTexts[index];
-                          return PictureCard(
-                            key: ValueKey('surah-card-${surah.id}'),
-                            image: kSurahCardImages[surah.id],
+                          final number = switch (surah.id) {
+                            'ayetel-kursi' => '${index + 1} · Bakara 2:255',
+                            'amenerrasulu' => '${index + 1} · Bakara 2:285-286',
+                            _ => context.t('Sure {n}', {'n': index + 1}),
+                          };
+                          final textFree = kSurahTextFreeImages.containsKey(
+                            surah.id,
+                          );
+                          return RecitationCard(
+                            cardKey: ValueKey('surah-card-${surah.id}'),
+                            captionKey: ValueKey('surah-caption-${surah.id}'),
+                            image: surahCardImage(surah.id),
                             aspectRatio: kSurahCardAspectRatio,
                             radiusFactor: kSurahCardRadiusFactor,
-                            label:
-                                surah.id == 'ayetel-kursi'
-                                    ? '${index + 1} · Bakara 2:255'
-                                    : context.t('Sure {n}', {'n': index + 1}),
+                            number: number,
                             title: context.t(surah.titleTr),
-                            imageSize: _cardImageSizes[surah.id],
-                            overlay: RecitationTitleOverlay(
-                              title: context.t(surah.titleTr),
-                              label: context.t('Sure {n}', {'n': index + 1}),
-                              prayer: false,
-                              showTitle: context.language != AppLanguage.tr,
-                            ),
                             arabic: surah.arabicName,
+                            // An old picture shows the master's number, not
+                            // the surah's place here: covered by the right one.
+                            imageSize:
+                                textFree ? null : _cardImageSizes[surah.id],
+                            overlay:
+                                textFree
+                                    ? null
+                                    : RecitationTitleOverlay(
+                                      title: context.t(surah.titleTr),
+                                      label: context.t('Sure {n}', {
+                                        'n': index + 1,
+                                      }),
+                                      prayer: false,
+                                      showTitle: false,
+                                    ),
                             onTap: () => _openSurah(context, surah),
                           );
                         },

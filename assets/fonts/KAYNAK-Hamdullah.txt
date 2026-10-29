@@ -1,0 +1,5 @@
+Shaikh Hamdullah Mushaf (KuranKerimFontHamdullah.ttf)
+Copyright (c) 2011 by Muhammet Abay (muhabay@gmail.com). All rights reserved.
+"Shaikh Hamdullah Mushaf" is a trademark of Muhammet Abay.
+Uygulamada Kur'an metinleri (sureler, Âyetel Kürsî, Âmenerrasûlü) için kullanılır;
+proje sahibinin isteğiyle eklendi ve Kaynaklar sayfasında belirtilir.

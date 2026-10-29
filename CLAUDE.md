@@ -12,7 +12,14 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   Web kendi ses motorunu kullanır (`WebAudioEngine`: harf/efekt çözülmüş buffer, sure/dua/Türkçe köprüsüz
   `<audio>`); uygulamalar audioplayers. Deneme bayrakları `?ses=eski`, `?sesTani=1`; cihaz sayfası `web/ses-tani.html`.
   Ek surelerin (12+) ayet sesleri üç tekrarlı zilli ezber kayıtlarından `tool/ezber_split` ile ayrılır
-  (tanıma + doğrulama; Kadir, Nebe, yeni dualar kurulmadı — nedenleri `docs/SES.md`).
+  (tanıma + doğrulama; Kadir sonradan "selâm" 5. ayete taşınarak kuruldu; Nebe ve bazı dualar kurulmadı — `docs/SES.md`). Bölüm bölüm gelen kayıtlar
+  (Tefriciye, namaz lafızları → Dua 11/12/14, Âyetel Kürsî 9 bölüm, Âmenerrasûlü = 24. öğe) ve `Ayet.verse` (bir ayetin
+  bölümleri, kartta ayet no) `docs/SES.md`'de. Kur'an Arapçası için kullanıcının `kuran.docx`'i (İndirilenler) kaynak;
+  **Kur'an metinleri (sure okuma ekranları) Shaikh Hamdullah Mushaf yazı tipiyle** (`AppTextTheme.quranFontFamily`,
+  `assets/fonts/ShaikhHamdullahMushaf.ttf`; © Muhammet Abay, "All rights reserved" — kullanıcı kararıyla eklendi, Kaynaklar
+  sayfasında ve `assets/fonts/KAYNAK-Hamdullah.txt`'de belirtildi). Fontta olmayan işaretler `ReadingSegment.displayArabic`
+  ile ekranda düzeltilir (ٖ → ۪, U+0615/0617/08DE durak işaretleri çıkar; veri Diyanet metniyle aynı kalır). Elifba ve
+  dualar Hasenat'ta (renklendirme/piksel testleri ona göre).
 - **Türkçe açıklama sesleri** (🔊, kalıcı `sPPP_KK` kimlikleri, manifest, ElevenLabs
   üreticisi — uygulama API çağırmaz, anahtar asla depoya/koda girmez): `docs/TURKCE_SES.md`.
 - **Web/telefon görünümü** (tarayıcı sayfayı geniş yerleştirince her şey küçülüyordu; `PhoneZoomFix`): `docs/WEB.md`.
@@ -29,7 +36,7 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - Tema: `lib/theme` (`AppColors`: krem, turkuaz, adaçayı, lacivert, altın; Arapça için
   Hasenat fontu `AppTextTheme`), breakpoint'ler `lib/core/responsive.dart`.
 - Sakin eğitim uygulaması: arcade/neon yok, çocuğu cezalandıran geri bildirim yok.
-- **Ana sayfa**: 4 kart; telefonda (ekran < 600 px, `AppBreakpoints.mobile`) **tek sütun**, 600 px'ten 2×2 (`HomeScreen.columnsFor`), hücreler 4:3 = kart görsellerinin oranı
+- **Ana sayfa**: gövde `TabletZoom` ile (listelerle aynı 1.2× büyütme); 4 kart; telefonda (ekran < 600 px, `AppBreakpoints.mobile`) **tek sütun**, 600 px'ten 2×2 (`HomeScreen.columnsFor`), hücreler 4:3 = kart görsellerinin oranı
   (`HomeMenuItem.image`, `assets/images/home/*.webp`, her biri < 200 KB; PNG asılları `assets_src/home/`,
   pakete girmez; görselli kartta başlık yazılmaz). Sıra: Rehber, Dualar,
   Sureler, Oyunlar. Test: `test/home_grid_test.dart`. Ders **Grid** arka planı `LessonGridBackground`
@@ -62,7 +69,9 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - **GİRİŞ** "Harflerin Çıkış Yerleri" (PDF s. 3-5) ders değildir: `kCikisYerleriGirisLesson`
   (`letters_data.dart`, id `giris-harflerin-cikis-yerleri`, öğe yok, yalnız Sayfa), ders listesinin
   başında ayrı bölüm. `kElifbaLessons` (oyunlar, skorlar) onu içermez; bütün kitap sayfaları için
-  `kElifbaAllLessons`. **Ders 1 = s. 6-7.**
+  `kElifbaAllLessons`. **Ders 1 = s. 6-7.** Giriş sayfaları şimdilik **sessiz** (`LessonBookPage.silent`: 🔊 yok,
+  ElevenLabs Arapça harfleri iyi okuyamamıştı; öğrenci kendisi okur, kayıt kimlikleri veride duruyor, yeniden yapılınca
+  `silent` kaldırılır; harf sesi istenirse derslerdeki harf kayıtlarından alınabilir).
 - **Ders listesi kartları görsel**: `assets/images/lessons/cards/{intro_harflerin_cikis_yerleri,lesson_NN}.png`,
   master `assets/images/lessons/lesson_cards_master.png`'den `python tool/crop_lesson_cards.py` ile kırpılır
   (yeniden çizilmez; master pakete girmez). Eşleşme ders kimliğiyle `lib/data/lesson_card_images.dart`;
@@ -79,7 +88,16 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   Kart 12-23 (Âyetel Kürsî … Hümeze, `kAllNamazTexts` sırası) ikinci master'dan: `assets_src/lessons/sure_kartlari_12_23.jpeg`
   (açık zemin, kutular ölçülü: `Master.boxes`, 491 px genişliğe küçültülür; boyutlar `_cardImageSizes`).
   11 sure kartı `kSureler` sırasıyla bağlı (sure master'ının son satırı ortalanmış 2 geniş kart:
-  `row_col_edges`; Tebbet/Kafirun daha geniş, `contain` ile sığar). Test: `test/recitation_cards_test.dart`. Test: `test/lesson_cards_test.dart`.
+  `row_col_edges`; Tebbet/Kafirun daha geniş, `contain` ile sığar).
+  **Yeni kart düzeni (2026-10-29):** ortak `RecitationCard` (`lib/widgets/recitation_card.dart`): üstte resim, altta
+  ayrı başlık alanı (1. satır "Dua 7"/"Sure 3", 2. satır ad; ortalı, büyük, sığmazsa küçülür, kesilmez); her dilde
+  Flutter yazar. **Yazısız resimler** `assets/images/lessons/yazisiz/{dualar,sureler}/`, eşleme tek yerde:
+  `kDuaTextFreeImages` / `kSurahTextFreeImages` → `duaCardImage()` / `surahCardImage()` (yoksa eski yazılı kart).
+  Eski kartlar yerinde + yedek `assets_src/kart_yedek/` (pakete girmez). Dua 1-15 yazısız: ChatGPT'nin 5×3 sayfası
+  (`assets_src/chatgpt_kartlar/`) anlamına göre eşlendi (sırayla değil), dikey 296×336 (`kDuaCardImageSize`); yenisi `tool/install_dua_card.py`.
+  Sure 1-23 yazısız: ChatGPT'nin 6×4 sayfası (`assets_src/chatgpt_sure_kartlari/`) anlamına göre eşlendi, kare
+  240×240 (`kSurahCardImageSize`). Resimdeki yazıyı otomatik silme/üstüne yazma
+  denendi, resmi bozuyor — yapma. Test: `test/recitation_cards_test.dart` (sütun: telefon 1, tablet 2-3, masaüstü 3-4). Test: `test/recitation_cards_test.dart`. Test: `test/lesson_cards_test.dart`.
 - **Sayfa gezinmesi Arapça kitap gibi (RTL)**: parmak soldan sağa = sonraki sayfa; ← sonraki, → önceki;
   alt çubukta "Sonraki" solda. Tek yer: `BookPager` (`lib/widgets/book_pager.dart`, `PageView(reverse)`
   + hafif sayfa çevirme: üstteki sayfa gölgeyle alttakinin üstüne kayar). Sayfa, Grid, Tekli hepsi bunu
@@ -144,6 +162,7 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   dosyada yok) ve görseller de görünür; hak/lisans durumu kullanıcının sorumluluğunda.
 - Noto Naskh/Sans Arabic (Harf Treni) SIL OFL: `assets/fonts/OFL-NotoArabic.txt`. Kitabın font
   paketindeki ticari/"tüm hakları saklı" fontları depoya ekleme (ayrıntı `docs/OYUNLAR.md` Harf Treni).
+  İstisna: Shaikh Hamdullah Mushaf (Kur'an metinleri) kullanıcının açık isteğiyle, kaynak belirtilerek eklendi (2026-10-29).
 
 ## İş bitince
 ```

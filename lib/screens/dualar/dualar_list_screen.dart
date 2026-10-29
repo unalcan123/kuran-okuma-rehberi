@@ -1,4 +1,3 @@
-import '../../widgets/recitation_title_overlay.dart';
 import '../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 import '../../l10n/l10n.dart';
@@ -8,11 +7,12 @@ import '../../data/recitation_card_images.dart';
 import '../../models/dua.dart';
 import '../../widgets/holy_places_background.dart';
 import 'dua_detail_screen.dart';
-import '../../widgets/picture_card.dart';
+import '../../widgets/recitation_card.dart';
 import '../../widgets/tablet_zoom.dart';
 
 /// "Namaz Duaları" home — each prayer as a picture card ([PictureCard],
-/// [kDuaCardImages]) on one responsive grid.
+/// [duaCardImage]) on one responsive grid ([RecitationCard]): the picture,
+/// and under it the number and the name, written by the app.
 ///
 /// Column count follows the same rule the Elifba grid uses: how many
 /// cards actually fit at a comfortable minimum width, not how wide
@@ -70,6 +70,10 @@ class _DualarListScreenState extends State<DualarListScreen> {
                           .floor()
                           .clamp(1, 4);
 
+                      final cardWidth =
+                          (constraints.maxWidth - 40 - 16 * (columns - 1)) /
+                          columns;
+
                       return GridView.builder(
                         // At the end, room to see the Kâbe scene.
                         padding: EdgeInsets.fromLTRB(
@@ -82,39 +86,30 @@ class _DualarListScreenState extends State<DualarListScreen> {
                               ),
                         ),
                         itemCount: kAllDualar.length,
-                        // Picture cards (PictureCard): every card has the
-                        // pictures' shape; the whole card opens the prayer.
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: columns,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 16,
-                          childAspectRatio: kDuaCardAspectRatio,
+                          mainAxisExtent: RecitationCard.extentOf(
+                            context,
+                            width: cardWidth,
+                            aspectRatio: kDuaCardAspectRatio,
+                          ),
                         ),
                         itemBuilder: (context, index) {
                           final dua = kAllDualar[index];
-                          return PictureCard(
-                            key: ValueKey('dua-card-${dua.id}'),
-                            image: kDuaCardImages[dua.id],
+                          final label = context.t('Dua {n}', {'n': dua.order});
+                          final title = context.t(
+                            kDuaDisplayTitles[dua.id] ?? dua.titleTr,
+                          );
+                          return RecitationCard(
+                            cardKey: ValueKey('dua-card-${dua.id}'),
+                            captionKey: ValueKey('dua-caption-${dua.id}'),
+                            image: duaCardImage(dua.id),
                             aspectRatio: kDuaCardAspectRatio,
                             radiusFactor: kDuaCardRadiusFactor,
-                            label: context.t('Dua {n}', {'n': dua.order}),
-                            title: context.t(
-                              kDuaDisplayTitles[dua.id] ?? dua.titleTr,
-                            ),
-                            imageSize: const Size(490, 320),
-                            overlay:
-                                context.language == AppLanguage.tr
-                                    ? null
-                                    : RecitationTitleOverlay(
-                                      title: context.t(
-                                        kDuaDisplayTitles[dua.id] ??
-                                            dua.titleTr,
-                                      ),
-                                      label: context.t('Dua {n}', {
-                                        'n': dua.order,
-                                      }),
-                                      prayer: true,
-                                    ),
+                            number: label,
+                            title: title,
                             onTap: () => _openDua(context, dua),
                           );
                         },

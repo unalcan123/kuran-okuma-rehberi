@@ -13,6 +13,7 @@ import '../sureler/sureler_list_screen.dart';
 import '../iletisim/contact_screen.dart';
 import 'home_menu_item.dart';
 import 'widgets/home_grid_card.dart';
+import '../../widgets/tablet_zoom.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -79,87 +80,91 @@ class HomeScreen extends StatelessWidget {
     final columns = columnsFor(MediaQuery.sizeOf(context).width);
 
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: maxContentWidth),
-            child: ListView(
-              padding: EdgeInsets.symmetric(
-                horizontal: sidePadding,
-                vertical: phone ? 20 : 32,
-              ),
-              children: [
-                const Align(
-                  alignment: Alignment.centerRight,
-                  child: LanguagePickerButton(),
+      // Same 1.2x tablet / desktop enlargement as the lesson, prayer and
+      // surah lists, so the home cards are as big as theirs.
+      body: TabletZoom(
+        child: SafeArea(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: maxContentWidth),
+              child: ListView(
+                padding: EdgeInsets.symmetric(
+                  horizontal: sidePadding,
+                  vertical: phone ? 20 : 32,
                 ),
-                Text(
-                  context.t("Kur'an Okuma Rehberi"),
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.navy,
+                children: [
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: LanguagePickerButton(),
                   ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  context.t('Bugün ne öğrenmek istersin?'),
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: AppColors.textSecondary,
+                  Text(
+                    context.t("Kur'an Okuma Rehberi"),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.navy,
+                    ),
                   ),
-                ),
-                SizedBox(height: phone ? 16 : 28),
-                // One column on a phone, 2 x 2 from 600 px. Cells are 4:3,
-                // the illustrations' own ratio (never stretched).
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    final spacing = phone ? 16.0 : 20.0;
-                    // On wide, short windows (landscape) the 2 x 2 grid is
-                    // narrowed so all four cards fit the screen's height;
-                    // it never gets smaller than [minCardWidth] a card
-                    // (below that the page scrolls).
-                    final rowsHeight =
-                        MediaQuery.sizeOf(context).height -
-                        MediaQuery.paddingOf(context).vertical -
-                        _chromeHeight;
-                    final fitWidth =
-                        ((rowsHeight - spacing) / 2) * 4 / 3 * 2 + spacing;
-                    final width =
-                        columns == 1
-                            ? constraints.maxWidth
-                            : fitWidth
-                                .clamp(
-                                  minCardWidth * 2 + spacing,
-                                  constraints.maxWidth,
-                                )
-                                .toDouble();
-                    return Center(
-                      child: SizedBox(
-                        width: width,
-                        child: GridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: items.length,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: columns,
-                                mainAxisSpacing: spacing,
-                                crossAxisSpacing: spacing,
-                                childAspectRatio: 4 / 3,
-                              ),
-                          itemBuilder:
-                              (context, index) =>
-                                  HomeGridCard(item: items[index]),
+                  const SizedBox(height: 6),
+                  Text(
+                    context.t('Bugün ne öğrenmek istersin?'),
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                  SizedBox(height: phone ? 16 : 28),
+                  // One column on a phone, 2 x 2 from 600 px. Cells are 4:3,
+                  // the illustrations' own ratio (never stretched).
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      final spacing = phone ? 16.0 : 20.0;
+                      // On wide, short windows (landscape) the 2 x 2 grid is
+                      // narrowed so all four cards fit the screen's height;
+                      // it never gets smaller than [minCardWidth] a card
+                      // (below that the page scrolls).
+                      final rowsHeight =
+                          MediaQuery.sizeOf(context).height -
+                          MediaQuery.paddingOf(context).vertical -
+                          _chromeHeight;
+                      final fitWidth =
+                          ((rowsHeight - spacing) / 2) * 4 / 3 * 2 + spacing;
+                      final width =
+                          columns == 1
+                              ? constraints.maxWidth
+                              : fitWidth
+                                  .clamp(
+                                    minCardWidth * 2 + spacing,
+                                    constraints.maxWidth,
+                                  )
+                                  .toDouble();
+                      return Center(
+                        child: SizedBox(
+                          width: width,
+                          child: GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: items.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: columns,
+                                  mainAxisSpacing: spacing,
+                                  crossAxisSpacing: spacing,
+                                  childAspectRatio: 4 / 3,
+                                ),
+                            itemBuilder:
+                                (context, index) =>
+                                    HomeGridCard(item: items[index]),
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-                SizedBox(height: phone ? 20 : 28),
-                const ContactEntryCard(),
-                const SizedBox(height: 8),
-                const SourcesEntry(),
-                const PrivacyEntry(),
-              ],
+                      );
+                    },
+                  ),
+                  SizedBox(height: phone ? 20 : 28),
+                  const ContactEntryCard(),
+                  const SizedBox(height: 8),
+                  const SourcesEntry(),
+                  const PrivacyEntry(),
+                ],
+              ),
             ),
           ),
         ),

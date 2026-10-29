@@ -327,6 +327,8 @@ const LessonPageLayout kCikisYerleriGirisPageLayout = LessonPageLayout([
       13: TrAudio('s003_11'),
     },
     type: LessonPageType.info,
+    // Students read the Giriş themselves (its recordings will be redone).
+    silent: true,
     heading: 'HARFLERİN ÇIKIŞ YERLERİ',
     headerImage: 'assets/images/elifba/harflerin_cikis_yerleri_header.png',
     intro: [
@@ -370,6 +372,8 @@ const LessonPageLayout kCikisYerleriGirisPageLayout = LessonPageLayout([
       11: TrAudio('s004_10', 2),
     },
     type: LessonPageType.info,
+    // Students read the Giriş themselves (its recordings will be redone).
+    silent: true,
     intro: [
       '( «ر» ) Dildeki çıkış noktası, dil üstünün uca yakın kısmıdır. Dil '
           'ucu, üst ön damağa doğru kıvrılarak kaldırılır ve bu noktanın '
@@ -403,6 +407,8 @@ const LessonPageLayout kCikisYerleriGirisPageLayout = LessonPageLayout([
   LessonBookPage(
     bookPage: 5,
     type: LessonPageType.info,
+    // Students read the Giriş themselves (its recordings will be redone).
+    silent: true,
     figure: 'assets/images/elifba/mahrec_sekli.png',
     figureLegend: [
       FrameRun(0, Color(0xFF8DC63F), 'Geniz'),

@@ -282,7 +282,11 @@ class _BookSheet extends StatelessWidget {
             ..add(
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: narrow ? 4 : 8),
-                child: _IntroText(page.intro, audio: page.introAudio),
+                child: _IntroText(
+                  page.intro,
+                  audio: page.introAudio,
+                  silent: page.silent,
+                ),
               ),
             )
             ..add(gap);
@@ -409,7 +413,7 @@ class _SheetHeading extends StatelessWidget {
     ].join('   '),
     arabicColor: page.arabicHeadingColor,
     image: page.headerImage,
-    audioId: page.headingAudio,
+    audioId: page.silent ? null : page.headingAudio,
   );
 }
 
@@ -580,7 +584,14 @@ class _IntroText extends StatelessWidget {
   final List<String> paragraphs;
   final Map<int, TrAudio> audio;
 
-  const _IntroText(this.paragraphs, {this.audio = const {}});
+  /// No recordings at all (see [LessonBookPage.silent]).
+  final bool silent;
+
+  const _IntroText(
+    this.paragraphs, {
+    this.audio = const {},
+    this.silent = false,
+  });
 
   static final _quoted = RegExp('“[^”]*”');
   static final _arabic = RegExp(r'[؀-ۿﹰ-﻿]+(?:[ ؀-ۿﹰ-﻿]*[؀-ۿﹰ-﻿])?');
@@ -671,9 +682,12 @@ class _IntroText extends StatelessWidget {
     ).textTheme.bodyLarge?.copyWith(height: 1.45, color: AppColors.textPrimary);
     final blocks = <Widget>[];
     for (var i = 0; i < paragraphs.length;) {
-      final inferred = kExplanationAudioIds[paragraphs[i].trim()];
+      final inferred =
+          silent ? null : kExplanationAudioIds[paragraphs[i].trim()];
       final recording =
-          audio[i] ?? (inferred == null ? null : TrAudio(inferred));
+          silent
+              ? null
+              : audio[i] ?? (inferred == null ? null : TrAudio(inferred));
       final end = math.min(i + (recording?.paragraphs ?? 1), paragraphs.length);
       final group = [
         for (var j = i; j < end; j++) _paragraph(context, j, style),

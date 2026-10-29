@@ -8,11 +8,17 @@ class Ayet {
   final String meaningTr;
   final String audioAsset;
 
+  /// When an ayet is read in phrases (one recording each), [number] is the
+  /// phrase (file NN_ayet.mp3) and [verse] the Quran verse it belongs to,
+  /// shown on its card. Null: [number] is the verse.
+  final int? verse;
+
   const Ayet({
     required this.number,
     required this.arabic,
     required this.meaningTr,
     required this.audioAsset,
+    this.verse,
   });
 }
 

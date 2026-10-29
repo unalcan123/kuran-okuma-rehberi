@@ -77,6 +77,9 @@ void main() {
         200,
         scrollable: find.byType(Scrollable).first,
       );
+      // Fully on screen (the home page is enlarged 1.2x on tablets).
+      await tester.ensureVisible(entry);
+      await tester.pumpAndSettle();
       await tester.tap(entry);
       await tester.pumpAndSettle();
       expect(

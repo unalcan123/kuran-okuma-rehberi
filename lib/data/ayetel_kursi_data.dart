@@ -72,6 +72,9 @@ const kAyatelKursiMeanings = <String, PublishedAyahMeaning>{
   ),
 };
 
+/// Bakara 255 in the nine phrases the recording reads one by one
+/// ([Ayet.verse]). Arabic: the owner's Quran text (`kuran.docx`, Turkish
+/// mushaf spelling; `tool/sources/kuran_docx_phrases.json`).
 const kAyatelKursi = Surah(
   order: 12,
   id: 'ayetel-kursi',
@@ -81,14 +84,200 @@ const kAyatelKursi = Surah(
   besmeleAudioAsset: 'audio/sureler/12_ayetel-kursi/00_besmele.mp3',
   ayetler: [
     Ayet(
-      number: 255,
-      arabic:
-          "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞۚ لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِۗ مَن ذَا ٱلَّذِي يَشۡفَعُ عِندَهُۥٓ إِلَّا بِإِذۡنِهِۦۚ يَعۡلَمُ مَا بَيۡنَ أَيۡدِيهِمۡ وَمَا خَلۡفَهُمۡۖ وَلَا يُحِيطُونَ بِشَيۡءٖ مِّنۡ عِلۡمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرۡسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَۖ وَلَا يَـُٔودُهُۥ حِفۡظُهُمَاۚ وَهُوَ ٱلۡعَلِيُّ ٱلۡعَظِيمُ",
+      number: 1,
+      arabic: "اَللّٰهُ لَٓا اِلٰهَ اِلَّا هُوَۚ اَلْحَيُّ الْقَيُّومُۚ",
       meaningTr:
-          "Allah o İlâhtır ki Kendisinden başka ilâh yoktur. Haydır, kayyûmdur kendisini ne bir uyuklama, ne uyku tutamaz. Göklerde ve yerde ne varsa O'nundur. İzni olmadan huzurunda şefaat etmek kimin haddine? Yarattığı mahlûkların önünde ardında ne var, hepsini bilir. Mahlûklar ise O’nun dilediğinden başka, ilminden hiçbir şey kavrayamazlar. O’nun kürsüsü gökleri ve yeri kaplamıştır. Gökleri ve yeri koruyup gözetmek O’na ağır gelmez, O öyle ulu, öyle büyüktür. [19,93-95; 53,26; 21,28; 20,110] [KM, Tesniye 5,26; Tekvin 21,33; Çıkış 3,15]",
-      audioAsset: 'audio/sureler/12_ayetel-kursi/255_ayet.mp3',
+          "Allah o İlâhtır ki Kendisinden başka ilâh yoktur. Haydır, kayyûmdur.",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/01_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 2,
+      arabic: "لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌۜ",
+      meaningTr: "Kendisini ne bir uyuklama, ne uyku tutamaz.",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/02_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 3,
+      arabic: "لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِۜ",
+      meaningTr: "Göklerde ve yerde ne varsa O'nundur.",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/03_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 4,
+      arabic: "مَنْ ذَا الَّذ۪ي يَشْفَعُ عِنْدَهُٓ اِلَّا بِاِذْنِه۪ۜ",
+      meaningTr: "İzni olmadan huzurunda şefaat etmek kimin haddine?",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/04_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 5,
+      arabic: "يَعْلَمُ مَا بَيْنَ اَيْد۪يهِمْ وَمَا خَلْفَهُمْۚ",
+      meaningTr: "Yarattığı mahlûkların önünde ardında ne var, hepsini bilir.",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/05_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 6,
+      arabic: "وَلَا يُح۪يطُونَ بِشَيْءٍ مِنْ عِلْمِه۪ٓ اِلَّا بِمَا شَٓاءَۚ",
+      meaningTr:
+          "Mahlûklar ise O’nun dilediğinden başka, ilminden hiçbir şey kavrayamazlar.",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/06_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 7,
+      arabic: "وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَۚ",
+      meaningTr: "O’nun kürsüsü gökleri ve yeri kaplamıştır.",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/07_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 8,
+      arabic: "وَلَا يَؤُ۫دُهُ حِفْظُهُمَاۚ",
+      meaningTr: "Gökleri ve yeri koruyup gözetmek O’na ağır gelmez,",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/08_ayet.mp3',
+      verse: 255,
+    ),
+    Ayet(
+      number: 9,
+      arabic: "وَهُوَ الْعَلِيُّ الْعَظ۪يمُ",
+      meaningTr: "O öyle ulu, öyle büyüktür.",
+      audioAsset: 'audio/sureler/12_ayetel-kursi/09_ayet.mp3',
+      verse: 255,
     ),
   ],
 );
+
+/// Bakara 285-286 ("Âmenerrasûlü") in the recording's 15 phrases
+/// ([Ayet.verse]); Arabic from `kuran.docx` like [kAyatelKursi]. Listed
+/// last (order 24) so the other surahs keep their numbers and folders.
+const kAmenerrasulu = Surah(
+  order: 24,
+  id: 'amenerrasulu',
+  titleTr: 'Âmenerrasûlü',
+  arabicName: 'آمن الرسول',
+  besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحٖيمِ',
+  besmeleAudioAsset: 'audio/sureler/24_amenerrasulu/00_besmele.mp3',
+  ayetler: [
+    Ayet(
+      number: 1,
+      arabic:
+          "اٰمَنَ الرَّسُولُ بِمَٓا اُنْزِلَ اِلَيْهِ مِنْ رَبِّه۪ وَالْمُؤْمِنُونَۜ",
+      meaningTr:
+          "Peygamber, Rabbi tarafından kendisine ne indirildi ise ona iman etti, müminler de!",
+      audioAsset: 'audio/sureler/24_amenerrasulu/01_ayet.mp3',
+      verse: 285,
+    ),
+    Ayet(
+      number: 2,
+      arabic: "كُلٌّ اٰمَنَ بِاللّٰهِ وَمَلٰٓئِكَتِه۪ وَكُتُبِه۪ وَرُسُلِه۪ۜ",
+      meaningTr:
+          "Onlardan her biri Allah'a, meleklerine, kitaplarına ve peygamberlerine iman etti.",
+      audioAsset: 'audio/sureler/24_amenerrasulu/02_ayet.mp3',
+      verse: 285,
+    ),
+    Ayet(
+      number: 3,
+      arabic: "لَا نُفَرِّقُ بَيْنَ اَحَدٍ مِنْ رُسُلِه۪۠",
+      meaningTr:
+          "“O’nun resullerinden hiç birini diğerinden ayırt etmeyiz.” dediler",
+      audioAsset: 'audio/sureler/24_amenerrasulu/03_ayet.mp3',
+      verse: 285,
+    ),
+    Ayet(
+      number: 4,
+      arabic: "وَقَالُوا سَمِعْنَا وَاَطَعْنَا",
+      meaningTr: "ve eklediler: “İşittik ve itaat ettik.",
+      audioAsset: 'audio/sureler/24_amenerrasulu/04_ayet.mp3',
+      verse: 285,
+    ),
+    Ayet(
+      number: 5,
+      arabic: "غُفْرَانَكَ رَبَّنَا وَاِلَيْكَ الْمَص۪يرُ",
+      meaningTr: "Ya Rabbenâ, affını dileriz, dönüşümüz Sanadır.”",
+      audioAsset: 'audio/sureler/24_amenerrasulu/05_ayet.mp3',
+      verse: 285,
+    ),
+    Ayet(
+      number: 6,
+      arabic: "لَا يُكَلِّفُ اللّٰهُ نَفْسًا اِلَّا وُسْعَهَاۜ",
+      meaningTr:
+          "Allah hiçbir kimseyi güç yetiremeyeceği bir şekilde yükümlü tutmaz.",
+      audioAsset: 'audio/sureler/24_amenerrasulu/06_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 7,
+      arabic: "لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْۜ",
+      meaningTr:
+          "Herkesin kazandığı iyilik kendi lehine, işlediği fenalık da kendi aleyhinedir.",
+      audioAsset: 'audio/sureler/24_amenerrasulu/07_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 8,
+      arabic: "رَبَّنَا لَا تُؤَاخِذْنَٓا اِنْ نَس۪ينَٓا اَوْ اَخْطَأْنَاۚ",
+      meaningTr:
+          "Ya Rabbenâ! Eğer unuttuk veya kasıtsız olarak yanlış yaptıysak bundan dolayı bizi sorumlu tutma!",
+      audioAsset: 'audio/sureler/24_amenerrasulu/08_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 9,
+      arabic: "رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَٓا اِصْرًا",
+      meaningTr: "Ya Rabbenâ! Bize ağır yük yükleme,",
+      audioAsset: 'audio/sureler/24_amenerrasulu/09_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 10,
+      arabic: "كَمَا حَمَلْتَهُ عَلَى الَّذ۪ينَ مِنْ قَبْلِنَاۚ",
+      meaningTr: "bizden öncekilere yüklediğin gibi!",
+      audioAsset: 'audio/sureler/24_amenerrasulu/10_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 11,
+      arabic: "رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِه۪ۚ",
+      meaningTr:
+          "Ya Rabbenâ! Takat getiremeyeceğimiz şeylerle bizi yükümlü tutma!",
+      audioAsset: 'audio/sureler/24_amenerrasulu/11_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 12,
+      arabic: "وَاعْفُ عَنَّا۠",
+      meaningTr: "Affet bizi,",
+      audioAsset: 'audio/sureler/24_amenerrasulu/12_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 13,
+      arabic: "وَاغْفِرْ لَنَا۠",
+      meaningTr: "lütfen bağışla kusurlarımızı,",
+      audioAsset: 'audio/sureler/24_amenerrasulu/13_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 14,
+      arabic: "وَارْحَمْنَا۠",
+      meaningTr: "merhamet buyur bize!",
+      audioAsset: 'audio/sureler/24_amenerrasulu/14_ayet.mp3',
+      verse: 286,
+    ),
+    Ayet(
+      number: 15,
+      arabic: "اَنْتَ مَوْلٰينَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِر۪ينَ",
+      meaningTr:
+          "Sensin Mevlâmız, yardımcımız! Kâfir topluluklara karşı Sen yardım eyle bize!",
+      audioAsset: 'audio/sureler/24_amenerrasulu/15_ayet.mp3',
+      verse: 286,
+    ),
+  ],
+);
+
 // A verse excerpt, listed after the 11 surahs without renumbering them.
 const kNamazAyetleri = <Surah>[kAyatelKursi];
