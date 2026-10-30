@@ -184,8 +184,9 @@ class JsWebAudioPort extends WebAudioPort {
 
   void _playSilence(web.AudioContext context) {
     try {
-      final source = context.createBufferSource()
-        ..buffer = context.createBuffer(1, 1, context.sampleRate);
+      final source =
+          context.createBufferSource()
+            ..buffer = context.createBuffer(1, 1, context.sampleRate);
       source.connect(context.destination);
       source.onended = ((web.Event _) => source.disconnect()).toJS;
       source.start(0);
@@ -413,6 +414,10 @@ class JsMediaChannel implements MediaChannel {
 
   final JsWebAudioPort _port;
   final web.HTMLAudioElement _element = web.HTMLAudioElement();
+
+  @override
+  double? get position =>
+      _element.readyState >= 2 ? _element.currentTime : null;
   final _listeners = <(String, JSFunction)>[];
 
   String? _objectUrl;

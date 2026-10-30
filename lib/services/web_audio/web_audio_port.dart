@@ -28,6 +28,9 @@ abstract class SoundVoice {
 /// One plain audio element, *not* connected to the audio context: the
 /// browser plays it itself and keeps the pitch at another speed.
 abstract class MediaChannel {
+  /// Position in seconds from the media element, not a wall clock.
+  double? get position => null;
+
   /// Puts [bytes] (or, when they could not be loaded, the file at [url]) in
   /// the element at speed [rate], ready for [play]. Replaces the earlier
   /// recording; its events are not reported any more.

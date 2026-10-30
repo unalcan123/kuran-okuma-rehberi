@@ -308,6 +308,14 @@ class ReadingScreenState extends State<ReadingScreen> {
                     arabicFontFamily: widget.arabicFontFamily,
                     showArabic: _settings.showArabic,
                     showMeaning: _settings.showMeaning,
+                    activeWordStart:
+                        _player.activeIndex == i
+                            ? _player.activeWord?.start
+                            : null,
+                    activeWordEnd:
+                        _player.activeIndex == i
+                            ? _player.activeWord?.end
+                            : null,
                     isActive: _player.activeIndex == i,
                     isPlaying: _player.activeIndex == i && _player.isPlaying,
                     isTextHidden: _player.isTextHidden(i),

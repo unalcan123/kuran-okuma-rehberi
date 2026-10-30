@@ -41,6 +41,8 @@ class ReadingSegmentCard extends StatelessWidget {
     required this.segment,
     required this.fontSize,
     this.arabicFontFamily,
+    this.activeWordStart,
+    this.activeWordEnd,
     required this.showArabic,
     required this.showMeaning,
     required this.isActive,
@@ -53,6 +55,7 @@ class ReadingSegmentCard extends StatelessWidget {
   });
 
   final int index;
+  final int? activeWordStart, activeWordEnd;
   final ReadingSegment segment;
   final double fontSize;
 
@@ -87,7 +90,12 @@ class ReadingSegmentCard extends StatelessWidget {
     } else if (showArabic) {
       arabic = Directionality(
         textDirection: TextDirection.rtl,
-        child: ReadingArabicText(segment.arabic, style: arabicStyle),
+        child: ReadingArabicText(
+          segment.arabic,
+          style: arabicStyle,
+          highlightStart: activeWordStart,
+          highlightEnd: activeWordEnd,
+        ),
       );
     } else {
       arabic = const SizedBox.shrink();

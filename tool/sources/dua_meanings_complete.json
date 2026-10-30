@@ -1,0 +1,1172 @@
+[
+  {
+    "originalTurkish": "Allah'ım! Seni her türlü eksiklikten tenzih ederim ve Sana hamd ederim.",
+    "turkish": "Allah'ım! Seni her türlü eksiklikten tenzih ederim ve Sana hamd ederim.",
+    "translations": {
+      "es": "Oh Allah, te glorifico, libre de toda imperfección, y te alabo.",
+      "fr": "Ô Allah, je Te glorifie, exempt de toute imperfection, et je Te loue.",
+      "de": "O Allah, ich preise Dich frei von jeder Unvollkommenheit und lobe Dich.",
+      "en": "O Allah, I glorify You, free from every imperfection, and praise You.",
+      "bs": "Allahu, slavim Te, čistog od svakog nedostatka, i hvalim Te.",
+      "nl": "O Allah, ik verheerlijk U, vrij van elke tekortkoming, en ik prijs U."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Senin ismin mübarektir.",
+    "turkish": "Senin ismin mübarektir.",
+    "translations": {
+      "es": "Bendito es Tu nombre.",
+      "fr": "Béni soit Ton nom.",
+      "de": "Gesegnet ist Dein Name.",
+      "en": "Blessed is Your name.",
+      "bs": "Blagoslovljeno je Tvoje ime.",
+      "nl": "Gezegend is Uw naam."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Senin şanın yücedir.",
+    "turkish": "Senin şanın yücedir.",
+    "translations": {
+      "es": "Exaltada es Tu majestad.",
+      "fr": "Exaltée soit Ta majesté.",
+      "de": "Erhaben ist Deine Majestät.",
+      "en": "Exalted is Your majesty.",
+      "bs": "Uzvišena je Tvoja veličina.",
+      "nl": "Verheven is Uw majesteit."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Senden başka ilah yoktur.",
+    "turkish": "Senden başka ilah yoktur.",
+    "translations": {
+      "es": "No hay divinidad salvo Tú.",
+      "fr": "Il n'y a de divinité que Toi.",
+      "de": "Es gibt keine Gottheit außer Dir.",
+      "en": "There is no deity except You.",
+      "bs": "Nema boga osim Tebe.",
+      "nl": "Er is geen god behalve U."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Bütün tahiyyatlar, salavatlar ve güzel sözler Allah içindir.",
+    "turkish": "Bütün tahiyyatlar, salavatlar ve güzel sözler Allah içindir.",
+    "translations": {
+      "es": "Todas las salutaciones, las oraciones y las buenas palabras son para Allah.",
+      "fr": "Toutes les salutations, les prières et les bonnes paroles sont pour Allah.",
+      "de": "Alle Ehrbezeugungen, Gebete und guten Worte gebühren Allah.",
+      "en": "All salutations, prayers and good words are for Allah.",
+      "bs": "Svi pozdravi, molitve i lijepe riječi pripadaju Allahu.",
+      "nl": "Alle eerbetuigingen, gebeden en goede woorden zijn voor Allah."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Ey Nebi! Allah'ın selamı, rahmeti ve bereketi senin üzerine olsun.",
+    "turkish": "Ey Nebi! Allah'ın selamı, rahmeti ve bereketi senin üzerine olsun.",
+    "translations": {
+      "es": "La paz, la misericordia y las bendiciones de Allah sean contigo, oh Profeta.",
+      "fr": "Que la paix, la miséricorde et les bénédictions d'Allah soient sur toi, ô Prophète.",
+      "de": "Friede, Allahs Barmherzigkeit und Sein Segen seien auf dir, o Prophet.",
+      "en": "Peace, Allah's mercy and His blessings be upon you, O Prophet.",
+      "bs": "Neka su na tebe mir, Allahova milost i blagoslovi, o Vjerovjesniče.",
+      "nl": "Vrede, de barmhartigheid van Allah en Zijn zegeningen zij met u, o Profeet."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Selam bizim üzerimize ve Allah'ın salih kullarının üzerine olsun.",
+    "turkish": "Selam bizim üzerimize ve Allah'ın salih kullarının üzerine olsun.",
+    "translations": {
+      "es": "La paz sea con nosotros y con los siervos rectos de Allah.",
+      "fr": "Que la paix soit sur nous et sur les serviteurs vertueux d'Allah.",
+      "de": "Friede sei auf uns und auf Allahs rechtschaffenen Dienern.",
+      "en": "Peace be upon us and upon Allah's righteous servants.",
+      "bs": "Neka je mir na nas i na Allahove dobre robove.",
+      "nl": "Vrede zij met ons en met de rechtschapen dienaren van Allah."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Şahitlik ederim ki Allah'tan başka ilah yoktur.",
+    "turkish": "Şahitlik ederim ki Allah'tan başka ilah yoktur.",
+    "translations": {
+      "es": "Atestiguo que no hay divinidad salvo Allah.",
+      "fr": "J'atteste qu'il n'y a de divinité qu'Allah.",
+      "de": "Ich bezeuge, dass es keine Gottheit außer Allah gibt.",
+      "en": "I bear witness that there is no deity except Allah.",
+      "bs": "Svjedočim da nema boga osim Allaha.",
+      "nl": "Ik getuig dat er geen god is behalve Allah."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Yine şahitlik ederim ki Muhammed O'nun kulu ve resulüdür.",
+    "turkish": "Yine şahitlik ederim ki Muhammed O'nun kulu ve resulüdür.",
+    "translations": {
+      "es": "Y atestiguo que Muhammad es Su siervo y Su Mensajero.",
+      "fr": "Et j'atteste que Muhammad est Son serviteur et Son Messager.",
+      "de": "Und ich bezeuge, dass Muhammad Sein Diener und Gesandter ist.",
+      "en": "And I bear witness that Muhammad is His servant and Messenger.",
+      "bs": "I svjedočim da je Muhammed Njegov rob i poslanik.",
+      "nl": "En ik getuig dat Mohammed Zijn dienaar en Boodschapper is."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Allah'ım! Muhammed'e ve Muhammed'in aline rahmet eyle.",
+    "turkish": "Allah'ım! Muhammed'e ve Muhammed'in aline rahmet eyle.",
+    "translations": {
+      "es": "Oh Allah, concede Tu gracia a Muhammad y a la familia de Muhammad,",
+      "fr": "Ô Allah, accorde Ta grâce à Muhammad et à la famille de Muhammad,",
+      "de": "O Allah, schenke Muhammad und der Familie Muhammads Deine Gnade,",
+      "en": "O Allah, bestow Your grace upon Muhammad and the family of Muhammad,",
+      "bs": "Allahu, podari Svoju milost Muhammedu i Muhammedovoj porodici,",
+      "nl": "O Allah, schenk Uw genade aan Mohammed en de familie van Mohammed,"
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "İbrahim'e ve İbrahim'in aline rahmet ettiğin gibi.",
+    "turkish": "İbrahim'e ve İbrahim'in aline rahmet ettiğin gibi.",
+    "translations": {
+      "es": "como concediste Tu gracia a Abraham y a la familia de Abraham.",
+      "fr": "comme Tu as accordé Ta grâce à Abraham et à la famille d'Abraham.",
+      "de": "wie Du Abraham und der Familie Abrahams Deine Gnade geschenkt hast.",
+      "en": "as You bestowed Your grace upon Abraham and the family of Abraham.",
+      "bs": "kao što si je podario Ibrahimu i Ibrahimovoj porodici.",
+      "nl": "zoals U Uw genade schonk aan Ibrahim en de familie van Ibrahim."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Şüphesiz Sen hamde layıksın, şanı yüce olansın.",
+    "turkish": "Şüphesiz Sen hamde layıksın, şanı yüce olansın.",
+    "translations": {
+      "es": "Ciertamente, Tú eres digno de alabanza y glorioso.",
+      "fr": "Tu es certes digne de louange et de gloire.",
+      "de": "Du bist wahrlich des Lobes würdig und ruhmreich.",
+      "en": "Indeed, You are praiseworthy and glorious.",
+      "bs": "Ti si, zaista, hvale dostojan i slavan.",
+      "nl": "Voorwaar, U bent alle lof waardig en verheven."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Allah'ım! Muhammed'e ve Muhammed'in aline bereket ihsan eyle.",
+    "turkish": "Allah'ım! Muhammed'e ve Muhammed'in aline bereket ihsan eyle.",
+    "translations": {
+      "es": "Oh Allah, bendice a Muhammad y a la familia de Muhammad,",
+      "fr": "Ô Allah, bénis Muhammad et la famille de Muhammad,",
+      "de": "O Allah, segne Muhammad und die Familie Muhammads,",
+      "en": "O Allah, bless Muhammad and the family of Muhammad,",
+      "bs": "Allahu, blagoslovi Muhammeda i Muhammedovu porodicu,",
+      "nl": "O Allah, zegen Mohammed en de familie van Mohammed,"
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "İbrahim'e ve İbrahim'in aline bereket ihsan ettiğin gibi.",
+    "turkish": "İbrahim'e ve İbrahim'in aline bereket ihsan ettiğin gibi.",
+    "translations": {
+      "es": "como bendijiste a Abraham y a la familia de Abraham.",
+      "fr": "comme Tu as béni Abraham et la famille d'Abraham.",
+      "de": "wie Du Abraham und die Familie Abrahams gesegnet hast.",
+      "en": "as You blessed Abraham and the family of Abraham.",
+      "bs": "kao što si blagoslovio Ibrahima i Ibrahimovu porodicu.",
+      "nl": "zoals U Ibrahim en de familie van Ibrahim hebt gezegend."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Şüphesiz Sen hamde layıksın, şanı yüce olansın.",
+    "turkish": "Şüphesiz Sen hamde layıksın, şanı yüce olansın.",
+    "translations": {
+      "es": "Ciertamente, Tú eres digno de alabanza y glorioso.",
+      "fr": "Tu es certes digne de louange et de gloire.",
+      "de": "Du bist wahrlich des Lobes würdig und ruhmreich.",
+      "en": "Indeed, You are praiseworthy and glorious.",
+      "bs": "Ti si, zaista, hvale dostojan i slavan.",
+      "nl": "Voorwaar, U bent alle lof waardig en verheven."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Rabbimiz! Bize dünyada iyilik, ahirette de iyilik ver.",
+    "turkish": "Rabbimiz! Bize dünyada iyilik, ahirette de iyilik ver.",
+    "translations": {
+      "es": "Señor nuestro, danos el bien en esta vida y en la otra.",
+      "fr": "Notre Seigneur, accorde-nous le bien ici-bas et dans l'au-delà.",
+      "de": "Unser Herr, gib uns Gutes im Diesseits und Gutes im Jenseits.",
+      "en": "Our Lord, give us good in this world and good in the Hereafter.",
+      "bs": "Gospodaru naš, daj nam dobro na ovom i na budućem svijetu.",
+      "nl": "Onze Heer, geef ons het goede in deze wereld en het goede in het hiernamaals."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Bizi cehennem azabından koru.",
+    "turkish": "Bizi cehennem azabından koru.",
+    "translations": {
+      "es": "Y protégenos del castigo del Fuego.",
+      "fr": "Et préserve-nous du châtiment du Feu.",
+      "de": "Und bewahre uns vor der Strafe des Feuers.",
+      "en": "And protect us from the punishment of the Fire.",
+      "bs": "I sačuvaj nas patnje u Vatri.",
+      "nl": "En bescherm ons tegen de bestraffing van het Vuur."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Rabbimiz! Hesabın görüleceği gün beni, ana babamı ve bütün müminleri bağışla.",
+    "turkish": "Rabbimiz! Hesabın görüleceği gün beni, ana babamı ve bütün müminleri bağışla.",
+    "translations": {
+      "es": "Señor nuestro, perdóname a mí, a mis padres y a los creyentes el Día de la Rendición de Cuentas.",
+      "fr": "Notre Seigneur, pardonne-moi, ainsi qu'à mes parents et aux croyants, le Jour du Jugement.",
+      "de": "Unser Herr, vergib mir, meinen Eltern und den Gläubigen am Tag der Abrechnung.",
+      "en": "Our Lord, forgive me, my parents and the believers on the Day of Reckoning.",
+      "bs": "Gospodaru naš, oprosti meni, mojim roditeljima i vjernicima na Dan obračuna.",
+      "nl": "Onze Heer, vergeef mij, mijn ouders en de gelovigen op de Dag van de Afrekening."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Allah'ım! Senden yardım isteriz, Senden bağışlanma dileriz ve Senden hidayet isteriz.",
+    "turkish": "Allah'ım! Senden yardım isteriz, Senden bağışlanma dileriz ve Senden hidayet isteriz.",
+    "translations": {
+      "es": "Oh Allah, pedimos Tu ayuda, Tu perdón y Tu guía.",
+      "fr": "Ô Allah, nous implorons Ton aide, Ton pardon et Ta guidance.",
+      "de": "O Allah, wir bitten Dich um Hilfe, Vergebung und Rechtleitung.",
+      "en": "O Allah, we ask for Your help, Your forgiveness and Your guidance.",
+      "bs": "Allahu, od Tebe pomoć, oprost i uputu tražimo.",
+      "nl": "O Allah, wij vragen U om hulp, vergeving en leiding."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Sana iman eder, Sana tevbe eder ve Sana tevekkül ederiz.",
+    "turkish": "Sana iman eder, Sana tevbe eder ve Sana tevekkül ederiz.",
+    "translations": {
+      "es": "Creemos en Ti, nos arrepentimos ante Ti y en Ti confiamos.",
+      "fr": "Nous croyons en Toi, revenons à Toi repentants et plaçons notre confiance en Toi.",
+      "de": "Wir glauben an Dich, wenden uns Dir reumütig zu und vertrauen auf Dich.",
+      "en": "We believe in You, turn to You in repentance and place our trust in You.",
+      "bs": "U Tebe vjerujemo, Tebi se kajemo i na Tebe se oslanjamo.",
+      "nl": "Wij geloven in U, tonen U berouw en vertrouwen op U."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Seni hayırla överiz.",
+    "turkish": "Seni hayırla överiz.",
+    "translations": {
+      "es": "Te alabamos con toda alabanza buena.",
+      "fr": "Nous T'adressons toutes les belles louanges.",
+      "de": "Wir loben Dich mit allem Guten.",
+      "en": "We praise You with every good praise.",
+      "bs": "Tebe svakim dobrom hvalimo.",
+      "nl": "Wij prijzen U met alle goede lof."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Sana şükreder, nankörlük etmeyiz.",
+    "turkish": "Sana şükreder, nankörlük etmeyiz.",
+    "translations": {
+      "es": "Te agradecemos y no somos ingratos contigo.",
+      "fr": "Nous Te remercions et ne sommes pas ingrats envers Toi.",
+      "de": "Wir danken Dir und sind Dir gegenüber nicht undankbar.",
+      "en": "We thank You and are not ungrateful to You.",
+      "bs": "Tebi zahvaljujemo i nismo Ti nezahvalni.",
+      "nl": "Wij danken U en zijn U niet ondankbaar."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Sana karşı gelenleri terk eder ve onlardan uzaklaşırız.",
+    "turkish": "Sana karşı gelenleri terk eder ve onlardan uzaklaşırız.",
+    "translations": {
+      "es": "Nos apartamos de quienes Te desobedecen y los abandonamos.",
+      "fr": "Nous nous séparons de ceux qui Te désobéissent et les délaissons.",
+      "de": "Wir sagen uns von denen los, die sich Dir widersetzen, und verlassen sie.",
+      "en": "We disown and leave those who rebel against You.",
+      "bs": "Odričemo se i napuštamo one koji Ti se protive.",
+      "nl": "Wij nemen afstand van degenen die U ongehoorzaam zijn en verlaten hen."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Allah'ım! Ancak Sana kulluk eder, Senin için namaz kılarız.",
+    "turkish": "Allah'ım! Ancak Sana kulluk eder, Senin için namaz kılarız.",
+    "translations": {
+      "es": "Oh Allah, solo a Ti adoramos y para Ti rezamos.",
+      "fr": "Ô Allah, c'est Toi seul que nous adorons et pour Toi que nous prions.",
+      "de": "O Allah, Dir allein dienen wir und für Dich verrichten wir das Gebet.",
+      "en": "O Allah, You alone we worship, and for You we pray.",
+      "bs": "Allahu, samo Tebi robujemo i Tebi namaz klanjamo.",
+      "nl": "O Allah, U alleen aanbidden wij en voor U verrichten wij het gebed."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Sana secde eder, Sana yönelir ve Sana koşarız.",
+    "turkish": "Sana secde eder, Sana yönelir ve Sana koşarız.",
+    "translations": {
+      "es": "Ante Ti nos prosternamos y hacia Ti nos apresuramos con entrega.",
+      "fr": "Devant Toi nous nous prosternons et vers Toi nous nous empressons avec dévouement.",
+      "de": "Vor Dir werfen wir uns nieder und zu Dir eilen wir voller Hingabe.",
+      "en": "Before You we prostrate, and towards You we hasten with devotion.",
+      "bs": "Tebi sedždu činimo i Tebi žurimo predano.",
+      "nl": "Voor U knielen wij neer en naar U haasten wij ons vol toewijding."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Rahmetini umar, azabından korkarız.",
+    "turkish": "Rahmetini umar, azabından korkarız.",
+    "translations": {
+      "es": "Esperamos Tu misericordia y tememos Tu castigo.",
+      "fr": "Nous espérons Ta miséricorde et craignons Ton châtiment.",
+      "de": "Wir hoffen auf Deine Barmherzigkeit und fürchten Deine Strafe.",
+      "en": "We hope for Your mercy and fear Your punishment.",
+      "bs": "Tvojoj se milosti nadamo i Tvoje se kazne bojimo.",
+      "nl": "Wij hopen op Uw barmhartigheid en vrezen Uw bestraffing."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Şüphesiz Senin azabın kafirlere ulaşacaktır.",
+    "turkish": "Şüphesiz Senin azabın kafirlere ulaşacaktır.",
+    "translations": {
+      "es": "Ciertamente, Tu castigo alcanzará a los incrédulos.",
+      "fr": "Ton châtiment atteindra certes les mécréants.",
+      "de": "Deine Strafe wird wahrlich die Ungläubigen erreichen.",
+      "en": "Indeed, Your punishment will reach the disbelievers.",
+      "bs": "Tvoja će kazna, zaista, stići nevjernike.",
+      "nl": "Voorwaar, Uw bestraffing zal de ongelovigen treffen."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Allah'a, meleklerine, kitaplarına ve peygamberlerine iman ettim.",
+    "turkish": "Allah'a, meleklerine, kitaplarına ve peygamberlerine iman ettim.",
+    "translations": {
+      "es": "Creo en Allah, en Sus ángeles, en Sus libros y en Sus mensajeros.",
+      "fr": "Je crois en Allah, en Ses anges, en Ses livres et en Ses messagers.",
+      "de": "Ich glaube an Allah, Seine Engel, Seine Bücher und Seine Gesandten.",
+      "en": "I believe in Allah, His angels, His books and His messengers.",
+      "bs": "Vjerujem u Allaha, Njegove meleke, Njegove knjige i Njegove poslanike.",
+      "nl": "Ik geloof in Allah, Zijn engelen, Zijn boeken en Zijn boodschappers."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Ahiret gününe, kadere; hayrın ve şerrin Allah'tan olduğuna iman ettim.",
+    "turkish": "Ahiret gününe, kadere; hayrın ve şerrin Allah'tan olduğuna iman ettim.",
+    "translations": {
+      "es": "Y en el Último Día y en el destino, y en que el bien y el mal proceden de Allah, el Altísimo.",
+      "fr": "Et au Jour dernier et au destin, et au fait que le bien et le mal viennent d'Allah, le Très-Haut.",
+      "de": "Und an den Jüngsten Tag und die Vorherbestimmung, und daran, dass Gutes und Böses von Allah, dem Erhabenen, kommen.",
+      "en": "And in the Last Day and destiny, and that good and evil are from Allah Most High.",
+      "bs": "I u Sudnji dan i u određenje, i da dobro i zlo dolaze od Uzvišenog Allaha.",
+      "nl": "En in de Laatste Dag en de voorbeschikking, en dat het goede en het kwade van Allah, de Verhevene, komen."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Öldükten sonra dirilmek haktır.",
+    "turkish": "Öldükten sonra dirilmek haktır.",
+    "translations": {
+      "es": "La resurrección después de la muerte es verdadera.",
+      "fr": "La résurrection après la mort est une vérité.",
+      "de": "Die Auferstehung nach dem Tod ist wahr.",
+      "en": "Resurrection after death is true.",
+      "bs": "Proživljenje poslije smrti je istina.",
+      "nl": "De opstanding na de dood is waarheid."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Şahitlik ederim ki Allah'tan başka ilah yoktur.",
+    "turkish": "Şahitlik ederim ki Allah'tan başka ilah yoktur.",
+    "translations": {
+      "es": "Atestiguo que no hay divinidad salvo Allah.",
+      "fr": "J'atteste qu'il n'y a de divinité qu'Allah.",
+      "de": "Ich bezeuge, dass es keine Gottheit außer Allah gibt.",
+      "en": "I bear witness that there is no deity except Allah.",
+      "bs": "Svjedočim da nema boga osim Allaha.",
+      "nl": "Ik getuig dat er geen god is behalve Allah."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Yine şahitlik ederim ki Muhammed O'nun kulu ve resulüdür.",
+    "turkish": "Yine şahitlik ederim ki Muhammed O'nun kulu ve resulüdür.",
+    "translations": {
+      "es": "Y atestiguo que Muhammad es Su siervo y Su Mensajero.",
+      "fr": "Et j'atteste que Muhammad est Son serviteur et Son Messager.",
+      "de": "Und ich bezeuge, dass Muhammad Sein Diener und Gesandter ist.",
+      "en": "And I bear witness that Muhammad is His servant and Messenger.",
+      "bs": "I svjedočim da je Muhammed Njegov rob i poslanik.",
+      "nl": "En ik getuig dat Mohammed Zijn dienaar en Boodschapper is."
+    },
+    "existingDutchPreserved": false
+  },
+  {
+    "originalTurkish": "Ey şu eksiksiz davetin",
+    "turkish": "Ey şu eksiksiz davetin",
+    "translations": {
+      "es": "Oh Allah, Señor de esta llamada perfecta",
+      "fr": "Ô Allah, Seigneur de cet appel parfait",
+      "de": "O Allah, Herr dieses vollkommenen Rufes",
+      "en": "O Allah, Lord of this perfect call",
+      "bs": "Allahu, Gospodaru ovog potpunog poziva",
+      "nl": "O Allah, Heer van deze volmaakte oproep (tot gebed)"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "ve kılınacak namazın Rabbi olan Allah'ım!",
+    "turkish": "ve kılınacak namazın Rabbi olan Allah'ım!",
+    "translations": {
+      "es": "y de la oración que se va a establecer,",
+      "fr": "et de la prière qui va être accomplie,",
+      "de": "und des bevorstehenden Gebets,",
+      "en": "and of the prayer about to be established,",
+      "bs": "i namaza koji će se obaviti,",
+      "nl": "en van het gebed dat op het punt staat te worden verricht."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Muhammed'e (sav) vesîleyi ve fazîleti ver,",
+    "turkish": "Muhammed'e (sav) vesîleyi ve fazîleti ver,",
+    "translations": {
+      "es": "concede a Muhammad la wasila y la excelencia,",
+      "fr": "accorde à Muhammad la wasila et l'excellence,",
+      "de": "gewähre Muhammad die Wasila und die Vorzüglichkeit,",
+      "en": "grant Muhammad al-wasilah and excellence,",
+      "bs": "podari Muhammedu vesilu i odlikovanost,",
+      "nl": "Schenk onze meester Mohammed het recht van voorbede en de rang over de rest van de schepping,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "yüksek dereceyi de ver.",
+    "turkish": "yüksek dereceyi de ver.",
+    "translations": {
+      "es": "y el grado elevado.",
+      "fr": "ainsi que le rang élevé.",
+      "de": "und den hohen Rang.",
+      "en": "and the elevated rank.",
+      "bs": "i visoki stepen.",
+      "nl": "en de verheven graad."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Onu, kendisine vaadettiğin makâm-ı mahmûda ulaştır.",
+    "turkish": "Onu, kendisine vaadettiğin makâm-ı mahmûda ulaştır.",
+    "translations": {
+      "es": "Y elévalo a la posición digna de alabanza que le has prometido.",
+      "fr": "Et élève-le à la station louée que Tu lui as promise.",
+      "de": "Und erwecke ihn zur lobenswerten Stellung, die Du ihm versprochen hast.",
+      "en": "And raise him to the praiseworthy station You have promised him.",
+      "bs": "I postavi ga na hvale dostojno mjesto koje si mu obećao.",
+      "nl": "Verhef hem tot de geëerde positie die U hem hebt beloofd."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Şüphesiz Sen vaadinden dönmezsin.",
+    "turkish": "Şüphesiz Sen vaadinden dönmezsin.",
+    "translations": {
+      "es": "Ciertamente, Tú no faltas a Tu promesa.",
+      "fr": "Tu ne manques certes jamais à Ta promesse.",
+      "de": "Du brichst wahrlich Dein Versprechen nicht.",
+      "en": "Indeed, You never break Your promise.",
+      "bs": "Ti, zaista, ne kršiš Svoje obećanje.",
+      "nl": "Voorwaar, U faalt nooit in Uw Belofte."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah en büyük ve en yücedir.",
+    "turkish": "Allah en büyük ve en yücedir.",
+    "translations": {
+      "es": "Allah es el más grande.",
+      "fr": "Allah est le plus grand.",
+      "de": "Allah ist am größten.",
+      "en": "Allah is the greatest.",
+      "bs": "Allah je najveći.",
+      "nl": "Allah is de Almachtige."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Ey büyük Rabb'ım! Seni bütün noksan sıfatlardan tenzih ederim.",
+    "turkish": "Ey büyük Rabb'ım! Seni bütün noksan sıfatlardan tenzih ederim.",
+    "translations": {
+      "es": "Glorificado sea mi Señor, el Magnífico, libre de toda imperfección.",
+      "fr": "Gloire à mon Seigneur, l'Immense, exempt de toute imperfection.",
+      "de": "Gepriesen sei mein Herr, der Gewaltige, frei von jeder Unvollkommenheit.",
+      "en": "Glory be to my Lord, the Magnificent, free from every imperfection.",
+      "bs": "Slavljen neka je moj Gospodar Veličanstveni, čist od svakog nedostatka.",
+      "nl": "Alglorieus is mijn Heer, de Almachtige."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Ey Yüce Rabb'im! Seni bütün noksan sıfatlardan tenzih ederim.",
+    "turkish": "Ey Yüce Rabb'im! Seni bütün noksan sıfatlardan tenzih ederim.",
+    "translations": {
+      "es": "Glorificado sea mi Señor, el Altísimo, libre de toda imperfección.",
+      "fr": "Gloire à mon Seigneur, le Très-Haut, exempt de toute imperfection.",
+      "de": "Gepriesen sei mein Herr, der Allerhöchste, frei von jeder Unvollkommenheit.",
+      "en": "Glory be to my Lord, the Most High, free from every imperfection.",
+      "bs": "Slavljen neka je moj Gospodar Svevišnji, čist od svakog nedostatka.",
+      "nl": "Alglorieus is mijn Heer, de Allerhoogste."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah kendisine hamd edenleri işitti",
+    "turkish": "Allah kendisine hamd edenleri işitti",
+    "translations": {
+      "es": "Allah escucha a quien Lo alaba.",
+      "fr": "Allah entend celui qui Le loue.",
+      "de": "Allah hört denjenigen, der Ihn lobt.",
+      "en": "Allah hears the one who praises Him.",
+      "bs": "Allah čuje onoga ko Ga hvali.",
+      "nl": "Allah hoort hem die Hem prijst."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Ey Rabbimiz! Her çeşit hamd ancak sanadır.",
+    "turkish": "Ey Rabbimiz! Her çeşit hamd ancak sanadır.",
+    "translations": {
+      "es": "Señor nuestro, a Ti pertenece toda alabanza.",
+      "fr": "Notre Seigneur, à Toi toute la louange.",
+      "de": "Unser Herr, Dir gebührt alles Lob.",
+      "en": "Our Lord, to You belongs all praise.",
+      "bs": "Gospodaru naš, Tebi pripada sva hvala.",
+      "nl": "Onze Heer, en aan U is de lof."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ın selamı üzerinize olsun",
+    "turkish": "Allah'ın selamı ve rahmeti üzerinize olsun.",
+    "translations": {
+      "es": "La paz y la misericordia de Allah sean con vosotros.",
+      "fr": "Que la paix et la miséricorde d'Allah soient sur vous.",
+      "de": "Allahs Friede und Barmherzigkeit seien mit euch.",
+      "en": "May Allah's peace and mercy be upon you.",
+      "bs": "Neka su na vas Allahov mir i milost.",
+      "nl": "Vrede zij met u, en Allah’s Genade (zij met u)."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ın selamı üzerinize olsun",
+    "turkish": "Allah'ın selamı ve rahmeti üzerinize olsun.",
+    "translations": {
+      "es": "La paz y la misericordia de Allah sean con vosotros.",
+      "fr": "Que la paix et la miséricorde d'Allah soient sur vous.",
+      "de": "Allahs Friede und Barmherzigkeit seien mit euch.",
+      "en": "May Allah's peace and mercy be upon you.",
+      "bs": "Neka su na vas Allahov mir i milost.",
+      "nl": "Vrede zij met u, en Allah’s Genade (zij met u)."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "",
+    "turkish": "Allah’tan bağışlanma dilerim. Allah’tan bağışlanma dilerim. Kendisinden başka ilah olmayan, daima diri ve her şeyi ayakta tutan, yüce ve kerem sahibi Allah’tan bağışlanma diler, O’na tövbe ederim.",
+    "translations": {
+      "es": "Pido perdón a Allah. Pido perdón a Allah. Pido perdón a Allah, el Magnífico, el Generoso, fuera de Quien no hay divinidad, el Viviente, el Sustentador, y me arrepiento ante Él.",
+      "fr": "Je demande pardon à Allah. Je demande pardon à Allah. Je demande pardon à Allah, l'Immense, le Généreux, en dehors de qui il n'y a de divinité, le Vivant, Celui qui subsiste par Lui-même, et je me repens à Lui.",
+      "de": "Ich bitte Allah um Vergebung. Ich bitte Allah um Vergebung. Ich bitte Allah, den Gewaltigen, den Großzügigen, um Vergebung. Es gibt keine Gottheit außer Ihm, dem Lebendigen, dem Beständigen, und ich wende mich Ihm reumütig zu.",
+      "en": "I ask Allah for forgiveness. I ask Allah for forgiveness. I ask Allah, the Magnificent, the Generous, for forgiveness; there is no deity except Him, the Ever-Living, the Sustainer, and I turn to Him in repentance.",
+      "bs": "Molim Allaha za oprost. Molim Allaha za oprost. Molim Allaha Veličanstvenog, Plemenitog, osim Kojeg nema boga, Živog i Vječnog, za oprost i Njemu se kajem.",
+      "nl": "Ik vraag Allah om vergeving. Ik vraag Allah om vergeving. Ik vraag Allah, de Geweldige, de Edelmoedige, om vergeving; er is geen god behalve Hij, de Levende, de Zelfstandige, en ik toon Hem berouw."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ım! Sen kurtuluş merciisin. Esenlik ve güvenlik sendedir. Ey Azamet ve Kerem sahibi Allah'ım! Senin şanın çok yücedir.",
+    "turkish": "Allah'ım! Sen kurtuluş merciisin. Esenlik ve güvenlik sendedir. Ey Azamet ve Kerem sahibi Allah'ım! Senin şanın çok yücedir.",
+    "translations": {
+      "es": "Oh Allah, Tú eres la Paz y de Ti procede la paz. Bendito eres, Dueño de la Majestad y la Generosidad.",
+      "fr": "Ô Allah, Tu es la Paix et de Toi vient la paix. Béni sois-Tu, Détenteur de la majesté et de la générosité.",
+      "de": "O Allah, Du bist der Friede und von Dir kommt der Friede. Gesegnet bist Du, Besitzer der Majestät und Ehre.",
+      "en": "O Allah, You are Peace and from You comes peace. Blessed are You, Possessor of majesty and honour.",
+      "bs": "Allahu, Ti si Mir i od Tebe dolazi mir. Blagoslovljen si, Posjedniče veličanstva i plemenitosti.",
+      "nl": "O mijn Allah, U bent de Al Vredzame, en van U is alle Vrede. Jij bent de Algezegende en Ene die zegeningen schenkt, O een van Majesteit en Milddadigheid."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Salat Peygamberimiz Hz.Muhammed (s.a.v.)'in üzerine olsun.",
+    "turkish": "Salat Peygamberimiz Hz.Muhammed (s.a.v.)'in üzerine olsun.",
+    "translations": {
+      "es": "Que la gracia de Allah sea sobre nuestro Mensajero.",
+      "fr": "Que la grâce d'Allah soit sur notre Messager.",
+      "de": "Allahs Gnade sei auf unserem Gesandten.",
+      "en": "May Allah's grace be upon our Messenger.",
+      "bs": "Neka je Allahova milost na našem Poslaniku.",
+      "nl": "Moge Allah’s vrede en zegeningen met onze Profeet Mohammed zijn"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ım Efendimiz Hz.Muhammed(sav)'e ve onun ailesine salat eyle",
+    "turkish": "Allah'ım Efendimiz Hz.Muhammed(sav)'e ve onun ailesine salat eyle",
+    "translations": {
+      "es": "Oh Allah, concede Tu gracia a nuestro señor Muhammad y a su familia.",
+      "fr": "Ô Allah, accorde Ta grâce à notre maître Muhammad et à sa famille.",
+      "de": "O Allah, schenke unserem Herrn Muhammad und seiner Familie Deine Gnade.",
+      "en": "O Allah, bestow Your grace upon our master Muhammad and his family.",
+      "bs": "Allahu, podari Svoju milost našem prvaku Muhammedu i njegovoj porodici.",
+      "nl": "O Allah! Schenk Uw zegeningen en vrede aan onze meester Mohammed en zijn familie."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah eksik sıfatlardan beridir. Hamd Allah'adır. Allah'tan başka ilah yoktur ve Allah en büyüktür.",
+    "turkish": "Allah eksik sıfatlardan beridir. Hamd Allah'adır. Allah'tan başka ilah yoktur ve Allah en büyüktür.",
+    "translations": {
+      "es": "Glorificado sea Allah. Alabado sea Allah. No hay divinidad salvo Allah y Allah es el más grande.",
+      "fr": "Gloire à Allah. Louange à Allah. Il n'y a de divinité qu'Allah et Allah est le plus grand.",
+      "de": "Gepriesen sei Allah. Alles Lob gebührt Allah. Es gibt keine Gottheit außer Allah und Allah ist am größten.",
+      "en": "Glory be to Allah. Praise be to Allah. There is no deity except Allah, and Allah is the greatest.",
+      "bs": "Slavljen neka je Allah. Hvala Allahu. Nema boga osim Allaha i Allah je najveći.",
+      "nl": "Glorie zij Allah, alle lof is aan Allah, er is geen godheid dan Allah, en Allah is de Grootste."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'tan başkasında güç ve kudret yoktur.",
+    "turkish": "Allah'tan başkasında güç ve kudret yoktur.",
+    "translations": {
+      "es": "No hay fuerza ni poder sino en Allah, el Altísimo, el Magnífico.",
+      "fr": "Il n'y a de force ni de puissance qu'en Allah, le Très-Haut, l'Immense.",
+      "de": "Es gibt keine Kraft und keine Macht außer durch Allah, den Erhabenen, den Gewaltigen.",
+      "en": "There is no might nor power except through Allah, the Most High, the Magnificent.",
+      "bs": "Nema snage ni moći osim s Allahom, Uzvišenim, Veličanstvenim.",
+      "nl": "Er is geen macht en geen kracht behalve bij Allah, de Verhevene, de Almachtige."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Sabah akşam her an tesbihimiz Allah'adır",
+    "turkish": "Sabah akşam her an tesbihimiz Allah'adır",
+    "translations": {
+      "es": "Glorificado sea Allah por la mañana y por la tarde.",
+      "fr": "Gloire à Allah matin et soir.",
+      "de": "Gepriesen sei Allah morgens und abends.",
+      "en": "Glory be to Allah morning and evening.",
+      "bs": "Slavljen neka je Allah jutrom i večeri.",
+      "nl": "Wij verheerlijken Allah dag en nacht"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah noksan sıfatlardan münezzehtir.",
+    "turkish": "Allah noksan sıfatlardan münezzehtir.",
+    "translations": {
+      "es": "Glorificado sea Allah, libre de toda imperfección.",
+      "fr": "Gloire à Allah, exempt de toute imperfection.",
+      "de": "Gepriesen sei Allah, frei von jeder Unvollkommenheit.",
+      "en": "Glory be to Allah, free from every imperfection.",
+      "bs": "Slavljen neka je Allah, čist od svakog nedostatka.",
+      "nl": "Glorie zij Allah, Hij is vrij van alle gebreken"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'a olan hamdimiz çoktur",
+    "turkish": "Allah'a olan hamdimiz çoktur",
+    "translations": {
+      "es": "Alabado sea Allah con abundantes alabanzas.",
+      "fr": "Louange à Allah, une louange abondante.",
+      "de": "Allah gebührt reichliches Lob.",
+      "en": "Abundant praise be to Allah.",
+      "bs": "Allahu pripada obilna hvala.",
+      "nl": "We prijzen Allah en danken Hem in overvloed"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Hamd Allah'adır.",
+    "turkish": "Hamd Allah'adır.",
+    "translations": {
+      "es": "Alabado sea Allah.",
+      "fr": "Louange à Allah.",
+      "de": "Alles Lob gebührt Allah.",
+      "en": "Praise be to Allah.",
+      "bs": "Hvala Allahu.",
+      "nl": "Alle lof en dank zijn aan Allah"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah büyüklerin en büyüğüdür",
+    "turkish": "Allah büyüklerin en büyüğüdür",
+    "translations": {
+      "es": "Allah es el más grande, inmensamente grande.",
+      "fr": "Allah est le plus grand, infiniment grand.",
+      "de": "Allah ist am größten, unermesslich groß.",
+      "en": "Allah is the greatest, immeasurably great.",
+      "bs": "Allah je najveći, neizmjerno velik.",
+      "nl": "Allah is de Grootste van alle groten."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah en büyük ve en yücedir",
+    "turkish": "Allah en büyük ve en yücedir",
+    "translations": {
+      "es": "Allah es el más grande.",
+      "fr": "Allah est le plus grand.",
+      "de": "Allah ist am größten.",
+      "en": "Allah is the greatest.",
+      "bs": "Allah je najveći.",
+      "nl": "Allah is de Grootste"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Eşsiz olan ve ortağı olmayan Allah'tan başka ilah yoktur.",
+    "turkish": "Eşsiz olan ve ortağı olmayan Allah'tan başka ilah yoktur.",
+    "translations": {
+      "es": "No hay divinidad salvo Allah, Único, sin asociado.",
+      "fr": "Il n'y a de divinité qu'Allah, l'Unique, sans associé.",
+      "de": "Es gibt keine Gottheit außer Allah allein, ohne Teilhaber.",
+      "en": "There is no deity except Allah alone, with no partner.",
+      "bs": "Nema boga osim Allaha, Jedinog, Koji nema sudruga.",
+      "nl": "Er is geen godheid dan Allah, de Ene, Hij heeft geen deelgenoten."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Hükümranlık O'nundur, hamd O'nadır; O diriltir ve öldürür.",
+    "turkish": "Hükümranlık O'nundur, hamd O'nadır; O diriltir ve öldürür.",
+    "translations": {
+      "es": "Suyo es el dominio y Suya es la alabanza; Él da la vida y la muerte.",
+      "fr": "À Lui la royauté et la louange ; Il donne la vie et la mort.",
+      "de": "Ihm gehören die Herrschaft und das Lob; Er gibt Leben und Tod.",
+      "en": "To Him belongs dominion and praise; He gives life and causes death.",
+      "bs": "Njemu pripada vlast i hvala; On oživljava i usmrćuje.",
+      "nl": "Aan Hem behoort de heerschappij en aan Hem de lof; Hij geeft leven en doet sterven."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "O diridir, hiç ölmez.",
+    "turkish": "O diridir, hiç ölmez.",
+    "translations": {
+      "es": "Él está vivo y nunca muere.",
+      "fr": "Il est vivant et ne meurt jamais.",
+      "de": "Er lebt und stirbt niemals.",
+      "en": "He is living and never dies.",
+      "bs": "On je živ i nikada ne umire.",
+      "nl": "Hij is de Levende, die nooit sterft."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Her hayır O'nun elindedir.",
+    "turkish": "Her hayır O'nun elindedir.",
+    "translations": {
+      "es": "En Su mano está todo bien.",
+      "fr": "Tout bien est dans Sa main.",
+      "de": "In Seiner Hand liegt alles Gute.",
+      "en": "In His hand is all good.",
+      "bs": "U Njegovoj ruci je svako dobro.",
+      "nl": "In Zijn hand is al het goede."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "O her şeye güç yetirendir.",
+    "turkish": "O her şeye güç yetirendir.",
+    "translations": {
+      "es": "Él tiene poder sobre todas las cosas.",
+      "fr": "Il est capable de toute chose.",
+      "de": "Er hat Macht über alle Dinge.",
+      "en": "He has power over all things.",
+      "bs": "On sve može.",
+      "nl": "En Hij is tot alles in staat."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Dönüş de yalnız O'nadır.",
+    "turkish": "Dönüş de yalnız O'nadır.",
+    "translations": {
+      "es": "Y a Él es el retorno.",
+      "fr": "Et c'est vers Lui que se fera le retour.",
+      "de": "Und zu Ihm ist die Rückkehr.",
+      "en": "And to Him is the return.",
+      "bs": "I Njemu je povratak.",
+      "nl": "En tot Hem is de terugkeer."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Kovulmuş şeytandan Allah'a sığınırım.",
+    "turkish": "Kovulmuş şeytandan Allah'a sığınırım.",
+    "translations": {
+      "es": "Me refugio en Allah del demonio expulsado.",
+      "fr": "Je cherche refuge auprès d'Allah contre Satan le banni.",
+      "de": "Ich suche Zuflucht bei Allah vor dem verstoßenen Satan.",
+      "en": "I seek refuge in Allah from Satan, the outcast.",
+      "bs": "Utječem se Allahu od prokletog šejtana.",
+      "nl": "Ik zoek mijn toevlucht bij Allah tegen de vervloekte satan."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Rahmân ve Rahîm olan Allah'ın adıyla.",
+    "turkish": "Rahmân ve Rahîm olan Allah'ın adıyla.",
+    "translations": {
+      "es": "En el nombre de Allah, el Compasivo, el Misericordioso.",
+      "fr": "Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux.",
+      "de": "Im Namen Allahs, des Allerbarmers, des Barmherzigen.",
+      "en": "In the name of Allah, the Most Merciful, the Especially Merciful.",
+      "bs": "U ime Allaha, Milostivog, Samilosnog.",
+      "nl": "In de naam van Allah, de Barmhartige, de Genadevolle."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Bizi yediren, içiren ve bizi müslüman kılan Allah'a hamdolsun.",
+    "turkish": "Bizi yediren, içiren ve bizi müslüman kılan Allah'a hamdolsun.",
+    "translations": {
+      "es": "Alabado sea Allah, que nos ha dado de comer y beber y nos ha hecho musulmanes.",
+      "fr": "Louange à Allah, qui nous a nourris, abreuvés et faits musulmans.",
+      "de": "Alles Lob gebührt Allah, der uns gespeist, uns zu trinken gegeben und uns zu Muslimen gemacht hat.",
+      "en": "Praise be to Allah, who has fed us, given us drink and made us Muslims.",
+      "bs": "Hvala Allahu, Koji nas je nahranio, napojio i učinio muslimanima.",
+      "nl": "Alle lof zij Allah, die ons te eten en te drinken heeft gegeven en ons moslim heeft gemaakt."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ım! Bizi doyuranı Sen doyur,",
+    "turkish": "Allah'ım! Bizi doyuranı Sen doyur,",
+    "translations": {
+      "es": "Oh Allah, alimenta a quien nos ha alimentado,",
+      "fr": "Ô Allah, nourris celui qui nous a nourris,",
+      "de": "O Allah, speise denjenigen, der uns gespeist hat,",
+      "en": "O Allah, feed the one who has fed us,",
+      "bs": "Allahu, nahrani onoga ko je nas nahranio,",
+      "nl": "O Allah, geef te eten aan wie ons te eten gaf"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "bize içireni Sen içir.",
+    "turkish": "bize içireni Sen içir.",
+    "translations": {
+      "es": "y da de beber a quien nos ha dado de beber.",
+      "fr": "et abreuve celui qui nous a abreuvés.",
+      "de": "und gib demjenigen zu trinken, der uns zu trinken gegeben hat.",
+      "en": "and give drink to the one who has given us drink.",
+      "bs": "i napoji onoga ko je nas napojio.",
+      "nl": "en te drinken aan wie ons te drinken gaf."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ım! Onlara verdiğin rızıkları bereketli kıl,",
+    "turkish": "Allah'ım! Onlara verdiğin rızıkları bereketli kıl,",
+    "translations": {
+      "es": "Oh Allah, bendice el sustento que les has concedido,",
+      "fr": "Ô Allah, bénis la subsistance que Tu leur as accordée,",
+      "de": "O Allah, segne ihnen, was Du ihnen an Versorgung gegeben hast,",
+      "en": "O Allah, bless the provision You have given them,",
+      "bs": "Allahu, blagoslovi im ono čime si ih opskrbio,",
+      "nl": "O Allah, zegen hen in wat U hun hebt gegeven,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "onları bağışla ve onlara merhamet eyle.",
+    "turkish": "onları bağışla ve onlara merhamet eyle.",
+    "translations": {
+      "es": "perdónalos y ten misericordia de ellos.",
+      "fr": "pardonne-leur et fais-leur miséricorde.",
+      "de": "vergib ihnen und erbarme Dich ihrer.",
+      "en": "forgive them and have mercy on them.",
+      "bs": "oprosti im i smiluj im se.",
+      "nl": "vergeef hen en wees hen genadig."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Oruçlular sizin yanınızda iftar etsin,",
+    "turkish": "Oruçlular sizin yanınızda iftar etsin,",
+    "translations": {
+      "es": "Que quienes ayunan rompan su ayuno con vosotros,",
+      "fr": "Que les jeûneurs rompent leur jeûne chez vous,",
+      "de": "Mögen die Fastenden bei euch ihr Fasten brechen,",
+      "en": "May those who fast break their fast with you,",
+      "bs": "Neka postači kod vas iftare,",
+      "nl": "Mogen vastenden bij u hun vasten verbreken,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "iyiler yemeğinizi yesin,",
+    "turkish": "iyiler yemeğinizi yesin,",
+    "translations": {
+      "es": "que los rectos coman de vuestra comida,",
+      "fr": "que les vertueux mangent de votre nourriture,",
+      "de": "die Rechtschaffenen von eurem Essen essen,",
+      "en": "may the righteous eat your food,",
+      "bs": "neka dobri ljudi jedu vašu hranu,",
+      "nl": "mogen de vromen van uw eten eten"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "melekler size dua etsin.",
+    "turkish": "melekler size dua etsin.",
+    "translations": {
+      "es": "y que los ángeles rueguen por vosotros.",
+      "fr": "et que les anges prient pour vous.",
+      "de": "und die Engel für euch beten.",
+      "en": "and may the angels pray for you.",
+      "bs": "i neka meleki mole za vas.",
+      "nl": "en mogen de engelen voor u bidden."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ım! Efendimiz Muhammed'e (asm) ve onun Ehl-i beytine salât eyle.",
+    "turkish": "Allah'ım! Efendimiz Muhammed'e (asm) ve onun Ehl-i beytine salât eyle.",
+    "translations": {
+      "es": "Oh Allah, concede Tu gracia a nuestro señor Muhammad y a su familia.",
+      "fr": "Ô Allah, accorde Ta grâce à notre maître Muhammad et à sa famille.",
+      "de": "O Allah, schenke unserem Herrn Muhammad und seiner Familie Deine Gnade.",
+      "en": "O Allah, bestow Your grace upon our master Muhammad and his family.",
+      "bs": "Allahu, podari Svoju milost našem prvaku Muhammedu i njegovoj porodici.",
+      "nl": "O Allah! Schenk zegeningen en vrede aan onze meester Mohammed en zijn Familie."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Öyle bir salât ki onun hürmetine bizi bütün korku ve belalardan kurtarırsın,",
+    "turkish": "Öyle bir salât ki onun hürmetine bizi bütün korku ve belalardan kurtarırsın,",
+    "translations": {
+      "es": "Una gracia por la que nos salves de todos los terrores y calamidades,",
+      "fr": "Une grâce par laquelle Tu nous délivres de toutes les frayeurs et calamités,",
+      "de": "Eine Gnade, durch die Du uns vor allen Schrecken und Plagen rettest,",
+      "en": "A grace through which You save us from all terrors and calamities,",
+      "bs": "Milost kojom ćeš nas spasiti od svih strahota i nevolja,",
+      "nl": "Een zegen waardoor U ons redt van alle tegenslagen en rampen,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "bütün ihtiyaçlarımızı yerine getirirsin,",
+    "turkish": "bütün ihtiyaçlarımızı yerine getirirsin,",
+    "translations": {
+      "es": "satisfagas todas nuestras necesidades,",
+      "fr": "combles tous nos besoins,",
+      "de": "alle unsere Bedürfnisse erfüllst,",
+      "en": "fulfil all our needs,",
+      "bs": "ispuniti sve naše potrebe,",
+      "nl": "waardoor U in al onze behoeften voorziet,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "bizi bütün günahlardan temizlersin,",
+    "turkish": "bizi bütün günahlardan temizlersin,",
+    "translations": {
+      "es": "nos purifiques de todos los pecados,",
+      "fr": "nous purifies de tous les péchés,",
+      "de": "uns von allen Sünden reinigst,",
+      "en": "purify us from all sins,",
+      "bs": "očistiti nas od svih grijeha,",
+      "nl": "waardoor U ons reinigt van alle ondeugden,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "bizi katında derecelerin en yükseğine çıkarırsın,",
+    "turkish": "bizi katında derecelerin en yükseğine çıkarırsın,",
+    "translations": {
+      "es": "nos eleves ante Ti a los grados más altos,",
+      "fr": "nous élèves auprès de Toi aux plus hauts rangs,",
+      "de": "uns bei Dir zu den höchsten Rängen erhebst,",
+      "en": "raise us to the highest ranks in Your presence,",
+      "bs": "uzdići nas kod Sebe na najviše stepene,",
+      "nl": "waardoor U ons verheft tot de hoogste rangen bij U,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "ve bizi gayelerin en sonuna ulaştırırsın,",
+    "turkish": "ve bizi gayelerin en sonuna ulaştırırsın,",
+    "translations": {
+      "es": "y nos hagas alcanzar las metas más elevadas,",
+      "fr": "et nous fasses atteindre les buts les plus élevés,",
+      "de": "und uns die höchsten Ziele erreichen lässt,",
+      "en": "and bring us to the furthest goals,",
+      "bs": "i dovesti nas do najviših ciljeva,",
+      "nl": "en waardoor U ons de hoogste doelen laat bereiken"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "hayatta ve öldükten sonra bütün hayırlarda.",
+    "turkish": "hayatta ve öldükten sonra bütün hayırlarda.",
+    "translations": {
+      "es": "en todo bien, en esta vida y después de la muerte.",
+      "fr": "en tout bien, dans la vie et après la mort.",
+      "de": "in allem Guten, im Leben und nach dem Tod.",
+      "en": "in all good things, in life and after death.",
+      "bs": "u svakom dobru, za života i poslije smrti.",
+      "nl": "van alle soorten goedheid, in dit leven en na de dood."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Âmin, ey duaları kabul eden!",
+    "turkish": "Âmin, ey duaları kabul eden!",
+    "translations": {
+      "es": "Amén, Tú que respondes a las súplicas.",
+      "fr": "Amen, Toi qui exauces les invocations.",
+      "de": "Amen, o Du, der die Bittgebete erhört.",
+      "en": "Amen, O Answerer of prayers.",
+      "bs": "Amin, Ti Koji uslišavaš dove.",
+      "nl": "Amen, o Verhoorder van de gebeden!"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Hamd, âlemlerin Rabbi olan Allah'adır.",
+    "turkish": "Hamd, âlemlerin Rabbi olan Allah'adır.",
+    "translations": {
+      "es": "Alabado sea Allah, Señor de todos los mundos.",
+      "fr": "Louange à Allah, Seigneur des mondes.",
+      "de": "Alles Lob gebührt Allah, dem Herrn der Welten.",
+      "en": "Praise be to Allah, Lord of all worlds.",
+      "bs": "Hvala Allahu, Gospodaru svjetova.",
+      "nl": "En alle lof is aan Allah, de Heer der werelden."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Allah'ım! Efendimiz Muhammed'e (sav) tam bir salât ve eksiksiz bir selâm eyle.",
+    "turkish": "Allah'ım! Efendimiz Muhammed'e (sav) tam bir salât ve eksiksiz bir selâm eyle.",
+    "translations": {
+      "es": "Oh Allah, concede una gracia perfecta y una paz completa a nuestro señor Muhammad.",
+      "fr": "Ô Allah, accorde une grâce parfaite et une paix complète à notre maître Muhammad.",
+      "de": "O Allah, schenke unserem Herrn Muhammad vollkommene Gnade und vollständigen Frieden.",
+      "en": "O Allah, bestow perfect grace and complete peace upon our master Muhammad.",
+      "bs": "Allahu, podari potpunu milost i savršen mir našem prvaku Muhammedu.",
+      "nl": "O Allah, schenk volmaakte zegeningen en volledige vrede aan onze meester Mohammed,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Onun hürmetine düğümler çözülür,",
+    "turkish": "Onun hürmetine düğümler çözülür,",
+    "translations": {
+      "es": "Por consideración a él se desatan los nudos,",
+      "fr": "Par égard pour lui, les nœuds se dénouent,",
+      "de": "Um seinetwillen lösen sich die Knoten,",
+      "en": "For his sake, knots are untied,",
+      "bs": "Radi njega se čvorovi razrješavaju,",
+      "nl": "door wie knopen worden ontward,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "sıkıntılar giderilir,",
+    "turkish": "sıkıntılar giderilir,",
+    "translations": {
+      "es": "se alivian las angustias,",
+      "fr": "les détresses se dissipent,",
+      "de": "werden Bedrängnisse gelindert,",
+      "en": "distresses are relieved,",
+      "bs": "nevolje otklanjaju,",
+      "nl": "zorgen worden weggenomen,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "ihtiyaçlar karşılanır,",
+    "turkish": "ihtiyaçlar karşılanır,",
+    "translations": {
+      "es": "se satisfacen las necesidades,",
+      "fr": "les besoins sont comblés,",
+      "de": "werden Bedürfnisse erfüllt,",
+      "en": "needs are fulfilled,",
+      "bs": "potrebe ispunjavaju,",
+      "nl": "noden worden vervuld,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "dileklere ve güzel bir sona ulaşılır,",
+    "turkish": "dileklere ve güzel bir sona ulaşılır,",
+    "translations": {
+      "es": "y se alcanzan los deseos y un buen final.",
+      "fr": "les souhaits se réalisent et une bonne fin est obtenue.",
+      "de": "gehen Wünsche in Erfüllung und wird ein gutes Ende erreicht.",
+      "en": "wishes and a good ending are attained,",
+      "bs": "želje ostvaruju i postiže lijep završetak,",
+      "nl": "wensen en een goed einde worden bereikt,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "onun mübarek yüzü hürmetine bulutlardan yağmur istenir.",
+    "turkish": "onun mübarek yüzü hürmetine bulutlardan yağmur istenir.",
+    "translations": {
+      "es": "Y por su noble rostro se pide a las nubes que traigan lluvia.",
+      "fr": "Et par égard pour son noble visage, on implore la pluie des nuages.",
+      "de": "Und um seines edlen Angesichts willen wird aus den Wolken Regen erbeten.",
+      "en": "And for the sake of his noble countenance, rain is sought from the clouds.",
+      "bs": "I radi njegovog plemenitog lica moli se za kišu iz oblaka.",
+      "nl": "en om wiens edele gelaat om regen uit de wolken wordt gevraagd."
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "Onun ailesine ve ashabına da (salât ve selâm eyle);",
+    "turkish": "Onun ailesine ve ashabına da (salât ve selâm eyle);",
+    "translations": {
+      "es": "Y también a su familia y a sus compañeros,",
+      "fr": "Ainsi qu'à sa famille et à ses compagnons,",
+      "de": "Und auch seiner Familie und seinen Gefährten,",
+      "en": "And upon his family and companions too,",
+      "bs": "I njegovoj porodici i ashabima,",
+      "nl": "En ook aan zijn familie en metgezellen,"
+    },
+    "existingDutchPreserved": true
+  },
+  {
+    "originalTurkish": "her bakışta ve her nefeste, bildiğin her şeyin sayısınca.",
+    "turkish": "her bakışta ve her nefeste, bildiğin her şeyin sayısınca.",
+    "translations": {
+      "es": "en cada instante y en cada aliento, tantas veces como todo lo que Tú conoces.",
+      "fr": "à chaque instant et à chaque souffle, autant de fois que tout ce que Tu connais.",
+      "de": "in jedem Augenblick und bei jedem Atemzug, so oft wie die Zahl aller Dinge, die Du kennst.",
+      "en": "at every moment and with every breath, as many times as all that You know.",
+      "bs": "u svakom trenutku i sa svakim dahom, onoliko puta koliko je svega što Ti znaš.",
+      "nl": "bij elke oogopslag en elke ademhaling, zo talrijk als alles wat U bekend is."
+    },
+    "existingDutchPreserved": true
+  }
+]

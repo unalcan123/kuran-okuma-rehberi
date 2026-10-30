@@ -11,6 +11,7 @@ import 'sound_cache.dart';
 /// compare) or when the browser has no Web Audio.
 class PluginAudioEngine extends AudioEngine {
   PluginAudioEngine(this._cache) {
+    _player.onPositionChanged.listen((value) => _position = value);
     _player.onPlayerComplete.listen((_) {
       final id = _activeId;
       if (id == null) return;
@@ -27,6 +28,10 @@ class PluginAudioEngine extends AudioEngine {
   int? _activeId;
 
   double _rate = 1.0;
+  Duration? _position;
+
+  @override
+  Duration? get position => _activeId == null ? null : _position;
 
   /// The rate last given to the player (a browser's new audio element
   /// starts at 1.0 again, so a rate other than 1.0 is set on every play).
@@ -34,6 +39,7 @@ class PluginAudioEngine extends AudioEngine {
 
   @override
   Future<void> play(int id, String assetPath, {required double rate}) async {
+    _position = null;
     _activeId = id;
     _rate = rate;
     await _player.stop();

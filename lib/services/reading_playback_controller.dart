@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 
 import '../models/reading_segment.dart';
+import '../data/reading_word_timings.dart';
 import 'audio_service.dart';
 import 'reading_settings.dart';
 
@@ -154,6 +155,25 @@ class ReadingPlaybackController extends ChangeNotifier {
   /// Segments heard at least once in this "Ezberle" run.
   final Set<int> _heard = {};
   Timer? _timer;
+  Timer? _wordTimer;
+  int _wordRequest = 0;
+  int? _activeWordIndex;
+  List<ReadingWordTiming> _wordTimings = const [];
+
+  ReadingWordTiming? get activeWord =>
+      _activeWordIndex == null ? null : _wordTimings[_activeWordIndex!];
+
+  void _updateWord() {
+    final position = audio.position;
+    final next =
+        _status == ReadingPlaybackStatus.playing && position != null
+            ? wordIndexAt(_wordTimings, position.inMilliseconds)
+            : null;
+    if (next == _activeWordIndex) return;
+    _activeWordIndex = next;
+    notifyListeners();
+  }
+
   bool _pausedWhileWaiting = false;
   bool _revealed = false;
   late double _appliedSpeed;
@@ -293,7 +313,12 @@ class ReadingPlaybackController extends ChangeNotifier {
   }
 
   Future<void> _playStep() async {
+    final request = ++_wordRequest;
+    _wordTimer?.cancel();
+    _activeWordIndex = null;
     final step = _plan[_step];
+    _wordTimings =
+        _fullRecording ? const [] : readingWordTimings(segments[step.segment]);
     final previous = _expected;
     _expected =
         _fullRecording ? fullAudioAsset : segments[step.segment].audioAsset;
@@ -306,6 +331,15 @@ class ReadingPlaybackController extends ChangeNotifier {
     _pausedWhileWaiting = false;
     _setStatus(ReadingPlaybackStatus.playing);
     await audio.playAsset(_expected!);
+    if (request == _wordRequest &&
+        _status == ReadingPlaybackStatus.playing &&
+        _wordTimings.isNotEmpty) {
+      _wordTimer = Timer.periodic(
+        const Duration(milliseconds: 40),
+        (_) => _updateWord(),
+      );
+      _updateWord();
+    }
   }
 
   void _onAudio() {
@@ -330,6 +364,8 @@ class ReadingPlaybackController extends ChangeNotifier {
   }
 
   void _afterClip() {
+    _wordTimer?.cancel();
+    _activeWordIndex = null;
     _heard.add(_plan[_step].segment);
     if (_step + 1 >= _plan.length) {
       _reset();
@@ -366,10 +402,16 @@ class ReadingPlaybackController extends ChangeNotifier {
 
   void _setStatus(ReadingPlaybackStatus status) {
     _status = status;
+    if (status != ReadingPlaybackStatus.playing) _activeWordIndex = null;
     notifyListeners();
   }
 
   void _reset() {
+    _wordRequest++;
+    _wordTimer?.cancel();
+    _wordTimer = null;
+    _activeWordIndex = null;
+    _wordTimings = const [];
     _cancelTimer();
     _status = ReadingPlaybackStatus.idle;
     _fullRecording = false;

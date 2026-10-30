@@ -28,6 +28,9 @@ abstract class AudioEngine {
   /// was replaced by a newer request); throws when it cannot play.
   Future<void> play(int id, String assetPath, {required double rate});
 
+  /// Actual media position; null until the recording is ready.
+  Duration? get position => null;
+
   Future<void> pause();
   Future<void> resume();
 

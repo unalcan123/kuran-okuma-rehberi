@@ -18,6 +18,8 @@ class TestAudioService extends ChangeNotifier implements AudioService {
   @override
   String? currentAsset;
   @override
+  Duration? position;
+  @override
   AudioPlaybackState state = AudioPlaybackState.stopped;
   List<String> queue = [];
   final preloaded = <List<String?>>[];

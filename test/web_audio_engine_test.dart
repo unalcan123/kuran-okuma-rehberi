@@ -49,6 +49,8 @@ class FakeVoice implements SoundVoice {
 }
 
 class FakeMedia implements MediaChannel {
+  @override
+  double? position;
   String? source;
   double rate = 1.0;
   bool playing = false;
@@ -226,9 +228,8 @@ Rig rig({int memoryBudget = 20 << 20}) {
     // Each file's bytes are its own name, so the fake can tell them apart.
     cache: SoundCache(
       loader:
-          (key) async => ByteData.sublistView(
-            Uint8List.fromList(utf8.encode(key)),
-          ),
+          (key) async =>
+              ByteData.sublistView(Uint8List.fromList(utf8.encode(key))),
     ),
     engine:
         (cache) =>
@@ -245,14 +246,18 @@ void main() {
       expect(webSoundRouteFor(elif), WebSoundRoute.decoded);
       expect(webSoundRouteFor(dogru), WebSoundRoute.decoded);
       expect(webSoundRouteFor(fatiha1), WebSoundRoute.element);
-      expect(webSoundRouteFor('audio/dualar/01_subhaneke/01.mp3'),
-          WebSoundRoute.element);
+      expect(
+        webSoundRouteFor('audio/dualar/01_subhaneke/01.mp3'),
+        WebSoundRoute.element,
+      );
       expect(webSoundRouteFor(turkce), WebSoundRoute.element);
       // Another speed would change a decoded sound's pitch.
       expect(webSoundRouteFor(elif, rate: 0.75), WebSoundRoute.element);
       // A long file is not decoded into memory.
-      expect(webSoundRouteFor(elif, byteLength: 200 * 1024),
-          WebSoundRoute.element);
+      expect(
+        webSoundRouteFor(elif, byteLength: 200 * 1024),
+        WebSoundRoute.element,
+      );
     });
   });
 
@@ -501,17 +506,19 @@ void main() {
       expect(r.port.media.plays.map((p) => p.$1), [fatiha1, fatiha2, fatiha2]);
     });
 
-    test('Ezberle: the same ayet again starts again from its beginning',
-        () async {
-      final r = rig();
-      for (var i = 0; i < 3; i++) {
-        await r.audio.playAsset(fatiha1);
-        expect(r.audio.isPlaying, isTrue);
-        r.port.media.endNow();
-        expect(r.audio.state, AudioPlaybackState.stopped);
-      }
-      expect(r.port.media.plays, List.filled(3, (fatiha1, 1.0)));
-    });
+    test(
+      'Ezberle: the same ayet again starts again from its beginning',
+      () async {
+        final r = rig();
+        for (var i = 0; i < 3; i++) {
+          await r.audio.playAsset(fatiha1);
+          expect(r.audio.isPlaying, isTrue);
+          r.port.media.endNow();
+          expect(r.audio.state, AudioPlaybackState.stopped);
+        }
+        expect(r.port.media.plays, List.filled(3, (fatiha1, 1.0)));
+      },
+    );
 
     test('pause / resume the same element; a tap on a letter takes '
         'over', () async {

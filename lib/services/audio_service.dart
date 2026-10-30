@@ -31,7 +31,8 @@ enum AudioPlaybackState { stopped, playing, paused }
 const Map<String, String> kAudioReplacements = {
   // Ders 1 Lam çok yüksek ve kırpılıyordu ("bağırıyor"): ~4 dB kısık,
   // tepe sınırlı, kuyruk yumuşak (kullanıcı isteği, 2026-10-12).
-  'audio/elifba/ders_1_harfler/23_lam.mp3': 'audio/duzeltmeler/23_lam_seviye.mp3',
+  'audio/elifba/ders_1_harfler/23_lam.mp3':
+      'audio/duzeltmeler/23_lam_seviye.mp3',
 };
 
 /// [assetPath] yerine çalınacak dosya (çoğu zaman kendisi).
@@ -69,6 +70,8 @@ class AudioService extends ChangeNotifier {
   bool get isPlaying => _state == AudioPlaybackState.playing;
   bool get isPaused => _state == AudioPlaybackState.paused;
   double get playbackRate => _playbackRate;
+
+  Duration? get position => _currentAsset == null ? null : _engine.position;
 
   /// Reading speed (the Sureler / Dualar "Okuma Hızı", 0.75–1.25) on the
   /// same single player, applied to what is playing now and to every clip

@@ -112,6 +112,18 @@ class WebAudioEngine extends AudioEngine {
   bool _preloading = false;
   int _preloadAllowance = 0;
 
+  @override
+  Duration? get position {
+    if (_id == null) return null;
+    final seconds =
+        _route == WebSoundRoute.element
+            ? (_mediaReady ? _media.position : null)
+            : (_voice?.position ?? (_paused ? _pausedAt : null));
+    return seconds == null
+        ? null
+        : Duration(microseconds: (seconds * 1000000).round());
+  }
+
   /// Memory the decoded sounds take now.
   int get memoryUsed => _memory;
 
