@@ -29,6 +29,8 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
+      - name: Sabit adresi Chrome ile kontrol et
+        run: flutter test --platform chrome test/browser/root_url_strategy_test.dart
 
       # Site özel alan adından (https://elifbe.nl/) kökten yayınlanır; base href "/".
       # Eski github.io/kuran-okuma-rehberi/ adresi GitHub tarafından elifbe.nl'ye yönlendirilir.

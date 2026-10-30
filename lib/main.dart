@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app.dart';
+import 'core/web_url.dart';
 import 'l10n/l10n.dart';
 import 'firebase_options.dart';
 import 'screens/oyunlar/harf_oyunlari/profil/player_models.dart';
@@ -21,6 +22,7 @@ import 'services/reading_settings.dart';
 import 'services/teacher_voice.dart';
 
 Future<void> main() async {
+  configureWebUrl();
   WidgetsFlutterBinding.ensureInitialized();
   // Çevrimiçi sıralama: Firebase arka planda başlar; uygulama onu beklemez,
   // başlatılamazsa (internet yok vb.) oyunlar yine oynanır.
@@ -52,7 +54,10 @@ Future<void> main() async {
           value: FirestoreLearningCloud(ready: firebase),
         ),
       ],
-      child: AppLanguageScope(controller: language, child: const KuranOkumaRehberiApp()),
+      child: AppLanguageScope(
+        controller: language,
+        child: const KuranOkumaRehberiApp(),
+      ),
     ),
   );
 }
