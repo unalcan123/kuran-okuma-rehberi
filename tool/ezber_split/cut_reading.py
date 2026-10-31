@@ -9,6 +9,7 @@ sys.path.insert(0, "tool/ezber_split")
 import split_ezber as se
 
 SR = se.SR
+# plan.json: {id: {"NN_ayet.mp3": [part no., expected text, (window start, end)]}}
 OUT = Path("tmp/yeni")
 
 

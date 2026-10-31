@@ -160,15 +160,15 @@ Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Okumalar arasında aynı zi
   Duası kayda göre yeniden yazıldı (Eûzü-Besmele sessiz + "…ve cealenâ müslimîn" (puanlamayla, "mine'l-" yok), "Allâhümme et'im men
   et'amenâ…", "Eftara indekümü's-sâimûn…"; kitabın kayıtta olmayan kısımları çıkarıldı). 2. ve 3. kayıt duraklamalarından
   (enerji < tepe−28 dB) 4 + 3 ifadeye kesildi, her parça tanıtıldı → 10 kart, `yemek-01..08.mp3`.
-- **2011 yavaş kayıtlar (2026-10-31, kullanıcı isteğiyle eski ezber klipleri değişti):** `H:\Music\sureler` (Duhâ,
-  İnşirâh, Tîn, Kadir, Zilzâl, Âdiyât) ve `` (Kâria, Tekâsür, Asr, Hümeze); aynı zil/3 tekrar düzeni ama her parçada
+- **2011 yavaş kayıtlar (2026-10-31, kullanıcı isteğiyle eski ezber klipleri değişti):** `H:\Music\sureler\2` (Duhâ,
+  İnşirâh, Tîn, Kadir, Zilzâl, Âdiyât) ve `H:\Music\sureler\3` (Kâria, Tekâsür, Asr, Hümeze); aynı zil/3 tekrar düzeni ama her parçada
   okumadan sonra çocuğun tekrarı için 4-6 sn sessizlik ve uçta zil kalıntısı var → `split_ezber.py` parçası seçilir, sonra
   yalnız okuma kısmı kaynaktan yeniden kesilir (en uzun konuşma bloğu, −0,15/+0,3 sn, kazanç yok; betik `tool/ezber_split/cut_reading.py <plan.json>`),
   her klip yeniden tanınıp kart metniyle karşılaştırıldı. Duhâ'yı kullanıcı kendisi kesti (`ref/duhasuresi`). Kayda göre:
   **Kadir 4** iki bölüm (ikincisi "bi izni rabbihim" tekrarıyla başlar), **Asr 3** iki bölüm (ilki "ve tevâsav"da biter,
   ikincisi onu tekrarlar; iki metin modele puanlatıldı), Kâria 1-2 ve Asr 1-2 birlikte okunmuş, aradaki duraklamadan ayrıldı.
-  `` (Âyetel Kürsî, Âmenerrasûlü) zaten bu kayıtlardan (kullanıcının kesimleri birebir örtüşüyor).
-  **Hüvellezî** (`-HUVELLEZI ERSELE.mp3`) = Fetih 28-29 (27 kayıtta yok), 13 bölüm (`kHuvellezi`, order 25, `25_huvellezi`);
+  `H:\Music\sureler\4` (Âyetel Kürsî, Âmenerrasûlü) zaten bu kayıtlardan (kullanıcının kesimleri birebir örtüşüyor).
+  **Hüvellezî** (`4\3-HUVELLEZI ERSELE.mp3`) = Fetih 28-29 (27 kayıtta yok), 13 bölüm (`kHuvellezi`, order 25, `25_huvellezi`);
   Arapça `kuran.docx` (`tool/sources/kuran_docx_fetih.json`), mealler Suat Yıldırım + QuranEnc (`huvellezi_published.json`);
   kart resmi şimdilik Dua 12'nin tesbihli çocuğundan kare (`sure_25.png`).
 - Çalıştırma: `python tool/ezber_split/split_ezber.py --batch` ve `--single`, ardından
