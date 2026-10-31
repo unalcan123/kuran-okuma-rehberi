@@ -1,5 +1,6 @@
-// Asr Suresi: üç tekrarlı ezber kaydından (H:\Music\sureler\tekrarli\asr.mp3,
-// tool/ezber_split) her ayetin tek ve en temiz okunuşu; zil yok. Kartın
+// Asr Suresi: 2011 yavaş tekrarlı kaydından (H:\Music\sureler\3\3-ASIR.mp3,
+// tool/ezber_split, tekrar sessizliği kırpıldı) her bölümün tek okunuşu; zil
+// yok. 3. ayet kayıttaki gibi iki bölüm (Ayet.verse = 3). Kartın
 // tamamına dokununca yalnız o ayet baştan çalar, kart vurgulanır, ses bitince
 // normale döner.
 import 'dart:io';
@@ -22,13 +23,15 @@ void main() {
     ReadingSettings.instance.resetForTest();
   });
 
-  test('3 ayet, her biri kendi tek kaydına bağlı; besmele ayrı', () {
+  test('4 bölüm (3. ayet ikiye), her biri kendi tek kaydına bağlı; besmele ayrı', () {
     final asr = kSupplementAsr;
-    expect(asr.ayetler.map((a) => a.number), [1, 2, 3]);
+    expect(asr.ayetler.map((a) => a.number), [1, 2, 3, 4]);
+    expect(asr.ayetler.map((a) => a.verse), [1, 2, 3, 3]);
     expect(asr.ayetler.map((a) => a.audioAsset), [
       '$_dir/01_ayet.mp3',
       '$_dir/02_ayet.mp3',
       '$_dir/03_ayet.mp3',
+      '$_dir/04_ayet.mp3',
     ]);
     expect(asr.besmeleAudioAsset, '$_dir/00_besmele.mp3');
     // Dinle ayet ayet çalar (uzun tam kayıt yerine).
@@ -36,17 +39,18 @@ void main() {
     final files =
         Directory('assets/$_dir').listSync().map((f) => f.uri.pathSegments.last).toList()
           ..sort();
-    expect(files, ['00_besmele.mp3', '01_ayet.mp3', '02_ayet.mp3', '03_ayet.mp3']);
+    expect(files, ['00_besmele.mp3', '01_ayet.mp3', '02_ayet.mp3', '03_ayet.mp3', '04_ayet.mp3']);
     final sizes = [
       for (final a in asr.ayetler) File('assets/${a.audioAsset}').lengthSync(),
     ];
-    // Ayet 1 kısa (وَالْعَصْرِ), ayet 3 uzun; üç tekrarın üçü birden
-    // dosyada olsaydı ~3 kat büyük olurdu (48 kbps: ~6 KB/sn).
+    // Ayet 1 kısa (وَالْعَصْرِ), 3. ayetin ilk bölümü uzun; üç tekrarın
+    // ya da tekrar sessizliğinin dosyada kalması ~2-3 kat büyütürdü
+    // (48 kbps: ~6 KB/sn).
     expect(sizes[0], lessThan(sizes[1]));
     expect(sizes[1], lessThan(sizes[2]));
-    expect(sizes[0], lessThan(15 * 1024)); // ~1,5 sn
-    expect(sizes[2], lessThan(80 * 1024)); // ~10 sn, tek okuma
-    expect(sizes.toSet(), hasLength(3));
+    expect(sizes[0], lessThan(15 * 1024)); // ~1,8 sn
+    expect(sizes[2], lessThan(80 * 1024)); // ~8 sn, tek okuma
+    expect(sizes.toSet(), hasLength(4));
   });
 
   testWidgets('karta dokununca yalnız o ayet çalar; başka kart öncekini '

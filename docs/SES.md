@@ -160,6 +160,14 @@ Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Okumalar arasında aynı zi
   Duası kayda göre yeniden yazıldı (Eûzü-Besmele sessiz + "…ve cealenâ müslimîn" (puanlamayla, "mine'l-" yok), "Allâhümme et'im men
   et'amenâ…", "Eftara indekümü's-sâimûn…"; kitabın kayıtta olmayan kısımları çıkarıldı). 2. ve 3. kayıt duraklamalarından
   (enerji < tepe−28 dB) 4 + 3 ifadeye kesildi, her parça tanıtıldı → 10 kart, `yemek-01..08.mp3`.
+- **2011 yavaş kayıtlar (2026-10-31, kullanıcı isteğiyle eski ezber klipleri değişti):** `H:\Music\sureler` (Duhâ,
+  İnşirâh, Tîn, Kadir, Zilzâl, Âdiyât) ve `` (Kâria, Tekâsür, Asr, Hümeze); aynı zil/3 tekrar düzeni ama her parçada
+  okumadan sonra çocuğun tekrarı için 4-6 sn sessizlik ve uçta zil kalıntısı var → `split_ezber.py` parçası seçilir, sonra
+  yalnız okuma kısmı kaynaktan yeniden kesilir (en uzun konuşma bloğu, −0,15/+0,3 sn, kazanç yok; betik `tmp/nebe/cut_new.py`),
+  her klip yeniden tanınıp kart metniyle karşılaştırıldı. Duhâ'yı kullanıcı kendisi kesti (`ref/duhasuresi`). Kayda göre:
+  **Kadir 4** iki bölüm (ikincisi "bi izni rabbihim" tekrarıyla başlar), **Asr 3** iki bölüm (ilki "ve tevâsav"da biter,
+  ikincisi onu tekrarlar; iki metin modele puanlatıldı), Kâria 1-2 ve Asr 1-2 birlikte okunmuş, aradaki duraklamadan ayrıldı.
+  `` (Âyetel Kürsî, Âmenerrasûlü) zaten bu kayıtlardan (kullanıcının kesimleri birebir örtüşüyor).
 - Çalıştırma: `python tool/ezber_split/split_ezber.py --batch` ve `--single`, ardından
   `install_clips.py <id...>`, `verify_clips.py <id...>` (gerekenler: numpy, scipy, torch, transformers).
 

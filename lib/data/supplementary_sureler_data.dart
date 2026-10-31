@@ -330,6 +330,8 @@ const kSupplementTin = Surah(
     ),
   ],
 );
+// Read like the 2011 recording (H:/Music/sureler/2): verse 4 in two phrases,
+// the second restarting with "bi izni rabbihim".
 const kSupplementKadir = Surah(
   order: 17,
   id: "kadir",
@@ -343,32 +345,42 @@ const kSupplementKadir = Surah(
       arabic: "اِنَّٓا اَنْزَلْنَاهُ فٖي لَيْلَةِ الْقَدْرِۚ",
       meaningTr: "Biz Kur'ân’ı indirdik kadir gecesi. [44,3; 2,185]",
       audioAsset: 'audio/sureler/17_kadir/01_ayet.mp3',
+      verse: 1,
     ),
     Ayet(
       number: 2,
       arabic: "وَمَٓا اَدْرٰيكَ مَا لَيْلَةُ الْقَدْرِؕ",
       meaningTr: "Bilir misin nedir kadir gecesi?",
       audioAsset: 'audio/sureler/17_kadir/02_ayet.mp3',
+      verse: 2,
     ),
     Ayet(
       number: 3,
       arabic: "لَيْلَةُ الْقَدْرِ خَيْرٌ مِنْ اَلْفِ شَهْرٍؕ",
       meaningTr: "Bin aydan daha hayırlıdır kadir gecesi!",
       audioAsset: 'audio/sureler/17_kadir/03_ayet.mp3',
+      verse: 3,
     ),
     Ayet(
       number: 4,
-      arabic:
-          "تَنَزَّلُ الْمَلٰٓئِكَةُ وَالرُّوحُ فٖيهَا بِاِذْنِ رَبِّهِمْۚ مِنْ كُلِّ اَمْرٍۙۛ",
-      meaningTr:
-          "O gece Rab'lerinin izniyle Ruh ve melekler, her türlü iş için iner de iner...",
+      arabic: "تَنَزَّلُ الْمَلٰٓئِكَةُ وَالرُّوحُ فٖيهَا بِاِذْنِ رَبِّهِمْۚ",
+      meaningTr: "O gece Rab'lerinin izniyle Ruh ve melekler iner de iner,",
       audioAsset: 'audio/sureler/17_kadir/04_ayet.mp3',
+      verse: 4,
     ),
     Ayet(
       number: 5,
+      arabic: "بِاِذْنِ رَبِّهِمْۚ مِنْ كُلِّ اَمْرٍۙۛ",
+      meaningTr: "Rab'lerinin izniyle, her türlü iş için...",
+      audioAsset: 'audio/sureler/17_kadir/05_ayet.mp3',
+      verse: 4,
+    ),
+    Ayet(
+      number: 6,
       arabic: "سَلَامٌࣞۛ هِيَ حَتّٰى مَطْلَعِ الْفَجْرِ",
       meaningTr: "Artık o gece bir esenliktir gider...Tâ tan ağarana kadar...",
-      audioAsset: 'audio/sureler/17_kadir/05_ayet.mp3',
+      audioAsset: 'audio/sureler/17_kadir/06_ayet.mp3',
+      verse: 5,
     ),
   ],
 );
@@ -650,6 +662,8 @@ const kSupplementTekasur = Surah(
     ),
   ],
 );
+// Read like the 2011 recording (H:/Music/sureler/3): verse 3 in two phrases,
+// the first ending on "ve tevâsav", which the second repeats.
 const kSupplementAsr = Surah(
   order: 22,
   id: "asr",
@@ -663,20 +677,29 @@ const kSupplementAsr = Surah(
       arabic: "وَالْعَصْرِۙ",
       meaningTr: "Yemin ederim zamana:",
       audioAsset: 'audio/sureler/22_asr/01_ayet.mp3',
+      verse: 1,
     ),
     Ayet(
       number: 2,
       arabic: "اِنَّ الْاِنْسَانَ لَفٖي خُسْرٍۙ",
       meaningTr: "İnsanlar hüsranda.",
       audioAsset: 'audio/sureler/22_asr/02_ayet.mp3',
+      verse: 2,
     ),
     Ayet(
       number: 3,
-      arabic:
-          "اِلَّا الَّذٖينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+      arabic: "اِلَّا الَّذٖينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا",
       meaningTr:
-          "Ancak şunlar müstesna:İman edip makbul ve güzel işler yapanlar,Bir de birbirlerine hakkı ve sabrı tavsiye edenler.",
+          "Ancak şunlar müstesna: İman edip makbul ve güzel işler yapanlar,",
       audioAsset: 'audio/sureler/22_asr/03_ayet.mp3',
+      verse: 3,
+    ),
+    Ayet(
+      number: 4,
+      arabic: "وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+      meaningTr: "Bir de birbirlerine hakkı ve sabrı tavsiye edenler.",
+      audioAsset: 'audio/sureler/22_asr/04_ayet.mp3',
+      verse: 3,
     ),
   ],
 );
