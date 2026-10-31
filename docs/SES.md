@@ -171,6 +171,9 @@ Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Okumalar arasında aynı zi
   **Hüvellezî** (`4\3-HUVELLEZI ERSELE.mp3`) = Fetih 28-29 (27 kayıtta yok), 13 bölüm (`kHuvellezi`, order 25, `25_huvellezi`);
   Arapça `kuran.docx` (`tool/sources/kuran_docx_fetih.json`), mealler Suat Yıldırım + QuranEnc (`huvellezi_published.json`);
   kart resmi şimdilik Dua 12'nin tesbihli çocuğundan kare (`sure_25.png`).
+  **Hüvallâhüllezî** (Haşr 22-24; kullanıcının tek seferlik kaydı `H:\Music\TransferXL-08vdGdkHfCJZrv\4-HUALLAHULLAVI.wav`):
+  duraklamalardan 10 bölüm + besmele (`kHuvallahullezi`, order 26), "el-cebbâr" ve "el-musavvir" kayıttaki gibi iki kez;
+  Arapça `kuran_docx_hasr.json`, mealler Suat Yıldırım ("sel^åm" bozuk yazımı "selâm" yapıldı) + QuranEnc; resim Dua 10'dan (`sure_26.png`).
 - Çalıştırma: `python tool/ezber_split/split_ezber.py --batch` ve `--single`, ardından
   `install_clips.py <id...>`, `verify_clips.py <id...>` (gerekenler: numpy, scipy, torch, transformers).
 

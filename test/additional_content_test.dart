@@ -18,12 +18,13 @@ void main() {
     expect(kAllDualar.take(9), orderedEquals(kDualar));
     expect(kAllDualar, hasLength(15));
     expect(kAllDualar.map((d) => d.id).toSet(), hasLength(15));
-    expect(kAllNamazTexts, hasLength(25));
+    expect(kAllNamazTexts, hasLength(26));
     expect(kAllNamazTexts.take(11), orderedEquals(kSureler));
     expect(kAllNamazTexts[11], same(kAyatelKursi));
-    expect(kAllNamazTexts.map((s) => s.order), List.generate(25, (i) => i + 1));
+    expect(kAllNamazTexts.map((s) => s.order), List.generate(26, (i) => i + 1));
     expect(kAllNamazTexts[23], same(kAmenerrasulu));
-    expect(kAllNamazTexts.last, same(kHuvellezi));
+    expect(kAllNamazTexts[24], same(kHuvellezi));
+    expect(kAllNamazTexts.last, same(kHuvallahullezi));
     expect(
       kAllNamazTexts.where((s) => kSureler.contains(s)),
       orderedEquals(kSureler),

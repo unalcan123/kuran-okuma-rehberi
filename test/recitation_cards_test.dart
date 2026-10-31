@@ -1,3 +1,4 @@
+import 'package:kuran_okuma_rehberi/data/dua_groups.dart';
 import 'package:kuran_okuma_rehberi/data/supplementary_sureler_data.dart';
 // Sure ve dua listeleri: master görsellerden kırpılmış kartlar
 // (tool/crop_lesson_cards.py), Elifba ders kartlarıyla aynı PictureCard.
@@ -89,7 +90,12 @@ void main() {
     await tester.pumpWidget(
       AppLanguageScope(
         controller: controller,
-        child: harness(const DualarListScreen(), audio),
+        child: harness(
+          DualarListScreen(
+            group: kDuaGroups.firstWhere((g) => g.ids.contains('15_tefriciye')),
+          ),
+          audio,
+        ),
       ),
     );
     await tester.pumpAndSettle();
@@ -104,7 +110,7 @@ void main() {
     );
     expect(tester.widget<PictureCard>(card).overlay, isNull);
     expect(
-      find.descendant(of: caption, matching: find.text('Gebed 15')),
+      find.descendant(of: caption, matching: find.text('Gebed 3')),
       findsOneWidget,
     );
     // Caption right under the picture, inside its own cell.
@@ -136,7 +142,7 @@ void main() {
     addTearDown(audio.dispose);
     for (final (screen, card, caption, text) in [
       (
-        const DualarListScreen() as Widget,
+        DualarListScreen(group: kDuaGroups.first) as Widget,
         'dua-card-1_subhaneke_duasi',
         'dua-caption-1_subhaneke_duasi',
         'Sübhâneke Duası',
@@ -180,7 +186,7 @@ void main() {
       final audio = TestAudioService();
       addTearDown(audio.dispose);
       for (final (screen, prefix) in [
-        (const DualarListScreen() as Widget, 'dua-card-'),
+        (DualarListScreen(group: kDuaGroups.first) as Widget, 'dua-card-'),
         (SurelerListScreen(group: kSureGroups.first), 'surah-card-'),
       ]) {
         await tester.pumpWidget(harness(screen, audio));
@@ -205,10 +211,10 @@ void main() {
     });
   }
 
-  test('yazısız sure resimleri: 25 öğe, hepsi aynı kare biçimde', () async {
+  test('yazısız sure resimleri: 26 öğe, hepsi aynı kare biçimde', () async {
     final pictured = kAllNamazTexts;
     expect(kSurahTextFreeImages.keys, pictured.map((s) => s.id));
-    expect(kSurahTextFreeImages.values.toSet(), hasLength(25));
+    expect(kSurahTextFreeImages.values.toSet(), hasLength(26));
     for (final surah in pictured) {
       final path = kSurahTextFreeImages[surah.id]!;
       expect(surahCardImage(surah.id), path);
@@ -263,13 +269,13 @@ void main() {
       expect(File(image).existsSync(), isTrue, reason: image);
     }
     // Kartlar 12-23: kAllNamazTexts'in kSureler'den sonrası, sırayla
-    // (24 Âmenerrasûlü'nün ve 25 Hüvellezî'nin eski kartı yok).
+    // (24 Âmenerrasûlü'nün, 25 Hüvellezî'nin, 26 Hüvallâhüllezî'nin eski kartı yok).
     for (var i = kSureler.length; i < 23; i++) {
       final image = kSurahCardImages[kAllNamazTexts[i].id]!;
       expect(image, endsWith('sure_${i + 1}.png'), reason: image);
       expect(File(image).existsSync(), isTrue, reason: image);
     }
-    expect(kAllNamazTexts, hasLength(25));
+    expect(kAllNamazTexts, hasLength(26));
     expect(kSurahCardImages.values.toSet(), hasLength(23));
     final files =
         Directory(
@@ -290,7 +296,9 @@ void main() {
     setSize(tester, const Size(1280, 800));
     final audio = TestAudioService();
     addTearDown(audio.dispose);
-    await tester.pumpWidget(harness(const DualarListScreen(), audio));
+    await tester.pumpWidget(
+      harness(DualarListScreen(group: kDuaGroups.first), audio),
+    );
     await tester.pumpAndSettle();
     final card = find.byKey(ValueKey('dua-card-${kDualar[6].id}'));
     await tester.scrollUntilVisible(card, 200);
@@ -388,7 +396,7 @@ void main() {
       addTearDown(audio.dispose);
       for (final screen in [
         SurelerListScreen(group: kSureGroups.first),
-        const DualarListScreen(),
+        DualarListScreen(group: kDuaGroups.first),
       ]) {
         await tester.pumpWidget(harness(screen, audio));
         await tester.pumpAndSettle();
@@ -424,7 +432,13 @@ void main() {
     ]);
     expect(
       kSureGroups[2].surahs.map((s) => s.id),
-      orderedEquals(['ayetel-kursi', 'huvellezi', 'nebe-son', 'amenerrasulu']),
+      orderedEquals([
+        'ayetel-kursi',
+        'huvallahullezi',
+        'huvellezi',
+        'nebe-son',
+        'amenerrasulu',
+      ]),
     );
     // Every reading is in exactly one group.
     expect(
@@ -447,6 +461,37 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byKey(const ValueKey('surah-card-nebe-son')), findsOneWidget);
     expect(find.text('İkindi namazından sonra'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('Dualar girişi: dört grup kartı, her dua bir grupta', (
+    tester,
+  ) async {
+    setSize(tester, const Size(360, 800));
+    final audio = TestAudioService();
+    addTearDown(audio.dispose);
+    expect(kDuaGroups.map((g) => g.titleTr), [
+      'Namazda Okunan Dualar',
+      'Namazdan Sonra Okunan Dualar',
+      'Günlük Dualar',
+      'Ezan, Kamet, Namaz Lafızları',
+    ]);
+    expect(kDuaGroups.first.ids, kDualar.take(8).map((d) => d.id));
+    expect(kDuaGroups[1].ids, ['12_namaz_tesbihati', '14_salaten_tuncina']);
+    expect(kDuaGroups[2].ids, ['9_amentu_duasi', '13_yemek_duasi', '15_tefriciye']);
+    expect(kDuaGroups[3].ids, contains('10_ezan_duasi'));
+    expect(
+      [for (final g in kDuaGroups) ...g.ids]..sort(),
+      kAllDualar.map((d) => d.id).toList()..sort(),
+    );
+    await tester.pumpWidget(harness(const DualarListScreen(), audio));
+    await tester.pumpAndSettle();
+    for (final g in kDuaGroups) {
+      expect(find.byKey(ValueKey('dua-group-${g.id}')), findsOneWidget);
+    }
+    await tester.tap(find.byKey(const ValueKey('dua-group-gunluk')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('dua-card-9_amentu_duasi')), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

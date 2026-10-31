@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../data/letters_data.dart';
 import '../data/supplementary_sureler_data.dart';
 import '../data/sure_groups.dart';
+import '../data/dua_groups.dart';
 import '../data/additional_dualar_data.dart';
 import '../l10n/l10n.dart';
 import '../screens/home/home_screen.dart';
@@ -41,6 +42,10 @@ abstract final class AppRoutes {
       } else if (parts.first == 'sureler') {
         for (final group in kSureGroups) {
           if (group.id == parts.last) page = SurelerListScreen(group: group);
+        }
+      } else if (parts.first == 'dualar') {
+        for (final group in kDuaGroups) {
+          if (group.id == parts.last) page = DualarListScreen(group: group);
         }
       } else if (parts.first == 'dua') {
         for (final dua in kAllDualar) {

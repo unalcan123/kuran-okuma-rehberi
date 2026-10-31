@@ -53,7 +53,10 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - **Sureler girişi = 3 grup kartı** (`kSureGroups`, `lib/data/sure_groups.dart`; 2026-10-31): Namazda Okunan Kısa Sureler (11),
   Amme Cüzündeki Aşirler (Duhâ…Hümeze), Namazlardan Sonra Okunan Sureler, Aşirler (Âyetel Kürsî, Hüvellezî = Fetih 28-29,
   Nebe 31-40, Âmenerrasûlü; kartta "Sure n" yerine `notesTr` "… namazından sonra"). `SurelerListScreen(group:)`, rota
-  `/sureler/<grup>`. Ana sayfa başlıkları "Sureler" / "Dualar" (resimdeki eski levha yazısı `_LocalizedSign` ile örtülür).
+  `/sureler/<grup>`. Hüvallâhüllezî (Haşr 22-24, sabah ve akşam) da bu grupta. **Dualar girişi = 4 grup kartı**
+  (`kDuaGroups`, `lib/data/dua_groups.dart`): Namazda Okunan Dualar (1-8), Namazdan Sonra Okunan Dualar (Tesbihat,
+  Tüncînâ), Günlük Dualar (Âmentü, Yemek, Tefriciye), Ezan, Kamet, Namaz Lafızları (Ezan Duası, Tekbir/Tesbihler); rota
+  `/dualar/<grup>`, kartta grup içi "Dua n". Ana sayfa başlıkları "Sureler" / "Dualar" (resimdeki eski levha yazısı `_LocalizedSign` ile örtülür).
   Sure/dua ızgarası `RecitationCard.columnsFor`: dik telefon 2, tablet 3-4. Okunan kartın yeşil halkası gölgeyle (boyut değişmez).
 - **Bize Ulaşın** (`lib/screens/iletisim/contact_screen.dart`): ana sayfada kartların altında; mesaj
   `url_launcher` ile e-posta uygulamasında hazır açılır (alıcı `kContactEmail` = fluttercanpolat@gmail.com,

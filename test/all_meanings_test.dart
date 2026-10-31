@@ -82,8 +82,8 @@ void main() {
     }
   });
 
-  test('All 25 Quran texts have complete verse mappings in every language', () {
-    expect(kAllNamazTexts, hasLength(25));
+  test('All 26 Quran texts have complete verse mappings in every language', () {
+    expect(kAllNamazTexts, hasLength(26));
     for (final surah in kAllNamazTexts) {
       for (final language in AppLanguage.active) {
         final published = kSurahMeanings[surah.id]?[language.code];

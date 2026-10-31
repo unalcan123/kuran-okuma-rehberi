@@ -399,5 +399,96 @@ const kHuvellezi = Surah(
   ],
 );
 
+/// Haşr 22-24 ("Hüvallâhüllezî", read after the morning and evening
+/// prayers) in the 10 phrases of the user's recording
+/// (TransferXL/4-HUALLAHULLAVI.wav, split at its pauses; [Ayet.verse]);
+/// "el-cebbâr" and "el-musavvir" are read twice, as recorded. Arabic from
+/// `kuran.docx` (tool/sources/kuran_docx_hasr.json). Order 26.
+const kHuvallahullezi = Surah(
+  order: 26,
+  id: 'huvallahullezi',
+  titleTr: 'Hüvallâhüllezî (Haşr 22–24)',
+  arabicName: 'هُوَ اللّٰهُ الَّذ۪ي',
+  besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
+  besmeleAudioAsset: 'audio/sureler/26_huvallahullezi/00_besmele.mp3',
+  ayetler: [
+    Ayet(
+      number: 1,
+      arabic:
+          "هُوَ اللّٰهُ الَّذ۪ي لَٓا اِلٰهَ اِلَّا هُوَۚ عَالِمُ الْغَيْبِ وَالشَّهَادَةِۚ",
+      meaningTr:
+          "Allah'tır gerçek İlah! O’ndan başka yoktur ilah. Görünmeyen ve görünen her şeyi bilir.",
+      audioAsset: 'audio/sureler/26_huvallahullezi/01_ayet.mp3',
+      verse: 22,
+    ),
+    Ayet(
+      number: 2,
+      arabic: "هُوَ الرَّحْمٰنُ الرَّح۪يمُ",
+      meaningTr: "O rahmandır, rahîmdir. [1,3; 10,58; 7,156; 6,54]",
+      audioAsset: 'audio/sureler/26_huvallahullezi/02_ayet.mp3',
+      verse: 22,
+    ),
+    Ayet(
+      number: 3,
+      arabic: "هُوَ اللّٰهُ الَّذ۪ي لَٓا اِلٰهَ اِلَّا هُوَۚ",
+      meaningTr: "Allah'tır gerçek İlah! O’ndan başka yoktur ilah!",
+      audioAsset: 'audio/sureler/26_huvallahullezi/03_ayet.mp3',
+      verse: 23,
+    ),
+    Ayet(
+      number: 4,
+      arabic:
+          "اَلْمَلِكُ الْقُدُّوسُ السَّلَامُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَز۪يزُ الْجَبَّارُ",
+      meaningTr:
+          "O melik’tir, kuddûs’tür, selâm’dır, Mü’min’dir, müheymin’dir, aziz’dir, cebbar’dır,",
+      audioAsset: 'audio/sureler/26_huvallahullezi/04_ayet.mp3',
+      verse: 23,
+    ),
+    Ayet(
+      number: 5,
+      arabic: "الْجَبَّارُ الْمُتَكَبِّرُۜ",
+      meaningTr: "cebbar’dır, mütekebbir’dir.",
+      audioAsset: 'audio/sureler/26_huvallahullezi/05_ayet.mp3',
+      verse: 23,
+    ),
+    Ayet(
+      number: 6,
+      arabic: "سُبْحَانَ اللّٰهِ عَمَّا يُشْرِكُونَ",
+      meaningTr: "Allah, müşriklerin iddialarından münezzeh ve yücedir. [62,1]",
+      audioAsset: 'audio/sureler/26_huvallahullezi/06_ayet.mp3',
+      verse: 23,
+    ),
+    Ayet(
+      number: 7,
+      arabic: "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ",
+      meaningTr: "Allah o gerçek İlahtır ki halık'tır, bârî’dir, musavvir’dir.",
+      audioAsset: 'audio/sureler/26_huvallahullezi/07_ayet.mp3',
+      verse: 24,
+    ),
+    Ayet(
+      number: 8,
+      arabic: "الْمُصَوِّرُ لَهُ الْاَسْمَٓاءُ الْحُسْنٰىۜ",
+      meaningTr: "Musavvir’dir; en güzel isimler ve vasıflar O’nundur.",
+      audioAsset: 'audio/sureler/26_huvallahullezi/08_ayet.mp3',
+      verse: 24,
+    ),
+    Ayet(
+      number: 9,
+      arabic: "يُسَبِّحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۚ",
+      meaningTr:
+          "Göklerde ne var, yerde ne varsa hepsi O’nu tesbih ve tenzih eder.",
+      audioAsset: 'audio/sureler/26_huvallahullezi/09_ayet.mp3',
+      verse: 24,
+    ),
+    Ayet(
+      number: 10,
+      arabic: "وَهُوَ الْعَز۪يزُ الْحَك۪يمُ",
+      meaningTr: "O, azizdir, hakimdir. [17,44]",
+      audioAsset: 'audio/sureler/26_huvallahullezi/10_ayet.mp3',
+      verse: 24,
+    ),
+  ],
+);
+
 // A verse excerpt, listed after the 11 surahs without renumbering them.
 const kNamazAyetleri = <Surah>[kAyatelKursi];

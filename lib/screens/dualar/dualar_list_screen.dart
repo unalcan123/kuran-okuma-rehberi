@@ -2,7 +2,7 @@ import '../../widgets/reading_text_settings.dart';
 import 'package:flutter/material.dart';
 import '../../l10n/l10n.dart';
 
-import '../../data/additional_dualar_data.dart';
+import '../../data/dua_groups.dart';
 import '../../data/recitation_card_images.dart';
 import '../../models/dua.dart';
 import '../../widgets/holy_places_background.dart';
@@ -10,16 +10,14 @@ import 'dua_detail_screen.dart';
 import '../../widgets/recitation_card.dart';
 import '../../widgets/tablet_zoom.dart';
 
-/// "Dualar" home — each prayer as a picture card ([PictureCard],
-/// [duaCardImage]) on one responsive grid ([RecitationCard]): the picture,
-/// and under it the number and the name, written by the app.
-///
-/// Column count follows the same rule the Elifba grid uses: how many
-/// cards actually fit at a comfortable minimum width, not how wide
-/// the screen happens to be — so a card never gets squeezed just
-/// because the device is nominally "tablet-sized".
+/// "Dualar" home: without a [group], the three group cards ([kDuaGroups]);
+/// with one, its prayers as picture cards ([RecitationCard], [duaCardImage]):
+/// the picture, and under it the number and the name, written by the app.
+/// Columns: [RecitationCard.columnsFor], like the Sureler grid.
 class DualarListScreen extends StatefulWidget {
-  const DualarListScreen({super.key});
+  const DualarListScreen({super.key, this.group});
+
+  final DuaGroup? group;
 
   @override
   State<DualarListScreen> createState() => _DualarListScreenState();
@@ -38,9 +36,11 @@ class _DualarListScreenState extends State<DualarListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final group = widget.group;
+    final duas = group?.duas;
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.t('Dualar')),
+        title: Text(context.t(group?.titleTr ?? 'Dualar')),
         actions: [
           ReadingTextSettingsButton(
             showMeaningToggle: false,
@@ -81,7 +81,7 @@ class _DualarListScreenState extends State<DualarListScreen> {
                                 MediaQuery.sizeOf(context),
                               ),
                         ),
-                        itemCount: kAllDualar.length,
+                        itemCount: duas?.length ?? kDuaGroups.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: columns,
                           mainAxisSpacing: 16,
@@ -93,8 +93,15 @@ class _DualarListScreenState extends State<DualarListScreen> {
                           ),
                         ),
                         itemBuilder: (context, index) {
-                          final dua = kAllDualar[index];
-                          final label = context.t('Dua {n}', {'n': dua.order});
+                          if (duas == null) {
+                            return _groupCard(context, kDuaGroups[index]);
+                          }
+                          final dua = duas[index];
+                          final note = group!.notesTr[dua.id];
+                          final label =
+                              note != null
+                                  ? context.t(note)
+                                  : context.t('Dua {n}', {'n': index + 1});
                           final title = context.t(
                             kDuaDisplayTitles[dua.id] ?? dua.titleTr,
                           );
@@ -120,6 +127,23 @@ class _DualarListScreenState extends State<DualarListScreen> {
       ),
     );
   }
+
+  Widget _groupCard(BuildContext context, DuaGroup group) => RecitationCard(
+    cardKey: ValueKey('dua-group-${group.id}'),
+    captionKey: ValueKey('dua-group-caption-${group.id}'),
+    image: duaCardImage(group.ids.first),
+    aspectRatio: kDuaCardAspectRatio,
+    radiusFactor: kDuaCardRadiusFactor,
+    number: context.t('{n} dua', {'n': group.ids.length}),
+    title: context.t(group.titleTr),
+    onTap:
+        () => Navigator.of(context).push(
+          MaterialPageRoute(
+            settings: RouteSettings(name: '/dualar/${group.id}'),
+            builder: (_) => DualarListScreen(group: group),
+          ),
+        ),
+  );
 
   void _openDua(BuildContext context, Dua dua) {
     Navigator.of(context).push(

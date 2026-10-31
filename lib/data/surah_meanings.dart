@@ -3327,4 +3327,100 @@ const kSurahMeanings = <String, Map<String, PublishedSurahMeaning>>{
       {},
     ),
   },
+  "huvallahullezi": {
+    "tr": PublishedSurahMeaning(
+      "Suat Yıldırım",
+      "2010-09-14",
+      "https://tanzil.net/#trans/tr.yildirim/59:22",
+      "Suat Yıldırım · Tanzil.net · non-commercial use",
+      {
+        22: "Allah'tır gerçek İlah! O’ndan başka yoktur ilah. Görünmeyen ve görünen her şeyi bilir. O rahmandır, rahîmdir. [1,3; 10,58; 7,156; 6,54] {KM, Matta 10,34-35}",
+        23: "Allah'tır gerçek İlah! O’ndan başka yoktur ilah! O melik’tir, kuddûs’tür, selâm’dır, Mü’min’dir, müheymin’dir, aziz’dir, cebbar’dır, mütekebbir’dir. Allah, müşriklerin iddialarından münezzeh ve yücedir. [62,1] {KM, İşaya 6,3; Çıkış 15,11; I Samuel 2,2}",
+        24: "Allah o gerçek İlahtır ki halık'tır, bârî’dir, musavvir’dir. Hasılı, en güzel isimler ve vasıflar O’nundur.Göklerde ne var, yerde ne varsa hepsi O’nu tesbih ve tenzih eder. O, azizdir, hakimdir. [17,44]",
+      },
+      {},
+    ),
+    "es": PublishedSurahMeaning(
+      "Spanish Translation - Isa Garcia",
+      "1.0.2",
+      "https://quranenc.com/en/browse/spanish_garcia/59#22",
+      "Translated by Muhammad Isa Garcia",
+      {
+        22: "22. Él es Al-lah, no hay otra divinidad salvo Él, el Conocedor de lo oculto y de lo manifiesto. Él es el Compasivo, el Misericordioso.",
+        23: "23. Él es Al-lah, no hay otra divinidad salvo Él, el Soberano Supremo, el Santísimo, el Salvador, el Dispensador de seguridad, el Custodio [de la fe], el Todopoderoso, el Dominador y el Soberbio. ¡Glorificado sea Dios! Está por encima de las divinidades que Le asocian.",
+        24: "24. Él es Al-lah, el Creador, el Iniciador y el Formador. Suyos son los nombres más sublimes. Todo cuanto existe en los cielos y en la Tierra Lo glorifica. Él es el Poderoso, el Sabio.",
+      },
+      {
+      },
+    ),
+    "fr": PublishedSurahMeaning(
+      "French Translation - Rachid Maach",
+      "1.0.3",
+      "https://quranenc.com/en/browse/french_rashid/59#22",
+      "Translated by Rashid Ma’ash",
+      {
+        22: "C’est Lui le vrai Dieu. Il n’est de divinité digne d’être adorée que Lui. Il connaît le monde visible comme le monde invisible. Il est le Tout Miséricordieux, le Très Miséricordieux.",
+        23: "C’est Lui le vrai Dieu. Il n’est de divinité en droit d’être adorée que Lui. Il est le Souverain, le Saint, le Pur, le Dieu apaisant[13] et l’Observateur vigilant, le Tout-Puissant, l’Impérieux et le Superbe. Gloire à Allah qui est bien au-dessus des faux dieux qu’ils peuvent Lui associer !",
+        24: "C’est Lui le vrai Dieu, le Créateur qui tire toute chose du néant en lui donnant la forme qu’Il veut. Il possède les noms les plus sublimes. Tout ce qui se trouve dans les cieux et sur la terre célèbre Sa gloire. Il est le Tout-Puissant, l’infiniment Sage.",
+      },
+      {
+        23: "[13] Il a mis Ses serviteurs à l’abri de toute injustice, apaisant donc leurs appréhensions.",
+      },
+    ),
+    "de": PublishedSurahMeaning(
+      "German Translation - Frank Bubenheim",
+      "1.1.4",
+      "https://quranenc.com/en/browse/german_bubenheim/59#22",
+      "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+      {
+        22: "Er ist Allah, außer dem es keinen Gott gibt, der Kenner des Verborgenen und des Offenbaren. Er ist der Allerbarmer und Barmherzige.",
+        23: "Er ist Allah, außer dem es keinen Gott gibt, der König, der Heilige, der Friede, der Gewährer der Sicherheit, der Wächter, der Allmächtige, der Gewalthaber, der Stolze. Preis sei Allah! (Und Erhaben ist Er) über das, was sie (Ihm) beigesellen.",
+        24: "Er ist Allah, der Schöpfer, der Erschaffer, der Gestalter. Sein sind die schönsten Namen. Ihn preist (alles), was in den Himmeln und auf der Erde ist. Und Er ist der Allmächtige und Allweise.",
+      },
+      {
+      },
+    ),
+    "en": PublishedSurahMeaning(
+      "English Translation - Noor International Center",
+      "1.1.2",
+      "https://quranenc.com/en/browse/english_saheeh/59#22",
+      "Issued by Noor International Center.",
+      {
+        22: "He is Allāh, other than whom there is no deity, Knower of the unseen and the witnessed.[1657] He is the Entirely Merciful, the Especially Merciful.",
+        23: "He is Allāh, other than whom there is no deity, the Sovereign,[1658] the Pure,[1659] the Perfection,[1660] the Grantor of Security,[1661] the Overseer,[1662] the Exalted in Might,[1663] the Compeller,[1664] the Superior.[1665] Exalted is Allāh above whatever they associate with Him.",
+        24: "He is Allāh, the Creator,[1666] the Producer,[1667] the Fashioner;[1668] to Him belong the best names.[1669] Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.[1670]",
+      },
+      {
+        22: "[1657] See footnotes to 6:73.",
+        23: "[1658] And owner of everything in existence.\n[1659] i.e., transcendent above any aspect belonging to His creation. Also, the possessor and grantor of blessings.\n[1660] Literally, \"Free\" from any imperfection. Also, \"Peace\" or \"Soundness.\"\n[1661] And safety, i.e., reassurance that His promise is always fulfilled. Also, He who bestows faith.\n[1662] i.e., who observes, guards and protects. Also, \"the Criterion.\"\n[1663] Refer to footnote in 2:129.\n[1664] Whose irresistible force is without limitation; the one above all things who compels the creation to be as He wills it. Also, \"the Amender\" or \"the Rectifier\" who repairs, restores, completes or sets something right once again, out of His mercy.\n[1665] Supreme, complete and perfect in His essence, attributes and actions.",
+        24: "[1666] i.e., He who destined existence for His creation.\n[1667] i.e., He who brings His creation into existence.\n[1668] i.e., He who gives every creation its particular form.\n[1669] Refer to the final paragraphs of the \"Introduction\" for a brief discussion of these attributes.\n[1670] Refer to footnote in 6:18.",
+      },
+    ),
+    "bs": PublishedSurahMeaning(
+      "Bosnian Translation - Muhammad Mahanovic",
+      "1.1.0",
+      "https://quranenc.com/en/browse/bosnian_mihanovich/59#22",
+      "Translated by Muhammad Mahanovic, developed under the supervision of Rowwad Translation Center. The original translation is available for the purpose of expressing opinion, evaluation, and continuous development.",
+      {
+        22: "On je Allah, osim Kojeg nema drugog boga, poznavatelj onog što je čulima nedokučivo, a i onog što je pojavno, Svemilosni, Milostivi.",
+        23: "On je Allah, osim Kojeg nema drugog boga, Vladar, Blagoslovljeni i Štovani, Savršeni - Onaj Koji je bez nedostataka, Onaj Koji pruža sigurnost, Onaj Koji nad svim bdi, Silni, Uzvišeni,  Gordi. Slavljen i Uzvišen je Allah od onoga što mu pridružuju!",
+        24: "On je Allah, Kreator, Tvorac, Oblikovatelj, On ima najljepša imena. Njega slavi i veliča sve što je na nebesima i na Zemlji, On je Silni i Mudri.",
+      },
+      {
+      },
+    ),
+    "nl": PublishedSurahMeaning(
+      "Dutch Translation - Rowwad Translation Center",
+      "2.0.10",
+      "https://quranenc.com/en/browse/dutch_center/59#22",
+      "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+      {
+        22: "Hij is Allah! Wie is er dan die het recht heeft om aanbeden te worden behalve Hij, de Alwetende van zowel het onwaarneembare als het waarneembare? Hij is de meest Barmhartige, de meest Genadevolle.",
+        23: "Hij is Allah! Wie is er dan die het recht heeft om aanbeden te worden behalve Hij, de Koning, de Heilige, De Ene die vrij is van tekortkomingen, de Gelovige, de Getuige, de Almachtige, de Overweldiger, de Trotse. Verheerlijkt zij Allah! (Hoog is Hij) boven alles wat met Hem als deelgenoten toegekent wordt.",
+        24: "Hij is Allah, de Schepper, de stichter (van alles), de Gever van vormen. Aan Hem behoren de beste mooie namen. Alles wat in de hemelen en op aarde is verheerlijkt Hem. En Hij is de Almachtige, de Alwijze.",
+      },
+      {
+      },
+    ),
+  },
 };

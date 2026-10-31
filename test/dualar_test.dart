@@ -1,4 +1,4 @@
-import 'package:kuran_okuma_rehberi/data/additional_dualar_data.dart';
+import 'package:kuran_okuma_rehberi/data/dua_groups.dart';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -144,16 +144,17 @@ void main() {
       await tester.pumpWidget(harness(const DualarListScreen(), audio));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
-      await tester.scrollUntilVisible(
-        find.byKey(ValueKey('dua-card-${kAllDualar.last.id}')),
-        300,
-      );
-      await tester.pumpAndSettle();
-      // Picture cards: the title is in the picture, not written again.
-      expect(
-        find.byKey(ValueKey('dua-card-${kAllDualar.last.id}')),
-        findsOneWidget,
-      );
+      for (final group in kDuaGroups) {
+        await tester.pumpWidget(
+          harness(DualarListScreen(key: ValueKey(group.id), group: group), audio),
+        );
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        final last = find.byKey(ValueKey('dua-card-${group.ids.last}'));
+        await tester.scrollUntilVisible(last, 300);
+        await tester.pumpAndSettle();
+        expect(last, findsOneWidget);
+      }
       for (final dua in kDualar) {
         await tester.pumpWidget(
           harness(DuaDetailScreen(key: ValueKey(dua.id), dua: dua), audio),
@@ -214,6 +215,8 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.byType(DualarListScreen), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('dua-group-namaz')));
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(ValueKey('dua-card-${kDualar.first.id}')));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Dinle'));
@@ -239,6 +242,9 @@ void main() {
     await tester.tap(find.text('Dinle'));
     await tester.pumpAndSettle();
     expect(audio.currentAsset, kDualar[1].playlist.first);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    // Prayer → its group → the group cards → home.
     await tester.pageBack();
     await tester.pumpAndSettle();
     await tester.pageBack();

@@ -40,9 +40,16 @@ final kSureGroups = <SureGroup>[
   const SureGroup(
     id: 'namaz-sonrasi',
     titleTr: 'Namazlardan Sonra Okunan Sureler, Aşirler',
-    surahs: [kAyatelKursi, kHuvellezi, kSupplementNebeSon, kAmenerrasulu],
+    surahs: [
+      kAyatelKursi,
+      kHuvallahullezi,
+      kHuvellezi,
+      kSupplementNebeSon,
+      kAmenerrasulu,
+    ],
     notesTr: {
       'ayetel-kursi': 'Her namazdan sonra',
+      'huvallahullezi': 'Sabah ve akşam namazlarından sonra',
       'huvellezi': 'Öğle namazından sonra',
       'nebe-son': 'İkindi namazından sonra',
       'amenerrasulu': 'Yatsı namazından sonra',
