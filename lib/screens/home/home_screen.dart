@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
         screenBuilder: (_) => const ElifbaLessonsScreen(),
       ),
       HomeMenuItem(
-        title: 'Namaz Duaları',
+        title: 'Dualar',
         subtitle: 'Namaz dualarını öğren',
         icon: Icons.volunteer_activism_rounded,
         background: AppColors.sageSoft,
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
         screenBuilder: (_) => const DualarListScreen(),
       ),
       HomeMenuItem(
-        title: 'Namaz Sureleri',
+        title: 'Sureler',
         subtitle: 'Kısa sureleri öğren',
         icon: Icons.auto_stories_rounded,
         background: AppColors.skyBlueSoft,

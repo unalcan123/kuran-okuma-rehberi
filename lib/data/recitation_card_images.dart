@@ -120,6 +120,9 @@ const Map<String, String> kSurahTextFreeImages = {
   // Âmenerrasûlü (read at night): the bedtime scene of the prayer sheet,
   // also Kunut 2's, until a picture of its own comes.
   'amenerrasulu': '$_yazisiz/sureler/sure_24.png',
+  // Hüvellezî (read after the prayer): Namaz Tesbihatı's child with the
+  // prayer beads, cut square, until a picture of its own comes.
+  'huvellezi': '$_yazisiz/sureler/sure_25.png',
 };
 
 /// The picture a prayer card shows: the text-free one when there is one.

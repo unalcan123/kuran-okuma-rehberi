@@ -53,7 +53,11 @@ class HomeGridCard extends StatelessWidget {
                 )
               else
                 _Placeholder(item: item),
-              if (image != null && context.language != AppLanguage.tr)
+              // Another language, or a title renamed since the picture was
+              // drawn ("Namaz Sureleri" → "Sureler"): the sign is rewritten.
+              if (image != null &&
+                  (context.language != AppLanguage.tr ||
+                      _LocalizedSign.bakedTitle(image) != item.title))
                 _LocalizedSign(image: image, title: context.t(item.title)),
               // Ink ripple over the picture; the whole card is the button.
               Material(
@@ -157,6 +161,17 @@ class _LocalizedSign extends StatelessWidget {
   const _LocalizedSign({required this.image, required this.title});
   final String image;
   final String title;
+
+  /// The Turkish title painted on each picture's sign.
+  static const _baked = {
+    'kuran_okuma_rehberi': "Kur'an Okuma Rehberi",
+    'namaz_dualari': 'Namaz Duaları',
+    'namaz_sureleri': 'Namaz Sureleri',
+    'oyunlar': 'Oyunlar',
+  };
+  static String? bakedTitle(String image) =>
+      _baked[image.split('/').last.replaceFirst('.webp', '')];
+
   static const _areas = {
     'kuran_okuma_rehberi': Rect.fromLTWH(.28, .715, .55, .20),
     'namaz_dualari': Rect.fromLTWH(.24, .725, .52, .205),

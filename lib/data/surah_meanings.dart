@@ -3231,4 +3231,100 @@ const kSurahMeanings = <String, Map<String, PublishedSurahMeaning>>{
       {},
     ),
   },
+  "huvellezi": {
+    "tr": PublishedSurahMeaning(
+      "Suat Yıldırım",
+      "2010-09-14",
+      "https://tanzil.net/#trans/tr.yildirim/48:28",
+      "Suat Yıldırım · Tanzil.net · non-commercial use",
+      {
+        28:
+            "Bütün dinlere üstün kılmak için Resulünü hidâyet ve hak dinle gönderen O'dur. Buna şahit olarak Allah yeter.",
+        29:
+            "Muhammed Allah'ın resulüdür. Onun beraberindeki müminler de kâfirlere karşı şiddetli olup kendi aralarında şefkatlidirler. Sen onları rükû ederken, secde ederken, Allah’tan lütuf ve rıza ararken görürsün. Onların alâmeti, yüzlerindeki secde izi, secde aydınlığıdır. Bunlar, Tevrat’taki sıfatları olup İncîl’deki meselleri ise şöyledir: Öyle bir ekin ki filizini çıkarmış, sonra da onu kuvvetlendirmiş, derken kalınlaşmış da artık gövdesi üzerinde doğrulmuş. Öyle ki ekicilerin hoşuna gider, kâfirleri de öfkelendirir. İşte böylece Allah, onlar gibi iman edip makbul ve güzel işler yapanlara mağfiret ve büyük bir mükâfat hazırlamıştır. [5,54] {KM, Vahiy 14,1; Matta 13, 31-32; Markos 4,26-27; Luka 13,18}",
+      },
+      {},
+    ),
+    "es": PublishedSurahMeaning(
+      "Spanish Translation - Isa Garcia",
+      "1.0.2",
+      "https://quranenc.com/en/browse/spanish_garcia/48#28",
+      "Translated by Muhammad Isa Garcia",
+      {
+        28:
+            "28. Él es Quien les envió a Su Mensajero con la guía y la práctica de adoración verdadera, para que prevalezca sobre todas las demás. Dios es suficiente como testigo.",
+        29:
+            "29. Mujámmad es el Mensajero de Dios. [Los creyentes] que están con él son severos con los que se niegan a creer, pero misericordiosos entre ellos. Los verás [rezando] inclinados y prosternados, anhelando alcanzar la misericordia de Dios y Su complacencia. En sus rostros se encuentran las huellas de la prosternación. Así fueron descritos en la Torá; mientras que en el Evangelio se los compara con una semilla que germina, brota, se fortalece, cobra grosor y se afirma en su tallo, causando alegría a los sembradores. Para que se indignen los que se niegan a creer. A los que crean y obren rectamente, Dios les ha prometido el perdón y una recompensa grandiosa.",
+      },
+      {},
+    ),
+    "fr": PublishedSurahMeaning(
+      "French Translation - Rachid Maach",
+      "1.0.3",
+      "https://quranenc.com/en/browse/french_rashid/48#28",
+      "Translated by Rashid Ma’ash",
+      {
+        28:
+            "C’est Lui qui a envoyé Son Messager avec une révélation propre à assurer le salut de l’humanité et la religion de vérité afin de la faire triompher de toute autre religion. Allah suffit pour en témoigner.",
+        29:
+            "Mouhammad est le Messager d’Allah. Ses compagnons sont implacables à l’égard des impies, pleins de compassion les uns envers les autres. On peut les voir s’incliner et se prosterner en prière, recherchant les grâces et la satisfaction d’Allah, le visage marqué par les prosternations. Telle est leur description dans la Torah, tandis que dans l’Evangile ils sont comparés à une semence d’où jaillissent de jeunes pousses lui donnant force et vigueur, et qui ne cesse alors de se gonfler pour finalement se dresser sur sa tige, faisant l’admiration du semeur. Par eux, Allah remplit les impies de fureur. A ceux d’entre eux qui croient et font œuvre pie, Il a promis Son pardon et une récompense infinie.",
+      },
+      {},
+    ),
+    "de": PublishedSurahMeaning(
+      "German Translation - Frank Bubenheim",
+      "1.1.4",
+      "https://quranenc.com/en/browse/german_bubenheim/48#28",
+      "Translated by ‘Abdullah as-Sāmit (Frank Bubenheim) and Dr. Nadim Elias.",
+      {
+        28:
+            "Er ist es, Der Seinen Gesandten mit der Rechtleitung und der Religion der Wahrheit gesandt hat, um ihr die Oberhand über alle Religion zu geben. Und Allah genügt als Zeuge.",
+        29:
+            "Muhammad ist Allahs Gesandter. Und diejenigen, die mit ihm sind, sind den Ungläubigen gegenüber hart, zueinander aber barmherzig. Du siehst sie sich verbeugen und niederwerfen, indem sie nach Huld von Allah und Wohlgefallen trachten. Ihr Merkmal steht auf ihren Gesichtern durch die Niederwerfung. Das ist ihr Gleichnis in der Tora. Und ihr Gleichnis im Evangelium ist das eines Getreidefeldes, das seine Triebe hervorbringt und dann stärker werden läßt, so daß sie verdicken und ebenmäßig auf ihren Halmen stehen, so daß es den Anbauern gefällt. (Dies,) damit Er die Ungläubigen durch sie ergrimmen lasse. Allah hat denjenigen von ihnen, die glauben und rechtschaffene Werke tun, Vergebung und großartigen Lohn versprochen.",
+      },
+      {},
+    ),
+    "en": PublishedSurahMeaning(
+      "English Translation - Noor International Center",
+      "1.1.2",
+      "https://quranenc.com/en/browse/english_saheeh/48#28",
+      "Issued by Noor International Center.",
+      {
+        28:
+            "It is He who sent His Messenger with guidance and the religion of truth to manifest it over all religion. And sufficient is Allāh as Witness.",
+        29:
+            "Muḥammad is the Messenger of Allāh; and those with him are forceful against the disbelievers, merciful among themselves. You see them bowing and prostrating [in prayer], seeking bounty from Allāh and [His] pleasure. Their sign is in their faces from the effect of prostration [i.e., prayer]. That is their description in the Torah. And their description in the Gospel is as a plant which produces its offshoots and strengthens them so they grow firm and stand upon their stalks, delighting the sowers - so that He [i.e., Allāh] may enrage by them[1518] the disbelievers. Allāh has promised those who believe and do righteous deeds among them forgiveness and a great reward.",
+      },
+      {
+        29:
+            "[1518] The given examples depict the Prophet (ﷺ) and his companions.",
+      },
+    ),
+    "bs": PublishedSurahMeaning(
+      "Bosnian Translation - Muhammad Mahanovic",
+      "1.1.0",
+      "https://quranenc.com/en/browse/bosnian_mihanovich/48#28",
+      "Translated by Muhammad Mahanovic, developed under the supervision of Rowwad Translation Center. The original translation is available for the purpose of expressing opinion, evaluation, and continuous development.",
+      {
+        28:
+            "On je poslao Poslanika Svoga s Uputom i vjerom Istine da bi je uzdigao iznad svih vjera. A Allah je dovoljan Svjedok!",
+        29:
+            "Muhammed je Allahov poslanik, a njegovi su sljedbenici strogi prema nevjernicima a samilosni među sobom; vidiš ih kako ruku' i sedždu čine, želeći od Allaha obilje i zadovoljstvo - na licima su im znaci, tragovi od padanja na sedždu. Tako su opisani u Tevratu. A u Indžilu: oni su kao biljka kad izdanak svoj izbaci pa ga onda učvrsti, i on ojača, i uspravi se na svojoj stabljici izazivajući divljenje sijača - da bi On s vjernicima najedio nevjernike. Onima koji vjeruju i dobra djela čine Allah obećava oprost i nagradu veliku.",
+      },
+      {},
+    ),
+    "nl": PublishedSurahMeaning(
+      "Dutch Translation - Rowwad Translation Center",
+      "2.0.10",
+      "https://quranenc.com/en/browse/dutch_center/48#28",
+      "Issued by the Dutch Islamic Center and developed under the supervision of Rowwad Translation Center",
+      {
+        28:
+            "Het is Hij Die Zijn boodschapper heeft gezonden met de (nuttige en verlichtende) leiding (die een duidelijk onderscheid maakt tussen goed en slecht). (Dit is) de godsdienst van de waarheid, (rechtvaardigheid, goedheid en genade), (en daarom) heeft Hij (deze relgie op basis van feiten en bewijzen) superieur gemaakt over elke andere godsdienst dan ook. En Allah is voldoende als getuige.",
+        29:
+            "Mohammed is de boodschapper van Allah, en degenen die met hem zijn, zijn streng tegen ongelovigen (tijdens strijden maar ook genadevol) en barmhartig voor elkaar. Jullie zien hen buigen en neerknielen, Strevend naar de gunst van Allah en Zijn tevredenheid. De kenmerken van hen is op hun gezichten van de sporen van hun knieling. Dit is hun beschrijving in de Thora. Maar hun beschrijving in de Indjiel is als (gezaaid) zaad dat zijn schoten vooruit stuurt, maakt het dan sterk, het wordt dik, en het staat recht op zijn steel, een vreugde voor de zaaiers – dat Hij de ongelovigen woedend met hen mag maken. Allah heeft degenen die geloven en goede daden verrichten, vergiffenis, en een enorme beloning beloofd.",
+      },
+      {},
+    ),
+  },
 };

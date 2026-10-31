@@ -27,8 +27,8 @@ import 'book_pages_test.dart' show RecordingAudio, app, setSize;
 
 const _titles = [
   "Kur'an Okuma Rehberi",
-  'Namaz Duaları',
-  'Namaz Sureleri',
+  'Dualar',
+  'Sureler',
   'Oyunlar',
 ];
 

@@ -16,6 +16,7 @@ import 'package:kuran_okuma_rehberi/l10n/l10n.dart';
 import 'package:kuran_okuma_rehberi/screens/dualar/dua_detail_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/dualar/dualar_list_screen.dart';
 import 'package:kuran_okuma_rehberi/screens/sureler/surah_detail_screen.dart';
+import 'package:kuran_okuma_rehberi/data/sure_groups.dart';
 import 'package:kuran_okuma_rehberi/screens/sureler/sureler_list_screen.dart';
 import 'package:kuran_okuma_rehberi/widgets/picture_card.dart';
 import 'package:kuran_okuma_rehberi/widgets/recitation_title_overlay.dart';
@@ -141,7 +142,7 @@ void main() {
         'Sübhâneke Duası',
       ),
       (
-        const SurelerListScreen(),
+        SurelerListScreen(group: kSureGroups.first),
         'surah-card-fatiha',
         'surah-caption-fatiha',
         kSureler.first.titleTr,
@@ -165,8 +166,9 @@ void main() {
   });
 
   for (final (size, min, max) in [
-    (const Size(360, 800), 1, 1),
-    (const Size(390, 844), 1, 1),
+    // Upright phone: two columns (user, 2026-10-31); tablet three or four.
+    (const Size(360, 800), 2, 2),
+    (const Size(390, 844), 2, 2),
     (const Size(800, 1280), 2, 3),
     (const Size(1280, 800), 3, 4),
     (const Size(1920, 1080), 3, 4),
@@ -179,7 +181,7 @@ void main() {
       addTearDown(audio.dispose);
       for (final (screen, prefix) in [
         (const DualarListScreen() as Widget, 'dua-card-'),
-        (const SurelerListScreen(), 'surah-card-'),
+        (SurelerListScreen(group: kSureGroups.first), 'surah-card-'),
       ]) {
         await tester.pumpWidget(harness(screen, audio));
         await tester.pumpAndSettle();
@@ -203,10 +205,10 @@ void main() {
     });
   }
 
-  test('yazısız sure resimleri: 24 öğe, hepsi aynı kare biçimde', () async {
+  test('yazısız sure resimleri: 25 öğe, hepsi aynı kare biçimde', () async {
     final pictured = kAllNamazTexts;
     expect(kSurahTextFreeImages.keys, pictured.map((s) => s.id));
-    expect(kSurahTextFreeImages.values.toSet(), hasLength(24));
+    expect(kSurahTextFreeImages.values.toSet(), hasLength(25));
     for (final surah in pictured) {
       final path = kSurahTextFreeImages[surah.id]!;
       expect(surahCardImage(surah.id), path);
@@ -261,13 +263,13 @@ void main() {
       expect(File(image).existsSync(), isTrue, reason: image);
     }
     // Kartlar 12-23: kAllNamazTexts'in kSureler'den sonrası, sırayla
-    // (24 Âmenerrasûlü'nün eski kartı yok).
+    // (24 Âmenerrasûlü'nün ve 25 Hüvellezî'nin eski kartı yok).
     for (var i = kSureler.length; i < 23; i++) {
       final image = kSurahCardImages[kAllNamazTexts[i].id]!;
       expect(image, endsWith('sure_${i + 1}.png'), reason: image);
       expect(File(image).existsSync(), isTrue, reason: image);
     }
-    expect(kAllNamazTexts, hasLength(24));
+    expect(kAllNamazTexts, hasLength(25));
     expect(kSurahCardImages.values.toSet(), hasLength(23));
     final files =
         Directory(
@@ -318,7 +320,9 @@ void main() {
     setSize(tester, const Size(1280, 800));
     final audio = TestAudioService();
     addTearDown(audio.dispose);
-    await tester.pumpWidget(harness(const SurelerListScreen(), audio));
+    await tester.pumpWidget(
+      harness(SurelerListScreen(group: kSureGroups.first), audio),
+    );
     await tester.pumpAndSettle();
     // The number is written under the picture (its title area).
     final fatiha = find.byKey(const ValueKey('surah-card-fatiha'));
@@ -382,13 +386,17 @@ void main() {
       setSize(tester, size);
       final audio = TestAudioService();
       addTearDown(audio.dispose);
-      for (final screen in const [SurelerListScreen(), DualarListScreen()]) {
+      for (final screen in [
+        SurelerListScreen(group: kSureGroups.first),
+        const DualarListScreen(),
+      ]) {
         await tester.pumpWidget(harness(screen, audio));
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
         // On screen (TabletZoom enlarges it on a tablet or a desktop).
         final first = tester.getRect(find.byType(PictureCard).first).size;
-        expect(first.width, greaterThanOrEqualTo(200), reason: '$screen');
+        // Two columns on an upright phone (~150 px cards, 2026-10-31).
+        expect(first.width, greaterThanOrEqualTo(140), reason: '$screen');
         for (var i = 0; i < 10; i++) {
           await tester.drag(find.byType(GridView), const Offset(0, -300));
           await tester.pump();
@@ -397,4 +405,48 @@ void main() {
       }
     });
   }
+
+  testWidgets('Sureler girişi: üç grup kartı; dokununca grubun sureleri açılır', (
+    tester,
+  ) async {
+    setSize(tester, const Size(360, 800));
+    final audio = TestAudioService();
+    addTearDown(audio.dispose);
+    expect(kSureGroups.map((g) => g.titleTr), [
+      'Namazda Okunan Kısa Sureler',
+      'Amme Cüzündeki Aşirler',
+      'Namazlardan Sonra Okunan Sureler, Aşirler',
+    ]);
+    expect(kSureGroups[0].surahs, kSureler);
+    expect(kSureGroups[1].surahs.map((s) => s.id), [
+      'duha', 'insirah', 'tin', 'kadir', 'zilzal', 'adiyat', 'karia',
+      'tekasur', 'asr', 'humeze',
+    ]);
+    expect(
+      kSureGroups[2].surahs.map((s) => s.id),
+      orderedEquals(['ayetel-kursi', 'huvellezi', 'nebe-son', 'amenerrasulu']),
+    );
+    // Every reading is in exactly one group.
+    expect(
+      [for (final g in kSureGroups) ...g.surahs.map((s) => s.id)]..sort(),
+      kAllNamazTexts.map((s) => s.id).toList()..sort(),
+    );
+    for (final g in kSureGroups.skip(2)) {
+      for (final s in g.surahs) {
+        expect(g.notesTr[s.id], isNotNull, reason: s.id);
+      }
+    }
+
+    await tester.pumpWidget(harness(const SurelerListScreen(), audio));
+    await tester.pumpAndSettle();
+    for (final g in kSureGroups) {
+      expect(find.byKey(ValueKey('sure-group-${g.id}')), findsOneWidget);
+    }
+    expect(find.byKey(const ValueKey('surah-card-fatiha')), findsNothing);
+    await tester.tap(find.byKey(const ValueKey('sure-group-namaz-sonrasi')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('surah-card-nebe-son')), findsOneWidget);
+    expect(find.text('İkindi namazından sonra'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 }

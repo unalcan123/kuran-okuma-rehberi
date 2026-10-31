@@ -17,7 +17,7 @@ const List<(Color, Color)> _badgeColors = [
 ];
 
 /// Soft green of the verse being read (border, glow, tint).
-const Color _activeGlow = Color(0xFF4CB782);
+const Color _activeGlow = Color(0xFF2FA866);
 
 /// Soft card tints, in turn (fill, border): mint, sky, peach, lilac.
 const List<(Color, Color)> _cardTints = [
@@ -130,21 +130,25 @@ class ReadingSegmentCard extends StatelessWidget {
         color:
             isActive
                 ? Color.alphaBlend(
-                  _activeGlow.withValues(alpha: 0.08),
+                  _activeGlow.withValues(alpha: 0.14),
                   AppColors.surface,
                 )
                 : (opening ? const Color(0xFFFFFCF4) : tint),
         borderRadius: BorderRadius.circular(26),
         border: Border.all(
-          color: isActive ? _activeGlow.withValues(alpha: 0.85) : tintBorder,
+          color: isActive ? _activeGlow : tintBorder,
           width: isActive ? 2.4 : 1.5,
         ),
         boxShadow: [
+          // A solid green ring outside the border (a shadow, so the card
+          // keeps its size), then the soft glow around it.
+          if (isActive)
+            const BoxShadow(color: _activeGlow, spreadRadius: 3),
           if (isActive)
             BoxShadow(
-              color: _activeGlow.withValues(alpha: 0.45),
-              blurRadius: 22,
-              spreadRadius: 2,
+              color: _activeGlow.withValues(alpha: 0.7),
+              blurRadius: 28,
+              spreadRadius: 6,
             ),
           BoxShadow(
             color: AppColors.navy.withValues(alpha: isActive ? 0.08 : 0.05),

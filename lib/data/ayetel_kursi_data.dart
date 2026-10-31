@@ -279,5 +279,125 @@ const kAmenerrasulu = Surah(
   ],
 );
 
+/// Fetih 28-29 ("Hüvellezî ersele") in the 2011 recording's 13 phrases
+/// (H:/Music/sureler/4/3-HUVELLEZI ERSELE.mp3, [Ayet.verse]); some phrases
+/// restart with the previous one's last words, as read. Arabic from
+/// `kuran.docx` (tool/sources/kuran_docx_fetih.json). Order 25: after
+/// [kAmenerrasulu], so no folder or number moves.
+const kHuvellezi = Surah(
+  order: 25,
+  id: 'huvellezi',
+  titleTr: 'Hüvellezî Ersele (Fetih 28–29)',
+  arabicName: 'هُوَ الَّذ۪ٓي اَرْسَلَ',
+  besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
+  besmeleAudioAsset: 'audio/sureler/25_huvellezi/00_besmele.mp3',
+  ayetler: [
+    Ayet(
+      number: 1,
+      arabic:
+          "هُوَ الَّذ۪ٓي اَرْسَلَ رَسُولَهُ بِالْهُدٰى وَد۪ينِ الْحَقِّ لِيُظْهِرَهُ",
+      meaningTr: "Resulünü hidâyet ve hak dinle gönderen O'dur;",
+      audioAsset: 'audio/sureler/25_huvellezi/01_ayet.mp3',
+      verse: 28,
+    ),
+    Ayet(
+      number: 2,
+      arabic: "لِيُظْهِرَهُ عَلَى الدّ۪ينِ كُلِّه۪ۜ",
+      meaningTr: "onu bütün dinlere üstün kılmak için.",
+      audioAsset: 'audio/sureler/25_huvellezi/02_ayet.mp3',
+      verse: 28,
+    ),
+    Ayet(
+      number: 3,
+      arabic: "وَكَفٰى بِاللّٰهِ شَه۪يدًاۜ",
+      meaningTr: "Buna şahit olarak Allah yeter.",
+      audioAsset: 'audio/sureler/25_huvellezi/03_ayet.mp3',
+      verse: 28,
+    ),
+    Ayet(
+      number: 4,
+      arabic: "مُحَمَّدٌ رَسُولُ اللّٰهِۜ",
+      meaningTr: "Muhammed Allah'ın resulüdür.",
+      audioAsset: 'audio/sureler/25_huvellezi/04_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 5,
+      arabic:
+          "وَالَّذ۪ينَ مَعَهُٓ اَشِدَّٓاءُ عَلَى الْكُفَّارِ رُحَمَٓاءُ بَيْنَهُمْ",
+      meaningTr:
+          "Onun beraberindeki müminler de kâfirlere karşı şiddetli olup kendi aralarında şefkatlidirler.",
+      audioAsset: 'audio/sureler/25_huvellezi/05_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 6,
+      arabic: "تَرٰيهُمْ رُكَّعًا سُجَّدًا يَبْتَغُونَ فَضْلًا",
+      meaningTr:
+          "Sen onları rükû ederken, secde ederken, lütuf ararken görürsün;",
+      audioAsset: 'audio/sureler/25_huvellezi/06_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 7,
+      arabic: "يَبْتَغُونَ فَضْلًا مِنَ اللّٰهِ وَرِضْوَانًاۘ",
+      meaningTr: "Allah’tan lütuf ve rıza ararken.",
+      audioAsset: 'audio/sureler/25_huvellezi/07_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 8,
+      arabic: "س۪يمَاهُمْ ف۪ي وُجُوهِهِمْ مِنْ اَثَرِ السُّجُودِۜ",
+      meaningTr: "Onların alâmeti, yüzlerindeki secde izi, secde aydınlığıdır.",
+      audioAsset: 'audio/sureler/25_huvellezi/08_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 9,
+      arabic:
+          "ذٰلِكَ مَثَلُهُمْ فِي التَّوْرٰيةِۚۛ وَمَثَلُهُمْ فِي الْاِنْج۪يلِ۠ۛ",
+      meaningTr:
+          "Bunlar, Tevrat’taki sıfatları olup İncîl’deki meselleri ise şöyledir:",
+      audioAsset: 'audio/sureler/25_huvellezi/09_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 10,
+      arabic:
+          "كَزَرْعٍ اَخْرَجَ شَطْـَٔهُ۫ فَاٰزَرَهُ فَاسْتَغْلَظَ فَاسْتَوٰى",
+      meaningTr:
+          "Öyle bir ekin ki filizini çıkarmış, sonra da onu kuvvetlendirmiş, derken kalınlaşmış da",
+      audioAsset: 'audio/sureler/25_huvellezi/10_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 11,
+      arabic:
+          "فَاسْتَوٰى عَلٰى سُوقِه۪ يُعْجِبُ الزُّرَّاعَ لِيَغ۪يظَ بِهِمُ الْكُفَّارَۜ",
+      meaningTr:
+          "artık gövdesi üzerinde doğrulmuş. Öyle ki ekicilerin hoşuna gider, kâfirleri de öfkelendirir.",
+      audioAsset: 'audio/sureler/25_huvellezi/11_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 12,
+      arabic:
+          "وَعَدَ اللّٰهُ الَّذ۪ينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُمْ",
+      meaningTr:
+          "İşte böylece Allah, onlar gibi iman edip makbul ve güzel işler yapanlara",
+      audioAsset: 'audio/sureler/25_huvellezi/12_ayet.mp3',
+      verse: 29,
+    ),
+    Ayet(
+      number: 13,
+      arabic: "مِنْهُمْ مَغْفِرَةً وَاَجْرًا عَظ۪يمًا",
+      meaningTr:
+          "mağfiret ve büyük bir mükâfat hazırlamıştır. [5,54] {KM, Vahiy 14,1; Matta 13, 31-32; Markos 4,26-27; Luka 13,18}",
+      audioAsset: 'audio/sureler/25_huvellezi/13_ayet.mp3',
+      verse: 29,
+    ),
+  ],
+);
+
 // A verse excerpt, listed after the 11 surahs without renumbering them.
 const kNamazAyetleri = <Surah>[kAyatelKursi];

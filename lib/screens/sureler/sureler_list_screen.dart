@@ -4,22 +4,21 @@ import 'package:flutter/material.dart';
 import '../../l10n/l10n.dart';
 
 import '../../data/recitation_card_images.dart';
-import '../../data/supplementary_sureler_data.dart';
+import '../../data/sure_groups.dart';
 import '../../models/surah.dart';
 import '../../widgets/holy_places_background.dart';
 import '../../widgets/recitation_card.dart';
 import 'surah_detail_screen.dart';
 import '../../widgets/tablet_zoom.dart';
 
-/// "Namaz Sureleri" home — every short surah as a picture card
-/// ([PictureCard], [kSurahCardImages]) on one responsive grid.
-///
-/// Column count follows the same rule the Elifba grid uses: how many
-/// cards actually fit at a comfortable minimum width, not how wide
-/// the screen happens to be — so a card never gets squeezed just
-/// because the device is nominally "tablet-sized".
+/// "Sureler" home: without a [group], the three group cards
+/// ([kSureGroups]); with one, that group's readings as picture cards
+/// ([RecitationCard]). Columns: [RecitationCard.columnsFor] — two on an
+/// upright phone, three or four on a tablet, fewer as the text grows.
 class SurelerListScreen extends StatefulWidget {
-  const SurelerListScreen({super.key});
+  const SurelerListScreen({super.key, this.group});
+
+  final SureGroup? group;
 
   @override
   State<SurelerListScreen> createState() => _SurelerListScreenState();
@@ -62,13 +61,14 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
   };
 
   static const double _maxContentWidth = 1100;
-  static const double _minCardWidth = 240;
 
   @override
   Widget build(BuildContext context) {
+    final group = widget.group;
+    final count = group?.surahs.length ?? kSureGroups.length;
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.t('Namaz Sureleri')),
+        title: Text(context.t(group?.titleTr ?? 'Sureler')),
         actions: [
           ReadingTextSettingsButton(
             showMeaningToggle: false,
@@ -89,12 +89,10 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                   child: LayoutBuilder(
                     builder: (context, constraints) {
                       final readingScale = ReadingTextScale.factorOf(context);
-                      // Bigger text needs wider cards: columns thin out one by one.
-                      final columns = (constraints.maxWidth /
-                              (_minCardWidth *
-                                  (readingScale > 1 ? readingScale : 1)))
-                          .floor()
-                          .clamp(1, 4);
+                      final columns = RecitationCard.columnsFor(
+                        constraints.maxWidth,
+                        readingScale,
+                      );
 
                       final cardWidth =
                           (constraints.maxWidth - 40 - 16 * (columns - 1)) /
@@ -111,7 +109,7 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                                 MediaQuery.sizeOf(context),
                               ),
                         ),
-                        itemCount: kAllNamazTexts.length,
+                        itemCount: count,
                         // Picture cards (PictureCard): every card has the
                         // pictures' shape; the whole card opens the surah.
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -125,12 +123,15 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
                           ),
                         ),
                         itemBuilder: (context, index) {
-                          final surah = kAllNamazTexts[index];
-                          final number = switch (surah.id) {
-                            'ayetel-kursi' => '${index + 1} · Bakara 2:255',
-                            'amenerrasulu' => '${index + 1} · Bakara 2:285-286',
-                            _ => context.t('Sure {n}', {'n': index + 1}),
-                          };
+                          if (group == null) {
+                            return _groupCard(context, kSureGroups[index]);
+                          }
+                          final surah = group.surahs[index];
+                          final note = group.notesTr[surah.id];
+                          final number =
+                              note != null
+                                  ? context.t(note)
+                                  : context.t('Sure {n}', {'n': index + 1});
                           final textFree = kSurahTextFreeImages.containsKey(
                             surah.id,
                           );
@@ -172,6 +173,23 @@ class _SurelerListScreenState extends State<SurelerListScreen> {
       ),
     );
   }
+
+  Widget _groupCard(BuildContext context, SureGroup group) => RecitationCard(
+    cardKey: ValueKey('sure-group-${group.id}'),
+    captionKey: ValueKey('sure-group-caption-${group.id}'),
+    image: surahCardImage(group.surahs.first.id),
+    aspectRatio: kSurahCardAspectRatio,
+    radiusFactor: kSurahCardRadiusFactor,
+    number: context.t('{n} sure', {'n': group.surahs.length}),
+    title: context.t(group.titleTr),
+    onTap:
+        () => Navigator.of(context).push(
+          MaterialPageRoute(
+            settings: RouteSettings(name: '/sureler/${group.id}'),
+            builder: (_) => SurelerListScreen(group: group),
+          ),
+        ),
+  );
 
   void _openSurah(BuildContext context, Surah surah) {
     Navigator.of(context).push(

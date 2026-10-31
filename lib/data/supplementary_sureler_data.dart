@@ -790,4 +790,5 @@ const kAllNamazTexts = <Surah>[
   kAyatelKursi,
   ...kSupplementarySureler,
   kAmenerrasulu,
+  kHuvellezi,
 ];

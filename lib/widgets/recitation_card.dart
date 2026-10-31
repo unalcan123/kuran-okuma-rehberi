@@ -50,6 +50,18 @@ class RecitationCard extends StatelessWidget {
       ).scale(_numberSize * 1.3 + 2 * _titleSize * 1.2) +
       18;
 
+  /// Narrowest card a grid lays out at normal text size: an upright phone
+  /// gets two columns, a tablet three or four.
+  static const double minWidth = 150;
+
+  /// Columns of a card grid [width] wide with 20 px padding and 16 px gaps.
+  /// Bigger text needs wider cards: columns thin out one by one.
+  static int columnsFor(double width, double readingScale) =>
+      ((width - 40 + 16) /
+              (minWidth * (readingScale > 1 ? readingScale : 1) + 16))
+          .floor()
+          .clamp(1, 4);
+
   /// Grid cell height for cards [width] wide.
   static double extentOf(
     BuildContext context, {
@@ -98,15 +110,20 @@ class RecitationCard extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          number,
-                          maxLines: 1,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: _numberSize,
-                            height: 1.3,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.turquoise,
+                        // A long line (a note such as "İkindi namazından
+                        // sonra") shrinks on a narrow card instead of being cut.
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            number,
+                            maxLines: 1,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: _numberSize,
+                              height: 1.3,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.turquoise,
+                            ),
                           ),
                         ),
                         Flexible(child: _FitTitle(title)),

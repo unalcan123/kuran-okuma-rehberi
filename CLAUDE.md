@@ -50,6 +50,11 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   kenarında süs çocuklar `LessonKidsDecoration` (yalnız boş kenarda; masaüstü 2, tablet 1, telefon 0;
   görseller `assets/images/kids/*.webp` gelince görünür). Eski `D:\Elifbe2025` foto kartları kullanılmaz
   (gerçek fotoğraf/telif).
+- **Sureler girişi = 3 grup kartı** (`kSureGroups`, `lib/data/sure_groups.dart`; 2026-10-31): Namazda Okunan Kısa Sureler (11),
+  Amme Cüzündeki Aşirler (Duhâ…Hümeze), Namazlardan Sonra Okunan Sureler, Aşirler (Âyetel Kürsî, Hüvellezî = Fetih 28-29,
+  Nebe 31-40, Âmenerrasûlü; kartta "Sure n" yerine `notesTr` "… namazından sonra"). `SurelerListScreen(group:)`, rota
+  `/sureler/<grup>`. Ana sayfa başlıkları "Sureler" / "Dualar" (resimdeki eski levha yazısı `_LocalizedSign` ile örtülür).
+  Sure/dua ızgarası `RecitationCard.columnsFor`: dik telefon 2, tablet 3-4. Okunan kartın yeşil halkası gölgeyle (boyut değişmez).
 - **Bize Ulaşın** (`lib/screens/iletisim/contact_screen.dart`): ana sayfada kartların altında; mesaj
   `url_launcher` ile e-posta uygulamasında hazır açılır (alıcı `kContactEmail` = fluttercanpolat@gmail.com,
   resim orada ataçla eklenir; uygulama açılamazsa adres kopyalanır). Test: `test/contact_screen_test.dart`.

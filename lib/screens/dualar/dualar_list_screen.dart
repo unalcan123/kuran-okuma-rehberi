@@ -10,7 +10,7 @@ import 'dua_detail_screen.dart';
 import '../../widgets/recitation_card.dart';
 import '../../widgets/tablet_zoom.dart';
 
-/// "Namaz Duaları" home — each prayer as a picture card ([PictureCard],
+/// "Dualar" home — each prayer as a picture card ([PictureCard],
 /// [duaCardImage]) on one responsive grid ([RecitationCard]): the picture,
 /// and under it the number and the name, written by the app.
 ///
@@ -35,13 +35,12 @@ class _DualarListScreenState extends State<DualarListScreen> {
   }
 
   static const double _maxContentWidth = 1100;
-  static const double _minCardWidth = 240;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.t('Namaz Duaları')),
+        title: Text(context.t('Dualar')),
         actions: [
           ReadingTextSettingsButton(
             showMeaningToggle: false,
@@ -62,13 +61,10 @@ class _DualarListScreenState extends State<DualarListScreen> {
                   child: LayoutBuilder(
                     builder: (context, constraints) {
                       final readingScale = ReadingTextScale.factorOf(context);
-                      // Bigger text needs wider cards: columns thin out one by one.
-                      final columns = ((constraints.maxWidth - 40 + 16) /
-                              (_minCardWidth *
-                                      (readingScale > 1 ? readingScale : 1) +
-                                  16))
-                          .floor()
-                          .clamp(1, 4);
+                      final columns = RecitationCard.columnsFor(
+                        constraints.maxWidth,
+                        readingScale,
+                      );
 
                       final cardWidth =
                           (constraints.maxWidth - 40 - 16 * (columns - 1)) /

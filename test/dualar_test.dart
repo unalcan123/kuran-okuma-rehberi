@@ -210,7 +210,7 @@ void main() {
     addTearDown(audio.dispose);
     await tester.pumpWidget(harness(const HomeScreen(), audio));
     await tester.tap(
-      find.byKey(const ValueKey('home-card-image-Namaz Duaları')),
+      find.byKey(const ValueKey('home-card-image-Dualar')),
     );
     await tester.pumpAndSettle();
     expect(find.byType(DualarListScreen), findsOneWidget);
