@@ -528,6 +528,132 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
     ReadingWordTiming(7, 17, 860, 1780),
     ReadingWordTiming(18, 28, 1780, 6200),
   ],
+  "audio/sureler/13_nebe-son/00_besmele.mp3|بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ":
+      [
+        ReadingWordTiming(0, 6, 40, 860),
+        ReadingWordTiming(7, 14, 860, 1540),
+        ReadingWordTiming(15, 26, 1540, 2740),
+        ReadingWordTiming(27, 37, 2740, 5150),
+      ],
+  "audio/sureler/13_nebe-son/01_ayet.mp3|اِنَّ لِلْمُتَّق۪ينَ مَفَازاًۙ":
+      [
+        ReadingWordTiming(0, 5, 280, 1860),
+        ReadingWordTiming(6, 20, 1860, 4100),
+        ReadingWordTiming(21, 30, 4100, 6147),
+      ],
+  "audio/sureler/13_nebe-son/02_ayet.mp3|حَدَٓائِقَ وَاَعْنَاباًۙ":
+      [
+        ReadingWordTiming(0, 10, 40, 3580),
+        ReadingWordTiming(11, 24, 3580, 5980),
+      ],
+  "audio/sureler/13_nebe-son/03_ayet.mp3|وَكَوَاعِبَ اَتْرَاباًۙ":
+      [
+        ReadingWordTiming(0, 11, 40, 2260),
+        ReadingWordTiming(12, 23, 2260, 4430),
+      ],
+  "audio/sureler/13_nebe-son/04_ayet.mp3|وَكَأْساً دِهَاقاً":
+      [
+        ReadingWordTiming(0, 9, 40, 2760),
+        ReadingWordTiming(10, 18, 2760, 4180),
+      ],
+  "audio/sureler/13_nebe-son/05_ayet.mp3|لَا يَسْمَعُونَ ف۪يهَا لَغْواً وَلَا كِذَّاباًۚ":
+      [
+        ReadingWordTiming(0, 3, 100, 920),
+        ReadingWordTiming(4, 15, 920, 2920),
+        ReadingWordTiming(16, 22, 2920, 3960),
+        ReadingWordTiming(23, 30, 3960, 5980),
+        ReadingWordTiming(31, 36, 5980, 7320),
+        ReadingWordTiming(37, 47, 7320, 8953),
+      ],
+  "audio/sureler/13_nebe-son/06_ayet.mp3|جَزَٓاءً مِنْ رَبِّكَ عَطَٓاءً حِسَاباًۙ":
+      [
+        ReadingWordTiming(0, 8, 220, 3840),
+        ReadingWordTiming(9, 13, 3840, 4080),
+        ReadingWordTiming(14, 21, 4080, 5200),
+        ReadingWordTiming(22, 30, 5200, 8720),
+        ReadingWordTiming(31, 40, 8720, 10036),
+      ],
+  "audio/sureler/13_nebe-son/07_ayet.mp3|رَبِّ السَّمٰوَاتِ وَالْاَرْضِ وَمَا بَيْنَهُمَاۙ الرَّحْمٰنِ":
+      [
+        ReadingWordTiming(0, 5, 220, 1280),
+        ReadingWordTiming(6, 18, 1280, 2960),
+        ReadingWordTiming(19, 30, 2960, 4340),
+        ReadingWordTiming(31, 36, 4340, 5360),
+        ReadingWordTiming(37, 49, 5360, 6860),
+        ReadingWordTiming(50, 61, 6860, 8613),
+      ],
+  "audio/sureler/13_nebe-son/08_ayet.mp3|وَمَا بَيْنَهُمَاۙ الرَّحْمٰنِ لَا يَمْلِكُونَ مِنْهُ خِطَاباًۙ":
+      [
+        ReadingWordTiming(0, 5, 360, 1600),
+        ReadingWordTiming(6, 18, 1600, 3040),
+        ReadingWordTiming(19, 30, 3040, 4660),
+        ReadingWordTiming(31, 34, 4660, 5160),
+        ReadingWordTiming(35, 46, 5160, 6940),
+        ReadingWordTiming(47, 53, 6940, 7780),
+        ReadingWordTiming(54, 63, 7780, 9690),
+      ],
+  "audio/sureler/13_nebe-son/09_ayet.mp3|يَوْمَ يَقُومُ الرُّوحُ وَالْمَلٰٓئِكَةُ صَفاًّ":
+      [
+        ReadingWordTiming(0, 6, 320, 1220),
+        ReadingWordTiming(7, 14, 1220, 2920),
+        ReadingWordTiming(15, 23, 2920, 3880),
+        ReadingWordTiming(24, 40, 3880, 7040),
+        ReadingWordTiming(41, 47, 7040, 8137),
+      ],
+  "audio/sureler/13_nebe-son/10_ayet.mp3|لَا يَتَكَلَّمُونَ اِلَّا مَنْ اَذِنَ لَهُ الرَّحْمٰنُ وَقَالَ صَوَاباً":
+      [
+        ReadingWordTiming(0, 3, 220, 960),
+        ReadingWordTiming(4, 18, 960, 3340),
+        ReadingWordTiming(19, 25, 3340, 4200),
+        ReadingWordTiming(26, 30, 4200, 4460),
+        ReadingWordTiming(31, 37, 4460, 5260),
+        ReadingWordTiming(38, 42, 5260, 6020),
+        ReadingWordTiming(43, 54, 6020, 7560),
+        ReadingWordTiming(55, 62, 7560, 8840),
+        ReadingWordTiming(63, 71, 8840, 10203),
+      ],
+  "audio/sureler/13_nebe-son/11_ayet.mp3|ذٰلِكَ الْيَوْمُ الْحَقُّۚ":
+      [
+        ReadingWordTiming(0, 6, 400, 1820),
+        ReadingWordTiming(7, 16, 1820, 2920),
+        ReadingWordTiming(17, 26, 2920, 4353),
+      ],
+  "audio/sureler/13_nebe-son/12_ayet.mp3|فَمَنْ شَٓاءَ اتَّخَذَ اِلٰى رَبِّه۪ مَاٰباً":
+      [
+        ReadingWordTiming(0, 6, 40, 2220),
+        ReadingWordTiming(7, 13, 2220, 4540),
+        ReadingWordTiming(14, 22, 4540, 5800),
+        ReadingWordTiming(23, 28, 5800, 6440),
+        ReadingWordTiming(29, 36, 6440, 7880),
+        ReadingWordTiming(37, 44, 7880, 9599),
+      ],
+  "audio/sureler/13_nebe-son/13_ayet.mp3|اِنَّٓا اَنْذَرْنَاكُمْ عَذَاباً قَر۪يباًۚ":
+      [
+        ReadingWordTiming(0, 7, 60, 3380),
+        ReadingWordTiming(8, 23, 3380, 6440),
+        ReadingWordTiming(24, 32, 6440, 8920),
+        ReadingWordTiming(33, 42, 8920, 10240),
+      ],
+  "audio/sureler/13_nebe-son/14_ayet.mp3|يَوْمَ يَنْظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْكَافِرُ":
+      [
+        ReadingWordTiming(0, 6, 40, 920),
+        ReadingWordTiming(7, 15, 920, 2680),
+        ReadingWordTiming(16, 25, 2680, 3780),
+        ReadingWordTiming(26, 29, 3780, 4600),
+        ReadingWordTiming(30, 39, 4600, 5620),
+        ReadingWordTiming(40, 47, 5620, 6980),
+        ReadingWordTiming(48, 57, 6980, 8640),
+        ReadingWordTiming(58, 68, 8640, 9690),
+      ],
+  "audio/sureler/13_nebe-son/15_ayet.mp3|وَيَقُولُ الْكَافِرُ يَا لَيْتَن۪ي كُنْتُ تُرَاباً":
+      [
+        ReadingWordTiming(0, 9, 40, 1980),
+        ReadingWordTiming(10, 20, 1980, 3700),
+        ReadingWordTiming(21, 24, 3700, 4500),
+        ReadingWordTiming(25, 34, 4500, 6720),
+        ReadingWordTiming(35, 41, 6720, 8360),
+        ReadingWordTiming(42, 50, 8360, 10170),
+      ],
   "audio/sureler/14_duha/00_besmele.mp3|بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ":
       [
         ReadingWordTiming(0, 6, 260, 540),

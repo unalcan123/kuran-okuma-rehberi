@@ -3,85 +3,129 @@ import 'sureler_data.dart';
 import 'ayetel_kursi_data.dart';
 
 // Arabic: Diyanet indexed official Quran pages; Turkish: Suat Yildirim / Tanzil.
+// Read in phrases like the owner's recording (ref/nebesuresi3140, 2026-10-31):
+// 37-39 in two, 40 in three; the reader restarts 37b with "ve mâ beynehumâ
+// er-rahmân" and 40c with "ve yekûlü'l-kâfiru", so those cards repeat them.
 const kSupplementNebeSon = Surah(
   order: 13,
   id: "nebe-son",
   titleTr: "Nebe Suresi (31–40. Ayetler)",
-  arabicName: "النَّبَأ",
-  besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
-  besmeleAudioAsset: '',
+  arabicName: "النَّبَأ",
+  besmele: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ',
+  besmeleAudioAsset: 'audio/sureler/13_nebe-son/00_besmele.mp3',
   ayetler: [
     Ayet(
-      number: 31,
+      number: 1,
       arabic: "اِنَّ لِلْمُتَّقٖينَ مَفَازاًۙ",
       meaningTr:
           "Ama Allah'ı sayıp günahlıklardan sakınanlar, başarı ve mutluluğa ererler.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/13_nebe-son/01_ayet.mp3',
+      verse: 31,
     ),
     Ayet(
-      number: 32,
+      number: 2,
       arabic: "حَدَٓائِقَ وَاَعْنَاباًۙ",
-      meaningTr:
-          "Onlara bahçeler, üzüm bağları, turunç göğüslü genç yaşıt dilberler, dolu dolu kadehler var. [38,52; 56,37]",
-      audioAsset: '',
+      meaningTr: "Onlara bahçeler, üzüm bağları,",
+      audioAsset: 'audio/sureler/13_nebe-son/02_ayet.mp3',
+      verse: 32,
     ),
     Ayet(
-      number: 33,
+      number: 3,
       arabic: "وَكَوَاعِبَ اَتْرَاباًۙ",
-      meaningTr:
-          "Onlara bahçeler, üzüm bağları, turunç göğüslü genç yaşıt dilberler, dolu dolu kadehler var. [38,52; 56,37]",
-      audioAsset: '',
+      meaningTr: "turunç göğüslü genç yaşıt dilberler,",
+      audioAsset: 'audio/sureler/13_nebe-son/03_ayet.mp3',
+      verse: 33,
     ),
     Ayet(
-      number: 34,
+      number: 4,
       arabic: "وَكَأْساً دِهَاقاًؕ",
-      meaningTr:
-          "Onlara bahçeler, üzüm bağları, turunç göğüslü genç yaşıt dilberler, dolu dolu kadehler var. [38,52; 56,37]",
-      audioAsset: '',
+      meaningTr: "dolu dolu kadehler var. [38,52; 56,37]",
+      audioAsset: 'audio/sureler/13_nebe-son/04_ayet.mp3',
+      verse: 34,
     ),
     Ayet(
-      number: 35,
+      number: 5,
       arabic: "لَا يَسْمَعُونَ فٖيهَا لَغْواً وَلَا كِذَّاباًۚ",
       meaningTr: "Orada boş sözler, yalanlar işitmezler.",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/13_nebe-son/05_ayet.mp3',
+      verse: 35,
     ),
     Ayet(
-      number: 36,
+      number: 6,
       arabic: "جَزَٓاءً مِنْ رَبِّكَ عَطَٓاءً حِسَاباًۙ",
       meaningTr: "İşte bu da Rabbinden mükâfat, yeter mi yeter!",
-      audioAsset: '',
+      audioAsset: 'audio/sureler/13_nebe-son/06_ayet.mp3',
+      verse: 36,
     ),
     Ayet(
-      number: 37,
-      arabic:
-          "رَبِّ السَّمٰوَاتِ وَالْاَرْضِ وَمَا بَيْنَهُمَاۙ الرَّحْمٰنِ لَا يَمْلِكُونَ مِنْهُ خِطَاباًۙ",
+      number: 7,
+      arabic: "رَبِّ السَّمٰوَاتِ وَالْاَرْضِ وَمَا بَيْنَهُمَاۙ الرَّحْمٰنِ",
       meaningTr:
-          "Göklerin, yerin ve bunların arasındaki varlıkların Rabbinden, O Rahman'dan bir mükâfattır.O’nun huzurunda ağzını açacak, söz söyleyecek hiç kimse yoktur. [2,255; 11,105]",
-      audioAsset: '',
+          "Göklerin, yerin ve bunların arasındaki varlıkların Rabbinden, O Rahman'dan bir mükâfattır.",
+      audioAsset: 'audio/sureler/13_nebe-son/07_ayet.mp3',
+      verse: 37,
     ),
     Ayet(
-      number: 38,
-      arabic:
-          "يَوْمَ يَقُومُ الرُّوحُ وَالْمَلٰٓئِكَةُ صَفاًّؕ لَا يَتَكَلَّمُونَ اِلَّا مَنْ اَذِنَ لَهُ الرَّحْمٰنُ وَقَالَ صَوَاباً",
+      number: 8,
+      arabic: "وَمَا بَيْنَهُمَاۙ الرَّحْمٰنِ لَا يَمْلِكُونَ مِنْهُ خِطَاباًۙ",
       meaningTr:
-          "O gün Rûh ve melekler saf saf sıralanır. Rahman'ın izin verdiklerinin dışında, asla konuşmazlar. Konuşan da yerli yerinde söz söyler.",
-      audioAsset: '',
+          "O’nun huzurunda ağzını açacak, söz söyleyecek hiç kimse yoktur. [2,255; 11,105]",
+      audioAsset: 'audio/sureler/13_nebe-son/08_ayet.mp3',
+      verse: 37,
     ),
     Ayet(
-      number: 39,
-      arabic:
-          "ذٰلِكَ الْيَوْمُ الْحَقُّۚ فَمَنْ شَٓاءَ اتَّخَذَ اِلٰى رَبِّهٖ مَاٰباً",
-      meaningTr:
-          "İşte bu, gerçekliği kesin olan gündür. Artık dileyen, Rabbine varan yolu tutar, O'na sığınır.",
-      audioAsset: '',
+      number: 9,
+      arabic: "يَوْمَ يَقُومُ الرُّوحُ وَالْمَلٰٓئِكَةُ صَفاًّؕ",
+      meaningTr: "O gün Rûh ve melekler saf saf sıralanır.",
+      audioAsset: 'audio/sureler/13_nebe-son/09_ayet.mp3',
+      verse: 38,
     ),
     Ayet(
-      number: 40,
+      number: 10,
       arabic:
-          "اِنَّٓا اَنْذَرْنَاكُمْ عَذَاباً قَرٖيباًۚ يَوْمَ يَنْظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْكَافِرُ يَا لَيْتَنٖي كُنْتُ تُرَاباً",
+          "لَا يَتَكَلَّمُونَ اِلَّا مَنْ اَذِنَ لَهُ الرَّحْمٰنُ وَقَالَ صَوَاباً",
       meaningTr:
-          "Biz, gelmesi yaklaşmış bir azabı bildirerek sizi uyarıyoruz. O gün gelecek,ve her şahıs önünde, yalnız yapıp ettiklerini bulup bakacak ve kâfir: “Ah ne olurdu, keşke toprak olaydım!” diyecek. [18,49; 75,13]",
-      audioAsset: '',
+          "Rahman'ın izin verdiklerinin dışında, asla konuşmazlar. Konuşan da yerli yerinde söz söyler.",
+      audioAsset: 'audio/sureler/13_nebe-son/10_ayet.mp3',
+      verse: 38,
+    ),
+    Ayet(
+      number: 11,
+      arabic: "ذٰلِكَ الْيَوْمُ الْحَقُّۚ",
+      meaningTr: "İşte bu, gerçekliği kesin olan gündür.",
+      audioAsset: 'audio/sureler/13_nebe-son/11_ayet.mp3',
+      verse: 39,
+    ),
+    Ayet(
+      number: 12,
+      arabic: "فَمَنْ شَٓاءَ اتَّخَذَ اِلٰى رَبِّهٖ مَاٰباً",
+      meaningTr: "Artık dileyen, Rabbine varan yolu tutar, O'na sığınır.",
+      audioAsset: 'audio/sureler/13_nebe-son/12_ayet.mp3',
+      verse: 39,
+    ),
+    Ayet(
+      number: 13,
+      arabic: "اِنَّٓا اَنْذَرْنَاكُمْ عَذَاباً قَرٖيباًۚ",
+      meaningTr: "Biz, gelmesi yaklaşmış bir azabı bildirerek sizi uyarıyoruz.",
+      audioAsset: 'audio/sureler/13_nebe-son/13_ayet.mp3',
+      verse: 40,
+    ),
+    Ayet(
+      number: 14,
+      arabic:
+          "يَوْمَ يَنْظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْكَافِرُ",
+      meaningTr:
+          "O gün gelecek, ve her şahıs önünde, yalnız yapıp ettiklerini bulup bakacak ve kâfir:",
+      audioAsset: 'audio/sureler/13_nebe-son/14_ayet.mp3',
+      verse: 40,
+    ),
+    Ayet(
+      number: 15,
+      arabic: "وَيَقُولُ الْكَافِرُ يَا لَيْتَنٖي كُنْتُ تُرَاباً",
+      meaningTr:
+          "ve kâfir: “Ah ne olurdu, keşke toprak olaydım!” diyecek. [18,49; 75,13]",
+      audioAsset: 'audio/sureler/13_nebe-son/15_ayet.mp3',
+      verse: 40,
     ),
   ],
 );

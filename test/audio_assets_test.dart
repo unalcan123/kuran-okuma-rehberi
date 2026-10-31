@@ -57,7 +57,8 @@ void main() {
       // oldu. Sesler ihtiyaç oldukça indirilir; sınır 32 MB idi. 2026-10-29:
       // ek surelerin ayet klipleri (+~2,9 MB) geldi, karşılığında bu
       // hesaba hiç girmeyen ~28 MB'lık uzun zilli kayıtlar silindi; sınır 36 MB.
-      expect(total, lessThan(36 * 1024 * 1024), reason: language);
+      // 2026-10-31: Nebe 31-40 ayet ayet (+0,78 MB, 48 kbps); sınır 37 MB.
+      expect(total, lessThan(37 * 1024 * 1024), reason: language);
     }
   });
 

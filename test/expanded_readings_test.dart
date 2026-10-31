@@ -12,8 +12,17 @@ void main() {
   final source = jsonDecode(File('tool/sources/diyanet_arabic_extract.json').readAsStringSync()) as Map;
   final numbers = {'nebe-son':78,'duha':93,'insirah':94,'tin':95,'kadir':97,'zilzal':99,'adiyat':100,'karia':101,'tekasur':102,'asr':103,'humeze':104};
   for(final surah in kSupplementarySureler) {
-   for(final ayah in surah.ayetler) {
-    expect(ayah.arabic, source['${numbers[surah.id]}:${ayah.number}']['text']);
+   for(final (i, ayah) in surah.ayetler.indexed) {
+    if (ayah.verse == null) {
+     expect(ayah.arabic, source['${numbers[surah.id]}:${ayah.number}']['text']);
+     continue;
+    }
+    // Read in phrases (Nebe, like its recording): each phrase is part of
+    // its verse; the verse's first phrase starts it, its last one ends it.
+    final verse = source['${numbers[surah.id]}:${ayah.verse}']['text'] as String;
+    expect(verse, contains(ayah.arabic));
+    if (i == 0 || surah.ayetler[i-1].verse != ayah.verse) expect(verse, startsWith(ayah.arabic));
+    if (i == surah.ayetler.length-1 || surah.ayetler[i+1].verse != ayah.verse) expect(verse, endsWith(ayah.arabic));
    }
   }
   for(final surah in kAllNamazTexts) {
@@ -40,7 +49,7 @@ void main() {
     }
    }
   }
-  expect(kSupplementarySureler.first.ayetler.map((a)=>a.number), List.generate(10,(i)=>31+i));
+  expect(kSupplementarySureler.first.ayetler.map((a)=>a.verse).toSet(), List.generate(10,(i)=>31+i).toSet());
  });
  test('Full recording plays once without false verse highlighting and supports pause', () async {
   final audio = TestAudioService();

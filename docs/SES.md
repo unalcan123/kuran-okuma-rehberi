@@ -127,7 +127,11 @@ Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Okumalar arasında aynı zi
   istisna), Duhâ, İnşirâh, Tîn, Zilzâl, Âdiyât, Kâria, Tekâsür, Asr, Hümeze — 88 klip, hepsi doğrulandı.
   **Kadir (sonradan kuruldu):** kayıtta "selâm" 4. ayetin klibinin sonunda okunuyordu; 13,08 sn'den kesilip kısa bir
   duraklamayla 5. ayetin başına eklendi (tanıma: "…min kulli emr" / "selâmun hiye hattâ…"), uzun zilli kayıt silindi.
-  **Kurulmadı:** Nebe 31–40 (kayıt yok). Tesbihat, Tüncînâ, Ezan ve Yemek Duası sonradan kullanıcının bölüm bölüm
+  **Nebe 31–40 (2026-10-31):** kullanıcının bölüm bölüm kaydı (`ref/nebesuresi3140`, 16 parça) → besmele + 15 kart
+  (`Ayet.verse` 31–40; 37, 38, 39 ikiye, 40 üçe bölündü). Okuyucu 37b'ye "ve mâ beynehumâ er-rahmân", 40c'ye "ve yekûlü'l-kâfiru"
+  tekrarıyla başlıyor; metin kayda göre bu kelimeleri tekrar eder (Arapça Diyanet metninden kelime aralığıyla kesildi, test
+  `expanded_readings_test`). Mono 32 kHz 48 kbps, kelime zamanları aynı yöntemle eklendi; ses bütçesi 37 MB.
+  Tesbihat, Tüncînâ, Ezan ve Yemek Duası sonradan kullanıcının bölüm bölüm
   kayıtlarıyla kuruldu (aşağıda); artık uzun/zilli kayıt yok. Test: `test/verse_audio_all_test.dart`,
   `test/asr_ayet_audio_test.dart`.
 - **Bölüm bölüm hazır gelen dua kayıtları** (kullanıcı Audacity'de ayırır, `ref/<dua>/NN-*.mp3`): her parça

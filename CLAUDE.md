@@ -12,7 +12,7 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   Web kendi ses motorunu kullanır (`WebAudioEngine`: harf/efekt çözülmüş buffer, sure/dua/Türkçe köprüsüz
   `<audio>`); uygulamalar audioplayers. Deneme bayrakları `?ses=eski`, `?sesTani=1`; cihaz sayfası `web/ses-tani.html`.
   Ek surelerin (12+) ayet sesleri üç tekrarlı zilli ezber kayıtlarından `tool/ezber_split` ile ayrılır
-  (tanıma + doğrulama; Kadir sonradan "selâm" 5. ayete taşınarak kuruldu; Nebe ve bazı dualar kurulmadı — `docs/SES.md`). Bölüm bölüm gelen kayıtlar
+  (tanıma + doğrulama; Kadir sonradan "selâm" 5. ayete taşınarak kuruldu; Nebe 31–40 bölüm bölüm kayıttan 15 kart — `docs/SES.md`). Bölüm bölüm gelen kayıtlar
   (Tefriciye, namaz lafızları → Dua 11/12/14, Âyetel Kürsî 9 bölüm, Âmenerrasûlü = 24. öğe) ve `Ayet.verse` (bir ayetin
   bölümleri, kartta ayet no) `docs/SES.md`'de. Kur'an Arapçası için kullanıcının `kuran.docx`'i (İndirilenler) kaynak;
   **Kur'an metinleri (sure okuma ekranları) Shaikh Hamdullah Mushaf yazı tipiyle** (`AppTextTheme.quranFontFamily`,
