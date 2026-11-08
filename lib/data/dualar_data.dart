@@ -9,7 +9,7 @@ const List<Dua> kDualar = [
     segments: [
       DuaSegment(
         id: 0,
-        arabic: "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَِ",
+        arabic: "سُبْحَانَكَ اَللّٰهُمَّ وَبِحَمْدِكَ",
         meaningTr:
             "Allah'ım! Seni her türlü eksiklikten tenzih ederim ve Sana hamd ederim.",
         meanings: {
@@ -45,7 +45,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 2,
-        arabic: "وَتَعَالَى جَدُّكَ ",
+        arabic: "وَتَعَالٰى جَدُّكَ ",
         meaningTr: "Senin şanın yücedir.",
         meanings: {
           "es": "Exaltada es Tu majestad.",
@@ -60,7 +60,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 3,
-        arabic: "وَلاَ إِلَهَ غَيْرُكَ",
+        arabic: "وَلاَ اِلٰهَ غَيْرُكَ",
         meaningTr: "Senden başka ilah yoktur.",
         meanings: {
           "es": "No hay divinidad salvo Tú.",
@@ -141,7 +141,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 3,
-        arabic: "أَشْهَدُ أَنْ لا إِلَهَ إِلا اللَّ",
+        arabic: "أَشْهَدُ أَنْ لا إِلَهَ إِلا اللَّهُ",
         meaningTr: "Şahitlik ederim ki Allah'tan başka ilah yoktur.",
         meanings: {
           "es": "Atestiguo que no hay divinidad salvo Allah.",
@@ -179,7 +179,7 @@ const List<Dua> kDualar = [
     segments: [
       DuaSegment(
         id: 0,
-        arabic: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ ُ",
+        arabic: "اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَعَلٰى اٰلِ مُحَمَّدٍ",
         meaningTr: "Allah'ım! Muhammed'e ve Muhammed'in aline rahmet eyle.",
         meanings: {
           "es":
@@ -200,7 +200,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 1,
-        arabic: "كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمُ",
+        arabic: "كَمَا صَلَّيْتَ عَلٰى اِبْرَاهِيمَ وَعَلٰى اٰلِ اِبْرَاهِيمَ",
         meaningTr: "İbrahim'e ve İbrahim'in aline rahmet ettiğin gibi.",
         meanings: {
           "es":
@@ -220,7 +220,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 2,
-        arabic: " إِنَّكَ حَمِيدٌ مَجِيدٌَ",
+        arabic: " اِنَّكَ حَمِيدٌ مَجِيدٌ",
         meaningTr: "Şüphesiz Sen hamde layıksın, şanı yüce olansın.",
         meanings: {
           "es": "Ciertamente, Tú eres digno de alabanza y glorioso.",
@@ -242,7 +242,7 @@ const List<Dua> kDualar = [
     segments: [
       DuaSegment(
         id: 0,
-        arabic: "اللَّهُمَّ بَارِكَ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ",
+        arabic: "اَللّٰهُمَّ بَارِكْ عَلٰى مُحَمَّدٍ وَعَلٰى اٰلِ مُحَمَّدٍ",
         meaningTr:
             "Allah'ım! Muhammed'e ve Muhammed'in aline bereket ihsan eyle.",
         meanings: {
@@ -258,7 +258,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 1,
-        arabic: "كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيم ",
+        arabic: "كَمَا بَارَكْتَ عَلٰى اِبْرَاهِيمَ وَعَلٰى اٰلِ اِبْرَاهِيمَ ",
         meaningTr: "İbrahim'e ve İbrahim'in aline bereket ihsan ettiğin gibi.",
         meanings: {
           "es": "como bendijiste a Abraham y a la familia de Abraham.",
@@ -273,7 +273,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 2,
-        arabic: " إِنَّكَ حَمِيدٌ مَجِيدٌٌَ",
+        arabic: " اِنَّكَ حَمِيدٌ مَجِيدٌ",
         meaningTr: "Şüphesiz Sen hamde layıksın, şanı yüce olansın.",
         meanings: {
           "es": "Ciertamente, Tú eres digno de alabanza y glorioso.",
@@ -296,7 +296,7 @@ const List<Dua> kDualar = [
       DuaSegment(
         id: 0,
         arabic:
-            "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةًٍ",
+            "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً",
         meaningTr: "Rabbimiz! Bize dünyada iyilik, ahirette de iyilik ver.",
         meanings: {
           "es": "Señor nuestro, danos el bien en esta vida y en la otra.",
@@ -337,7 +337,7 @@ const List<Dua> kDualar = [
       DuaSegment(
         id: 0,
         arabic:
-            "رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابًٍُ",
+            "رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ",
         meaningTr:
             "Rabbimiz! Hesabın görüleceği gün beni, ana babamı ve bütün müminleri bağışla.",
         meanings: {
@@ -404,7 +404,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 2,
-        arabic: " وَنُثْنِى عَلَيْك اْلخَيْرَ كُلَّهُ ",
+        arabic: " وَنُثْنِى عَلَيْكَ اْلخَيْرَ كُلَّهُ ",
         meaningTr: "Seni hayırla överiz.",
         meanings: {
           "es": "Te alabamos con toda alabanza buena.",
@@ -459,7 +459,7 @@ const List<Dua> kDualar = [
     segments: [
       DuaSegment(
         id: 0,
-        arabic: "اَللَّهُمَّ اِيَّاكَ نَعْبُدُ وَ لَكَ نُصَلِّى",
+        arabic: "اَللّٰهُمَّ اِيَّاكَ نَعْبُدُ وَلَكَ نُصَلِّى",
         meaningTr:
             "Allah'ım! Ancak Sana kulluk eder, Senin için namaz kılarız.",
         meanings: {
@@ -478,7 +478,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 1,
-        arabic: "وَ نَسْجُدُ وَ اِلَيْكَ نَسعْىَ وَ نَحْفِدُ",
+        arabic: "وَنَسْجُدُ وَاِلَيْكَ نَسْعٰى وَنَحْفِدُ",
         meaningTr: "Sana secde eder, Sana yönelir ve Sana koşarız.",
         meanings: {
           "es":
@@ -498,7 +498,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 2,
-        arabic: " نَرْجُو رَحْمَتَكَ وَ نَخْشَى عَذَابَك",
+        arabic: " نَرْجُو رَحْمَتَكَ وَنَخْشٰى عَذَابَكَ",
         meaningTr: "Rahmetini umar, azabından korkarız.",
         meanings: {
           "es": "Esperamos Tu misericordia y tememos Tu castigo.",
@@ -514,7 +514,7 @@ const List<Dua> kDualar = [
       ),
       DuaSegment(
         id: 3,
-        arabic: " اِنَّ عَذَابَكَ بِاْلكُفَّارِ مُلْحِقٌ",
+        arabic: " اِنَّ عَذَابَكَ بِالْكُفَّارِ مُلْحِقٌ",
         meaningTr: "Şüphesiz Senin azabın kafirlere ulaşacaktır.",
         meanings: {
           "es": "Ciertamente, Tu castigo alcanzará a los incrédulos.",

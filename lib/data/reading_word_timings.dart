@@ -1321,21 +1321,21 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(37, 46, 6800, 7980),
         ReadingWordTiming(47, 60, 7980, 11160),
       ],
-  "audio/dualar/01_subhaneke/subhaneke1.mp3|سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَِ":
+  "audio/dualar/01_subhaneke/subhaneke1.mp3|سُبْحَانَكَ اَللّٰهُمَّ وَبِحَمْدِكَ":
       [
         ReadingWordTiming(0, 11, 60, 800),
-        ReadingWordTiming(12, 22, 800, 1320),
-        ReadingWordTiming(23, 36, 1320, 3560),
+        ReadingWordTiming(12, 23, 800, 1320),
+        ReadingWordTiming(24, 36, 1320, 3560),
       ],
   "audio/dualar/01_subhaneke/subhaneke2.mp3|وَتَبَارَكَ اسْمُكَ": [
     ReadingWordTiming(0, 11, 20, 1100),
     ReadingWordTiming(12, 19, 1100, 1652),
   ],
-  "audio/dualar/01_subhaneke/subhaneke3.mp3|وَتَعَالَى جَدُّكَ ": [
+  "audio/dualar/01_subhaneke/subhaneke3.mp3|وَتَعَالٰى جَدُّكَ ": [
     ReadingWordTiming(0, 10, 0, 740),
     ReadingWordTiming(11, 18, 740, 1818),
   ],
-  "audio/dualar/01_subhaneke/subhaneke4.mp3|وَلاَ إِلَهَ غَيْرُكَ": [
+  "audio/dualar/01_subhaneke/subhaneke4.mp3|وَلاَ اِلٰهَ غَيْرُكَ": [
     ReadingWordTiming(0, 5, 40, 760),
     ReadingWordTiming(6, 12, 760, 1400),
     ReadingWordTiming(13, 21, 1400, 2919),
@@ -1350,14 +1350,14 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(50, 57, 4060, 4140),
         ReadingWordTiming(58, 71, 4140, 6720),
       ],
-  "audio/dualar/02_ettahiyatu/etahiyyat-04.mp3|أَشْهَدُ أَنْ لا إِلَهَ إِلا اللَّ":
+  "audio/dualar/02_ettahiyatu/etahiyyat-04.mp3|أَشْهَدُ أَنْ لا إِلَهَ إِلا اللَّهُ":
       [
         ReadingWordTiming(0, 8, 0, 420),
         ReadingWordTiming(9, 13, 420, 620),
         ReadingWordTiming(14, 16, 620, 1100),
         ReadingWordTiming(17, 23, 1100, 1880),
         ReadingWordTiming(24, 28, 1880, 1920),
-        ReadingWordTiming(29, 34, 1920, 4290),
+        ReadingWordTiming(29, 36, 1920, 4290),
       ],
   "audio/dualar/02_ettahiyatu/etahiyyat-05.mp3|وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ":
       [
@@ -1367,48 +1367,47 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(28, 36, 2260, 3300),
         ReadingWordTiming(37, 48, 3300, 5000),
       ],
-  "audio/dualar/03_salli/salli-01.mp3|اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ ُ":
+  "audio/dualar/03_salli/salli-01.mp3|اَللّٰهُمَّ صَلِّ عَلٰى مُحَمَّدٍ وَعَلٰى اٰلِ مُحَمَّدٍ":
       [
-        ReadingWordTiming(0, 10, 220, 700),
-        ReadingWordTiming(11, 16, 700, 1660),
-        ReadingWordTiming(17, 22, 1660, 1680),
-        ReadingWordTiming(23, 32, 1680, 3020),
-        ReadingWordTiming(33, 40, 3020, 3800),
-        ReadingWordTiming(41, 44, 3800, 4800),
-        ReadingWordTiming(45, 54, 4800, 5640),
-        ReadingWordTiming(55, 56, 5640, 6020),
+        ReadingWordTiming(0, 11, 220, 700),
+        ReadingWordTiming(12, 17, 700, 1660),
+        ReadingWordTiming(18, 23, 1660, 1680),
+        ReadingWordTiming(24, 33, 1680, 3020),
+        ReadingWordTiming(34, 41, 3020, 3800),
+        ReadingWordTiming(42, 46, 3800, 4800),
+        ReadingWordTiming(47, 56, 4800, 6020),
       ],
-  "audio/dualar/03_salli/salli-02.mp3|كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمُ":
+  "audio/dualar/03_salli/salli-02.mp3|كَمَا صَلَّيْتَ عَلٰى اِبْرَاهِيمَ وَعَلٰى اٰلِ اِبْرَاهِيمَ":
       [
         ReadingWordTiming(0, 5, 80, 440),
         ReadingWordTiming(6, 15, 440, 1200),
         ReadingWordTiming(16, 21, 1200, 1320),
         ReadingWordTiming(22, 34, 1320, 2660),
         ReadingWordTiming(35, 42, 2660, 3220),
-        ReadingWordTiming(43, 46, 3220, 3240),
-        ReadingWordTiming(47, 59, 3240, 5280),
+        ReadingWordTiming(43, 47, 3220, 3240),
+        ReadingWordTiming(48, 60, 3240, 5280),
       ],
-  "audio/dualar/03_salli/salli-03.mp3| إِنَّكَ حَمِيدٌ مَجِيدٌَ": [
+  "audio/dualar/03_salli/salli-03.mp3| اِنَّكَ حَمِيدٌ مَجِيدٌ": [
     ReadingWordTiming(1, 8, 80, 900),
     ReadingWordTiming(9, 16, 900, 1800),
-    ReadingWordTiming(17, 25, 1800, 4320),
+    ReadingWordTiming(17, 24, 1800, 4320),
   ],
-  "audio/dualar/04_barik/barik-02.mp3|كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيم ":
+  "audio/dualar/04_barik/barik-02.mp3|كَمَا بَارَكْتَ عَلٰى اِبْرَاهِيمَ وَعَلٰى اٰلِ اِبْرَاهِيمَ ":
       [
         ReadingWordTiming(0, 5, 140, 420),
         ReadingWordTiming(6, 15, 420, 1320),
         ReadingWordTiming(16, 21, 1320, 1460),
         ReadingWordTiming(22, 34, 1460, 2940),
         ReadingWordTiming(35, 42, 2940, 3560),
-        ReadingWordTiming(43, 46, 3560, 3620),
-        ReadingWordTiming(47, 58, 3620, 5740),
+        ReadingWordTiming(43, 47, 3560, 3620),
+        ReadingWordTiming(48, 60, 3620, 5740),
       ],
-  "audio/dualar/04_barik/barik-03.mp3| إِنَّكَ حَمِيدٌ مَجِيدٌٌَ": [
+  "audio/dualar/04_barik/barik-03.mp3| اِنَّكَ حَمِيدٌ مَجِيدٌ": [
     ReadingWordTiming(1, 8, 80, 1360),
     ReadingWordTiming(9, 16, 1360, 2260),
-    ReadingWordTiming(17, 26, 2260, 4660),
+    ReadingWordTiming(17, 24, 2260, 4660),
   ],
-  "audio/dualar/05_atina/atina-01.mp3|رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةًٍ":
+  "audio/dualar/05_atina/atina-01.mp3|رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً":
       [
         ReadingWordTiming(0, 8, 360, 520),
         ReadingWordTiming(9, 15, 520, 1780),
@@ -1417,14 +1416,14 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(31, 39, 3260, 4040),
         ReadingWordTiming(40, 45, 4040, 4860),
         ReadingWordTiming(46, 55, 4860, 5680),
-        ReadingWordTiming(56, 65, 5680, 6860),
+        ReadingWordTiming(56, 64, 5680, 6860),
       ],
   "audio/dualar/05_atina/atina-02.mp3| وَقِنَا عَذَابَ النَّارِ ": [
     ReadingWordTiming(1, 8, 100, 740),
     ReadingWordTiming(9, 16, 740, 1840),
     ReadingWordTiming(17, 25, 1840, 3980),
   ],
-  "audio/dualar/06_rabbenafirli/5-RABBENAGFIRLI.mp3|رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابًٍُ":
+  "audio/dualar/06_rabbenafirli/5-RABBENAGFIRLI.mp3|رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ":
       [
         ReadingWordTiming(0, 8, 480, 640),
         ReadingWordTiming(9, 16, 640, 1500),
@@ -1433,7 +1432,7 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(36, 53, 3060, 4780),
         ReadingWordTiming(54, 60, 4780, 5440),
         ReadingWordTiming(61, 68, 5440, 6340),
-        ReadingWordTiming(69, 81, 6340, 8900),
+        ReadingWordTiming(69, 79, 6340, 8900),
       ],
   "audio/dualar/07_kunut1/kunut_1-01.mp3|اَللَّهُمَّ إِنَّا نَسْتَعِينُكَ وَ نَسْتَغْفِرُكَ وَ نَسْتَهْدِيكَ":
       [
@@ -1457,12 +1456,12 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(43, 54, 2820, 3360),
         ReadingWordTiming(55, 63, 3360, 5380),
       ],
-  "audio/dualar/07_kunut1/kunut_1-03.mp3| وَنُثْنِى عَلَيْك اْلخَيْرَ كُلَّهُ ":
+  "audio/dualar/07_kunut1/kunut_1-03.mp3| وَنُثْنِى عَلَيْكَ اْلخَيْرَ كُلَّهُ ":
       [
         ReadingWordTiming(1, 10, 0, 760),
-        ReadingWordTiming(11, 18, 760, 1400),
-        ReadingWordTiming(19, 28, 1400, 1980),
-        ReadingWordTiming(29, 36, 1980, 3630),
+        ReadingWordTiming(11, 19, 760, 1400),
+        ReadingWordTiming(20, 29, 1400, 1980),
+        ReadingWordTiming(30, 37, 1980, 3630),
       ],
   "audio/dualar/07_kunut1/kunut_1-04.mp3|نَشْكُرُكَ وَ لاَ نَكْفُرُكَ ": [
     ReadingWordTiming(0, 10, 0, 540),
@@ -1479,34 +1478,29 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(25, 29, 1380, 1680),
         ReadingWordTiming(30, 40, 1680, 3470),
       ],
-  "audio/dualar/08_kunut2/kunut_2-01.mp3|اَللَّهُمَّ اِيَّاكَ نَعْبُدُ وَ لَكَ نُصَلِّى":
+  "audio/dualar/08_kunut2/kunut_2-01.mp3|اَللّٰهُمَّ اِيَّاكَ نَعْبُدُ وَلَكَ نُصَلِّى":
       [
         ReadingWordTiming(0, 11, 0, 360),
         ReadingWordTiming(12, 20, 360, 1740),
         ReadingWordTiming(21, 29, 1740, 2240),
-        ReadingWordTiming(30, 32, 2240, 2600),
-        ReadingWordTiming(33, 37, 2600, 2960),
-        ReadingWordTiming(38, 46, 2960, 4740),
+        ReadingWordTiming(30, 36, 2240, 2960),
+        ReadingWordTiming(37, 45, 2960, 4740),
       ],
-  "audio/dualar/08_kunut2/kunut_2-02.mp3|وَ نَسْجُدُ وَ اِلَيْكَ نَسعْىَ وَ نَحْفِدُ":
+  "audio/dualar/08_kunut2/kunut_2-02.mp3|وَنَسْجُدُ وَاِلَيْكَ نَسْعٰى وَنَحْفِدُ":
       [
-        ReadingWordTiming(0, 2, 0, 160),
-        ReadingWordTiming(3, 11, 160, 740),
-        ReadingWordTiming(12, 14, 740, 980),
-        ReadingWordTiming(15, 23, 980, 1460),
-        ReadingWordTiming(24, 31, 1460, 2440),
-        ReadingWordTiming(32, 34, 2440, 2620),
-        ReadingWordTiming(35, 43, 2620, 4160),
+        ReadingWordTiming(0, 10, 0, 740),
+        ReadingWordTiming(11, 21, 740, 1460),
+        ReadingWordTiming(22, 29, 1460, 2440),
+        ReadingWordTiming(30, 40, 2440, 4160),
       ],
-  "audio/dualar/08_kunut2/kunut_2-03.mp3| نَرْجُو رَحْمَتَكَ وَ نَخْشَى عَذَابَك":
+  "audio/dualar/08_kunut2/kunut_2-03.mp3| نَرْجُو رَحْمَتَكَ وَنَخْشٰى عَذَابَكَ":
       [
         ReadingWordTiming(1, 8, 0, 560),
         ReadingWordTiming(9, 19, 560, 1460),
-        ReadingWordTiming(20, 22, 1460, 1680),
-        ReadingWordTiming(23, 30, 1680, 2320),
-        ReadingWordTiming(31, 39, 2320, 3760),
+        ReadingWordTiming(20, 29, 1460, 2320),
+        ReadingWordTiming(30, 39, 2320, 3760),
       ],
-  "audio/dualar/08_kunut2/kunut_2-04.mp3| اِنَّ عَذَابَكَ بِاْلكُفَّارِ مُلْحِقٌ":
+  "audio/dualar/08_kunut2/kunut_2-04.mp3| اِنَّ عَذَابَكَ بِالْكُفَّارِ مُلْحِقٌ":
       [
         ReadingWordTiming(1, 6, 0, 300),
         ReadingWordTiming(7, 16, 300, 1700),
@@ -1933,15 +1927,15 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(37, 44, 2800, 3240),
         ReadingWordTiming(45, 58, 3240, 5810),
       ],
-  "audio/dualar/04_barik/barik-01.mp3|اللَّهُمَّ بَارِكَ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ":
+  "audio/dualar/04_barik/barik-01.mp3|اَللّٰهُمَّ بَارِكْ عَلٰى مُحَمَّدٍ وَعَلٰى اٰلِ مُحَمَّدٍ":
       [
-        ReadingWordTiming(0, 10, 340, 780),
-        ReadingWordTiming(11, 18, 780, 1980),
-        ReadingWordTiming(19, 24, 1980, 2420),
-        ReadingWordTiming(25, 34, 2420, 3500),
-        ReadingWordTiming(35, 42, 3500, 4220),
-        ReadingWordTiming(43, 46, 4220, 5400),
-        ReadingWordTiming(47, 56, 5400, 6780),
+        ReadingWordTiming(0, 11, 340, 780),
+        ReadingWordTiming(12, 19, 780, 1980),
+        ReadingWordTiming(20, 25, 1980, 2420),
+        ReadingWordTiming(26, 35, 2420, 3500),
+        ReadingWordTiming(36, 43, 3500, 4220),
+        ReadingWordTiming(44, 48, 4220, 5400),
+        ReadingWordTiming(49, 58, 5400, 6780),
       ],
   "audio/dualar/namaz_lafizlari/lafiz_19.mp3|سُبْحَانَ اللّٰهِ وَالْحَمْدُ لِلّٰهِ وَلَا إِلٰهَ إِلَّا اللّٰهُ وَاللّٰهُ أَكْبَرُ":
       [
