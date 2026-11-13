@@ -47,6 +47,42 @@ void _play(
 }
 
 void main() {
+  test('dört öğede durmaz; önceki grup çıkmadan yenileri gelir', () {
+    for (final level in [1, 2, 3]) {
+      final e = _engine();
+      e.start(level: level);
+      final first = e.cars.first;
+      while (e.spawned < 5 && e.elapsed < 8) {
+        e.tick(1 / 60);
+      }
+      expect(e.spawned, greaterThanOrEqualTo(5), reason: 'seviye $level');
+      expect(e.cars, contains(first), reason: 'ilk grubun çıkması beklenmez');
+    }
+  });
+
+  test('tüm seviyelerde akış sürer, gruplar arasında uzun duraklama olmaz', () {
+    for (final level in [1, 2, 3]) {
+      for (final size in [
+        [360.0, 560.0],
+        [800.0, 1000.0],
+        [700.0, 260.0],
+      ]) {
+        final e = _engine(w: size[0], h: size[1]);
+        e.start(level: level);
+        var lastSpawn = 0.0;
+        var longestGap = 0.0;
+        for (var i = 0; i < 18 * 60; i++) {
+          final before = e.spawned;
+          e.tick(1 / 60);
+          if (e.spawned > before) lastSpawn = e.elapsed;
+          longestGap = math.max(longestGap, e.elapsed - lastSpawn);
+        }
+        expect(longestGap, lessThan(2.6), reason: 'seviye $level $size');
+        expect(e.spawned, greaterThan(8), reason: 'seviye $level $size');
+      }
+    }
+  });
+
   test('gerçek veri: 28 harf ve ses dosyaları (Oyun 5 ile ortak veri)', () {
     final letters = _letters();
     expect(letters.length, 28);
@@ -88,7 +124,7 @@ void main() {
       for (final s in sizes.entries) {
         final e = _engine(w: s.value[0], h: s.value[1]);
         expect(e.lanes, inInclusiveRange(3, 5), reason: s.key);
-        expect(e.maxAlive, inInclusiveRange(3, 6), reason: s.key);
+        expect(e.carHeight, lessThan(e.laneHeight), reason: s.key);
         expect(e.carHeight, greaterThanOrEqualTo(56), reason: s.key);
         expect(e.carHeight, lessThanOrEqualTo(e.laneHeight), reason: s.key);
         laneCounts[s.key] = e.lanes;
@@ -145,7 +181,7 @@ void main() {
       },
     );
 
-    test('ekranda aynı anda 3–6 (yaklaşık) araba; taşmaz', () {
+    test('kesintisiz akışta araba sayısı alanla sınırlı kalır', () {
       final e = _engine();
       e.start();
       var maxSeen = 0, sum = 0, n = 0;
@@ -162,9 +198,9 @@ void main() {
       );
       expect(
         maxSeen,
-        lessThanOrEqualTo(e.maxAlive + 1),
-      ); // +1: hedef için zorunlu
-      expect(sum / n, inInclusiveRange(2.0, 6.0));
+        greaterThan(4),
+      ); // İlk dört araba ilerlerken yenileri de gelir.
+      expect(sum / n, greaterThanOrEqualTo(2.0));
     });
 
     test(
@@ -419,14 +455,14 @@ void main() {
   });
 
   group('seviyeler', () {
-    test('3 seviye; varsayılan 2 = ilk sürümün hızı; 1 yavaş, 3 hızlı', () {
+    test('3 seviye; varsayılan 2 orta hız; 1 yavaş, 3 hızlı', () {
       final e = _engine();
       e.start();
       expect(e.level, 2);
-      expect(e.speedStart, 0.105);
-      expect(e.speedEnd, 0.15);
-      expect(e.spawnIntervalMin, 1.0);
-      expect(e.spawnIntervalMax, 1.9);
+      expect(e.speedStart, 0.17);
+      expect(e.speedEnd, 0.21);
+      expect(e.spawnIntervalMin, 0.55);
+      expect(e.spawnIntervalMax, 0.8);
       expect(e.minTargetSeconds, 4.0);
 
       final l1 = HarfArabalariEngine.levels[1]!;
@@ -458,8 +494,8 @@ void main() {
         final t1 = crossing(1), t2 = crossing(2), t3 = crossing(3);
         expect(t1, greaterThan(t2));
         expect(t2, greaterThan(t3));
-        // En hızlı seviyede bile bir araba ekranı ~5 sn'den önce geçmez.
-        expect(t3, greaterThan(4.5));
+        // Hızlı seviyede de harfi okumak için en az 3 saniye kalır.
+        expect(t3, greaterThan(3));
 
         final e = _engine();
         e.start(level: 3);

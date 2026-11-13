@@ -14,11 +14,12 @@ en altta.
 | **Sürükle & Bırak** | **Harf Yolculuğu** (2026-10-12): 29 harf 3'erli gruplarla kademeli öğrenilir; her grup sonrası eskilerle karışık test (%80), gerekirse pekiştirme; günlük tekrar; Kolay/Orta/Zor. Ses kartına dokun, dinle, harfi sürükle ya da harfe sonra karta dokun. | `drag_drop/` |
 | **Dinle ve Seç** | Önce ders seçilir (34 ders). 5 soru: ses otomatik çalar, 4 şıktan doğrusu seçilir. | `listen_pick/` |
 | **Hafıza** | Aynı harfli kartları bul (eski Elifba'nın 3. oyunu). Kolay / Zor / Çok Zor, 9 seviye. Kartlar çevrilince harfin sesi çalar. | `memory/` |
-| **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 ilk sürümün hızıdır ve "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
+| **Bul & Patlat / Harf Arabaları** | Sesi dinle, doğru harfli balonu/arabayı bul (120 sn). İkisinde de 3 seviye (1 Yavaş, 2 Biraz Hızlı, 3 Hızlı; cihazda hatırlanır). Harf Arabaları'nda seviye 2 için "Sonuçlarım" anahtarı eskisi gibi `harf_arabalari`; diğerleri `.l1` / `.l3`. Oyun sonunda çevrimiçi sıralama (`docs/FIREBASE.md`). | `harf_oyunlari/` |
 | **Harf Dedektifi** | 3 mod: Şekilleri Tanı, Benzer Harfler, Kelime Dedektifi. 5 kısa tur, süre yok; bir turda birden çok doğru örnek bulunur. | `harf_dedektifi/` |
 | **Harf Çiziyorum** | Harfin tek başına yazılışını parmakla/fareyle izleyerek çizme; noktalar; harf başına 2 yıldız. Puan yok, Sonuçlarım'da görünmez. | `harf_ciziyorum/` |
 | **Harf Treni** | Hedef harfin görünüşlerini vagonlara yerleştir; 4 seviye (aynı harf, biçimler, benzer harfler, farklı yazı tipleri), 5 tren. | `harf_treni/` |
 | **Arapça Yazıyorum** | Ekran klavyesiyle Arapça yazma: Adını Yaz (isim kartı), Bak ve Yaz, Serbest Yaz. | `arapca_yaziyorum/` |
+| **Harf Yıldızları** (2026-11-09) | 29 harf 6 ana ders (5+5+5+5+5+4) + 5 tekrar durağı (İlk 10, İlk 15, İkinci 10, Son 14, 29 Harf Bir Arada). Tanışma → Dinle ve bul / Eşini bul / Şekli tanı → sonuç. XP, 3 çaba yıldızı, rozet, hafta mesajı. | `harf_yildizlari/` |
 | **Sonuçlarım** | Oynanan her oyunun kaç kez oynandığı, ortalaması, en iyisi, son 5 puanı. Üst çubukta "Sonuçları sıfırla" (onaylı). | `results/` |
 
 ### Sürükle & Bırak — Harf Yolculuğu (2026-10-12)
@@ -273,6 +274,31 @@ yazıda doğru/yanlış ve puan yok; otomatik çeviri yok.
 - Kalan: kelime seslendirmesi yok (doğrulanmış kelime kaydı yok; harf sesleri birleştirilmez);
   mobilde isim kartı kaydetme yok; gerçek cihazda dokunmatik/IME ile denenmedi.
 
+### Harf Yıldızları (2026-11-09)
+Giriş: yalnız Oyunlar menüsü (Elifba Dersleri listesindeki kart kullanıcı isteğiyle 2026-11-13'te kaldırıldı). Ana renk `kYildizNavy` (#0B2452).
+- **Veri** `yildiz_data.dart`: harfler Sürükle & Bırak'ın 29'lu listesinden (`kDragDropAllLetters`; Lâm Elif 24.). Aralıklar,
+  açılma koşulları (`requires`), rozet adları, tur boyu (`tourSize`) yalnız burada. Ödül kuralları tek yerde `YildizRewards`
+  (alıştırma +5, ilk bitirme +20, tekrar oynamada bonus/rozet yok). Metinler `yt(context, ...)` / `context.t` ile seçili dile çevrilir.
+- **Motor** `yildiz_engine.dart` (saf Dart): soru üretimi (tohumlu; her harf ≥ 1 kez; sayı harf sayısının altına inmez) ve
+  `YildizSession`. Yanlış: 2 yanlışta doğru gösterilir (destekle). Yanlış harf ≥ 2 temel soru sonra, başka türde yeniden
+  sorulur (harf başına en çok 2 tekrar, XP yok); temel sorular bitince kalan tekrarlar "Pekiştirme turu". İlerleme çubuğu
+  yalnız temel sorular. Şekil sorusu yalnız Ders 2 örnek kelimelerinden (`kDetectiveWords`); kelimesi olmayan harf (Lâm Elif)
+  için dinle/eşle. Final (29) 10'luk turlara bölünür, tur arası "Sonra devam ederim".
+- **Kayıt** `yildiz_progress.dart`: `SharedPreferences` `harf_yildizlari.v1` (yalnız cihazda): XP, tamamlanan dersler, rozetler,
+  harf başına ilk seferde/destekle/tekrarda doğru + tekrar ihtiyacı, çalışma günleri (yerel tarih; ders/tur bitince ya da 5 soru),
+  yarım kalan oturum, soru sayısı (Az/Normal/Çok). Oturum bir kez yazılır (`finished`).
+  Kayıttan devam ederken öncelikli harf sırası korunur; cevaplanmamış etkin tekrar sorusu
+  tekrar kuyruğuna alınır (2026-11-13 düzeltmesi; eski kayıtlar da okunur).
+- **Ses**: mevcut `AudioService.playLetter` (Ders 1 harf kayıtları) ve `dogru.mp3`; yeni ses yok. Çıkışta `stop`. Çalma hatası
+  `AudioService`'te yutulur (görünmez); her dinleme sorusunda "tekrar dinle" düğmesi var.
+- **Otomatik geçiş (2026-11-13):** doğru cevap 900 ms yeşil geri bildirimden sonra sonraki soruya geçer;
+  iki yanlışta gösterilen çözüm 2800 ms görünür. Soru altındaki Devam kaldırıldı; tur arası dinlenme
+  ekranı kalır. Her soru türünde hedef harf otomatik seslendirilir, harf/ses düğmesi tekrar çalar.
+  Uygulama arka plandayken geçiş durur, çıkışta zamanlayıcı iptal edilir.
+  Türkçe soru yönergeleri üç kısa yerel kayıtla verilir; diğer aktif dillerde mevcut
+  seçili dildeki ortak yönerge kaydı kullanılır, sonra harf çalar. Ayrıntı: `docs/DILLER.md`.
+- Test: `test/harf_yildizlari_test.dart`.
+
 ## 2. Puanlama (tüm oyunlar için ortak)
 
 Kod: `lib/models/game_score.dart` (`GameScorer`), depolama:
@@ -405,3 +431,16 @@ Geçici dosyayı işi bitirince sil (`test/zz_*`).
 - Bildirim çıkıp kaybolurken yükseklik değişirse oyun alanı kayar → `GameScoreStrip`
   sabit yükseklik.
 - Proje artık git deposu (GitHub'da); yayın bilgisi `CLAUDE.md`'de.
+
+### Balon/araba akışı (2026-11-13)
+Her iki oyunda seviyeler daha belirgin hızlanır. Balon hızları (alan/sn):
+1: 0.11–0.14, 2: 0.18–0.22, 3: 0.27–0.32; araba: 0.10–0.13,
+0.17–0.21, 0.25–0.30. Üretim aralıkları sırasıyla 0.8–1.1,
+0.55–0.8 ve 0.35–0.55 sn. Dört öğelik toplam sayı sınırı kaldırıldı:
+yukarıdaki balonlar veya ilerideki arabalar çıkmadan yenileri gelir.
+Balonda yalnız alt girişteki yatay boşluk denetlenir; arabalar en boş şeride
+sırayla alınır. Araba üretim aralığı ayrıca araba boyu / hız / şerit sayısına
+göre en az güvenli giriş süresidir (takip payı %12); şeritler birden dolup
+sonra topluca boşalmaz. Giriş doluysa 0.1 sn sonra yeniden denenir.
+Sürekli akış testleri üç seviyede telefon, yatay ekran ve tablette 18 saniye
+boyunca üretim aralarını ölçer; ilk dört öğe çıkmadan beşincinin geldiğini de doğrular.

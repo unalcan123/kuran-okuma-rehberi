@@ -329,44 +329,40 @@ void main() {
     );
   });
 
-  testWidgets(
-    'oyuncu adı yoksa BAŞLA bir kez adı sorar; ad sonra hatırlanır',
-    (tester) async {
-      late PlayerRepository repo;
-      await tester.runAsync(() async {
-        repo = PlayerRepository();
-        await repo.load();
-      });
-      final state = await open(tester, players: repo);
+  testWidgets('oyuncu adı yoksa BAŞLA bir kez adı sorar; ad sonra hatırlanır', (
+    tester,
+  ) async {
+    late PlayerRepository repo;
+    await tester.runAsync(() async {
+      repo = PlayerRepository();
+      await repo.load();
+    });
+    final state = await open(tester, players: repo);
 
-      await tester.ensureVisible(find.text('BAŞLA'));
-      await tester.tap(find.text('BAŞLA'));
-      await tester.pumpAndSettle();
-      expect(find.byKey(const Key('player-name-field')), findsOneWidget);
-      expect(state.engineForTest!.status, HaStatus.ready);
+    await tester.ensureVisible(find.text('BAŞLA'));
+    await tester.tap(find.text('BAŞLA'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('player-name-field')), findsOneWidget);
+    expect(state.engineForTest!.status, HaStatus.ready);
 
-      await tester.enterText(
-        find.byKey(const Key('player-name-field')),
-        'Elif',
-      );
-      await tester.tap(find.byKey(const Key('save-player-name')));
-      // pumpAndSettle KULLANILMAZ: oyun başlayınca ticker sürekli kare ister.
-      await tester.pump(const Duration(milliseconds: 100));
-      await tester.runAsync(
-        () => Future<void>.delayed(const Duration(milliseconds: 100)),
-      );
-      await tester.pump(const Duration(milliseconds: 400));
-      await tester.pump(const Duration(milliseconds: 400));
+    await tester.enterText(find.byKey(const Key('player-name-field')), 'Elif');
+    await tester.tap(find.byKey(const Key('save-player-name')));
+    // pumpAndSettle KULLANILMAZ: oyun başlayınca ticker sürekli kare ister.
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 100)),
+    );
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump(const Duration(milliseconds: 400));
 
-      expect(repo.activePlayer!.displayName, 'Elif');
-      expect(
-        state.engineForTest!.status,
-        HaStatus.running,
-        reason: 'profilden sonra başlar',
-      );
-      expect(find.byKey(const Key('player-name-field')), findsNothing);
-    },
-  );
+    expect(repo.activePlayer!.displayName, 'Elif');
+    expect(
+      state.engineForTest!.status,
+      HaStatus.running,
+      reason: 'profilden sonra başlar',
+    );
+    expect(find.byKey(const Key('player-name-field')), findsNothing);
+  });
 
   testWidgets('geri: ekrandan çıkınca ticker, zamanlayıcı ve ses temizlenir', (
     tester,
@@ -468,7 +464,7 @@ void main() {
         FlutterError.onError = old;
 
         expect(errors, isEmpty, reason: errors.join(String.fromCharCode(10)));
-        expect(carCount, inInclusiveRange(1, 7));
+        expect(carCount, greaterThanOrEqualTo(1)); // akış dört öğede durmaz
         expect(lanes, inInclusiveRange(3, 5));
         for (final h in heights) {
           expect(h, greaterThanOrEqualTo(56)); // dokunma alanı

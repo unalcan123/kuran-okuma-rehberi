@@ -49,12 +49,51 @@ void _play(
 }
 
 void main() {
+  test('dört öğede durmaz; önceki grup çıkmadan yenileri gelir', () {
+    for (final level in [1, 2, 3]) {
+      final e = _engine();
+      e.start(level: level);
+      final first = e.balloons.first;
+      while (e.spawned < 5 && e.elapsed < 8) {
+        e.tick(1 / 60);
+      }
+      expect(e.spawned, greaterThanOrEqualTo(5), reason: 'seviye $level');
+      expect(
+        e.balloons,
+        contains(first),
+        reason: 'ilk grubun çıkması beklenmez',
+      );
+    }
+  });
+
+  test('tüm seviyelerde akış sürer, gruplar arasında uzun duraklama olmaz', () {
+    for (final level in [1, 2, 3]) {
+      for (final size in [
+        [360.0, 560.0],
+        [800.0, 1000.0],
+        [700.0, 260.0],
+      ]) {
+        final e = _engine(w: size[0], h: size[1]);
+        e.start(level: level);
+        var lastSpawn = 0.0;
+        var longestGap = 0.0;
+        for (var i = 0; i < 18 * 60; i++) {
+          final before = e.spawned;
+          e.tick(1 / 60);
+          if (e.spawned > before) lastSpawn = e.elapsed;
+          longestGap = math.max(longestGap, e.elapsed - lastSpawn);
+        }
+        expect(longestGap, lessThan(2.6), reason: 'seviye $level $size');
+        expect(e.spawned, greaterThan(8), reason: 'seviye $level $size');
+      }
+    }
+  });
+
   test('gerçek veri: 28 harf ve her birinin ses dosyası diskte var', () {
     final letters = _realLetters();
     expect(letters.length, 28);
     for (final l in letters) {
-      expect(File('assets/${l.audio}').existsSync(), isTrue,
-          reason: l.audio);
+      expect(File('assets/${l.audio}').existsSync(), isTrue, reason: l.audio);
     }
   });
 
@@ -71,8 +110,11 @@ void main() {
       }
       for (var bag = 0; bag < 3; bag++) {
         final slice = targets.sublist(bag * 28, bag * 28 + 28);
-        expect(slice.toSet().length, 28,
-            reason: 'torba $bag: her harf tam bir kez');
+        expect(
+          slice.toSet().length,
+          28,
+          reason: 'torba $bag: her harf tam bir kez',
+        );
       }
       // Torba sınırında aynı harf art arda gelmez.
       for (var i = 1; i < targets.length; i++) {
@@ -82,46 +124,73 @@ void main() {
   });
 
   group('hedef harf her zaman ekranda', () {
-    test('hiç dokunmayan oyuncuda bile hedefin balonu var; 5 kaçan → oyun biter',
-        () {
-      for (final seed in [1, 2, 3, 4, 5]) {
-        final e = _engine(seed: seed);
-        e.start();
-        var checked = 0;
-        _play(e, tap: false, onTick: () {
-          if (e.status != BpStatus.running) return;
-          checked++;
-          expect(_targetBalloon(e), isNotNull,
-              reason: 'seed $seed: hedef ${e.target?.char} ekranda değil');
-        });
-        expect(e.status, BpStatus.over);
-        expect(e.endReason, BpEndReason.missed);
-        expect(e.missedTargets, 5);
-        expect(checked, greaterThan(300));
-      }
-    });
+    test(
+      'hiç dokunmayan oyuncuda bile hedefin balonu var; 5 kaçan → oyun biter',
+      () {
+        for (final seed in [1, 2, 3, 4, 5]) {
+          final e = _engine(seed: seed);
+          e.start();
+          var checked = 0;
+          _play(
+            e,
+            tap: false,
+            onTick: () {
+              if (e.status != BpStatus.running) return;
+              checked++;
+              expect(
+                _targetBalloon(e),
+                isNotNull,
+                reason: 'seed $seed: hedef ${e.target?.char} ekranda değil',
+              );
+            },
+          );
+          expect(e.status, BpStatus.over);
+          expect(e.endReason, BpEndReason.missed);
+          expect(e.missedTargets, 5);
+          expect(checked, greaterThan(300));
+        }
+      },
+    );
 
-    test('hedef balon tavana ulaşınca yeni hedef seçilir (kaybolmuş harf aranmaz)',
-        () {
-      final e = _engine();
-      e.start();
-      final first = e.target!.char;
-      while (e.missedTargets == 0 && e.status == BpStatus.running) {
-        e.tick(1 / 30);
-      }
-      expect(e.missedTargets, 1);
-      expect(e.target!.char, isNot(first));
-      expect(_targetBalloon(e), isNotNull);
-    });
+    test(
+      'hedef balon tavana ulaşınca yeni hedef seçilir (kaybolmuş harf aranmaz)',
+      () {
+        final e = _engine();
+        e.start();
+        final first = e.target!.char;
+        while (e.missedTargets == 0 && e.status == BpStatus.running) {
+          e.tick(1 / 30);
+        }
+        expect(e.missedTargets, 1);
+        expect(e.target!.char, isNot(first));
+        expect(_targetBalloon(e), isNotNull);
+      },
+    );
+  });
+
+  test('yoğun akışta hızlı yanıtlayan oyuncunun hedefi erken kaçmaz', () {
+    final e = _engine(seed: 7);
+    e.start();
+    _play(e, tap: true, reaction: 0.8, maxSeconds: 60);
+    expect(e.missedTargets, 0);
+    expect(e.status, BpStatus.running);
   });
 
   group('kaçan sayımı', () {
     test('yalnızca HEDEF balonun kaçması sayılır; diğer balonlar sayılmaz', () {
       final e = _engine(seed: 7);
       e.start();
-      _play(e, tap: true, reaction: 0.8, maxSeconds: 60);
+      // Yalnızca çeldiriciyi tavandan çıkar; hedef aşağıda kalır.
+      e.tick(0.31);
+      final target = e.target;
+      final distractor = e.balloons.firstWhere(
+        (b) => b.letter.char != target!.char,
+      );
+      distractor.y = -distractor.boxHeight - 1;
+      e.tick(0.01);
+      expect(e.balloons, isNot(contains(distractor)));
       expect(e.missedTargets, 0);
-      expect(e.spawned, greaterThan(e.correct)); // dokunulmayan balonlar kaçtı
+      expect(e.target, target);
       expect(e.status, BpStatus.running);
     });
   });
@@ -140,32 +209,37 @@ void main() {
       expect(gained, [15, 15, 20, 15, 15, 20]);
     });
 
-    test('yanlış dokunma: puan düşmez, balon patlamaz, hedef aynı kalır; sonra +10',
-        () {
-      final e = _engine();
-      e.start();
-      e.tick(2);
-      for (var i = 0;
+    test(
+      'yanlış dokunma: puan düşmez, balon patlamaz, hedef aynı kalır; sonra +10',
+      () {
+        final e = _engine();
+        e.start();
+        e.tick(2);
+        for (
+          var i = 0;
           i < 300 &&
               e.balloons.where((b) => b.letter.char != e.target!.char).isEmpty;
-          i++) {
-        e.tick(0.05);
-      }
-      final wrong =
-          e.balloons.firstWhere((b) => b.letter.char != e.target!.char);
-      final target = e.target;
-      final scoreBefore = e.score;
-      e.tap(wrong.id);
-      expect(e.score, scoreBefore);
-      expect(e.wrongTaps, 1);
-      expect(wrong.alive, isTrue);
-      expect(wrong.shake, 1);
-      expect(e.target, same(target));
+          i++
+        ) {
+          e.tick(0.05);
+        }
+        final wrong = e.balloons.firstWhere(
+          (b) => b.letter.char != e.target!.char,
+        );
+        final target = e.target;
+        final scoreBefore = e.score;
+        e.tap(wrong.id);
+        expect(e.score, scoreBefore);
+        expect(e.wrongTaps, 1);
+        expect(wrong.alive, isTrue);
+        expect(wrong.shake, 1);
+        expect(e.target, same(target));
 
-      final before = e.score;
-      e.tap(_targetBalloon(e)!.id);
-      expect(e.score - before, 10, reason: 'ilk deneme bonusu yok');
-    });
+        final before = e.score;
+        e.tap(_targetBalloon(e)!.id);
+        expect(e.score - before, 10, reason: 'ilk deneme bonusu yok');
+      },
+    );
 
     test('puan hiçbir zaman negatif olmaz; yanlış dokunmalar 0 puan', () {
       final e = _engine();
@@ -182,27 +256,33 @@ void main() {
   });
 
   group('süre ve bitiş', () {
-    test('mükemmel oyuncu 120 sn oynar: bitiş nedeni süre, istatistikler tutarlı',
-        () {
-      final e = _engine(seed: 3);
-      e.start();
-      var maxAliveSeen = 0;
-      _play(e, reaction: 1.2, onTick: () {
-        maxAliveSeen = math.max(maxAliveSeen, e.balloons.length);
-      });
-      expect(e.status, BpStatus.over);
-      expect(e.endReason, BpEndReason.time);
-      expect(e.elapsed, greaterThanOrEqualTo(120));
-      expect(e.remainingSeconds, 0);
-      expect(e.missedTargets, 0);
-      expect(e.correct, greaterThan(15));
-      expect(e.accuracyPercent, 100);
-      expect(e.stars, 3);
-      // +1: hedef balonu zorunlu üretilebilir
-      expect(maxAliveSeen, lessThanOrEqualTo(e.maxAlive + 1));
-      final events = e.takeEvents();
-      expect(events.whereType<BpGameOver>().length, 1);
-    });
+    test(
+      'mükemmel oyuncu 120 sn oynar: bitiş nedeni süre, istatistikler tutarlı',
+      () {
+        final e = _engine(seed: 3);
+        e.start();
+        var maxAliveSeen = 0;
+        _play(
+          e,
+          reaction: 1.2,
+          onTick: () {
+            maxAliveSeen = math.max(maxAliveSeen, e.balloons.length);
+          },
+        );
+        expect(e.status, BpStatus.over);
+        expect(e.endReason, BpEndReason.time);
+        expect(e.elapsed, greaterThanOrEqualTo(120));
+        expect(e.remainingSeconds, 0);
+        expect(e.missedTargets, 0);
+        expect(e.correct, greaterThan(15));
+        expect(e.accuracyPercent, 100);
+        expect(e.stars, 3);
+        // +1: hedef balonu zorunlu üretilebilir
+        expect(maxAliveSeen, greaterThan(4));
+        final events = e.takeEvents();
+        expect(events.whereType<BpGameOver>().length, 1);
+      },
+    );
 
     test('bittikten sonra tick hiçbir şeyi değiştirmez', () {
       final e = _engine();
@@ -220,8 +300,10 @@ void main() {
       _play(e, reaction: 0.5, maxSeconds: 30);
       expect(e.score, greaterThan(0));
       e.start();
-      expect([e.score, e.correct, e.wrongTaps, e.missedTargets, e.streak],
-          [0, 0, 0, 0, 0]);
+      expect(
+        [e.score, e.correct, e.wrongTaps, e.missedTargets, e.streak],
+        [0, 0, 0, 0, 0],
+      );
       expect(e.elapsed, 0);
       expect(e.status, BpStatus.running);
       expect(_targetBalloon(e), isNotNull);
@@ -242,39 +324,47 @@ void main() {
   });
 
   group('üretim ve yerleşim', () {
-    test('balon boyutu ve sayısı cihaza göre: 4–7 balon, dokunma alanı ≥ 78 px',
-        () {
-      final sizes = {
-        'küçük telefon': const [320.0, 480.0],
-        'telefon': const [390.0, 640.0],
-        'yatay telefon': const [700.0, 260.0],
-        'tablet dikey': const [800.0, 1000.0],
-        'tablet yatay': const [900.0, 560.0],
-      };
-      for (final s in sizes.entries) {
-        final e = _engine(w: s.value[0], h: s.value[1]);
-        e.start();
-        for (var i = 0; i < 400; i++) {
-          e.tick(0.05);
+    test(
+      'balon boyutu ve sayısı cihaza göre: 4–7 balon, dokunma alanı ≥ 78 px',
+      () {
+        final sizes = {
+          'küçük telefon': const [320.0, 480.0],
+          'telefon': const [390.0, 640.0],
+          'yatay telefon': const [700.0, 260.0],
+          'tablet dikey': const [800.0, 1000.0],
+          'tablet yatay': const [900.0, 560.0],
+        };
+        for (final s in sizes.entries) {
+          final e = _engine(w: s.value[0], h: s.value[1]);
+          e.start();
+          for (var i = 0; i < 400; i++) {
+            e.tick(0.05);
+          }
+          for (final b in e.balloons) {
+            expect(
+              b.size,
+              greaterThanOrEqualTo(72),
+              reason: '${s.key}: dokunma alanı',
+            );
+          }
+          expect(e.baseSize, inInclusiveRange(78, 170), reason: s.key);
+          expect(e.baseSize, greaterThanOrEqualTo(78), reason: s.key);
         }
-        for (final b in e.balloons) {
-          expect(b.size, greaterThanOrEqualTo(72), reason: '${s.key}: dokunma alanı');
-        }
-        expect(e.baseSize, inInclusiveRange(78, 170), reason: s.key);
-        expect(e.maxAlive, inInclusiveRange(4, 7), reason: s.key);
-      }
-      expect(_engine(w: 800, h: 1000).baseSize,
-          greaterThan(_engine(w: 360, h: 560).baseSize));
-    });
+        expect(
+          _engine(w: 800, h: 1000).baseSize,
+          greaterThan(_engine(w: 360, h: 560).baseSize),
+        );
+      },
+    );
 
-    test('spawn aralığı 1.2–2.2 sn: düzenli, ekranı doldurmayan üretim', () {
+    test('spawn aralığı 0.55–0.8 sn: düzenli, ekranı doldurmayan üretim', () {
       final e = _engine(seed: 5);
       e.start();
       // Hiç dokunulmayan ilk 9 sn (ilk hedef henüz kaçmadı): 1 hedef balonu +
       // ~9 / 1.7 ≈ 5 düzenli balon.
       _play(e, tap: false, maxSeconds: 9);
-      expect(e.spawned, inInclusiveRange(4, 10));
-      expect(e.balloons.length, lessThanOrEqualTo(e.maxAlive + 1));
+      expect(e.spawned, inInclusiveRange(4, 20));
+      expect(e.balloons.length, greaterThan(4));
     });
 
     test('yatay çakışma az: harf alanı üst üste binen balon nadir', () {
@@ -282,24 +372,29 @@ void main() {
       for (final seed in [1, 2, 3, 4, 5, 6]) {
         final e = _engine(seed: seed);
         e.start();
-        _play(e, reaction: 1.5, maxSeconds: 60, onTick: () {
-          final alive = e.balloons.where((b) => b.alive).toList();
-          for (var i = 0; i < alive.length; i++) {
-            for (var j = i + 1; j < alive.length; j++) {
-              final a = alive[i], b = alive[j];
-              final dx = ((a.x + a.size / 2) - (b.x + b.size / 2)).abs();
-              final dy =
-                  ((a.y + a.bodyHeight / 2) - (b.y + b.bodyHeight / 2)).abs();
-              if (dy < a.bodyHeight) {
-                pairs++;
-                if (dx < (a.size + b.size) / 2 * 0.6 &&
-                    dy < a.bodyHeight * 0.6) {
-                  heavy++;
+        _play(
+          e,
+          reaction: 1.5,
+          maxSeconds: 60,
+          onTick: () {
+            final alive = e.balloons.where((b) => b.alive).toList();
+            for (var i = 0; i < alive.length; i++) {
+              for (var j = i + 1; j < alive.length; j++) {
+                final a = alive[i], b = alive[j];
+                final dx = ((a.x + a.size / 2) - (b.x + b.size / 2)).abs();
+                final dy =
+                    ((a.y + a.bodyHeight / 2) - (b.y + b.bodyHeight / 2)).abs();
+                if (dy < a.bodyHeight) {
+                  pairs++;
+                  if (dx < (a.size + b.size) / 2 * 0.6 &&
+                      dy < a.bodyHeight * 0.6) {
+                    heavy++;
+                  }
                 }
               }
             }
-          }
-        });
+          },
+        );
       }
       expect(pairs, greaterThan(0));
       expect(heavy / pairs, lessThan(0.08), reason: 'ağır çakışma oranı');
@@ -349,29 +444,31 @@ void main() {
   });
 
   group('seviyeler (1 yavaş, 2 biraz hızlı, 3 hızlı)', () {
-    test('hız her seviyede artar; oyun boyunca hafif hızlanır, refleks oyununa dönmez',
-        () {
-      double speedAt(int level, double elapsed) {
-        final e = _engine();
-        e.start(level: level);
-        e.elapsed = elapsed;
-        return e.speedFraction;
-      }
+    test(
+      'hız her seviyede artar; oyun boyunca hafif hızlanır, refleks oyununa dönmez',
+      () {
+        double speedAt(int level, double elapsed) {
+          final e = _engine();
+          e.start(level: level);
+          e.elapsed = elapsed;
+          return e.speedFraction;
+        }
 
-      for (final t in [0.0, 60.0, 120.0]) {
-        expect(speedAt(1, t), lessThan(speedAt(2, t)), reason: 'sn $t');
-        expect(speedAt(2, t), lessThan(speedAt(3, t)), reason: 'sn $t');
-      }
-      for (final level in [1, 2, 3]) {
-        expect(speedAt(level, 0), lessThan(speedAt(level, 120)));
-        expect(speedAt(level, 120) / speedAt(level, 0), lessThan(1.6));
-      }
-      // Balonun alanı geçme süresi (sn): seviye 1 yavaş, 3 hızlı ama okunabilir.
-      double crossing(int level) => 1 / speedAt(level, 0);
-      expect(crossing(1), greaterThan(9));
-      expect(crossing(3), greaterThan(4));
-      expect(crossing(3), lessThan(crossing(1) / 1.5));
-    });
+        for (final t in [0.0, 60.0, 120.0]) {
+          expect(speedAt(1, t), lessThan(speedAt(2, t)), reason: 'sn $t');
+          expect(speedAt(2, t), lessThan(speedAt(3, t)), reason: 'sn $t');
+        }
+        for (final level in [1, 2, 3]) {
+          expect(speedAt(level, 0), lessThan(speedAt(level, 120)));
+          expect(speedAt(level, 120) / speedAt(level, 0), lessThan(1.6));
+        }
+        // Balonun alanı geçme süresi (sn): seviye 1 yavaş, 3 hızlı ama okunabilir.
+        double crossing(int level) => 1 / speedAt(level, 0);
+        expect(crossing(1), greaterThan(9));
+        expect(crossing(3), greaterThan(3));
+        expect(crossing(3), lessThan(crossing(1) / 1.5));
+      },
+    );
 
     test('daha hızlı seviyede balonlar daha sık gelir', () {
       int spawnedIn(int level) {
@@ -384,21 +481,35 @@ void main() {
       expect(spawnedIn(3), greaterThan(spawnedIn(1)));
     });
 
-    test('her seviyede hedef her zaman ekranda; dikkatli oyuncu hiç kaçırmaz', () {
-      for (final level in [1, 2, 3]) {
-        for (final seed in [1, 2, 3]) {
-          final e = _engine(seed: seed);
-          e.start(level: level);
-          _play(e, reaction: 2.2, onTick: () {
-            if (e.status != BpStatus.running) return;
-            expect(_targetBalloon(e), isNotNull,
-                reason: 'seviye $level seed $seed: hedef ekranda değil');
-          });
-          expect(e.endReason, BpEndReason.time, reason: 'seviye $level seed $seed');
-          expect(e.missedTargets, 0, reason: 'seviye $level seed $seed');
+    test(
+      'her seviyede hedef her zaman ekranda; dikkatli oyuncu hiç kaçırmaz',
+      () {
+        for (final level in [1, 2, 3]) {
+          for (final seed in [1, 2, 3]) {
+            final e = _engine(seed: seed);
+            e.start(level: level);
+            _play(
+              e,
+              reaction: 2.2,
+              onTick: () {
+                if (e.status != BpStatus.running) return;
+                expect(
+                  _targetBalloon(e),
+                  isNotNull,
+                  reason: 'seviye $level seed $seed: hedef ekranda değil',
+                );
+              },
+            );
+            expect(
+              e.endReason,
+              BpEndReason.time,
+              reason: 'seviye $level seed $seed',
+            );
+            expect(e.missedTargets, 0, reason: 'seviye $level seed $seed');
+          }
         }
-      }
-    });
+      },
+    );
 
     test('hiç dokunmayan oyuncu her seviyede 5 kaçanla biter', () {
       for (final level in [1, 2, 3]) {

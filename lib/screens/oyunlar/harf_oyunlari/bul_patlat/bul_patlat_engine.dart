@@ -139,28 +139,28 @@ class BulPatlatEngine {
   /// Benzer harf balonunun (varsa) seçilme olasılığı; geri kalanı kolay.
   static const double similarChance = LetterGameCore.similarChance;
 
-  /// Seviyeler: 1 yavaş, 2 biraz hızlı, 3 hızlı. Hız, oyun alanı yüksekliğinin
+  /// Seviyeler: 1 yavaş, 2 orta, 3 hızlı. Hız, oyun alanı yüksekliğinin
   /// saniyede kesridir ve oyun boyunca `speedStart` → `speedEnd` arasında çok
   /// hafif artar; balon üretim aralığı da seviyeyle sıklaşır. Yine de refleks
   /// oyununa dönmemesi için ılımlı tutulur.
   static const Map<int, BpLevelSettings> levels = {
     1: BpLevelSettings(
-      speedStart: 0.09,
-      speedEnd: 0.12,
-      spawnMin: 1.3,
-      spawnMax: 2.3,
+      speedStart: 0.11,
+      speedEnd: 0.14,
+      spawnMin: 0.8,
+      spawnMax: 1.1,
     ),
     2: BpLevelSettings(
-      speedStart: 0.12,
-      speedEnd: 0.17,
-      spawnMin: 1.2,
-      spawnMax: 2.2,
+      speedStart: 0.18,
+      speedEnd: 0.22,
+      spawnMin: 0.55,
+      spawnMax: 0.8,
     ),
     3: BpLevelSettings(
-      speedStart: 0.17,
-      speedEnd: 0.23,
-      spawnMin: 1.0,
-      spawnMax: 1.9,
+      speedStart: 0.27,
+      speedEnd: 0.32,
+      spawnMin: 0.35,
+      spawnMax: 0.55,
     ),
   };
   static const int minLevel = 1;
@@ -198,13 +198,6 @@ class BulPatlatEngine {
   /// en az ~78 px). Alçak/geniş ekranda yüksekliğe de bakılır.
   double get baseSize =>
       math.min(width * 0.24, height * 0.2).clamp(78.0, 170.0).toDouble();
-
-  /// Aynı anda ekranda bulunabilecek balon sayısı (4–7): alan büyüdükçe artar.
-  int get maxAlive {
-    final s = baseSize;
-    if (width <= 0 || height <= 0) return 4;
-    return (width * height / (s * s * 6)).floor().clamp(4, 7);
-  }
 
   // ---- durum --------------------------------------------------------------
 
@@ -316,12 +309,15 @@ class BulPatlatEngine {
     // Üretim
     _spawnIn -= dt;
     if (_spawnIn <= 0) {
-      if (balloons.length < maxAlive) {
-        _spawn(_pickDistractor());
-      }
+      final before = spawned;
+      _spawn(_pickDistractor());
+      // Alan doluyken tam üretim aralığını yeniden bekleme: yer açılır
+      // açılmaz akış sürsün, toplu geçişler arasında uzun boşluk oluşmasın.
       _spawnIn =
-          spawnIntervalMin +
-          _random.nextDouble() * (spawnIntervalMax - spawnIntervalMin);
+          spawned == before
+              ? 0.1
+              : spawnIntervalMin +
+                  _random.nextDouble() * (spawnIntervalMax - spawnIntervalMin);
     }
 
     _ensureTargetOnScreen();
@@ -387,6 +383,15 @@ class BulPatlatEngine {
             onScreen.any((b) => _secondsToEscape(b) >= minTargetSeconds);
       },
     );
+    // Torbanın son harfi ertelenemeyebilir. Eski örnek çıkışa çok
+    // yakınsa yenisi gelsin; yeni hedef için yeterli bulma süresi kalsın.
+    final existing = balloons.where(
+      (b) => b.alive && b.letter.char == next.char,
+    );
+    if (existing.isNotEmpty &&
+        existing.every((b) => _secondsToEscape(b) < minTargetSeconds)) {
+      balloons.removeWhere((b) => b.alive && b.letter.char == next.char);
+    }
     _events.add(BpTargetChanged(next, afterPop: afterPop));
     _ensureTargetOnScreen();
   }
@@ -416,7 +421,9 @@ class BulPatlatEngine {
 
     // Alt bölgedeki (yeni doğmuş) balonlarla yatay çakışmayı önlemeye çalışır.
     final nearBottom =
-        balloons.where((b) => b.alive && b.y > height * 0.4).toList();
+        balloons
+            .where((b) => b.alive && b.y + b.boxHeight > height - size * 0.15)
+            .toList();
     double bestX = margin + _random.nextDouble() * (maxX - margin);
     var bestSep = -1.0;
     final tries = preferSeparation ? 24 : 14;
@@ -434,6 +441,10 @@ class BulPatlatEngine {
       }
       if (sep >= 1.05) break; // yeterince ayrık
     }
+
+    // Yalnız girişte yer gerekir; yukarıdaki balonların çıkmasını bekleme.
+    // Yeni hedef bekletilmez, çeldiriciler giriş açılınca tekrar denenir.
+    if (!preferSeparation && bestSep < 1.15) return;
 
     balloons.add(
       BpBalloon(

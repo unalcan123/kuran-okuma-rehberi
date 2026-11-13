@@ -3,6 +3,7 @@ import 'game_narrations.g.dart';
 import 'ui_common.dart';
 import 'ui_elifba.dart';
 import 'ui_games_core.dart';
+import 'ui_games_yildizlari.dart';
 import 'ui_games_dedektif.dart';
 import 'ui_games_harf_oyunlari.dart';
 import 'ui_games_yazi_cizim.dart';
@@ -16,6 +17,7 @@ const List<Map<String, List<String>>> kStringTables = [
   kUiElifba,
   kUiReading,
   kUiGamesCore,
+  kUiGamesYildizlari,
   kUiGamesHarfOyunlari,
   kUiGamesYaziCizim,
   kUiGamesDedektif,

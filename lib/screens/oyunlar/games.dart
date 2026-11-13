@@ -12,6 +12,8 @@ import 'harf_ciziyorum/harf_ciziyorum_screen.dart';
 import 'harf_dedektifi/dedektif_engine.dart';
 import 'harf_dedektifi/harf_dedektifi_screen.dart';
 import 'harf_treni/harf_treni_screen.dart';
+import 'harf_yildizlari/harf_yildizlari_screen.dart';
+import 'harf_yildizlari/yildiz_data.dart';
 import 'harf_treni/tren_engine.dart';
 import 'harf_oyunlari/bul_patlat/bul_patlat_screen.dart';
 import 'harf_oyunlari/harf_arabalari/harf_arabalari_screen.dart';
@@ -185,6 +187,18 @@ final List<GameEntry> kGames = [
           title: 'Seviye ${level.number} · ${level.title}',
         ),
     ],
+  ),
+  GameEntry(
+    id: kHarfYildizlariGameKey,
+    title: 'Harf Yıldızları',
+    subtitle: 'Dinle, keşfet, harfleri öğren!',
+    icon: Icons.star_rounded,
+    background: AppColors.skyBlueSoft,
+    foreground: AppColors.navy,
+    builder: (_) => const HarfYildizlariScreen(),
+    // Puan sıralaması yok: XP, rozet ve yıldızlar kendi ekranında.
+    variants: const [],
+    showInResults: false,
   ),
   GameEntry(
     id: kArapcaYaziyorumGameKey,

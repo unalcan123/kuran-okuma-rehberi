@@ -49,7 +49,7 @@ class HarfArabalariOyunuState extends State<HarfArabalariOyunu>
   static const String _catchEffect = 'audio/oyunlar/car_catch.wav';
   static const String _levelKey = 'harf_arabalari_level_v1';
 
-  /// "Sonuçlarım" anahtarı. Seviye 2 ilk sürümün hızıdır; eski geçmiş
+  /// "Sonuçlarım" anahtarı. Seviye 2 varsayılandır; eski geçmiş
   /// kaybolmasın diye ek almaz.
   static String storeKeyFor(int level) =>
       level == 2 ? GameIds.harfArabalari : '${GameIds.harfArabalari}.l$level';

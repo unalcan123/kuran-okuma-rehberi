@@ -112,28 +112,28 @@ class HarfArabalariEngine {
 
   // ---- ayarlar ------------------------------------------------------------
 
-  /// Seviyeler: 1 yavaş, 2 biraz hızlı (ilk sürümün hızı), 3 hızlı. Hız, oyun
+  /// Seviyeler: 1 yavaş, 2 orta, 3 hızlı. Hız, oyun
   /// alanı GENİŞLİĞİNİN saniyede kesridir ve oyun boyunca çok hafif artar;
   /// geçiş süresi alan genişliğinden bağımsız olduğu için geniş ekranda araba
   /// uzun süre sürünmez. Hızlı seviye de refleks oyununa dönmesin diye ılımlı.
   static const Map<int, GameLevelSettings> levels = {
     1: GameLevelSettings(
-      speedStart: 0.08,
-      speedEnd: 0.11,
-      spawnMin: 1.3,
-      spawnMax: 2.3,
+      speedStart: 0.1,
+      speedEnd: 0.13,
+      spawnMin: 0.8,
+      spawnMax: 1.1,
     ),
     2: GameLevelSettings(
-      speedStart: 0.105,
-      speedEnd: 0.15,
-      spawnMin: 1.0,
-      spawnMax: 1.9,
+      speedStart: 0.17,
+      speedEnd: 0.21,
+      spawnMin: 0.55,
+      spawnMax: 0.8,
     ),
     3: GameLevelSettings(
-      speedStart: 0.14,
-      speedEnd: 0.19,
-      spawnMin: 0.9,
-      spawnMax: 1.7,
+      speedStart: 0.25,
+      speedEnd: 0.3,
+      spawnMin: 0.35,
+      spawnMax: 0.55,
     ),
   };
   static const int minLevel = 1;
@@ -180,9 +180,6 @@ class HarfArabalariEngine {
       }
     }
   }
-
-  /// Aynı anda ekranda bulunabilecek araba sayısı (3–6): şerit sayısına bağlı.
-  int get maxAlive => (lanes + 1).clamp(3, 6);
 
   // ---- durum --------------------------------------------------------------
 
@@ -273,12 +270,21 @@ class HarfArabalariEngine {
 
     _spawnIn -= dt;
     if (_spawnIn <= 0) {
-      if (cars.where((c) => !c.caught).length < maxAlive) {
-        _spawn(core.pickDistractor({for (final c in cars) c.letter.char}));
-      }
+      final before = spawned;
+      _spawn(core.pickDistractor({for (final c in cars) c.letter.char}));
+      // Alan doluyken tam üretim aralığını yeniden bekleme: yer açılır
+      // açılmaz akış sürsün, toplu geçişler arasında uzun boşluk oluşmasın.
       _spawnIn =
-          spawnIntervalMin +
-          _random.nextDouble() * (spawnIntervalMax - spawnIntervalMin);
+          spawned == before
+              ? 0.1
+              : math.max(
+                spawnIntervalMin +
+                    _random.nextDouble() *
+                        (spawnIntervalMax - spawnIntervalMin),
+                // Şeritleri aynı anda doldurup sonra beklemek yerine
+                // her şeridin girişinin açılmasını sıraya yay.
+                carWidth * 1.12 / (_baseSpeed * 0.94 * lanes),
+              );
     }
     _ensureTargetOnScreen();
   }
@@ -362,6 +368,15 @@ class HarfArabalariEngine {
             onScreen.any((c) => _secondsToExit(c) >= minTargetSeconds);
       },
     );
+    // Torbanın son harfi ertelenemeyebilir. Eski örnek çıkışa çok
+    // yakınsa yenisi gelsin; yeni hedef için yeterli bulma süresi kalsın.
+    final existing = cars.where(
+      (b) => b.catchable && b.letter.char == next.char,
+    );
+    if (existing.isNotEmpty &&
+        existing.every((b) => _secondsToExit(b) < minTargetSeconds)) {
+      cars.removeWhere((b) => b.catchable && b.letter.char == next.char);
+    }
     _events.add(HaTargetChanged(next, afterCatch: afterCatch));
     _ensureTargetOnScreen();
   }
@@ -403,7 +418,7 @@ class HarfArabalariEngine {
               ? double.infinity
               : inLane.map((c) => c.x).reduce(math.min);
     }
-    final minClear = carWidth * 0.35;
+    final minClear = carWidth * 0.12;
     var open = [
       for (final e in clearance.entries)
         if (e.value >= minClear) e.key,
@@ -420,7 +435,7 @@ class HarfArabalariEngine {
     // Aynı şeride arka arkaya değil: mümkünse en boş şeritlerden rastgele.
     open.sort((a, b) => clearance[b]!.compareTo(clearance[a]!));
     final pool = urgent ? open.take(2).toList() : open;
-    final lane = pool[_random.nextInt(pool.length)];
+    final lane = urgent ? pool[_random.nextInt(pool.length)] : open.first;
 
     cars.add(
       HaCar(

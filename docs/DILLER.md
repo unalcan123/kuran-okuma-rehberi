@@ -67,3 +67,24 @@ ElevenLabs sesi, `languageCode: nl`, `eleven_flash_v2_5`). Üretim:
 11 Ekim 2026: fr/es/en dil başına 207 ders kaydı ve 17 oyun kaydı; tr 102 mevcut ders kaydı, 130 ek açıklama ve 17 oyun kaydı. Girişe yeni kayıt eklenmedi. Sesler yalnız seçili dil için ihtiyaç oldukça indirilir. Aktif dil başına toplam ortak ve dil sesleri 32 MB sınırını geçmez (2026-10-12'de sesli öğretmenle 30 → 32 MB).
 
 İlgili 101 ders/ses/platform/oyuncu/ana ekran testi ve aktif çeviri tablosu kontrolü geçti. Oyun adları, zorluklar, puan/deneme/çift bilgileri, okuma ayarları, dua/sure kontrolleri ve iletişim formu aktif dillere bağlıdır. Tam l10n kontrolü geçti. Gerçek Safari cihaz ve insan telaffuz kontrolü ayrıca gerekir. Yerel ön izleme build/ses_deneme_web; Yayın GitHub Pages kontrol hattıyla yapılır.
+
+## Harf Yıldızları ve arayüz denetimi (2026-11-13)
+- Harf Yıldızları'nın yalnız Türkçe döndüren `yt` yardımcısı seçili dile bağlandı.
+  Ders haritası, kilit açıklamaları, rozetler, sayaçlar, sorular, geri bildirimler,
+  harf adları, erişilebilirlik etiketleri ve sonuçlar altı çeviri dilinde desteklenir.
+- Kaynak: `lib/l10n/strings/ui_games_yildizlari.dart`; Hollandaca yine
+  `tool/i18n/ui_nl.json` → `build_nl_strings.py`. Dinamik motor metinleri
+  yer tutuculu şablonlarla çevrilir; kayıt kimlikleri ve rozet anahtarları değişmez.
+- Genel arayüz taramasında Karışık oyun adı, Türkçe Okunuş başlığı, giriş kartının
+  mahreç alt başlığı ve zamir başlıklarının çevirileri tamamlandı. Dua kartlarındaki
+  Sağa/Sola/Salavat getirilir yönergeleri de eklendi; bütün dua yönergeleri için
+  altı dilde çeviri kapsamı testi vardır (`test/l10n_test.dart`).
+- Türkçe üç kısa soru yönergesi `audio/oyunlar/yildiz_*.mp3` (ElevenLabs, uygulamanın
+  Türkçe açıklama sesi J17lijyP1BHYcM7ld0Rg, 2026-11-13; ilk sürüm Windows Tolga'ydı;
+  kaynak metin `tool/i18n/harf_yildizlari_prompts.json`).
+  es/fr/en/nl'de mevcut seçili dildeki “Sesi dinle, doğru olanı seç” kaydı,
+  ardından orijinal Arapça harf kaydı çalar. de/bs'de yönerge kaydı yoktur,
+  yalnız harf sesi çalar; Türkçe yönerge başka dilde zorla çalınmaz.
+- Altı çeviri dilinde harita → ders → bütün sorular → rozet/sonuç uçtan uca
+  widget testi vardır (`test/harf_yildizlari_test.dart`). Tam içerik çevirisi ve
+  insan tarafından ses/telaffuz incelemesi ayrı işlerdir.

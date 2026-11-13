@@ -4,6 +4,7 @@
 // var, yer tutucuları aynı; (2) ekranda çevrilmeden kalan Türkçe metin yok;
 // (3) dil tercihi cihaz dili / elle seçim / kalıcılık.
 import 'dart:io';
+import 'package:kuran_okuma_rehberi/data/additional_dualar_data.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -33,6 +34,22 @@ String _unescape(String s) =>
     s.replaceAll(r"\'", "'").replaceAll(r'\"', '"').replaceAll(r'\n', '\n');
 
 void main() {
+  test('dua kartlarındaki kısa yönergelerin bütün dillerde çevirisi var', () {
+    for (final dua in kAllDualar) {
+      for (final segment in dua.segments) {
+        if (segment.instruction.isEmpty) continue;
+        for (final language in AppLanguage.values.where(
+          (l) => l != AppLanguage.tr,
+        )) {
+          expect(
+            L10n.translationOf(language, segment.instruction),
+            isNotNull,
+            reason: '${language.code}: ${segment.instruction}',
+          );
+        }
+      }
+    }
+  });
   test('composed feedback and reading nouns use the selected language', () {
     expect(L10n.text(AppLanguage.en, 'Deneme: 3'), 'Attempts: 3');
     expect(L10n.text(AppLanguage.fr, 'Seviye 2 · Zor'), 'Niveau 2 · Difficile');
