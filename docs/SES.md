@@ -196,3 +196,7 @@ Kelime zamanları aynı Whisper+DTW yöntemiyle `tool/sources/reading_word_timin
 `lib/data/reading_word_timings.dart`'a eklendi. Kontrol: Tarteel Kur'an ASR (Ezan 4 en zayıf eşleşme).
 Deneme kopyaları ve dinleme sayfası `tmp/klon_hoca/` (git dışı). Yeni klon kaydı gerekirse aynı klasör ve
 aynı ses; önce kullanıcıya dinlet.
+- **Âmentü (5 bölüm)** de hoca klonuyla (`hoca_klon/09_amentu_1..5.mp3`, 2026-11-13): eski kayıt
+  (`dualar/09_amentu/`) hocamızın değildi, kullanıcı başka yerden almıştı; uygulamadan ve
+  `tool/original_audio_fingerprints.json`'dan çıkarıldı (git geçmişinde duruyor). Klona okutulan metinde
+  yazım tuhaflıkları düzeltildi (تَعٰالٰىُ → تَعَالَى, لٰا → لَا); ekrandaki metin değişmedi. Tarteel: 3 bölüm birebir.

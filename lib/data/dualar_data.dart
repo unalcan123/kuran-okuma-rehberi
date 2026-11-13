@@ -553,7 +553,7 @@ const List<Dua> kDualar = [
               "Ik geloof in Allah, Zijn engelen, Zijn boeken en Zijn boodschappers.",
         },
         meaningSource: "Elifbe · dua anlamları",
-        audioAsset: "audio/dualar/09_amentu/amentu-01.mp3",
+        audioAsset: "audio/hoca_klon/09_amentu_1.mp3",
       ),
       DuaSegment(
         id: 1,
@@ -576,7 +576,7 @@ const List<Dua> kDualar = [
               "En in de Laatste Dag en de voorbeschikking, en dat het goede en het kwade van Allah, de Verhevene, komen.",
         },
         meaningSource: "Elifbe · dua anlamları",
-        audioAsset: "audio/dualar/09_amentu/amentu-02.mp3",
+        audioAsset: "audio/hoca_klon/09_amentu_2.mp3",
       ),
       DuaSegment(
         id: 2,
@@ -591,7 +591,7 @@ const List<Dua> kDualar = [
           "nl": "De opstanding na de dood is waarheid.",
         },
         meaningSource: "Elifbe · dua anlamları",
-        audioAsset: "audio/dualar/09_amentu/amentu-03.mp3",
+        audioAsset: "audio/hoca_klon/09_amentu_3.mp3",
       ),
       DuaSegment(
         id: 3,
@@ -606,7 +606,7 @@ const List<Dua> kDualar = [
           "nl": "Ik getuig dat er geen god is behalve Allah.",
         },
         meaningSource: "Elifbe · dua anlamları",
-        audioAsset: "audio/dualar/09_amentu/amentu-04.mp3",
+        audioAsset: "audio/hoca_klon/09_amentu_4.mp3",
       ),
       DuaSegment(
         id: 4,
@@ -622,7 +622,7 @@ const List<Dua> kDualar = [
           "nl": "En ik getuig dat Mohammed Zijn dienaar en Boodschapper is.",
         },
         meaningSource: "Elifbe · dua anlamları",
-        audioAsset: "audio/dualar/09_amentu/amentu-05.mp3",
+        audioAsset: "audio/hoca_klon/09_amentu_5.mp3",
       ),
     ],
   ),

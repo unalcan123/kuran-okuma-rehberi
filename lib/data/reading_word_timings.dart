@@ -1507,48 +1507,6 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
         ReadingWordTiming(17, 30, 1700, 2900),
         ReadingWordTiming(31, 39, 2900, 4480),
       ],
-  "audio/dualar/09_amentu/amentu-01.mp3|آمَنْتُ بِاللّٰهِ وَمَلٰائِكَتِهٖ وَكُتُبِهٖ وَرُسُلِهٖ":
-      [
-        ReadingWordTiming(0, 7, 480, 1020),
-        ReadingWordTiming(8, 17, 1020, 1640),
-        ReadingWordTiming(18, 33, 1640, 3140),
-        ReadingWordTiming(34, 44, 3140, 4580),
-        ReadingWordTiming(45, 55, 4580, 5660),
-      ],
-  "audio/dualar/09_amentu/amentu-02.mp3| وَالْيَوْمِ الْاٰخِرِ وَبِالْقَدَرِ خَيْرِهٖ وَشَرِّهٖ مِنَ اللّٰهِ تَعٰالٰىُ":
-      [
-        ReadingWordTiming(1, 12, 240, 900),
-        ReadingWordTiming(13, 22, 900, 1720),
-        ReadingWordTiming(23, 36, 1720, 2760),
-        ReadingWordTiming(37, 45, 2760, 3460),
-        ReadingWordTiming(46, 55, 3460, 4460),
-        ReadingWordTiming(56, 60, 4460, 4660),
-        ReadingWordTiming(61, 68, 4660, 5100),
-        ReadingWordTiming(69, 78, 5100, 6420),
-      ],
-  "audio/dualar/09_amentu/amentu-03.mp3|وَالْبَعْثُ بَعْدَ الْمَوْتِ حَقٌّ": [
-    ReadingWordTiming(0, 11, 240, 1080),
-    ReadingWordTiming(12, 18, 1080, 1300),
-    ReadingWordTiming(19, 28, 1300, 2100),
-    ReadingWordTiming(29, 34, 2100, 2780),
-  ],
-  "audio/dualar/09_amentu/amentu-04.mp3|اَشْهَدُ اَنْ لٰا اِلٰهَ اِلَّا اللّٰهُ ":
-      [
-        ReadingWordTiming(0, 8, 340, 820),
-        ReadingWordTiming(9, 13, 820, 1040),
-        ReadingWordTiming(14, 17, 1040, 1460),
-        ReadingWordTiming(18, 24, 1460, 1740),
-        ReadingWordTiming(25, 31, 1740, 1880),
-        ReadingWordTiming(32, 39, 1880, 3400),
-      ],
-  "audio/dualar/09_amentu/amentu-05.mp3|وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ ":
-      [
-        ReadingWordTiming(0, 10, 300, 920),
-        ReadingWordTiming(11, 16, 920, 1200),
-        ReadingWordTiming(17, 27, 1200, 2240),
-        ReadingWordTiming(28, 36, 2240, 3260),
-        ReadingWordTiming(37, 48, 3260, 4480),
-      ],
   "audio/dualar/10_ezan_duasi/ezan-01.mp3|اَللّٰهُمَّ رَبَّ هٰذِهِ الدَّعْوَةِ التَّامَّةِ":
       [
         ReadingWordTiming(0, 11, 440, 1180),
@@ -2181,5 +2139,43 @@ const kReadingWordTimings = <String, List<ReadingWordTiming>>{
     ReadingWordTiming(7, 14, 1020, 1820),
     ReadingWordTiming(15, 26, 1820, 3120),
     ReadingWordTiming(27, 37, 3120, 5560),
+  ],
+  "audio/hoca_klon/09_amentu_1.mp3|آمَنْتُ بِاللّٰهِ وَمَلٰائِكَتِهٖ وَكُتُبِهٖ وَرُسُلِهٖ": [
+    ReadingWordTiming(0, 7, 0, 700),
+    ReadingWordTiming(8, 17, 700, 1320),
+    ReadingWordTiming(18, 33, 1320, 2460),
+    ReadingWordTiming(34, 44, 2460, 3220),
+    ReadingWordTiming(45, 55, 3220, 3901),
+  ],
+  "audio/hoca_klon/09_amentu_2.mp3| وَالْيَوْمِ الْاٰخِرِ وَبِالْقَدَرِ خَيْرِهٖ وَشَرِّهٖ مِنَ اللّٰهِ تَعٰالٰىُ": [
+    ReadingWordTiming(1, 12, 0, 860),
+    ReadingWordTiming(13, 22, 860, 1500),
+    ReadingWordTiming(23, 36, 1500, 2480),
+    ReadingWordTiming(37, 45, 2480, 3060),
+    ReadingWordTiming(46, 55, 3060, 3940),
+    ReadingWordTiming(56, 60, 3940, 4220),
+    ReadingWordTiming(61, 68, 4220, 4720),
+    ReadingWordTiming(69, 78, 4720, 5341),
+  ],
+  "audio/hoca_klon/09_amentu_3.mp3|وَالْبَعْثُ بَعْدَ الْمَوْتِ حَقٌّ": [
+    ReadingWordTiming(0, 11, 0, 820),
+    ReadingWordTiming(12, 18, 820, 1100),
+    ReadingWordTiming(19, 28, 1100, 1680),
+    ReadingWordTiming(29, 34, 1680, 2136),
+  ],
+  "audio/hoca_klon/09_amentu_4.mp3|اَشْهَدُ اَنْ لٰا اِلٰهَ اِلَّا اللّٰهُ ": [
+    ReadingWordTiming(0, 8, 0, 680),
+    ReadingWordTiming(9, 13, 680, 860),
+    ReadingWordTiming(14, 17, 860, 1200),
+    ReadingWordTiming(18, 24, 1200, 1300),
+    ReadingWordTiming(25, 31, 1300, 2000),
+    ReadingWordTiming(32, 39, 2000, 2508),
+  ],
+  "audio/hoca_klon/09_amentu_5.mp3|وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ ": [
+    ReadingWordTiming(0, 10, 0, 1160),
+    ReadingWordTiming(11, 16, 1160, 1600),
+    ReadingWordTiming(17, 27, 1600, 2480),
+    ReadingWordTiming(28, 36, 2480, 3100),
+    ReadingWordTiming(37, 48, 3100, 3947),
   ],
 };
