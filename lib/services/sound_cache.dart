@@ -9,7 +9,7 @@ import 'sound_store.dart';
 /// Names the stored copy of the recordings. **Change it whenever a file in
 /// `assets/audio/` changes** (`test/audio_assets_test.dart` fails and shows
 /// the new value); otherwise visitors keep hearing the old recording.
-const String kSoundCacheVersion = '6b1cb621';
+const String kSoundCacheVersion = '138152d6';
 
 /// Keeps sound files in memory so a tap never waits on the network.
 ///
@@ -109,4 +109,3 @@ class SoundCache {
     return Future.wait([for (var i = 0; i < workers; i++) worker()]);
   }
 }
-

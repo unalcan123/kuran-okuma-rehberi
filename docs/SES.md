@@ -182,3 +182,17 @@ Kaynak `H:\Music\sureler\tekrarli` (yalnız okunur). Okumalar arasında aynı zi
   Dinle ve Seç'te ilk soru sesi kendiliğinden çalmazsa çocuk Dinle butonuna dokunur.
 - `yanlis.wav` (kullanılmayan, kullanıcının eklediği eski yanlış-cevap sesi) kullanıcı isteğiyle silindi;
   yanlış cevapta bilerek ses çalınmıyor.
+
+## Hoca klonuyla tamamlanan dua bölümleri (2026-11-13)
+Hocanın kaydında olmayan 6 dua bölümü, kullanıcının ElevenLabs'teki klonuyla ("Hoca (Rabbena atina) -
+Kuran Okuma Rehberi", voice `o0SuCVCuvq9vHW4nGiQE`, `eleven_multilingual_v2`, `language_code: ar`) üretildi;
+kullanıcı dinleyip onayladı. Dosyalar **`assets/audio/hoca_klon/`** (gerçek kayıt klasörlerine konmaz:
+`test/original_audio_test.dart` yalnız hocanın orijinallerine izin verir), mono 32 kHz 48 kbps, ses seviyesi
+hocanın kayıtlarına (≈ −14 LUFS) yakın:
+- Ezan Duası 4 (`وَالدَّرَجَةَ الرَّفٖيعَةَ`) ve 6 (`إِنَّكَ لَا تُخْلِفُ الْمٖيعَادَ`) — hoca duayı bu sözler olmadan okumuştu.
+- Namaz Tesbihatı 1 (Estağfirullah…), 8 (Sübhânallah), 10 (Elhamdülillah); Yemek Duası 1 (Eûzü).
+- Yemek Duası 2 (Besmele) klon değil: hocanın gerçek kaydı `audio/sureler/01_fatiha/00_besmele.mp3`.
+Kelime zamanları aynı Whisper+DTW yöntemiyle `tool/sources/reading_word_timings.json` ve
+`lib/data/reading_word_timings.dart`'a eklendi. Kontrol: Tarteel Kur'an ASR (Ezan 4 en zayıf eşleşme).
+Deneme kopyaları ve dinleme sayfası `tmp/klon_hoca/` (git dışı). Yeni klon kaydı gerekirse aynı klasör ve
+aynı ses; önce kullanıcıya dinlet.

@@ -13,7 +13,7 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
   `<audio>`); uygulamalar audioplayers. Deneme bayrakları `?ses=eski`, `?sesTani=1`; cihaz sayfası `web/ses-tani.html`.
   Ek surelerin (12+) ayet sesleri üç tekrarlı zilli ezber kayıtlarından `tool/ezber_split` ile ayrılır
   (tanıma + doğrulama; Kadir sonradan "selâm" 5. ayete taşınarak kuruldu; Nebe 31–40 bölüm bölüm kayıttan 15 kart — `docs/SES.md`). Bölüm bölüm gelen kayıtlar
-  (Tefriciye, namaz lafızları → Dua 11/12/14, Âyetel Kürsî 9 bölüm, Âmenerrasûlü = 24. öğe) ve `Ayet.verse` (bir ayetin
+  (Tefriciye, hocada olmayan 6 dua bölümü hoca klonuyla `assets/audio/hoca_klon/`, namaz lafızları → Dua 11/12/14, Âyetel Kürsî 9 bölüm, Âmenerrasûlü = 24. öğe) ve `Ayet.verse` (bir ayetin
   bölümleri, kartta ayet no) `docs/SES.md`'de. Kur'an Arapçası için kullanıcının `kuran.docx`'i (İndirilenler) kaynak;
   **Kur'an metinleri (sure okuma ekranları) Shaikh Hamdullah Mushaf yazı tipiyle** (`AppTextTheme.quranFontFamily`,
   `assets/fonts/ShaikhHamdullahMushaf.ttf`; © Muhammet Abay, "All rights reserved" — kullanıcı kararıyla eklendi, Kaynaklar
@@ -29,6 +29,8 @@ Kullanıcı Türkçe konuşur; yanıtlar ve arayüz metinleri Türkçe.
 - **Diller** (tr/es/fr/en/nl menüde; nl metinleri `tool/i18n/*_nl.json` → `build_nl_strings.py`, Hollandaca kitap
   `assets/lazim/ELIF BA 2015_FS2.pdf` Türkçe baskıdan 1 sayfa kaymış): `docs/DILLER.md`.
 - Dualar kaynağı: `docs/dualar_source.md`.
+- **Mağaza teslimi** (Play + App Store; kimlikler, yükleme anahtarı, API 36, iOS 15, metinler, veri güvenliği taslağı,
+  görüntüler `store/`, kalan adımlar): `docs/MAGAZA.md`. Her yüklemede `pubspec.yaml` derleme no `+N` artar.
 
 ## Genel kurallar
 - Ana ekranlar: `lib/screens/{home,elifba,sureler,dualar,oyunlar}`; veri `lib/data`,

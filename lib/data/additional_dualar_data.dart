@@ -81,7 +81,7 @@ const kAdditionalDualar = <Dua>[
 
         instruction: "",
         meaningSource: "Elifbe · ref · s. 38",
-        audioAsset: '',
+        audioAsset: 'audio/hoca_klon/10_ezan_duasi_4.mp3',
       ),
       DuaSegment(
         id: 5,
@@ -118,7 +118,7 @@ const kAdditionalDualar = <Dua>[
 
         instruction: "",
         meaningSource: "Elifbe · ref · s. 38",
-        audioAsset: '',
+        audioAsset: 'audio/hoca_klon/10_ezan_duasi_6.mp3',
       ),
     ],
   ),
@@ -288,7 +288,7 @@ const kAdditionalDualar = <Dua>[
 
         instruction: "Namazın bitiminde selam verildikten sonra",
         meaningSource: "Elifbe · ref · s. 39–40",
-        audioAsset: '',
+        audioAsset: 'audio/hoca_klon/12_namaz_tesbihati_1.mp3',
       ),
       DuaSegment(
         id: 2,
@@ -438,7 +438,7 @@ const kAdditionalDualar = <Dua>[
 
         instruction: "33 defa",
         meaningSource: "Elifbe · ref · s. 39–40",
-        audioAsset: '',
+        audioAsset: 'audio/hoca_klon/12_namaz_tesbihati_8.mp3',
       ),
       DuaSegment(
         id: 9,
@@ -472,7 +472,7 @@ const kAdditionalDualar = <Dua>[
 
         instruction: "33 defa",
         meaningSource: "Elifbe · ref · s. 39–40",
-        audioAsset: '',
+        audioAsset: 'audio/hoca_klon/12_namaz_tesbihati_10.mp3',
       ),
       DuaSegment(
         id: 11,
@@ -641,7 +641,7 @@ const kAdditionalDualar = <Dua>[
 
         instruction: "",
         meaningSource: "Elifbe · ref · s. 37",
-        audioAsset: '',
+        audioAsset: 'audio/hoca_klon/13_yemek_duasi_1.mp3',
       ),
       DuaSegment(
         id: 2,
@@ -660,7 +660,7 @@ const kAdditionalDualar = <Dua>[
 
         instruction: "",
         meaningSource: "Elifbe · ref · s. 37",
-        audioAsset: '',
+        audioAsset: 'audio/sureler/01_fatiha/00_besmele.mp3',
       ),
       DuaSegment(
         id: 3,
