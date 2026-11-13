@@ -12,6 +12,7 @@ import '../../../services/audio_service.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_text_theme.dart';
 import '../../../widgets/game_meadow_background.dart';
+import '../../../widgets/teacher_head.dart';
 import 'yildiz_data.dart';
 import 'yildiz_engine.dart';
 import 'yildiz_progress.dart';
@@ -52,6 +53,10 @@ class _HarfYildizlariLessonScreenState extends State<HarfYildizlariLessonScreen>
   bool _messageIsGood = false;
   Timer? _advanceTimer;
   bool _foreground = true;
+
+  /// Yönerge kaydı kendiliğinden yalnız bir kez (ilk soruda) çalar; sonra
+  /// yalnız yönerge satırına dokununca.
+  bool _instructionSpoken = false;
 
   @visibleForTesting
   YildizSession? get debugSession => _session;
@@ -165,7 +170,9 @@ class _HarfYildizlariLessonScreenState extends State<HarfYildizlariLessonScreen>
   void _autoPlay() {
     final q = _session?.current;
     if (mounted && _foreground && _phase == _Phase.quiz && q != null) {
-      final instruction = _instructionAsset(q.type);
+      final instruction =
+          _instructionSpoken ? null : _instructionAsset(q.type);
+      _instructionSpoken = true;
       final letterAudio = q.letter.audioAsset;
       _audio.preload([instruction, letterAudio]);
       _audio.playPlaylist([
@@ -363,13 +370,13 @@ class _HarfYildizlariLessonScreenState extends State<HarfYildizlariLessonScreen>
           const SizedBox(height: 16),
           Semantics(
             liveRegion: true,
-            child: Text(
-              yt(context, prompt),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: kYildizNavy,
-                fontWeight: FontWeight.w800,
-              ),
+            child: _InstructionLine(
+              text: yt(context, prompt),
+              // Dokununca yönerge kaydı (diğer oyunlardaki ♪ satırı gibi).
+              onTap:
+                  _instructionAsset(q.type) == null
+                      ? null
+                      : () => _audio.playPlaylist([_instructionAsset(q.type)!]),
             ),
           ),
           const SizedBox(height: 12),
@@ -1095,4 +1102,55 @@ class _EffortStar extends StatelessWidget {
       ),
     ),
   );
+}
+
+/// Soru yönergesi: diğer oyunlardaki gibi ♪ + öğretmen yüzü + metin; dokununca
+/// yönerge kaydı çalar (kayıt yoksa yalnız metin).
+class _InstructionLine extends StatelessWidget {
+  const _InstructionLine({required this.text, this.onTap});
+
+  final String text;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.titleLarge?.copyWith(
+      color: kYildizNavy,
+      fontWeight: FontWeight.w800,
+    );
+    final line = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (onTap != null) ...[
+          const Icon(Icons.music_note_rounded, color: AppColors.gold, size: 22),
+          const SizedBox(width: 4),
+          const TeacherHead(size: 22),
+          const SizedBox(width: 8),
+        ],
+        Flexible(
+          child: Text(text, textAlign: TextAlign.center, style: style),
+        ),
+      ],
+    );
+    return Center(
+      child:
+          onTap == null
+              ? line
+              : Semantics(
+                button: true,
+                child: InkWell(
+                  key: const ValueKey('yildiz-instruction'),
+                  borderRadius: BorderRadius.circular(16),
+                  onTap: onTap,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 6,
+                    ),
+                    child: line,
+                  ),
+                ),
+              ),
+    );
+  }
 }

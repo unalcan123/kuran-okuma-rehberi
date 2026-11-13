@@ -737,18 +737,27 @@ void main() {
       );
       await tester.tap(find.byKey(const ValueKey('yildiz-start')));
       await tester.pumpAndSettle();
+      var first = true;
       while (find.byKey(const ValueKey('yildiz-continue')).evaluate().isEmpty) {
         final session = _sessionOf(tester);
         final q = session.current!;
         expect(audio.playlists.last.last, q.letter.audioAsset);
-        if (AppLanguage.active.contains(language)) {
+        // Yönerge kaydı kendiliğinden yalnız ilk soruda; sonra yalnız harf.
+        if (first && AppLanguage.active.contains(language)) {
           expect(
             audio.playlists.last.first,
             'audio/${language.code}/game_76383fc2e674b663.mp3',
           );
+          // Yönerge satırına dokununca yönerge yeniden çalar.
+          await tester.tap(find.byKey(const ValueKey('yildiz-instruction')));
+          await tester.pump();
+          expect(audio.playlists.last, [
+            'audio/${language.code}/game_76383fc2e674b663.mp3',
+          ]);
         } else {
           expect(audio.playlists.last.length, 1);
         }
+        first = false;
         expect(find.text('Bu harfin adı hangisi?'), findsNothing);
         await tester.tap(
           find.byKey(ValueKey('yildiz-option-${q.correctIndex}')),

@@ -295,8 +295,11 @@ Giriş: yalnız Oyunlar menüsü (Elifba Dersleri listesindeki kart kullanıcı 
   iki yanlışta gösterilen çözüm 2800 ms görünür. Soru altındaki Devam kaldırıldı; tur arası dinlenme
   ekranı kalır. Her soru türünde hedef harf otomatik seslendirilir, harf/ses düğmesi tekrar çalar.
   Uygulama arka plandayken geçiş durur, çıkışta zamanlayıcı iptal edilir.
-  Türkçe soru yönergeleri üç kısa yerel kayıtla verilir; diğer aktif dillerde mevcut
-  seçili dildeki ortak yönerge kaydı kullanılır, sonra harf çalar. Ayrıntı: `docs/DILLER.md`.
+  Türkçe soru yönergeleri üç kısa kayıtla verilir; diğer aktif dillerde mevcut
+  seçili dildeki ortak yönerge kaydı kullanılır. Ayrıntı: `docs/DILLER.md`.
+  **Yönerge sesi kendiliğinden yalnız dersin ilk sorusunda bir kez** çalar (kullanıcı isteği,
+  2026-11-13); sonraki sorularda yalnız harf sesi. Yönerge metni diğer oyunlardaki gibi
+  ♪ + öğretmen yüzüyle dokunulabilir satırdır (`yildiz-instruction`): dokununca yönerge çalar.
 - Test: `test/harf_yildizlari_test.dart`.
 
 ## 2. Puanlama (tüm oyunlar için ortak)
