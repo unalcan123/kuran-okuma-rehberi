@@ -81,3 +81,6 @@ __pycache__/
 # Yerel çalışma günlükleri ve kitap fotoğrafları (telifli kaynak; depoya girmez)
 /tmp/
 /ref/
+
+# Mağaza görselleri ve paket kopyaları (docs/MAGAZA.md)
+/store/
